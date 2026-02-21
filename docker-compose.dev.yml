@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: knpu-university-fe:latest
+    restart: unless-stopped
+    volumes:
+      - .:/opt/app
+      - /opt/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NUXT_HOST: 0.0.0.0

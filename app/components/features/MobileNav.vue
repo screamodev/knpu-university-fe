@@ -10,7 +10,7 @@ onMounted(() => {
 
 const mobileSections = computed(() => [
   {
-    labelKey: 'nav.university',
+    labelKey: 'nav.labels.university',
     links: [
       { path: '/university/history', key: 'nav.links.history' },
       { path: '/university/rectorate', key: 'nav.links.rectorate' },
@@ -20,7 +20,7 @@ const mobileSections = computed(() => [
     ],
   },
   {
-    labelKey: 'nav.admissions',
+    labelKey: 'nav.labels.admissions',
     links: [
       { path: '/admissions/rules', key: 'nav.links.rules' },
       { path: '/admissions/specialties', key: 'nav.links.specialties' },
@@ -29,7 +29,7 @@ const mobileSections = computed(() => [
     ],
   },
   {
-    labelKey: 'nav.education',
+    labelKey: 'nav.labels.education',
     links: [
       { path: '/education/faculties', key: 'nav.links.faculties' },
       { path: '/education/programs', key: 'nav.links.programs' },
@@ -38,7 +38,7 @@ const mobileSections = computed(() => [
     ],
   },
   {
-    labelKey: 'nav.science',
+    labelKey: 'nav.labels.science',
     links: [
       { path: '/science/directions', key: 'nav.links.directions' },
       { path: '/science/journals', key: 'nav.links.journals' },
@@ -46,7 +46,7 @@ const mobileSections = computed(() => [
     ],
   },
   {
-    labelKey: 'nav.student',
+    labelKey: 'nav.labels.student',
     links: [
       { path: '/student/moodle', key: 'nav.links.moodle' },
       { path: '/student/dormitories', key: 'nav.links.dormitories' },

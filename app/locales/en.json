@@ -4,7 +4,7 @@
   },
   "utility": {
     "phone": "+38 (057) 700-02-38",
-    "email": "rector{'@'}hnpu.edu.ua",
+    "email": "rector{'@'}KhNPU.edu.ua",
     "hours": "Mon–Fri 8:30 AM–5:00 PM",
     "feedback": "Feedback",
     "cabinet": "Personal account",
@@ -12,9 +12,9 @@
     "langEn": "ENG"
   },
   "logo": {
-    "abbr": "HNPU",
-    "name": "named after H.S. Skovoroda",
-    "alt": "HNPU"
+    "abbr": "KhNPU",
+    "name": "H. S. Skovoroda Kharkiv National Pedagogical University",
+    "alt": "KhNPU"
   },
   "nav": {
     "memorialPage": "Memorial",
@@ -228,7 +228,7 @@
     },
     "main": {
       "category": "University",
-      "title": "HNPU joins Erasmus+ initiative to support Ukrainian students",
+      "title": "KhNPU joins Erasmus+ initiative to support Ukrainian students",
       "date": "21 February 2026"
     },
     "items": [
@@ -244,7 +244,7 @@
       },
       {
         "category": "Students",
-        "title": "HNPU sports team wins championship prize",
+        "title": "KhNPU sports team wins championship prize",
         "date": "15 February 2026"
       }
     ]
@@ -286,7 +286,7 @@
   "footer": {
     "desc": "One of Ukraine's oldest universities, training specialists in education, humanities and natural sciences since 1804.",
     "contactPhone": "📞 +38 (057) 700-02-38",
-    "contactEmail": "✉ rector{'@'}hnpu.edu.ua",
+    "contactEmail": "✉ rector{'@'}KhNPU.edu.ua",
     "contactAddress": "📍 29 Alchevskykh St, Kharkiv",
     "contactHours": "⏰ Mon–Fri: 8:30 AM–5:00 PM",
     "colUniversity": "University",
@@ -313,15 +313,15 @@
     "linkPsychology": "Psychological service",
     "linkCareer": "Career centre",
     "linkErasmus": "Erasmus+",
-    "copyright": "© 2026 HNPU named after H.S. Skovoroda. All rights reserved.",
+    "copyright": "© 2026 H. S. Skovoroda Kharkiv National Pedagogical University. All rights reserved.",
     "privacy": "Privacy policy",
     "sitemap": "Sitemap",
     "accessibility": "Accessibility"
   },
   "seo": {
     "home": {
-      "title": "HNPU named after H.S. Skovoroda",
-      "description": "H.S. Skovoroda Kharkiv National Pedagogical University — educating future teachers and researchers."
+      "title": "KhNPU — H. S. Skovoroda Kharkiv National Pedagogical University",
+      "description": "H. S. Skovoroda Kharkiv National Pedagogical University — educating future teachers and researchers."
     }
   }
 }

@@ -16,7 +16,7 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
           {{ t('utility.phone') }}
         </a>
         <a
-          href="mailto:rector@hnpu.edu.ua"
+          href="mailto:rector@KhNPU.edu.ua"
           class="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-280"
         >
           <svg class="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

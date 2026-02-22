@@ -20,7 +20,7 @@ const logoUrl = '/logo.png'
           </p>
           <div class="flex flex-col gap-2">
             <a href="tel:+380577000238" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactPhone') }}</a>
-            <a href="mailto:rector@hnpu.edu.ua" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactEmail') }}</a>
+            <a href="mailto:rector@KhNPU.edu.ua" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactEmail') }}</a>
             <NuxtLink :to="localePath('/university/contacts')" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactAddress') }}</NuxtLink>
             <span class="text-[13px] text-white/65">{{ t('footer.contactHours') }}</span>
           </div>

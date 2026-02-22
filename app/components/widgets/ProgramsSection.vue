@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { resolveMessageValue } from '../../composables/useSafeT'
 const { t, tm, localePath } = useSafeI18nWithRouter()
 
 const programs = computed(() => {
-  const items = tm('programs.items') as Array<{ level: string; name: string; faculty: string }>
-  return items || []
+  const items = (tm('programs.items') || []) as Array<{ level: unknown; name: unknown; faculty: unknown }>
+  return items.map((p) => ({
+    level: resolveMessageValue(p.level),
+    name: resolveMessageValue(p.name),
+    faculty: resolveMessageValue(p.faculty),
+  }))
 })
 </script>
 

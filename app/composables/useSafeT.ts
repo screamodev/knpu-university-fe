@@ -1,3 +1,17 @@
+export function resolveMessageValue(v: unknown): string {
+  if (typeof v === 'string') return v
+  if (v && typeof v === 'object') {
+    const o = v as Record<string, unknown>
+    if (typeof o.static === 'string') return o.static
+    if (o.body && typeof o.body === 'object') {
+      const b = o.body as Record<string, unknown>
+      if (typeof b.static === 'string') return b.static
+      if (Array.isArray(b.items)) return b.items.map(resolveMessageValue).join('')
+    }
+  }
+  return String(v)
+}
+
 export function useSafeT(): (key: string, ...args: any[]) => string {
   return function t(key: string, ...args: any[]): string {
     try {

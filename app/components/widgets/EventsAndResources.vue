@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import { resolveMessageValue } from '../../composables/useSafeT'
 const { t, tm, localePath } = useSafeI18nWithRouter()
 
 const events = computed(() => {
-  const items = tm('events.items') as Array<{ day: string; month: string; tag: string; title: string; place: string }>
-  return items || []
+  const items = (tm('events.items') || []) as Array<{ day: unknown; month: unknown; tag: unknown; title: unknown; place: unknown }>
+  return items.map((ev) => ({
+    day: resolveMessageValue(ev.day),
+    month: resolveMessageValue(ev.month),
+    tag: resolveMessageValue(ev.tag),
+    title: resolveMessageValue(ev.title),
+    place: resolveMessageValue(ev.place),
+  }))
 })
 
 const resourceList = computed(() => [

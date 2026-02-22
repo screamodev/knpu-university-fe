@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { resolveMessageValue } from '../../composables/useSafeT'
 const { t, tm, localePath } = useSafeI18nWithRouter()
 
 const mainNews = computed(() => ({
@@ -8,8 +9,12 @@ const mainNews = computed(() => ({
 }))
 
 const newsItems = computed(() => {
-  const items = tm('news.items') as Array<{ category: string; title: string; date: string }>
-  return items || []
+  const items = (tm('news.items') || []) as Array<{ category: unknown; title: unknown; date: unknown }>
+  return items.map((item) => ({
+    category: resolveMessageValue(item.category),
+    title: resolveMessageValue(item.title),
+    date: resolveMessageValue(item.date),
+  }))
 })
 </script>
 

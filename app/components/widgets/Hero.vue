@@ -22,7 +22,7 @@ const { t, localePath } = useSafeI18nWithRouter()
       <h1 class="font-playfair text-[clamp(32px,5vw,58px)] font-bold text-white leading-tight max-w-[720px] mb-5">
         {{ t('hero.titleLine1') }}<br>
         {{ t('hero.titleLine2') }}<br>
-        <template v-if="t('hero.titleLine3')">{{ t('hero.titleLine3') }} </template><em class="not-italic text-gold-light">{{ t('hero.titleName') }}</em>
+        <template v-if="t('hero.titleLine3')">{{t('hero.titleLine3') }} </template><em class="not-italic text-gold-light"> &nbsp;{{ t('hero.titleName') }}</em>
       </h1>
       <p class="text-base text-white/65 max-w-[480px] leading-relaxed mb-10 font-light">
         {{ t('hero.subtitle') }}

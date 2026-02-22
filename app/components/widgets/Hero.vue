@@ -1,19 +1,73 @@
 <script setup lang="ts">
 const { t, localePath } = useSafeI18nWithRouter()
+
+const heroImages = ['/images/Hero2.JPG', '/images/Hero3.jpg', '/images/Hero4.jpg', '/images/Hero5.JPG']
+const currentIndex = ref(0)
+const showingNext = ref(false)
+const FADE_DURATION_MS = 1600
+const ROTATE_INTERVAL_MS = 30000
+
+const nextIndex = computed(() => (currentIndex.value + 1) % heroImages.length)
+
+function applySlide() {
+  currentIndex.value = nextIndex.value
+  showingNext.value = false
+}
+
+let rotateTimer: ReturnType<typeof setInterval> | null = null
+let transitionTimer: ReturnType<typeof setTimeout> | null = null
+
+function scheduleNext() {
+  rotateTimer = setInterval(() => {
+    showingNext.value = true
+    transitionTimer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          applySlide()
+          transitionTimer = null
+        })
+      })
+    }, FADE_DURATION_MS)
+  }, ROTATE_INTERVAL_MS)
+}
+
+function stopRotation() {
+  if (rotateTimer) clearInterval(rotateTimer)
+  if (transitionTimer) clearTimeout(transitionTimer)
+  rotateTimer = null
+  transitionTimer = null
+}
+
+onMounted(() => {
+  heroImages.forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!prefersReducedMotion) scheduleNext()
+})
+
+onUnmounted(stopRotation)
 </script>
 
 <template>
-  <section class="relative h-[calc(100vh-111px)] min-h-[560px] max-h-[780px] overflow-hidden bg-navy-deep">
+  <section class="relative min-h-[480px] sm:min-h-[560px] max-h-[85vh] overflow-hidden bg-navy-deep">
     <div
-      class="absolute inset-0 bg-cover bg-center animate-slowZoom"
-      style="background-image: linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%), url('https://images.unsplash.com/photo-1562774053-701939374585?w=1800&q=80');"
+      class="absolute inset-0 z-[1] bg-cover bg-center animate-slowZoom transition-opacity duration-[1600ms] ease-out"
+      :class="showingNext ? 'opacity-0' : 'opacity-100'"
+      :style="{ backgroundImage: `linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%), url('${heroImages[currentIndex]}')` }"
+    />
+    <div
+      class="absolute inset-0 z-0 bg-cover bg-center animate-slowZoom transition-opacity duration-[1600ms] ease-out"
+      :class="showingNext ? 'opacity-100' : 'opacity-0'"
+      :style="{ backgroundImage: `linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%), url('${heroImages[nextIndex]}')` }"
     />
     <div
       class="absolute inset-0 opacity-30"
       style="background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,162,39,0.03) 60px, rgba(201,162,39,0.03) 61px);"
     />
     <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent" />
-    <div class="relative z-[2] h-full flex flex-col justify-center max-w-container mx-auto px-8">
+    <div class="relative z-[2] h-full flex flex-col justify-center max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-10 lg:py-14">
       <div
         class="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold-light py-1.5 px-3.5 rounded-100 text-xs font-medium tracking-wider uppercase mb-6 w-fit before:content-[''] before:w-1.5 before:h-1.5 before:bg-gold before:rounded-full"
       >
@@ -27,16 +81,16 @@ const { t, localePath } = useSafeI18nWithRouter()
       <p class="text-base text-white/65 max-w-[480px] leading-relaxed mb-10 font-light">
         {{ t('hero.subtitle') }}
       </p>
-      <div class="flex items-center gap-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
         <NuxtLink
           :to="localePath('/admissions/edebo')"
-          class="py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 bg-gold text-navy-deep hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold-lg"
+          class="py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 bg-gold text-navy-deep hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold-lg text-center"
         >
           {{ t('hero.ctaApply') }}
         </NuxtLink>
         <NuxtLink
           :to="localePath('/university/history')"
-          class="py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 border-[1.5px] border-white/35 text-white bg-white/5 backdrop-blur-sm hover:border-white/70 hover:bg-white/10"
+          class="py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 border-[1.5px] border-white/35 text-white bg-white/5 backdrop-blur-sm hover:border-white/70 hover:bg-white/10 text-center"
         >
           {{ t('hero.ctaAbout') }}
         </NuxtLink>

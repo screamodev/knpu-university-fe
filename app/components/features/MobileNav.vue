@@ -1,7 +1,10 @@
 <script setup lang="ts">
 const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
-const { items } = useNavigation()
+const router = useRouter()
+onMounted(() => {
+  router.afterEach(() => close())
+})
 
 const mobileSections = computed(() => [
   {
@@ -55,7 +58,9 @@ const mobileSections = computed(() => [
 <template>
   <nav
     class="fixed inset-0 bg-navy-deep z-[1500] overflow-y-auto py-20 px-6 transition-transform duration-280 lg:hidden"
-    :class="{ 'translate-x-0': isOpen, 'translate-x-full': !isOpen }"
+    :class="[
+      isOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none',
+    ]"
     aria-hidden="!isOpen"
   >
     <button
@@ -102,7 +107,7 @@ const mobileSections = computed(() => [
         class="block text-center bg-gold text-navy-deep py-3.5 rounded-[10px] font-bold no-underline text-[15px]"
         @click="close"
       >
-        {{ t('header.vstup2025') }}
+        {{ t('header.vstup2026') }}
       </NuxtLink>
       <div class="flex gap-2">
         <NuxtLink

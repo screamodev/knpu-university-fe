@@ -49,10 +49,12 @@ export function useSafeI18n() {
 export function useSafeI18nWithRouter() {
   let t: (key: string, ...args: any[]) => string
   let tm: (key: string) => any
+  let locale: { value: string }
   try {
     const i18n = useI18n()
     t = i18n.t
     tm = typeof i18n.tm === 'function' ? i18n.tm : () => ({})
+    locale = i18n.locale
   } catch (_) {
     t = (key: string, ...args: any[]): string => {
       try {
@@ -62,18 +64,16 @@ export function useSafeI18nWithRouter() {
       return key
     }
     tm = (): any => ({})
+    locale = ref('uk') as { value: string }
   }
   let localePath: (path: string) => string
   let switchLocalePath: (locale: string) => string
-  let locale: ReturnType<typeof useLocale>
   try {
     localePath = useLocalePath()
     switchLocalePath = useSwitchLocalePath()
-    locale = useLocale()
   } catch (_) {
     localePath = (path: string) => path
     switchLocalePath = (localeCode: string) => (localeCode === 'uk' ? '/' : `/${localeCode}`)
-    locale = ref('uk') as ReturnType<typeof useLocale>
   }
   return { t, tm, localePath, switchLocalePath, locale }
 }

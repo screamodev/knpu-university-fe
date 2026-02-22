@@ -6,7 +6,7 @@ const logoUrl = '/logo.png'
 <template>
   <footer class="bg-navy-deep text-white/70">
     <div class="py-16 pb-10">
-      <div class="max-w-container mx-auto px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16">
         <div>
           <div class="flex items-center gap-3 mb-5">
             <img :src="logoUrl" :alt="t('logo.alt')" class="h-[52px] max-w-none" onerror="this.style.display='none'">
@@ -75,7 +75,7 @@ const logoUrl = '/logo.png'
       </div>
     </div>
     <div class="border-t border-white/8 py-5">
-      <div class="max-w-container mx-auto px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-white/40">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-white/40">
         <span>{{ t('footer.copyright') }}</span>
         <div class="flex gap-4">
           <NuxtLink :to="localePath('/privacy')" class="text-white/40 no-underline">{{ t('footer.privacy') }}</NuxtLink>

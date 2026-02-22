@@ -121,7 +121,7 @@ export function useNavigation(): { items: NavItem[] } {
         secondaryPath: '/admissions/ask',
       },
       admissionBlock: {
-        tagKey: 'nav.admissions.reception2025',
+        tagKey: 'nav.admissions.reception2026',
         dateKey: 'nav.admissions.march1',
         descKey: 'nav.admissions.receptionStart',
       },

@@ -9,6 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'body': ['1rem', { lineHeight: '1.6' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+        'lead': ['1.125rem', { lineHeight: '1.65' }],
+        'logo-abbr': ['1.375rem', { lineHeight: '1.15' }],
+        'logo-name': ['0.65625rem', { lineHeight: '1.4' }],
+        'nav': ['0.875rem', { lineHeight: '1.4' }],
+        'hero-title': ['clamp(2rem, 5vw, 3.625rem)', { lineHeight: '1.2' }],
+      },
       colors: {
         navy: '#1B2E4B',
         'navy-deep': '#0F1E32',

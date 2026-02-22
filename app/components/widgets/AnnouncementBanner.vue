@@ -4,7 +4,7 @@ const { t, localePath } = useSafeI18nWithRouter()
 
 <template>
   <div class="bg-gradient-to-br from-navy-mid to-navy-deep py-14">
-    <div class="max-w-container mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
       <div>
         <div class="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold mb-2.5">
           {{ t('sections.announcement.tag') }}

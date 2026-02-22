@@ -14,7 +14,7 @@ const programs = computed(() => {
 
 <template>
   <section class="py-20 bg-off-white">
-    <div class="max-w-container mx-auto px-8">
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap items-end justify-between mb-10">
         <SharedSectionHeader :tag="t('sections.programs.tag')" :title="t('sections.programs.title')" />
         <NuxtLink

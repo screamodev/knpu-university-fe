@@ -1,6 +1,6 @@
 export function useMobileNav() {
-  const isOpen = ref(false)
-  const openIndex = ref<number | null>(null)
+  const isOpen = useState('mobile-nav-open', () => false)
+  const openIndex = useState('mobile-nav-accordion', () => null as number | null)
 
   function open() {
     isOpen.value = true

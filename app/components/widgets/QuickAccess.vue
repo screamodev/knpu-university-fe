@@ -13,7 +13,7 @@ const links = [
 
 <template>
   <div class="bg-off-white border-b border-border py-5">
-    <div class="max-w-container mx-auto px-8 flex gap-3 items-center justify-center flex-wrap">
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex gap-3 items-center justify-center flex-wrap">
       <span class="text-xs text-text-muted font-medium tracking-wider uppercase mr-2">{{ t('quickAccess.label') }}</span>
       <NuxtLink
         v-for="link in links"

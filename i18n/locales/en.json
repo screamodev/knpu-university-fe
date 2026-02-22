@@ -33,7 +33,7 @@
     "admissions.quick": "Quick actions",
     "admissions.edebo": "Applicant e-cabinet (EDEBO)",
     "admissions.ask": "Ask a question online",
-    "admissions.reception2025": "Admissions 2025",
+    "admissions.reception2026": "Admissions 2026",
     "admissions.march1": "March 1",
     "admissions.receptionStart": "Start of document submission",
     "education.structure": "Structure",
@@ -76,7 +76,7 @@
       "master": "Master",
       "graduate": "Graduate and doctoral",
       "secondDegree": "Second higher education",
-      "rules": "Admission rules 2025",
+      "rules": "Admission rules 2026",
       "specialties": "List of specialties",
       "creative": "Creative competitions",
       "budget": "State-funded places",
@@ -141,7 +141,7 @@
     }
   },
   "header": {
-    "vstup2025": "Admissions 2025",
+    "vstup2026": "Admissions 2026",
     "searchAria": "Search",
     "menuAria": "Menu"
   },
@@ -149,7 +149,7 @@
     "placeholder": "Search the site...",
     "popular": "Popular:",
     "tagSchedule": "Class schedule",
-    "tagVstup": "Admissions 2025",
+    "tagVstup": "Admissions 2026",
     "tagMoodle": "Moodle",
     "tagFaculties": "Faculties"
   },
@@ -196,7 +196,7 @@
       "title": "Useful resources"
     },
     "announcement": {
-      "tag": "Admissions 2025",
+      "tag": "Admissions 2026",
       "title": "Join our\ncommunity",
       "subtitle": "Submit documents online or visit the admissions office",
       "cta": "Learn more"
@@ -222,7 +222,7 @@
       },
       {
         "category": "Admissions",
-        "title": "Open days 2025 announced",
+        "title": "Open days 2026 announced",
         "date": "17 February 2026"
       },
       {
@@ -256,13 +256,13 @@
   "events": {
     "items": [
       { "day": "26", "month": "Feb", "tag": "Open day", "title": "Introductory day for bachelor applicants", "place": "Main building, room 1" },
-      { "day": "05", "month": "Mar", "tag": "Science", "title": "International conference «Pedagogical science — 2025»", "place": "Conference hall, building 2" },
+      { "day": "05", "month": "Mar", "tag": "Science", "title": "International conference «Pedagogical science — 2026»", "place": "Conference hall, building 2" },
       { "day": "12", "month": "Mar", "tag": "Students", "title": "Student creativity festival «Skovoroda-fest»", "place": "Assembly hall" }
     ]
   },
   "resources": {
     "library": { "title": "Research library", "sub": "761,955 items" },
-    "vstup": { "title": "Admissions 2025", "sub": "Apply" },
+    "vstup": { "title": "Admissions 2026", "sub": "Apply" },
     "career": { "title": "Career centre", "sub": "Vacancies and internships" },
     "erasmus": { "title": "Erasmus+", "sub": "Academic mobility" }
   },
@@ -296,7 +296,7 @@
     "linkPsychology": "Psychological service",
     "linkCareer": "Career centre",
     "linkErasmus": "Erasmus+",
-    "copyright": "© 2025 HNPU named after H.S. Skovoroda. All rights reserved.",
+    "copyright": "© 2026 HNPU named after H.S. Skovoroda. All rights reserved.",
     "privacy": "Privacy policy",
     "sitemap": "Sitemap",
     "accessibility": "Accessibility"

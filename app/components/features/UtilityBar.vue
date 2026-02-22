@@ -4,7 +4,7 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
 
 <template>
   <div class="bg-navy-deep py-[7px] text-[12.5px] text-white/75">
-    <div class="max-w-container mx-auto px-8 flex items-center justify-between gap-4">
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 max-md:hidden">
       <div class="flex items-center gap-5">
         <a
           :href="`tel:${t('utility.phone').replace(/\s/g, '')}`"

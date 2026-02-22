@@ -43,7 +43,7 @@ onUnmounted(() => {
     >
       ✕
     </button>
-    <div class="max-w-[680px] w-full mx-auto px-8">
+    <div class="max-w-[680px] w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative">
         <input
           ref="inputRef"

@@ -30,16 +30,16 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
       }"
     >
       <template v-if="item.labelKey === 'nav.admissions' && item.cta">
-        <div class="pr-6 border-r border-white/8 space-y-5">
-          <div v-for="(col, i) in item.columns!.slice(0, 2)" :key="i" :class="{ 'mt-5': i === 1 }">
+        <div class="pr-6 border-r border-white/8 space-y-5 min-w-0">
+          <div v-for="(col, i) in item.columns!.slice(0, 2)" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25 flex items-center gap-1.5">
               {{ t(col.titleKey) }}
             </div>
-            <ul class="list-none flex flex-col gap-0.5">
-              <li v-for="link in col.links" :key="link.path">
+            <ul class="list-none flex flex-col gap-0.5 min-w-0">
+              <li v-for="link in col.links" :key="link.path" class="min-w-0">
                 <NuxtLink
                   :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
                 >
                   {{ t(link.key) }}
                 </NuxtLink>
@@ -47,16 +47,16 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
             </ul>
           </div>
         </div>
-        <div class="px-6 border-r border-white/8 space-y-5">
-          <div v-for="(col, i) in item.columns!.slice(2, 4)" :key="i" :class="{ 'mt-5': i === 1 }">
+        <div class="px-6 border-r border-white/8 space-y-5 min-w-0">
+          <div v-for="(col, i) in item.columns!.slice(2, 4)" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25">
               {{ t(col.titleKey) }}
             </div>
-            <ul class="list-none flex flex-col gap-0.5">
-              <li v-for="link in col.links" :key="link.path">
+            <ul class="list-none flex flex-col gap-0.5 min-w-0">
+              <li v-for="link in col.links" :key="link.path" class="min-w-0">
                 <NuxtLink
                   :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
                 >
                   {{ t(link.key) }}
                 </NuxtLink>
@@ -100,17 +100,17 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
         <div
           v-for="(col, i) in item.columns"
           :key="i"
-          class="pr-6 pl-0"
+          class="pr-6 pl-0 min-w-0"
           :class="{ 'border-r border-white/8 pr-6': i < item.columns!.length - 1, 'pl-6': i > 0 }"
         >
           <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25 flex items-center gap-1.5">
             {{ t(col.titleKey) }}
           </div>
-          <ul class="list-none flex flex-col gap-0.5">
-            <li v-for="link in col.links" :key="link.path">
+          <ul class="list-none flex flex-col gap-0.5 min-w-0">
+            <li v-for="link in col.links" :key="link.path" class="min-w-0">
               <NuxtLink
                 :to="localePath(link.path)"
-                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
               >
                 {{ t(link.key) }}
               </NuxtLink>

@@ -1,0 +1,327 @@
+{
+  "common": {
+    "comingSoon": "Coming soon"
+  },
+  "utility": {
+    "phone": "+38 (057) 700-02-38",
+    "email": "rector{'@'}hnpu.edu.ua",
+    "hours": "Mon–Fri 8:30 AM–5:00 PM",
+    "feedback": "Feedback",
+    "cabinet": "Personal account",
+    "langUk": "UKR",
+    "langEn": "ENG"
+  },
+  "logo": {
+    "abbr": "HNPU",
+    "name": "named after H.S. Skovoroda",
+    "alt": "HNPU"
+  },
+  "nav": {
+    "memorialPage": "Memorial",
+    "labels": {
+      "university": "University",
+      "admissions": "Admissions",
+      "education": "Education",
+      "science": "Science",
+      "student": "For students"
+    },
+    "university": {
+      "about": "About us",
+      "management": "Management",
+      "publicity": "Transparency",
+      "international": "International"
+    },
+    "admissions": {
+      "levels": "Degree levels",
+      "howTo": "How to apply",
+      "support": "Support",
+      "prep": "Preparation",
+      "quick": "Quick actions",
+      "edebo": "Applicant e-cabinet (EDEBO)",
+      "ask": "Ask a question online",
+      "reception2026": "Admissions 2026",
+      "march1": "March 1",
+      "receptionStart": "Start of document submission"
+    },
+    "education": {
+      "structure": "Structure",
+      "quality": "Process & quality",
+      "forms": "Study forms"
+    },
+    "science": {
+      "activity": "Research",
+      "publications": "Publications",
+      "resources": "Resources"
+    },
+    "student": {
+      "digital": "Digital services",
+      "life": "Campus life",
+      "gov": "Governance",
+      "career": "Career"
+    },
+    "links": {
+      "history": "History and traditions",
+      "mission": "Mission, vision, values",
+      "symbolism": "University symbols",
+      "memorial": "Memorial",
+      "volunteering": "Volunteering",
+      "gallery": "Photo and video galleries",
+      "newspaper": "Teacher newspaper",
+      "rectorate": "Rectorate",
+      "academicCouncil": "Academic council",
+      "supervisoryBoard": "Supervisory board",
+      "structure": "Structural units",
+      "facultiesAndDepts": "Faculties and departments",
+      "press": "Press centre (for media)",
+      "contacts": "Contacts and map",
+      "statute": "Charter and licences",
+      "publicInfo": "Public information",
+      "orders": "Orders and regulations",
+      "financialReports": "Financial reports",
+      "prozorro": "Prozorro",
+      "erasmus": "Erasmus+ programmes",
+      "mobility": "Academic mobility",
+      "partners": "International partners",
+      "inclusive": "Inclusive space",
+      "anticorruption": "Anti-corruption",
+      "integrity": "Academic integrity",
+      "bachelor": "Bachelor (full-time / part-time)",
+      "master": "Master",
+      "graduate": "Graduate and doctoral",
+      "secondDegree": "Second higher education",
+      "rules": "Admission rules 2026",
+      "specialties": "List of specialties",
+      "creative": "Creative competitions",
+      "budget": "State-funded places",
+      "exams": "Exam programmes",
+      "tuition": "Tuition fees",
+      "benefits": "Benefits and social support",
+      "veterans": "For veterans",
+      "inclusiveEdu": "Inclusive education",
+      "dormitories": "Dormitories",
+      "scholarships": "Scholarships",
+      "prepCourses": "Preparatory courses",
+      "openDays": "Open days",
+      "3dTour": "3D campus tour",
+      "faculties": "Faculties",
+      "departments": "Departments (full list)",
+      "programs": "Study programmes",
+      "curriculum": "Curriculum",
+      "electives": "Elective courses",
+      "processSchedule": "Academic calendar",
+      "accreditation": "Programme accreditation",
+      "qualityCenter": "Quality centre",
+      "monitoring": "Quality monitoring",
+      "rankings": "Rankings",
+      "practice": "Practical training",
+      "distance": "Part-time",
+      "remote": "Distance learning",
+      "dual": "Dual education",
+      "continuing": "Professional development",
+      "studentContingent": "Student body",
+      "directions": "Research areas and schools",
+      "institutes": "Research institutes and labs",
+      "youngScientists": "Young scientists council",
+      "studentSociety": "Student research society",
+      "conferences": "Conferences and seminars",
+      "journals": "Academic journals",
+      "collections": "Proceedings",
+      "publicationRequirements": "Publication requirements",
+      "scopus": "Scopus / WOS",
+      "publishing": "University press",
+      "library": "Research library",
+      "catalog": "Electronic catalog",
+      "repository": "eSSPUIR repository",
+      "boards": "Specialized boards",
+      "defenses": "PhD defenses",
+      "schedule": "Class schedule",
+      "moodle": "E-campus (Moodle)",
+      "grades": "ASU NZ / E-grades",
+      "email": "Corporate email",
+      "psychology": "Psychological service",
+      "social": "Social support",
+      "canteens": "Canteens",
+      "medical": "Medical care",
+      "studentCouncil": "Student council",
+      "union": "Student union",
+      "sports": "Sports",
+      "arts": "Arts groups",
+      "career": "Career centre",
+      "vacancies": "Vacancies and internships",
+      "alumni": "Alumni association",
+      "nonformal": "Non-formal education",
+      "veteransCenter": "Veterans development centre"
+    }
+  },
+  "header": {
+    "vstup2026": "Admissions 2026",
+    "searchAria": "Search",
+    "menuAria": "Menu"
+  },
+  "search": {
+    "placeholder": "Search the site...",
+    "popular": "Popular:",
+    "tagSchedule": "Class schedule",
+    "tagVstup": "Admissions 2026",
+    "tagMoodle": "Moodle",
+    "tagFaculties": "Faculties"
+  },
+  "hero": {
+    "tag": "Founded in 1804 · Kharkiv",
+    "titleLine1": "Kharkiv National",
+    "titleLine2": "Pedagogical University",
+    "titleLine3": "named after",
+    "titleName": "H.S. Skovoroda",
+    "subtitle": "A university that educates future teachers and researchers in the spirit of freedom, humanism and a lasting love of knowledge.",
+    "ctaApply": "Apply",
+    "ctaAbout": "About the university",
+    "statYears": "Years of\ntradition",
+    "statStudents": "Students\nenrolled",
+    "statJournals": "Academic\njournals",
+    "statPrograms": "Specialties\nand programmes"
+  },
+  "quickAccess": {
+    "label": "Quick access",
+    "schedule": "Class schedule",
+    "moodle": "Moodle / e-campus",
+    "email": "Corporate email",
+    "cabinet": "Personal account",
+    "library": "Research library",
+    "map": "Campus map"
+  },
+  "sections": {
+    "news": {
+      "tag": "Latest",
+      "title": "University news",
+      "all": "All news"
+    },
+    "programs": {
+      "tag": "Education",
+      "title": "Popular programmes",
+      "all": "All programmes"
+    },
+    "events": {
+      "tag": "Events",
+      "title": "Upcoming events"
+    },
+    "resources": {
+      "tag": "Services",
+      "title": "Useful resources"
+    },
+    "announcement": {
+      "tag": "Admissions 2026",
+      "title": "Join our\ncommunity",
+      "subtitle": "Submit documents online or visit the admissions office",
+      "cta": "Learn more"
+    },
+    "partners": {
+      "tag": "Partnership",
+      "title": "Our partners"
+    }
+  },
+  "news": {
+    "categories": {
+      "university": "University",
+      "science": "Science",
+      "admissions": "Admissions",
+      "student": "Students"
+    },
+    "main": {
+      "category": "University",
+      "title": "HNPU joins Erasmus+ initiative to support Ukrainian students",
+      "date": "21 February 2026"
+    },
+    "items": [
+      {
+        "category": "Science",
+        "title": "Young researchers conference: results and awards",
+        "date": "19 February 2026"
+      },
+      {
+        "category": "Admissions",
+        "title": "Open days 2026 announced",
+        "date": "17 February 2026"
+      },
+      {
+        "category": "Students",
+        "title": "HNPU sports team wins championship prize",
+        "date": "15 February 2026"
+      }
+    ]
+  },
+  "facts": {
+    "founded": "Year founded",
+    "students": "Students and graduate students",
+    "staff": "Academic staff",
+    "specialties": "Accredited specialties"
+  },
+  "programs": {
+    "levels": {
+      "bachelor": "Bachelor",
+      "master": "Master",
+      "graduate": "Graduate"
+    },
+    "items": [
+      { "level": "Bachelor", "name": "Primary education", "faculty": "Faculty of Pedagogy" },
+      { "level": "Master", "name": "Psychology", "faculty": "Faculty of Psychology" },
+      { "level": "Bachelor", "name": "Foreign language (English)", "faculty": "Faculty of Foreign Philology" },
+      { "level": "Bachelor", "name": "Computer science", "faculty": "Faculty of Physics and Mathematics" },
+      { "level": "Graduate", "name": "Pedagogy (PhD)", "faculty": "Research Institute" },
+      { "level": "Bachelor", "name": "Music arts", "faculty": "Faculty of Arts" }
+    ]
+  },
+  "events": {
+    "items": [
+      { "day": "26", "month": "Feb", "tag": "Open day", "title": "Introductory day for bachelor applicants", "place": "Main building, room 1" },
+      { "day": "05", "month": "Mar", "tag": "Science", "title": "International conference «Pedagogical science — 2026»", "place": "Conference hall, building 2" },
+      { "day": "12", "month": "Mar", "tag": "Students", "title": "Student creativity festival «Skovoroda-fest»", "place": "Assembly hall" }
+    ]
+  },
+  "resources": {
+    "library": { "title": "Research library", "sub": "761,955 items" },
+    "vstup": { "title": "Admissions 2026", "sub": "Apply" },
+    "career": { "title": "Career centre", "sub": "Vacancies and internships" },
+    "erasmus": { "title": "Erasmus+", "sub": "Academic mobility" }
+  },
+  "footer": {
+    "desc": "One of Ukraine's oldest universities, training specialists in education, humanities and natural sciences since 1804.",
+    "contactPhone": "📞 +38 (057) 700-02-38",
+    "contactEmail": "✉ rector{'@'}hnpu.edu.ua",
+    "contactAddress": "📍 29 Alchevskykh St, Kharkiv",
+    "contactHours": "⏰ Mon–Fri: 8:30 AM–5:00 PM",
+    "colUniversity": "University",
+    "colEducation": "Education",
+    "colScience": "Science",
+    "colStudent": "For students",
+    "linkAbout": "About us",
+    "linkRectorate": "Rectorate",
+    "linkStructure": "Structure",
+    "linkPublicInfo": "Public information",
+    "linkContacts": "Contacts",
+    "linkFaculties": "Faculties",
+    "linkPrograms": "Programmes",
+    "linkSchedule": "Schedule",
+    "linkMoodle": "Moodle",
+    "linkQuality": "Quality of education",
+    "linkPublications": "Publications",
+    "linkLibrary": "Library",
+    "linkRepository": "Repository",
+    "linkGraduate": "Graduate school",
+    "linkConferences": "Conferences",
+    "linkDormitories": "Dormitories",
+    "linkStudentCouncil": "Student council",
+    "linkPsychology": "Psychological service",
+    "linkCareer": "Career centre",
+    "linkErasmus": "Erasmus+",
+    "copyright": "© 2026 HNPU named after H.S. Skovoroda. All rights reserved.",
+    "privacy": "Privacy policy",
+    "sitemap": "Sitemap",
+    "accessibility": "Accessibility"
+  },
+  "seo": {
+    "home": {
+      "title": "HNPU named after H.S. Skovoroda",
+      "description": "H.S. Skovoroda Kharkiv National Pedagogical University — educating future teachers and researchers."
+    }
+  }
+}

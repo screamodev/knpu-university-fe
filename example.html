@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ХНПУ імені Г.С. Сковороди</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2E4B;
+    --navy-deep: #0F1E32;
+    --navy-mid: #243a5e;
+    --gold: #C9A227;
+    --gold-light: #E8C04A;
+    --gold-pale: #F5E9C0;
+    --white: #ffffff;
+    --off-white: #F8F6F1;
+    --text: #1B2E4B;
+    --text-muted: #5a6a7e;
+    --border: #dde3ed;
+    --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geologica', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── UTILITY BAR ─── */
+  .utility-bar {
+    background: var(--navy-deep);
+    padding: 7px 0;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.75);
+  }
+  .utility-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .utility-left { display: flex; align-items: center; gap: 20px; }
+  .utility-left a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color var(--transition);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .utility-left a:hover { color: var(--gold-light); }
+  .utility-right { display: flex; align-items: center; gap: 12px; }
+  .utility-right a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color var(--transition);
+  }
+  .utility-right a:hover { color: var(--gold-light); }
+  .social-icons { display: flex; gap: 8px; }
+  .social-icons a {
+    width: 26px; height: 26px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+  .social-icons a:hover { border-color: var(--gold); color: var(--gold); }
+  .lang-toggle {
+    display: flex;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .lang-toggle a {
+    padding: 2px 8px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 11.5px;
+    font-weight: 500;
+    transition: all var(--transition);
+  }
+  .lang-toggle a.active {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+  .lang-toggle a:hover:not(.active) { background: rgba(255,255,255,0.08); color: white; }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(27,46,75,0.08);
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 76px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo img { height: 56px; width: auto; }
+  .logo-text { line-height: 1.15; }
+  .logo-abbr {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+  .logo-name {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 200px;
+    line-height: 1.3;
+  }
+
+  /* ─── NAV ─── */
+  nav { flex: 1; display: flex; align-items: center; justify-content: center; }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .nav-item { position: relative; }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 28px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color var(--transition);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: 'Geologica', sans-serif;
+    white-space: nowrap;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition);
+    border-radius: 2px 2px 0 0;
+  }
+  .nav-item:hover .nav-link,
+  .nav-item.active .nav-link { color: var(--gold); }
+  .nav-item:hover .nav-link::after,
+  .nav-item.active .nav-link::after { transform: scaleX(1); }
+
+  .chevron {
+    width: 12px; height: 12px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform var(--transition);
+    margin-top: 2px;
+  }
+  .nav-item:hover .chevron { transform: rotate(-135deg) translateY(-2px); }
+
+  /* header actions */
+  .header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .btn-search {
+    width: 38px; height: 38px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    transition: all var(--transition);
+  }
+  .btn-search:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+  .btn-vstup {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Geologica', sans-serif;
+    transition: all var(--transition);
+    letter-spacing: 0.01em;
+  }
+  .btn-vstup:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,162,39,0.35); }
+
+  /* ─── MEGA MENU ─── */
+  .mega-menu {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--navy);
+    min-width: 900px;
+    padding: 36px 40px;
+    box-shadow: 0 20px 60px rgba(15,30,50,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+    border-top: 3px solid var(--gold);
+    z-index: 999;
+  }
+  .nav-item:hover .mega-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Adjust mega menu position for edge items */
+  .nav-item:first-child .mega-menu { left: 0; transform: translateX(0) translateY(-8px); }
+  .nav-item:first-child:hover .mega-menu { transform: translateX(0) translateY(0); }
+  .nav-item:last-child .mega-menu { left: auto; right: 0; transform: translateX(0) translateY(-8px); }
+  .nav-item:last-child:hover .mega-menu { transform: translateX(0) translateY(0); }
+
+  .mega-cols { display: grid; gap: 0; }
+  .mega-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .mega-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .mega-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .mega-col { padding: 0 24px 0 0; }
+  .mega-col:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.08); padding-right: 24px; margin-right: 0; }
+  .mega-col:not(:first-child) { padding-left: 24px; }
+
+  .mega-col-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201,162,39,0.25);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .mega-col-title svg { opacity: 0.8; }
+
+  .mega-links { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .mega-links li a {
+    display: block;
+    padding: 6px 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all var(--transition);
+    line-height: 1.35;
+  }
+  .mega-links li a:hover {
+    color: var(--white);
+    background: rgba(201,162,39,0.12);
+    padding-left: 12px;
+  }
+
+  .mega-cta {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 10px;
+  }
+  .mega-cta-btn {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all var(--transition);
+    font-family: 'Geologica', sans-serif;
+  }
+  .mega-cta-btn.primary { background: var(--gold); color: var(--navy-deep); }
+  .mega-cta-btn.primary:hover { background: var(--gold-light); }
+  .mega-cta-btn.secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); }
+  .mega-cta-btn.secondary:hover { background: rgba(255,255,255,0.14); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: calc(100vh - 111px);
+    min-height: 560px;
+    max-height: 780px;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%),
+      url('https://images.unsplash.com/photo-1562774053-701939374585?w=1800&q=80') center/cover no-repeat;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+
+  /* Geometric overlay */
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(201,162,39,0.03) 60px,
+        rgba(201,162,39,0.03) 61px
+      );
+  }
+  .hero-accent-line {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.35);
+    color: var(--gold-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    width: fit-content;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    max-width: 720px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-title em { font-style: normal; color: var(--gold-light); }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .hero-btn {
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Geologica', sans-serif;
+    transition: all var(--transition);
+    letter-spacing: 0.01em;
+  }
+  .hero-btn.gold { background: var(--gold); color: var(--navy-deep); }
+  .hero-btn.gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.4); }
+  .hero-btn.outline {
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+  }
+  .hero-btn.outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.12); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 48px; right: 32px;
+    display: flex; gap: 2px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .stat-card:first-child { border-radius: 12px 0 0 12px; }
+  .stat-card:last-child { border-radius: 0 12px 12px 0; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.3; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── QUICK ACCESS ─── */
+  .quick-access {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .quick-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .quick-label { font-size: 12px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-right: 8px; }
+  .quick-chip {
+    display: flex; align-items: center; gap: 7px;
+    padding: 8px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+  .quick-chip svg { color: var(--gold); }
+  .quick-chip:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(27,46,75,0.1); }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 80px 0; }
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+  .section-header { margin-bottom: 48px; }
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-tag::before { content: ''; width: 28px; height: 2px; background: var(--gold); border-radius: 2px; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  .section-desc { margin-top: 12px; font-size: 15px; color: var(--text-muted); max-width: 520px; line-height: 1.65; }
+
+  /* news grid */
+  .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+  .news-main {
+    background: var(--navy);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    text-decoration: none;
+    transition: transform var(--transition);
+  }
+  .news-main:hover { transform: translateY(-3px); }
+  .news-main-img {
+    height: 240px;
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-deep) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .news-main-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,30,50,0.9) 0%, transparent 60%);
+  }
+  .news-main-img-placeholder {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(-45deg, rgba(201,162,39,0.04) 0, rgba(201,162,39,0.04) 1px, transparent 1px, transparent 24px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .news-main-img-placeholder svg { width: 64px; height: 64px; color: rgba(201,162,39,0.2); }
+  .news-main-content { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .news-category { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .news-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.3; flex: 1; margin-bottom: 16px; }
+  .news-date { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  .news-list { display: flex; flex-direction: column; gap: 12px; }
+  .news-item {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-decoration: none;
+    transition: all var(--transition);
+    display: block;
+  }
+  .news-item:hover { border-color: var(--gold); background: var(--gold-pale); transform: translateX(3px); }
+  .news-item .news-category { color: var(--gold); }
+  .news-item .news-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+  .news-item .news-date { color: var(--text-muted); font-size: 12px; }
+
+  /* facts band */
+  .facts-band { background: var(--navy); padding: 64px 0; }
+  .facts-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; }
+  .fact-card { background: var(--navy); padding: 36px 32px; text-align: center; transition: background var(--transition); }
+  .fact-card:hover { background: var(--navy-mid); }
+  .fact-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .fact-label { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+  /* programs */
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .program-card {
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    text-decoration: none;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .program-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--transition);
+  }
+  .program-card:hover { border-color: transparent; box-shadow: 0 8px 32px rgba(27,46,75,0.12); transform: translateY(-2px); }
+  .program-card:hover::before { transform: scaleY(1); }
+  .program-icon { width: 44px; height: 44px; background: var(--gold-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .program-icon svg { color: var(--gold); width: 22px; height: 22px; }
+  .program-level { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
+  .program-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--navy); font-weight: 600; line-height: 1.25; margin-bottom: 10px; }
+  .program-faculty { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+  .program-arrow { position: absolute; top: 28px; right: 24px; color: var(--border); transition: color var(--transition); font-size: 18px; }
+  .program-card:hover .program-arrow { color: var(--gold); }
+
+  /* events */
+  .events-list { display: flex; flex-direction: column; gap: 16px; }
+  .event-card {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all var(--transition);
+    background: var(--white);
+  }
+  .event-card:hover { border-color: var(--gold); transform: translateX(4px); }
+  .event-date-box { text-align: center; }
+  .event-day { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; }
+  .event-month { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 500; }
+  .event-body {}
+  .event-tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); margin-bottom: 4px; }
+  .event-title { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.3; }
+  .event-place { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .event-arrow { color: var(--border); font-size: 20px; transition: color var(--transition); }
+  .event-card:hover .event-arrow { color: var(--gold); }
+
+  /* announcement banner */
+  .announcement {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-deep) 100%);
+    padding: 56px 0;
+  }
+  .announcement-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .ann-text {}
+  .ann-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .ann-title { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--white); font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+  .ann-sub { font-size: 15px; color: rgba(255,255,255,0.6); }
+  .ann-btn {
+    padding: 14px 36px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Geologica', sans-serif;
+    white-space: nowrap;
+    transition: all var(--transition);
+  }
+  .ann-btn:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,162,39,0.35); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); }
+  .footer-main { padding: 64px 0 40px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+  .footer-brand {}
+  .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .footer-logo img { height: 52px; }
+  .footer-logo-text .logo-abbr { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); }
+  .footer-logo-text .logo-name { font-size: 10px; color: rgba(255,255,255,0.5); max-width: 160px; }
+  .footer-desc { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+  .footer-contact { display: flex; flex-direction: column; gap: 8px; }
+  .footer-contact a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; transition: color var(--transition); }
+  .footer-contact a:hover { color: var(--gold); }
+  .footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .footer-col-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col-links li a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--transition); line-height: 1.4; }
+  .footer-col-links li a:hover { color: rgba(255,255,255,0.95); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; }
+  .footer-bottom-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 12.5px; color: rgba(255,255,255,0.4); }
+
+  /* search overlay */
+  .search-overlay {
+    position: fixed; inset: 0;
+    background: rgba(15,30,50,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 120px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+  }
+  .search-overlay.open { opacity: 1; pointer-events: all; }
+  .search-box { max-width: 680px; width: 100%; margin: 0 auto; padding: 0 32px; }
+  .search-input-wrap { position: relative; }
+  .search-input {
+    width: 100%;
+    padding: 20px 60px 20px 24px;
+    font-size: 22px;
+    border: 2px solid rgba(201,162,39,0.5);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    font-family: 'Geologica', sans-serif;
+    outline: none;
+    transition: border-color var(--transition);
+  }
+  .search-input::placeholder { color: rgba(255,255,255,0.3); }
+  .search-input:focus { border-color: var(--gold); }
+  .search-close {
+    position: fixed; top: 32px; right: 32px;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition);
+  }
+  .search-close:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all var(--transition); }
+
+  /* mobile nav */
+  .mobile-nav {
+    display: none;
+    position: fixed; inset: 0;
+    background: var(--navy-deep);
+    z-index: 1500;
+    overflow-y: auto;
+    padding: 80px 24px 40px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+  }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mobile-nav-list { list-style: none; display: flex; flex-direction: column; }
+  .mobile-nav-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mobile-nav-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    background: none; border: none;
+    width: 100%;
+    font-family: 'Geologica', sans-serif;
+    text-align: left;
+  }
+  .mobile-sub { display: none; padding: 8px 0 16px; }
+  .mobile-sub a { display: block; padding: 8px 0; font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color var(--transition); }
+  .mobile-sub a:hover { color: var(--gold); }
+
+  @media (max-width: 1024px) {
+    .nav-list, .header-actions .btn-vstup { display: none; }
+    .hamburger { display: flex; }
+    .mobile-nav { display: block; }
+    .news-grid { grid-template-columns: 1fr; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .facts-inner { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-links { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { display: none; }
+    .announcement-inner { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 640px) {
+    .programs-grid { grid-template-columns: 1fr; }
+    .facts-inner { grid-template-columns: 1fr 1fr; }
+    .footer-links { grid-template-columns: 1fr; }
+    .utility-inner { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="utility-inner">
+    <div class="utility-left">
+      <a href="#">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.63 4.35 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +38 (057) 700-02-38
+      </a>
+      <a href="#">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        rector@hnpu.edu.ua
+      </a>
+      <a href="#">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Пн–Пт 8:30–17:00
+      </a>
+    </div>
+    <div class="utility-right">
+      <div class="social-icons">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="YouTube">▶</a>
+        <a href="#" title="Instagram">◈</a>
+        <a href="#" title="Telegram">✈</a>
+      </div>
+      <a href="#">Зворотний зв'язок</a>
+      <a href="#">Особистий кабінет</a>
+      <div class="lang-toggle">
+        <a href="#" class="active">УКР</a>
+        <a href="#">ENG</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="/mnt/user-data/uploads/LOGO4.png" alt="ХНПУ" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <div class="logo-abbr">ХНПУ</div>
+        <div class="logo-name">імені Г.С. Сковороди</div>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-list">
+
+        <!-- 1. УНІВЕРСИТЕТ -->
+        <li class="nav-item">
+          <button class="nav-link">Університет <span class="chevron"></span></button>
+          <div class="mega-menu" style="min-width: 960px;">
+            <div class="mega-cols mega-cols-4">
+              <div class="mega-col">
+                <div class="mega-col-title">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                  Про нас
+                </div>
+                <ul class="mega-links">
+                  <li><a href="#">Історія та традиції</a></li>
+                  <li><a href="#">Місія, візія та цінності</a></li>
+                  <li><a href="#">Символіка університету</a></li>
+                  <li><a href="#">Меморіал пам'яті</a></li>
+                  <li><a href="#">Волонтерство</a></li>
+                  <li><a href="#">Фото та відеогалереї</a></li>
+                  <li><a href="#">Газета «Учитель»</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Управління
+                </div>
+                <ul class="mega-links">
+                  <li><a href="#">Ректорат</a></li>
+                  <li><a href="#">Вчена рада</a></li>
+                  <li><a href="#">Наглядова рада</a></li>
+                  <li><a href="#">Структурні підрозділи</a></li>
+                  <li><a href="#">Факультети та кафедри</a></li>
+                  <li><a href="#">Пресцентр (для ЗМІ)</a></li>
+                  <li><a href="#">Контакти та карта</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Публічність
+                </div>
+                <ul class="mega-links">
+                  <li><a href="#">Статут і ліцензії</a></li>
+                  <li><a href="#">Публічна інформація</a></li>
+                  <li><a href="#">Накази та нормативи</a></li>
+                  <li><a href="#">Фінансові звіти</a></li>
+                  <li><a href="#">Prozorro</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Міжнародна діяльність
+                </div>
+                <ul class="mega-links">
+                  <li><a href="#">Програми Erasmus+</a></li>
+                  <li><a href="#">Академічна мобільність</a></li>
+                  <li><a href="#">Іноземні партнери</a></li>
+                  <li><a href="#">Інклюзивний простір</a></li>
+                  <li><a href="#">Антикорупція</a></li>
+                  <li><a href="#">Академічна доброчесність</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 2. ВСТУП -->
+        <li class="nav-item">
+          <button class="nav-link">Вступ <span class="chevron"></span></button>
+          <div class="mega-menu" style="min-width: 860px;">
+            <div class="mega-cols mega-cols-3">
+              <div class="mega-col">
+                <div class="mega-col-title">🎓 Освітні рівні</div>
+                <ul class="mega-links">
+                  <li><a href="#">Бакалаврат (денна / заочна)</a></li>
+                  <li><a href="#">Магістратура</a></li>
+                  <li><a href="#">Аспірантура та докторантура</a></li>
+                  <li><a href="#">Друга вища освіта</a></li>
+                </ul>
+                <div style="margin-top: 20px;">
+                  <div class="mega-col-title">📋 Як вступити?</div>
+                  <ul class="mega-links">
+                    <li><a href="#">Правила прийому 2026</a></li>
+                    <li><a href="#">Перелік спеціальностей</a></li>
+                    <li><a href="#">Творчі конкурси</a></li>
+                    <li><a href="#">Бюджетні місця</a></li>
+                    <li><a href="#">Програми іспитів</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">🤝 Умови та підтримка</div>
+                <ul class="mega-links">
+                  <li><a href="#">Вартість навчання</a></li>
+                  <li><a href="#">Пільги та соціальний захист</a></li>
+                  <li><a href="#">Для ветеранів</a></li>
+                  <li><a href="#">Інклюзивна освіта</a></li>
+                  <li><a href="#">Гуртожитки</a></li>
+                  <li><a href="#">Стипендіальні програми</a></li>
+                </ul>
+                <div style="margin-top: 20px;">
+                  <div class="mega-col-title">📅 Підготовка</div>
+                  <ul class="mega-links">
+                    <li><a href="#">Підготовчі курси</a></li>
+                    <li><a href="#">Дні відкритих дверей</a></li>
+                    <li><a href="#">3D-тур корпусами</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mega-col" style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="mega-col-title">⚡ Швидкі дії</div>
+                <a href="#" class="mega-cta-btn primary" style="display: block; padding: 14px 18px; border-radius: 10px; font-size: 13.5px; text-align: center;">
+                  Електронний кабінет вступника (ЄДЕБО)
+                </a>
+                <a href="#" class="mega-cta-btn secondary" style="display: block; padding: 14px 18px; border-radius: 10px; font-size: 13.5px; text-align: center;">
+                  Поставити запитання онлайн
+                </a>
+                <div style="background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 16px; margin-top: 8px;">
+                  <div style="font-size: 11px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Прийом 2026</div>
+                  <div style="font-size: 22px; font-family: 'Playfair Display', serif; font-weight: 700; color: white;">1 березня</div>
+                  <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Початок прийому документів</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. НАВЧАННЯ -->
+        <li class="nav-item">
+          <button class="nav-link">Навчання <span class="chevron"></span></button>
+          <div class="mega-menu" style="min-width: 720px;">
+            <div class="mega-cols mega-cols-3">
+              <div class="mega-col">
+                <div class="mega-col-title">🏛️ Структура</div>
+                <ul class="mega-links">
+                  <li><a href="#">Факультети</a></li>
+                  <li><a href="#">Кафедри (повний перелік)</a></li>
+                  <li><a href="#">Освітні програми</a></li>
+                  <li><a href="#">Навчальні плани</a></li>
+                  <li><a href="#">Дисципліни вільного вибору</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">📊 Процес та якість</div>
+                <ul class="mega-links">
+                  <li><a href="#">Графік навчального процесу</a></li>
+                  <li><a href="#">Акредитація програм</a></li>
+                  <li><a href="#">Центр якості освіти</a></li>
+                  <li><a href="#">Моніторинг якості</a></li>
+                  <li><a href="#">Рейтинги</a></li>
+                  <li><a href="#">Практична підготовка</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">🎓 Форми навчання</div>
+                <ul class="mega-links">
+                  <li><a href="#">Заочна форма</a></li>
+                  <li><a href="#">Дистанційне навчання</a></li>
+                  <li><a href="#">Дуальна освіта</a></li>
+                  <li><a href="#">Підвищення кваліфікації</a></li>
+                  <li><a href="#">Контингент студентів</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 4. НАУКА -->
+        <li class="nav-item">
+          <button class="nav-link">Наука <span class="chevron"></span></button>
+          <div class="mega-menu" style="min-width: 760px;">
+            <div class="mega-cols mega-cols-3">
+              <div class="mega-col">
+                <div class="mega-col-title">🔬 Наукова діяльність</div>
+                <ul class="mega-links">
+                  <li><a href="#">Наукові напрями та школи</a></li>
+                  <li><a href="#">НДІ, центри та лабораторії</a></li>
+                  <li><a href="#">Рада молодих вчених</a></li>
+                  <li><a href="#">Наукове товариство студентів</a></li>
+                  <li><a href="#">Аспірантура та докторантура</a></li>
+                  <li><a href="#">Конференції та семінари</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">📚 Видання</div>
+                <ul class="mega-links">
+                  <li><a href="#">Фахові наукові журнали</a></li>
+                  <li><a href="#">Збірники наукових праць</a></li>
+                  <li><a href="#">Вимоги до публікацій</a></li>
+                  <li><a href="#">Scopus / WOS</a></li>
+                  <li><a href="#">Видавництво університету</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">📖 Ресурси</div>
+                <ul class="mega-links">
+                  <li><a href="#">Наукова бібліотека</a></li>
+                  <li><a href="#">Електронний каталог</a></li>
+                  <li><a href="#">Репозитарій eSSPUIR</a></li>
+                  <li><a href="#">Спеціалізовані вчені ради</a></li>
+                  <li><a href="#">Захисти PhD</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5. СТУДЕНТУ -->
+        <li class="nav-item">
+          <button class="nav-link">Студенту <span class="chevron"></span></button>
+          <div class="mega-menu" style="min-width: 800px;">
+            <div class="mega-cols mega-cols-4">
+              <div class="mega-col">
+                <div class="mega-col-title">💻 Цифрові сервіси</div>
+                <ul class="mega-links">
+                  <li><a href="#">Розклад занять</a></li>
+                  <li><a href="#">Електронний кампус (Moodle)</a></li>
+                  <li><a href="#">АСУ НЗ / Е-відомості</a></li>
+                  <li><a href="#">Корпоративна пошта</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">🏠 Побут та соціум</div>
+                <ul class="mega-links">
+                  <li><a href="#">Гуртожитки</a></li>
+                  <li><a href="#">Психологічна служба</a></li>
+                  <li><a href="#">Соціальна підтримка</a></li>
+                  <li><a href="#">Їдальні</a></li>
+                  <li><a href="#">Медичне обслуговування</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">🎭 Самоврядування</div>
+                <ul class="mega-links">
+                  <li><a href="#">Студентська рада</a></li>
+                  <li><a href="#">Профспілка студентів</a></li>
+                  <li><a href="#">Спортивні секції</a></li>
+                  <li><a href="#">Мистецькі колективи</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">🚀 Кар'єра</div>
+                <ul class="mega-links">
+                  <li><a href="#">Центр кар'єри</a></li>
+                  <li><a href="#">Вакансії та практика</a></li>
+                  <li><a href="#">Асоціація випускників</a></li>
+                  <li><a href="#">Неформальна освіта</a></li>
+                  <li><a href="#">Центр розвитку ветеранів</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-search" id="searchBtn" aria-label="Пошук">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="#" class="btn-vstup">Вступ 2026</a>
+      <button class="hamburger" id="hamburger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="searchClose">✕</button>
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Пошук по сайту..." id="searchInput">
+    </div>
+    <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+      <span style="font-size: 12px; color: rgba(255,255,255,0.4);">Популярне:</span>
+      <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1);">Розклад занять</a>
+      <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1);">Вступ 2026</a>
+      <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1);">Moodle</a>
+      <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1);">Факультети</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileClose">✕</button>
+  <ul class="mobile-nav-list">
+    <li class="mobile-nav-item">
+      <button class="mobile-nav-link" onclick="toggleMobileSub(this)">Університет <span>›</span></button>
+      <div class="mobile-sub">
+        <a href="#">Історія та традиції</a>
+        <a href="#">Ректорат</a>
+        <a href="#">Структурні підрозділи</a>
+        <a href="#">Публічна інформація</a>
+        <a href="#">Міжнародна діяльність</a>
+      </div>
+    </li>
+    <li class="mobile-nav-item">
+      <button class="mobile-nav-link" onclick="toggleMobileSub(this)">Вступ <span>›</span></button>
+      <div class="mobile-sub">
+        <a href="#">Правила прийому 2026</a>
+        <a href="#">Перелік спеціальностей</a>
+        <a href="#">Вартість навчання</a>
+        <a href="#">Дні відкритих дверей</a>
+      </div>
+    </li>
+    <li class="mobile-nav-item">
+      <button class="mobile-nav-link" onclick="toggleMobileSub(this)">Навчання <span>›</span></button>
+      <div class="mobile-sub">
+        <a href="#">Факультети</a>
+        <a href="#">Освітні програми</a>
+        <a href="#">Розклад занять</a>
+        <a href="#">Графік процесу</a>
+      </div>
+    </li>
+    <li class="mobile-nav-item">
+      <button class="mobile-nav-link" onclick="toggleMobileSub(this)">Наука <span>›</span></button>
+      <div class="mobile-sub">
+        <a href="#">Наукові напрями</a>
+        <a href="#">Журнали та збірники</a>
+        <a href="#">Наукова бібліотека</a>
+      </div>
+    </li>
+    <li class="mobile-nav-item">
+      <button class="mobile-nav-link" onclick="toggleMobileSub(this)">Студенту <span>›</span></button>
+      <div class="mobile-sub">
+        <a href="#">Moodle / Е-кампус</a>
+        <a href="#">Гуртожитки</a>
+        <a href="#">Студентська рада</a>
+        <a href="#">Центр кар'єри</a>
+      </div>
+    </li>
+  </ul>
+  <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 12px;">
+    <a href="#" style="display: block; text-align: center; background: var(--gold); color: var(--navy-deep); padding: 14px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 15px;">Вступ 2026</a>
+    <div style="display: flex; gap: 8px;">
+      <a href="#" style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); padding: 12px; border-radius: 8px; font-size: 13px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1);">УКР</a>
+      <a href="#" style="flex: 1; text-align: center; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); padding: 12px; border-radius: 8px; font-size: 13px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1);">ENG</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-accent-line"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Засновано у 1804 році · Харків</div>
+    <h1 class="hero-title">
+      Харківський національний<br>
+      педагогічний університет<br>
+      імені <em>Г.С. Сковороди</em>
+    </h1>
+    <p class="hero-sub">Університет, що виховує майбутніх педагогів та дослідників у дусі свободи, гуманізму та невгасимої любові до знань.</p>
+    <div class="hero-actions">
+      <a href="#" class="hero-btn gold">Подати документи</a>
+      <a href="#" class="hero-btn outline">Про університет</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">220</div>
+      <div class="stat-label">Років<br>традицій</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8 000+</div>
+      <div class="stat-label">Студентів<br>навчаються</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Наукових<br>журналів</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">95+</div>
+      <div class="stat-label">Спеціальностей<br>і програм</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access">
+  <div class="quick-inner">
+    <span class="quick-label">Швидкий доступ</span>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Розклад занять
+    </a>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      Moodle / е-кампус
+    </a>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Корпоративна пошта
+    </a>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Особистий кабінет
+    </a>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Наукова бібліотека
+    </a>
+    <a href="#" class="quick-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg>
+      Карта корпусів
+    </a>
+  </div>
+</div>
+
+<!-- NEWS SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px;">
+      <div class="section-header" style="margin: 0;">
+        <div class="section-tag">Актуальне</div>
+        <h2 class="section-title">Новини університету</h2>
+      </div>
+      <a href="#" style="font-size: 14px; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1.5px solid var(--gold); padding-bottom: 2px; font-weight: 500;">Всі новини <span>→</span></a>
+    </div>
+    <div class="news-grid">
+      <a href="#" class="news-main">
+        <div class="news-main-img">
+          <div class="news-main-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+        </div>
+        <div class="news-main-content">
+          <div class="news-category">Університет</div>
+          <div class="news-title">ХНПУ долучився до міжнародної освітньої ініціативи Erasmus+ для підтримки українських студентів</div>
+          <div class="news-date">21 лютого 2026</div>
+        </div>
+      </a>
+      <div class="news-list">
+        <a href="#" class="news-item">
+          <div class="news-category">Наука</div>
+          <div class="news-title">Конференція молодих учених: результати та нагороди</div>
+          <div class="news-date">19 лютого 2026</div>
+        </a>
+        <a href="#" class="news-item">
+          <div class="news-category">Вступ</div>
+          <div class="news-title">Оголошено дати Днів відкритих дверей на 2026 рік</div>
+          <div class="news-date">17 лютого 2026</div>
+        </a>
+        <a href="#" class="news-item">
+          <div class="news-category">Студентство</div>
+          <div class="news-title">Спортивна команда ХНПУ посіла призове місце на чемпіонаті</div>
+          <div class="news-date">15 лютого 2026</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS BAND -->
+<div class="facts-band">
+  <div class="facts-inner">
+    <div class="fact-card">
+      <div class="fact-num">1804</div>
+      <div class="fact-label">Рік заснування</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">8 000+</div>
+      <div class="fact-label">Студентів та аспірантів</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">700+</div>
+      <div class="fact-label">Науково-педагогічних працівників</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">95+</div>
+      <div class="fact-label">Акредитованих спеціальностей</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAMS SECTION -->
+<section class="section" style="background: var(--off-white);">
+  <div class="section-inner">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px;">
+      <div class="section-header" style="margin: 0;">
+        <div class="section-tag">Освіта</div>
+        <h2 class="section-title">Популярні спеціальності</h2>
+      </div>
+      <a href="#" style="font-size: 14px; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1.5px solid var(--gold); padding-bottom: 2px; font-weight: 500;">Усі програми →</a>
+    </div>
+    <div class="programs-grid">
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="program-level">Бакалаврат</div>
+        <div class="program-name">Початкова освіта</div>
+        <div class="program-faculty">Педагогічний факультет</div>
+        <div class="program-arrow">›</div>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="program-level">Магістратура</div>
+        <div class="program-name">Психологія</div>
+        <div class="program-faculty">Факультет психології</div>
+        <div class="program-arrow">›</div>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="program-level">Бакалаврат</div>
+        <div class="program-name">Іноземна мова (англійська)</div>
+        <div class="program-faculty">Факультет іноземної філології</div>
+        <div class="program-arrow">›</div>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="program-level">Бакалаврат</div>
+        <div class="program-name">Комп'ютерні науки</div>
+        <div class="program-faculty">Фізико-математичний факультет</div>
+        <div class="program-arrow">›</div>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+        <div class="program-level">Аспірантура</div>
+        <div class="program-name">Педагогіка (PhD)</div>
+        <div class="program-faculty">Науково-дослідний інститут</div>
+        <div class="program-arrow">›</div>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <div class="program-level">Бакалаврат</div>
+        <div class="program-name">Музичне мистецтво</div>
+        <div class="program-faculty">Факультет мистецтв</div>
+        <div class="program-arrow">›</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement">
+  <div class="announcement-inner">
+    <div class="ann-text">
+      <div class="ann-tag">Вступна кампанія 2026</div>
+      <div class="ann-title">Стань частиною<br>нашої спільноти</div>
+      <div class="ann-sub">Подайте документи онлайн або відвідайте приймальну комісію</div>
+    </div>
+    <a href="#" class="ann-btn">Дізнатись більше →</a>
+  </div>
+</div>
+
+<!-- EVENTS SECTION -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
+      <div>
+        <div class="section-header">
+          <div class="section-tag">Заходи</div>
+          <h2 class="section-title">Найближчі події</h2>
+        </div>
+        <div class="events-list">
+          <a href="#" class="event-card">
+            <div class="event-date-box">
+              <div class="event-day">26</div>
+              <div class="event-month">Лют</div>
+            </div>
+            <div class="event-body">
+              <div class="event-tag">День відкритих дверей</div>
+              <div class="event-title">Ознайомчий день для вступників на бакалаврат</div>
+              <div class="event-place">📍 Головний корпус, ауд. 1</div>
+            </div>
+            <div class="event-arrow">›</div>
+          </a>
+          <a href="#" class="event-card">
+            <div class="event-date-box">
+              <div class="event-day">05</div>
+              <div class="event-month">Бер</div>
+            </div>
+            <div class="event-body">
+              <div class="event-tag">Наука</div>
+              <div class="event-title">Міжнародна конференція «Педагогічна наука — 2026»</div>
+              <div class="event-place">📍 Конференц-зал, корпус №2</div>
+            </div>
+            <div class="event-arrow">›</div>
+          </a>
+          <a href="#" class="event-card">
+            <div class="event-date-box">
+              <div class="event-day">12</div>
+              <div class="event-month">Бер</div>
+            </div>
+            <div class="event-body">
+              <div class="event-tag">Студентство</div>
+              <div class="event-title">Фестиваль студентської творчості «Сковорода-фест»</div>
+              <div class="event-place">📍 Актова зала</div>
+            </div>
+            <div class="event-arrow">›</div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="section-header">
+          <div class="section-tag">Сервіси</div>
+          <h2 class="section-title">Корисні ресурси</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <a href="#" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--navy); border-radius: 14px; text-decoration: none; transition: transform 0.2s; group: true;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 24px;">📚</div>
+            <div style="font-size: 14px; font-weight: 600; color: white;">Наукова бібліотека</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.5);">761 955 примірників</div>
+          </a>
+          <a href="#" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--gold); border-radius: 14px; text-decoration: none; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 24px;">🎓</div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--navy-deep);">Вступ 2026</div>
+            <div style="font-size: 12px; color: rgba(27,46,75,0.65);">Подати документи</div>
+          </a>
+          <a href="#" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--off-white); border: 1.5px solid var(--border); border-radius: 14px; text-decoration: none; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 24px;">💼</div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--navy);">Центр кар'єри</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Вакансії та практика</div>
+          </a>
+          <a href="#" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--off-white); border: 1.5px solid var(--border); border-radius: 14px; text-decoration: none; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 24px;">🌍</div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--navy);">Erasmus+</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Академічна мобільність</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/mnt/user-data/uploads/LOGO4.png" alt="ХНПУ" onerror="this.style.display='none'">
+          <div class="footer-logo-text">
+            <div class="logo-abbr">ХНПУ</div>
+            <div class="logo-name">імені Г.С. Сковороди</div>
+          </div>
+        </div>
+        <p class="footer-desc">Один із найстаріших університетів України, що готує фахівців у сфері освіти, гуманітарних та природничих наук з 1804 року.</p>
+        <div class="footer-contact">
+          <a href="#">📞 +38 (057) 700-02-38</a>
+          <a href="#">✉ rector@hnpu.edu.ua</a>
+          <a href="#">📍 вул. Алчевських, 29, Харків</a>
+          <a href="#">⏰ Пн–Пт: 8:30–17:00</a>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 8px;">
+          <a href="#" style="width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='rgba(255,255,255,0.6)'">f</a>
+          <a href="#" style="width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='rgba(255,255,255,0.6)'">▶</a>
+          <a href="#" style="width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='rgba(255,255,255,0.6)'">✈</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div>
+          <div class="footer-col-title">Університет</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Про нас</a></li>
+            <li><a href="#">Ректорат</a></li>
+            <li><a href="#">Структура</a></li>
+            <li><a href="#">Публічна інформація</a></li>
+            <li><a href="#">Контакти</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Навчання</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Факультети</a></li>
+            <li><a href="#">Програми</a></li>
+            <li><a href="#">Розклад</a></li>
+            <li><a href="#">Moodle</a></li>
+            <li><a href="#">Якість освіти</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Наука</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Наукові видання</a></li>
+            <li><a href="#">Бібліотека</a></li>
+            <li><a href="#">Репозитарій</a></li>
+            <li><a href="#">Аспірантура</a></li>
+            <li><a href="#">Конференції</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Студенту</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Гуртожитки</a></li>
+            <li><a href="#">Студрада</a></li>
+            <li><a href="#">Психологічна служба</a></li>
+            <li><a href="#">Центр кар'єри</a></li>
+            <li><a href="#">Erasmus+</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 ХНПУ імені Г.С. Сковороди. Всі права захищені.</span>
+      <div style="display: flex; gap: 16px;">
+        <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">Політика конфіденційності</a>
+        <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">Карта сайту</a>
+        <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">Для людей із вадами зору</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Search
+  const searchBtn = document.getElementById('searchBtn');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+
+  searchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('open');
+    setTimeout(() => searchInput.focus(), 100);
+  });
+  searchClose.addEventListener('click', () => searchOverlay.classList.remove('open'));
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) searchOverlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') searchOverlay.classList.remove('open');
+  });
+
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  mobileClose.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  function toggleMobileSub(btn) {
+    const sub = btn.nextElementSibling;
+    const isOpen = sub.style.display === 'flex';
+    document.querySelectorAll('.mobile-sub').forEach(s => s.style.display = 'none');
+    sub.style.display = isOpen ? 'none' : 'flex';
+    sub.style.flexDirection = 'column';
+  }
+</script>
+</body>
+</html>

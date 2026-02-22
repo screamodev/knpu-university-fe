@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
+const { items } = useNavigation()
 const router = useRouter()
+const memorialLink = computed(() => items.find((i) => i.labelKey === 'nav.memorialPage'))
 onMounted(() => {
   router.afterEach(() => close())
 })
@@ -61,7 +63,7 @@ const mobileSections = computed(() => [
     :class="[
       isOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none',
     ]"
-    aria-hidden="!isOpen"
+    :aria-hidden="!isOpen"
   >
     <button
       type="button"
@@ -102,6 +104,16 @@ const mobileSections = computed(() => [
       </li>
     </ul>
     <div class="mt-8 flex flex-col gap-3">
+      <a
+        v-if="memorialLink?.path"
+        :href="memorialLink.path"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block text-center py-3 text-white/80 no-underline border border-white/20 rounded-lg text-[14px] hover:border-gold hover:text-gold transition-colors duration-280"
+        @click="close"
+      >
+        {{ t('nav.memorialPage') }}
+      </a>
       <NuxtLink
         :to="localePath('/admissions/rules')"
         class="block text-center bg-gold text-navy-deep py-3.5 rounded-[10px] font-bold no-underline text-[15px]"

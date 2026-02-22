@@ -29,7 +29,7 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
         'grid-cols-4': colCount === 4,
       }"
     >
-      <template v-if="item.labelKey === 'nav.admissions' && item.cta">
+      <template v-if="item.labelKey === 'nav.labels.admissions' && item.cta">
         <div class="pr-6 border-r border-white/8 space-y-5 min-w-0">
           <div v-for="(col, i) in item.columns!.slice(0, 2)" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25 flex items-center gap-1.5">

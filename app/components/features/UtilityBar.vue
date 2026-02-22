@@ -7,7 +7,7 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 max-md:hidden">
       <div class="flex items-center gap-5">
         <a
-          :href="`tel:${t('utility.phone').replace(/\s/g, '')}`"
+          :href="`tel:${(t('utility.phone') || '').replace(/\s/g, '')}`"
           class="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-280"
         >
           <svg class="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

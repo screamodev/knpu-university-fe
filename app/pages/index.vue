@@ -18,5 +18,6 @@ useHead({
     <WidgetsProgramsSection />
     <WidgetsAnnouncementBanner />
     <WidgetsEventsAndResources />
+    <WidgetsPartnersSection />
   </div>
 </template>

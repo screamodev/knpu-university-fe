@@ -3,15 +3,19 @@ const { t, localePath } = useSafeI18nWithRouter()
 
 const heroImages = ['/images/Hero2.JPG', '/images/Hero3.jpg', '/images/Hero4.jpg', '/images/Hero5.JPG']
 const currentIndex = ref(0)
+const nextLayerIndex = ref(1)
 const showingNext = ref(false)
-const FADE_DURATION_MS = 1600
+const FADE_DURATION_MS = 2000
+const OPACITY_TRANSITION_MS = 1600
 const ROTATE_INTERVAL_MS = 30000
 
-const nextIndex = computed(() => (currentIndex.value + 1) % heroImages.length)
-
 function applySlide() {
-  currentIndex.value = nextIndex.value
+  currentIndex.value = nextLayerIndex.value
   showingNext.value = false
+  transitionTimer = setTimeout(() => {
+    nextLayerIndex.value = (currentIndex.value + 1) % heroImages.length
+    transitionTimer = null
+  }, OPACITY_TRANSITION_MS)
 }
 
 let rotateTimer: ReturnType<typeof setInterval> | null = null
@@ -21,12 +25,7 @@ function scheduleNext() {
   rotateTimer = setInterval(() => {
     showingNext.value = true
     transitionTimer = setTimeout(() => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          applySlide()
-          transitionTimer = null
-        })
-      })
+      applySlide()
     }, FADE_DURATION_MS)
   }, ROTATE_INTERVAL_MS)
 }
@@ -60,14 +59,14 @@ onUnmounted(stopRotation)
     <div
       class="absolute inset-0 z-0 bg-cover bg-center animate-slowZoom transition-opacity duration-[1600ms] ease-out"
       :class="showingNext ? 'opacity-100' : 'opacity-0'"
-      :style="{ backgroundImage: `linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%), url('${heroImages[nextIndex]}')` }"
+      :style="{ backgroundImage: `linear-gradient(135deg, rgba(15,30,50,0.88) 0%, rgba(27,46,75,0.6) 60%, rgba(15,30,50,0.4) 100%), url('${heroImages[nextLayerIndex]}')` }"
     />
     <div
-      class="absolute inset-0 opacity-30"
+      class="absolute inset-0 z-[2] opacity-30"
       style="background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,162,39,0.03) 60px, rgba(201,162,39,0.03) 61px);"
     />
-    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent" />
-    <div class="relative z-[2] h-full flex flex-col justify-center max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-10 lg:py-14">
+    <div class="absolute bottom-0 left-0 right-0 z-[2] h-1 bg-gradient-to-r from-gold to-transparent" />
+    <div class="relative z-[3] h-full flex flex-col justify-center max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-10 lg:py-14">
       <div
         class="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold-light py-1.5 px-3.5 rounded-100 text-xs font-medium tracking-wider uppercase mb-6 w-fit before:content-[''] before:w-1.5 before:h-1.5 before:bg-gold before:rounded-full"
       >
@@ -96,7 +95,7 @@ onUnmounted(stopRotation)
         </NuxtLink>
       </div>
     </div>
-    <div class="absolute bottom-12 right-8 flex gap-0.5 max-lg:hidden">
+    <div class="absolute bottom-12 right-8 z-[2] flex gap-0.5 max-lg:hidden">
       <div class="bg-white/5 backdrop-blur-md border border-white/10 py-4 px-6 text-center rounded-l-[12px]">
         <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">220</div>
         <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">{{ t('hero.statYears') }}</div>

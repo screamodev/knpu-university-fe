@@ -11,6 +11,7 @@ export interface NavColumn {
 export interface NavItem {
   labelKey: string
   path?: string
+  external?: boolean
   minWidth?: string
   columns?: NavColumn[]
   cta?: { primaryKey: string; primaryPath: string; secondaryKey: string; secondaryPath: string }
@@ -243,6 +244,11 @@ export function useNavigation(): { items: NavItem[] } {
           ],
         },
       ],
+    },
+    {
+      labelKey: 'nav.memorialPage',
+      path: 'https://sites.google.com/hnpu.edu.ua/memorial/',
+      external: true,
     },
   ]
   return { items }

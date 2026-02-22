@@ -17,6 +17,7 @@
     "alt": "HNPU"
   },
   "nav": {
+    "memorialPage": "Memorial",
     "labels": {
       "university": "University",
       "admissions": "Admissions",
@@ -212,6 +213,10 @@
       "title": "Join our\ncommunity",
       "subtitle": "Submit documents online or visit the admissions office",
       "cta": "Learn more"
+    },
+    "partners": {
+      "tag": "Partnership",
+      "title": "Our partners"
     }
   },
   "news": {

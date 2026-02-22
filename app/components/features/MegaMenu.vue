@@ -39,7 +39,7 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
               <li v-for="link in col.links" :key="link.path">
                 <NuxtLink
                   :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/78 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
                 >
                   {{ t(link.key) }}
                 </NuxtLink>
@@ -56,7 +56,7 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
               <li v-for="link in col.links" :key="link.path">
                 <NuxtLink
                   :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/78 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
                 >
                   {{ t(link.key) }}
                 </NuxtLink>
@@ -110,7 +110,7 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
             <li v-for="link in col.links" :key="link.path">
               <NuxtLink
                 :to="localePath(link.path)"
-                class="block py-1.5 px-2 text-[13px] text-white/78 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
+                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug"
               >
                 {{ t(link.key) }}
               </NuxtLink>

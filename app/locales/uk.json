@@ -696,7 +696,7 @@
       "channelsTitle": "Канали звернень",
       "channels": {
         "online": { "name": "Онлайн-форма", "contact": "Заповніть форму на сайті університету в розділі «Зворотний зв'язок»." },
-        "email": { "name": "Електронна пошта", "contact": "anticorruption@KhNPU.edu.ua" },
+        "email": { "name": "Електронна пошта", "contact": "anticorruption{'@'}KhNPU.edu.ua" },
         "hotline": { "name": "Гаряча лінія", "contact": "+38 (057) 700-02-99 (пн–пт 9:00–17:00)" }
       },
       "statsTitle": "Дотримання та навчання",

@@ -695,7 +695,7 @@
       "channelsTitle": "Reporting channels",
       "channels": {
         "online": { "name": "Online form", "contact": "Fill in the form on the university website in the «Feedback» section." },
-        "email": { "name": "Email", "contact": "anticorruption@KhNPU.edu.ua" },
+        "email": { "name": "Email", "contact": "anticorruption{'@'}KhNPU.edu.ua" },
         "hotline": { "name": "Hotline", "contact": "+38 (057) 700-02-99 (Mon–Fri 9:00–17:00)" }
       },
       "statsTitle": "Compliance and training",

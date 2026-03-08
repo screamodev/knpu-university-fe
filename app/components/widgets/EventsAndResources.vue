@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import { resolveMessageValue } from '../../composables/useSafeT'
-const { t, tm, localePath } = useSafeI18nWithRouter()
+import type { StrapiPaginatedResponse, StrapiEvent } from '~/types/strapi'
 
-const events = computed(() => {
-  const items = (tm('events.items') || []) as Array<{ day: unknown; month: unknown; tag: unknown; title: unknown; place: unknown }>
-  return items.map((ev) => ({
-    day: resolveMessageValue(ev.day),
-    month: resolveMessageValue(ev.month),
-    tag: resolveMessageValue(ev.tag),
-    title: resolveMessageValue(ev.title),
-    place: resolveMessageValue(ev.place),
-  }))
-})
+const { t, localePath, locale } = useSafeI18nWithRouter()
+const { localized } = useLocalizedField()
+
+const today = new Date().toISOString().slice(0, 10)
+const strapi = useStrapi()
+const { data, pending } = useFetch<StrapiPaginatedResponse<StrapiEvent>>(
+  strapi.apiUrl(
+    `/events?populate=cover&sort=date:asc&filters[date][$gte]=${today}&pagination[limit]=3`,
+  ),
+)
+
+const events = computed(() => data.value?.data ?? [])
+
+const dateLocale = computed(() => (locale.value === 'uk' ? 'uk-UA' : 'en-US'))
+const eventDay = (dateStr: string): string =>
+  new Intl.DateTimeFormat(dateLocale.value, { day: 'numeric' }).format(new Date(dateStr))
+const eventMonth = (dateStr: string): string =>
+  new Intl.DateTimeFormat(dateLocale.value, { month: 'short' }).format(new Date(dateStr))
 
 const resourceList = computed(() => [
   { path: '/science/library', titleKey: 'resources.library.title', subKey: 'resources.library.sub', icon: '📚', gold: false },
@@ -27,21 +34,37 @@ const resourceList = computed(() => [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <SharedSectionHeader :tag="t('sections.events.tag')" :title="t('sections.events.title')" />
-          <div class="flex flex-col gap-4">
-            <NuxtLink
-              v-for="(ev, i) in events"
+          <div v-if="pending" class="flex flex-col gap-4">
+            <div
+              v-for="i in 3"
               :key="i"
-              :to="localePath('/events')"
+              class="grid grid-cols-[80px_1fr] items-center gap-5 py-5 px-6 border border-border rounded-12 animate-pulse"
+            >
+              <div class="h-12 bg-slate-200 rounded" />
+              <div class="space-y-2">
+                <div class="h-3 bg-slate-200 rounded w-1/4" />
+                <div class="h-4 bg-slate-200 rounded w-3/4" />
+                <div class="h-3 bg-slate-200 rounded w-1/2" />
+              </div>
+            </div>
+          </div>
+          <div v-else class="flex flex-col gap-4">
+            <NuxtLink
+              v-for="ev in events"
+              :key="ev.id"
+              :to="localePath(`/events/${ev.slug}`)"
               class="grid grid-cols-1 min-[400px]:grid-cols-[80px_1fr_auto] items-center gap-3 min-[400px]:gap-5 py-4 px-4 min-[400px]:py-5 min-[400px]:px-6 border-[1.5px] border-border rounded-12 no-underline transition-all duration-280 bg-white hover:border-gold hover:translate-x-1"
             >
               <div class="text-center">
-                <div class="font-playfair text-3xl font-bold text-navy leading-none">{{ ev.day }}</div>
-                <div class="text-[11px] uppercase tracking-wider text-text-muted font-medium">{{ ev.month }}</div>
+                <div class="font-playfair text-3xl font-bold text-navy leading-none">{{ eventDay(ev.date) }}</div>
+                <div class="text-[11px] uppercase tracking-wider text-text-muted font-medium">{{ eventMonth(ev.date) }}</div>
               </div>
               <div>
-                <div class="text-[11px] font-semibold uppercase tracking-wide text-gold mb-1">{{ ev.tag }}</div>
-                <div class="text-[15px] font-medium text-navy leading-snug">{{ ev.title }}</div>
-                <div class="text-xs text-text-muted mt-1">📍 {{ ev.place }}</div>
+                <div class="text-[11px] font-semibold uppercase tracking-wide text-gold mb-1">
+                  {{ localized(ev, 'tag') || '—' }}
+                </div>
+                <div class="text-[15px] font-medium text-navy leading-snug">{{ localized(ev, 'title') }}</div>
+                <div class="text-xs text-text-muted mt-1">📍 {{ localized(ev, 'location') || '—' }}</div>
               </div>
               <div class="text-border text-xl transition-colors duration-280 group-hover:text-gold">›</div>
             </NuxtLink>

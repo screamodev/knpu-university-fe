@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  runtimeConfig: {
+    public: {
+      strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
+    },
+  },
   i18n: {
     locales: [
       { code: 'uk', iso: 'uk-UA', name: 'УКР', file: 'uk.json' },

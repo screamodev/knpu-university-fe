@@ -10,7 +10,8 @@ useHead({
 
 function getList(key: string): string[] {
   const value = tm(key)
-  return Array.isArray(value) ? value : []
+  if (!Array.isArray(value)) return []
+  return value.map((_, index) => t(`${key}.${index}`))
 }
 
 const structureSections = computed(() => [

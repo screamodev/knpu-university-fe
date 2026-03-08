@@ -5,7 +5,7 @@ const { t, localePath, locale } = useSafeI18nWithRouter()
 const strapi = useStrapi()
 const { localized } = useLocalizedField()
 
-const { data, pending } = useFetch<StrapiPaginatedResponse<StrapiArticle>>(
+const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiArticle>>(
   strapi.apiUrl(
     '/articles?populate[0]=cover&populate[1]=category&sort=publishedAt:desc&pagination[limit]=4',
   ),
@@ -59,6 +59,34 @@ function formatDate(dateStr: string): string {
             <div class="h-3 bg-border rounded w-1/4" />
           </div>
         </div>
+      </div>
+
+      <!-- Error state -->
+      <div
+        v-else-if="error"
+        class="flex flex-col items-center justify-center py-16 text-center"
+      >
+        <div class="w-14 h-14 rounded-full bg-danger/10 flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+        <p class="text-body-sm text-text-muted max-w-xs">{{ t('sections.news.error') }}</p>
+      </div>
+
+      <!-- Empty state -->
+      <div
+        v-else-if="articles.length === 0"
+        class="flex flex-col items-center justify-center py-16 text-center"
+      >
+        <div class="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z" />
+          </svg>
+        </div>
+        <p class="text-body-sm text-text-muted max-w-xs">{{ t('sections.news.empty') }}</p>
       </div>
 
       <!-- Articles grid -->

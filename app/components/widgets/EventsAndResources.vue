@@ -6,7 +6,7 @@ const { localized } = useLocalizedField()
 
 const today = new Date().toISOString().slice(0, 10)
 const strapi = useStrapi()
-const { data, pending } = useFetch<StrapiPaginatedResponse<StrapiEvent>>(
+const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiEvent>>(
   strapi.apiUrl(
     `/events?populate=cover&sort=date:asc&filters[date][$gte]=${today}&pagination[limit]=3`,
   ),
@@ -48,6 +48,38 @@ const resourceList = computed(() => [
               </div>
             </div>
           </div>
+          <!-- Error state -->
+          <div
+            v-else-if="error"
+            class="flex flex-col items-center justify-center py-12 text-center"
+          >
+            <div class="w-14 h-14 rounded-full bg-danger/10 flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <p class="text-body-sm text-text-muted max-w-xs">{{ t('sections.events.error') }}</p>
+          </div>
+
+          <!-- Empty state -->
+          <div
+            v-else-if="events.length === 0"
+            class="flex flex-col items-center justify-center py-12 text-center"
+          >
+            <div class="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <p class="text-body-sm text-text-muted max-w-xs">{{ t('sections.events.empty') }}</p>
+          </div>
+
+          <!-- Events list -->
           <div v-else class="flex flex-col gap-4">
             <NuxtLink
               v-for="ev in events"

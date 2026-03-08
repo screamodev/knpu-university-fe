@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  runtimeConfig: {
+    public: {
+      strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
+    },
+  },
   i18n: {
     locales: [
       { code: 'uk', iso: 'uk-UA', name: 'УКР', file: 'uk.json' },
@@ -10,7 +15,10 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'uk',
     strategy: 'prefix_except_default',
-    langDir: 'locales',
+    // Load from app/locales. With restructureDir: false, langDir is relative to project root
+    // (v10 default would resolve to i18n/locales/ which we do not use).
+    restructureDir: false,
+    langDir: 'app/locales',
     lazy: false,
   },
   app: {

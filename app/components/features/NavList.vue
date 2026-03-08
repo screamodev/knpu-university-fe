@@ -4,7 +4,7 @@ const { items } = useNavigation()
 
 function position(index: number): 'first' | 'middle' | 'last' {
   if (index === 0) return 'first'
-  if (index === items.length - 1) return 'last'
+  if (index >= 3) return 'last'
   return 'middle'
 }
 </script>

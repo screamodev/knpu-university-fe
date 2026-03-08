@@ -14,9 +14,10 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
 <template>
   <div
     v-if="item.columns?.length"
-    class="absolute top-full left-1/2 -translate-y-2 bg-navy min-w-[900px] p-9 shadow-mega opacity-0 pointer-events-none transition-all duration-280 border-t-[3px] border-gold z-[999] group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0"
+    class="absolute top-full -translate-y-2 bg-navy min-w-[900px] p-9 shadow-mega opacity-0 pointer-events-none transition-all duration-280 border-t-[3px] border-gold z-[999] group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0"
     :class="{
       'left-0 translate-x-0 group-hover:translate-x-0': position === 'first',
+      'left-1/2 -translate-x-1/2': position === 'middle',
       'left-auto right-0 translate-x-0 group-hover:translate-x-0': position === 'last',
     }"
     :style="{ minWidth: item.minWidth }"

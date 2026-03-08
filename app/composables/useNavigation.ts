@@ -245,11 +245,11 @@ export function useNavigation(): { items: NavItem[] } {
         },
       ],
     },
-    {
-      labelKey: 'nav.memorialPage',
-      path: 'https://sites.google.com/KhNPU.edu.ua/memorial/',
-      external: true,
-    },
+    // {
+    //   labelKey: 'nav.memorialPage',
+    //   path: 'https://sites.google.com/KhNPU.edu.ua/memorial/',
+    //   external: true,
+    // },
   ]
   return { items }
 }

@@ -358,6 +358,381 @@
         "5": { "number": "№ 5", "date": "Листопад 2025", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
         "6": { "number": "№ 6", "date": "Жовтень 2025", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
       }
+    },
+    "rectorate": {
+      "tag": "Управління",
+      "title": "Ректорат",
+      "subtitle": "Керівництво університету: ректор та проректори.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "rectorTitle": "Ректор",
+      "rector": {
+        "name": "Іван Петренко",
+        "title": "Ректор ХНПУ імені Г.С. Сковороди",
+        "degree": "Доктор педагогічних наук, професор",
+        "reception": "Прийом: вт, чт 10:00–12:00",
+        "phone": "Телефон",
+        "email": "Ел. пошта"
+      },
+      "viceRectorsTitle": "Проректори",
+      "viceRectors": {
+        "v1": { "name": "Олена Коваленко", "title": "Перший проректор", "area": "Навчально-методична робота" },
+        "v2": { "name": "Андрій Мельник", "title": "Проректор з наукової роботи", "area": "Наука та міжнародні зв'язки" },
+        "v3": { "name": "Марія Сидоренко", "title": "Проректор з адміністративно-господарської роботи", "area": "Господарство та розвиток" }
+      }
+    },
+    "council": {
+      "tag": "Управління",
+      "title": "Вчена рада",
+      "subtitle": "Вищий колегіальний орган університету: склад, керівництво та рішення.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "leadershipTitle": "Керівництво ради",
+      "leadership": {
+        "chair": { "name": "Іван Петренко", "role": "Голова вченої ради" },
+        "secretary": { "name": "Олена Коваленко", "role": "Секретар вченої ради" },
+        "deputy": { "name": "Андрій Мельник", "role": "Заступник голови" }
+      },
+      "compositionTitle": "Склад ради",
+      "composition": {
+        "total": "Членів ради",
+        "faculty": "Представників факультетів",
+        "students": "Представників студентів"
+      },
+      "facultiesRepresented": "У складі представлені факультети: педагогічний, історичний, філологічний, природничий, мистецтв, фізичного виховання та ін.",
+      "decisionsTitle": "Останні рішення",
+      "decisions": {
+        "d1": { "date": "15.02.2026", "title": "Про затвердження освітніх програм", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "d2": { "date": "28.01.2026", "title": "Про присудження наукових ступенів", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "d3": { "date": "10.01.2026", "title": "Про графік навчального процесу 2025/2026", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "d4": { "date": "20.12.2025", "title": "Про затвердження положень про структурні підрозділи", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      }
+    },
+    "supervisoryBoard": {
+      "tag": "Управління",
+      "title": "Наглядова рада",
+      "subtitle": "Наглядова рада здійснює стратегічний контроль та захист інтересів університету.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "membersTitle": "Члени наглядової ради",
+      "members": {
+        "m1": { "name": "Сергій Олійник", "position": "Голова ради", "organisation": "Міністерство освіти і науки України" },
+        "m2": { "name": "Наталія Кравченко", "position": "Заступник голови", "organisation": "Харківська обласна рада" },
+        "m3": { "name": "Дмитро Ткаченко", "position": "Член ради", "organisation": "Асоціація випускників ХНПУ" },
+        "m4": { "name": "Катерина Бондаренко", "position": "Член ради", "organisation": "Федерація роботодавців освіти" },
+        "m5": { "name": "Юрій Шевченко", "position": "Член ради", "organisation": "Наукова спільнота" },
+        "m6": { "name": "Ірина Лисенко", "position": "Член ради", "organisation": "Міжнародні партнери" }
+      },
+      "functionsTitle": "Функції наглядової ради",
+      "functions": {
+        "strategic": { "title": "Стратегічний нагляд", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "financial": { "title": "Фінансовий контроль", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat." },
+        "development": { "title": "Інституційний розвиток", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "structure": {
+      "tag": "Управління",
+      "title": "Структурні підрозділи",
+      "subtitle": "Організаційна структура університету: факультети, інститути та служби.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "faculties": "Факультети",
+      "facultiesList": ["Педагогічний факультет", "Історичний факультет", "Філологічний факультет", "Природничий факультет", "Факультет мистецтв"],
+      "institutes": "Інститути",
+      "institutesList": ["Інститут підвищення кваліфікації", "Інститут мистецтв"],
+      "administrative": "Адміністративні підрозділи",
+      "administrativeList": ["Відділ кадрів", "Бухгалтерія", "Юридичний відділ", "Відділ міжнародних зв'язків"],
+      "research": "Науково-дослідні центри",
+      "researchList": ["Центр педагогічних досліджень", "Лабораторія цифрових освітніх технологій"],
+      "services": "Служби",
+      "servicesList": ["Бібліотека", "ІТ-служба", "Господарська служба"],
+      "linkToFaculties": "Повний перелік факультетів та кафедр",
+      "linkToFacultiesUrl": "/university/faculties"
+    },
+    "faculties": {
+      "tag": "Управління",
+      "title": "Факультети та кафедри",
+      "subtitle": "Структура факультетів, декани та перелік кафедр ХНПУ.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "dean": "Декан",
+      "departmentsCount": "Кафедр",
+      "studentsCount": "Студентів",
+      "facultiesList": {
+        "f1": { "name": "Педагогічний факультет", "dean": "Олена Коваленко", "departments": ["Педагогіки та психології", "Початкової освіти", "Дошкільної освіти", "Соціальної педагогіки"], "departmentsNum": "4", "students": "1 200" },
+        "f2": { "name": "Історичний факультет", "dean": "Андрій Мельник", "departments": ["Історії України", "Всесвітньої історії", "Археології та музеєзнавства"], "departmentsNum": "3", "students": "450" },
+        "f3": { "name": "Філологічний факультет", "dean": "Марія Сидоренко", "departments": ["Української мови", "Української літератури", "Іноземних мов", "Журналістики"], "departmentsNum": "4", "students": "890" },
+        "f4": { "name": "Природничий факультет", "dean": "Дмитро Ткаченко", "departments": ["Математики", "Фізики", "Хімії", "Біології", "Географії"], "departmentsNum": "5", "students": "620" },
+        "f5": { "name": "Факультет мистецтв", "dean": "Катерина Бондаренко", "departments": ["Музичного мистецтва", "Образотворчого мистецтва", "Хореографії"], "departmentsNum": "3", "students": "380" },
+        "f6": { "name": "Факультет фізичного виховання", "dean": "Юрій Шевченко", "departments": ["Теорії та методики фізичного виховання", "Спортивних ігор"], "departmentsNum": "2", "students": "410" }
+      }
+    },
+    "press": {
+      "tag": "Управління",
+      "title": "Пресцентр (для ЗМІ)",
+      "subtitle": "Інформація для журналістів, акредитація та експертні коментарі.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "servicesTitle": "Послуги пресцентру",
+      "services": {
+        "releases": { "title": "Прес-релізи", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "accreditation": { "title": "Медіа-акредитація", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "experts": { "title": "Експертні коментарі", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "brand": { "title": "Бренд-активи", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "contactTitle": "Контакт прес-служби",
+      "contact": {
+        "name": "Олена Коваленко",
+        "position": "Керівник прес-центру",
+        "phone": "Телефон",
+        "email": "Ел. пошта"
+      }
+    },
+    "contacts": {
+      "tag": "Публічність",
+      "title": "Контакти та карта",
+      "subtitle": "Адреса, маршрути, години роботи та контакти структурних підрозділів.",
+      "addressTitle": "Адреса та маршрути",
+      "addressText": "м. Харків, вул. Алчевських, 29. Головний корпус ХНПУ імені Г.С. Сковороди.",
+      "phoneEmailTitle": "Телефон та електронна пошта",
+      "hoursTitle": "Години роботи",
+      "hoursText": "Пн–Пт 8:30–17:00. Прийом громадян за попереднім записом.",
+      "departmentsTitle": "Ключові підрозділи",
+      "departments": {
+        "admissions": { "name": "Приймальна комісія", "phone": "+38 (057) 700-02-38", "room": "ауд. 101" },
+        "international": { "name": "Відділ міжнародних зв'язків", "phone": "+38 (057) 700-02-40", "room": "ауд. 205" },
+        "deans": { "name": "Деканати факультетів", "phone": "+38 (057) 700-02-45", "room": "корп. 2" },
+        "library": { "name": "Бібліотека", "phone": "+38 (057) 700-02-50", "room": "головний корпус" },
+        "it": { "name": "ІТ-підтримка", "phone": "+38 (057) 700-02-55", "room": "ауд. 310" }
+      }
+    },
+    "statute": {
+      "tag": "Публічність",
+      "title": "Статут і ліцензії",
+      "subtitle": "Основні документи, що регулюють діяльність університету.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "documentsTitle": "Документи",
+      "documents": {
+        "d1": { "name": "Статут ХНПУ імені Г.С. Сковороди", "date": "2021", "authority": "Міністерство освіти і науки України" },
+        "d2": { "name": "Ліцензія на провадження освітньої діяльності", "date": "2024", "authority": "МОН України" },
+        "d3": { "name": "Сертифікат про акредитацію", "date": "2024", "authority": "НАЗЯВО" },
+        "d4": { "name": "Положення про структурні підрозділи", "date": "2023", "authority": "Вчена рада ХНПУ" },
+        "d5": { "name": "Правила внутрішнього розпорядку", "date": "2022", "authority": "Вчена рада ХНПУ" }
+      },
+      "viewPdf": "Переглянути PDF",
+      "regulatoryNote": "Повний перелік нормативно-правових документів зберігається в ректораті та на сайті університету."
+    },
+    "publicInfo": {
+      "tag": "Публічність",
+      "title": "Публічна інформація",
+      "subtitle": "Відкриті дані та звітність університету згідно із законодавством.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "categoriesTitle": "Категорії інформації",
+      "categories": {
+        "general": { "title": "Загальна інформація", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "financial": { "title": "Фінансові дані", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "personnel": { "title": "Кадрова складова", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "students": { "title": "Статистика студентів", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "infrastructure": { "title": "Інфраструктура", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "international": { "title": "Міжнародна діяльність", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "reportingTitle": "Звітність",
+      "reporting": {
+        "annual": { "title": "Річний звіт", "year": "2025" },
+        "selfAssessment": { "title": "Звіт з самооцінювання", "year": "2025" },
+        "audit": { "title": "Зовнішній аудит", "year": "2024" }
+      },
+      "download": "Завантажити"
+    },
+    "orders": {
+      "tag": "Публічність",
+      "title": "Накази та нормативи",
+      "subtitle": "Офіційні накази ректора та внутрішні нормативні документи.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "filterAll": "Усі",
+      "documentsTitle": "Накази та положення",
+      "documents": {
+        "doc1": { "number": "№ 145", "date": "15.02.2026", "title": "Про затвердження графіка навчального процесу", "category": "Навчальна діяльність" },
+        "doc2": { "number": "№ 132", "date": "28.01.2026", "title": "Про внесення змін до положення про стипендії", "category": "Студентство" },
+        "doc3": { "number": "№ 128", "date": "20.01.2026", "title": "Про призначення керівників структурних підрозділів", "category": "Кадри" },
+        "doc4": { "number": "№ 118", "date": "10.12.2025", "title": "Про затвердження кошторису на 2026 рік", "category": "Фінанси" },
+        "doc5": { "number": "№ 105", "date": "25.11.2025", "title": "Про організацію зимової сесії 2025/2026", "category": "Навчальна діяльність" },
+        "doc6": { "number": "№ 98", "date": "15.11.2025", "title": "Про заходи з протидії корупції", "category": "Антикорупція" },
+        "doc7": { "number": "№ 87", "date": "01.10.2025", "title": "Про затвердження правил внутрішнього розпорядку", "category": "Організація" },
+        "doc8": { "number": "№ 76", "date": "15.09.2025", "title": "Про розподіл бюджетних місць на 2025/2026", "category": "Вступ" }
+      }
+    },
+    "financialReports": {
+      "tag": "Публічність",
+      "title": "Фінансові звіти",
+      "subtitle": "Бюджет, доходи, видатки та фінансова звітність університету.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "yearCardsTitle": "Звіти за роками",
+      "download": "Завантажити",
+      "years": {
+        "2025": { "revenue": "Доходи", "expenses": "Видатки", "stateFunding": "Держфінансування", "ownRevenue": "Власні доходи" },
+        "2024": { "revenue": "Доходи", "expenses": "Видатки", "stateFunding": "Держфінансування", "ownRevenue": "Власні доходи" },
+        "2023": { "revenue": "Доходи", "expenses": "Видатки", "stateFunding": "Держфінансування", "ownRevenue": "Власні доходи" }
+      },
+      "yearValues": {
+        "2025": { "revenue": "125 млн грн", "expenses": "118 млн грн", "stateFunding": "95 млн грн", "ownRevenue": "30 млн грн" },
+        "2024": { "revenue": "118 млн грн", "expenses": "112 млн грн", "stateFunding": "88 млн грн", "ownRevenue": "30 млн грн" },
+        "2023": { "revenue": "110 млн грн", "expenses": "105 млн грн", "stateFunding": "82 млн грн", "ownRevenue": "28 млн грн" }
+      },
+      "keyFiguresTitle": "Ключові показники",
+      "keyFigures": {
+        "totalBudget": { "value": "125 млн грн", "label": "Загальний бюджет (2025)" },
+        "stateShare": { "value": "76%", "label": "Частка держфінансування" },
+        "ownShare": { "value": "24%", "label": "Власні доходи" },
+        "capital": { "value": "8 млн грн", "label": "Капітальні інвестиції" }
+      }
+    },
+    "prozorro": {
+      "tag": "Публічність",
+      "title": "Prozorro",
+      "subtitle": "Закупівлі університету в системі електроних закупівель.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "statsTitle": "Показники закупівель",
+      "stats": {
+        "totalTenders": { "value": "142", "label": "Всього тендерів" },
+        "completed": { "value": "128", "label": "Завершено" },
+        "totalValue": { "value": "18 млн грн", "label": "Загальна вартість" }
+      },
+      "procurementsTitle": "Останні закупівлі",
+      "procurements": {
+        "p1": { "number": "UA-2026-01-015", "title": "Поставка комп'ютерної техніки для навчальних аудиторій", "status": "completed", "amount": "1,2 млн грн", "date": "15.02.2026" },
+        "p2": { "number": "UA-2026-01-012", "title": "Ремонт системи опалення корпусу № 2", "status": "active", "amount": "2,8 млн грн", "date": "01.02.2026" },
+        "p3": { "number": "UA-2025-12-089", "title": "Закупівля меблів для бібліотеки", "status": "completed", "amount": "450 тис. грн", "date": "20.12.2025" },
+        "p4": { "number": "UA-2025-12-076", "title": "Послуги охорони на 2026 рік", "status": "planned", "amount": "3,1 млн грн", "date": "10.12.2025" },
+        "p5": { "number": "UA-2025-11-065", "title": "Поставка лабораторного обладнання", "status": "completed", "amount": "890 тис. грн", "date": "28.11.2025" },
+        "p6": { "number": "UA-2025-11-058", "title": "Канцелярські товари та витратні матеріали", "status": "completed", "amount": "120 тис. грн", "date": "15.11.2025" }
+      },
+      "statusCompleted": "Завершено",
+      "statusActive": "В процесі",
+      "statusPlanned": "Заплановано",
+      "ctaTitle": "Повний реєстр закупівель",
+      "ctaSubtitle": "Усі закупівлі університету публікуються на офіційному порталі Prozorro.",
+      "ctaButton": "Перейти на Prozorro"
+    },
+    "erasmus": {
+      "tag": "Міжнародна діяльність",
+      "title": "Програми Erasmus+",
+      "subtitle": "Академічні обміни, стажування та міжнародна співпраця в рамках Erasmus+.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "programmesTitle": "Типи програм",
+      "programmes": {
+        "student": { "title": "Студентська мобільність", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.", "duration": "3–12 місяців" },
+        "staff": { "title": "Мобільність персоналу", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "duration": "5 днів – 2 місяці" },
+        "capacity": { "title": "Розвиток потенціалу", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "duration": "Проєкти 24–36 міс" }
+      },
+      "howToTitle": "Як подати заявку",
+      "steps": {
+        "step1": { "title": "Перевірте умови", "text": "Переконайтесь, що відповідаєте критеріям програми та маєте угоду з партнерським вузом." },
+        "step2": { "title": "Подайте заявку", "text": "Зберіть документи та подайте заявку через відділ міжнародних зв'язків у встановлені терміни." },
+        "step3": { "title": "Отримайте відбір", "text": "Комісія розгляне заявки та оприлюднить список рекомендованих кандидатів." },
+        "step4": { "title": "Виїзд", "text": "Підготуйте документи для виїзду, отримайте підтримку та вирушайте в партнерський вуз." }
+      },
+      "partnersTitle": "Університети-партнери",
+      "partnersNote": "ХНПУ співпрацює з десятками університетів у межах Erasmus+ по всій Європі."
+    },
+    "mobility": {
+      "tag": "Міжнародна діяльність",
+      "title": "Академічна мобільність",
+      "subtitle": "Обмін студентами та викладачами з зарубіжними партнерами.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "typesTitle": "Види мобільності",
+      "types": {
+        "incomingStudents": { "title": "В'їзні студенти", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "outgoingStudents": { "title": "Від'їзні студенти", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "incomingStaff": { "title": "В'їзний персонал", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "outgoingStaff": { "title": "Від'їзний персонал", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "statsTitle": "Показники",
+      "stats": {
+        "sent": { "value": "85", "label": "Студентів відправлено" },
+        "received": { "value": "42", "label": "Студентів прийнято" },
+        "countries": { "value": "12", "label": "Країн-партнерів" },
+        "agreements": { "value": "28", "label": "Угод про співпрацю" }
+      },
+      "testimonialsTitle": "Відгуки учасників",
+      "testimonials": {
+        "t1": { "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Unforgettable experience.", "name": "Олена Коваленко", "programme": "Erasmus+, Польща" },
+        "t2": { "quote": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Best semester of my studies.", "name": "Андрій Мельник", "programme": "Erasmus+, Німеччина" },
+        "t3": { "quote": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Highly recommend.", "name": "Марія Сидоренко", "programme": "Erasmus+, Італія" }
+      }
+    },
+    "inclusive": {
+      "tag": "Міжнародна діяльність",
+      "title": "Інклюзивний простір",
+      "subtitle": "Доступність та підтримка для всіх учасників освітнього процесу.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "featuresTitle": "Доступність та підтримка",
+      "features": {
+        "barrierFree": { "title": "Безбар'єрний доступ", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "assistive": { "title": "Асистивні технології", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "signLanguage": { "title": "Послуги сурдоперекладу", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "adapted": { "title": "Адаптовані матеріали", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "individual": { "title": "Індивідуальні плани", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "transport": { "title": "Транспортна підтримка", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "supportTitle": "Служба підтримки",
+      "supportText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "supportImageAlt": "Інклюзивний простір",
+      "contactTitle": "Контакт координатора",
+      "contact": {
+        "name": "Олена Коваленко",
+        "position": "Координатор з інклюзії",
+        "phone": "Телефон",
+        "email": "Ел. пошта"
+      }
+    },
+    "anticorruption": {
+      "tag": "Публічність",
+      "title": "Антикорупція",
+      "subtitle": "Політика протидії корупції, канали звернень та дотримання стандартів.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "documentsTitle": "Нормативні документи",
+      "documents": {
+        "d1": { "title": "Програма протидії корупції", "date": "2024" },
+        "d2": { "title": "Кодекс етики", "date": "2023" },
+        "d3": { "title": "Порядок розгляду звернень", "date": "2023" },
+        "d4": { "title": "Захист осіб, які повідомили про порушення", "date": "2024" }
+      },
+      "viewPdf": "Переглянути PDF",
+      "channelsTitle": "Канали звернень",
+      "channels": {
+        "online": { "name": "Онлайн-форма", "contact": "Заповніть форму на сайті університету в розділі «Зворотний зв'язок»." },
+        "email": { "name": "Електронна пошта", "contact": "anticorruption@KhNPU.edu.ua" },
+        "hotline": { "name": "Гаряча лінія", "contact": "+38 (057) 700-02-99 (пн–пт 9:00–17:00)" }
+      },
+      "statsTitle": "Дотримання та навчання",
+      "stats": {
+        "reportsReviewed": { "value": "24", "label": "Звернень розглянуто (2025)" },
+        "trainingsConducted": { "value": "12", "label": "Навчань проведено" },
+        "staffTrained": { "value": "98%", "label": "Працівників пройшли навчання" }
+      }
+    },
+    "integrity": {
+      "tag": "Міжнародна діяльність",
+      "title": "Академічна доброчесність",
+      "subtitle": "Принципи, політики та ресурси для забезпечення чесності в навчанні та науці.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "principlesTitle": "Принципи академічної доброчесності",
+      "principles": {
+        "honesty": { "title": "Чесність", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "trust": { "title": "Довіра", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "fairness": { "title": "Справедливість", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "respect": { "title": "Повага", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "responsibility": { "title": "Відповідальність", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "courage": { "title": "Мужність", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "documentsTitle": "Документи",
+      "documents": {
+        "d1": { "title": "Кодекс академічної доброчесності", "date": "2024" },
+        "d2": { "title": "Положення про плагіат", "date": "2023" },
+        "d3": { "title": "Порядок апеляції", "date": "2023" }
+      },
+      "viewPdf": "Переглянути PDF",
+      "resourcesTitle": "Ресурси",
+      "resources": {
+        "antiplagiarism": { "title": "Інструменти антиплагіату", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "citation": { "title": "Правила цитування", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "training": { "title": "Навчальні семінари", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." }
+      }
     }
   },
   "admissions": {

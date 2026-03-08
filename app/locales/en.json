@@ -357,6 +357,381 @@
         "5": { "number": "No. 5", "date": "November 2025", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
         "6": { "number": "No. 6", "date": "October 2025", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
       }
+    },
+    "rectorate": {
+      "tag": "Management",
+      "title": "Rectorate",
+      "subtitle": "University leadership: rector and vice-rectors.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "rectorTitle": "Rector",
+      "rector": {
+        "name": "Ivan Petrenko",
+        "title": "Rector of H. S. Skovoroda KhNPU",
+        "degree": "Doctor of Pedagogical Sciences, Professor",
+        "reception": "Reception: Tue, Thu 10:00–12:00",
+        "phone": "Phone",
+        "email": "Email"
+      },
+      "viceRectorsTitle": "Vice-rectors",
+      "viceRectors": {
+        "v1": { "name": "Olena Kovalenko", "title": "First Vice-Rector", "area": "Academic and methodological work" },
+        "v2": { "name": "Andriy Melnyk", "title": "Vice-Rector for Research", "area": "Research and international relations" },
+        "v3": { "name": "Maria Sydorenko", "title": "Vice-Rector for Administration", "area": "Operations and development" }
+      }
+    },
+    "council": {
+      "tag": "Management",
+      "title": "Academic council",
+      "subtitle": "The university's highest collegial body: composition, leadership and decisions.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "leadershipTitle": "Council leadership",
+      "leadership": {
+        "chair": { "name": "Ivan Petrenko", "role": "Chair of the academic council" },
+        "secretary": { "name": "Olena Kovalenko", "role": "Secretary of the academic council" },
+        "deputy": { "name": "Andriy Melnyk", "role": "Deputy chair" }
+      },
+      "compositionTitle": "Council composition",
+      "composition": {
+        "total": "Council members",
+        "faculty": "Faculty representatives",
+        "students": "Student representatives"
+      },
+      "facultiesRepresented": "The council includes representatives of the faculties of education, history, philology, natural sciences, arts, physical education and others.",
+      "decisionsTitle": "Recent decisions",
+      "decisions": {
+        "d1": { "date": "15.02.2026", "title": "On approval of educational programmes", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "d2": { "date": "28.01.2026", "title": "On conferral of academic degrees", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "d3": { "date": "10.01.2026", "title": "On the academic calendar 2025/2026", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "d4": { "date": "20.12.2025", "title": "On approval of structural unit regulations", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      }
+    },
+    "supervisoryBoard": {
+      "tag": "Management",
+      "title": "Supervisory board",
+      "subtitle": "The supervisory board exercises strategic oversight and protects the interests of the university.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "membersTitle": "Board members",
+      "members": {
+        "m1": { "name": "Serhiy Oliynyk", "position": "Chair of the board", "organisation": "Ministry of Education and Science of Ukraine" },
+        "m2": { "name": "Nataliya Kravchenko", "position": "Deputy chair", "organisation": "Kharkiv Regional Council" },
+        "m3": { "name": "Dmytro Tkachenko", "position": "Board member", "organisation": "KhNPU Alumni Association" },
+        "m4": { "name": "Kateryna Bondarenko", "position": "Board member", "organisation": "Education Employers Federation" },
+        "m5": { "name": "Yuriy Shevchenko", "position": "Board member", "organisation": "Academic community" },
+        "m6": { "name": "Iryna Lysenko", "position": "Board member", "organisation": "International partners" }
+      },
+      "functionsTitle": "Functions of the supervisory board",
+      "functions": {
+        "strategic": { "title": "Strategic oversight", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "financial": { "title": "Financial control", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat." },
+        "development": { "title": "Institutional development", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "structure": {
+      "tag": "Management",
+      "title": "Structural units",
+      "subtitle": "Organisational structure of the university: faculties, institutes and services.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "faculties": "Faculties",
+      "facultiesList": ["Faculty of Education", "Faculty of History", "Faculty of Philology", "Faculty of Natural Sciences", "Faculty of Arts"],
+      "institutes": "Institutes",
+      "institutesList": ["Institute for Advanced Training", "Institute of Arts"],
+      "administrative": "Administrative units",
+      "administrativeList": ["HR Department", "Accounting", "Legal Department", "International Office"],
+      "research": "Research centres",
+      "researchList": ["Centre for Pedagogical Research", "Digital Education Technologies Laboratory"],
+      "services": "Services",
+      "servicesList": ["Library", "IT Service", "Facilities Management"],
+      "linkToFaculties": "Full list of faculties and departments",
+      "linkToFacultiesUrl": "/university/faculties"
+    },
+    "faculties": {
+      "tag": "Management",
+      "title": "Faculties and departments",
+      "subtitle": "Faculty structure, deans and list of departments at KhNPU.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "dean": "Dean",
+      "departmentsCount": "Departments",
+      "studentsCount": "Students",
+      "facultiesList": {
+        "f1": { "name": "Faculty of Education", "dean": "Olena Kovalenko", "departments": ["Pedagogy and Psychology", "Primary Education", "Preschool Education", "Social Pedagogy"], "departmentsNum": "4", "students": "1,200" },
+        "f2": { "name": "Faculty of History", "dean": "Andriy Melnyk", "departments": ["History of Ukraine", "World History", "Archaeology and Museology"], "departmentsNum": "3", "students": "450" },
+        "f3": { "name": "Faculty of Philology", "dean": "Maria Sydorenko", "departments": ["Ukrainian Language", "Ukrainian Literature", "Foreign Languages", "Journalism"], "departmentsNum": "4", "students": "890" },
+        "f4": { "name": "Faculty of Natural Sciences", "dean": "Dmytro Tkachenko", "departments": ["Mathematics", "Physics", "Chemistry", "Biology", "Geography"], "departmentsNum": "5", "students": "620" },
+        "f5": { "name": "Faculty of Arts", "dean": "Kateryna Bondarenko", "departments": ["Music", "Visual Arts", "Choreography"], "departmentsNum": "3", "students": "380" },
+        "f6": { "name": "Faculty of Physical Education", "dean": "Yuriy Shevchenko", "departments": ["Theory and Methods of Physical Education", "Sports Games"], "departmentsNum": "2", "students": "410" }
+      }
+    },
+    "press": {
+      "tag": "Management",
+      "title": "Press centre (for media)",
+      "subtitle": "Information for journalists, accreditation and expert commentary.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "servicesTitle": "Press centre services",
+      "services": {
+        "releases": { "title": "Press releases", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "accreditation": { "title": "Media accreditation", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "experts": { "title": "Expert commentary", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "brand": { "title": "Brand assets", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "contactTitle": "Press office contact",
+      "contact": {
+        "name": "Olena Kovalenko",
+        "position": "Head of Press Centre",
+        "phone": "Phone",
+        "email": "Email"
+      }
+    },
+    "contacts": {
+      "tag": "Transparency",
+      "title": "Contacts and map",
+      "subtitle": "Address, directions, opening hours and contacts of structural units.",
+      "addressTitle": "Address and directions",
+      "addressText": "29 Alchevskykh St., Kharkiv. Main building of H. S. Skovoroda KhNPU.",
+      "phoneEmailTitle": "Phone and email",
+      "hoursTitle": "Working hours",
+      "hoursText": "Mon–Fri 8:30 AM–5:00 PM. Public reception by appointment.",
+      "departmentsTitle": "Key departments",
+      "departments": {
+        "admissions": { "name": "Admissions office", "phone": "+38 (057) 700-02-38", "room": "Room 101" },
+        "international": { "name": "International office", "phone": "+38 (057) 700-02-40", "room": "Room 205" },
+        "deans": { "name": "Dean's offices", "phone": "+38 (057) 700-02-45", "room": "Building 2" },
+        "library": { "name": "Library", "phone": "+38 (057) 700-02-50", "room": "Main building" },
+        "it": { "name": "IT support", "phone": "+38 (057) 700-02-55", "room": "Room 310" }
+      }
+    },
+    "statute": {
+      "tag": "Transparency",
+      "title": "Charter and licences",
+      "subtitle": "Key documents governing the university's activities.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "documentsTitle": "Documents",
+      "documents": {
+        "d1": { "name": "Charter of H. S. Skovoroda KhNPU", "date": "2021", "authority": "Ministry of Education and Science of Ukraine" },
+        "d2": { "name": "Licence for educational activity", "date": "2024", "authority": "Ministry of Education and Science of Ukraine" },
+        "d3": { "name": "Accreditation certificate", "date": "2024", "authority": "NAQA" },
+        "d4": { "name": "Regulations on structural units", "date": "2023", "authority": "Academic Council of KhNPU" },
+        "d5": { "name": "Internal regulations", "date": "2022", "authority": "Academic Council of KhNPU" }
+      },
+      "viewPdf": "View PDF",
+      "regulatoryNote": "The full list of regulatory documents is kept at the rectorate and on the university website."
+    },
+    "publicInfo": {
+      "tag": "Transparency",
+      "title": "Public information",
+      "subtitle": "Open data and university reporting in accordance with legislation.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "categoriesTitle": "Information categories",
+      "categories": {
+        "general": { "title": "General information", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "financial": { "title": "Financial data", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "personnel": { "title": "Personnel", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "students": { "title": "Student statistics", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "infrastructure": { "title": "Infrastructure", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "international": { "title": "International activity", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "reportingTitle": "Reporting",
+      "reporting": {
+        "annual": { "title": "Annual report", "year": "2025" },
+        "selfAssessment": { "title": "Self-assessment report", "year": "2025" },
+        "audit": { "title": "External audit", "year": "2024" }
+      },
+      "download": "Download"
+    },
+    "orders": {
+      "tag": "Transparency",
+      "title": "Orders and regulations",
+      "subtitle": "Rector's official orders and internal regulatory documents.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "filterAll": "All",
+      "documentsTitle": "Orders and regulations",
+      "documents": {
+        "doc1": { "number": "No. 145", "date": "15.02.2026", "title": "On approval of the academic calendar", "category": "Academic affairs" },
+        "doc2": { "number": "No. 132", "date": "28.01.2026", "title": "On amendments to the scholarship regulations", "category": "Students" },
+        "doc3": { "number": "No. 128", "date": "20.01.2026", "title": "On appointment of heads of structural units", "category": "Personnel" },
+        "doc4": { "number": "No. 118", "date": "10.12.2025", "title": "On approval of the 2026 budget", "category": "Finance" },
+        "doc5": { "number": "No. 105", "date": "25.11.2025", "title": "On organisation of winter examination session 2025/2026", "category": "Academic affairs" },
+        "doc6": { "number": "No. 98", "date": "15.11.2025", "title": "On anti-corruption measures", "category": "Anti-corruption" },
+        "doc7": { "number": "No. 87", "date": "01.10.2025", "title": "On approval of internal regulations", "category": "Organisation" },
+        "doc8": { "number": "No. 76", "date": "15.09.2025", "title": "On allocation of state-funded places 2025/2026", "category": "Admissions" }
+      }
+    },
+    "financialReports": {
+      "tag": "Transparency",
+      "title": "Financial reports",
+      "subtitle": "Budget, revenue, expenditure and financial reporting of the university.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "yearCardsTitle": "Reports by year",
+      "download": "Download",
+      "years": {
+        "2025": { "revenue": "Revenue", "expenses": "Expenses", "stateFunding": "State funding", "ownRevenue": "Own revenue" },
+        "2024": { "revenue": "Revenue", "expenses": "Expenses", "stateFunding": "State funding", "ownRevenue": "Own revenue" },
+        "2023": { "revenue": "Revenue", "expenses": "Expenses", "stateFunding": "State funding", "ownRevenue": "Own revenue" }
+      },
+      "yearValues": {
+        "2025": { "revenue": "125 m UAH", "expenses": "118 m UAH", "stateFunding": "95 m UAH", "ownRevenue": "30 m UAH" },
+        "2024": { "revenue": "118 m UAH", "expenses": "112 m UAH", "stateFunding": "88 m UAH", "ownRevenue": "30 m UAH" },
+        "2023": { "revenue": "110 m UAH", "expenses": "105 m UAH", "stateFunding": "82 m UAH", "ownRevenue": "28 m UAH" }
+      },
+      "keyFiguresTitle": "Key figures",
+      "keyFigures": {
+        "totalBudget": { "value": "125 m UAH", "label": "Total budget (2025)" },
+        "stateShare": { "value": "76%", "label": "State funding share" },
+        "ownShare": { "value": "24%", "label": "Own revenue" },
+        "capital": { "value": "8 m UAH", "label": "Capital investments" }
+      }
+    },
+    "prozorro": {
+      "tag": "Transparency",
+      "title": "Prozorro",
+      "subtitle": "University procurements in the electronic procurement system.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "statsTitle": "Procurement indicators",
+      "stats": {
+        "totalTenders": { "value": "142", "label": "Total tenders" },
+        "completed": { "value": "128", "label": "Completed" },
+        "totalValue": { "value": "18 m UAH", "label": "Total value" }
+      },
+      "procurementsTitle": "Recent procurements",
+      "procurements": {
+        "p1": { "number": "UA-2026-01-015", "title": "Supply of computer equipment for lecture halls", "status": "completed", "amount": "1.2 m UAH", "date": "15.02.2026" },
+        "p2": { "number": "UA-2026-01-012", "title": "Heating system repair, building No. 2", "status": "active", "amount": "2.8 m UAH", "date": "01.02.2026" },
+        "p3": { "number": "UA-2025-12-089", "title": "Library furniture procurement", "status": "completed", "amount": "450 k UAH", "date": "20.12.2025" },
+        "p4": { "number": "UA-2025-12-076", "title": "Security services for 2026", "status": "planned", "amount": "3.1 m UAH", "date": "10.12.2025" },
+        "p5": { "number": "UA-2025-11-065", "title": "Laboratory equipment supply", "status": "completed", "amount": "890 k UAH", "date": "28.11.2025" },
+        "p6": { "number": "UA-2025-11-058", "title": "Stationery and consumables", "status": "completed", "amount": "120 k UAH", "date": "15.11.2025" }
+      },
+      "statusCompleted": "Completed",
+      "statusActive": "In progress",
+      "statusPlanned": "Planned",
+      "ctaTitle": "Full procurement register",
+      "ctaSubtitle": "All university procurements are published on the official Prozorro portal.",
+      "ctaButton": "Go to Prozorro"
+    },
+    "erasmus": {
+      "tag": "International",
+      "title": "Erasmus+ programmes",
+      "subtitle": "Academic exchanges, traineeships and international cooperation under Erasmus+.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "programmesTitle": "Programme types",
+      "programmes": {
+        "student": { "title": "Student mobility", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.", "duration": "3–12 months" },
+        "staff": { "title": "Staff mobility", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "duration": "5 days – 2 months" },
+        "capacity": { "title": "Capacity building", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "duration": "24–36 month projects" }
+      },
+      "howToTitle": "How to apply",
+      "steps": {
+        "step1": { "title": "Check eligibility", "text": "Ensure you meet the programme criteria and have an agreement with a partner university." },
+        "step2": { "title": "Submit application", "text": "Gather documents and submit your application through the international office by the deadline." },
+        "step3": { "title": "Get selected", "text": "The committee will review applications and publish the list of recommended candidates." },
+        "step4": { "title": "Travel", "text": "Prepare travel documents, receive support and depart for the partner university." }
+      },
+      "partnersTitle": "Partner universities",
+      "partnersNote": "KhNPU cooperates with dozens of universities across Europe under Erasmus+."
+    },
+    "mobility": {
+      "tag": "International",
+      "title": "Academic mobility",
+      "subtitle": "Student and staff exchange with international partners.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "typesTitle": "Types of mobility",
+      "types": {
+        "incomingStudents": { "title": "Incoming students", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "outgoingStudents": { "title": "Outgoing students", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "incomingStaff": { "title": "Incoming staff", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "outgoingStaff": { "title": "Outgoing staff", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "statsTitle": "Indicators",
+      "stats": {
+        "sent": { "value": "85", "label": "Students sent" },
+        "received": { "value": "42", "label": "Students received" },
+        "countries": { "value": "12", "label": "Partner countries" },
+        "agreements": { "value": "28", "label": "Cooperation agreements" }
+      },
+      "testimonialsTitle": "Participant testimonials",
+      "testimonials": {
+        "t1": { "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Unforgettable experience.", "name": "Olena Kovalenko", "programme": "Erasmus+, Poland" },
+        "t2": { "quote": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Best semester of my studies.", "name": "Andriy Melnyk", "programme": "Erasmus+, Germany" },
+        "t3": { "quote": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Highly recommend.", "name": "Maria Sydorenko", "programme": "Erasmus+, Italy" }
+      }
+    },
+    "inclusive": {
+      "tag": "International",
+      "title": "Inclusive space",
+      "subtitle": "Accessibility and support for all participants in the educational process.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "featuresTitle": "Accessibility and support",
+      "features": {
+        "barrierFree": { "title": "Barrier-free access", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "assistive": { "title": "Assistive technologies", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "signLanguage": { "title": "Sign language services", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "adapted": { "title": "Adapted materials", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "individual": { "title": "Individual plans", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "transport": { "title": "Transport assistance", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "supportTitle": "Support service",
+      "supportText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "supportImageAlt": "Inclusive space",
+      "contactTitle": "Coordinator contact",
+      "contact": {
+        "name": "Olena Kovalenko",
+        "position": "Inclusion coordinator",
+        "phone": "Phone",
+        "email": "Email"
+      }
+    },
+    "anticorruption": {
+      "tag": "Transparency",
+      "title": "Anti-corruption",
+      "subtitle": "Anti-corruption policy, reporting channels and compliance standards.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "documentsTitle": "Policy documents",
+      "documents": {
+        "d1": { "title": "Anti-corruption programme", "date": "2024" },
+        "d2": { "title": "Code of ethics", "date": "2023" },
+        "d3": { "title": "Complaints procedure", "date": "2023" },
+        "d4": { "title": "Whistleblower protection", "date": "2024" }
+      },
+      "viewPdf": "View PDF",
+      "channelsTitle": "Reporting channels",
+      "channels": {
+        "online": { "name": "Online form", "contact": "Fill in the form on the university website in the «Feedback» section." },
+        "email": { "name": "Email", "contact": "anticorruption@KhNPU.edu.ua" },
+        "hotline": { "name": "Hotline", "contact": "+38 (057) 700-02-99 (Mon–Fri 9:00–17:00)" }
+      },
+      "statsTitle": "Compliance and training",
+      "stats": {
+        "reportsReviewed": { "value": "24", "label": "Reports reviewed (2025)" },
+        "trainingsConducted": { "value": "12", "label": "Trainings conducted" },
+        "staffTrained": { "value": "98%", "label": "Staff trained" }
+      }
+    },
+    "integrity": {
+      "tag": "International",
+      "title": "Academic integrity",
+      "subtitle": "Principles, policies and resources for ensuring honesty in teaching and research.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "principlesTitle": "Principles of academic integrity",
+      "principles": {
+        "honesty": { "title": "Honesty", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "trust": { "title": "Trust", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "fairness": { "title": "Fairness", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "respect": { "title": "Respect", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "responsibility": { "title": "Responsibility", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "courage": { "title": "Courage", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "documentsTitle": "Documents",
+      "documents": {
+        "d1": { "title": "Integrity code", "date": "2024" },
+        "d2": { "title": "Plagiarism policy", "date": "2023" },
+        "d3": { "title": "Appeal procedure", "date": "2023" }
+      },
+      "viewPdf": "View PDF",
+      "resourcesTitle": "Resources",
+      "resources": {
+        "antiplagiarism": { "title": "Anti-plagiarism tools", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "citation": { "title": "Citation guides", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "training": { "title": "Training workshops", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." }
+      }
     }
   },
   "admissions": {

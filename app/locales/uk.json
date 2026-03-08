@@ -1575,6 +1575,369 @@
     "sitemap": "Карта сайту",
     "accessibility": "Для людей із вадами зору"
   },
+  "student": {
+    "schedule": {
+      "tag": "Студенту",
+      "title": "Розклад занять",
+      "subtitle": "Актуальний розклад пар за факультетами та групами.",
+      "intro": "Переглядайте розклад занять у зручному форматі. Оберіть факультет і групу, щоб побачити розклад. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "howToTitle": "Як скористатися розкладом",
+      "steps": {
+        "faculty": { "title": "Оберіть факультет", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "group": { "title": "Оберіть групу", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "view": { "title": "Переглядайте розклад", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." }
+      },
+      "quickLinksTitle": "Корисні посилання",
+      "quickLinks": {
+        "mobile": { "title": "Мобільний додаток", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        "printable": { "title": "Версія для друку", "text": "Duis aute irure dolor in reprehenderit in voluptate velit." },
+        "contacts": { "title": "Контакти деканатів", "text": "Excepteur sint occaecat cupidatat non proident." }
+      }
+    },
+    "moodle": {
+      "tag": "Студенту",
+      "title": "Електронний кампус (Moodle)",
+      "subtitle": "Курси, матеріали, завдання та оцінки в одному місці.",
+      "intro": "Moodle — це платформа для дистанційного та змішаного навчання. Тут зберігаються матеріали курсів, завдання, форуми та оцінки. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "featuresTitle": "Можливості платформи",
+      "features": {
+        "materials": { "title": "Матеріали курсів", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "assignments": { "title": "Завдання", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "forum": { "title": "Форуми", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "grades": { "title": "Оцінки", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "video": { "title": "Відеолекції", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "quizzes": { "title": "Тести", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." }
+      },
+      "gettingStartedTitle": "Як почати",
+      "steps": {
+        "credentials": { "title": "Отримайте доступ", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "login": { "title": "Увійдіть у систему", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "enrol": { "title": "Запишіться на курси", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "learn": { "title": "Почніть навчання", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      }
+    },
+    "grades": {
+      "tag": "Студенту",
+      "title": "АСУ НЗ / Е-відомості",
+      "subtitle": "Перегляд оцінок та академічної успішності.",
+      "intro": "Система АСУ НЗ дозволяє переглядати оцінки, відстежувати прогрес та отримувати витяги. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "featuresTitle": "Можливості",
+      "features": {
+        "view": { "title": "Перегляд оцінок", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "progress": { "title": "Відстеження прогресу", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "transcripts": { "title": "Витяги та довідки", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "appeal": { "title": "Процес апеляції", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      }
+    },
+    "email": {
+      "tag": "Студенту",
+      "title": "Корпоративна пошта",
+      "subtitle": "Університетська пошта для навчання та офіційного листування.",
+      "intro": "Кожен студент отримує корпоративну поштову скриньку для навчальних матеріалів, оголошень та офіційного листування. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "setupTitle": "Як налаштувати",
+      "steps": {
+        "credentials": { "title": "Отримайте облікові дані", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "configure": { "title": "Налаштуйте клієнт", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "webmail": { "title": "Доступ до веб-пошти", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." }
+      },
+      "faqTitle": "Часті запитання",
+      "faq": {
+        "storage": { "title": "Ліміти зберігання", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "password": { "title": "Скидання пароля", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "mobile": { "title": "Налаштування на телефоні", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "forwarding": { "title": "Пересилання листів", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "dormitories": {
+      "tag": "Студенту",
+      "title": "Гуртожитки",
+      "subtitle": "Університетське житло для студентів денної форми.",
+      "intro": "Студенти денної форми можуть подати заявку на поселення в один із гуртожитків. Звертайтеся до деканату або соціальної служби щодо заявки та обміну кімнатами. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Наші гуртожитки",
+      "dorm1": { "name": "Гуртожиток № 1", "address": "вул. Алчевських, 31", "capacity": "280 місць", "distance": "5 хв пішки від корпусу", "amenity1": "Їдальня", "amenity2": "Пральня", "amenity3": "Обмін кімнатами — через вихователя" },
+      "dorm2": { "name": "Гуртожиток № 2", "address": "вул. Алчевських, 33", "capacity": "320 місць", "distance": "7 хв пішки від корпусу", "amenity1": "Спортивний зал", "amenity2": "Читальний зал", "amenity3": "Кімнати для самопідготовки" },
+      "dorm3": { "name": "Гуртожиток № 3", "address": "вул. Алчевських, 35", "capacity": "240 місць", "distance": "8 хв пішки від корпусу", "amenity1": "Wi‑Fi", "amenity2": "Спільна кухня", "amenity3": "Обмін кімнатами — через вихователя" },
+      "howToGetTitle": "Як отримати місце",
+      "step1Title": "Подайте заявку через деканат",
+      "step1Text": "Подайте заявку на поселення через деканат факультету або соціальну службу.",
+      "step2Title": "Отримайте направлення",
+      "step2Text": "Дочекайтесь рішення про розселення. Вам повідомлять номер гуртожитку та кімнати.",
+      "step3Title": "Заселіться",
+      "step3Text": "Прибуйте до гуртожитку з паспортом та направленням для оформлення поселення.",
+      "step4Title": "Оселіться",
+      "step4Text": "Ознайомтесь із правилами, познайомтесь із вихователем та отримайте ключ. Щодо обміну кімнатами звертайтесь до офісу."
+    },
+    "psychology": {
+      "tag": "Студенту",
+      "title": "Психологічна служба",
+      "subtitle": "Конфіденційна підтримка психічного здоров'я та благополуччя студентів.",
+      "intro": "Психологічна служба університету пропонує індивідуальну та групову підтримку, щоб допомогти впоратися зі стресом, адаптуватися до студентського життя та підтримувати благополуччя. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Наші послуги",
+      "services": {
+        "individual": { "title": "Індивідуальне консультування", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "group": { "title": "Групові заняття", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "crisis": { "title": "Кризова підтримка", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "workshops": { "title": "Майстер-класи", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "contactTitle": "Контакти",
+      "contactPhone": "Телефон",
+      "contactEmail": "Email",
+      "contactHours": "Години роботи",
+      "contactLocation": "Адреса"
+    },
+    "social": {
+      "tag": "Студенту",
+      "title": "Соціальна підтримка",
+      "subtitle": "Стипендії, матеріальна допомога та пільги для студентів.",
+      "intro": "Університет надає різні види соціальної підтримки: стипендії, матеріальну допомогу, пільги для окремих категорій студентів. Звертайтеся до деканату та соціальної служби за деталями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categoriesTitle": "Види підтримки",
+      "categories": {
+        "scholarships": { "title": "Стипендії", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "financialAid": { "title": "Матеріальна допомога", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat." },
+        "orphanSupport": { "title": "Підтримка дітей-сиріт", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt." },
+        "disabilitySupport": { "title": "Інклюзивна підтримка", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip." },
+        "warAffected": { "title": "Студенти, постраждалі від війни", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "housingAssistance": { "title": "Допомога з проживанням", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "howToApplyTitle": "Як подати заявку",
+      "step1Title": "Зверніться до деканату",
+      "step1Text": "Отримайте консультацію щодо пільг та необхідних документів у деканаті факультету або соціальній службі.",
+      "step2Title": "Підготуйте документи",
+      "step2Text": "Зберіть пакет документів згідно з переліком для обраного виду підтримки.",
+      "step3Title": "Подайте заявку",
+      "step3Text": "Подайте заявку та документи в установлені терміни через деканат або соціальну службу."
+    },
+    "canteens": {
+      "tag": "Студенту",
+      "title": "Їдальні",
+      "subtitle": "Студентські їдальні: розклад роботи та приклад меню.",
+      "intro": "У кампусі працюють їдальні з доступними цінами та зручним графіком. Нижче — приклад меню та адреси. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Їдальні університету",
+      "canteen1": { "name": "Їдальня № 1", "building": "Головний корпус, 1 поверх", "hours": "Пн–Пт 8:00–16:00", "capacity": "120 місць" },
+      "canteen2": { "name": "Їдальня № 2", "building": "Корпус № 2", "hours": "Пн–Пт 8:30–15:30", "capacity": "80 місць" },
+      "canteen3": { "name": "Їдальня № 3", "building": "Гуртожиток № 1", "hours": "Щодня 7:00–20:00", "capacity": "60 місць" },
+      "menuTitle": "Приклад меню",
+      "menu": {
+        "breakfast": { "title": "Сніданок", "dish1": "Каша вівсяна", "price1": "25 грн", "dish2": "Сирники", "price2": "35 грн", "dish3": "Омлет", "price3": "30 грн", "dish4": "Бутерброд з сиром", "price4": "20 грн" },
+        "lunch": { "title": "Обід", "dish1": "Борщ", "price1": "40 грн", "dish2": "Котлета з гарніром", "price2": "55 грн", "dish3": "Салат", "price3": "30 грн", "dish4": "Компот", "price4": "15 грн" },
+        "dinner": { "title": "Вечеря", "dish1": "Суп", "price1": "35 грн", "dish2": "Риба з овочами", "price2": "60 грн", "dish3": "Гречка з м'ясом", "price3": "50 грн", "dish4": "Чай", "price4": "10 грн" }
+      }
+    },
+    "medical": {
+      "tag": "Студенту",
+      "title": "Медичне обслуговування",
+      "subtitle": "Медичні пункти та базові медичні послуги для студентів.",
+      "intro": "Університет надає студентам доступ до медичного обслуговування: профілактичні огляди, щеплення, перша допомога та довідки для навчання. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Послуги",
+      "services": {
+        "checkups": { "title": "Профілактичні огляди", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "vaccinations": { "title": "Щеплення", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "dental": { "title": "Стоматологія", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "firstAid": { "title": "Перша допомога", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "referrals": { "title": "Направлення до спеціалістів", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "certificates": { "title": "Медичні довідки", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "locationsTitle": "Медичні пункти",
+      "locationAddress": "Адреса",
+      "locationPhone": "Телефон",
+      "locationHours": "Години роботи",
+      "locations": {
+        "location1": { "name": "Медичний пункт (головний корпус)", "address": "вул. Алчевських, 29, к. 104", "phone": "+38 (057) 700-02-38", "hours": "Пн–Пт 9:00–17:00" },
+        "location2": { "name": "Медичний пункт (гуртожиток № 1)", "address": "вул. Алчевських, 31", "phone": "+38 (057) 700-02-39", "hours": "Пн–Пт 8:00–16:00" }
+      }
+    },
+    "council": {
+      "tag": "Студенту",
+      "title": "Студентська рада",
+      "subtitle": "Представництво інтересів студентів та організація студентського життя.",
+      "intro": "Студентська рада — це орган студентського самоврядування, який представляє інтереси студентів перед адміністрацією, організовує заходи та сприяє розвитку студентського життя. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "teamTitle": "Керівництво",
+      "team": {
+        "t1": { "name": "Коваленко О.І.", "role": "Голова", "faculty": "Філологічний факультет" },
+        "t2": { "name": "Петренко М.В.", "role": "Заступник", "faculty": "Історичний факультет" },
+        "t3": { "name": "Сидоренко А.П.", "role": "Секретар", "faculty": "Факультет математики" },
+        "t4": { "name": "Шевченко К.Л.", "role": "Член ради", "faculty": "Факультет мистецтв" }
+      },
+      "areasTitle": "Напрями діяльності",
+      "areas": {
+        "rights": { "title": "Права студентів", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "academic": { "title": "Навчальні справи", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "events": { "title": "Соціальні заходи", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "international": { "title": "Міжнародна співпраця", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "union": {
+      "tag": "Студенту",
+      "title": "Профспілка студентів",
+      "subtitle": "Правова підтримка, пільги та культурно-спортивні заходи для студентів.",
+      "intro": "Профспілка студентів захищає права студентів, надає юридичні консультації, організовує знижки та культурні та спортивні заходи. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Переваги членства",
+      "benefits": {
+        "legal": { "title": "Правова допомога", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "discounts": { "title": "Знижки", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "cultural": { "title": "Культурні заходи", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "sports": { "title": "Спорт", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "financial": { "title": "Матеріальна допомога", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "development": { "title": "Професійний розвиток", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." }
+      },
+      "contactTitle": "Контакти",
+      "contactPhone": "Телефон",
+      "contactEmail": "Email",
+      "contactHours": "Години роботи",
+      "contactLocation": "Адреса"
+    },
+    "sports": {
+      "tag": "Студенту",
+      "title": "Спортивні секції",
+      "subtitle": "Секції з різних видів спорту, розклад тренувань та досягнення.",
+      "intro": "Університет пропонує студентам заняття у спортивних секціях: футбол, баскетбол, плавання, легка атлетика, волейбол, єдиноборства. Тренування проводять досвідчені тренери. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "sectionsTitle": "Секції",
+      "sections": {
+        "football": { "name": "Футбол", "schedule": "Пн, Ср, Пт 17:00", "coach": "Тренер: Іваненко О.П." },
+        "basketball": { "name": "Баскетбол", "schedule": "Вт, Чт 18:00", "coach": "Тренер: Петренко М.В." },
+        "swimming": { "name": "Плавання", "schedule": "Пн–Пт 7:00", "coach": "Тренер: Сидоренко Л.І." },
+        "athletics": { "name": "Легка атлетика", "schedule": "Вт, Пт 17:30", "coach": "Тренер: Коваленко А.С." },
+        "volleyball": { "name": "Волейбол", "schedule": "Ср, Нд 16:00", "coach": "Тренер: Шевченко В.О." },
+        "martial": { "name": "Єдиноборства", "schedule": "Пн, Ср, Пт 18:30", "coach": "Тренер: Мельник Р.П." }
+      },
+      "achievementsTitle": "Досягнення",
+      "achievements": {
+        "a1": { "name": "Універсіада регіону", "year": "2024", "result": "І місце (волейбол)" },
+        "a2": { "name": "Чемпіонат міста (легка атлетика)", "year": "2024", "result": "ІІ місце" },
+        "a3": { "name": "Кубок з баскетболу", "year": "2023", "result": "ІІІ місце" },
+        "a4": { "name": "Змагання з плавання", "year": "2024", "result": "І місце (естафета)" }
+      }
+    },
+    "arts": {
+      "tag": "Студенту",
+      "title": "Мистецькі колективи",
+      "subtitle": "Хор, танці, театр та інструментальні ансамблі для студентів.",
+      "intro": "Університет підтримує мистецькі колективи: народний хор, танцювальний ансамбль, театральна студія, інструментальний ансамбль. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "ensemblesTitle": "Колективи",
+      "ensembles": {
+        "choir": { "name": "Народний хор", "director": "Керівник: Сидоренко Л.І.", "members": "45 учасників", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "dance": { "name": "Танцювальний ансамбль", "director": "Керівник: Коваленко О.П.", "members": "32 учасники", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
+        "theatre": { "name": "Театральна студія", "director": "Керівник: Петренко М.В.", "members": "28 учасників", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "instrumental": { "name": "Інструментальний ансамбль", "director": "Керівник: Шевченко В.О.", "members": "20 учасників", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea." }
+      },
+      "eventsTitle": "Найближчі виступи",
+      "events": {
+        "e1": { "date": "15 березня 2026", "title": "Концерт до Міжнародного дня театру", "location": "Актовий зал, головний корпус" },
+        "e2": { "date": "22 березня 2026", "title": "Вечір народної музики", "location": "Зал ім. Сковороди" },
+        "e3": { "date": "5 квітня 2026", "title": "Студентський театральний фестиваль", "location": "Театральна студія" }
+      }
+    },
+    "career": {
+      "tag": "Студенту",
+      "title": "Центр кар'єри",
+      "subtitle": "Консультації, ярмарки вакансій та підтримка трудоустрою.",
+      "intro": "Центр кар'єри допомагає студентам і випускникам знайти роботу, готує до співбесід та організовує зустрічі з роботодавцями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Послуги",
+      "services": {
+        "cv": { "title": "Майстер-класи з резюме", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "interview": { "title": "Підготовка до співбесід", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "fairs": { "title": "Ярмарки вакансій", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "employers": { "title": "Презентації роботодавців", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "internship": { "title": "Підбір практики", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "counselling": { "title": "Кар'єрне консультування", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "statsTitle": "Результати",
+      "statPlaced": "Студентів працевлаштовано",
+      "statEmployers": "Партнерів-роботодавців",
+      "statEvents": "Заходів на рік",
+      "ctaTitle": "Запишіться на консультацію",
+      "ctaButton": "Записатися"
+    },
+    "vacancies": {
+      "tag": "Студенту",
+      "title": "Вакансії та практика",
+      "subtitle": "Актуальні вакансії, стажування та подання заявок.",
+      "intro": "Центр кар'єри публікує вакансії від партнерів університету та допомагає з підбором практики. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "filterAll": "Усі",
+      "filterFullTime": "Повна зайнятість",
+      "filterPartTime": "Часткова зайнятість",
+      "filterInternship": "Практика",
+      "vacanciesTitle": "Вакансії",
+      "emptyState": "У цій категорії поки немає вакансій.",
+      "company": "Компанія",
+      "position": "Позиція",
+      "type": "Тип",
+      "location": "Локація",
+      "posted": "Опубліковано",
+      "vacancies": {
+        "v1": { "company": "ТОВ «Освіта плюс»", "position": "Педагог-стажист", "type": "internship", "location": "Харків", "posted": "5 березня 2026" },
+        "v2": { "company": "ДНЗ № 45", "position": "Вихователь", "type": "fullTime", "location": "Харків", "posted": "4 березня 2026" },
+        "v3": { "company": "Центр розвитку дітей", "position": "Викладач англійської", "type": "partTime", "location": "Харків", "posted": "3 березня 2026" },
+        "v4": { "company": "Ліцей № 12", "position": "Вчитель математики", "type": "fullTime", "location": "Харків", "posted": "2 березня 2026" },
+        "v5": { "company": "ТОВ «Інновація»", "position": "Стажист IT-відділу", "type": "internship", "location": "Віддалено", "posted": "1 березня 2026" },
+        "v6": { "company": "Бібліотека ім. Короленка", "position": "Бібліотекар-стажист", "type": "internship", "location": "Харків", "posted": "28 лютого 2026" },
+        "v7": { "company": "Школа мистецтв", "position": "Викладач музики", "type": "partTime", "location": "Харків", "posted": "27 лютого 2026" },
+        "v8": { "company": "Дослідницький центр", "position": "Асистент дослідника", "type": "fullTime", "location": "Харків", "posted": "26 лютого 2026" }
+      }
+    },
+    "alumni": {
+      "tag": "Студенту",
+      "title": "Асоціація випускників",
+      "subtitle": "Мережа випускників, менторство та підтримка кар'єри.",
+      "intro": "Асоціація випускників об'єднує випускників ХНПУ, організовує заходи для нетворкінгу, менторські програми та підтримку кар'єри. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Переваги членства",
+      "benefits": {
+        "networking": { "title": "Заходи для нетворкінгу", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "mentorship": { "title": "Менторська програма", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "careerSupport": { "title": "Підтримка кар'єри", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "discounts": { "title": "Пільги університету", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "notableTitle": "Випускники, якими ми пишаємося",
+      "notable": {
+        "a1": { "name": "Олена Коваленко", "year": "Випуск 2015", "achievement": "Кандидат педагогічних наук, доцент кафедри історії." },
+        "a2": { "name": "Андрій Петренко", "year": "Випуск 2012", "achievement": "Директор школи-ліцею № 12, заслужений вчитель України." },
+        "a3": { "name": "Марія Сидоренко", "year": "Випуск 2018", "achievement": "Наукова співробітниця Інституту педагогіки НАПН України." }
+      }
+    },
+    "nonformal": {
+      "tag": "Студенту",
+      "title": "Неформальна освіта",
+      "subtitle": "Курси мов, IT, лідерство та волонтерство з заліком кредитів.",
+      "intro": "Університет пропонує програми неформальної освіти: мовні курси, IT-навички, лідерство, волонтерські кредити, софт-скіли та підприємництво. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Програми",
+      "programmes": {
+        "language": { "name": "Мовні курси", "duration": "1–2 семестри", "credits": "3–6 кредитів", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "it": { "name": "IT-навички", "duration": "1 семестр", "credits": "2 кредити", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "leadership": { "name": "Лідерство", "duration": "2 семестри", "credits": "4 кредити", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "volunteering": { "name": "Волонтерські кредити", "duration": "за участю", "credits": "до 5 кредитів", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "softSkills": { "name": "Софт-скіли", "duration": "1 семестр", "credits": "2 кредити", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "entrepreneurship": { "name": "Підприємництво", "duration": "2 семестри", "credits": "4 кредити", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "certTitle": "Залік та сертифікація",
+      "certIntro": "Кредити, отримані за програмами неформальної освіти, можуть зараховуватися в навчальний план за рішенням кафедри. Після успішного завершення видається сертифікат університету.",
+      "certPlaceholder": "Зразок сертифікату"
+    },
+    "veteransCenter": {
+      "tag": "Студенту",
+      "title": "Центр розвитку ветеранів",
+      "subtitle": "Підтримка ветеранів: психологія, кар'єра, освіта та спільнота.",
+      "intro": "Центр розвитку ветеранів надає психологічну підтримку, допомагає з реінтеграцією в освіту та кар'єру, організовує менторство та адаптивний спорт. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Послуги",
+      "services": {
+        "psychological": { "title": "Психологічна підтримка", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "career": { "title": "Кар'єрна реінтеграція", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "educational": { "title": "Освітні програми", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "peer": { "title": "Пієр-спільнота", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "supportTitle": "Програми підтримки",
+      "support": {
+        "tuition": { "title": "Підтримка навчання", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "mentorship": { "title": "Менторство", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "sports": { "title": "Адаптивний спорт", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "contactTitle": "Контакти",
+      "contactPhone": "Телефон",
+      "contactEmail": "Email",
+      "contactHours": "Години роботи",
+      "contactCoordinator": "Координатор",
+      "coordinatorName": "Іваненко О.П."
+    }
+  },
   "seo": {
     "home": {
       "title": "ХНПУ імені Г.С. Сковороди",

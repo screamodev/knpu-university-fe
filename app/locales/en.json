@@ -1574,6 +1574,369 @@
     "sitemap": "Sitemap",
     "accessibility": "Accessibility"
   },
+  "student": {
+    "schedule": {
+      "tag": "For students",
+      "title": "Class schedule",
+      "subtitle": "Up-to-date class schedule by faculty and group.",
+      "intro": "View the class schedule in a convenient format. Select your faculty and group to see the schedule. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "howToTitle": "How to use the schedule",
+      "steps": {
+        "faculty": { "title": "Select faculty", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "group": { "title": "Choose group", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "view": { "title": "View schedule", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." }
+      },
+      "quickLinksTitle": "Quick links",
+      "quickLinks": {
+        "mobile": { "title": "Mobile app", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        "printable": { "title": "Printable version", "text": "Duis aute irure dolor in reprehenderit in voluptate velit." },
+        "contacts": { "title": "Faculty contacts", "text": "Excepteur sint occaecat cupidatat non proident." }
+      }
+    },
+    "moodle": {
+      "tag": "For students",
+      "title": "E-campus (Moodle)",
+      "subtitle": "Courses, materials, assignments and grades in one place.",
+      "intro": "Moodle is the platform for distance and blended learning. It hosts course materials, assignments, forums and grades. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "featuresTitle": "Platform features",
+      "features": {
+        "materials": { "title": "Course materials", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "assignments": { "title": "Assignments", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "forum": { "title": "Forum discussions", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "grades": { "title": "Grades", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "video": { "title": "Video lectures", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "quizzes": { "title": "Quizzes", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." }
+      },
+      "gettingStartedTitle": "Getting started",
+      "steps": {
+        "credentials": { "title": "Get credentials", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "login": { "title": "Log in", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "enrol": { "title": "Enrol in courses", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "learn": { "title": "Start learning", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      }
+    },
+    "grades": {
+      "tag": "For students",
+      "title": "ASU NZ / E-grades",
+      "subtitle": "View grades and academic progress.",
+      "intro": "The ASU NZ system lets you view grades, track progress and obtain transcripts. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "featuresTitle": "Features",
+      "features": {
+        "view": { "title": "View grades", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "progress": { "title": "Track progress", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "transcripts": { "title": "Download transcripts", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "appeal": { "title": "Appeal process", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      }
+    },
+    "email": {
+      "tag": "For students",
+      "title": "Corporate email",
+      "subtitle": "University email for study and official communication.",
+      "intro": "All students receive a corporate email account for coursework, announcements and official correspondence. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "setupTitle": "Setup instructions",
+      "steps": {
+        "credentials": { "title": "Receive credentials", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "configure": { "title": "Configure client", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "webmail": { "title": "Access webmail", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." }
+      },
+      "faqTitle": "Frequently asked questions",
+      "faq": {
+        "storage": { "title": "Storage limits", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "password": { "title": "Password reset", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "mobile": { "title": "Mobile setup", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "forwarding": { "title": "Forwarding", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "dormitories": {
+      "tag": "For students",
+      "title": "Dormitories",
+      "subtitle": "University housing for full-time students.",
+      "intro": "Full-time students can apply for a place in one of the university dormitories. Contact your dean's office or the social service for application and room swap information. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Our dormitories",
+      "dorm1": { "name": "Dormitory No. 1", "address": "29 Alchevskykh St", "capacity": "280 places", "distance": "5 min walk from campus", "amenity1": "Canteen", "amenity2": "Laundry", "amenity3": "Contact RA for room swap" },
+      "dorm2": { "name": "Dormitory No. 2", "address": "33 Alchevskykh St", "capacity": "320 places", "distance": "7 min walk from campus", "amenity1": "Sports hall", "amenity2": "Reading room", "amenity3": "Study rooms" },
+      "dorm3": { "name": "Dormitory No. 3", "address": "35 Alchevskykh St", "capacity": "240 places", "distance": "8 min walk from campus", "amenity1": "Wi‑Fi", "amenity2": "Common kitchen", "amenity3": "Contact RA for room swap" },
+      "howToGetTitle": "How to get a room",
+      "step1Title": "Apply via dean's office",
+      "step1Text": "Submit a housing application through your faculty dean's office or the social support service.",
+      "step2Title": "Receive assignment",
+      "step2Text": "Wait for the allocation decision. You will be notified of your dormitory and room number.",
+      "step3Title": "Check in",
+      "step3Text": "Arrive at the dormitory with your ID and assignment notice to complete check-in.",
+      "step4Title": "Settle in",
+      "step4Text": "Get familiar with the rules, meet your RA and collect your key. Contact the office for any room swap requests."
+    },
+    "psychology": {
+      "tag": "For students",
+      "title": "Psychological service",
+      "subtitle": "Confidential support for students' mental health and well-being.",
+      "intro": "The university psychological service offers individual and group support to help you cope with stress, adapt to student life and maintain well-being. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Our services",
+      "services": {
+        "individual": { "title": "Individual counselling", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "group": { "title": "Group sessions", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "crisis": { "title": "Crisis support", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "workshops": { "title": "Workshops", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "contactTitle": "Contact us",
+      "contactPhone": "Phone",
+      "contactEmail": "Email",
+      "contactHours": "Office hours",
+      "contactLocation": "Location"
+    },
+    "social": {
+      "tag": "For students",
+      "title": "Social support",
+      "subtitle": "Scholarships, financial aid and benefits for students.",
+      "intro": "The university provides various forms of social support: scholarships, financial aid and benefits for eligible students. Contact your dean's office or social service for details. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categoriesTitle": "Types of support",
+      "categories": {
+        "scholarships": { "title": "Scholarships", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "financialAid": { "title": "Financial aid", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat." },
+        "orphanSupport": { "title": "Orphan support", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt." },
+        "disabilitySupport": { "title": "Disability support", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip." },
+        "warAffected": { "title": "War-affected students", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "housingAssistance": { "title": "Housing assistance", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "howToApplyTitle": "How to apply",
+      "step1Title": "Consult dean's office",
+      "step1Text": "Get advice on eligibility and required documents from your faculty dean's office or social service.",
+      "step2Title": "Gather documents",
+      "step2Text": "Collect the required documents according to the list for your chosen type of support.",
+      "step3Title": "Submit application",
+      "step3Text": "Submit your application and documents by the deadline via the dean's office or social service."
+    },
+    "canteens": {
+      "tag": "For students",
+      "title": "Canteens",
+      "subtitle": "Student canteens: opening hours and sample menu.",
+      "intro": "Campus canteens offer affordable meals and convenient hours. Below you will find a sample menu and locations. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "University canteens",
+      "canteen1": { "name": "Canteen No. 1", "building": "Main building, 1st floor", "hours": "Mon–Fri 8:00 AM–4:00 PM", "capacity": "120 seats" },
+      "canteen2": { "name": "Canteen No. 2", "building": "Building 2", "hours": "Mon–Fri 8:30 AM–3:30 PM", "capacity": "80 seats" },
+      "canteen3": { "name": "Canteen No. 3", "building": "Dormitory No. 1", "hours": "Daily 7:00 AM–8:00 PM", "capacity": "60 seats" },
+      "menuTitle": "Sample menu",
+      "menu": {
+        "breakfast": { "title": "Breakfast", "dish1": "Oatmeal", "price1": "25 UAH", "dish2": "Syrnyky", "price2": "35 UAH", "dish3": "Omelette", "price3": "30 UAH", "dish4": "Cheese sandwich", "price4": "20 UAH" },
+        "lunch": { "title": "Lunch", "dish1": "Borscht", "price1": "40 UAH", "dish2": "Cutlet with side", "price2": "55 UAH", "dish3": "Salad", "price3": "30 UAH", "dish4": "Compote", "price4": "15 UAH" },
+        "dinner": { "title": "Dinner", "dish1": "Soup", "price1": "35 UAH", "dish2": "Fish with vegetables", "price2": "60 UAH", "dish3": "Buckwheat with meat", "price3": "50 UAH", "dish4": "Tea", "price4": "10 UAH" }
+      }
+    },
+    "medical": {
+      "tag": "For students",
+      "title": "Medical care",
+      "subtitle": "Medical points and basic health services for students.",
+      "intro": "The university provides students with access to medical care: check-ups, vaccinations, first aid and health certificates for studies. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Services",
+      "services": {
+        "checkups": { "title": "General check-ups", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "vaccinations": { "title": "Vaccinations", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "dental": { "title": "Dental care", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "firstAid": { "title": "First aid", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "referrals": { "title": "Specialist referrals", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "certificates": { "title": "Health certificates", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "locationsTitle": "Medical points",
+      "locationAddress": "Address",
+      "locationPhone": "Phone",
+      "locationHours": "Hours",
+      "locations": {
+        "location1": { "name": "Medical point (main building)", "address": "29 Alchevskykh St, room 104", "phone": "+38 (057) 700-02-38", "hours": "Mon–Fri 9:00 AM–5:00 PM" },
+        "location2": { "name": "Medical point (dormitory No. 1)", "address": "31 Alchevskykh St", "phone": "+38 (057) 700-02-39", "hours": "Mon–Fri 8:00 AM–4:00 PM" }
+      }
+    },
+    "council": {
+      "tag": "For students",
+      "title": "Student council",
+      "subtitle": "Representing student interests and organising student life.",
+      "intro": "The student council is the body of student self-government that represents students' interests to the administration, organises events and promotes student life. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "teamTitle": "Leadership team",
+      "team": {
+        "t1": { "name": "Kovalenko O.I.", "role": "Chair", "faculty": "Faculty of Philology" },
+        "t2": { "name": "Petrenko M.V.", "role": "Deputy", "faculty": "Faculty of History" },
+        "t3": { "name": "Sydorenko A.P.", "role": "Secretary", "faculty": "Faculty of Mathematics" },
+        "t4": { "name": "Shevchenko K.L.", "role": "Council member", "faculty": "Faculty of Arts" }
+      },
+      "areasTitle": "Activity areas",
+      "areas": {
+        "rights": { "title": "Student rights", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "academic": { "title": "Academic affairs", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "events": { "title": "Social events", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "international": { "title": "International cooperation", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      }
+    },
+    "union": {
+      "tag": "For students",
+      "title": "Student union",
+      "subtitle": "Legal support, benefits and cultural and sports activities for students.",
+      "intro": "The student union protects students' rights, provides legal advice, organises discounts and cultural and sports events. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Membership benefits",
+      "benefits": {
+        "legal": { "title": "Legal assistance", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "discounts": { "title": "Discounts", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "cultural": { "title": "Cultural events", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "sports": { "title": "Sports", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "financial": { "title": "Financial aid", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "development": { "title": "Professional development", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." }
+      },
+      "contactTitle": "Contact us",
+      "contactPhone": "Phone",
+      "contactEmail": "Email",
+      "contactHours": "Office hours",
+      "contactLocation": "Location"
+    },
+    "sports": {
+      "tag": "For students",
+      "title": "Sports",
+      "subtitle": "Sports sections, training schedule and achievements.",
+      "intro": "The university offers students a range of sports: football, basketball, swimming, athletics, volleyball, martial arts. Training is led by experienced coaches. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "sectionsTitle": "Sections",
+      "sections": {
+        "football": { "name": "Football", "schedule": "Mon, Wed, Fri 5:00 PM", "coach": "Coach: Ivanenko O.P." },
+        "basketball": { "name": "Basketball", "schedule": "Tue, Thu 6:00 PM", "coach": "Coach: Petrenko M.V." },
+        "swimming": { "name": "Swimming", "schedule": "Mon–Fri 7:00 AM", "coach": "Coach: Sydorenko L.I." },
+        "athletics": { "name": "Athletics", "schedule": "Tue, Fri 5:30 PM", "coach": "Coach: Kovalenko A.S." },
+        "volleyball": { "name": "Volleyball", "schedule": "Wed, Sun 4:00 PM", "coach": "Coach: Shevchenko V.O." },
+        "martial": { "name": "Martial arts", "schedule": "Mon, Wed, Fri 6:30 PM", "coach": "Coach: Melnyk R.P." }
+      },
+      "achievementsTitle": "Achievements",
+      "achievements": {
+        "a1": { "name": "Regional Universiade", "year": "2024", "result": "1st place (volleyball)" },
+        "a2": { "name": "City championship (athletics)", "year": "2024", "result": "2nd place" },
+        "a3": { "name": "Basketball cup", "year": "2023", "result": "3rd place" },
+        "a4": { "name": "Swimming competition", "year": "2024", "result": "1st place (relay)" }
+      }
+    },
+    "arts": {
+      "tag": "For students",
+      "title": "Arts groups",
+      "subtitle": "Choir, dance, theatre and instrumental ensembles for students.",
+      "intro": "The university supports arts groups: folk choir, dance ensemble, theatre studio, instrumental ensemble. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "ensemblesTitle": "Ensembles",
+      "ensembles": {
+        "choir": { "name": "Folk choir", "director": "Director: Sydorenko L.I.", "members": "45 members", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "dance": { "name": "Dance ensemble", "director": "Director: Kovalenko O.P.", "members": "32 members", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
+        "theatre": { "name": "Theatre studio", "director": "Director: Petrenko M.V.", "members": "28 members", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "instrumental": { "name": "Instrumental ensemble", "director": "Director: Shevchenko V.O.", "members": "20 members", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea." }
+      },
+      "eventsTitle": "Upcoming performances",
+      "events": {
+        "e1": { "date": "15 March 2026", "title": "Concert for International Theatre Day", "location": "Assembly hall, main building" },
+        "e2": { "date": "22 March 2026", "title": "Evening of folk music", "location": "Skovoroda Hall" },
+        "e3": { "date": "5 April 2026", "title": "Student theatre festival", "location": "Theatre studio" }
+      }
+    },
+    "career": {
+      "tag": "For students",
+      "title": "Career centre",
+      "subtitle": "Consultations, job fairs and employment support.",
+      "intro": "The career centre helps students and graduates find jobs, prepares them for interviews and organises meetings with employers. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Services",
+      "services": {
+        "cv": { "title": "CV workshops", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "interview": { "title": "Interview prep", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "fairs": { "title": "Career fairs", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "employers": { "title": "Employer presentations", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "internship": { "title": "Internship matching", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "counselling": { "title": "Career counselling", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "statsTitle": "Results",
+      "statPlaced": "Students placed",
+      "statEmployers": "Partner employers",
+      "statEvents": "Events per year",
+      "ctaTitle": "Book a consultation",
+      "ctaButton": "Book now"
+    },
+    "vacancies": {
+      "tag": "For students",
+      "title": "Vacancies and internships",
+      "subtitle": "Current vacancies, internships and how to apply.",
+      "intro": "The career centre publishes vacancies from university partners and helps with internship placement. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "filterAll": "All",
+      "filterFullTime": "Full-time",
+      "filterPartTime": "Part-time",
+      "filterInternship": "Internship",
+      "vacanciesTitle": "Vacancies",
+      "emptyState": "No vacancies in this category.",
+      "company": "Company",
+      "position": "Position",
+      "type": "Type",
+      "location": "Location",
+      "posted": "Posted",
+      "vacancies": {
+        "v1": { "company": "Education Plus LLC", "position": "Trainee teacher", "type": "internship", "location": "Kharkiv", "posted": "5 March 2026" },
+        "v2": { "company": "Kindergarten No. 45", "position": "Preschool educator", "type": "fullTime", "location": "Kharkiv", "posted": "4 March 2026" },
+        "v3": { "company": "Children's Development Centre", "position": "English teacher", "type": "partTime", "location": "Kharkiv", "posted": "3 March 2026" },
+        "v4": { "company": "Lyceum No. 12", "position": "Mathematics teacher", "type": "fullTime", "location": "Kharkiv", "posted": "2 March 2026" },
+        "v5": { "company": "Innovation LLC", "position": "IT department intern", "type": "internship", "location": "Remote", "posted": "1 March 2026" },
+        "v6": { "company": "Korolenko Library", "position": "Trainee librarian", "type": "internship", "location": "Kharkiv", "posted": "28 February 2026" },
+        "v7": { "company": "School of Arts", "position": "Music teacher", "type": "partTime", "location": "Kharkiv", "posted": "27 February 2026" },
+        "v8": { "company": "Research Centre", "position": "Research assistant", "type": "fullTime", "location": "Kharkiv", "posted": "26 February 2026" }
+      }
+    },
+    "alumni": {
+      "tag": "For students",
+      "title": "Alumni association",
+      "subtitle": "Alumni network, mentorship and career support.",
+      "intro": "The alumni association brings together KhNPU graduates, organises networking events, mentorship programmes and career support. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Membership benefits",
+      "benefits": {
+        "networking": { "title": "Networking events", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "mentorship": { "title": "Mentorship programme", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "careerSupport": { "title": "Career support", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "discounts": { "title": "University discounts", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "notableTitle": "Notable alumni",
+      "notable": {
+        "a1": { "name": "Olena Kovalenko", "year": "Class of 2015", "achievement": "PhD in Education, Associate Professor of History." },
+        "a2": { "name": "Andriy Petrenko", "year": "Class of 2012", "achievement": "Principal of Lyceum No. 12, Honoured Teacher of Ukraine." },
+        "a3": { "name": "Maria Sydorenko", "year": "Class of 2018", "achievement": "Research fellow at the Institute of Pedagogy, NAES of Ukraine." }
+      }
+    },
+    "nonformal": {
+      "tag": "For students",
+      "title": "Non-formal education",
+      "subtitle": "Language courses, IT, leadership and volunteering with credit recognition.",
+      "intro": "The university offers non-formal education programmes: language courses, IT skills, leadership, volunteering credits, soft skills and entrepreneurship. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Programmes",
+      "programmes": {
+        "language": { "name": "Language courses", "duration": "1–2 semesters", "credits": "3–6 credits", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "it": { "name": "IT skills", "duration": "1 semester", "credits": "2 credits", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "leadership": { "name": "Leadership", "duration": "2 semesters", "credits": "4 credits", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "volunteering": { "name": "Volunteering credits", "duration": "by participation", "credits": "up to 5 credits", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "softSkills": { "name": "Soft skills", "duration": "1 semester", "credits": "2 credits", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "entrepreneurship": { "name": "Entrepreneurship", "duration": "2 semesters", "credits": "4 credits", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "certTitle": "Credit recognition and certification",
+      "certIntro": "Credits earned through non-formal education programmes may be recognised in the curriculum subject to department approval. A university certificate is issued upon successful completion.",
+      "certPlaceholder": "Sample certificate"
+    },
+    "veteransCenter": {
+      "tag": "For students",
+      "title": "Veterans development centre",
+      "subtitle": "Support for veterans: psychology, career, education and community.",
+      "intro": "The veterans development centre provides psychological support, helps with reintegration into education and career, organises mentorship and adaptive sports. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "servicesTitle": "Services",
+      "services": {
+        "psychological": { "title": "Psychological support", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "career": { "title": "Career reintegration", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "educational": { "title": "Educational programmes", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "peer": { "title": "Peer community", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }
+      },
+      "supportTitle": "Support programmes",
+      "support": {
+        "tuition": { "title": "Tuition support", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "mentorship": { "title": "Mentorship", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "sports": { "title": "Adaptive sports", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "contactTitle": "Contact us",
+      "contactPhone": "Phone",
+      "contactEmail": "Email",
+      "contactHours": "Office hours",
+      "contactCoordinator": "Coordinator",
+      "coordinatorName": "Ivanenko O.P."
+    }
+  },
   "seo": {
     "home": {
       "title": "KhNPU — H. S. Skovoroda Kharkiv National Pedagogical University",

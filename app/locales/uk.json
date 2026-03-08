@@ -227,28 +227,13 @@
       "admissions": "Вступ",
       "student": "Студентство"
     },
-    "main": {
-      "category": "Університет",
-      "title": "ХНПУ долучився до міжнародної освітньої ініціативи Erasmus+ для підтримки українських студентів",
-      "date": "21 лютого 2026"
-    },
-    "items": [
-      {
-        "category": "Наука",
-        "title": "Конференція молодих учених: результати та нагороди",
-        "date": "19 лютого 2026"
-      },
-      {
-        "category": "Вступ",
-        "title": "Оголошено дати Днів відкритих дверей на 2026 рік",
-        "date": "17 лютого 2026"
-      },
-      {
-        "category": "Студентство",
-        "title": "Спортивна команда ХНПУ посіла призове місце на чемпіонаті",
-        "date": "15 лютого 2026"
-      }
-    ]
+    "allCategories": "Усі категорії",
+    "backToNews": "Повернутися до новин",
+    "published": "Опубліковано",
+    "author": "Автор",
+    "attachments": "Вкладення",
+    "download": "Завантажити",
+    "noArticles": "Статті не знайдено."
   },
   "facts": {
     "founded": "Рік заснування",
@@ -256,27 +241,705 @@
     "staff": "Науково-педагогічних працівників",
     "specialties": "Акредитованих спеціальностей"
   },
+  "university": {
+    "history": {
+      "tag": "Про університет",
+      "title": "Історія та традиції",
+      "subtitle": "Двісті років освітніх традицій та розвитку педагогічної думки в серці Слобожанщини.",
+      "intro1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "intro2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "timeline": {
+        "1804": { "title": "Заснування інституту", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "1851": { "title": "Розширення програм", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
+        "1921": { "title": "Нова епоха освіти", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "1991": { "title": "Незалежність та реформи", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "2004": { "title": "Двохсотрічний ювілей", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt." },
+        "2022": { "title": "Сьогодення університету", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." }
+      }
+    },
+    "mission": {
+      "tag": "Про університет",
+      "title": "Місія, візія та цінності",
+      "subtitle": "Провідні принципи, що визначають наш шлях у освіті та науці.",
+      "missionTitle": "Місія",
+      "missionText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "missionText2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      "visionTitle": "Візія",
+      "visionText1": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "visionText2": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+      "valuesTitle": "Цінності",
+      "valuesText1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
+      "valuesText2": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+      "valuesGrid": {
+        "integrity": { "title": "Академічна доброчесність", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "openness": { "title": "Відкритість", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "respect": { "title": "Повага та рівність", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "innovation": { "title": "Інновації", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "partnership": { "title": "Партнерство", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "heritage": { "title": "Збереження спадщини", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      }
+    },
+    "symbolism": {
+      "tag": "Про університет",
+      "title": "Символіка університету",
+      "subtitle": "Офіційні символи та атрибути ХНПУ імені Г.С. Сковороди.",
+      "coatOfArms": { "title": "Герб", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+      "flag": { "title": "Прапор", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+      "colors": { "title": "Офіційні кольори", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+      "anthem": { "title": "Гімн", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." }
+    },
+    "memorial": {
+      "tag": "Меморіал",
+      "title": "Меморіал пам'яті",
+      "subtitle": "Вшанування тих, хто віддав життя за свободу та незалежність України.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "closingQuote": "Вічна пам'ять героям. Ніколи не забудемо.",
+      "portrait1": { "name": "Іван Іванов", "role": "Викладач, 2022" },
+      "portrait2": { "name": "Петро Петренко", "role": "Студент, 2022" },
+      "portrait3": { "name": "Олексій Коваленко", "role": "Випускник, 2023" },
+      "portrait4": { "name": "Марія Сидоренко", "role": "Співробітник, 2022" },
+      "portrait5": { "name": "Андрій Мельник", "role": "Викладач, 2023" },
+      "portrait6": { "name": "Юрій Шевченко", "role": "Студент, 2023" },
+      "portrait7": { "name": "Катерина Бондаренко", "role": "Випускниця, 2022" },
+      "portrait8": { "name": "Дмитро Ткаченко", "role": "Співробітник, 2022" },
+      "portrait9": { "name": "Наталія Кравченко", "role": "Викладач, 2022" },
+      "portrait10": { "name": "Сергій Олійник", "role": "Студент, 2023" },
+      "portrait11": { "name": "Ірина Лисенко", "role": "Випускниця, 2022" },
+      "portrait12": { "name": "Василь Гриценко", "role": "Співробітник, 2023" }
+    },
+    "volunteering": {
+      "tag": "Про університет",
+      "title": "Волонтерство",
+      "subtitle": "Студенти та співробітники ХНПУ беруть участь у волонтерських ініціативах на благо суспільства.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "activities": {
+        "humanitarian": { "tag": "Гуманітарна допомога", "title": "Допомога населенню", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
+        "education": { "tag": "Освіта", "title": "Освітні проєкти", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident." },
+        "environment": { "tag": "Екологія", "title": "Екологічні ініціативи", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit." },
+        "culture": { "tag": "Культура", "title": "Культурні заходи", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste." }
+      },
+      "stats": {
+        "volunteers": { "num": "500+", "label": "Волонтерів долучилось" },
+        "hours": { "num": "12 000+", "label": "Годин волонтерської роботи" },
+        "projects": { "num": "45+", "label": "Реалізованих проєктів" }
+      },
+      "cta": {
+        "title": "Приєднуйся до волонтерів",
+        "subtitle": "Заповни форму або зв’яжися з координатором волонтерського центру.",
+        "button": "Приєднатися"
+      }
+    },
+    "gallery": {
+      "tag": "Про університет",
+      "title": "Фото та відеогалереї",
+      "subtitle": "Життя кампусу, заходи та події університету в фотографіях та відео.",
+      "allCategories": "Усі категорії",
+      "categories": {
+        "campus": "Кампус",
+        "events": "Заходи",
+        "studentLife": "Студентське життя",
+        "sports": "Спорт"
+      },
+      "empty": "Зображень у цій категорії поки немає."
+    },
+    "newspaper": {
+      "tag": "Про університет",
+      "title": "Газета «Учитель»",
+      "subtitle": "Офіційна газета ХНПУ: новини, події та думки спільноти.",
+      "aboutText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "aboutText2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "issuesTitle": "Останні випуски",
+      "archiveCta": "Переглянути повний архів",
+      "issues": {
+        "1": { "number": "№ 1", "date": "Березень 2026", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "2": { "number": "№ 2", "date": "Лютий 2026", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "3": { "number": "№ 3", "date": "Січень 2026", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "4": { "number": "№ 4", "date": "Грудень 2025", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "5": { "number": "№ 5", "date": "Листопад 2025", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "6": { "number": "№ 6", "date": "Жовтень 2025", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      }
+    }
+  },
+  "admissions": {
+    "bachelor": {
+      "tag": "Вступ",
+      "title": "Бакалаврат",
+      "subtitle": "Перший ступінь вищої освіти: фундамент педагогічної та гуманітарної підготовки.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "facts": {
+        "duration": "4 роки",
+        "durationLabel": "Тривалість",
+        "form": "Денна / заочна",
+        "formLabel": "Форма навчання",
+        "credits": "240 ECTS",
+        "creditsLabel": "Кредити",
+        "diploma": "Диплом бакалавра",
+        "diplomaLabel": "Диплом"
+      },
+      "whatYouStudy": "Що ви вивчатимете",
+      "subjects": {
+        "pedagogy": "Педагогіка",
+        "psychology": "Психологія",
+        "languages": "Мови",
+        "sciences": "Природничі науки",
+        "arts": "Мистецтво",
+        "it": "Інформаційні технології"
+      },
+      "specialtiesPreview": "Спеціальності (фрагмент)",
+      "viewAllSpecialties": "Переглянути всі спеціальності",
+      "specialty": "Спеціальність",
+      "code": "Код",
+      "specialty1": "Початкова освіта",
+      "specialty2": "Дошкільна освіта",
+      "specialty3": "Філологія (українська мова та література)",
+      "specialty4": "Психологія",
+      "specialty5": "Інформатика та інформаційні технології"
+    },
+    "master": {
+      "tag": "Вступ",
+      "title": "Магістратура",
+      "subtitle": "Другий ступінь вищої освіти: поглиблена спеціалізація та дослідницькі навички.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "facts": {
+        "duration": "2 роки",
+        "durationLabel": "Тривалість",
+        "form": "Денна / заочна",
+        "formLabel": "Форма навчання",
+        "credits": "120 ECTS",
+        "creditsLabel": "Кредити",
+        "diploma": "Диплом магістра",
+        "diplomaLabel": "Диплом"
+      },
+      "whatYouStudy": "Що ви вивчатимете",
+      "subjects": {
+        "pedagogy": "Педагогіка",
+        "psychology": "Психологія",
+        "languages": "Мови",
+        "sciences": "Природничі науки",
+        "arts": "Мистецтво",
+        "it": "Інформаційні технології"
+      },
+      "researchFocus": "Дослідницький фокус",
+      "researchText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "specialtiesPreview": "Спеціальності (фрагмент)",
+      "viewAllSpecialties": "Переглянути всі спеціальності",
+      "specialty": "Спеціальність",
+      "code": "Код",
+      "specialty1": "Управління навчальним закладом",
+      "specialty2": "Педагогіка вищої школи",
+      "specialty3": "Корекційна педагогіка",
+      "specialty4": "Соціальна робота",
+      "specialty5": "Прикладная лінгвістика"
+    },
+    "graduate": {
+      "tag": "Вступ",
+      "title": "Аспірантура та докторантура",
+      "subtitle": "Підготовка наукових та науково-педагогічних кадрів: PhD та доктор наук.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "phd": {
+        "title": "Аспірантура (PhD)",
+        "duration": "4 роки",
+        "durationLabel": "Тривалість",
+        "form": "Денна / заочна",
+        "formLabel": "Форма",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      "doctoral": {
+        "title": "Докторантура",
+        "duration": "3 роки",
+        "durationLabel": "Тривалість",
+        "form": "Заочна",
+        "formLabel": "Форма",
+        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "scientificSchools": "Наукові школи",
+      "scientificSchoolsIntro": "Провідні наукові колективи та напрями підготовки.",
+      "school1": "Педагогіка та психологія",
+      "school2": "Філологія та мистецтвознавство",
+      "school3": "Природничі науки та методика навчання"
+    },
+    "secondDegree": {
+      "tag": "Вступ",
+      "title": "Друга вища освіта",
+      "subtitle": "Отримайте новий диплом для кар'єрного зростання або зміни професії.",
+      "intro": "Програми другої вищої освіти розраховані на фахівців, які вже мають диплом бакалавра або магістра та бажають отримати нову спеціалізацію. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Переваги навчання",
+      "benefits": {
+        "schedule": { "title": "Гнучкий графік", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "diploma": { "title": "Державний диплом", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "experience": { "title": "Врахування досвіду", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "practice": { "title": "Орієнтація на практику", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "network": { "title": "Нетворкінг", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "career": { "title": "Кар'єрний супровід", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "howItWorksTitle": "Як це працює",
+      "steps": {
+        "step1": { "title": "Подайте заявку", "text": "Оберіть спеціальність та подайте документи через ЄДЕБО або приймальну комісію." },
+        "step2": { "title": "Підтвердження", "text": "Після перевірки документів отримайте запрошення на навчання та укладіть договір." },
+        "step3": { "title": "Початок навчання", "text": "Приєднуйтесь до навчальної групи за зручним для вас графіком." }
+      }
+    },
+    "rules": {
+      "tag": "Вступ",
+      "title": "Правила прийому 2026",
+      "subtitle": "Ключові дати та кроки для вступу до ХНПУ імені Г.С. Сковороди.",
+      "keyDatesTitle": "Ключові дати",
+      "dates": {
+        "march1": { "label": "1 березня", "text": "Початок прийому документів" },
+        "july15": { "label": "15 липня", "text": "Завершення прийому (денна форма)" },
+        "august1": { "label": "1 серпня", "text": "Завершення вступних випробувань" },
+        "august15": { "label": "15 серпня", "text": "Оголошення рейтингових списків" },
+        "september1": { "label": "1 вересня", "text": "Початок навчального року" }
+      },
+      "stepsTitle": "Кроки вступу",
+      "steps": {
+        "step1": { "title": "Оберіть спеціальність", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "step2": { "title": "Реєстрація в ЄДЕБО", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "step3": { "title": "Подайте документи", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "step4": { "title": "Вступні випробуваня", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "step5": { "title": "Результати та зачислення", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." }
+      },
+      "edeboCtaTitle": "Електронний кабінет вступника",
+      "edeboCtaText": "Подайте документи онлайн через єдину систему ЄДЕБО — швидко та зручно.",
+      "edeboCtaButton": "Перейти до ЄДЕБО"
+    },
+    "specialties": {
+      "tag": "Вступ",
+      "title": "Перелік спеціальностей",
+      "subtitle": "Акредитовані спеціальності за рівнями освіти та формами навчання.",
+      "levelBachelor": "Бакалаврат",
+      "levelMaster": "Магістратура",
+      "levelGraduate": "Аспірантура",
+      "allLevels": "Усі рівні",
+      "tableCode": "Код",
+      "tableName": "Назва",
+      "tableFaculty": "Факультет",
+      "tablePlaces": "Місця",
+      "tableForm": "Форма",
+      "formFullTime": "Денна",
+      "formPartTime": "Заочна",
+      "rows": {
+        "r1": { "code": "011", "name": "Початкова освіта", "faculty": "Початкової освіти", "places": "120", "form": "fullTime", "level": "bachelor" },
+        "r2": { "code": "012", "name": "Дошкільна освіта", "faculty": "Дошкільної освіти", "places": "85", "form": "fullTime", "level": "bachelor" },
+        "r3": { "code": "014", "name": "Середня освіта (українська мова)", "faculty": "Філології", "places": "60", "form": "fullTime", "level": "bachelor" },
+        "r4": { "code": "053", "name": "Психологія", "faculty": "Психології", "places": "45", "form": "fullTime", "level": "bachelor" },
+        "r5": { "code": "122", "name": "Комп'ютерні науки", "faculty": "Інформатики", "places": "50", "form": "fullTime", "level": "bachelor" },
+        "r6": { "code": "011", "name": "Початкова освіта", "faculty": "Початкової освіти", "places": "30", "form": "partTime", "level": "bachelor" },
+        "r7": { "code": "014", "name": "Середня освіта (історія)", "faculty": "Історії", "places": "40", "form": "fullTime", "level": "master" },
+        "r8": { "code": "012", "name": "Дошкільна освіта", "faculty": "Дошкільної освіти", "places": "25", "form": "partTime", "level": "master" },
+        "r9": { "code": "073", "name": "Менеджмент", "faculty": "Економіки", "places": "35", "form": "partTime", "level": "master" },
+        "r10": { "code": "011", "name": "Управління навчальним закладом", "faculty": "Магістратура", "places": "20", "form": "partTime", "level": "graduate" }
+      }
+    },
+    "creative": {
+      "tag": "Вступ",
+      "title": "Творчі конкурси",
+      "subtitle": "Вимоги та графік творчих конкурсів для вступників на творчі спеціальності.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "datesLabel": "Терміни",
+      "competitions": {
+        "c1": {
+          "specialty": "Музична освіта",
+          "type": "Прослуховування та виконання",
+          "req1": "Підготовка творчого номера за програмою.",
+          "req2": "Подача портфоліо та заявки до вказаної дати.",
+          "req3": "Участь у консультаціях перед конкурсом.",
+          "dates": "Липень 2026"
+        },
+        "c2": {
+          "specialty": "Образотворче мистецтво",
+          "type": "Перегляд творчих робіт",
+          "req1": "Комплект робіт за темами від приймальної комісії.",
+          "req2": "Оригінали та фото робіт за регламентом.",
+          "req3": "Усна презентація та відповіді на запитання.",
+          "dates": "15–20 липня 2026"
+        },
+        "c3": {
+          "specialty": "Хореографія",
+          "type": "Практичний показ",
+          "req1": "Класичний та сучасний танець за програмою.",
+          "req2": "Музикальність та відчуття ритму.",
+          "req3": "Самопрезентація та мотиваційне есе.",
+          "dates": "Середина липня 2026"
+        }
+      },
+      "tipsTitle": "Поради з підготовки",
+      "tipsText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Зв'яжіться з приймальною комісією для уточнення деталей."
+    },
+    "budget": {
+      "tag": "Вступ",
+      "title": "Бюджетні місця",
+      "subtitle": "Державне замовлення та розподіл бюджетних місць за спеціальностями.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "statsTotalPlaces": "Загалом місць",
+      "statsSpecialties": "Спеціальностей",
+      "statsFaculties": "Факультетів",
+      "breakdownTitle": "Розподіл за рівнями",
+      "levelBachelor": "Бакалаврат",
+      "levelMaster": "Магістратура",
+      "levelGraduate": "Аспірантура",
+      "tableSpecialty": "Спеціальність",
+      "tablePlaces": "Місця",
+      "bachelorRows": {
+        "s1": { "name": "Початкова освіта", "places": "120" },
+        "s2": { "name": "Дошкільна освіта", "places": "85" },
+        "s3": { "name": "Середня освіта (українська мова)", "places": "60" },
+        "s4": { "name": "Психологія", "places": "45" },
+        "s5": { "name": "Комп'ютерні науки", "places": "50" }
+      },
+      "masterRows": {
+        "s1": { "name": "Середня освіта (історія)", "places": "40" },
+        "s2": { "name": "Дошкільна освіта", "places": "25" },
+        "s3": { "name": "Менеджмент", "places": "35" }
+      },
+      "graduateRows": {
+        "s1": { "name": "Управління навчальним закладом", "places": "20" },
+        "s2": { "name": "Педагогіка вищої школи", "places": "15" }
+      }
+    },
+    "exams": {
+      "tag": "Вступ",
+      "title": "Програми іспитів",
+      "subtitle": "Програми вступних випробувань за предметами та рівнями освіти.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "subjectListTitle": "Предмети вступних випробувань",
+      "levelBachelor": "Бакалаврат",
+      "levelMaster": "Магістратура",
+      "levelGraduate": "Аспірантура",
+      "downloadPdf": "Завантажити PDF",
+      "subjects": {
+        "e1": { "name": "Українська мова", "level": "bachelor", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "e2": { "name": "Історія України", "level": "bachelor", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "e3": { "name": "Математика", "level": "bachelor", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "e4": { "name": "Біологія", "level": "bachelor", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "e5": { "name": "Спеціалізований іспит", "level": "master", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "e6": { "name": "Іноземна мова", "level": "master", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+        "e7": { "name": "Філософія та методологія", "level": "graduate", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto." },
+        "e8": { "name": "Іноземна мова (наукова)", "level": "graduate", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis." }
+      }
+    },
+    "tuition": {
+      "tag": "Вступ",
+      "title": "Вартість навчання",
+      "subtitle": "Прозора вартість навчання за рівнями освіти та варіанти оплати.",
+      "levelBachelor": "Бакалаврат",
+      "levelMaster": "Магістратура",
+      "levelGraduate": "Аспірантура",
+      "fromPerYear": "від {amount} грн/рік",
+      "included1": "Повний навчальний цикл за програмою",
+      "included2": "Доступ до бібліотеки та навчальних матеріалів",
+      "included3": "Практики та консультації викладачів",
+      "included4": "Студентський квиток та пільги",
+      "included5": "Участь у наукових та культурних заходах",
+      "ctaButton": "Дізнатися умови",
+      "paymentTitle": "Варіанти оплати",
+      "payment1Title": "Розстрочка",
+      "payment1Text": "Можливість оплати навчання частинами протягом навчального року за узгодженим графіком.",
+      "payment2Title": "Оплата за семестр",
+      "payment2Text": "Класичний варіант: оплата перед початком кожного семестру.",
+      "payment3Title": "Пільгові умови",
+      "payment3Text": "Для окремих категорій вступників передбачені знижки та пільги — деталі в приймальній комісії."
+    },
+    "benefits": {
+      "tag": "Вступ",
+      "title": "Пільги та соціальний захист",
+      "subtitle": "Соціальні гарантії та підтримка для різних категорій студентів.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "categoriesTitle": "Категорії пільг",
+      "orphans": "Діти-сироти та без батьківського піклування",
+      "orphansDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.",
+      "largeFamilies": "Багатодітні сім'ї",
+      "largeFamiliesDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "disability": "Особи з інвалідністю",
+      "disabilityDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      "warAffected": "Потерпілі від війни",
+      "warAffectedDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+      "lowIncome": "Малозабезпечені",
+      "lowIncomeDesc": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+      "academicExcellence": "Академічні досягнення",
+      "academicExcellenceDesc": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "howToApplyTitle": "Як оформити пільги",
+      "step1Title": "Підготуйте документи",
+      "step1Text": "Зберіть пакет документів за категорією пільг та переліком приймальної комісії.",
+      "step2Title": "Подайте до соціальної служби",
+      "step2Text": "Документи приймаються соціальною службою університету та приймальною комісією.",
+      "step3Title": "Отримайте рішення",
+      "step3Text": "Після перевірки ви отримаєте підтвердження права на пільги або соціальну стипендію."
+    },
+    "veterans": {
+      "tag": "Вступ",
+      "title": "Для ветеранів",
+      "subtitle": "Підтримка та особливі умови вступу для учасників бойових дій та їхніх сімей.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "programsTitle": "Програми підтримки",
+      "program1": "Пільгові умови вступу за квотою",
+      "program2": "Безкоштовне підготовче консультування",
+      "program3": "Адаптаційний супровід під час навчання",
+      "program4": "Психологічна підтримка та реабілітація",
+      "benefitsTitle": "Переваги",
+      "benefit1Title": "Пільги на оплату навчання",
+      "benefit1Text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
+      "benefit2Title": "Пріоритетне зачислення",
+      "benefit2Text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+      "benefit3Title": "Психологічна підтримка",
+      "benefit3Text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+      "contactTitle": "Зв'язок з нами",
+      "contactText": "Питання щодо вступу та підтримки ветеранів: телефон або електронна пошта.",
+      "contactPhone": "Телефон",
+      "contactEmail": "Email"
+    },
+    "inclusiveEdu": {
+      "tag": "Вступ",
+      "title": "Інклюзивна освіта",
+      "subtitle": "Умови та підтримка для навчання осіб з особливими потребами.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "featuresTitle": "Доступність та підтримка",
+      "ramps": "Пандуси та безбар'єрний доступ",
+      "rampsDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.",
+      "signLanguage": "Супровід сурдоперекладачем",
+      "signLanguageDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "assistiveTech": "Асистивні технології",
+      "assistiveTechDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      "individualPlans": "Індивідуальні навчальні плани",
+      "individualPlansDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+      "psychologicalSupport": "Психологічна підтримка",
+      "psychologicalSupportDesc": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+      "transport": "Транспорт та супровід",
+      "transportDesc": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "spaceTitle": "Інклюзивний простір",
+      "spaceQuote": "Кожен студент має право на якісну освіту в комфортному середовищі. Ми створюємо умови для реалізації цього права."
+    },
+    "dormitories": {
+      "tag": "Вступ",
+      "title": "Гуртожитки",
+      "subtitle": "Умови проживання для студентів та аспірантів ХНПУ.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "cardsTitle": "Гуртожитки університету",
+      "dorm1": { "name": "Гуртожиток № 1", "address": "вул. Алчевських, 31", "capacity": "280 місць", "distance": "5 хв пішки від корпусу", "amenity1": "Їдальня", "amenity2": "Пральня", "amenity3": "Wi‑Fi" },
+      "dorm2": { "name": "Гуртожиток № 2", "address": "вул. Алчевських, 33", "capacity": "320 місць", "distance": "7 хв пішки від корпусу", "amenity1": "Спортивний зал", "amenity2": "Читальний зал", "amenity3": "Кімнати для самопідготовки" },
+      "dorm3": { "name": "Гуртожиток № 3", "address": "вул. Алчевських, 35", "capacity": "250 місць", "distance": "10 хв пішки від корпусу", "amenity1": "Медичний пункт", "amenity2": "Пральня", "amenity3": "Безбар'єрний доступ" },
+      "howToGetTitle": "Як отримати місце",
+      "step1Title": "Подайте документи",
+      "step1Text": "Після зачислення подайте заявку на поселення через деканат або соціальну службу.",
+      "step2Title": "Оформіть договір",
+      "step2Text": "Укладення договору оренди житла та ознайомлення з правилами проживання.",
+      "step3Title": "Отримайте направлення",
+      "step3Text": "За отриманим направленням зверніться до коменданта гуртожитку в зазначені терміни.",
+      "step4Title": "Заселення",
+      "step4Text": "Отримання ключів та заселення у відповідність з графіком та наявними місцями."
+    },
+    "scholarships": {
+      "tag": "Вступ",
+      "title": "Стипендіальні програми",
+      "subtitle": "Академічні, соціальні та іменні стипендії для студентів.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "academicTitle": "Академічна стипендія",
+      "academicAmount": "від 2 500 грн/міс",
+      "academicEligibility": "Студенти-бюджетники з успішними результатами сесії.",
+      "academicDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "socialTitle": "Соціальна стипендія",
+      "socialAmount": "згідно з законодавством",
+      "socialEligibility": "Студенти з пільгових категорій за підтвердженими документами.",
+      "socialDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "presidentialTitle": "Премія Президента України",
+      "presidentialAmount": "премія одноразово",
+      "presidentialEligibility": "Переможці олімпіад, конкурсів, відмінники навчання.",
+      "presidentialDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "namedTitle": "Іменні стипендії",
+      "namedAmount": "за умовами донорів",
+      "namedEligibility": "За досягненнями в навчанні, науці та творчості за рішенням вченої ради.",
+      "namedDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "howToApplyTitle": "Як оформити стипендію",
+      "howToApplyText": "Після зачислення зверніться до деканату та соціальної служби за розкладом подачі документів. Академічна стипендія нараховується автоматично за результатами сесії.",
+      "howToApplyButton": "Дізнатися деталі"
+    },
+    "prepCourses": {
+      "tag": "Вступ",
+      "title": "Підготовчі курси",
+      "subtitle": "Підготовка до вступних випробувань з основних предметів.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "coursesTitle": "Курси підготовки",
+      "course1": { "name": "Українська мова та література", "duration": "8 міс", "schedule": "2 рази на тиждень", "price": "від 4 500 грн/курс" },
+      "course2": { "name": "Історія України", "duration": "8 міс", "schedule": "2 рази на тиждень", "price": "від 4 500 грн/курс" },
+      "course3": { "name": "Математика", "duration": "8 міс", "schedule": "2 рази на тиждень", "price": "від 4 500 грн/курс" },
+      "course4": { "name": "Біологія / Хімія", "duration": "6 міс", "schedule": "1–2 рази на тиждень", "price": "від 3 800 грн/курс" },
+      "ctaTitle": "Записатися на підготовчі курси",
+      "ctaSubtitle": "Зв'яжіться з приймальною комісією або залиште заявку онлайн — ми підберемо курс під ваш профіль.",
+      "ctaButton": "Залишити заявку"
+    },
+    "openDays": {
+      "tag": "Вступ",
+      "title": "Дні відкритих дверей",
+      "subtitle": "Відвідайте кампус, познайомтесь з факультетами та отримайте відповіді на питання про вступ.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "upcomingTitle": "Найближчі дати",
+      "events": {
+        "event1": {
+          "dateBadge": "15 березня",
+          "title": "День відкритих дверей — гуманітарні спеціальності",
+          "location": "Головний корпус, актова зала",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "event2": {
+          "dateBadge": "12 квітня",
+          "title": "День відкритих дверей — природничі науки",
+          "location": "Корпус № 2, конференц-зал",
+          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        "event3": {
+          "dateBadge": "10 травня",
+          "title": "Загальний день відкритих дверей",
+          "location": "Головний корпус, хол та аудиторії",
+          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      },
+      "expectTitle": "Що вас чекає",
+      "expectations": {
+        "campusTour": {
+          "title": "Екскурсія кампусом",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+        },
+        "meetFaculty": {
+          "title": "Знайомство з викладачами",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        },
+        "qa": {
+          "title": "Питання та відповіді",
+          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+        },
+        "demoLessons": {
+          "title": "Пробні заняття",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+        }
+      },
+      "ctaTitle": "Зареєструйтесь на день відкритих дверей",
+      "ctaSubtitle": "Оберіть зручну дату та залиште заявку — ми підтвердимо реєстрацію та надішлемо програму заходу.",
+      "ctaButton": "Зареєструватися"
+    },
+    "3dTour": {
+      "tag": "Вступ",
+      "title": "3D-тур корпусами",
+      "subtitle": "Віртуальна прогулянка кампусом ХНПУ імені Г.С. Сковороди.",
+      "buildingsTitle": "Корпуси університету",
+      "buildings": {
+        "building1": {
+          "name": "Головний корпус",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "building2": {
+          "name": "Корпус № 2",
+          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        "building3": {
+          "name": "Наукова бібліотека",
+          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "building4": {
+          "name": "Спортивний комплекс",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+        },
+        "building5": {
+          "name": "Лабораторний корпус",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        },
+        "building6": {
+          "name": "Адміністративний корпус",
+          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+        }
+      }
+    }
+  },
+  "education": {
+    "faculties": {
+      "tag": "Навчання",
+      "title": "Факультети",
+      "subtitle": "Структура факультетів та кафедр ХНПУ імені Г.С. Сковороди.",
+      "intro": "Університет об'єднує факультети, які готують педагогів, психологів, філологів, природників та митців. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "dean": "Декан",
+      "departmentsCount": "кафедр",
+      "studentsCount": "студентів",
+      "cards": {
+        "f1": { "name": "Педагогіки та психології", "dean": "Іваненко О.М.", "departments": "6", "students": "1 200", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "f2": { "name": "Початкової освіти", "dean": "Петренко Т.В.", "departments": "4", "students": "980", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "f3": { "name": "Дошкільної освіти", "dean": "Коваленко Л.І.", "departments": "5", "students": "850", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "f4": { "name": "Філології та іноземних мов", "dean": "Сидоренко М.П.", "departments": "7", "students": "1 100", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "f5": { "name": "Фізики та математики", "dean": "Мельник В.О.", "departments": "5", "students": "620", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "f6": { "name": "Мистецтв", "dean": "Шевченко І.Ю.", "departments": "4", "students": "480", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia." },
+        "f7": { "name": "Природничих наук", "dean": "Бондаренко А.С.", "departments": "5", "students": "540", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae." },
+        "f8": { "name": "Історії та технологій", "dean": "Гриценко Д.В.", "departments": "6", "students": "720", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium." }
+      }
+    },
+    "departments": {
+      "tag": "Навчання",
+      "title": "Кафедри",
+      "subtitle": "Повний перелік кафедр за факультетами.",
+      "allFaculties": "Усі факультети",
+      "tableDepartment": "Кафедра",
+      "tableFaculty": "Факультет",
+      "tableHead": "Завідувач",
+      "rows": {
+        "d1": { "name": "Педагогіки та методики початкової освіти", "faculty": "f1", "head": "Іваненко О.М." },
+        "d2": { "name": "Психології розвитку", "faculty": "f1", "head": "Петренко Т.В." },
+        "d3": { "name": "Дошкільної педагогіки", "faculty": "f3", "head": "Коваленко Л.І." },
+        "d4": { "name": "Української мови та літератури", "faculty": "f4", "head": "Сидоренко М.П." },
+        "d5": { "name": "Іноземних мов", "faculty": "f4", "head": "Ткаченко Н.О." },
+        "d6": { "name": "Математики та методики викладання", "faculty": "f5", "head": "Мельник В.О." },
+        "d7": { "name": "Фізики та астрономії", "faculty": "f5", "head": "Олійник С.Р." },
+        "d8": { "name": "Музичного мистецтва", "faculty": "f6", "head": "Шевченко І.Ю." },
+        "d9": { "name": "Образотворчого мистецтва", "faculty": "f6", "head": "Лисенко І.В." },
+        "d10": { "name": "Хімії та біології", "faculty": "f7", "head": "Бондаренко А.С." },
+        "d11": { "name": "Історії України", "faculty": "f8", "head": "Гриценко Д.В." },
+        "d12": { "name": "Інформаційних технологій", "faculty": "f8", "head": "Кравченко Н.П." }
+      }
+    },
+    "programs": {
+      "tag": "Навчання",
+      "title": "Освітні програми",
+      "subtitle": "Акредитовані освітні програми за рівнями: бакалаврат, магістратура, аспірантура.",
+      "allLevels": "Усі рівні",
+      "levelBachelor": "Бакалаврат",
+      "levelMaster": "Магістратура",
+      "levelGraduate": "Аспірантура",
+      "noPrograms": "Програми не знайдено.",
+      "codeLabel": "Код спеціальності",
+      "cards": {
+        "p1": { "name": "Початкова освіта", "code": "011", "level": "bachelor" },
+        "p2": { "name": "Дошкільна освіта", "code": "012", "level": "bachelor" },
+        "p3": { "name": "Середня освіта (українська мова)", "code": "014", "level": "bachelor" },
+        "p4": { "name": "Психологія", "code": "053", "level": "bachelor" },
+        "p5": { "name": "Комп'ютерні науки", "code": "122", "level": "bachelor" },
+        "p6": { "name": "Управління навчальним закладом", "code": "011", "level": "master" },
+        "p7": { "name": "Педагогіка вищої школи", "code": "014", "level": "master" },
+        "p8": { "name": "Корекційна педагогіка", "code": "016", "level": "master" },
+        "p9": { "name": "Освітні, педагогічні науки", "code": "011", "level": "graduate" }
+      }
+    }
+  },
   "programs": {
+    "allLevels": "Усі рівні",
+    "backToPrograms": "Повернутися до програм",
+    "noPrograms": "Програми не знайдено.",
+    "metaLevel": "Рівень",
+    "metaFaculty": "Факультет",
+    "metaDuration": "Тривалість",
+    "metaForm": "Форма навчання",
     "levels": {
       "bachelor": "Бакалаврат",
       "master": "Магістратура",
       "graduate": "Аспірантура"
-    },
-    "items": [
-      { "level": "Бакалаврат", "name": "Початкова освіта", "faculty": "Педагогічний факультет" },
-      { "level": "Магістратура", "name": "Психологія", "faculty": "Факультет психології" },
-      { "level": "Бакалаврат", "name": "Іноземна мова (англійська)", "faculty": "Факультет іноземної філології" },
-      { "level": "Бакалаврат", "name": "Комп'ютерні науки", "faculty": "Фізико-математичний факультет" },
-      { "level": "Аспірантура", "name": "Педагогіка (PhD)", "faculty": "Науково-дослідний інститут" },
-      { "level": "Бакалаврат", "name": "Музичне мистецтво", "faculty": "Факультет мистецтв" }
-    ]
+    }
   },
   "events": {
-    "items": [
-      { "day": "26", "month": "Лют", "tag": "День відкритих дверей", "title": "Ознайомчий день для вступників на бакалаврат", "place": "Головний корпус, ауд. 1" },
-      { "day": "05", "month": "Бер", "tag": "Наука", "title": "Міжнародна конференція «Педагогічна наука — 2026»", "place": "Конференц-зал, корпус №2" },
-      { "day": "12", "month": "Бер", "tag": "Студентство", "title": "Фестиваль студентської творчості «Сковорода-фест»", "place": "Актова зала" }
-    ]
+    "backToEvents": "Повернутися до подій",
+    "noEvents": "Події не знайдено.",
+    "metaDate": "Дата",
+    "metaTime": "Час",
+    "metaEndDate": "Дата завершення",
+    "metaLocation": "Місце"
+  },
+  "partners": {
+    "visitWebsite": "Перейти на сайт",
+    "noPartners": "Партнерів не знайдено."
   },
   "resources": {
     "library": { "title": "Наукова бібліотека", "sub": "761 955 примірників" },

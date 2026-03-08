@@ -226,28 +226,13 @@
       "admissions": "Admissions",
       "student": "Students"
     },
-    "main": {
-      "category": "University",
-      "title": "KhNPU joins Erasmus+ initiative to support Ukrainian students",
-      "date": "21 February 2026"
-    },
-    "items": [
-      {
-        "category": "Science",
-        "title": "Young researchers conference: results and awards",
-        "date": "19 February 2026"
-      },
-      {
-        "category": "Admissions",
-        "title": "Open days 2026 announced",
-        "date": "17 February 2026"
-      },
-      {
-        "category": "Students",
-        "title": "KhNPU sports team wins championship prize",
-        "date": "15 February 2026"
-      }
-    ]
+    "allCategories": "All categories",
+    "backToNews": "Back to news",
+    "published": "Published",
+    "author": "Author",
+    "attachments": "Attachments",
+    "download": "Download",
+    "noArticles": "No articles found."
   },
   "facts": {
     "founded": "Year founded",
@@ -255,27 +240,705 @@
     "staff": "Academic staff",
     "specialties": "Accredited specialties"
   },
+  "university": {
+    "history": {
+      "tag": "About the university",
+      "title": "History and traditions",
+      "subtitle": "Two centuries of educational tradition and the development of pedagogical thought in the heart of Slobozhanshchyna.",
+      "intro1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "intro2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "timeline": {
+        "1804": { "title": "Foundation of the institute", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "1851": { "title": "Expansion of programmes", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
+        "1921": { "title": "A new era in education", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit." },
+        "1991": { "title": "Independence and reforms", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "2004": { "title": "Bicentennial anniversary", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt." },
+        "2022": { "title": "The university today", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." }
+      }
+    },
+    "mission": {
+      "tag": "About the university",
+      "title": "Mission, vision, values",
+      "subtitle": "The guiding principles that define our path in education and research.",
+      "missionTitle": "Mission",
+      "missionText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "missionText2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      "visionTitle": "Vision",
+      "visionText1": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "visionText2": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+      "valuesTitle": "Values",
+      "valuesText1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
+      "valuesText2": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+      "valuesGrid": {
+        "integrity": { "title": "Academic integrity", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "openness": { "title": "Openness", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "respect": { "title": "Respect and equality", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "innovation": { "title": "Innovation", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "partnership": { "title": "Partnership", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "heritage": { "title": "Heritage preservation", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      }
+    },
+    "symbolism": {
+      "tag": "About the university",
+      "title": "University symbols",
+      "subtitle": "Official symbols and attributes of H. S. Skovoroda Kharkiv National Pedagogical University.",
+      "coatOfArms": { "title": "Coat of arms", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+      "flag": { "title": "Flag", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+      "colors": { "title": "Official colors", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+      "anthem": { "title": "Anthem", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." }
+    },
+    "memorial": {
+      "tag": "Memorial",
+      "title": "Memorial",
+      "subtitle": "Honouring those who gave their lives for the freedom and independence of Ukraine.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "closingQuote": "Eternal memory to the heroes. We will never forget.",
+      "portrait1": { "name": "Ivan Ivanov", "role": "Lecturer, 2022" },
+      "portrait2": { "name": "Petro Petrenko", "role": "Student, 2022" },
+      "portrait3": { "name": "Oleksiy Kovalenko", "role": "Alumnus, 2023" },
+      "portrait4": { "name": "Maria Sydorenko", "role": "Staff, 2022" },
+      "portrait5": { "name": "Andriy Melnyk", "role": "Lecturer, 2023" },
+      "portrait6": { "name": "Yuriy Shevchenko", "role": "Student, 2023" },
+      "portrait7": { "name": "Kateryna Bondarenko", "role": "Alumna, 2022" },
+      "portrait8": { "name": "Dmytro Tkachenko", "role": "Staff, 2022" },
+      "portrait9": { "name": "Nataliya Kravchenko", "role": "Lecturer, 2022" },
+      "portrait10": { "name": "Serhiy Oliynyk", "role": "Student, 2023" },
+      "portrait11": { "name": "Iryna Lysenko", "role": "Alumna, 2022" },
+      "portrait12": { "name": "Vasyl Hrytsenko", "role": "Staff, 2023" }
+    },
+    "volunteering": {
+      "tag": "About the university",
+      "title": "Volunteering",
+      "subtitle": "Students and staff of KhNPU take part in volunteer initiatives for the benefit of society.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "activities": {
+        "humanitarian": { "tag": "Humanitarian aid", "title": "Support for communities", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
+        "education": { "tag": "Education", "title": "Educational projects", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident." },
+        "environment": { "tag": "Environment", "title": "Environmental initiatives", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit." },
+        "culture": { "tag": "Culture", "title": "Cultural events", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste." }
+      },
+      "stats": {
+        "volunteers": { "num": "500+", "label": "Volunteers joined" },
+        "hours": { "num": "12,000+", "label": "Hours of volunteer work" },
+        "projects": { "num": "45+", "label": "Projects delivered" }
+      },
+      "cta": {
+        "title": "Join our volunteers",
+        "subtitle": "Fill in the form or contact the volunteer centre coordinator.",
+        "button": "Join"
+      }
+    },
+    "gallery": {
+      "tag": "About the university",
+      "title": "Photo and video galleries",
+      "subtitle": "Campus life, university events and occasions in photos and videos.",
+      "allCategories": "All categories",
+      "categories": {
+        "campus": "Campus",
+        "events": "Events",
+        "studentLife": "Student life",
+        "sports": "Sports"
+      },
+      "empty": "No images in this category yet."
+    },
+    "newspaper": {
+      "tag": "About the university",
+      "title": "Teacher newspaper",
+      "subtitle": "The official KhNPU newspaper: news, events and voices from the community.",
+      "aboutText1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "aboutText2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "issuesTitle": "Latest issues",
+      "archiveCta": "View full archive",
+      "issues": {
+        "1": { "number": "No. 1", "date": "March 2026", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "2": { "number": "No. 2", "date": "February 2026", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "3": { "number": "No. 3", "date": "January 2026", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "4": { "number": "No. 4", "date": "December 2025", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "5": { "number": "No. 5", "date": "November 2025", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "6": { "number": "No. 6", "date": "October 2025", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      }
+    }
+  },
+  "admissions": {
+    "bachelor": {
+      "tag": "Admissions",
+      "title": "Bachelor",
+      "subtitle": "First cycle of higher education: the foundation of pedagogical and humanities training.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "facts": {
+        "duration": "4 years",
+        "durationLabel": "Duration",
+        "form": "Full-time / Part-time",
+        "formLabel": "Form of study",
+        "credits": "240 ECTS",
+        "creditsLabel": "Credits",
+        "diploma": "Bachelor diploma",
+        "diplomaLabel": "Diploma"
+      },
+      "whatYouStudy": "What you'll study",
+      "subjects": {
+        "pedagogy": "Pedagogy",
+        "psychology": "Psychology",
+        "languages": "Languages",
+        "sciences": "Sciences",
+        "arts": "Arts",
+        "it": "IT"
+      },
+      "specialtiesPreview": "Specialties (preview)",
+      "viewAllSpecialties": "View all specialties",
+      "specialty": "Specialty",
+      "code": "Code",
+      "specialty1": "Primary education",
+      "specialty2": "Preschool education",
+      "specialty3": "Philology (Ukrainian language and literature)",
+      "specialty4": "Psychology",
+      "specialty5": "Computer science and IT"
+    },
+    "master": {
+      "tag": "Admissions",
+      "title": "Master",
+      "subtitle": "Second cycle of higher education: in-depth specialisation and research skills.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "facts": {
+        "duration": "2 years",
+        "durationLabel": "Duration",
+        "form": "Full-time / Part-time",
+        "formLabel": "Form of study",
+        "credits": "120 ECTS",
+        "creditsLabel": "Credits",
+        "diploma": "Master diploma",
+        "diplomaLabel": "Diploma"
+      },
+      "whatYouStudy": "What you'll study",
+      "subjects": {
+        "pedagogy": "Pedagogy",
+        "psychology": "Psychology",
+        "languages": "Languages",
+        "sciences": "Sciences",
+        "arts": "Arts",
+        "it": "IT"
+      },
+      "researchFocus": "Research focus",
+      "researchText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "specialtiesPreview": "Specialties (preview)",
+      "viewAllSpecialties": "View all specialties",
+      "specialty": "Specialty",
+      "code": "Code",
+      "specialty1": "Educational institution management",
+      "specialty2": "Higher education pedagogy",
+      "specialty3": "Special needs education",
+      "specialty4": "Social work",
+      "specialty5": "Applied linguistics"
+    },
+    "graduate": {
+      "tag": "Admissions",
+      "title": "Graduate and doctoral",
+      "subtitle": "Training of research and teaching staff: PhD and Doctor of Sciences.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "phd": {
+        "title": "Graduate school (PhD)",
+        "duration": "4 years",
+        "durationLabel": "Duration",
+        "form": "Full-time / Part-time",
+        "formLabel": "Form",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      "doctoral": {
+        "title": "Doctoral studies",
+        "duration": "3 years",
+        "durationLabel": "Duration",
+        "form": "Part-time",
+        "formLabel": "Form",
+        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "scientificSchools": "Scientific schools",
+      "scientificSchoolsIntro": "Leading research groups and training directions.",
+      "school1": "Pedagogy and psychology",
+      "school2": "Philology and art studies",
+      "school3": "Natural sciences and teaching methodology"
+    },
+    "secondDegree": {
+      "tag": "Admissions",
+      "title": "Second higher education",
+      "subtitle": "Earn a new degree for career advancement or a career change.",
+      "intro": "Second degree programmes are designed for professionals who already hold a bachelor's or master's diploma and wish to gain a new specialisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "benefitsTitle": "Benefits of studying",
+      "benefits": {
+        "schedule": { "title": "Flexible schedule", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "diploma": { "title": "State-recognised diploma", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "experience": { "title": "Prior experience recognised", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "practice": { "title": "Practice-oriented", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "network": { "title": "Networking", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." },
+        "career": { "title": "Career support", "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." }
+      },
+      "howItWorksTitle": "How it works",
+      "steps": {
+        "step1": { "title": "Submit an application", "text": "Choose a specialty and submit your documents via EDEBO or the admissions office." },
+        "step2": { "title": "Confirmation", "text": "After document verification, receive an offer and sign the study contract." },
+        "step3": { "title": "Start studying", "text": "Join a study group on a schedule that works for you." }
+      }
+    },
+    "rules": {
+      "tag": "Admissions",
+      "title": "Admission rules 2026",
+      "subtitle": "Key dates and steps for applying to KhNPU.",
+      "keyDatesTitle": "Key dates",
+      "dates": {
+        "march1": { "label": "March 1", "text": "Start of document submission" },
+        "july15": { "label": "July 15", "text": "Deadline (full-time)" },
+        "august1": { "label": "August 1", "text": "End of entrance exams" },
+        "august15": { "label": "August 15", "text": "Ranking lists published" },
+        "september1": { "label": "September 1", "text": "Start of academic year" }
+      },
+      "stepsTitle": "Application steps",
+      "steps": {
+        "step1": { "title": "Choose a specialty", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "step2": { "title": "Register in EDEBO", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "step3": { "title": "Submit documents", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "step4": { "title": "Entrance exams", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "step5": { "title": "Results and enrolment", "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." }
+      },
+      "edeboCtaTitle": "Applicant e-cabinet",
+      "edeboCtaText": "Submit your documents online via the unified EDEBO system — fast and convenient.",
+      "edeboCtaButton": "Go to EDEBO"
+    },
+    "specialties": {
+      "tag": "Admissions",
+      "title": "List of specialties",
+      "subtitle": "Accredited specialties by level and form of study.",
+      "levelBachelor": "Bachelor",
+      "levelMaster": "Master",
+      "levelGraduate": "Graduate",
+      "allLevels": "All levels",
+      "tableCode": "Code",
+      "tableName": "Name",
+      "tableFaculty": "Faculty",
+      "tablePlaces": "Places",
+      "tableForm": "Form",
+      "formFullTime": "Full-time",
+      "formPartTime": "Part-time",
+      "rows": {
+        "r1": { "code": "011", "name": "Primary education", "faculty": "Primary education", "places": "120", "form": "fullTime", "level": "bachelor" },
+        "r2": { "code": "012", "name": "Preschool education", "faculty": "Preschool education", "places": "85", "form": "fullTime", "level": "bachelor" },
+        "r3": { "code": "014", "name": "Secondary education (Ukrainian)", "faculty": "Philology", "places": "60", "form": "fullTime", "level": "bachelor" },
+        "r4": { "code": "053", "name": "Psychology", "faculty": "Psychology", "places": "45", "form": "fullTime", "level": "bachelor" },
+        "r5": { "code": "122", "name": "Computer science", "faculty": "Computer science", "places": "50", "form": "fullTime", "level": "bachelor" },
+        "r6": { "code": "011", "name": "Primary education", "faculty": "Primary education", "places": "30", "form": "partTime", "level": "bachelor" },
+        "r7": { "code": "014", "name": "Secondary education (History)", "faculty": "History", "places": "40", "form": "fullTime", "level": "master" },
+        "r8": { "code": "012", "name": "Preschool education", "faculty": "Preschool education", "places": "25", "form": "partTime", "level": "master" },
+        "r9": { "code": "073", "name": "Management", "faculty": "Economics", "places": "35", "form": "partTime", "level": "master" },
+        "r10": { "code": "011", "name": "Educational institution management", "faculty": "Master", "places": "20", "form": "partTime", "level": "graduate" }
+      }
+    },
+    "creative": {
+      "tag": "Admissions",
+      "title": "Creative competitions",
+      "subtitle": "Requirements and schedule of creative competitions for applicants to arts programmes.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "datesLabel": "Dates",
+      "competitions": {
+        "c1": {
+          "specialty": "Music education",
+          "type": "Audition and performance",
+          "req1": "Prepare a creative piece according to the programme.",
+          "req2": "Submit portfolio and application by the deadline.",
+          "req3": "Attend pre-competition consultations.",
+          "dates": "July 2026"
+        },
+        "c2": {
+          "specialty": "Visual arts",
+          "type": "Review of creative works",
+          "req1": "Set of works on themes set by the admissions committee.",
+          "req2": "Originals and photos of works as per regulations.",
+          "req3": "Oral presentation and Q&A.",
+          "dates": "15–20 July 2026"
+        },
+        "c3": {
+          "specialty": "Choreography",
+          "type": "Practical demonstration",
+          "req1": "Classical and contemporary dance as per programme.",
+          "req2": "Musicality and sense of rhythm.",
+          "req3": "Self-presentation and motivation essay.",
+          "dates": "Mid-July 2026"
+        }
+      },
+      "tipsTitle": "Preparation tips",
+      "tipsText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Contact the admissions office for details."
+    },
+    "budget": {
+      "tag": "Admissions",
+      "title": "State-funded places",
+      "subtitle": "State order and distribution of budget places by specialty.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "statsTotalPlaces": "Total places",
+      "statsSpecialties": "Specialties",
+      "statsFaculties": "Faculties",
+      "breakdownTitle": "Breakdown by level",
+      "levelBachelor": "Bachelor",
+      "levelMaster": "Master",
+      "levelGraduate": "Graduate",
+      "tableSpecialty": "Specialty",
+      "tablePlaces": "Places",
+      "bachelorRows": {
+        "s1": { "name": "Primary education", "places": "120" },
+        "s2": { "name": "Preschool education", "places": "85" },
+        "s3": { "name": "Secondary education (Ukrainian)", "places": "60" },
+        "s4": { "name": "Psychology", "places": "45" },
+        "s5": { "name": "Computer science", "places": "50" }
+      },
+      "masterRows": {
+        "s1": { "name": "Secondary education (History)", "places": "40" },
+        "s2": { "name": "Preschool education", "places": "25" },
+        "s3": { "name": "Management", "places": "35" }
+      },
+      "graduateRows": {
+        "s1": { "name": "Educational institution management", "places": "20" },
+        "s2": { "name": "Higher education pedagogy", "places": "15" }
+      }
+    },
+    "exams": {
+      "tag": "Admissions",
+      "title": "Exam programmes",
+      "subtitle": "Entrance exam programmes by subject and level of education.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "subjectListTitle": "Entrance exam subjects",
+      "levelBachelor": "Bachelor",
+      "levelMaster": "Master",
+      "levelGraduate": "Graduate",
+      "downloadPdf": "Download PDF",
+      "subjects": {
+        "e1": { "name": "Ukrainian language", "level": "bachelor", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "e2": { "name": "History of Ukraine", "level": "bachelor", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "e3": { "name": "Mathematics", "level": "bachelor", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "e4": { "name": "Biology", "level": "bachelor", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "e5": { "name": "Specialised exam", "level": "master", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "e6": { "name": "Foreign language", "level": "master", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit." },
+        "e7": { "name": "Philosophy and methodology", "level": "graduate", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto." },
+        "e8": { "name": "Foreign language (academic)", "level": "graduate", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis." }
+      }
+    },
+    "tuition": {
+      "tag": "Admissions",
+      "title": "Tuition fees",
+      "subtitle": "Transparent tuition by level of education and payment options.",
+      "levelBachelor": "Bachelor",
+      "levelMaster": "Master",
+      "levelGraduate": "Graduate",
+      "fromPerYear": "from {amount} UAH/year",
+      "included1": "Full programme cycle",
+      "included2": "Library and learning materials access",
+      "included3": "Placements and tutor consultations",
+      "included4": "Student card and benefits",
+      "included5": "Participation in academic and cultural events",
+      "ctaButton": "Learn more",
+      "paymentTitle": "Payment options",
+      "payment1Title": "Installments",
+      "payment1Text": "Option to pay tuition in instalments over the academic year according to an agreed schedule.",
+      "payment2Title": "Per semester",
+      "payment2Text": "Classic option: payment before the start of each semester.",
+      "payment3Title": "Concessions",
+      "payment3Text": "Discounts and benefits are available for certain categories of applicants — details from the admissions office."
+    },
+    "benefits": {
+      "tag": "Admissions",
+      "title": "Benefits and social support",
+      "subtitle": "Social guarantees and support for different categories of students.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "categoriesTitle": "Benefit categories",
+      "orphans": "Orphans and those without parental care",
+      "orphansDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.",
+      "largeFamilies": "Large families",
+      "largeFamiliesDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "disability": "People with disabilities",
+      "disabilityDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      "warAffected": "War-affected",
+      "warAffectedDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+      "lowIncome": "Low income",
+      "lowIncomeDesc": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+      "academicExcellence": "Academic excellence",
+      "academicExcellenceDesc": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "howToApplyTitle": "How to apply for benefits",
+      "step1Title": "Prepare documents",
+      "step1Text": "Gather the document set required for your benefit category as listed by the admissions office.",
+      "step2Title": "Submit to social service",
+      "step2Text": "Documents are accepted by the university social service and the admissions office.",
+      "step3Title": "Receive decision",
+      "step3Text": "After verification you will receive confirmation of your right to benefits or social scholarship."
+    },
+    "veterans": {
+      "tag": "Admissions",
+      "title": "For veterans",
+      "subtitle": "Support and special admission conditions for combat veterans and their families.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "programsTitle": "Support programmes",
+      "program1": "Preferential admission under quota",
+      "program2": "Free preparatory counselling",
+      "program3": "Adaptation support during studies",
+      "program4": "Psychological support and rehabilitation",
+      "benefitsTitle": "Benefits",
+      "benefit1Title": "Tuition fee concessions",
+      "benefit1Text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
+      "benefit2Title": "Priority enrolment",
+      "benefit2Text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+      "benefit3Title": "Psychological support",
+      "benefit3Text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+      "contactTitle": "Contact us",
+      "contactText": "Questions about admission and veteran support: phone or email.",
+      "contactPhone": "Phone",
+      "contactEmail": "Email"
+    },
+    "inclusiveEdu": {
+      "tag": "Admissions",
+      "title": "Inclusive education",
+      "subtitle": "Conditions and support for students with special needs.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "featuresTitle": "Accessibility and support",
+      "ramps": "Ramps and barrier-free access",
+      "rampsDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.",
+      "signLanguage": "Sign language interpretation",
+      "signLanguageDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "assistiveTech": "Assistive technologies",
+      "assistiveTechDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      "individualPlans": "Individual learning plans",
+      "individualPlansDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+      "psychologicalSupport": "Psychological support",
+      "psychologicalSupportDesc": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+      "transport": "Transport and escort",
+      "transportDesc": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "spaceTitle": "Inclusive space",
+      "spaceQuote": "Every student has the right to quality education in a comfortable environment. We create conditions for this right to be realised."
+    },
+    "dormitories": {
+      "tag": "Admissions",
+      "title": "Dormitories",
+      "subtitle": "Accommodation for students and graduate students at KhNPU.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "cardsTitle": "University dormitories",
+      "dorm1": { "name": "Dormitory No. 1", "address": "29 Alchevskykh St", "capacity": "280 places", "distance": "5 min walk from campus", "amenity1": "Canteen", "amenity2": "Laundry", "amenity3": "Wi‑Fi" },
+      "dorm2": { "name": "Dormitory No. 2", "address": "33 Alchevskykh St", "capacity": "320 places", "distance": "7 min walk from campus", "amenity1": "Sports hall", "amenity2": "Reading room", "amenity3": "Study rooms" },
+      "dorm3": { "name": "Dormitory No. 3", "address": "35 Alchevskykh St", "capacity": "250 places", "distance": "10 min walk from campus", "amenity1": "Medical point", "amenity2": "Laundry", "amenity3": "Barrier-free access" },
+      "howToGetTitle": "How to get a room",
+      "step1Title": "Submit documents",
+      "step1Text": "After enrolment, submit a housing application via the dean's office or social service.",
+      "step2Title": "Sign the contract",
+      "step2Text": "Sign a tenancy agreement and familiarise yourself with the residence rules.",
+      "step3Title": "Receive assignment",
+      "step3Text": "With your assignment, contact the dormitory warden within the specified period.",
+      "step4Title": "Move in",
+      "step4Text": "Collect keys and move in according to the schedule and available places."
+    },
+    "scholarships": {
+      "tag": "Admissions",
+      "title": "Scholarship programmes",
+      "subtitle": "Academic, social and named scholarships for students.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "academicTitle": "Academic scholarship",
+      "academicAmount": "from 2,500 UAH/month",
+      "academicEligibility": "State-funded students with successful exam results.",
+      "academicDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "socialTitle": "Social scholarship",
+      "socialAmount": "as per legislation",
+      "socialEligibility": "Students from preferential categories with supporting documents.",
+      "socialDesc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "presidentialTitle": "President of Ukraine award",
+      "presidentialAmount": "one-time award",
+      "presidentialEligibility": "Olympiad and competition winners, honours students.",
+      "presidentialDesc": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "namedTitle": "Named scholarships",
+      "namedAmount": "as per donor terms",
+      "namedEligibility": "For achievement in studies, research and arts by decision of the academic council.",
+      "namedDesc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "howToApplyTitle": "How to apply for a scholarship",
+      "howToApplyText": "After enrolment, contact the dean's office and social service for the document submission schedule. Academic scholarship is awarded automatically based on exam results.",
+      "howToApplyButton": "Find out more"
+    },
+    "prepCourses": {
+      "tag": "Admissions",
+      "title": "Preparatory courses",
+      "subtitle": "Preparation for entrance exams in core subjects.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "coursesTitle": "Preparation courses",
+      "course1": { "name": "Ukrainian language and literature", "duration": "8 months", "schedule": "Twice a week", "price": "from 4,500 UAH/course" },
+      "course2": { "name": "History of Ukraine", "duration": "8 months", "schedule": "Twice a week", "price": "from 4,500 UAH/course" },
+      "course3": { "name": "Mathematics", "duration": "8 months", "schedule": "Twice a week", "price": "from 4,500 UAH/course" },
+      "course4": { "name": "Biology / Chemistry", "duration": "6 months", "schedule": "1–2 times a week", "price": "from 3,800 UAH/course" },
+      "ctaTitle": "Enrol in preparatory courses",
+      "ctaSubtitle": "Contact the admissions office or submit an online application — we will match a course to your profile.",
+      "ctaButton": "Submit application"
+    },
+    "openDays": {
+      "tag": "Admissions",
+      "title": "Open days",
+      "subtitle": "Visit the campus, meet the faculties and get answers to your questions about applying.",
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "upcomingTitle": "Upcoming dates",
+      "events": {
+        "event1": {
+          "dateBadge": "Mar 15",
+          "title": "Open day — humanities",
+          "location": "Main building, assembly hall",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "event2": {
+          "dateBadge": "Apr 12",
+          "title": "Open day — natural sciences",
+          "location": "Building 2, conference room",
+          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        "event3": {
+          "dateBadge": "May 10",
+          "title": "General open day",
+          "location": "Main building, lobby and lecture rooms",
+          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      },
+      "expectTitle": "What to expect",
+      "expectations": {
+        "campusTour": {
+          "title": "Campus tour",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+        },
+        "meetFaculty": {
+          "title": "Meet the faculty",
+          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        },
+        "qa": {
+          "title": "Q&A session",
+          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+        },
+        "demoLessons": {
+          "title": "Demo lessons",
+          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+        }
+      },
+      "ctaTitle": "Register for an open day",
+      "ctaSubtitle": "Choose a convenient date and submit your registration — we will confirm and send you the programme.",
+      "ctaButton": "Register"
+    },
+    "3dTour": {
+      "tag": "Admissions",
+      "title": "3D campus tour",
+      "subtitle": "A virtual walk around the KhNPU campus.",
+      "buildingsTitle": "University buildings",
+      "buildings": {
+        "building1": {
+          "name": "Main building",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "building2": {
+          "name": "Building 2",
+          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        "building3": {
+          "name": "Research library",
+          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "building4": {
+          "name": "Sports complex",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+        },
+        "building5": {
+          "name": "Laboratory building",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        },
+        "building6": {
+          "name": "Administrative building",
+          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+        }
+      }
+    }
+  },
+  "education": {
+    "faculties": {
+      "tag": "Education",
+      "title": "Faculties",
+      "subtitle": "Faculty and department structure of H. S. Skovoroda KhNPU.",
+      "intro": "The university brings together faculties training teachers, psychologists, philologists, scientists and artists. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "dean": "Dean",
+      "departmentsCount": "departments",
+      "studentsCount": "students",
+      "cards": {
+        "f1": { "name": "Pedagogy and Psychology", "dean": "Ivanenko O.M.", "departments": "6", "students": "1,200", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "f2": { "name": "Primary Education", "dean": "Petrenko T.V.", "departments": "4", "students": "980", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "f3": { "name": "Preschool Education", "dean": "Kovalenko L.I.", "departments": "5", "students": "850", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "f4": { "name": "Philology and Foreign Languages", "dean": "Sydorenko M.P.", "departments": "7", "students": "1,100", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "f5": { "name": "Physics and Mathematics", "dean": "Melnyk V.O.", "departments": "5", "students": "620", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "f6": { "name": "Arts", "dean": "Shevchenko I.Yu.", "departments": "4", "students": "480", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia." },
+        "f7": { "name": "Natural Sciences", "dean": "Bondarenko A.S.", "departments": "5", "students": "540", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae." },
+        "f8": { "name": "History and Technology", "dean": "Hrytsenko D.V.", "departments": "6", "students": "720", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium." }
+      }
+    },
+    "departments": {
+      "tag": "Education",
+      "title": "Departments",
+      "subtitle": "Full list of departments by faculty.",
+      "allFaculties": "All faculties",
+      "tableDepartment": "Department",
+      "tableFaculty": "Faculty",
+      "tableHead": "Head",
+      "rows": {
+        "d1": { "name": "Pedagogy and Primary Education Methodology", "faculty": "f1", "head": "Ivanenko O.M." },
+        "d2": { "name": "Developmental Psychology", "faculty": "f1", "head": "Petrenko T.V." },
+        "d3": { "name": "Preschool Pedagogy", "faculty": "f3", "head": "Kovalenko L.I." },
+        "d4": { "name": "Ukrainian Language and Literature", "faculty": "f4", "head": "Sydorenko M.P." },
+        "d5": { "name": "Foreign Languages", "faculty": "f4", "head": "Tkachenko N.O." },
+        "d6": { "name": "Mathematics and Teaching Methodology", "faculty": "f5", "head": "Melnyk V.O." },
+        "d7": { "name": "Physics and Astronomy", "faculty": "f5", "head": "Oliinyk S.R." },
+        "d8": { "name": "Music", "faculty": "f6", "head": "Shevchenko I.Yu." },
+        "d9": { "name": "Visual Arts", "faculty": "f6", "head": "Lysenko I.V." },
+        "d10": { "name": "Chemistry and Biology", "faculty": "f7", "head": "Bondarenko A.S." },
+        "d11": { "name": "History of Ukraine", "faculty": "f8", "head": "Hrytsenko D.V." },
+        "d12": { "name": "Information Technology", "faculty": "f8", "head": "Kravchenko N.P." }
+      }
+    },
+    "programs": {
+      "tag": "Education",
+      "title": "Study programmes",
+      "subtitle": "Accredited programmes by level: bachelor, master, graduate.",
+      "allLevels": "All levels",
+      "levelBachelor": "Bachelor",
+      "levelMaster": "Master",
+      "levelGraduate": "Graduate",
+      "noPrograms": "No programmes found.",
+      "codeLabel": "Specialty code",
+      "cards": {
+        "p1": { "name": "Primary education", "code": "011", "level": "bachelor" },
+        "p2": { "name": "Preschool education", "code": "012", "level": "bachelor" },
+        "p3": { "name": "Secondary education (Ukrainian language)", "code": "014", "level": "bachelor" },
+        "p4": { "name": "Psychology", "code": "053", "level": "bachelor" },
+        "p5": { "name": "Computer science", "code": "122", "level": "bachelor" },
+        "p6": { "name": "Educational institution management", "code": "011", "level": "master" },
+        "p7": { "name": "Higher education pedagogy", "code": "014", "level": "master" },
+        "p8": { "name": "Special needs education", "code": "016", "level": "master" },
+        "p9": { "name": "Educational sciences", "code": "011", "level": "graduate" }
+      }
+    }
+  },
   "programs": {
+    "allLevels": "All levels",
+    "backToPrograms": "Back to programmes",
+    "noPrograms": "No programmes found.",
+    "metaLevel": "Level",
+    "metaFaculty": "Faculty",
+    "metaDuration": "Duration",
+    "metaForm": "Form of study",
     "levels": {
       "bachelor": "Bachelor",
       "master": "Master",
       "graduate": "Graduate"
-    },
-    "items": [
-      { "level": "Bachelor", "name": "Primary education", "faculty": "Faculty of Pedagogy" },
-      { "level": "Master", "name": "Psychology", "faculty": "Faculty of Psychology" },
-      { "level": "Bachelor", "name": "Foreign language (English)", "faculty": "Faculty of Foreign Philology" },
-      { "level": "Bachelor", "name": "Computer science", "faculty": "Faculty of Physics and Mathematics" },
-      { "level": "Graduate", "name": "Pedagogy (PhD)", "faculty": "Research Institute" },
-      { "level": "Bachelor", "name": "Music arts", "faculty": "Faculty of Arts" }
-    ]
+    }
   },
   "events": {
-    "items": [
-      { "day": "26", "month": "Feb", "tag": "Open day", "title": "Introductory day for bachelor applicants", "place": "Main building, room 1" },
-      { "day": "05", "month": "Mar", "tag": "Science", "title": "International conference «Pedagogical science — 2026»", "place": "Conference hall, building 2" },
-      { "day": "12", "month": "Mar", "tag": "Students", "title": "Student creativity festival «Skovoroda-fest»", "place": "Assembly hall" }
-    ]
+    "backToEvents": "Back to events",
+    "noEvents": "No events found.",
+    "metaDate": "Date",
+    "metaTime": "Time",
+    "metaEndDate": "End date",
+    "metaLocation": "Location"
+  },
+  "partners": {
+    "visitWebsite": "Visit website",
+    "noPartners": "No partners found."
   },
   "resources": {
     "library": { "title": "Research library", "sub": "761,955 items" },

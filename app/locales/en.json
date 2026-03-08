@@ -912,6 +912,251 @@
         "p8": { "name": "Special needs education", "code": "016", "level": "master" },
         "p9": { "name": "Educational sciences", "code": "011", "level": "graduate" }
       }
+    },
+    "curriculum": {
+      "tag": "Education",
+      "title": "Curriculum",
+      "subtitle": "Academic year structure and course plans for bachelor programmes.",
+      "intro": "The curriculum is designed to provide a balanced combination of compulsory and elective disciplines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "yearsTitle": "Academic years",
+      "creditsLabel": "Credits",
+      "years": {
+        "y1": { "num": "1", "title": "Year 1", "credits": "60 ECTS", "courses": { "c1": "Introduction to Pedagogy", "c2": "General Psychology", "c3": "Ukrainian Language", "c4": "History of Ukraine", "c5": "Foreign Language" } },
+        "y2": { "num": "2", "title": "Year 2", "credits": "60 ECTS", "courses": { "c1": "Developmental Psychology", "c2": "Teaching Methodology", "c3": "Educational Technology", "c4": "Philosophy of Education", "c5": "Elective Module" } },
+        "y3": { "num": "3", "title": "Year 3", "credits": "60 ECTS", "courses": { "c1": "Subject Didactics", "c2": "Inclusive Education", "c3": "Practice (Teaching)", "c4": "Research Basics", "c5": "Elective Module" } },
+        "y4": { "num": "4", "title": "Year 4", "credits": "60 ECTS", "courses": { "c1": "State Exam Preparation", "c2": "Bachelor Thesis", "c3": "Professional Practice", "c4": "Career Guidance", "c5": "Elective Module" } }
+      }
+    },
+    "electives": {
+      "tag": "Education",
+      "title": "Elective courses",
+      "subtitle": "Free-choice disciplines to tailor your study path.",
+      "intro": "Students can choose from a wide range of elective courses across humanities, sciences, and professional domains. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": {
+        "humanities": { "heading": "Humanities", "courses": { "h1": { "name": "History of Art", "credits": "3", "semester": "3", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." }, "h2": { "name": "Philosophy and Ethics", "credits": "4", "semester": "2", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." }, "h3": { "name": "Cultural Studies", "credits": "3", "semester": "4", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." } } },
+        "sciences": { "heading": "Sciences", "courses": { "s1": { "name": "Data Analysis Basics", "credits": "4", "semester": "3", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }, "s2": { "name": "Environmental Education", "credits": "3", "semester": "5", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." }, "s3": { "name": "Science Communication", "credits": "3", "semester": "4", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." } } },
+        "professional": { "heading": "Professional", "courses": { "p1": { "name": "Project Management", "credits": "4", "semester": "5", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis." }, "p2": { "name": "Digital Tools for Teachers", "credits": "3", "semester": "3", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus." }, "p3": { "name": "Leadership in Education", "credits": "3", "semester": "6", "description": "Blanditiis praesentium voluptatum deleniti atque corrupti quos." } } },
+        "languages": { "heading": "Languages", "courses": { "l1": { "name": "English for Academic Purposes", "credits": "4", "semester": "2–4", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod." }, "l2": { "name": "German B1", "credits": "3", "semester": "3", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse." }, "l3": { "name": "Polish for Beginners", "credits": "3", "semester": "4", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa." } } }
+      },
+      "creditsLabel": "Credits",
+      "semesterLabel": "Semester"
+    },
+    "schedule": {
+      "tag": "Education",
+      "title": "Academic calendar",
+      "subtitle": "Key dates and semester structure for the academic year.",
+      "intro": "The academic year is divided into two semesters. Below you will find the main periods and important deadlines. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "semestersTitle": "Semester timeline",
+      "semester1": "Semester 1",
+      "semester2": "Semester 2",
+      "semesters": {
+        "s1": { "dateRange": "September 1 – January 31", "periods": { "p1": { "name": "Lectures and seminars", "range": "Sep 1 – Dec 20" }, "p2": { "name": "Session and exams", "range": "Dec 21 – Jan 25" }, "p3": { "name": "Holidays", "range": "Jan 26 – Jan 31" }, "p4": { "name": "Retakes (if any)", "range": "Jan 27 – Jan 31" } } },
+        "s2": { "dateRange": "February 1 – June 30", "periods": { "p1": { "name": "Lectures and seminars", "range": "Feb 1 – May 25" }, "p2": { "name": "Session and exams", "range": "May 26 – Jun 22" }, "p3": { "name": "State exams / defence", "range": "Jun 23 – Jun 28" }, "p4": { "name": "Holidays", "range": "Jun 29 – Aug 31" } } }
+      },
+      "keyDatesTitle": "Key dates",
+      "keyDates": {
+        "k1": { "event": "Registration for courses", "date": "Sep 1–15" },
+        "k2": { "event": "Start of Semester 1", "date": "Sep 1" },
+        "k3": { "event": "Examination session (Semester 1)", "date": "Dec 21 – Jan 25" },
+        "k4": { "event": "Start of Semester 2", "date": "Feb 1" },
+        "k5": { "event": "Registration for summer session", "date": "May 1–10" },
+        "k6": { "event": "Examination session (Semester 2)", "date": "May 26 – Jun 22" },
+        "k7": { "event": "Thesis defence period", "date": "Jun 15 – Jun 30" },
+        "k8": { "event": "Graduation ceremony", "date": "Jul 1–5" }
+      },
+      "tableEvent": "Event",
+      "tableDate": "Date"
+    },
+    "accreditation": {
+      "tag": "Education",
+      "title": "Programme accreditation",
+      "subtitle": "Information on programme accreditation and validity periods.",
+      "intro": "The university undergoes periodic accreditation of its study programmes by the relevant agencies. Below is the accreditation status of main programmes. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Accredited programmes",
+      "cards": {
+        "a1": { "programme": "Primary education", "body": "NAQA", "validity": "2022–2028", "status": "active" },
+        "a2": { "programme": "Preschool education", "body": "NAQA", "validity": "2023–2029", "status": "active" },
+        "a3": { "programme": "Psychology", "body": "NAQA", "validity": "2022–2028", "status": "active" },
+        "a4": { "programme": "Secondary education (Ukrainian language)", "body": "NAQA", "validity": "2023–2029", "status": "active" },
+        "a5": { "programme": "Educational institution management", "body": "NAQA", "validity": "2022–2028", "status": "active" },
+        "a6": { "programme": "Educational sciences", "body": "NAQA", "validity": "2024–2030", "status": "active" }
+      },
+      "statusActive": "Active",
+      "calloutTitle": "About the accreditation process",
+      "calloutText": "Periodic accreditation ensures that study programmes meet legal requirements and quality standards. The university undergoes external evaluation and submits reports to NAQA. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "quality": {
+      "tag": "Education",
+      "title": "Quality centre",
+      "subtitle": "Mission, goals and team of the Education Quality Centre.",
+      "intro": "The Education Quality Centre supports the development of the internal quality assurance system, monitoring of learning outcomes and support for teaching staff. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "missionTitle": "Mission",
+      "missionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "goalsTitle": "Our goals",
+      "goals": {
+        "g1": { "title": "Quality standards", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "g2": { "title": "Support for teachers", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat." },
+        "g3": { "title": "Transparency of results", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "teamTitle": "Team",
+      "team": {
+        "t1": { "name": "Ivanenko O.M.", "role": "Centre director" },
+        "t2": { "name": "Petrenko T.V.", "role": "Monitoring specialist" },
+        "t3": { "name": "Kovalenko L.I.", "role": "Methodologist" },
+        "t4": { "name": "Sydorenko M.P.", "role": "Quality analyst" }
+      }
+    },
+    "monitoring": {
+      "tag": "Education",
+      "title": "Quality monitoring",
+      "subtitle": "Methodology and tools for assessing education quality.",
+      "intro": "The quality monitoring system covers student surveys, external reviews, graduate tracking and employer feedback. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "methodologyTitle": "Methodology",
+      "methodology": {
+        "m1": { "title": "Student surveys", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "m2": { "title": "External review", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "m3": { "title": "Graduate tracking", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "m4": { "title": "Employer feedback", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "statsTitle": "Key figures",
+      "stats": {
+        "s1": { "num": "2,400+", "label": "Surveys conducted" },
+        "s2": { "num": "24", "label": "Programmes reviewed" },
+        "s3": { "num": "87%", "label": "Student satisfaction" }
+      }
+    },
+    "rankings": {
+      "tag": "Education",
+      "title": "Rankings",
+      "subtitle": "University positions in national and international rankings.",
+      "intro": "KhNPU participates in various ranking systems that assess teaching, research and internationalisation. Below is an overview of our positions and methodology. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Our positions",
+      "cards": {
+        "r1": { "name": "QS World University Rankings", "position": "Top 800", "year": "2024", "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "r2": { "name": "Webometrics", "position": "Top 15 Ukraine", "year": "2024", "note": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "r3": { "name": "Scopus", "position": "Indexed", "year": "—", "note": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "r4": { "name": "TOP-200 Ukraine", "position": "Top 50", "year": "2024", "note": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "r5": { "name": "Subject rankings (Education)", "position": "Top 10 Ukraine", "year": "2024", "note": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." }
+      },
+      "methodologyTitle": "Methodology",
+      "methodologyText": "Rankings use different criteria: publication activity, citations, international cooperation, student-to-staff ratio and employer surveys. We use the data to improve our programmes and transparency. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "practice": {
+      "tag": "Education",
+      "title": "Practical training",
+      "subtitle": "Teaching, industrial and research practice for students.",
+      "intro": "Practical training is an integral part of the curriculum. Students gain experience in schools, enterprises and research settings. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "typesTitle": "Types of practice",
+      "types": {
+        "t1": { "title": "Teaching practice", "duration": "4–8 weeks", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
+        "t2": { "title": "Industrial practice", "duration": "2–4 weeks", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident." },
+        "t3": { "title": "Research practice", "duration": "2–6 weeks", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis." }
+      },
+      "partnersTitle": "Partner companies and institutions",
+      "partnersIntro": "We cooperate with schools, kindergartens, research centres and enterprises for placement of students."
+    },
+    "distance": {
+      "tag": "Education",
+      "title": "Part-time",
+      "subtitle": "Study in a format that combines sessions with independent work.",
+      "intro": "Part-time (distance) form allows you to combine work and study. Learning is organised in sessions with consultations and independent work between them. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "differencesTitle": "Key features",
+      "differences": {
+        "d1": { "title": "Session schedule", "text": "Lectures and exams are held in intensive sessions several times a year." },
+        "d2": { "title": "Independent study", "text": "Between sessions you work through materials and assignments on your own." },
+        "d3": { "title": "Consultations", "text": "Online or in-person consultations with teachers by appointment." },
+        "d4": { "title": "Exam format", "text": "Exams and tests are held during session periods on campus or remotely." },
+        "d5": { "title": "Duration", "text": "Same curriculum as full-time; total duration may be slightly longer." },
+        "d6": { "title": "Diploma", "text": "State-recognised diploma with no indication of study form." }
+      },
+      "scheduleTitle": "Session schedule (example)",
+      "scheduleSession1": "Session 1",
+      "scheduleSession2": "Session 2",
+      "scheduleRows": {
+        "row1": { "activity": "Orientation and lectures", "s1": "Oct 1–7", "s2": "Dec 15–21" },
+        "row2": { "activity": "Consultations and assignments", "s1": "Oct 8 – Nov 30", "s2": "Dec 22 – Feb 10" },
+        "row3": { "activity": "Exams", "s1": "Dec 1–14", "s2": "Feb 11–25" }
+      }
+    },
+    "remote": {
+      "tag": "Education",
+      "title": "Distance learning",
+      "subtitle": "Study online using modern platforms and tools.",
+      "intro": "The distance format lets you study from anywhere. We use Moodle, Zoom and other services for lectures, materials and submissions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "platformsTitle": "Platforms and tools",
+      "platforms": {
+        "moodle": { "name": "Moodle", "description": "E-campus: courses, materials, tests and reporting. The main portal for distance learning." },
+        "zoom": { "name": "Zoom", "description": "Video lectures and live online seminars. Meeting schedule is published in Moodle." },
+        "google": { "name": "Google Classroom", "description": "Additional courses and assignments for selected subjects. Integration with documents and submission." }
+      },
+      "howItWorksTitle": "How it works",
+      "steps": {
+        "step1": { "title": "Register", "text": "Get access to Moodle and register for courses according to the dean's office schedule." },
+        "step2": { "title": "Access materials", "text": "View lectures, notes and assignments in the e-campus." },
+        "step3": { "title": "Attend sessions", "text": "Join online lectures and seminars as scheduled via Zoom or other services." },
+        "step4": { "title": "Submit work", "text": "Upload completed assignments and take tests in Moodle by the set deadlines." }
+      }
+    },
+    "dual": {
+      "tag": "Education",
+      "title": "Dual education",
+      "subtitle": "Combining university study with workplace practice.",
+      "intro": "Dual education lets you gain theoretical training at the university and practical experience at partner organisations at the same time. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "benefitsTitle": "Benefits of dual education",
+      "benefits": {
+        "b1": { "title": "Real-world experience", "text": "Work at a real workplace while studying." },
+        "b2": { "title": "Employer mentorship", "text": "A mentor from the organisation helps you apply knowledge in practice." },
+        "b3": { "title": "Guaranteed employment", "text": "Many partners offer employment after graduation." },
+        "b4": { "title": "Academic credits", "text": "Practice counts towards your study plan as part of the programme." },
+        "b5": { "title": "Flexible schedule", "text": "Combination of days at university and at the organisation on an agreed schedule." },
+        "b6": { "title": "Industry skills", "text": "Master tools and processes relevant to the industry." }
+      },
+      "partnersTitle": "Partner employers",
+      "partnersIntro": "We work with businesses and educational institutions to organise dual training."
+    },
+    "continuing": {
+      "tag": "Education",
+      "title": "Professional development",
+      "subtitle": "Professional development and retraining programmes for teachers and specialists.",
+      "intro": "The university offers professional development and retraining programmes for teachers, methodologists and heads of educational institutions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Programmes",
+      "programmes": {
+        "p1": { "name": "Modern educational technology", "duration": "72 hrs", "audience": "Teachers, methodologists", "price": "Price on request" },
+        "p2": { "name": "Inclusive education", "duration": "108 hrs", "audience": "Teaching staff", "price": "Free (state-funded)" },
+        "p3": { "name": "Digital competencies for teachers", "duration": "48 hrs", "audience": "Teachers of all subjects", "price": "Price on request" },
+        "p4": { "name": "Educational institution management", "duration": "120 hrs", "audience": "Principals, deputies", "price": "Price on request" }
+      },
+      "ctaTitle": "Enrol now",
+      "ctaSubtitle": "Contact us to register and get details on schedule and fees.",
+      "ctaButton": "Enrol"
+    },
+    "students": {
+      "tag": "Education",
+      "title": "Student body",
+      "subtitle": "Statistics and structure of the university student body.",
+      "stats": {
+        "total": { "num": "8,000+", "label": "Total students and graduate students" },
+        "bachelor": { "num": "5,200", "label": "Bachelor students" },
+        "master": { "num": "2,100", "label": "Master students" },
+        "graduate": { "num": "700+", "label": "Graduate and doctoral students" }
+      },
+      "byFacultyTitle": "Breakdown by faculty",
+      "chartPlaceholder": "Chart (visualisation placeholder)",
+      "facultiesListTitle": "Students by faculty",
+      "faculties": {
+        "f1": { "name": "Pedagogy and Psychology", "count": "1,200" },
+        "f2": { "name": "Primary Education", "count": "980" },
+        "f3": { "name": "Preschool Education", "count": "850" },
+        "f4": { "name": "Philology and Foreign Languages", "count": "1,100" },
+        "f5": { "name": "Physics and Mathematics", "count": "620" },
+        "f6": { "name": "Arts and Natural Sciences", "count": "1,020" }
+      },
+      "genderTitle": "Gender distribution",
+      "genderPlaceholder": "Distribution chart (male / female)",
+      "internationalTitle": "International students",
+      "internationalIntro": "The university welcomes international students at all levels of study.",
+      "internationalCount": "180+",
+      "internationalLabel": "International students"
     }
   },
   "programs": {

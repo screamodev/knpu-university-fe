@@ -913,6 +913,251 @@
         "p8": { "name": "Корекційна педагогіка", "code": "016", "level": "master" },
         "p9": { "name": "Освітні, педагогічні науки", "code": "011", "level": "graduate" }
       }
+    },
+    "curriculum": {
+      "tag": "Навчання",
+      "title": "Навчальні плани",
+      "subtitle": "Структура навчального року та плани курсів для програм бакалаврату.",
+      "intro": "Навчальний план побудовано як збалансоване поєднання обов'язкових та вибіркових дисциплін. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "yearsTitle": "Навчальні роки",
+      "creditsLabel": "Кредити",
+      "years": {
+        "y1": { "num": "1", "title": "1 курс", "credits": "60 ECTS", "courses": { "c1": "Вступ до педагогіки", "c2": "Загальна психологія", "c3": "Українська мова", "c4": "Історія України", "c5": "Іноземна мова" } },
+        "y2": { "num": "2", "title": "2 курс", "credits": "60 ECTS", "courses": { "c1": "Вікова психологія", "c2": "Методика навчання", "c3": "Освітні технології", "c4": "Філософія освіти", "c5": "Вибіркова дисципліна" } },
+        "y3": { "num": "3", "title": "3 курс", "credits": "60 ECTS", "courses": { "c1": "Предметна дидактика", "c2": "Інклюзивна освіта", "c3": "Практика (педагогічна)", "c4": "Основи дослідницької роботи", "c5": "Вибіркова дисципліна" } },
+        "y4": { "num": "4", "title": "4 курс", "credits": "60 ECTS", "courses": { "c1": "Підготовка до ДКР", "c2": "Бакалаврська робота", "c3": "Фахова практика", "c4": "Профорієнтація", "c5": "Вибіркова дисципліна" } }
+      }
+    },
+    "electives": {
+      "tag": "Навчання",
+      "title": "Дисципліни вільного вибору",
+      "subtitle": "Вибіркові дисципліни для формування індивідуальної траєкторії.",
+      "intro": "Студенти обирають дисципліни з широкого спектру гуманітарних, природничих та професійних курсів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "categories": {
+        "humanities": { "heading": "Гуманітарні", "courses": { "h1": { "name": "Історія мистецтва", "credits": "3", "semester": "3", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." }, "h2": { "name": "Філософія та етика", "credits": "4", "semester": "2", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." }, "h3": { "name": "Культурологія", "credits": "3", "semester": "4", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." } } },
+        "sciences": { "heading": "Природничі", "courses": { "s1": { "name": "Основи аналізу даних", "credits": "4", "semester": "3", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." }, "s2": { "name": "Екологічна освіта", "credits": "3", "semester": "5", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." }, "s3": { "name": "Наукова комунікація", "credits": "3", "semester": "4", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit." } } },
+        "professional": { "heading": "Професійні", "courses": { "p1": { "name": "Управління проєктами", "credits": "4", "semester": "5", "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis." }, "p2": { "name": "Цифрові інструменти для вчителів", "credits": "3", "semester": "3", "description": "At vero eos et accusamus et iusto odio dignissimos ducimus." }, "p3": { "name": "Лідерство в освіті", "credits": "3", "semester": "6", "description": "Blanditiis praesentium voluptatum deleniti atque corrupti quos." } } },
+        "languages": { "heading": "Мови", "courses": { "l1": { "name": "Англійська для академічних цілей", "credits": "4", "semester": "2–4", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod." }, "l2": { "name": "Німецька B1", "credits": "3", "semester": "3", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse." }, "l3": { "name": "Польська для початківців", "credits": "3", "semester": "4", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa." } } }
+      },
+      "creditsLabel": "Кредити",
+      "semesterLabel": "Семестр"
+    },
+    "schedule": {
+      "tag": "Навчання",
+      "title": "Графік навчального процесу",
+      "subtitle": "Ключові дати та структура семестрів на навчальний рік.",
+      "intro": "Навчальний рік складається з двох семестрів. Нижче наведено основні періоди та важливі терміни. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "semestersTitle": "Семестри",
+      "semester1": "Семестр 1",
+      "semester2": "Семестр 2",
+      "semesters": {
+        "s1": { "dateRange": "1 вересня – 31 січня", "periods": { "p1": { "name": "Лекції та семінари", "range": "1 вер – 20 груд" }, "p2": { "name": "Сесія та іспити", "range": "21 груд – 25 січ" }, "p3": { "name": "Канікули", "range": "26 січ – 31 січ" }, "p4": { "name": "Перескладання (за потреби)", "range": "27 січ – 31 січ" } } },
+        "s2": { "dateRange": "1 лютого – 30 червня", "periods": { "p1": { "name": "Лекції та семінари", "range": "1 лют – 25 трав" }, "p2": { "name": "Сесія та іспити", "range": "26 трав – 22 черв" }, "p3": { "name": "ДКР / захисти", "range": "23 черв – 28 черв" }, "p4": { "name": "Канікули", "range": "29 черв – 31 серп" } } }
+      },
+      "keyDatesTitle": "Ключові дати",
+      "keyDates": {
+        "k1": { "event": "Реєстрація на курси", "date": "1–15 вер" },
+        "k2": { "event": "Початок 1 семестру", "date": "1 вер" },
+        "k3": { "event": "Екзаменаційна сесія (1 семестр)", "date": "21 груд – 25 січ" },
+        "k4": { "event": "Початок 2 семестру", "date": "1 лют" },
+        "k5": { "event": "Реєстрація на літню сесію", "date": "1–10 трав" },
+        "k6": { "event": "Екзаменаційна сесія (2 семестр)", "date": "26 трав – 22 черв" },
+        "k7": { "event": "Період захистів робіт", "date": "15–30 черв" },
+        "k8": { "event": "Випускний", "date": "1–5 лип" }
+      },
+      "tableEvent": "Подія",
+      "tableDate": "Дата"
+    },
+    "accreditation": {
+      "tag": "Навчання",
+      "title": "Акредитація програм",
+      "subtitle": "Інформація про акредитацію освітніх програм та термін дії.",
+      "intro": "Університет проходить періодичну акредитацію освітніх програм у відповідних органах. Нижче наведено статус акредитації основних програм. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Акредитовані програми",
+      "cards": {
+        "a1": { "programme": "Початкова освіта", "body": "НАЗЯВО", "validity": "2022–2028", "status": "active" },
+        "a2": { "programme": "Дошкільна освіта", "body": "НАЗЯВО", "validity": "2023–2029", "status": "active" },
+        "a3": { "programme": "Психологія", "body": "НАЗЯВО", "validity": "2022–2028", "status": "active" },
+        "a4": { "programme": "Середня освіта (українська мова)", "body": "НАЗЯВО", "validity": "2023–2029", "status": "active" },
+        "a5": { "programme": "Управління навчальним закладом", "body": "НАЗЯВО", "validity": "2022–2028", "status": "active" },
+        "a6": { "programme": "Освітні, педагогічні науки", "body": "НАЗЯВО", "validity": "2024–2030", "status": "active" }
+      },
+      "statusActive": "Діюча",
+      "calloutTitle": "Про процес акредитації",
+      "calloutText": "Періодична акредитація забезпечує відповідність освітніх програм вимогам законодавства та стандартам якості. Університет проходить зовнішнє оцінювання та надає звіти НАЗЯВО. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "quality": {
+      "tag": "Навчання",
+      "title": "Центр якості освіти",
+      "subtitle": "Місія, цілі та команда Центру якості освіти.",
+      "intro": "Центр якості освіти забезпечує розвиток системи внутрішнього забезпечення якості, моніторинг освітніх результатів та підтримку викладачів. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "missionTitle": "Місія",
+      "missionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "goalsTitle": "Наші цілі",
+      "goals": {
+        "g1": { "title": "Стандарти якості", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "g2": { "title": "Підтримка викладачів", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat." },
+        "g3": { "title": "Прозорість результатів", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "teamTitle": "Команда",
+      "team": {
+        "t1": { "name": "Іваненко О.М.", "role": "Директор центру" },
+        "t2": { "name": "Петренко Т.В.", "role": "Спеціаліст з моніторингу" },
+        "t3": { "name": "Коваленко Л.І.", "role": "Методист" },
+        "t4": { "name": "Сидоренко М.П.", "role": "Аналітик якості" }
+      }
+    },
+    "monitoring": {
+      "tag": "Навчання",
+      "title": "Моніторинг якості",
+      "subtitle": "Методологія та інструменти оцінки якості освіти.",
+      "intro": "Система моніторингу якості охоплює опитування студентів, зовнішні оцінки, відстеження випускників та зворотний зв'язок від роботодавців. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "methodologyTitle": "Методологія",
+      "methodology": {
+        "m1": { "title": "Опитування студентів", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "m2": { "title": "Зовнішня експертиза", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "m3": { "title": "Відстеження випускників", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "m4": { "title": "Зворотний зв'язок роботодавців", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "statsTitle": "Показники",
+      "stats": {
+        "s1": { "num": "2 400+", "label": "Опитувань проведено" },
+        "s2": { "num": "24", "label": "Програм оцінено" },
+        "s3": { "num": "87%", "label": "Задоволеність студентів" }
+      }
+    },
+    "rankings": {
+      "tag": "Навчання",
+      "title": "Рейтинги",
+      "subtitle": "Позиції університету в національних та міжнародних рейтингах.",
+      "intro": "ХНПУ бере участь у різних рейтингових системах, які оцінюють навчання, науку та інтернаціоналізацію. Нижче — огляд наших позицій та методології. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cardsTitle": "Наші позиції",
+      "cards": {
+        "r1": { "name": "QS World University Rankings", "position": "Топ-800", "year": "2024", "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor." },
+        "r2": { "name": "Webometrics", "position": "Топ-15 Україна", "year": "2024", "note": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." },
+        "r3": { "name": "Scopus", "position": "Індексовано", "year": "—", "note": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." },
+        "r4": { "name": "ТОП-200 Україна", "position": "Топ-50", "year": "2024", "note": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi." },
+        "r5": { "name": "Предметні рейтинги (освіта)", "position": "Топ-10 Україна", "year": "2024", "note": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium." }
+      },
+      "methodologyTitle": "Методологія",
+      "methodologyText": "Рейтинги використовують різні критерії: публікаційна активність, цитування, міжнародна співпраця, співвідношення студентів і викладачів, опитування роботодавців. Ми використовуємо дані для покращення програм та прозорості. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "practice": {
+      "tag": "Навчання",
+      "title": "Практична підготовка",
+      "subtitle": "Педагогічна, виробнича та наукова практика для студентів.",
+      "intro": "Практика — невід'ємна частина навчального плану. Студенти отримують досвід у школах, підприємствах та наукових установах. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "typesTitle": "Види практики",
+      "types": {
+        "t1": { "title": "Педагогічна практика", "duration": "4–8 тижнів", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
+        "t2": { "title": "Виробнича практика", "duration": "2–4 тижні", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident." },
+        "t3": { "title": "Наукова практика", "duration": "2–6 тижнів", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis." }
+      },
+      "partnersTitle": "Партнерські підприємства та заклади",
+      "partnersIntro": "Співпрацюємо з школами, дитсадками, науковими центрами та підприємствами для проходження практики."
+    },
+    "distance": {
+      "tag": "Навчання",
+      "title": "Заочна форма",
+      "subtitle": "Навчання у форматі, що поєднує сесії та самостійну роботу.",
+      "intro": "Заочна форма дає змогу поєднувати роботу та навчання. Заняття організовані у вигляді сесій із консультаціями та самостійною роботою між ними. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "differencesTitle": "Ключові особливості",
+      "differences": {
+        "d1": { "title": "Графік сесій", "text": "Лекції та іспити проходять інтенсивними сесіями кілька разів на рік." },
+        "d2": { "title": "Самостійне навчання", "text": "Між сесіями ви опрацьовуєте матеріали та виконуєте завдання самостійно." },
+        "d3": { "title": "Консультації", "text": "Онлайн або очні консультації з викладачами за записом." },
+        "d4": { "title": "Формат іспитів", "text": "Іспити та заліки проходять під час сесій на території університету або дистанційно." },
+        "d5": { "title": "Тривалість", "text": "Та сама програма, що й на денній формі; загальна тривалість може бути трохи довшою." },
+        "d6": { "title": "Диплом", "text": "Державний диплом без зазначення форми навчання." }
+      },
+      "scheduleTitle": "Графік сесій (приклад)",
+      "scheduleSession1": "Сесія 1",
+      "scheduleSession2": "Сесія 2",
+      "scheduleRows": {
+        "row1": { "activity": "Вступні заняття та лекції", "s1": "1–7 жовт", "s2": "15–21 груд" },
+        "row2": { "activity": "Консультації та завдання", "s1": "8 жовт – 30 лист", "s2": "22 груд – 10 лют" },
+        "row3": { "activity": "Іспити", "s1": "1–14 груд", "s2": "11–25 лют" }
+      }
+    },
+    "remote": {
+      "tag": "Навчання",
+      "title": "Дистанційне навчання",
+      "subtitle": "Навчання онлайн за допомогою сучасних платформ та інструментів.",
+      "intro": "Дистанційний формат дозволяє навчатися з будь-якої точки. Використовуємо Moodle, Zoom та інші сервіси для лекцій, матеріалів та здачі робіт. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "platformsTitle": "Платформи та інструменти",
+      "platforms": {
+        "moodle": { "name": "Moodle", "description": "Електронний кампус: курси, матеріали, тести та звітність. Основний портал для дистанційних дисциплін." },
+        "zoom": { "name": "Zoom", "description": "Відеолекції та онлайн-семінари в реальному часі. Розклад зустрічей публікується в Moodle." },
+        "google": { "name": "Google Classroom", "description": "Додаткові курси та завдання для окремих дисциплін. Інтеграція з документами та здачею робіт." }
+      },
+      "howItWorksTitle": "Як це працює",
+      "steps": {
+        "step1": { "title": "Реєстрація", "text": "Отримайте доступ до Moodle та зареєструйтесь на курси за розкладом деканату." },
+        "step2": { "title": "Доступ до матеріалів", "text": "Переглядайте лекції, конспекти та завдання в електронному кампусі." },
+        "step3": { "title": "Участь у заняттях", "text": "Приєднуйтесь до онлайн-лекцій та семінарів за розкладом через Zoom або інші сервіси." },
+        "step4": { "title": "Здача робіт", "text": "Завантажуйте виконані завдання та проходьте тестування в Moodle до встановлених термінів." }
+      }
+    },
+    "dual": {
+      "tag": "Навчання",
+      "title": "Дуальна освіта",
+      "subtitle": "Поєднання навчання в університеті з практикою на робочому місці.",
+      "intro": "Дуальна освіта дає змогу отримувати теоретичну підготовку в університеті та практичний досвід у партнерських підприємствах одночасно. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "benefitsTitle": "Переваги дуальної освіти",
+      "benefits": {
+        "b1": { "title": "Реальний досвід", "text": "Робота на реальному робочому місці під час навчання." },
+        "b2": { "title": "Менторство роботодавця", "text": "Куратор від підприємства допомагає застосовувати знання на практиці." },
+        "b3": { "title": "Гарантоване працевлаштування", "text": "Багато партнерів пропонують працевлаштування після закінчення." },
+        "b4": { "title": "Академічні кредити", "text": "Практика зараховується в навчальний план як частина програми." },
+        "b5": { "title": "Гнучкий графік", "text": "Поєднання днів в університеті та на підприємстві за узгодженим розкладом." },
+        "b6": { "title": "Галузеві навички", "text": "Опанування інструментів та процесів, актуальних у галузі." }
+      },
+      "partnersTitle": "Партнерські роботодавці",
+      "partnersIntro": "Співпрацюємо з підприємствами та закладами освіти для організації дуальної підготовки."
+    },
+    "continuing": {
+      "tag": "Навчання",
+      "title": "Підвищення кваліфікації",
+      "subtitle": "Програми підвищення кваліфікації та перепідготовки для педагогів і фахівців.",
+      "intro": "Університет пропонує програми підвищення кваліфікації та професійної перепідготовки для вчителів, методистів та керівників освітніх закладів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Програми",
+      "programmes": {
+        "p1": { "name": "Сучасні освітні технології", "duration": "72 год", "audience": "Вчителі, методисти", "price": "Вартість за запитом" },
+        "p2": { "name": "Інклюзивна освіта", "duration": "108 год", "audience": "Педагогічні працівники", "price": "Безкоштовно (бюджет)" },
+        "p3": { "name": "Цифрові компетентності вчителя", "duration": "48 год", "audience": "Вчителі всіх спеціальностей", "price": "Вартість за запитом" },
+        "p4": { "name": "Управління освітнім закладом", "duration": "120 год", "audience": "Директори, заступники", "price": "Вартість за запитом" }
+      },
+      "ctaTitle": "Записуйтесь на програми",
+      "ctaSubtitle": "Зв'яжіться з нами для реєстрації та отримання деталей щодо розкладу та вартості.",
+      "ctaButton": "Записатися"
+    },
+    "students": {
+      "tag": "Навчання",
+      "title": "Контингент студентів",
+      "subtitle": "Статистика та структура студентського контингенту університету.",
+      "stats": {
+        "total": { "num": "8 000+", "label": "Студентів та аспірантів всього" },
+        "bachelor": { "num": "5 200", "label": "Студентів бакалаврату" },
+        "master": { "num": "2 100", "label": "Студентів магістратури" },
+        "graduate": { "num": "700+", "label": "Аспірантів та докторантів" }
+      },
+      "byFacultyTitle": "Розподіл за факультетами",
+      "chartPlaceholder": "Діаграма (місце для візуалізації)",
+      "facultiesListTitle": "Студенти за факультетами",
+      "faculties": {
+        "f1": { "name": "Педагогіки та психології", "count": "1 200" },
+        "f2": { "name": "Початкової освіти", "count": "980" },
+        "f3": { "name": "Дошкільної освіти", "count": "850" },
+        "f4": { "name": "Філології та іноземних мов", "count": "1 100" },
+        "f5": { "name": "Фізики та математики", "count": "620" },
+        "f6": { "name": "Мистецтв та природничих наук", "count": "1 020" }
+      },
+      "genderTitle": "Статевий склад",
+      "genderPlaceholder": "Діаграма розподілу (чол. / жін.)",
+      "internationalTitle": "Іноземні студенти",
+      "internationalIntro": "Університет приймає іноземних студентів на різні рівні освіти.",
+      "internationalCount": "180+",
+      "internationalLabel": "Іноземних студентів"
     }
   },
   "programs": {

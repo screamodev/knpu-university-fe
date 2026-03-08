@@ -1160,6 +1160,354 @@
       "internationalLabel": "Іноземних студентів"
     }
   },
+  "science": {
+    "directions": {
+      "tag": "Наука",
+      "title": "Наукові напрями та школи",
+      "subtitle": "Дослідницькі школи університету та їхні керівники.",
+      "intro": "У ХНПУ імені Г.С. Сковороди діють наукові школи з педагогіки, філології, психології, математики, історії та природничих наук. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "schools": {
+        "pedagogy": { "name": "Педагогічна школа", "lead": "Керівник: проф. Іваненко О.М.", "est": "Засн. 1992", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "linguistics": { "name": "Лінгвістична школа", "lead": "Керівник: проф. Сидоренко М.П.", "est": "Засн. 1988", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "psychology": { "name": "Психологічна школа", "lead": "Керівник: проф. Петренко Т.В.", "est": "Засн. 1995", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "mathematics": { "name": "Математична школа", "lead": "Керівник: проф. Мельник В.О.", "est": "Засн. 1990", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "history": { "name": "Історична школа", "lead": "Керівник: проф. Гриценко Д.В.", "est": "Засн. 1985", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "naturalSciences": { "name": "Природнича школа", "lead": "Керівник: проф. Бондаренко А.С.", "est": "Засн. 1993", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur." }
+      }
+    },
+    "institutes": {
+      "tag": "Наука",
+      "title": "НДІ, центри та лабораторії",
+      "subtitle": "Науково-дослідні інститути та лабораторії університету.",
+      "intro": "У структурі ХНПУ працюють інститути та лабораторії, що займаються фундаментальними та прикладними дослідженнями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "foundedLabel": "Засновано",
+      "items": {
+        "i1": { "name": "Інститут педагогіки та психології", "director": "Директор: д.п.н. Іваненко О.М.", "founded": "1991", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "focus": ["f1", "f2", "f3"] },
+        "i2": { "name": "Лабораторія когнітивних досліджень", "director": "Керівник: д.псих.н. Петренко Т.В.", "founded": "2005", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "focus": ["f4", "f5", "f6"] },
+        "i3": { "name": "Центр філологічних студій", "director": "Директор: д.ф.н. Сидоренко М.П.", "founded": "1998", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "focus": ["f7", "f8", "f9"] },
+        "i4": { "name": "НДІ природничої освіти", "director": "Директор: д.х.н. Бондаренко А.С.", "founded": "1992", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "focus": ["f10", "f11", "f12"] }
+      },
+      "focusLabels": {
+        "f1": "Педагогічна компаративістика",
+        "f2": "Інклюзивна освіта",
+        "f3": "Цифрові технології в освіті",
+        "f4": "Когнітивне навчання",
+        "f5": "Психометрія",
+        "f6": "Соціальна психологія",
+        "f7": "Українська література",
+        "f8": "Перекладознавство",
+        "f9": "Лінгводидактика",
+        "f10": "Екологічна освіта",
+        "f11": "Хімія навколишнього середовища",
+        "f12": "Біологічна освіта"
+      }
+    },
+    "youngScientists": {
+      "tag": "Наука",
+      "title": "Рада молодих вчених",
+      "subtitle": "Підтримка та представництво інтересів молодих дослідників.",
+      "intro": "Рада молодих вчених об'єднує аспірантів, докторантів та молодих науковців університету. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "goalsTitle": "Напрями діяльності",
+      "goals": {
+        "g1": { "title": "Грантова підтримка", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "g2": { "title": "Організація конференцій", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "g3": { "title": "Допомога з публікаціями", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "g4": { "title": "Міжнародна співпраця", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "teamTitle": "Склад ради",
+      "members": {
+        "m1": { "name": "Коваленко О.С.", "role": "Голова, факультет педагогіки" },
+        "m2": { "name": "Ткаченко І.В.", "role": "Заступник, факультет філології" },
+        "m3": { "name": "Лисенко М.О.", "role": "Член ради, факультет психології" },
+        "m4": { "name": "Шевченко А.П.", "role": "Член ради, факультет природничих наук" }
+      }
+    },
+    "studentSociety": {
+      "tag": "Наука",
+      "title": "Наукове товариство студентів",
+      "subtitle": "Участь студентів у науковій діяльності та дослідженнях.",
+      "intro": "Наукове товариство студентів об'єднує бажаючих займатися наукою під керівництвом викладачів. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "activities": {
+        "conferences": { "name": "Наукові конференції", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "competitions": { "name": "Дослідницькі конкурси", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "publications": { "name": "Студентські публікації", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "stats": {
+        "members": { "num": "450+", "label": "Активних учасників" },
+        "papers": { "num": "120", "label": "Опублікованих статей" },
+        "competitions": { "num": "25", "label": "Перемог на конкурсах" }
+      },
+      "ctaTitle": "Приєднуйтесь до нас",
+      "ctaSubtitle": "Заповніть форму або зв'яжіться з нами для участі в науковому товаристві.",
+      "ctaButton": "Приєднатися"
+    },
+    "graduate": {
+      "tag": "Наука",
+      "title": "Аспірантура та докторантура",
+      "subtitle": "Підготовка наукових та науково-педагогічних кадрів.",
+      "intro": "Університет здійснює підготовку аспірантів та докторантів за програмами третього (освітньо-наукового) та четвертого (наукового) рівнів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Програми підготовки",
+      "phd": {
+        "title": "Аспірантура (PhD)",
+        "duration": "4 роки",
+        "form": "Денна / заочна форма",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "req1": "Диплом магістра або спеціаліста",
+        "req2": "Вступні іспити з іноземної мови та спеціальності",
+        "req3": "Публікації та наукові статті за бажанням"
+      },
+      "doctoral": {
+        "title": "Докторантура",
+        "duration": "3 роки",
+        "form": "Денна форма",
+        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+        "req1": "Диплом PhD або науковий ступінь кандидата наук",
+        "req2": "Дисертація та публікації за спеціальністю",
+        "req3": "Рекомендація вченої ради"
+      },
+      "admissionTitle": "Вступ",
+      "admissionStep1": { "title": "Подати документи", "text": "Пакет документів та заява через електронний кабінет або приймальну комісію." },
+      "admissionStep2": { "title": "Вступні іспити", "text": "Іноземна мова (академічна) та спеціальність згідно з програмою вступних випробувань." },
+      "admissionStep3": { "title": "Співбесіда", "text": "Співбесіда з керівником та експертною комісією за темою майбутнього дослідження." }
+    },
+    "conferences": {
+      "tag": "Наука",
+      "title": "Конференції та семінари",
+      "subtitle": "Наукові заходи університету та партнерів.",
+      "intro": "ХНПУ регулярно проводить міжнародні та всеукраїнські конференції, семінари та круглі столи. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "upcomingTitle": "Найближчі події",
+      "events": {
+        "e1": { "dateBadge": "15.04", "title": "Педагогіка та психологія в умовах змін", "type": "Конференція", "location": "Харків, вул. Алчевських, 29", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "e2": { "dateBadge": "22.05", "title": "Філологічні студії: мова та література", "type": "Семінар", "location": "Онлайн", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "e3": { "dateBadge": "10.06", "title": "Природничі науки в освіті", "type": "Круглий стіл", "location": "Харків, НДІ", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "pastTitle": "Минулі заходи",
+      "past": {
+        "p1": { "year": "2025", "title": "Міжнародна конференція з педагогіки", "participants": "180 учасників" },
+        "p2": { "year": "2025", "title": "Семінар з когнітивних досліджень", "participants": "45 учасників" },
+        "p3": { "year": "2024", "title": "Філологічні читання", "participants": "120 учасників" },
+        "p4": { "year": "2024", "title": "Екологічна освіта та сталий розвиток", "participants": "90 учасників" }
+      }
+    },
+    "journals": {
+      "tag": "Наука",
+      "title": "Фахові наукові журнали",
+      "subtitle": "Періодичні видання університету, включені до переліку ВАК та міжнародних баз.",
+      "intro": "ХНПУ видає фахові наукові журнали з педагогіки, психології, філології та природничих наук. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "journals": {
+        "j1": { "name": "Педагогіка та психологія", "issn": "ISSN 1234-5678", "frequency": "Квартальний", "scopus": true, "wos": false },
+        "j2": { "name": "Філологічні студії", "issn": "ISSN 2345-6789", "frequency": "Піврічний", "scopus": true, "wos": true },
+        "j3": { "name": "Природничі науки в освіті", "issn": "ISSN 3456-7890", "frequency": "Квартальний", "scopus": false, "wos": false },
+        "j4": { "name": "Історичний архів", "issn": "ISSN 4567-8901", "frequency": "Щорічний", "scopus": true, "wos": false },
+        "j5": { "name": "Математика в школі та вузі", "issn": "ISSN 5678-9012", "frequency": "Квартальний", "scopus": false, "wos": false },
+        "j6": { "name": "Інклюзивна освіта", "issn": "ISSN 6789-0123", "frequency": "Піврічний", "scopus": true, "wos": true }
+      }
+    },
+    "collections": {
+      "tag": "Наука",
+      "title": "Збірники наукових праць",
+      "subtitle": "Збірники матеріалів конференцій та тематичні випуски.",
+      "intro": "Університет публікує збірники наукових праць за матеріалами конференцій та тематичні випуски. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "items": {
+        "c1": { "title": "Матеріали міжнародної конференції «Педагогіка 2025»", "year": "2025", "editors": "Ред. Іваненко О.М., Сидоренко М.П.", "articles": "42 статті", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "c2": { "title": "Філологічні читання ХНПУ", "year": "2025", "editors": "Ред. Петренко Т.В.", "articles": "28 статей", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "c3": { "title": "Психологія та освіта: збірник статей", "year": "2024", "editors": "Ред. Мельник В.О., Гриценко Д.В.", "articles": "35 статей", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "c4": { "title": "Природничі науки: дослідження та практика", "year": "2024", "editors": "Ред. Бондаренко А.С.", "articles": "19 статей", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "c5": { "title": "Інклюзивна освіта в Україні", "year": "2024", "editors": "Ред. Коваленко О.С., Ткаченко І.В.", "articles": "24 статті", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." }
+      },
+      "submissionTitle": "Вимоги до публікації",
+      "submissionText": "Перед поданням матеріалів до збірника ознайомтеся з вимогами до оформлення та процедурою рецензування.",
+      "submissionLink": "Вимоги до публікацій"
+    },
+    "publicationRequirements": {
+      "tag": "Наука",
+      "title": "Вимоги до публікацій",
+      "subtitle": "Правила оформлення рукописів та процедура подання до журналів і збірників.",
+      "intro": "Університет встановлює єдині вимоги до оформлення статей та матеріалів конференцій. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "sections": {
+        "general": { "title": "Загальні вимоги", "items": ["item1", "item2", "item3", "item4", "item5"] },
+        "formatting": { "title": "Оформлення рукопису", "items": ["fmt1", "fmt2", "fmt3", "fmt4", "fmt5"] },
+        "citation": { "title": "Стиль цитування", "items": ["cit1", "cit2", "cit3", "cit4", "cit5"] },
+        "submission": { "title": "Процедура подання", "items": ["sub1", "sub2", "sub3", "sub4", "sub5"] }
+      },
+      "generalItems": {
+        "item1": "Стаття має бути оригінальною та не опублікованою раніше.",
+        "item2": "Обсяг статті: 8–20 сторінок для журналу, 4–8 для збірника.",
+        "item3": "Мова публікації: українська або англійська.",
+        "item4": "Анотація та ключові слова обов'язкові (українською та англійською).",
+        "item5": "Список літератури оформляється згідно з діючим стандартом."
+      },
+      "formattingItems": {
+        "fmt1": "Шрифт Times New Roman, 14 pt, міжрядковий інтервал 1,5.",
+        "fmt2": "Поля: ліве 3 см, праве 1,5 см, верхнє та нижнє 2 см.",
+        "fmt3": "Посилання на джерела в квадратних дужках у порядку згадування.",
+        "fmt4": "Іллюстрації та таблиці нумеруються та мають підписи.",
+        "fmt5": "Файл надається у форматі .docx або .rtf."
+      },
+      "citationItems": {
+        "cit1": "Використовується стиль ДСТУ 8302:2015 (аналог APA).",
+        "cit2": "У тексті: [Автор, рік] або [1], [2] за нумерацією у списку.",
+        "cit3": "У списку літератури: прізвище та ініціали, назва, видання, рік, том, сторінки.",
+        "cit4": "Для інтернет-джерел зазначається URL та дата звернення.",
+        "cit5": "Іноземні джерела наводяться в оригіналі."
+      },
+      "submissionItems": {
+        "sub1": "Надіслати рукопис на електронну пошту редакції або через систему на сайті.",
+        "sub2": "У листі вказати тему рубрики або назву збірника/журналу.",
+        "sub3": "Отримання підтвердження та рецензування протягом 4–8 тижнів.",
+        "sub4": "Після прийняття — підписання договору та внесення правок за зауваженнями.",
+        "sub5": "Публікація згідно з черговістю випусків."
+      },
+      "templateTitle": "Шаблон рукопису",
+      "templateDescription": "Завантажте шаблон оформлення статті для журналу або збірника.",
+      "templateButton": "Завантажити шаблон"
+    },
+    "scopus": {
+      "tag": "Наука",
+      "title": "Scopus / WOS",
+      "subtitle": "Публікації співробітників у міжнародних базах даних.",
+      "intro": "ХНПУ підтримує публікаційну активність у Scopus та Web of Science. Нижче наведено приклади індексованих публікацій. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "stats": {
+        "scopus": { "num": "280+", "label": "Публікацій у Scopus" },
+        "wos": { "num": "95+", "label": "Публікацій у WOS" },
+        "hIndex": { "num": "4.2", "label": "Середній h-індекс" }
+      },
+      "tableAuthor": "Автор(и)",
+      "tableTitle": "Назва",
+      "tableJournal": "Журнал",
+      "tableYear": "Рік",
+      "tableDatabase": "База",
+      "publications": {
+        "p1": { "authors": "Іваненко О.М., Сидоренко М.П.", "title": "Педагогічна компаративістика в умовах євроінтеграції", "journal": "Педагогіка та психологія", "year": "2025", "scopus": true, "wos": false },
+        "p2": { "authors": "Петренко Т.В., Мельник В.О.", "title": "Когнітивні стратегії навчання в вищій школі", "journal": "Вісник психології", "year": "2025", "scopus": true, "wos": true },
+        "p3": { "authors": "Бондаренко А.С.", "title": "Екологічна освіта та сталий розвиток", "journal": "Природничі науки в освіті", "year": "2024", "scopus": true, "wos": false },
+        "p4": { "authors": "Коваленко О.С., Ткаченко І.В., Лисенко М.О.", "title": "Інклюзивна освіта: досвід та перспективи", "journal": "Інклюзивна освіта", "year": "2024", "scopus": true, "wos": true },
+        "p5": { "authors": "Гриценко Д.В.", "title": "Українська література в контексті світової", "journal": "Філологічні студії", "year": "2024", "scopus": false, "wos": true },
+        "p6": { "authors": "Шевченко А.П., Іваненко О.М.", "title": "Цифрові технології в педагогічній освіті", "journal": "Педагогіка та психологія", "year": "2023", "scopus": true, "wos": false },
+        "p7": { "authors": "Сидоренко М.П.", "title": "Лінгводидактика та методика викладання мов", "journal": "Філологічні студії", "year": "2023", "scopus": true, "wos": true },
+        "p8": { "authors": "Мельник В.О., Петренко Т.В.", "title": "Психометрія та оцінювання навчальних досягнень", "journal": "Вісник психології", "year": "2023", "scopus": true, "wos": false }
+      }
+    },
+    "publishing": {
+      "tag": "Наука",
+      "title": "Видавництво університету",
+      "subtitle": "Видання монографій, журналів та навчально-методичних матеріалів.",
+      "intro": "Видавництво ХНПУ забезпечує випуск наукових, навчальних та методичних видань. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "services": {
+        "books": { "title": "Видання книг", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "journals": { "title": "Випуск журналів", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "methodology": { "title": "Методичні матеріали", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "digital": { "title": "Цифрове видання", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "recentTitle": "Останні видання",
+      "books": {
+        "b1": { "title": "Педагогіка вищої школи", "author": "Іваненко О.М.", "year": "2025" },
+        "b2": { "title": "Психологія навчання", "author": "Петренко Т.В., Мельник В.О.", "year": "2025" },
+        "b3": { "title": "Українська література XX століття", "author": "Сидоренко М.П.", "year": "2024" }
+      }
+    },
+    "library": {
+      "tag": "Наука",
+      "title": "Наукова бібліотека",
+      "subtitle": "Фонди, читальні зали та електронні ресурси.",
+      "intro": "Наукова бібліотека ХНПУ надає доступ до паперових та електронних фондів, читальних залів та довідкових послуг. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "services": {
+        "readingRooms": { "title": "Читальні зали", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "interlibrary": { "title": "Міжбібліотечний абонемент", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "eresources": { "title": "Електронні ресурси", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "reference": { "title": "Довідкові послуги", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "workshops": { "title": "Майстер-класи", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "exhibitions": { "title": "Виставки", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur." }
+      },
+      "stats": {
+        "holdings": { "num": "761 955", "label": "Примірників у фондах" },
+        "eresources": { "num": "12 000+", "label": "Електронних ресурсів" },
+        "readingRooms": { "num": "8", "label": "Читальних залів" },
+        "visitors": { "num": "45 000+", "label": "Відвідувачів на рік" }
+      }
+    },
+    "catalog": {
+      "tag": "Наука",
+      "title": "Електронний каталог",
+      "subtitle": "Пошук видань у фондах наукової бібліотеки.",
+      "intro": "Електронний каталог дозволяє шукати книги, періодику та інші видання за автором, назвою, ключовими словами. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "howToSearchTitle": "Як шукати в каталозі",
+      "steps": {
+        "register": { "title": "Реєстрація", "text": "Отримайте читацький квиток у бібліотеці або зареєструйтеся в електронній системі для доступу до повного каталогу." },
+        "search": { "title": "Пошук", "text": "Введіть назву, автора, ключові слова або шифр зберігання. Фільтруйте за типом документу та роком видання." },
+        "order": { "title": "Замовлення", "text": "Зарезервуйте видання онлайн або замовте до читального залу. Отримайте сповіщення про готовність." }
+      }
+    },
+    "repository": {
+      "tag": "Наука",
+      "title": "Репозитарій eSSPUIR",
+      "subtitle": "Відкритий архів наукових та навчально-методичних матеріалів університету.",
+      "intro": "У репозитарії зберігаються дисертації, статті, навчальні матеріали та звіти. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "stats": {
+        "records": { "num": "4 200+", "label": "Записів у репозитарії" },
+        "downloads": { "num": "28 000+", "label": "Завантажень на рік" },
+        "faculties": { "num": "12", "label": "Факультетів представлено" }
+      },
+      "features": {
+        "openAccess": { "title": "Відкритий доступ", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "fullText": { "title": "Повнотекстовий пошук", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "citation": { "title": "Експорт цитування", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "doi": { "title": "Реєстрація DOI", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "recentTitle": "Останні надходження",
+      "deposits": {
+        "d1": { "title": "Педагогічна компаративістика в умовах євроінтеграції", "author": "Іваненко О.М.", "faculty": "Педагогіки та психології", "date": "2025-02-15" },
+        "d2": { "title": "Когнітивні стратегії навчання в вищій школі", "author": "Петренко Т.В.", "faculty": "Педагогіки та психології", "date": "2025-02-10" },
+        "d3": { "title": "Українська література в контексті світової", "author": "Сидоренко М.П.", "faculty": "Філології", "date": "2025-02-05" },
+        "d4": { "title": "Екологічна освіта та сталий розвиток", "author": "Бондаренко А.С.", "faculty": "Природничих наук", "date": "2025-01-28" }
+      }
+    },
+    "boards": {
+      "tag": "Наука",
+      "title": "Спеціалізовані вчені ради",
+      "subtitle": "Ради з правом прийняття до розгляду та проведення захистів дисертацій.",
+      "intro": "При університеті діють спеціалізовані вчені ради з різних галузей знань. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "boards": {
+        "b1": { "name": "Педагогіка та психологія", "code": "011", "chairman": "Іваненко О.М.", "secretary": "Сидоренко М.П.", "members": "15", "areas": ["area1", "area2", "area3"] },
+        "b2": { "name": "Філологія", "code": "035", "chairman": "Петренко Т.В.", "secretary": "Мельник В.О.", "members": "12", "areas": ["area1", "area2", "area3"] },
+        "b3": { "name": "Історія та археологія", "code": "032", "chairman": "Бондаренко А.С.", "secretary": "Коваленко О.С.", "members": "11", "areas": ["area1", "area2", "area3"] },
+        "b4": { "name": "Природничі науки", "code": "013", "chairman": "Гриценко Д.В.", "secretary": "Ткаченко І.В.", "members": "14", "areas": ["area1", "area2", "area3"] }
+      },
+      "chairmanLabel": "Голова ради",
+      "secretaryLabel": "Вчений секретар",
+      "membersLabel": "Членів ради",
+      "areasLabel": "Напрями",
+      "area1": "Педагогіка вищої школи",
+      "area2": "Порівняльна педагогіка",
+      "area3": "Методологія наукових досліджень"
+    },
+    "defenses": {
+      "tag": "Наука",
+      "title": "Захисти дисертацій",
+      "subtitle": "Графік та результати захистів кандидатських та докторських дисертацій.",
+      "intro": "При університеті проводяться захисти дисертацій за спеціальностями, затвердженими спеціалізованими вченими радами. Нижче наведено найближчі захисти та архів минулих років. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "upcomingTitle": "Найближчі захисти",
+      "upcoming": {
+        "d1": { "dateBadge": "20.04", "candidate": "Коваленко О.С.", "dissertation": "Педагогічна компаративістика в умовах євроінтеграції", "specialty": "011 Педагогіка", "board": "Спеціалізована вчена рада 011, ХНПУ" },
+        "d2": { "dateBadge": "15.05", "candidate": "Ткаченко І.В.", "dissertation": "Когнітивні стратегії навчання в вищій школі", "specialty": "011 Педагогіка", "board": "Спеціалізована вчена рада 011, ХНПУ" },
+        "d3": { "dateBadge": "28.05", "candidate": "Лисенко М.О.", "dissertation": "Українська література в контексті світової", "specialty": "035 Філологія", "board": "Спеціалізована вчена рада 035, ХНПУ" }
+      },
+      "pastTitle": "Минулі захисти",
+      "tableYear": "Рік",
+      "tableCandidate": "Кандидат",
+      "tableTitle": "Назва дисертації",
+      "tableSpecialty": "Спеціальність",
+      "tableResult": "Рішення",
+      "past": {
+        "p1": { "year": "2025", "candidate": "Іваненко О.М.", "title": "Педагогічна компаративістика в умовах євроінтеграції", "specialty": "011 Педагогіка", "result": "Прийнято" },
+        "p2": { "year": "2025", "candidate": "Петренко Т.В.", "title": "Когнітивні стратегії навчання в вищій школі", "specialty": "011 Педагогіка", "result": "Прийнято" },
+        "p3": { "year": "2024", "candidate": "Бондаренко А.С.", "title": "Екологічна освіта та сталий розвиток", "specialty": "013 Природничі науки", "result": "Прийнято" },
+        "p4": { "year": "2024", "candidate": "Гриценко Д.В.", "title": "Українська література в контексті світової", "specialty": "035 Філологія", "result": "Прийнято" },
+        "p5": { "year": "2024", "candidate": "Шевченко А.П.", "title": "Цифрові технології в педагогічній освіті", "specialty": "011 Педагогіка", "result": "Прийнято" },
+        "p6": { "year": "2023", "candidate": "Сидоренко М.П.", "title": "Лінгводидактика та методика викладання мов", "specialty": "035 Філологія", "result": "Прийнято" }
+      }
+    }
+  },
   "programs": {
     "allLevels": "Усі рівні",
     "backToPrograms": "Повернутися до програм",

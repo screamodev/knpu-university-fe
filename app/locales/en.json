@@ -1159,6 +1159,354 @@
       "internationalLabel": "International students"
     }
   },
+  "science": {
+    "directions": {
+      "tag": "Science",
+      "title": "Research areas and schools",
+      "subtitle": "Research schools at the university and their lead researchers.",
+      "intro": "H. S. Skovoroda KhNPU hosts research schools in pedagogy, linguistics, psychology, mathematics, history and natural sciences. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "schools": {
+        "pedagogy": { "name": "Pedagogical school", "lead": "Lead: Prof. Ivanenko O.M.", "est": "Est. 1992", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "linguistics": { "name": "Linguistic school", "lead": "Lead: Prof. Sydorenko M.P.", "est": "Est. 1988", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "psychology": { "name": "Psychology school", "lead": "Lead: Prof. Petrenko T.V.", "est": "Est. 1995", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "mathematics": { "name": "Mathematics school", "lead": "Lead: Prof. Melnyk V.O.", "est": "Est. 1990", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "history": { "name": "History school", "lead": "Lead: Prof. Hrytsenko D.V.", "est": "Est. 1985", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "naturalSciences": { "name": "Natural sciences school", "lead": "Lead: Prof. Bondarenko A.S.", "est": "Est. 1993", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur." }
+      }
+    },
+    "institutes": {
+      "tag": "Science",
+      "title": "Research institutes and labs",
+      "subtitle": "Research institutes and laboratories at the university.",
+      "intro": "KhNPU hosts institutes and laboratories conducting fundamental and applied research. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "foundedLabel": "Founded",
+      "items": {
+        "i1": { "name": "Institute of Pedagogy and Psychology", "director": "Director: Dr Ivanenko O.M.", "founded": "1991", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "focus": ["f1", "f2", "f3"] },
+        "i2": { "name": "Laboratory of Cognitive Research", "director": "Head: Dr Petrenko T.V.", "founded": "2005", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "focus": ["f4", "f5", "f6"] },
+        "i3": { "name": "Centre for Philological Studies", "director": "Director: Dr Sydorenko M.P.", "founded": "1998", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "focus": ["f7", "f8", "f9"] },
+        "i4": { "name": "Research Institute of Science Education", "director": "Director: Dr Bondarenko A.S.", "founded": "1992", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "focus": ["f10", "f11", "f12"] }
+      },
+      "focusLabels": {
+        "f1": "Comparative pedagogy",
+        "f2": "Inclusive education",
+        "f3": "Digital technologies in education",
+        "f4": "Cognitive learning",
+        "f5": "Psychometrics",
+        "f6": "Social psychology",
+        "f7": "Ukrainian literature",
+        "f8": "Translation studies",
+        "f9": "Language teaching methodology",
+        "f10": "Environmental education",
+        "f11": "Environmental chemistry",
+        "f12": "Biology education"
+      }
+    },
+    "youngScientists": {
+      "tag": "Science",
+      "title": "Young scientists council",
+      "subtitle": "Support and representation of early-career researchers.",
+      "intro": "The Young Scientists Council brings together graduate students, postdocs and early-career researchers at the university. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "goalsTitle": "Areas of activity",
+      "goals": {
+        "g1": { "title": "Grant support", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "g2": { "title": "Conference organisation", "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "g3": { "title": "Publication assistance", "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "g4": { "title": "International cooperation", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." }
+      },
+      "teamTitle": "Council members",
+      "members": {
+        "m1": { "name": "Kovalenko O.S.", "role": "Chair, Faculty of Pedagogy" },
+        "m2": { "name": "Tkachenko I.V.", "role": "Deputy chair, Faculty of Philology" },
+        "m3": { "name": "Lysenko M.O.", "role": "Member, Faculty of Psychology" },
+        "m4": { "name": "Shevchenko A.P.", "role": "Member, Faculty of Natural Sciences" }
+      }
+    },
+    "studentSociety": {
+      "tag": "Science",
+      "title": "Student research society",
+      "subtitle": "Student involvement in research and academic activities.",
+      "intro": "The Student Research Society brings together students who wish to pursue research under the guidance of faculty. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "activities": {
+        "conferences": { "name": "Scientific conferences", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "competitions": { "name": "Research competitions", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "publications": { "name": "Student publications", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "stats": {
+        "members": { "num": "450+", "label": "Active members" },
+        "papers": { "num": "120", "label": "Papers published" },
+        "competitions": { "num": "25", "label": "Competitions won" }
+      },
+      "ctaTitle": "Join our community",
+      "ctaSubtitle": "Fill in the form or contact us to join the student research society.",
+      "ctaButton": "Join"
+    },
+    "graduate": {
+      "tag": "Science",
+      "title": "Graduate and doctoral studies",
+      "subtitle": "Training of research and teaching staff.",
+      "intro": "The university offers PhD and doctoral programmes at the third (educational and scientific) and fourth (scientific) levels. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "programmesTitle": "Programmes",
+      "phd": {
+        "title": "PhD (Aspirantura)",
+        "duration": "4 years",
+        "form": "Full-time / part-time",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "req1": "Master's or specialist degree",
+        "req2": "Entrance exams in foreign language and specialty",
+        "req3": "Publications and papers (optional)"
+      },
+      "doctoral": {
+        "title": "Doctoral",
+        "duration": "3 years",
+        "form": "Full-time",
+        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+        "req1": "PhD degree or equivalent",
+        "req2": "Dissertation and publications in the specialty",
+        "req3": "Recommendation of the academic council"
+      },
+      "admissionTitle": "Admission",
+      "admissionStep1": { "title": "Submit documents", "text": "Application package and form via e-cabinet or admissions office." },
+      "admissionStep2": { "title": "Entrance exams", "text": "Foreign language (academic) and specialty according to the entrance examination programme." },
+      "admissionStep3": { "title": "Interview", "text": "Interview with supervisor and expert panel on the proposed research topic." }
+    },
+    "conferences": {
+      "tag": "Science",
+      "title": "Conferences and seminars",
+      "subtitle": "Academic events at the university and with partners.",
+      "intro": "KhNPU regularly hosts international and national conferences, seminars and round tables. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "upcomingTitle": "Upcoming events",
+      "events": {
+        "e1": { "dateBadge": "Apr 15", "title": "Pedagogy and psychology in times of change", "type": "Conference", "location": "Kharkiv, 29 Alchevskykh St", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "e2": { "dateBadge": "May 22", "title": "Philological studies: language and literature", "type": "Seminar", "location": "Online", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "e3": { "dateBadge": "Jun 10", "title": "Natural sciences in education", "type": "Round table", "location": "Kharkiv, Research Institute", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
+      },
+      "pastTitle": "Past events",
+      "past": {
+        "p1": { "year": "2025", "title": "International conference on pedagogy", "participants": "180 participants" },
+        "p2": { "year": "2025", "title": "Seminar on cognitive research", "participants": "45 participants" },
+        "p3": { "year": "2024", "title": "Philological readings", "participants": "120 participants" },
+        "p4": { "year": "2024", "title": "Environmental education and sustainable development", "participants": "90 participants" }
+      }
+    },
+    "journals": {
+      "tag": "Science",
+      "title": "Academic journals",
+      "subtitle": "University periodicals indexed in national and international databases.",
+      "intro": "KhNPU publishes peer-reviewed journals in pedagogy, psychology, philology and natural sciences. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "journals": {
+        "j1": { "name": "Pedagogy and psychology", "issn": "ISSN 1234-5678", "frequency": "Quarterly", "scopus": true, "wos": false },
+        "j2": { "name": "Philological studies", "issn": "ISSN 2345-6789", "frequency": "Semi-annual", "scopus": true, "wos": true },
+        "j3": { "name": "Natural sciences in education", "issn": "ISSN 3456-7890", "frequency": "Quarterly", "scopus": false, "wos": false },
+        "j4": { "name": "Historical archive", "issn": "ISSN 4567-8901", "frequency": "Annual", "scopus": true, "wos": false },
+        "j5": { "name": "Mathematics in school and university", "issn": "ISSN 5678-9012", "frequency": "Quarterly", "scopus": false, "wos": false },
+        "j6": { "name": "Inclusive education", "issn": "ISSN 6789-0123", "frequency": "Semi-annual", "scopus": true, "wos": true }
+      }
+    },
+    "collections": {
+      "tag": "Science",
+      "title": "Proceedings",
+      "subtitle": "Conference proceedings and thematic collections.",
+      "intro": "The university publishes proceedings of conferences and thematic collections. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "items": {
+        "c1": { "title": "Proceedings of the international conference «Pedagogy 2025»", "year": "2025", "editors": "Eds. Ivanenko O.M., Sydorenko M.P.", "articles": "42 articles", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "c2": { "title": "Philological readings KhNPU", "year": "2025", "editors": "Ed. Petrenko T.V.", "articles": "28 articles", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "c3": { "title": "Psychology and education: collected papers", "year": "2024", "editors": "Eds. Melnyk V.O., Hrytsenko D.V.", "articles": "35 articles", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "c4": { "title": "Natural sciences: research and practice", "year": "2024", "editors": "Ed. Bondarenko A.S.", "articles": "19 articles", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+        "c5": { "title": "Inclusive education in Ukraine", "year": "2024", "editors": "Eds. Kovalenko O.S., Tkachenko I.V.", "articles": "24 articles", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." }
+      },
+      "submissionTitle": "Submission guidelines",
+      "submissionText": "Before submitting to a collection, please read the formatting requirements and review procedure.",
+      "submissionLink": "Publication requirements"
+    },
+    "publicationRequirements": {
+      "tag": "Science",
+      "title": "Publication requirements",
+      "subtitle": "Manuscript formatting and submission procedure for journals and collections.",
+      "intro": "The university sets unified requirements for article and conference paper formatting. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "sections": {
+        "general": { "title": "General requirements", "items": ["item1", "item2", "item3", "item4", "item5"] },
+        "formatting": { "title": "Formatting", "items": ["fmt1", "fmt2", "fmt3", "fmt4", "fmt5"] },
+        "citation": { "title": "Citation style", "items": ["cit1", "cit2", "cit3", "cit4", "cit5"] },
+        "submission": { "title": "Submission process", "items": ["sub1", "sub2", "sub3", "sub4", "sub5"] }
+      },
+      "generalItems": {
+        "item1": "The article must be original and not previously published.",
+        "item2": "Length: 8–20 pages for journals, 4–8 for proceedings.",
+        "item3": "Language: Ukrainian or English.",
+        "item4": "Abstract and keywords are required (in Ukrainian and English).",
+        "item5": "References must follow the current standard."
+      },
+      "formattingItems": {
+        "fmt1": "Font: Times New Roman, 14 pt, line spacing 1.5.",
+        "fmt2": "Margins: left 3 cm, right 1.5 cm, top and bottom 2 cm.",
+        "fmt3": "In-text references in square brackets in order of appearance.",
+        "fmt4": "Figures and tables must be numbered and captioned.",
+        "fmt5": "Submit file in .docx or .rtf format."
+      },
+      "citationItems": {
+        "cit1": "Use DSTU 8302:2015 style (APA analogue).",
+        "cit2": "In text: [Author, year] or [1], [2] by list order.",
+        "cit3": "In reference list: surname and initials, title, publication, year, volume, pages.",
+        "cit4": "For online sources include URL and access date.",
+        "cit5": "Foreign sources are cited in the original."
+      },
+      "submissionItems": {
+        "sub1": "Send the manuscript by email to the editorial office or via the website system.",
+        "sub2": "In your message specify the section or collection/journal name.",
+        "sub3": "Confirmation and review within 4–8 weeks.",
+        "sub4": "After acceptance: sign the agreement and make revisions as requested.",
+        "sub5": "Publication according to the issue schedule."
+      },
+      "templateTitle": "Manuscript template",
+      "templateDescription": "Download the article template for journal or proceedings.",
+      "templateButton": "Download template"
+    },
+    "scopus": {
+      "tag": "Science",
+      "title": "Scopus / WOS",
+      "subtitle": "Staff publications in international databases.",
+      "intro": "KhNPU supports publication activity in Scopus and Web of Science. Below are examples of indexed publications. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "stats": {
+        "scopus": { "num": "280+", "label": "Scopus publications" },
+        "wos": { "num": "95+", "label": "WOS publications" },
+        "hIndex": { "num": "4.2", "label": "Average h-index" }
+      },
+      "tableAuthor": "Author(s)",
+      "tableTitle": "Title",
+      "tableJournal": "Journal",
+      "tableYear": "Year",
+      "tableDatabase": "Database",
+      "publications": {
+        "p1": { "authors": "Ivanenko O.M., Sydorenko M.P.", "title": "Pedagogical comparativistics in the context of European integration", "journal": "Pedagogy and psychology", "year": "2025", "scopus": true, "wos": false },
+        "p2": { "authors": "Petrenko T.V., Melnyk V.O.", "title": "Cognitive learning strategies in higher education", "journal": "Psychology bulletin", "year": "2025", "scopus": true, "wos": true },
+        "p3": { "authors": "Bondarenko A.S.", "title": "Environmental education and sustainable development", "journal": "Natural sciences in education", "year": "2024", "scopus": true, "wos": false },
+        "p4": { "authors": "Kovalenko O.S., Tkachenko I.V., Lysenko M.O.", "title": "Inclusive education: experience and prospects", "journal": "Inclusive education", "year": "2024", "scopus": true, "wos": true },
+        "p5": { "authors": "Hrytsenko D.V.", "title": "Ukrainian literature in world context", "journal": "Philological studies", "year": "2024", "scopus": false, "wos": true },
+        "p6": { "authors": "Shevchenko A.P., Ivanenko O.M.", "title": "Digital technologies in teacher education", "journal": "Pedagogy and psychology", "year": "2023", "scopus": true, "wos": false },
+        "p7": { "authors": "Sydorenko M.P.", "title": "Linguodidactics and language teaching methodology", "journal": "Philological studies", "year": "2023", "scopus": true, "wos": true },
+        "p8": { "authors": "Melnyk V.O., Petrenko T.V.", "title": "Psychometrics and assessment of learning outcomes", "journal": "Psychology bulletin", "year": "2023", "scopus": true, "wos": false }
+      }
+    },
+    "publishing": {
+      "tag": "Science",
+      "title": "University press",
+      "subtitle": "Publishing monographs, journals and methodological materials.",
+      "intro": "KhNPU Press publishes academic, educational and methodological works. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "services": {
+        "books": { "title": "Book publishing", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "journals": { "title": "Journal production", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "methodology": { "title": "Methodological materials", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "digital": { "title": "Digital publishing", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "recentTitle": "Recent publications",
+      "books": {
+        "b1": { "title": "Higher education pedagogy", "author": "Ivanenko O.M.", "year": "2025" },
+        "b2": { "title": "Psychology of learning", "author": "Petrenko T.V., Melnyk V.O.", "year": "2025" },
+        "b3": { "title": "Ukrainian literature of the 20th century", "author": "Sydorenko M.P.", "year": "2024" }
+      }
+    },
+    "library": {
+      "tag": "Science",
+      "title": "Research library",
+      "subtitle": "Collections, reading rooms and electronic resources.",
+      "intro": "KhNPU Research Library provides access to print and electronic collections, reading rooms and reference services. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "services": {
+        "readingRooms": { "title": "Reading rooms", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
+        "interlibrary": { "title": "Interlibrary loan", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "eresources": { "title": "E-resources", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
+        "reference": { "title": "Reference services", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
+        "workshops": { "title": "Workshops", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." },
+        "exhibitions": { "title": "Exhibitions", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur." }
+      },
+      "stats": {
+        "holdings": { "num": "761,955", "label": "Items in collections" },
+        "eresources": { "num": "12,000+", "label": "E-resources" },
+        "readingRooms": { "num": "8", "label": "Reading rooms" },
+        "visitors": { "num": "45,000+", "label": "Annual visitors" }
+      }
+    },
+    "catalog": {
+      "tag": "Science",
+      "title": "Electronic catalog",
+      "subtitle": "Search the research library collections.",
+      "intro": "The electronic catalog lets you search for books, periodicals and other materials by author, title or keywords. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "howToSearchTitle": "How to search the catalog",
+      "steps": {
+        "register": { "title": "Register", "text": "Obtain a reader card at the library or register in the electronic system for full catalog access." },
+        "search": { "title": "Search", "text": "Enter title, author, keywords or shelf mark. Filter by document type and year of publication." },
+        "order": { "title": "Order", "text": "Reserve items online or order to a reading room. Receive a notification when ready." }
+      }
+    },
+    "repository": {
+      "tag": "Science",
+      "title": "eSSPUIR repository",
+      "subtitle": "Open archive of research and teaching materials.",
+      "intro": "The repository holds theses, articles, teaching materials and reports. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "stats": {
+        "records": { "num": "4,200+", "label": "Records in repository" },
+        "downloads": { "num": "28,000+", "label": "Downloads per year" },
+        "faculties": { "num": "12", "label": "Faculties represented" }
+      },
+      "features": {
+        "openAccess": { "title": "Open access", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+        "fullText": { "title": "Full-text search", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+        "citation": { "title": "Citation export", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        "doi": { "title": "DOI registration", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+      },
+      "recentTitle": "Recent deposits",
+      "deposits": {
+        "d1": { "title": "Pedagogical comparative studies in European integration", "author": "Ivanenko O.M.", "faculty": "Pedagogy and Psychology", "date": "2025-02-15" },
+        "d2": { "title": "Cognitive learning strategies in higher education", "author": "Petrenko T.V.", "faculty": "Pedagogy and Psychology", "date": "2025-02-10" },
+        "d3": { "title": "Ukrainian literature in a global context", "author": "Sydorenko M.P.", "faculty": "Philology", "date": "2025-02-05" },
+        "d4": { "title": "Environmental education and sustainable development", "author": "Bondarenko A.S.", "faculty": "Natural Sciences", "date": "2025-01-28" }
+      }
+    },
+    "boards": {
+      "tag": "Science",
+      "title": "Specialized academic boards",
+      "subtitle": "Boards with the right to consider and conduct dissertation defenses.",
+      "intro": "The university has specialized academic boards in various fields. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "boards": {
+        "b1": { "name": "Pedagogy and Psychology", "code": "011", "chairman": "Ivanenko O.M.", "secretary": "Sydorenko M.P.", "members": "15", "areas": ["area1", "area2", "area3"] },
+        "b2": { "name": "Philology", "code": "035", "chairman": "Petrenko T.V.", "secretary": "Melnyk V.O.", "members": "12", "areas": ["area1", "area2", "area3"] },
+        "b3": { "name": "History and Archaeology", "code": "032", "chairman": "Bondarenko A.S.", "secretary": "Kovalenko O.S.", "members": "11", "areas": ["area1", "area2", "area3"] },
+        "b4": { "name": "Natural Sciences", "code": "013", "chairman": "Hrytsenko D.V.", "secretary": "Tkachenko I.V.", "members": "14", "areas": ["area1", "area2", "area3"] }
+      },
+      "chairmanLabel": "Chairman",
+      "secretaryLabel": "Academic secretary",
+      "membersLabel": "Board members",
+      "areasLabel": "Research areas",
+      "area1": "Higher education pedagogy",
+      "area2": "Comparative pedagogy",
+      "area3": "Research methodology"
+    },
+    "defenses": {
+      "tag": "Science",
+      "title": "PhD defenses",
+      "subtitle": "Schedule and results of candidate and doctoral dissertation defenses.",
+      "intro": "The university holds dissertation defenses in specialties approved by specialized academic boards. Below are upcoming defenses and the archive of past years. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "upcomingTitle": "Upcoming defenses",
+      "upcoming": {
+        "d1": { "dateBadge": "Apr 20", "candidate": "Kovalenko O.S.", "dissertation": "Pedagogical comparativistics in the context of European integration", "specialty": "011 Pedagogy", "board": "Specialized board 011, KhNPU" },
+        "d2": { "dateBadge": "May 15", "candidate": "Tkachenko I.V.", "dissertation": "Cognitive learning strategies in higher education", "specialty": "011 Pedagogy", "board": "Specialized board 011, KhNPU" },
+        "d3": { "dateBadge": "May 28", "candidate": "Lysenko M.O.", "dissertation": "Ukrainian literature in a global context", "specialty": "035 Philology", "board": "Specialized board 035, KhNPU" }
+      },
+      "pastTitle": "Past defenses",
+      "tableYear": "Year",
+      "tableCandidate": "Candidate",
+      "tableTitle": "Dissertation title",
+      "tableSpecialty": "Specialty",
+      "tableResult": "Result",
+      "past": {
+        "p1": { "year": "2025", "candidate": "Ivanenko O.M.", "title": "Pedagogical comparativistics in the context of European integration", "specialty": "011 Pedagogy", "result": "Accepted" },
+        "p2": { "year": "2025", "candidate": "Petrenko T.V.", "title": "Cognitive learning strategies in higher education", "specialty": "011 Pedagogy", "result": "Accepted" },
+        "p3": { "year": "2024", "candidate": "Bondarenko A.S.", "title": "Environmental education and sustainable development", "specialty": "013 Natural sciences", "result": "Accepted" },
+        "p4": { "year": "2024", "candidate": "Hrytsenko D.V.", "title": "Ukrainian literature in world context", "specialty": "035 Philology", "result": "Accepted" },
+        "p5": { "year": "2024", "candidate": "Shevchenko A.P.", "title": "Digital technologies in teacher education", "specialty": "011 Pedagogy", "result": "Accepted" },
+        "p6": { "year": "2023", "candidate": "Sydorenko M.P.", "title": "Linguodidactics and language teaching methodology", "specialty": "035 Philology", "result": "Accepted" }
+      }
+    }
+  },
   "programs": {
     "allLevels": "All levels",
     "backToPrograms": "Back to programmes",

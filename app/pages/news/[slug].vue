@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiArticle, StrapiImage } from '~/types/news'
+import type { StrapiPaginatedResponse, StrapiArticle, StrapiImage, StrapiBlock } from '~/types/news'
 
 definePageMeta({ layout: 'default' })
 
@@ -13,6 +13,11 @@ const { data } = await useFetch<StrapiPaginatedResponse<StrapiArticle>>(
   strapi.apiUrl(
     `/articles?filters[slug][$eq]=${encodeURIComponent(slug)}&populate[0]=cover&populate[1]=category&populate[2]=attachments`,
   ),
+  {
+    // Host-agnostic key: server may use NUXT_STRAPI_SERVER_URL while the client uses
+    // public.strapiUrl — different URLs would break auto key and hydration (data null on client).
+    key: `strapi-article-${locale.value}-${slug}`,
+  },
 )
 
 const article = computed(() => data.value?.data?.[0] ?? null)
@@ -51,11 +56,12 @@ function isDownloadable(attachment: StrapiImage): boolean {
   return !attachment.url.match(/\.(jpg|jpeg|png|gif|webp|svg|avif)$/i)
 }
 
-const contentBlocks = computed(() => {
+const localizedBody = computed(() => {
   const a = article.value
-  if (!a) return []
-  if (locale.value === 'en' && a.contentEn?.length) return a.contentEn
-  return a.content ?? []
+  if (!a) {
+    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+  }
+  return normalizedLocalizedBody(a.content, a.contentEn, locale.value)
 })
 </script>
 
@@ -122,7 +128,14 @@ const contentBlocks = computed(() => {
         </p>
 
         <!-- Rich-text body -->
-        <NewsRichText v-if="contentBlocks.length" :blocks="contentBlocks" />
+        <NewsMarkdownBody
+          v-if="localizedBody.kind === 'markdown'"
+          :markdown="localizedBody.source"
+        />
+        <NewsRichText
+          v-else-if="localizedBody.blocks.length"
+          :blocks="localizedBody.blocks"
+        />
 
         <!-- Attachments -->
         <div

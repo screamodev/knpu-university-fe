@@ -14,6 +14,9 @@ const { data } = await useFetch<StrapiPaginatedResponse<StrapiProgramme>>(
   strapi.apiUrl(
     `/programmes?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=cover`,
   ),
+  {
+    key: `strapi-programme-${locale.value}-${slug}`,
+  },
 )
 
 const programme = computed(() => data.value?.data?.[0] ?? null)
@@ -44,11 +47,12 @@ const levelLabelKey: Record<string, string> = {
   graduate: 'programs.levels.graduate',
 }
 
-const contentBlocks = computed((): StrapiBlock[] => {
+const localizedBody = computed(() => {
   const p = programme.value
-  if (!p) return []
-  if (locale.value === 'en' && p.contentEn?.length) return p.contentEn
-  return p.content ?? []
+  if (!p) {
+    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+  }
+  return normalizedLocalizedBody(p.content, p.contentEn, locale.value)
 })
 </script>
 
@@ -122,7 +126,14 @@ const contentBlocks = computed((): StrapiBlock[] => {
         </p>
 
         <!-- Rich-text body -->
-        <NewsRichText v-if="contentBlocks.length" :blocks="contentBlocks" />
+        <NewsMarkdownBody
+          v-if="localizedBody.kind === 'markdown'"
+          :markdown="localizedBody.source"
+        />
+        <NewsRichText
+          v-else-if="localizedBody.blocks.length"
+          :blocks="localizedBody.blocks"
+        />
 
         <!-- Back to programmes (bottom) -->
         <div class="mt-12 pt-8 border-t border-border">

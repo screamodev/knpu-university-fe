@@ -8,6 +8,7 @@
     "hours": "Mon–Fri 8:30 AM–5:00 PM",
     "feedback": "Feedback",
     "cabinet": "Personal account",
+    "profile": "Profile",
     "langUk": "UKR",
     "langEn": "ENG"
   },
@@ -2320,10 +2321,79 @@
       "coordinatorName": "Ivanenko O.P."
     }
   },
+  "auth": {
+    "loginTitle": "Sign in to your account",
+    "identifier": "Email or username",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "profileTitle": "Profile",
+    "profileUsername": "Username",
+    "profileEmail": "Email",
+    "profileMemberSince": "Member since",
+    "profileLoadError": "Could not load your profile. Please refresh the page.",
+    "profileLoading": "Loading…",
+    "retry": "Try again",
+    "headerLogin": "Sign in",
+    "loginCta": "Sign in",
+    "logout": "Log out",
+    "logoutConfirmTitle": "Log out of your account?",
+    "logoutConfirmMessage": "You will be signed out of your personal account. Sign in again to view your profile.",
+    "logoutConfirm": "Log out",
+    "logoutCancel": "Cancel",
+    "sessionResolving": "Loading your account",
+    "sessionMeError": "Could not load your profile. You are still signed in."
+  },
   "seo": {
     "home": {
       "title": "KhNPU — H. S. Skovoroda Kharkiv National Pedagogical University",
       "description": "H. S. Skovoroda Kharkiv National Pedagogical University — educating future teachers and researchers."
+    },
+    "login": {
+      "title": "Sign in — KhNPU",
+      "description": "Sign in to your personal account at H. S. Skovoroda Kharkiv National Pedagogical University."
+    },
+    "profile": {
+      "title": "Profile — KhNPU",
+      "description": "Your user profile."
     }
+  },
+  "admin": {
+    "tag": "Administration",
+    "articlesTitle": "Manage Articles",
+    "createArticle": "Create Article",
+    "editArticle": "Edit Article",
+    "backToArticles": "Back to articles",
+    "noArticles": "No articles yet.",
+    "createFirstArticle": "Create first article",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving...",
+    "confirmDelete": "Delete",
+    "deleteArticleTitle": "Delete article?",
+    "deleteArticleMessage": "The article \"{title}\" will be permanently deleted. This action cannot be undone.",
+    "articleCreated": "Article created successfully",
+    "articleUpdated": "Article updated successfully",
+    "articleDeleted": "Article deleted",
+    "saveError": "Error saving article",
+    "deleteError": "Error deleting article",
+    "articleNotFound": "Article not found",
+    "title": "Title",
+    "titlePlaceholder": "Enter article title",
+    "titleEn": "Title (English)",
+    "excerpt": "Excerpt",
+    "excerptPlaceholder": "Short excerpt for the article card",
+    "excerptEn": "Excerpt (English)",
+    "content": "Content",
+    "contentEn": "Content (English)",
+    "coverImage": "Cover Image",
+    "author": "Author",
+    "authorPlaceholder": "Author name",
+    "category": "Category",
+    "noCategory": "No category",
+    "fieldRequired": "Required field",
+    "adminPanel": "Admin Panel"
   }
 }

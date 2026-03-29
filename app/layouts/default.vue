@@ -6,7 +6,6 @@
       <slot />
     </main>
     <WidgetsAppFooter />
-    <FeaturesSearchOverlay />
     <FeaturesMobileNav />
   </div>
 </template>

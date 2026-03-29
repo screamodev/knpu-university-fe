@@ -34,8 +34,8 @@ export interface StrapiArticle {
   slug: string
   excerpt: string | null
   excerptEn: string | null
-  content: StrapiBlock[] | null
-  contentEn: StrapiBlock[] | null
+  content: StrapiBlock[] | string | null
+  contentEn: StrapiBlock[] | string | null
   cover: StrapiImage | null
   attachments: StrapiImage[] | null
   author: string | null

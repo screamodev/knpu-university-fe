@@ -4,8 +4,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   runtimeConfig: {
+    /**
+     * Base URL for Strapi HTTP requests on the **server** (SSR, server routes).
+     * When the Nuxt app runs in Docker and Strapi is on the host or another compose
+     * stack, set `NUXT_STRAPI_SERVER_URL` (e.g. http://host.docker.internal:1337).
+     * If unset, `public.strapiUrl` is used everywhere.
+     */
+    strapiServerUrl: process.env.NUXT_STRAPI_SERVER_URL || '',
     public: {
-      strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
+      strapiUrl:
+        process.env.NUXT_PUBLIC_STRAPI_URL || process.env.STRAPI_URL || 'http://localhost:1337',
     },
   },
   i18n: {
@@ -20,6 +28,11 @@ export default defineNuxtConfig({
     restructureDir: false,
     langDir: 'app/locales',
     lazy: false,
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['@vue/devtools-core', '@vue/devtools-kit'],
+    },
   },
   app: {
     head: {

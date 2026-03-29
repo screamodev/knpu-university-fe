@@ -37,11 +37,15 @@ export interface StrapiBlockChild {
   children?: StrapiBlockChild[]
 }
 
+/** Text alignment for blocks stored from the editor / rendered on the site */
+export type StrapiBlockTextAlign = 'left' | 'center' | 'right' | 'justify'
+
 /** A top-level block in Strapi 5 rich-text content */
 export interface StrapiBlock {
   type: 'paragraph' | 'heading' | 'list' | 'list-item' | 'quote' | 'code' | 'image'
   children: StrapiBlockChild[]
   level?: 1 | 2 | 3 | 4 | 5 | 6
+  textAlign?: StrapiBlockTextAlign
   format?: 'ordered' | 'unordered'
   image?: StrapiImage
 }
@@ -78,8 +82,8 @@ export interface StrapiProgramme {
   facultyEn: string | null
   description: string | null
   descriptionEn: string | null
-  content: StrapiBlock[] | null
-  contentEn: StrapiBlock[] | null
+  content: StrapiBlock[] | string | null
+  contentEn: StrapiBlock[] | string | null
   cover: StrapiImage | null
   duration: string | null
   formOfStudy: string | null
@@ -94,8 +98,8 @@ export interface StrapiEvent {
   titleEn: string | null
   description: string | null
   descriptionEn: string | null
-  content: StrapiBlock[] | null
-  contentEn: StrapiBlock[] | null
+  content: StrapiBlock[] | string | null
+  contentEn: StrapiBlock[] | string | null
   date: string
   endDate: string | null
   location: string | null

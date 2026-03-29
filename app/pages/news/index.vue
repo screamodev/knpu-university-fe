@@ -6,6 +6,7 @@ definePageMeta({ layout: 'default' })
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const strapi = useStrapi()
 const { localized } = useLocalizedField()
+const { isAdmin } = useAuth()
 
 useHead({
   title: () => t('sections.news.title'),
@@ -16,6 +17,7 @@ const selectedCategorySlug = ref<string | null>(null)
 
 const { data: categoriesData } = await useFetch<StrapiPaginatedResponse<StrapiCategory>>(
   strapi.apiUrl('/categories'),
+  { key: 'strapi-categories' },
 )
 const categories = computed(() => categoriesData.value?.data ?? [])
 
@@ -54,12 +56,36 @@ function formatDate(dateStr: string): string {
     <!-- Page header -->
     <div class="bg-navy py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-3">
-          {{ t('sections.news.tag') }}
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-3">
+              {{ t('sections.news.tag') }}
+            </div>
+            <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
+              {{ t('sections.news.title') }}
+            </h1>
+          </div>
+          <ClientOnly>
+            <div
+              v-if="isAdmin"
+              class="flex flex-wrap gap-2 shrink-0"
+            >
+              <NuxtLink
+                :to="localePath('/admin/articles/create')"
+                class="inline-flex items-center justify-center rounded-10 bg-gold px-4 py-2.5 text-xs font-bold font-geologica text-navy-deep no-underline border border-gold-light/80 shadow-sm hover:bg-gold-light transition-all duration-280"
+              >
+                {{ t('admin.createArticle') }}
+              </NuxtLink>
+              <NuxtLink
+                :to="localePath('/admin/articles')"
+                class="inline-flex items-center justify-center rounded-10 border border-white/35 px-4 py-2.5 text-xs font-bold font-geologica text-white no-underline hover:bg-white/10 transition-colors duration-280"
+              >
+                {{ t('admin.articlesTitle') }}
+              </NuxtLink>
+            </div>
+            <template #fallback />
+          </ClientOnly>
         </div>
-        <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
-          {{ t('sections.news.title') }}
-        </h1>
       </div>
     </div>
 

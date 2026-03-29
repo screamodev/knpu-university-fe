@@ -43,9 +43,18 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
         <NuxtLink :to="localePath('/feedback')" class="text-[12px] text-white/65 hover:text-gold-light transition-colors duration-280">
           {{ t('utility.feedback') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/cabinet')" class="text-[12px] text-white/65 hover:text-gold-light transition-colors duration-280">
-          {{ t('utility.cabinet') }}
-        </NuxtLink>
+        <ClientOnly>
+          <AuthUtilityBarSession />
+          <template #fallback>
+            <div
+              class="flex items-center gap-2 py-0.5 shrink-0"
+              aria-hidden="true"
+            >
+              <span class="inline-block size-[26px] rounded-full bg-white/15 animate-pulse" />
+              <span class="hidden sm:inline-block h-3.5 w-20 rounded bg-white/15 animate-pulse" />
+            </div>
+          </template>
+        </ClientOnly>
         <div class="flex border border-white/20 rounded overflow-hidden">
           <NuxtLink
             :to="switchLocalePath('uk')"

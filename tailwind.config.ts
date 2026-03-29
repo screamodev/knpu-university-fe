@@ -28,6 +28,8 @@ export default {
         'off-white': '#F8F6F1',
         'text-muted': '#5a6a7e',
         border: '#dde3ed',
+        danger: '#DC2626',
+        warning: '#D97706',
       },
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],

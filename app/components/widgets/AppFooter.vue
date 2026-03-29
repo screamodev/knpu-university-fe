@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t, localePath } = useSafeI18nWithRouter()
-const logoUrl = '/logo.png'
+const logoUrl = '/main_logo.png'
 </script>
 
 <template>

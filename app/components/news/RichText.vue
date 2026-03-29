@@ -5,6 +5,8 @@ defineProps<{
   blocks: StrapiBlock[]
 }>()
 
+const strapi = useStrapi()
+
 function renderText(child: StrapiBlockChild): string {
   return child.text ?? ''
 }
@@ -23,7 +25,15 @@ const headingTag: Record<number, string> = {
   <div class="prose prose-navy max-w-none">
     <template v-for="(block, i) in blocks" :key="i">
       <!-- Paragraph -->
-      <p v-if="block.type === 'paragraph'" class="mb-4 leading-relaxed text-slate-700">
+      <p
+        v-if="block.type === 'paragraph'"
+        class="mb-4 leading-relaxed text-slate-700"
+        :class="{
+          'text-center': block.textAlign === 'center',
+          'text-right': block.textAlign === 'right',
+          'text-justify': block.textAlign === 'justify',
+        }"
+      >
         <template v-for="(child, j) in block.children" :key="j">
           <a
             v-if="child.type === 'link'"
@@ -60,6 +70,9 @@ const headingTag: Record<number, string> = {
           'text-2xl': block.level === 2,
           'text-xl': block.level === 3,
           'text-lg': (block.level ?? 0) >= 4,
+          'text-center': block.textAlign === 'center',
+          'text-right': block.textAlign === 'right',
+          'text-justify': block.textAlign === 'justify',
         }"
       >
         <template v-for="(child, j) in block.children" :key="j">{{ renderText(child) }}</template>
@@ -110,7 +123,7 @@ const headingTag: Record<number, string> = {
       <!-- Image -->
       <figure v-else-if="block.type === 'image' && block.image" class="my-6">
         <img
-          :src="block.image.url"
+          :src="strapi.imageUrl(block.image.url) ?? block.image.url"
           :alt="block.image.alternativeText ?? ''"
           class="rounded-12 w-full object-cover"
         />

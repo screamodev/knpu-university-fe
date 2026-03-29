@@ -13,6 +13,9 @@ const { data } = await useFetch<StrapiPaginatedResponse<StrapiEvent>>(
   strapi.apiUrl(
     `/events?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=cover`,
   ),
+  {
+    key: `strapi-event-${locale.value}-${slug}`,
+  },
 )
 
 const event = computed(() => data.value?.data?.[0] ?? null)
@@ -54,11 +57,12 @@ function formatTime(dateStr: string): string {
   }).format(new Date(dateStr))
 }
 
-const contentBlocks = computed((): StrapiBlock[] => {
+const localizedBody = computed(() => {
   const e = event.value
-  if (!e) return []
-  if (locale.value === 'en' && e.contentEn?.length) return e.contentEn
-  return e.content ?? []
+  if (!e) {
+    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+  }
+  return normalizedLocalizedBody(e.content, e.contentEn, locale.value)
 })
 </script>
 
@@ -139,7 +143,14 @@ const contentBlocks = computed((): StrapiBlock[] => {
         </p>
 
         <!-- Rich-text body -->
-        <NewsRichText v-if="contentBlocks.length" :blocks="contentBlocks" />
+        <NewsMarkdownBody
+          v-if="localizedBody.kind === 'markdown'"
+          :markdown="localizedBody.source"
+        />
+        <NewsRichText
+          v-else-if="localizedBody.blocks.length"
+          :blocks="localizedBody.blocks"
+        />
 
         <!-- Back to events (bottom) -->
         <div class="mt-12 pt-8 border-t border-border">

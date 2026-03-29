@@ -12,9 +12,24 @@
   "dependencies": {
     "@nuxtjs/i18n": "^10.2.3",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@tiptap/extension-bubble-menu": "^3.21.0",
+    "@tiptap/extension-image": "^3.21.0",
+    "@tiptap/extension-link": "^3.21.0",
+    "@tiptap/extension-placeholder": "^3.21.0",
+    "@tiptap/extension-text-align": "^3.21.0",
+    "@tiptap/extension-underline": "^3.21.0",
+    "@tiptap/pm": "^3.21.0",
+    "@tiptap/starter-kit": "^3.21.0",
+    "@tiptap/vue-3": "^3.21.0",
+    "isomorphic-dompurify": "^3.7.1",
+    "markdown-it": "^14.1.1",
     "nuxt": "^4.3.1",
     "tailwindcss": "^3.4.19",
     "vue": "^3.5.28",
     "vue-router": "^4.6.4"
+  },
+  "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017",
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2"
   }
 }

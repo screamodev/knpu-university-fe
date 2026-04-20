@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import type { StrapiImage } from '~/types/strapi'
-
-defineProps<{
-  modelValue: StrapiImage | null
+const props = defineProps<{
+  /** `directus_files.id` */
+  modelValue: string | null
   label: string
 }>()
 
 const emit = defineEmits<{
-  'update:modelValue': [value: StrapiImage | null]
+  'update:modelValue': [value: string | null]
 }>()
 
 const { uploadFile } = useUpload()
-const { imageUrl } = useStrapi()
+const { assetUrl } = useDirectus()
 const uploading = ref(false)
 const fileInputRef = ref<HTMLInputElement | null>(null)
+
+const previewSrc = computed(() => (props.modelValue ? assetUrl(props.modelValue) : null))
 
 function triggerSelect() {
   fileInputRef.value?.click()
@@ -26,8 +27,10 @@ async function handleFileChange(event: Event) {
 
   uploading.value = true
   try {
-    const image = await uploadFile(file)
-    emit('update:modelValue', image)
+    const uploaded = await uploadFile(file)
+    const rawId = uploaded.id
+    const id = typeof rawId === 'string' ? rawId : String(rawId)
+    emit('update:modelValue', id)
   } catch {
     // Error handling deferred to parent
   } finally {
@@ -47,12 +50,12 @@ function remove() {
 
     <!-- Preview -->
     <div
-      v-if="modelValue"
+      v-if="modelValue && previewSrc"
       class="relative group rounded-[12px] overflow-hidden border border-border"
     >
       <img
-        :src="imageUrl(modelValue.url) ?? modelValue.url"
-        :alt="modelValue.alternativeText ?? ''"
+        :src="previewSrc"
+        alt=""
         class="w-full h-48 object-cover"
       />
       <div class="absolute inset-0 bg-navy-deep/60 opacity-0 group-hover:opacity-100 transition-opacity duration-280 flex items-center justify-center gap-3">

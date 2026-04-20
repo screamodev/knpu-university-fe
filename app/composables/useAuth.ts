@@ -1,56 +1,51 @@
+import { readMe } from '@directus/sdk'
+
+import type { DirectusUser } from '~/types/auth'
 import {
-  STRAPI_AUTH_USER_SESSION_KEY,
-  STRAPI_JWT_COOKIE_NAME,
-  STRAPI_JWT_LS_KEY,
-  getStrapiJwtCookieOptions,
-  type StrapiLocalLoginResponse,
-  type StrapiUser,
+  DIRECTUS_AUTH_USER_SESSION_KEY,
+  DIRECTUS_SESSION_COOKIE_NAME,
+  getDirectusSessionCookieOptions,
 } from '~/types/auth'
 
-function persistJwtToLocalStorage(token: string | null): void {
-  if (!import.meta.client) return
-  if (token && token.length > 0) {
-    localStorage.setItem(STRAPI_JWT_LS_KEY, token)
-  } else {
-    localStorage.removeItem(STRAPI_JWT_LS_KEY)
-  }
-}
-
-function isValidStrapiUserSnapshot(value: unknown): value is StrapiUser {
+function isValidDirectusUserSnapshot(value: unknown): value is DirectusUser {
   if (typeof value !== 'object' || value === null) {
     return false
   }
   const record = value as Record<string, unknown>
+  if (typeof record.id !== 'string') {
+    return false
+  }
   return (
-    typeof record.id === 'number' &&
-    (typeof record.username === 'string' || typeof record.email === 'string')
+    typeof record.email === 'string' ||
+    typeof record.username === 'string' ||
+    typeof record.first_name === 'string'
   )
 }
 
-function readUserSnapshotFromSessionStorage(): StrapiUser | null {
+function readUserSnapshotFromSessionStorage(): DirectusUser | null {
   if (!import.meta.client) {
     return null
   }
   try {
-    const raw = sessionStorage.getItem(STRAPI_AUTH_USER_SESSION_KEY)
+    const raw = sessionStorage.getItem(DIRECTUS_AUTH_USER_SESSION_KEY)
     if (!raw || raw.length === 0) {
       return null
     }
     const parsed: unknown = JSON.parse(raw)
-    return isValidStrapiUserSnapshot(parsed) ? parsed : null
+    return isValidDirectusUserSnapshot(parsed) ? parsed : null
   } catch {
     return null
   }
 }
 
-function persistUserSnapshotToSessionStorage(userRecord: StrapiUser): void {
+function persistUserSnapshotToSessionStorage(userRecord: DirectusUser): void {
   if (!import.meta.client) {
     return
   }
   try {
-    sessionStorage.setItem(STRAPI_AUTH_USER_SESSION_KEY, JSON.stringify(userRecord))
+    sessionStorage.setItem(DIRECTUS_AUTH_USER_SESSION_KEY, JSON.stringify(userRecord))
   } catch {
-    // Quota or private mode — session still works via /users/me when possible.
+    // Quota or private mode — session still works via `readMe` when possible.
   }
 }
 
@@ -58,17 +53,7 @@ function clearUserSnapshotFromSessionStorage(): void {
   if (!import.meta.client) {
     return
   }
-  sessionStorage.removeItem(STRAPI_AUTH_USER_SESSION_KEY)
-}
-
-function extractLoginToken(response: StrapiLocalLoginResponse & { accessToken?: string }): string | null {
-  if (typeof response.jwt === 'string' && response.jwt.length > 0) {
-    return response.jwt
-  }
-  if (typeof response.accessToken === 'string' && response.accessToken.length > 0) {
-    return response.accessToken
-  }
-  return null
+  sessionStorage.removeItem(DIRECTUS_AUTH_USER_SESSION_KEY)
 }
 
 const MAX_FETCH_ERROR_CAUSE_DEPTH = 5
@@ -125,13 +110,13 @@ function getFetchErrorStatus(error: unknown): number | undefined {
   return undefined
 }
 
-/** Deduplicates concurrent `GET /users/me` calls (same trimmed JWT) to avoid parallel 403s / rate limits. */
-let sharedUsersMePromise: Promise<StrapiUser> | null = null
-let sharedUsersMeToken: string | null = null
+/** Deduplicates concurrent `readMe` calls (same access token) to avoid parallel 403s / rate limits. */
+let sharedReadMePromise: Promise<DirectusUser> | null = null
+let sharedReadMeToken: string | null = null
 
-function clearSharedUsersMeFetch(): void {
-  sharedUsersMePromise = null
-  sharedUsersMeToken = null
+function clearSharedReadMeFetch(): void {
+  sharedReadMePromise = null
+  sharedReadMeToken = null
 }
 
 export type FetchMeOptions = {
@@ -141,16 +126,26 @@ export type FetchMeOptions = {
   silent?: boolean
 }
 
-function extractStrapiErrorMessage(error: unknown): string {
+function extractDirectusErrorMessage(error: unknown): string {
   if (typeof error !== 'object' || error === null) {
     return 'Request failed'
   }
   const record = error as Record<string, unknown>
+  const errors = record.errors
+  if (Array.isArray(errors) && errors.length > 0) {
+    const first = errors[0] as { message?: string }
+    if (typeof first?.message === 'string' && first.message.length > 0) {
+      return first.message
+    }
+  }
   const data = record.data
-  if (typeof data === 'object' && data !== null && 'error' in data) {
-    const errObj = (data as { error?: { message?: string } }).error
-    if (typeof errObj?.message === 'string' && errObj.message.length > 0) {
-      return errObj.message
+  if (typeof data === 'object' && data !== null && 'errors' in data) {
+    const nested = (data as { errors?: Array<{ message?: string }> }).errors
+    if (Array.isArray(nested) && nested.length > 0) {
+      const msg = nested[0]?.message
+      if (typeof msg === 'string' && msg.length > 0) {
+        return msg
+      }
     }
   }
   if (typeof record.message === 'string' && record.message.length > 0) {
@@ -160,14 +155,28 @@ function extractStrapiErrorMessage(error: unknown): string {
 }
 
 /**
- * Strapi Users & Permissions session: JWT cookie, user state, login / me / logout.
+ * Directus session: JSON auth cookie + `readMe`, login / logout via SDK.
  */
 export function useAuth() {
-  const strapi = useStrapi()
+  const { client } = useDirectus()
 
-  const jwt = useCookie<string | null>(STRAPI_JWT_COOKIE_NAME, getStrapiJwtCookieOptions())
+  const sessionCookie = useCookie<string | null>(DIRECTUS_SESSION_COOKIE_NAME, getDirectusSessionCookieOptions())
 
-  const user = useState<StrapiUser | null>('auth-user', () => null)
+  const jwt = computed((): string | null => {
+    const raw = sessionCookie.value
+    if (raw === null || raw.length === 0) {
+      return null
+    }
+    try {
+      const parsed = JSON.parse(raw) as { access_token?: string | null }
+      const t = parsed.access_token
+      return typeof t === 'string' && t.length > 0 ? t : null
+    } catch {
+      return null
+    }
+  })
+
+  const user = useState<DirectusUser | null>('auth-user', () => null)
 
   const mePending = ref(false)
   /** Set to true after `fetchMe` finishes (or bails with no token). Used to avoid flashing `sessionMeError` before the client plugin runs. */
@@ -179,7 +188,13 @@ export function useAuth() {
 
   const isAuthenticated = computed(() => Boolean(jwt.value && user.value))
 
-  const isAdmin = computed(() => user.value?.role?.type === 'admin')
+  const isAdmin = computed(() => {
+    const role = user.value?.role
+    if (!role || typeof role !== 'object') {
+      return false
+    }
+    return 'admin_access' in role && role.admin_access === true
+  })
 
   function restoreUserSnapshotFromSession(): void {
     if (user.value) {
@@ -192,12 +207,11 @@ export function useAuth() {
   }
 
   async function fetchMe(options?: FetchMeOptions): Promise<void> {
-    const raw = jwt.value
-    const token = typeof raw === 'string' ? raw.trim() : ''
-    if (!token) {
+    const token = await client.getToken()
+    if (!token || token.length === 0) {
       user.value = null
       meRestoreCompleted.value = true
-      clearSharedUsersMeFetch()
+      clearSharedReadMeFetch()
       return
     }
 
@@ -207,19 +221,20 @@ export function useAuth() {
     }
 
     try {
-      let request = sharedUsersMePromise
-      if (!request || sharedUsersMeToken !== token) {
-        sharedUsersMeToken = token
-        const httpPromise = strapi.strapiFetch<StrapiUser>('/users/me?populate=role', {
-          method: 'GET',
-          bearerToken: token,
-        })
+      let request = sharedReadMePromise
+      if (!request || sharedReadMeToken !== token) {
+        sharedReadMeToken = token
+        const httpPromise = client.request(
+          readMe({
+            fields: ['*', { role: ['id', 'name', 'admin_access', 'app_access'] }],
+          }),
+        ) as Promise<DirectusUser>
         request = httpPromise.finally(() => {
-          if (sharedUsersMeToken === token) {
-            clearSharedUsersMeFetch()
+          if (sharedReadMeToken === token) {
+            clearSharedReadMeFetch()
           }
         })
-        sharedUsersMePromise = request
+        sharedReadMePromise = request
       }
 
       const me = await request
@@ -229,10 +244,13 @@ export function useAuth() {
       const status = getFetchErrorStatus(error)
       if (status === 401) {
         user.value = null
-        jwt.value = null
-        persistJwtToLocalStorage(null)
         clearUserSnapshotFromSessionStorage()
-        clearSharedUsersMeFetch()
+        clearSharedReadMeFetch()
+        try {
+          await client.logout()
+        } catch {
+          // Session cleared locally regardless of Directus response.
+        }
       }
     } finally {
       if (!silent) {
@@ -246,23 +264,18 @@ export function useAuth() {
     loginPending.value = true
     loginError.value = null
     try {
-      const response = await strapi.strapiFetch<StrapiLocalLoginResponse>('/auth/local', {
-        method: 'POST',
-        body: { identifier, password },
-      })
-      const token = extractLoginToken(response)
-      if (!token) {
-        loginError.value = 'Invalid login response (no token)'
-        return false
-      }
-      clearSharedUsersMeFetch()
-      jwt.value = token
-      persistJwtToLocalStorage(token)
-      user.value = response.user
-      persistUserSnapshotToSessionStorage(response.user)
+      await client.login(identifier.trim(), password)
+      clearSharedReadMeFetch()
+      const me = (await client.request(
+        readMe({
+          fields: ['*', { role: ['id', 'name', 'admin_access', 'app_access'] }],
+        }),
+      )) as DirectusUser
+      user.value = me
+      persistUserSnapshotToSessionStorage(me)
       return true
     } catch (error: unknown) {
-      loginError.value = extractStrapiErrorMessage(error)
+      loginError.value = extractDirectusErrorMessage(error)
       return false
     } finally {
       loginPending.value = false
@@ -270,22 +283,14 @@ export function useAuth() {
   }
 
   async function logout(): Promise<void> {
-    const token = jwt.value
-    if (token) {
-      try {
-        await strapi.strapiFetch<unknown>('/auth/logout', {
-          method: 'POST',
-          bearerToken: token,
-        })
-      } catch {
-        // Local session is cleared regardless of Strapi response.
-      }
+    try {
+      await client.logout()
+    } catch {
+      // Local session is cleared regardless of Directus response.
     }
-    jwt.value = null
-    persistJwtToLocalStorage(null)
     user.value = null
     clearUserSnapshotFromSessionStorage()
-    clearSharedUsersMeFetch()
+    clearSharedReadMeFetch()
   }
 
   function clearLoginError(): void {

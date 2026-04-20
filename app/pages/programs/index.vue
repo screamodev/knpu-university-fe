@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiProgramme, ProgrammeLevel } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusProgramme, ProgrammeLevel } from '~/types/directus'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 
 useHead({
@@ -14,7 +23,7 @@ useHead({
 
 const selectedLevel = ref<ProgrammeLevel | null>(null)
 
-const levelLabelKey: Record<string, string> = {
+const levelLabelKey: Record<ProgrammeLevel, string> = {
   bachelor: 'programs.levels.bachelor',
   master: 'programs.levels.master',
   graduate: 'programs.levels.graduate',
@@ -23,22 +32,34 @@ const levelLabelKey: Record<string, string> = {
 const { data: programmesData, pending } = useAsyncData(
   'programmes-listing',
   () => {
-    const params = new URLSearchParams({
-      populate: 'cover',
-      sort: 'createdAt:desc',
-      'pagination[pageSize]': '24',
-    })
+    const filter: { level?: { _eq: ProgrammeLevel } } = {}
     if (selectedLevel.value) {
-      params.set('filters[level][$eq]', selectedLevel.value)
+      filter.level = { _eq: selectedLevel.value }
     }
-    return $fetch<StrapiPaginatedResponse<StrapiProgramme>>(
-      strapi.apiUrl(`/programmes?${params.toString()}`),
+    return client.request(
+      readItems('programmes', {
+        fields: ['*', { cover: ['*'] }],
+        sort: ['-date_created'],
+        limit: 24,
+        ...(Object.keys(filter).length ? { filter } : {}),
+      }),
     )
   },
   { watch: [selectedLevel] },
 )
 
-const programmes = computed(() => programmesData.value?.data ?? [])
+const programmes = computed(() => programmesData.value ?? [])
+
+function programmeCoverSrc(cover: DirectusProgramme['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function programmeCoverAlt(cover: DirectusProgramme['cover'], titleFallback: string): string {
+  if (cover != null && typeof cover === 'object' && cover.alternativeText) {
+    return cover.alternativeText
+  }
+  return titleFallback
+}
 </script>
 
 <template>
@@ -111,9 +132,9 @@ const programmes = computed(() => programmesData.value?.data ?? [])
           <!-- Cover image -->
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
-              v-if="prog.cover"
-              :src="strapi.imageUrl(prog.cover.url) ?? ''"
-              :alt="prog.cover.alternativeText ?? localized(prog, 'title')"
+              v-if="prog.cover && programmeCoverSrc(prog.cover)"
+              :src="programmeCoverSrc(prog.cover)"
+              :alt="programmeCoverAlt(prog.cover, localized(prog, 'title'))"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div

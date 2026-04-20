@@ -1,11 +1,26 @@
 <script setup lang="ts">
 import type { StrapiBlock, StrapiBlockChild } from '~/types/news'
+import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 defineProps<{
   blocks: StrapiBlock[]
 }>()
 
 const strapi = useStrapi()
+const { assetUrl } = useDirectus()
+
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: strapi.imageUrl,
+}
+
+function blockImageSrc(image: NonNullable<StrapiBlock['image']>): string {
+  return resolveMediaSrc(image, mediaResolvers)
+}
+
+function blockImageAlt(image: NonNullable<StrapiBlock['image']>): string {
+  return resolveMediaAlt(image, '')
+}
 
 function renderText(child: StrapiBlockChild): string {
   return child.text ?? ''
@@ -121,10 +136,10 @@ const headingTag: Record<number, string> = {
       ><code><template v-for="(child, j) in block.children" :key="j">{{ renderText(child) }}</template></code></pre>
 
       <!-- Image -->
-      <figure v-else-if="block.type === 'image' && block.image" class="my-6">
+      <figure v-else-if="block.type === 'image' && block.image && blockImageSrc(block.image)" class="my-6">
         <img
-          :src="strapi.imageUrl(block.image.url) ?? block.image.url"
-          :alt="block.image.alternativeText ?? ''"
+          :src="blockImageSrc(block.image)"
+          :alt="blockImageAlt(block.image)"
           class="rounded-12 w-full object-cover"
         />
       </figure>

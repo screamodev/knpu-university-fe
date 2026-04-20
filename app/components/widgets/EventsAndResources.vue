@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiEvent } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { Query } from '@directus/sdk'
+import type { DirectusEvent, DirectusSchema } from '~/types/directus'
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
+const { client } = useDirectus()
 
 const today = new Date().toISOString().slice(0, 10)
-const strapi = useStrapi()
-const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiEvent>>(
-  strapi.apiUrl(
-    `/events?populate=cover&sort=date:asc&filters[date][$gte]=${today}&pagination[limit]=3`,
+const { data, pending, error } = useAsyncData('home-events-upcoming', () =>
+  client.request(
+    readItems(
+      'events',
+      {
+        fields: ['*', { cover: ['*'] }],
+        sort: ['date'],
+        filter: { date: { _gte: today } },
+        limit: 3,
+      } as Query<DirectusSchema, DirectusEvent>,
+    ),
   ),
 )
 
-const events = computed(() => data.value?.data ?? [])
+const events = computed(() => data.value ?? [])
 
 const dateLocale = computed(() => (locale.value === 'uk' ? 'uk-UA' : 'en-US'))
 const eventDay = (dateStr: string): string =>

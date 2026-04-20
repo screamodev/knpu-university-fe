@@ -5,16 +5,17 @@
 export function useLocalizedField() {
   const { locale } = useSafeI18nWithRouter()
 
-  function localized<T extends Record<string, unknown>>(
-    entity: T,
-    field: string,
-  ): string {
+  function localized(entity: unknown, field: string): string {
+    if (entity === null || typeof entity !== 'object') {
+      return ''
+    }
+    const record = entity as Record<string, unknown>
     if (locale.value === 'en') {
       const enKey = `${field}En`
-      const enValue = entity[enKey]
+      const enValue = record[enKey]
       if (enValue && typeof enValue === 'string' && enValue.trim()) return enValue
     }
-    return (entity[field] as string) ?? ''
+    return (record[field] as string) ?? ''
   }
 
   return { localized }

@@ -1,49 +1,80 @@
-import type { StrapiImage } from '~/types/strapi'
+import { uploadFiles as directusUploadFiles } from '@directus/sdk'
 
-/**
- * Upload files to Strapi `/api/upload` using multipart FormData.
- */
-export function useUpload() {
-  const { apiUrl } = useStrapi()
-  const { jwt } = useAuth()
+import type { DirectusFile } from '~/types/directus'
 
-  async function uploadFile(file: File): Promise<StrapiImage> {
-    const token = jwt.value
-    if (!token) throw new Error('Not authenticated')
+function isDirectusFileRecord(value: unknown): value is DirectusFile {
+  return typeof value === 'object' && value !== null && 'id' in value
+}
 
-    const formData = new FormData()
-    formData.append('files', file)
-
-    const response = await $fetch<StrapiImage[]>(apiUrl('/upload'), {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}` },
-      body: formData,
-    })
-
-    const first = response?.[0]
-    if (!first) {
+function normalizeUploadedFile(uploaded: unknown): DirectusFile {
+  if (Array.isArray(uploaded)) {
+    const first = uploaded[0]
+    if (!isDirectusFileRecord(first)) {
       throw new Error('Upload failed: empty response')
     }
-
     return first
   }
+  if (!isDirectusFileRecord(uploaded)) {
+    throw new Error('Upload failed: invalid response')
+  }
+  return uploaded
+}
 
-  async function uploadFiles(files: File[]): Promise<StrapiImage[]> {
-    const token = jwt.value
-    if (!token) throw new Error('Not authenticated')
+/**
+ * Upload files to Directus `/files` via the SDK (`multipart/form-data`, field `file`).
+ * Each request sends one file; multi-file flows loop and collect `directus_files.id` values.
+ */
+export function useUpload() {
+  const { client, assetUrl, publicUrl } = useDirectus()
+
+  async function requireAuthToken(): Promise<void> {
+    const token = await client.getToken()
+    if (!token || token.length === 0) {
+      throw new Error('Not authenticated')
+    }
+  }
+
+  async function uploadFile(file: File): Promise<DirectusFile> {
+    await requireAuthToken()
 
     const formData = new FormData()
-    for (const file of files) {
-      formData.append('files', file)
+    formData.append('file', file)
+
+    const uploaded = await client.request(directusUploadFiles(formData))
+    const record = normalizeUploadedFile(uploaded)
+    const resolvedUrl = assetUrl(record)
+    const id = typeof record.id === 'string' ? record.id : String(record.id)
+    const url =
+      resolvedUrl ??
+      (id.length > 0 ? `${publicUrl}/assets/${id}` : null) ??
+      (typeof record.url === 'string' ? record.url : null)
+    if (url === null) {
+      throw new Error('Upload failed: could not resolve file URL')
     }
+    return {
+      ...record,
+      id,
+      url,
+    }
+  }
 
-    const response = await $fetch<StrapiImage[]>(apiUrl('/upload'), {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}` },
-      body: formData,
-    })
+  async function uploadFiles(files: File[]): Promise<string[]> {
+    if (files.length === 0) {
+      return []
+    }
+    await requireAuthToken()
 
-    return response ?? []
+    const ids: string[] = []
+    for (const file of files) {
+      const formData = new FormData()
+      formData.append('file', file)
+
+      const uploaded = await client.request(directusUploadFiles(formData))
+      const record = normalizeUploadedFile(uploaded)
+      const rawId = record.id
+      ids.push(typeof rawId === 'string' ? rawId : String(rawId))
+    }
+    return ids
   }
 
   return { uploadFile, uploadFiles }

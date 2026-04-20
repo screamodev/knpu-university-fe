@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@directus/sdk": "^18.0.3",
     "@nuxtjs/i18n": "^10.2.3",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@tiptap/extension-bubble-menu": "^3.21.0",

@@ -1,17 +1,30 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiArticle } from '~/types/news'
+import { readItems } from '@directus/sdk'
+import type { DirectusArticle } from '~/types/news'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 
-const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiArticle>>(
-  strapi.apiUrl(
-    '/articles?populate[0]=cover&populate[1]=category&sort=publishedAt:desc&pagination[limit]=4',
+const { data, pending, error } = useAsyncData('home-news-articles', () =>
+  client.request(
+    readItems('articles', {
+      fields: ['*', { cover: ['*'] }, { category: ['*'] }],
+      sort: ['-date_published'],
+      limit: 4,
+    }),
   ),
 )
 
-const articles = computed(() => data.value?.data ?? [])
+const articles = computed(() => data.value ?? [])
 const mainArticle = computed(() => articles.value[0] ?? null)
 const sideArticles = computed(() => articles.value.slice(1, 4))
 
@@ -21,6 +34,21 @@ function formatDate(dateStr: string): string {
     month: 'long',
     year: 'numeric',
   }).format(new Date(dateStr))
+}
+
+function articlePublishedAt(article: DirectusArticle): string {
+  return article.date_published ?? article.publishedAt ?? article.date_created ?? ''
+}
+
+function articleCoverSrc(cover: DirectusArticle['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
+  if (cover != null && typeof cover === 'object' && cover.alternativeText) {
+    return cover.alternativeText
+  }
+  return titleFallback
 }
 </script>
 
@@ -99,9 +127,9 @@ function formatDate(dateStr: string): string {
         >
           <div class="h-60 relative overflow-hidden">
             <img
-              v-if="mainArticle.cover"
-              :src="strapi.imageUrl(mainArticle.cover.url) ?? ''"
-              :alt="mainArticle.cover.alternativeText ?? localized(mainArticle, 'title')"
+              v-if="mainArticle.cover && articleCoverSrc(mainArticle.cover)"
+              :src="articleCoverSrc(mainArticle.cover)"
+              :alt="articleCoverAlt(mainArticle.cover, localized(mainArticle, 'title'))"
               class="w-full h-full object-cover"
             />
             <div
@@ -123,7 +151,7 @@ function formatDate(dateStr: string): string {
             <div class="font-playfair text-xl font-semibold text-white leading-snug flex-1 mb-4">
               {{ localized(mainArticle, 'title') }}
             </div>
-            <div class="text-xs text-white/40">{{ formatDate(mainArticle.publishedAt) }}</div>
+            <div class="text-xs text-white/40">{{ formatDate(articlePublishedAt(mainArticle)) }}</div>
           </div>
         </NuxtLink>
 
@@ -147,7 +175,7 @@ function formatDate(dateStr: string): string {
               {{ article.category ? localized(article.category, 'name') : '' }}
             </div>
             <div class="font-playfair text-[15px] text-navy mb-2 leading-snug">{{ localized(article, 'title') }}</div>
-            <div class="text-xs text-text-muted">{{ formatDate(article.publishedAt) }}</div>
+            <div class="text-xs text-text-muted">{{ formatDate(articlePublishedAt(article)) }}</div>
           </NuxtLink>
         </div>
       </div>

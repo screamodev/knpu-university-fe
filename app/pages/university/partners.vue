@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiPartner } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusPartner } from '~/types/directus'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 
 useHead({
@@ -13,12 +22,15 @@ useHead({
 })
 
 const { data: partnersData, pending } = useAsyncData('partners-listing', () =>
-  $fetch<StrapiPaginatedResponse<StrapiPartner>>(
-    strapi.apiUrl('/partners?populate=logo&pagination[pageSize]=48'),
+  client.request(
+    readItems('partners', {
+      fields: ['*', { logo: ['*'] }],
+      limit: 48,
+    }),
   ),
 )
 
-const partners = computed(() => partnersData.value?.data ?? [])
+const partners = computed(() => partnersData.value ?? [])
 
 function isExternalUrl(url: string | null): boolean {
   if (!url) return false
@@ -30,6 +42,10 @@ function normalizeWebsiteUrl(url: string | null): string | null {
   const trimmed = url.trim()
   if (isExternalUrl(trimmed)) return trimmed
   return `https://${trimmed}`
+}
+
+function partnerLogoSrc(logo: DirectusPartner['logo']): string {
+  return resolveMediaSrc(logo, mediaResolvers)
 }
 </script>
 
@@ -82,8 +98,8 @@ function normalizeWebsiteUrl(url: string | null): string | null {
             class="p-6 min-h-[140px] flex items-center justify-center bg-white border-b border-border"
           >
             <img
-              v-if="partner.logo"
-              :src="strapi.imageUrl(partner.logo.url) ?? ''"
+              v-if="partner.logo && partnerLogoSrc(partner.logo)"
+              :src="partnerLogoSrc(partner.logo)"
               :alt="localized(partner, 'name')"
               class="max-h-20 max-w-full object-contain"
             />

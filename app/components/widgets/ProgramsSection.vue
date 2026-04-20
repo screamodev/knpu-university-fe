@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiProgramme } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { ProgrammeLevel } from '~/types/directus'
 
 const { t, localePath } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client } = useDirectus()
 const { localized } = useLocalizedField()
 
-const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiProgramme>>(
-  strapi.apiUrl('/programmes?populate=cover&sort=createdAt:desc&pagination[limit]=6'),
+const { data, pending, error } = useAsyncData('home-programmes', () =>
+  client.request(
+    readItems('programmes', {
+      fields: ['*', { cover: ['*'] }],
+      sort: ['-date_created'],
+      limit: 6,
+    }),
+  ),
 )
 
-const programs = computed(() => data.value?.data ?? [])
+const programs = computed(() => data.value ?? [])
 
-const levelLabelKey: Record<string, string> = {
+const levelLabelKey: Record<ProgrammeLevel, string> = {
   bachelor: 'programs.levels.bachelor',
   master: 'programs.levels.master',
   graduate: 'programs.levels.graduate',
@@ -87,7 +94,7 @@ const levelLabelKey: Record<string, string> = {
             </svg>
           </div>
           <div class="text-[11px] font-semibold uppercase tracking-wider text-text-muted mb-1.5">
-            {{ levelLabelKey[prog.level] ? t(levelLabelKey[prog.level]) : prog.level }}
+            {{ t(levelLabelKey[prog.level]) }}
           </div>
           <div class="font-playfair text-[17px] text-navy font-semibold leading-tight mb-2.5">
             {{ localized(prog, 'title') }}

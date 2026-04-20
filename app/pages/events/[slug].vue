@@ -1,24 +1,37 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiEvent, StrapiBlock } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusEvent, RichTextBlock } from '~/types/directus'
+import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
+
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { data } = await useFetch<StrapiPaginatedResponse<StrapiEvent>>(
-  strapi.apiUrl(
-    `/events?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=cover`,
-  ),
-  {
-    key: `strapi-event-${locale.value}-${slug}`,
-  },
+const { data } = await useAsyncData(
+  `directus-event-${locale.value}-${slug}`,
+  () =>
+    client.request(
+      readItems('events', {
+        filter: { slug: { _eq: slug } },
+        fields: ['*', { cover: ['*'] }],
+        limit: 1,
+      }),
+    ),
 )
 
-const event = computed(() => data.value?.data?.[0] ?? null)
+const event = computed(() => data.value?.[0] ?? null)
 
 if (!event.value) {
   throw createError({ statusCode: 404, statusMessage: 'Event not found' })
@@ -60,10 +73,18 @@ function formatTime(dateStr: string): string {
 const localizedBody = computed(() => {
   const e = event.value
   if (!e) {
-    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+    return { kind: 'blocks' as const, blocks: [] as RichTextBlock[] }
   }
   return normalizedLocalizedBody(e.content, e.contentEn, locale.value)
 })
+
+function eventCoverSrc(cover: DirectusEvent['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): string {
+  return resolveMediaAlt(cover, titleFallback)
+}
 </script>
 
 <template>
@@ -71,9 +92,9 @@ const localizedBody = computed(() => {
     <!-- Hero cover -->
     <div class="relative h-72 md:h-96 bg-navy overflow-hidden">
       <img
-        v-if="event.cover"
-        :src="strapi.imageUrl(event.cover.url) ?? ''"
-        :alt="event.cover.alternativeText ?? localized(event, 'title')"
+        v-if="event.cover && eventCoverSrc(event.cover)"
+        :src="eventCoverSrc(event.cover)"
+        :alt="eventCoverAlt(event.cover, localized(event, 'title'))"
         class="w-full h-full object-cover"
       />
       <div

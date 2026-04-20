@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { StrapiImage } from '~/types/strapi'
-
 const props = defineProps<{
-  modelValue: StrapiImage[]
+  /** `directus_files.id` values */
+  modelValue: string[]
 }>()
 
 const emit = defineEmits<{
-  'update:modelValue': [value: StrapiImage[]]
+  'update:modelValue': [value: string[]]
 }>()
 
 const { uploadFile } = useUpload()
@@ -24,12 +23,13 @@ async function handleFileChange(event: Event) {
 
   uploading.value = true
   try {
-    const uploaded: StrapiImage[] = []
+    const uploadedIds: string[] = []
     for (const file of Array.from(files)) {
       const image = await uploadFile(file)
-      uploaded.push(image)
+      const rawId = image.id
+      uploadedIds.push(typeof rawId === 'string' ? rawId : String(rawId))
     }
-    emit('update:modelValue', [...(props.modelValue ?? []), ...uploaded])
+    emit('update:modelValue', [...(props.modelValue ?? []), ...uploadedIds])
   } catch {
     // Error handling deferred to parent
   } finally {
@@ -51,11 +51,11 @@ function removeAt(index: number) {
 
     <div v-if="modelValue.length > 0" class="space-y-2 mb-3">
       <div
-        v-for="(file, index) in modelValue"
-        :key="file.id"
+        v-for="(fileId, index) in modelValue"
+        :key="`${fileId}-${index}`"
         class="flex items-center justify-between py-2 px-3 rounded-lg border border-border bg-off-white/50"
       >
-        <span class="text-sm text-navy truncate">{{ file.url.split('/').pop() }}</span>
+        <span class="text-sm text-navy truncate font-mono">{{ fileId }}</span>
         <button
           type="button"
           class="ml-2 text-danger hover:text-danger/70 text-sm font-semibold transition-colors shrink-0"

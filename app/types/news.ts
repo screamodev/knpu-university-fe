@@ -1,46 +1,35 @@
 import type {
-  StrapiImage,
-  StrapiImageFormat,
+  DirectusArticle,
+  DirectusCategory,
+  DirectusFile,
+  RichTextBlock,
+  RichTextBlockChild,
   StrapiBlock,
   StrapiBlockChild,
-  StrapiResponse,
-  StrapiPagination,
+  StrapiImage,
+  StrapiImageFormat,
   StrapiPaginatedResponse,
-} from '~/types/strapi'
+  StrapiPagination,
+  StrapiResponse,
+} from '~/types/directus'
 
 export type {
-  StrapiImage,
-  StrapiImageFormat,
+  DirectusArticle,
+  DirectusCategory,
+  DirectusFile,
+  RichTextBlock,
+  RichTextBlockChild,
   StrapiBlock,
   StrapiBlockChild,
-  StrapiResponse,
-  StrapiPagination,
+  StrapiImage,
+  StrapiImageFormat,
   StrapiPaginatedResponse,
+  StrapiPagination,
+  StrapiResponse,
 }
 
-export interface StrapiCategory {
-  id: number
-  documentId: string
-  name: string
-  nameEn: string | null
-  slug: string
-}
+/** @deprecated Use `DirectusCategory`. */
+export type StrapiCategory = DirectusCategory
 
-export interface StrapiArticle {
-  id: number
-  documentId: string
-  title: string
-  titleEn: string | null
-  slug: string
-  excerpt: string | null
-  excerptEn: string | null
-  content: StrapiBlock[] | string | null
-  contentEn: StrapiBlock[] | string | null
-  cover: StrapiImage | null
-  attachments: StrapiImage[] | null
-  author: string | null
-  publishedAt: string
-  createdAt: string
-  updatedAt: string
-  category: StrapiCategory | null
-}
+/** @deprecated Use `DirectusArticle`. */
+export type StrapiArticle = DirectusArticle

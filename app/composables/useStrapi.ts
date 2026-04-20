@@ -22,7 +22,7 @@ function resolveStrapiApiBaseUrl(
   if (!import.meta.server) {
     return publicBaseUrl
   }
-  const internal = (config as unknown as { strapiServerUrl?: string }).strapiServerUrl
+  const internal = (config as unknown as { directusServerUrl?: string }).directusServerUrl
   if (typeof internal === 'string' && internal.length > 0) {
     return internal
   }
@@ -31,7 +31,7 @@ function resolveStrapiApiBaseUrl(
 
 export function useStrapi() {
   const config = useRuntimeConfig()
-  const publicBaseUrl = config.public.strapiUrl as string
+  const publicBaseUrl = config.public.directusUrl as string
   const apiBaseUrl = resolveStrapiApiBaseUrl(config, publicBaseUrl)
 
   /** Build a full URL for a Strapi REST endpoint, e.g. `/articles?populate=cover` */

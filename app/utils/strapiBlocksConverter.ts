@@ -1,7 +1,27 @@
 import MarkdownIt from 'markdown-it'
-import type { StrapiBlock, StrapiBlockChild, StrapiBlockTextAlign } from '~/types/strapi'
+import type { DirectusFile, StrapiBlock, StrapiBlockChild, StrapiBlockTextAlign } from '~/types/directus'
 
 const ALIGN_EXPORTABLE: readonly StrapiBlockTextAlign[] = ['left', 'center', 'right', 'justify']
+
+function blockImageMedia(image: NonNullable<StrapiBlock['image']>): { src: string; alt: string } {
+  const alt =
+    'alternativeText' in image && image.alternativeText != null
+      ? String(image.alternativeText)
+      : 'title' in image && image.title != null
+        ? String(image.title)
+        : ''
+  let src = ''
+  if ('url' in image && typeof image.url === 'string' && image.url.length > 0) {
+    src = image.url
+  } else {
+    const file = image as DirectusFile
+    const fromFile = file.url ?? file.filename_download
+    if (typeof fromFile === 'string' && fromFile.length > 0) {
+      src = fromFile
+    }
+  }
+  return { src, alt }
+}
 
 function isExportableAlign(value: unknown): value is StrapiBlockTextAlign {
   return typeof value === 'string' && (ALIGN_EXPORTABLE as readonly string[]).includes(value)
@@ -140,15 +160,18 @@ function strapiBlockToTiptapNode(block: StrapiBlock): TiptapNode | null {
       }
     }
 
-    case 'image':
+    case 'image': {
       if (!block.image) return null
+      const { src, alt } = blockImageMedia(block.image)
+      if (!src) return null
       return {
         type: 'image',
         attrs: {
-          src: block.image.url,
-          alt: block.image.alternativeText ?? '',
+          src,
+          alt,
         },
       }
+    }
 
     default:
       return null
@@ -394,6 +417,7 @@ function strapiBlockToMarkdownChunk(block: StrapiBlock): string {
       const lines: string[] = []
       for (let i = 0; i < block.children.length; i++) {
         const item = block.children[i]
+        if (!item) continue
         const prefix = ordered ? `${i + 1}. ` : '- '
         lines.push(prefix + listItemChildToText(item))
       }
@@ -415,9 +439,10 @@ function strapiBlockToMarkdownChunk(block: StrapiBlock): string {
     }
 
     case 'image': {
-      if (!block.image?.url) return ''
-      const alt = escapeMarkdownImageAlt(block.image.alternativeText ?? '')
-      return `![${alt}](${block.image.url})`
+      if (!block.image) return ''
+      const { src, alt } = blockImageMedia(block.image)
+      if (!src) return ''
+      return `![${escapeMarkdownImageAlt(alt)}](${src})`
     }
 
     default:

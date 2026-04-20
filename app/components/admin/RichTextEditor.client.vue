@@ -10,7 +10,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Placeholder from '@tiptap/extension-placeholder'
 import type { Editor } from '@tiptap/core'
 import type { EditorState } from '@tiptap/pm/state'
-import type { StrapiBlock } from '~/types/strapi'
+import type { StrapiBlock } from '~/types/directus'
 import { strapiBlocksToTiptap, tiptapToStrapiBlocks } from '~/utils/strapiBlocksConverter'
 import type { TiptapDoc } from '~/utils/strapiBlocksConverter'
 

@@ -1,4 +1,4 @@
-import type { StrapiBlock, StrapiImage } from '~/types/strapi'
+import type { StrapiBlock, StrapiImage } from '~/types/directus'
 
 const MARKDOWN_IMAGE_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 

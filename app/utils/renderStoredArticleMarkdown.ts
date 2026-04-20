@@ -4,7 +4,7 @@ import MarkdownIt from 'markdown-it'
 import type { RenderRule } from 'markdown-it/lib/renderer.mjs'
 
 export interface RenderStoredArticleMarkdownOptions {
-  /** Same base as `useRuntimeConfig().public.strapiUrl` / `useStrapi().imageUrl`. */
+  /** Same base as `useRuntimeConfig().public.directusUrl` / `useStrapi().imageUrl`. */
   strapiPublicUrl: string
 }
 

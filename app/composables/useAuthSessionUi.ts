@@ -37,7 +37,7 @@ export function useAuthSessionUi() {
     return u.username || u.email || ''
   })
 
-  function initialsFromUser(u: { username?: string; email?: string } | null): string {
+  function initialsFromUser(u: { username?: string; email?: string | null } | null): string {
     if (!u) {
       return '?'
     }

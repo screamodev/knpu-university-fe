@@ -47,8 +47,8 @@ async function handleSubmit(payload: ArticleFormPayload) {
       content: strapiBlocksToMarkdown(payload.content),
       contentEn: strapiBlocksToMarkdown(payload.contentEn),
       author: payload.author || null,
-      cover: payload.cover?.id ?? null,
-      attachments: payload.attachments.map((a) => a.id),
+      cover: payload.cover,
+      attachments: payload.attachments,
       category: payload.categoryId ?? null,
     }
 

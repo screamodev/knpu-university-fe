@@ -5,15 +5,17 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   runtimeConfig: {
     /**
-     * Base URL for Strapi HTTP requests on the **server** (SSR, server routes).
-     * When the Nuxt app runs in Docker and Strapi is on the host or another compose
-     * stack, set `NUXT_STRAPI_SERVER_URL` (e.g. http://host.docker.internal:1337).
-     * If unset, `public.strapiUrl` is used everywhere.
+     * Base URL for Directus HTTP requests on the **server** (SSR, server routes).
+     * When the Nuxt app runs in Docker and Directus is on the host or another compose
+     * stack, set `NUXT_DIRECTUS_SERVER_URL` (e.g. http://host.docker.internal:8055).
+     * If unset, `public.directusUrl` is used everywhere.
      */
-    strapiServerUrl: process.env.NUXT_STRAPI_SERVER_URL || '',
+    directusServerUrl: process.env.NUXT_DIRECTUS_SERVER_URL || '',
     public: {
-      strapiUrl:
-        process.env.NUXT_PUBLIC_STRAPI_URL || process.env.STRAPI_URL || 'http://localhost:1337',
+      directusUrl:
+        process.env.NUXT_PUBLIC_DIRECTUS_URL ||
+        process.env.DIRECTUS_URL ||
+        'http://localhost:8055',
     },
   },
   i18n: {

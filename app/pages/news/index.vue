@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiArticle, StrapiCategory } from '~/types/news'
+import { readItems } from '@directus/sdk'
+import type { DirectusArticle } from '~/types/news'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 const { isAdmin } = useAuth()
 
@@ -15,32 +24,31 @@ useHead({
 
 const selectedCategorySlug = ref<string | null>(null)
 
-const { data: categoriesData } = await useFetch<StrapiPaginatedResponse<StrapiCategory>>(
-  strapi.apiUrl('/categories'),
-  { key: 'strapi-categories' },
+const { data: categoriesData } = await useAsyncData('news-categories', () =>
+  client.request(readItems('categories', { sort: ['name'] })),
 )
-const categories = computed(() => categoriesData.value?.data ?? [])
+const categories = computed(() => categoriesData.value ?? [])
 
 const { data: articlesData, pending } = useAsyncData(
   'news-listing',
   () => {
-    const params = new URLSearchParams({
-      'populate[0]': 'cover',
-      'populate[1]': 'category',
-      sort: 'publishedAt:desc',
-      'pagination[pageSize]': '12',
-    })
+    const filter: { category?: { slug: { _eq: string } } } = {}
     if (selectedCategorySlug.value) {
-      params.set('filters[category][slug][$eq]', selectedCategorySlug.value)
+      filter.category = { slug: { _eq: selectedCategorySlug.value } }
     }
-    return $fetch<StrapiPaginatedResponse<StrapiArticle>>(
-      strapi.apiUrl(`/articles?${params.toString()}`),
+    return client.request(
+      readItems('articles', {
+        fields: ['*', { cover: ['*'] }, { category: ['*'] }],
+        sort: ['-date_published'],
+        limit: 12,
+        ...(Object.keys(filter).length ? { filter } : {}),
+      }),
     )
   },
   { watch: [selectedCategorySlug] },
 )
 
-const articles = computed(() => articlesData.value?.data ?? [])
+const articles = computed(() => articlesData.value ?? [])
 
 function formatDate(dateStr: string): string {
   return new Intl.DateTimeFormat(locale.value === 'uk' ? 'uk-UA' : 'en-US', {
@@ -48,6 +56,21 @@ function formatDate(dateStr: string): string {
     month: 'long',
     year: 'numeric',
   }).format(new Date(dateStr))
+}
+
+function articlePublishedAt(article: DirectusArticle): string {
+  return article.date_published ?? article.publishedAt ?? article.date_created ?? ''
+}
+
+function articleCoverSrc(cover: DirectusArticle['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
+  if (cover != null && typeof cover === 'object' && cover.alternativeText) {
+    return cover.alternativeText
+  }
+  return titleFallback
 }
 </script>
 
@@ -146,9 +169,9 @@ function formatDate(dateStr: string): string {
           <!-- Cover image -->
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
-              v-if="article.cover"
-              :src="strapi.imageUrl(article.cover.url) ?? ''"
-              :alt="article.cover.alternativeText ?? localized(article, 'title')"
+              v-if="article.cover && articleCoverSrc(article.cover)"
+              :src="articleCoverSrc(article.cover)"
+              :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div
@@ -174,7 +197,7 @@ function formatDate(dateStr: string): string {
             <p v-if="localized(article, 'excerpt')" class="text-sm text-text-muted line-clamp-2 mb-3">
               {{ localized(article, 'excerpt') }}
             </p>
-            <div class="text-xs text-text-muted">{{ formatDate(article.publishedAt) }}</div>
+            <div class="text-xs text-text-muted">{{ formatDate(articlePublishedAt(article)) }}</div>
           </div>
         </NuxtLink>
       </div>

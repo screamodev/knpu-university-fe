@@ -1,15 +1,33 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiPartner } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusPartner } from '~/types/directus'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 const { t, localePath } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 
-const { data, pending, error } = useFetch<StrapiPaginatedResponse<StrapiPartner>>(
-  strapi.apiUrl('/partners?populate=logo&pagination[limit]=8'),
+const { data, pending, error } = useAsyncData('home-partners', () =>
+  client.request(
+    readItems('partners', {
+      fields: ['*', { logo: ['*'] }],
+      limit: 8,
+    }),
+  ),
 )
 
-const partners = computed(() => data.value?.data ?? [])
+const partners = computed(() => data.value ?? [])
+
+function partnerLogoSrc(logo: DirectusPartner['logo']): string {
+  return resolveMediaSrc(logo, mediaResolvers)
+}
 </script>
 
 <template>
@@ -64,8 +82,8 @@ const partners = computed(() => data.value?.data ?? [])
           class="bg-white border-[1.5px] border-border rounded-12 p-6 h-28 flex items-center justify-center no-underline transition-all duration-280 hover:border-gold hover:shadow-[0_4px_16px_rgba(27,46,75,0.08)]"
         >
           <img
-            v-if="partner.logo"
-            :src="strapi.imageUrl(partner.logo.url) ?? ''"
+            v-if="partner.logo && partnerLogoSrc(partner.logo)"
+            :src="partnerLogoSrc(partner.logo)"
             :alt="localized(partner, 'name')"
             class="max-h-14 max-w-full object-contain"
           />

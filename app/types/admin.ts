@@ -1,4 +1,4 @@
-import type { StrapiBlock, StrapiImage } from '~/types/strapi'
+import type { RichTextBlock } from '~/types/directus'
 
 export interface ArticleFormPayload {
   title: string
@@ -6,10 +6,12 @@ export interface ArticleFormPayload {
   slug: string
   excerpt: string
   excerptEn: string
-  content: StrapiBlock[] | null
-  contentEn: StrapiBlock[] | null
-  cover: StrapiImage | null
-  attachments: StrapiImage[]
+  content: RichTextBlock[] | null
+  contentEn: RichTextBlock[] | null
+  /** `directus_files.id` (M2O cover). */
+  cover: string | null
+  /** `directus_files.id` list (M2M attachments). */
+  attachments: string[]
   author: string
   categoryId: string | null
 }

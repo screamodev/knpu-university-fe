@@ -1,25 +1,36 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiProgramme } from '~/types/strapi'
-import type { StrapiBlock } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusProgramme, ProgrammeLevel, RichTextBlock } from '~/types/directus'
+import { resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { data } = await useFetch<StrapiPaginatedResponse<StrapiProgramme>>(
-  strapi.apiUrl(
-    `/programmes?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=cover`,
-  ),
-  {
-    key: `strapi-programme-${locale.value}-${slug}`,
-  },
+const { data } = await useAsyncData(
+  `directus-programme-${locale.value}-${slug}`,
+  () =>
+    client.request(
+      readItems('programmes', {
+        filter: { slug: { _eq: slug } },
+        fields: ['*', { cover: ['*'] }],
+        limit: 1,
+      }),
+    ),
 )
 
-const programme = computed(() => data.value?.data?.[0] ?? null)
+const programme = computed(() => data.value?.[0] ?? null)
 
 if (!programme.value) {
   throw createError({ statusCode: 404, statusMessage: 'Programme not found' })
@@ -41,16 +52,27 @@ useHead({
   ],
 })
 
-const levelLabelKey: Record<string, string> = {
+const levelLabelKey: Record<ProgrammeLevel, string> = {
   bachelor: 'programs.levels.bachelor',
   master: 'programs.levels.master',
   graduate: 'programs.levels.graduate',
 }
 
+function programmeCoverSrc(cover: DirectusProgramme['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function programmeCoverAlt(cover: DirectusProgramme['cover'], titleFallback: string): string {
+  if (cover != null && typeof cover === 'object' && cover.alternativeText) {
+    return cover.alternativeText
+  }
+  return titleFallback
+}
+
 const localizedBody = computed(() => {
   const p = programme.value
   if (!p) {
-    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+    return { kind: 'blocks' as const, blocks: [] as RichTextBlock[] }
   }
   return normalizedLocalizedBody(p.content, p.contentEn, locale.value)
 })
@@ -61,9 +83,9 @@ const localizedBody = computed(() => {
     <!-- Hero cover -->
     <div class="relative h-72 md:h-96 bg-navy overflow-hidden">
       <img
-        v-if="programme.cover"
-        :src="strapi.imageUrl(programme.cover.url) ?? ''"
-        :alt="programme.cover.alternativeText ?? localized(programme, 'title')"
+        v-if="programme.cover && programmeCoverSrc(programme.cover)"
+        :src="programmeCoverSrc(programme.cover)"
+        :alt="programmeCoverAlt(programme.cover, localized(programme, 'title'))"
         class="w-full h-full object-cover"
       />
       <div

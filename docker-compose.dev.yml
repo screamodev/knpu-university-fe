@@ -11,7 +11,7 @@ services:
     ports:
       - "3000:3000"
     extra_hosts:
-      # Lets the app container reach Strapi when it is published on the host (separate compose).
+      # Lets the app container reach Directus when it is published on the host (separate compose).
       - 'host.docker.internal:host-gateway'
     # Bind mount hides image node_modules; anonymous volume keeps deps. Entrypoint from the repo (not the image)
     # so script changes apply without rebuild. If deps are stale: docker compose -f docker-compose.dev.yml down -v && up --build
@@ -20,7 +20,7 @@ services:
       # pnpm refuses to replace node_modules without a TTY unless CI is set (Docker has no TTY by default).
       CI: "true"
       NUXT_HOST: 0.0.0.0
-      # Browser (hydration, images): host machine where Strapi port is mapped.
-      NUXT_PUBLIC_STRAPI_URL: http://localhost:1337
-      # SSR / server fetches from inside the container (localhost there is not Strapi).
-      NUXT_STRAPI_SERVER_URL: http://host.docker.internal:1337
+      # Browser (hydration, images): host machine where Directus port is mapped.
+      NUXT_PUBLIC_DIRECTUS_URL: http://localhost:8055
+      # SSR / server fetches from inside the container (localhost there is not Directus).
+      NUXT_DIRECTUS_SERVER_URL: http://host.docker.internal:8055

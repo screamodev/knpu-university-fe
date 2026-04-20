@@ -1,5 +1,5 @@
 /**
- * After hydration: restore user snapshot from sessionStorage for instant UI, then refresh from Strapi.
+ * After hydration: restore user snapshot from sessionStorage for instant UI, then refresh from Directus (`readMe`).
  * When a snapshot exists, refresh runs in the background (`silent`) so the header does not wait on `/users/me`.
  *
  * Must run after `app:mounted`. Restoring the snapshot in the plugin body runs before hydration and sets

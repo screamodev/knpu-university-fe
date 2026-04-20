@@ -1,9 +1,56 @@
 <script setup lang="ts">
-import type { StrapiArticle, StrapiCategory, StrapiImage, StrapiBlock, StrapiPaginatedResponse } from '~/types/news'
+import type { StrapiArticle, StrapiCategory, StrapiBlock, StrapiPaginatedResponse } from '~/types/news'
 import type { ArticleFormPayload } from '~/types/admin'
 import { normalizeStrapiRichTextForEditor } from '~/utils/articleRichTextNormalize'
 
 const { t } = useSafeI18nWithRouter()
+
+function coverIdFromInitial(cover: unknown): string | null {
+  if (cover == null) return null
+  if (typeof cover === 'string') return cover
+  if (typeof cover === 'object' && cover !== null && 'id' in cover) {
+    const id = (cover as { id: unknown }).id
+    if (typeof id === 'string') return id
+    if (typeof id === 'number') return String(id)
+  }
+  return null
+}
+
+function attachmentIdsFromInitial(attachments: unknown): string[] {
+  if (!Array.isArray(attachments) || attachments.length === 0) return []
+  const out: string[] = []
+  for (const a of attachments) {
+    if (typeof a === 'string') {
+      out.push(a)
+      continue
+    }
+    if (typeof a === 'object' && a !== null) {
+      const row = a as Record<string, unknown>
+      if ('directus_files_id' in row) {
+        const j = row.directus_files_id
+        if (typeof j === 'string') out.push(j)
+        else if (j && typeof j === 'object' && j !== null && 'id' in j) {
+          const jid = (j as { id: unknown }).id
+          if (typeof jid === 'string') out.push(jid)
+          else if (typeof jid === 'number') out.push(String(jid))
+        }
+        continue
+      }
+      if ('id' in row) {
+        const id = row.id
+        if (typeof id === 'string') out.push(id)
+        else if (typeof id === 'number') out.push(String(id))
+      }
+    }
+  }
+  return out
+}
+
+function categoryIdFromInitial(category: StrapiArticle['category']): string | null {
+  if (category == null) return null
+  if (typeof category === 'string') return category
+  return category.id ?? category.documentId ?? null
+}
 
 const props = defineProps<{
   initialData?: Partial<StrapiArticle>
@@ -24,10 +71,10 @@ const excerpt = ref(props.initialData?.excerpt ?? '')
 const excerptEn = ref(props.initialData?.excerptEn ?? '')
 const content = ref<StrapiBlock[] | null>(normalizeStrapiRichTextForEditor(props.initialData?.content))
 const contentEn = ref<StrapiBlock[] | null>(normalizeStrapiRichTextForEditor(props.initialData?.contentEn))
-const cover = ref<StrapiImage | null>(props.initialData?.cover ?? null)
-const attachments = ref<StrapiImage[]>(props.initialData?.attachments ?? [])
+const cover = ref<string | null>(coverIdFromInitial(props.initialData?.cover))
+const attachments = ref<string[]>(attachmentIdsFromInitial(props.initialData?.attachments))
 const author = ref(props.initialData?.author ?? '')
-const selectedCategoryId = ref<string | null>(props.initialData?.category?.documentId ?? null)
+const selectedCategoryId = ref<string | null>(categoryIdFromInitial(props.initialData?.category ?? null))
 
 // Tabs
 const activeTab = ref<'uk' | 'en'>('uk')
@@ -40,7 +87,7 @@ const { data: categoriesData } = await useAsyncData('admin-categories', () =>
 const categories = computed(() => categoriesData.value?.data ?? [])
 
 watch(
-  () => props.initialData?.documentId,
+  () => props.initialData?.id ?? props.initialData?.documentId,
   () => {
     const data = props.initialData
     if (!data) return
@@ -181,7 +228,7 @@ function handleSubmit() {
         <label class="block text-sm font-semibold text-navy mb-1.5">{{ t('admin.category') }}</label>
         <select v-model="selectedCategoryId" :class="inputClass">
           <option :value="null">{{ t('admin.noCategory') }}</option>
-          <option v-for="cat in categories" :key="cat.documentId" :value="cat.documentId">
+          <option v-for="cat in categories" :key="cat.id" :value="cat.id ?? cat.documentId">
             {{ cat.name }}
           </option>
         </select>

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import type { StrapiPaginatedResponse, StrapiArticle } from '~/types/news'
+import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default', middleware: 'admin' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const strapi = useStrapi()
+const { assetUrl } = useDirectus()
 const { localized } = useLocalizedField()
+
+const mediaResolvers = { assetUrl, strapiImageUrl: strapi.imageUrl }
 const { isAdmin, meRestoreCompleted } = useAuth()
 const toast = useToast()
 
@@ -43,6 +47,22 @@ function formatDate(dateStr: string): string {
   }).format(new Date(dateStr))
 }
 
+function articlePublishedAt(article: StrapiArticle): string {
+  return article.date_published ?? article.publishedAt ?? article.date_created ?? ''
+}
+
+function articleCoverSrc(cover: StrapiArticle['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function articleCoverAlt(cover: StrapiArticle['cover'], titleFallback: string): string {
+  return resolveMediaAlt(cover, titleFallback)
+}
+
+function articleEditId(article: StrapiArticle): string {
+  return article.documentId ?? article.id
+}
+
 // Delete
 const deleteTarget = ref<StrapiArticle | null>(null)
 const showDeleteModal = ref(false)
@@ -58,7 +78,7 @@ async function handleDelete() {
   deleting.value = true
   try {
     const { jwt } = useAuth()
-    await strapi.strapiFetch(`/articles/${deleteTarget.value.documentId}`, {
+    await strapi.strapiFetch(`/articles/${articleEditId(deleteTarget.value)}`, {
       method: 'DELETE',
       bearerToken: jwt.value,
     })
@@ -124,9 +144,9 @@ async function handleDelete() {
           <!-- Cover image -->
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
-              v-if="article.cover"
-              :src="strapi.imageUrl(article.cover.url) ?? ''"
-              :alt="article.cover.alternativeText ?? localized(article, 'title')"
+              v-if="article.cover && articleCoverSrc(article.cover)"
+              :src="articleCoverSrc(article.cover)"
+              :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div
@@ -143,7 +163,7 @@ async function handleDelete() {
             <!-- Action overlay -->
             <div class="absolute inset-0 bg-navy-deep/70 opacity-0 group-hover:opacity-100 transition-opacity duration-280 flex items-center justify-center gap-3">
               <NuxtLink
-                :to="localePath(`/admin/articles/${article.documentId}/edit`)"
+                :to="localePath(`/admin/articles/${articleEditId(article)}/edit`)"
                 class="py-2 px-4 rounded-lg text-sm font-semibold bg-white text-navy no-underline hover:bg-off-white transition-colors"
               >
                 {{ t('admin.edit') }}
@@ -166,7 +186,9 @@ async function handleDelete() {
             <div class="font-playfair text-[16px] font-semibold text-navy leading-snug flex-1 mb-3">
               {{ localized(article, 'title') }}
             </div>
-            <div class="text-xs text-text-muted">{{ formatDate(article.publishedAt) }}</div>
+            <div class="text-xs text-text-muted">
+              {{ articlePublishedAt(article) ? formatDate(articlePublishedAt(article)) : '' }}
+            </div>
           </div>
         </div>
       </div>

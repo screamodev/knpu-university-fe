@@ -1,26 +1,37 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiArticle, StrapiImage, StrapiBlock } from '~/types/news'
+import { readItems } from '@directus/sdk'
+import type { DirectusArticle, RichTextBlock } from '~/types/news'
+import { normalizeArticleAttachment, resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
+
 const route = useRoute()
 const slug = route.params.slug as string
 
-const { data } = await useFetch<StrapiPaginatedResponse<StrapiArticle>>(
-  strapi.apiUrl(
-    `/articles?filters[slug][$eq]=${encodeURIComponent(slug)}&populate[0]=cover&populate[1]=category&populate[2]=attachments`,
-  ),
-  {
-    // Host-agnostic key: server may use NUXT_STRAPI_SERVER_URL while the client uses
-    // public.strapiUrl — different URLs would break auto key and hydration (data null on client).
-    key: `strapi-article-${locale.value}-${slug}`,
-  },
+const { data } = await useAsyncData(
+  `directus-article-${locale.value}-${slug}`,
+  () =>
+    client.request(
+      readItems('articles', {
+        filter: { slug: { _eq: slug } },
+        fields: ['*', { cover: ['*'] }, { category: ['*'] }, { attachments: [{ directus_files_id: ['*'] }] }],
+        limit: 1,
+      }),
+    ),
 )
 
-const article = computed(() => data.value?.data?.[0] ?? null)
+const article = computed(() => data.value?.[0] ?? null)
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found' })
@@ -48,18 +59,28 @@ function formatDate(dateStr: string): string {
   }).format(new Date(dateStr))
 }
 
-function fileNameFromUrl(url: string): string {
-  return url.split('/').pop() ?? url
+function articlePublishedAt(a: DirectusArticle): string {
+  return a.date_published ?? a.publishedAt ?? a.date_created ?? ''
 }
 
-function isDownloadable(attachment: StrapiImage): boolean {
-  return !attachment.url.match(/\.(jpg|jpeg|png|gif|webp|svg|avif)$/i)
+function articleCoverSrc(cover: DirectusArticle['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
 }
+
+function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
+  return resolveMediaAlt(cover, titleFallback)
+}
+
+const normalizedAttachments = computed(() => {
+  const list = article.value?.attachments
+  if (!list?.length) return []
+  return list.map((att) => normalizeArticleAttachment(att, mediaResolvers))
+})
 
 const localizedBody = computed(() => {
   const a = article.value
   if (!a) {
-    return { kind: 'blocks' as const, blocks: [] as StrapiBlock[] }
+    return { kind: 'blocks' as const, blocks: [] as RichTextBlock[] }
   }
   return normalizedLocalizedBody(a.content, a.contentEn, locale.value)
 })
@@ -70,9 +91,9 @@ const localizedBody = computed(() => {
     <!-- Hero cover -->
     <div class="relative h-72 md:h-96 bg-navy overflow-hidden">
       <img
-        v-if="article.cover"
-        :src="strapi.imageUrl(article.cover.url) ?? ''"
-        :alt="article.cover.alternativeText ?? localized(article, 'title')"
+        v-if="article.cover && articleCoverSrc(article.cover)"
+        :src="articleCoverSrc(article.cover)"
+        :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
         class="w-full h-full object-cover"
       />
       <div
@@ -109,9 +130,9 @@ const localizedBody = computed(() => {
 
         <!-- Metadata row -->
         <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-muted mb-8 pb-8 border-b border-border">
-          <span v-if="article.publishedAt">
+          <span v-if="articlePublishedAt(article)">
             <span class="font-medium text-slate-600">{{ t('news.published') }}:</span>
-            {{ formatDate(article.publishedAt) }}
+            {{ formatDate(articlePublishedAt(article)) }}
           </span>
           <span v-if="article.author">
             <span class="font-medium text-slate-600">{{ t('news.author') }}:</span>
@@ -139,17 +160,17 @@ const localizedBody = computed(() => {
 
         <!-- Attachments -->
         <div
-          v-if="article.attachments?.length"
+          v-if="normalizedAttachments.length"
           class="mt-12 pt-8 border-t border-border"
         >
           <h2 class="font-playfair text-xl font-semibold text-navy mb-4">
             {{ t('news.attachments') }}
           </h2>
           <ul class="space-y-2">
-            <li v-for="attachment in article.attachments" :key="attachment.id">
+            <li v-for="attachment in normalizedAttachments" :key="attachment.key">
               <a
-                :href="strapi.imageUrl(attachment.url) ?? attachment.url"
-                :download="isDownloadable(attachment) ? fileNameFromUrl(attachment.url) : undefined"
+                :href="attachment.href"
+                :download="attachment.downloadable ? attachment.label : undefined"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors text-sm underline"
@@ -159,7 +180,7 @@ const localizedBody = computed(() => {
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                {{ attachment.alternativeText || fileNameFromUrl(attachment.url) }}
+                {{ attachment.label }}
               </a>
             </li>
           </ul>

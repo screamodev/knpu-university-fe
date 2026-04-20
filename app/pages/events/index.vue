@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import type { StrapiPaginatedResponse, StrapiEvent } from '~/types/strapi'
+import { readItems } from '@directus/sdk'
+import type { DirectusEvent } from '~/types/directus'
+import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const strapi = useStrapi()
+const { client, assetUrl, publicUrl } = useDirectus()
+const mediaResolvers = {
+  assetUrl,
+  strapiImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 const { localized } = useLocalizedField()
 
 useHead({
@@ -13,14 +22,16 @@ useHead({
 })
 
 const { data: eventsData, pending } = useAsyncData('events-listing', () =>
-  $fetch<StrapiPaginatedResponse<StrapiEvent>>(
-    strapi.apiUrl(
-      '/events?populate=cover&sort=date:asc&pagination[pageSize]=24',
-    ),
+  client.request(
+    readItems('events', {
+      fields: ['*', { cover: ['*'] }],
+      sort: ['date'],
+      limit: 24,
+    }),
   ),
 )
 
-const events = computed(() => eventsData.value?.data ?? [])
+const events = computed(() => eventsData.value ?? [])
 
 const dateLocale = computed(() => (locale.value === 'uk' ? 'uk-UA' : 'en-US'))
 
@@ -42,6 +53,14 @@ function formatMonth(dateStr: string): string {
   return new Intl.DateTimeFormat(dateLocale.value, { month: 'short' }).format(
     new Date(dateStr),
   )
+}
+
+function eventCoverSrc(cover: DirectusEvent['cover']): string {
+  return resolveMediaSrc(cover, mediaResolvers)
+}
+
+function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): string {
+  return resolveMediaAlt(cover, titleFallback)
 }
 </script>
 
@@ -91,9 +110,9 @@ function formatMonth(dateStr: string): string {
           <!-- Cover image -->
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
-              v-if="ev.cover"
-              :src="strapi.imageUrl(ev.cover.url) ?? ''"
-              :alt="ev.cover.alternativeText ?? localized(ev, 'title')"
+              v-if="ev.cover && eventCoverSrc(ev.cover)"
+              :src="eventCoverSrc(ev.cover)"
+              :alt="eventCoverAlt(ev.cover, localized(ev, 'title'))"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div

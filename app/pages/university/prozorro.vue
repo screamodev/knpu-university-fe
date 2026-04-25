@@ -1,24 +1,63 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { DirectusProzorroProcurement } from '~/types/directus'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, locale } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.prozorro'),
   meta: [{ name: 'description', content: () => t('university.prozorro.subtitle') }],
 })
 
-const procurementIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'] as const
-const statKeys = ['totalTenders', 'completed', 'totalValue'] as const
+const { data: procurementsData, pending } = await useAsyncData('prozorro-procurements', () =>
+  client.request(
+    readItems('prozorro_procurements', {
+      fields: ['id', 'tenderNumber', 'title', 'titleEn', 'amount', 'currency', 'procurementDate', 'state', 'prozorroUrl', 'order'],
+      sort: ['-procurementDate', '-order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
 
-type ProcurementStatus = 'completed' | 'active' | 'planned'
-const procurementStatusType: Record<(typeof procurementIds)[number], ProcurementStatus> = {
-  p1: 'completed',
-  p2: 'active',
-  p3: 'completed',
-  p4: 'planned',
-  p5: 'completed',
-  p6: 'completed',
+const procurements = computed<DirectusProzorroProcurement[]>(() => {
+  return (procurementsData.value as DirectusProzorroProcurement[] | null) ?? []
+})
+
+const totalTenders = computed<number>(() => procurements.value.length)
+const completedTenders = computed<number>(() => procurements.value.filter((item) => item.state === 'completed').length)
+const totalValue = computed<number>(() => {
+  return procurements.value.reduce((sum, item) => {
+    return sum + (item.amount ?? 0)
+  }, 0)
+})
+
+const displayCurrency = computed<string>(() => {
+  const firstCurrency = procurements.value.find((item) => item.currency)?.currency
+  return firstCurrency ?? 'UAH'
+})
+
+function formatCurrency(value: number, currency: string): string {
+  return new Intl.NumberFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+  }).format(value)
+}
+
+function formatProcurementDate(value: string | null): string {
+  if (!value) return locale.value === 'en' ? 'Date not specified' : 'Дату не вказано'
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value
+  return new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date)
 }
 
 const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
@@ -55,16 +94,28 @@ const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
           {{ t('university.prozorro.statsTitle') }}
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div
-            v-for="key in statKeys"
-            :key="key"
-            class="text-center"
-          >
+          <div class="text-center">
             <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ t(`university.prozorro.stats.${key}.value`) }}
+              {{ totalTenders }}
             </p>
             <p class="text-body-sm text-text-muted">
-              {{ t(`university.prozorro.stats.${key}.label`) }}
+              {{ t('university.prozorro.stats.totalTenders.label') }}
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
+              {{ completedTenders }}
+            </p>
+            <p class="text-body-sm text-text-muted">
+              {{ t('university.prozorro.stats.completed.label') }}
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
+              {{ formatCurrency(totalValue, displayCurrency) }}
+            </p>
+            <p class="text-body-sm text-text-muted">
+              {{ t('university.prozorro.stats.totalValue.label') }}
             </p>
           </div>
         </div>
@@ -76,37 +127,57 @@ const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
         {{ t('university.prozorro.procurementsTitle') }}
       </h2>
-      <div class="space-y-4">
+      <div v-if="pending" class="space-y-4">
         <article
-          v-for="id in procurementIds"
-          :key="id"
+          v-for="i in 3"
+          :key="i"
+          class="animate-pulse bg-white border border-border rounded-16 p-6"
+        >
+          <div class="h-4 bg-border rounded w-40 mb-2" />
+          <div class="h-5 bg-border rounded w-3/4 mb-3" />
+          <div class="h-4 bg-border rounded w-2/3" />
+        </article>
+      </div>
+      <div v-else-if="procurements.length" class="space-y-4">
+        <article
+          v-for="item in procurements"
+          :key="item.id"
           class="bg-white border border-border rounded-16 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
         >
           <div class="flex-1 min-w-0">
             <p class="text-body-sm font-mono text-gold mb-1">
-              {{ t(`university.prozorro.procurements.${id}.number`) }}
+              {{ item.tenderNumber }}
             </p>
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`university.prozorro.procurements.${id}.title`) }}
+              {{ localized(item, 'title') }}
             </h3>
             <div class="flex flex-wrap items-center gap-3 text-body-sm text-text-muted">
-              <span>{{ t(`university.prozorro.procurements.${id}.amount`) }}</span>
+              <span>{{ formatCurrency(item.amount ?? 0, item.currency ?? displayCurrency) }}</span>
               <span>·</span>
-              <span>{{ t(`university.prozorro.procurements.${id}.date`) }}</span>
+              <span>{{ formatProcurementDate(item.procurementDate) }}</span>
             </div>
+            <a
+              v-if="item.prozorroUrl"
+              :href="item.prozorroUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex mt-3 text-body-sm font-medium text-navy hover:text-gold transition-colors no-underline"
+            >
+              {{ locale === 'en' ? 'View on Prozorro' : 'Переглянути у Prozorro' }}
+            </a>
           </div>
           <span
             class="inline-flex items-center px-3 py-1 rounded-full text-body-sm font-medium shrink-0"
             :class="{
-              'bg-gold/15 text-gold': procurementStatusType[id] === 'completed',
-              'bg-slate-100 text-slate-600': procurementStatusType[id] === 'active',
-              'bg-slate-100 text-slate-500': procurementStatusType[id] === 'planned',
+              'bg-gold/15 text-gold': item.state === 'completed',
+              'bg-slate-100 text-slate-600': item.state === 'active',
+              'bg-slate-100 text-slate-500': item.state === 'planned',
             }"
           >
-            <template v-if="procurementStatusType[id] === 'completed'">
+            <template v-if="item.state === 'completed'">
               {{ t('university.prozorro.statusCompleted') }}
             </template>
-            <template v-else-if="procurementStatusType[id] === 'active'">
+            <template v-else-if="item.state === 'active'">
               {{ t('university.prozorro.statusActive') }}
             </template>
             <template v-else>
@@ -115,6 +186,9 @@ const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
           </span>
         </article>
       </div>
+      <p v-else class="text-body text-text-muted py-8 text-center bg-off-white border border-border rounded-16">
+        {{ locale === 'en' ? 'Procurement records are not published yet.' : 'Закупівлі ще не опубліковані.' }}
+      </p>
     </div>
 
     <!-- CTA: external Prozorro -->

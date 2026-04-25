@@ -4,8 +4,8 @@ import MarkdownIt from 'markdown-it'
 import type { RenderRule } from 'markdown-it/lib/renderer.mjs'
 
 export interface RenderStoredArticleMarkdownOptions {
-  /** Same base as `useRuntimeConfig().public.directusUrl` / `useStrapi().imageUrl`. */
-  strapiPublicUrl: string
+  /** Same base as `useRuntimeConfig().public.directusUrl` / `useDirectus().assetUrl`. */
+  directusPublicUrl: string
 }
 
 const articleHtmlPurifyConfig: Config = {
@@ -66,26 +66,32 @@ function ensureArticlePurifyDataAlignHook(): void {
   })
 }
 
+function normalizeDirectusPublicUrl(publicUrl: string): string {
+  return publicUrl.replace(/\/$/, '')
+}
+
+function isAbsoluteLikeUrl(url: string): boolean {
+  return /^https?:\/\//i.test(url) || url.startsWith('//') || /^[a-z][a-z0-9+.-]*:/i.test(url)
+}
+
 /**
- * Resolves Strapi media paths for browser `<img>` / asset URLs.
- * Keep in sync with `useStrapi().imageUrl`.
+ * Converts root-relative URLs to absolute URLs under the Directus public base.
+ * Most importantly, this maps `/assets/<uuid>` pasted in markdown to a browser-safe absolute URL.
  */
-export function resolveStrapiPublicMediaUrl(imagePath: string, strapiPublicUrl: string): string {
-  if (!imagePath) return imagePath
-  if (imagePath.startsWith('http')) return imagePath
-  return `${strapiPublicUrl}${imagePath}`
+export function resolveDirectusPublicUrl(url: string, directusPublicUrl: string): string {
+  if (!url) return url
+  const trimmed = url.trim()
+  if (!trimmed || isAbsoluteLikeUrl(trimmed)) return trimmed
+  if (trimmed.startsWith('#')) return trimmed
+  if (!trimmed.startsWith('/')) return trimmed
+  return `${normalizeDirectusPublicUrl(directusPublicUrl)}${trimmed}`
 }
 
-function rewriteMarkdownLinkHref(href: string, strapiPublicUrl: string): string {
-  const trimmed = href.trim()
-  if (!trimmed) return trimmed
-  if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith('//')) return trimmed
-  if (/^[a-z][a-z0-9+.-]*:/i.test(trimmed)) return trimmed
-  if (trimmed.startsWith('/uploads')) return `${strapiPublicUrl}${trimmed}`
-  return trimmed
+function rewriteMarkdownLinkHref(href: string, directusPublicUrl: string): string {
+  return resolveDirectusPublicUrl(href, directusPublicUrl)
 }
 
-function applyStrapiUrlRewrite(md: MarkdownIt, strapiPublicUrl: string): void {
+function applyDirectusUrlRewrite(md: MarkdownIt, directusPublicUrl: string): void {
   const previousImageRule = md.renderer.rules.image
   const imageRule: RenderRule = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
@@ -95,7 +101,7 @@ function applyStrapiUrlRewrite(md: MarkdownIt, strapiPublicUrl: string): void {
     const srcIndex = token.attrIndex('src')
     const srcPair = srcIndex >= 0 ? token.attrs?.[srcIndex] : undefined
     if (srcPair?.[1] !== undefined) {
-      srcPair[1] = resolveStrapiPublicMediaUrl(srcPair[1], strapiPublicUrl)
+      srcPair[1] = resolveDirectusPublicUrl(srcPair[1], directusPublicUrl)
     }
     if (previousImageRule) {
       return previousImageRule(tokens, idx, options, env, self)
@@ -113,7 +119,7 @@ function applyStrapiUrlRewrite(md: MarkdownIt, strapiPublicUrl: string): void {
     const hrefIndex = token.attrIndex('href')
     const hrefPair = hrefIndex >= 0 ? token.attrs?.[hrefIndex] : undefined
     if (hrefPair?.[1] !== undefined) {
-      hrefPair[1] = rewriteMarkdownLinkHref(hrefPair[1], strapiPublicUrl)
+      hrefPair[1] = rewriteMarkdownLinkHref(hrefPair[1], directusPublicUrl)
     }
     if (previousLinkOpenRule) {
       return previousLinkOpenRule(tokens, idx, options, env, self)
@@ -123,10 +129,10 @@ function applyStrapiUrlRewrite(md: MarkdownIt, strapiPublicUrl: string): void {
   md.renderer.rules.link_open = linkOpenRule
 }
 
-const markdownItByStrapiPublicUrl = new Map<string, MarkdownIt>()
+const markdownItByDirectusPublicUrl = new Map<string, MarkdownIt>()
 
-function getMarkdownIt(strapiPublicUrl: string): MarkdownIt {
-  const cached = markdownItByStrapiPublicUrl.get(strapiPublicUrl)
+function getMarkdownIt(directusPublicUrl: string): MarkdownIt {
+  const cached = markdownItByDirectusPublicUrl.get(directusPublicUrl)
   if (cached) return cached
 
   const md = new MarkdownIt({
@@ -134,13 +140,13 @@ function getMarkdownIt(strapiPublicUrl: string): MarkdownIt {
     linkify: true,
     typographer: false,
   })
-  applyStrapiUrlRewrite(md, strapiPublicUrl)
-  markdownItByStrapiPublicUrl.set(strapiPublicUrl, md)
+  applyDirectusUrlRewrite(md, directusPublicUrl)
+  markdownItByDirectusPublicUrl.set(directusPublicUrl, md)
   return md
 }
 
 /**
- * Turns Strapi-stored markdown (from the admin editor pipeline) into safe HTML for `v-html`.
+ * Turns stored markdown (from the admin editor pipeline) into safe HTML for `v-html`.
  */
 export function renderStoredArticleMarkdown(
   markdown: string,
@@ -150,7 +156,7 @@ export function renderStoredArticleMarkdown(
   if (!source) return ''
 
   ensureArticlePurifyDataAlignHook()
-  const md = getMarkdownIt(options.strapiPublicUrl)
+  const md = getMarkdownIt(options.directusPublicUrl)
   const html = md.render(source)
   const safe = DOMPurify.sanitize(html, articleHtmlPurifyConfig)
   return typeof safe === 'string' ? safe : String(safe)

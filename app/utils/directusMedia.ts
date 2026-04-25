@@ -1,25 +1,25 @@
-import type { DirectusArticle, DirectusFile, StrapiImage } from '~/types/directus'
+import type { DirectusArticle, DirectusFile, LegacyImage } from '~/types/directus'
 
 export interface MediaUrlResolvers {
   assetUrl: (v: string | DirectusFile | { id: string } | null | undefined) => string | null
-  strapiImageUrl: (path: string) => string | null
+  legacyImageUrl: (path: string) => string | null
 }
 
-/** Cover / logo / inline rich-text image: UUID string, expanded `directus_files`, or legacy Strapi path. */
+/** Cover / logo / inline rich-text image: UUID string, expanded `directus_files`, or legacy media path. */
 export function resolveMediaSrc(
-  file: string | DirectusFile | StrapiImage | null | undefined,
+  file: string | DirectusFile | LegacyImage | null | undefined,
   resolvers: MediaUrlResolvers,
 ): string {
   if (file == null) return ''
   if (typeof file === 'object' && file !== null && 'id' in file && typeof (file as { id: unknown }).id === 'number') {
-    const s = file as StrapiImage
-    return resolvers.strapiImageUrl(s.url) ?? s.url
+    const s = file as LegacyImage
+    return resolvers.legacyImageUrl(s.url) ?? s.url
   }
   const direct = resolvers.assetUrl(file as string | DirectusFile | { id: string })
   if (direct) return direct
   if (typeof file === 'object' && file !== null && 'url' in file && typeof (file as { url: unknown }).url === 'string') {
     const url = (file as { url: string }).url
-    return resolvers.strapiImageUrl(url) ?? url
+    return resolvers.legacyImageUrl(url) ?? url
   }
   if (typeof file === 'object' && file !== null && 'filename_download' in file) {
     const fd = (file as DirectusFile).filename_download
@@ -29,7 +29,7 @@ export function resolveMediaSrc(
 }
 
 export function resolveMediaAlt(
-  file: string | DirectusFile | StrapiImage | null | undefined,
+  file: string | DirectusFile | LegacyImage | null | undefined,
   fallback: string,
 ): string {
   if (file != null && typeof file === 'object' && file.alternativeText) {
@@ -38,7 +38,7 @@ export function resolveMediaAlt(
   return fallback
 }
 
-/** Normalized attachment row for download links (M2M junction, file id, or legacy Strapi media). */
+/** Normalized attachment row for download links (M2M junction, file id, or legacy media). */
 export function normalizeArticleAttachment(
   att: NonNullable<DirectusArticle['attachments']>[number],
   resolvers: MediaUrlResolvers,
@@ -83,8 +83,8 @@ export function normalizeArticleAttachment(
     'url' in att &&
     typeof (att as { url: unknown }).url === 'string'
   ) {
-    const s = att as unknown as StrapiImage
-    const href = resolvers.strapiImageUrl(s.url) ?? s.url
+    const s = att as unknown as LegacyImage
+    const href = resolvers.legacyImageUrl(s.url) ?? s.url
     const downloadable = !isProbablyImageHref(href)
     return {
       key: String(s.id),

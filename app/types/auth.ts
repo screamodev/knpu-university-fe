@@ -25,23 +25,6 @@ export function getDirectusSessionCookieOptions() {
   }
 }
 
-/** @deprecated Use `DIRECTUS_SESSION_COOKIE_NAME`. */
-export const STRAPI_JWT_COOKIE_NAME = DIRECTUS_SESSION_COOKIE_NAME
-
-/** @deprecated Use `DIRECTUS_SESSION_LS_KEY`. */
-export const STRAPI_JWT_LS_KEY = DIRECTUS_SESSION_LS_KEY
-
-/** @deprecated Use `DIRECTUS_AUTH_USER_SESSION_KEY`. */
-export const STRAPI_AUTH_USER_SESSION_KEY = DIRECTUS_AUTH_USER_SESSION_KEY
-
-/** @deprecated Use `DIRECTUS_SESSION_MAX_AGE_SEC`. */
-export const STRAPI_JWT_MAX_AGE_SEC = DIRECTUS_SESSION_MAX_AGE_SEC
-
-/** @deprecated Use `getDirectusSessionCookieOptions`. */
-export function getStrapiJwtCookieOptions() {
-  return getDirectusSessionCookieOptions()
-}
-
 /** Directus role (e.g. from `readMe({ fields: ['*', 'role.*'] })`). */
 export interface DirectusRole {
   id: string
@@ -49,7 +32,7 @@ export interface DirectusRole {
   /** When `true`, user has admin app access (Directus admin). */
   admin_access: boolean
   app_access: boolean
-  /** @deprecated Strapi Users & Permissions; prefer `admin_access`. */
+  /** Legacy field kept for compatibility; prefer `admin_access`. */
   type?: string
   icon?: string | null
   description?: string | null
@@ -65,7 +48,7 @@ export interface DirectusUser {
   role?: string | DirectusRole | null
   token?: string
   last_access?: string | null
-  /** @deprecated Strapi used numeric ids; not present on Directus users. */
+  /** Legacy field from old auth model; not present on Directus users. */
   username?: string
   createdAt?: string
   updatedAt?: string
@@ -83,30 +66,9 @@ export interface DirectusLocalLoginResponse {
   user?: DirectusUser
 }
 
-/** @deprecated Use `DirectusLocalLoginResponse`. */
-export type StrapiLocalLoginResponse = DirectusLocalLoginResponse & {
-  jwt?: string
-  user: DirectusUser
-}
-
-/** Typical Directus / Strapi error JSON shape during migration. */
+/** Typical Directus error JSON shape during migration. */
 export interface DirectusErrorPayload {
   errors?: Array<{ message?: string; extensions?: Record<string, unknown> }>
   message?: string
 }
 
-/** @deprecated Use `DirectusErrorPayload`. */
-export interface StrapiErrorPayload {
-  error: {
-    status?: number
-    name?: string
-    message?: string
-    details?: unknown
-  }
-}
-
-/** @deprecated Use `DirectusUser`. */
-export type StrapiUser = DirectusUser
-
-/** @deprecated Use `DirectusRole`. */
-export type StrapiUserRole = DirectusRole

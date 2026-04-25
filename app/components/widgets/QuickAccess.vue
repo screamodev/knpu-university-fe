@@ -5,7 +5,6 @@ const links = [
   { path: '/student/schedule', key: 'quickAccess.schedule' },
   { path: '/student/moodle', key: 'quickAccess.moodle' },
   { path: '/student/email', key: 'quickAccess.email' },
-  { path: '/cabinet', key: 'quickAccess.cabinet' },
   { path: '/science/library', key: 'quickAccess.library' },
   { path: '/university/contacts', key: 'quickAccess.map' },
 ]

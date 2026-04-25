@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env ?? {}
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
   devtools: { enabled: true },
@@ -10,15 +12,16 @@ export default defineNuxtConfig({
      * stack, set `NUXT_DIRECTUS_SERVER_URL` (e.g. http://host.docker.internal:8055).
      * If unset, `public.directusUrl` is used everywhere.
      */
-    directusServerUrl: process.env.NUXT_DIRECTUS_SERVER_URL || '',
+    directusServerUrl: env.NUXT_DIRECTUS_SERVER_URL || '',
     public: {
       directusUrl:
-        process.env.NUXT_PUBLIC_DIRECTUS_URL ||
-        process.env.DIRECTUS_URL ||
+        env.NUXT_PUBLIC_DIRECTUS_URL ||
+        env.DIRECTUS_URL ||
         'http://localhost:8055',
     },
   },
   i18n: {
+    restructureDir: false,
     locales: [
       { code: 'uk', iso: 'uk-UA', name: 'УКР', file: 'uk.json' },
       { code: 'en', iso: 'en-US', name: 'ENG', file: 'en.json' },
@@ -27,9 +30,7 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     // Load from app/locales. With restructureDir: false, langDir is relative to project root
     // (v10 default would resolve to i18n/locales/ which we do not use).
-    restructureDir: false,
     langDir: 'app/locales',
-    lazy: false,
   },
   vite: {
     optimizeDeps: {

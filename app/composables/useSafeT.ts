@@ -1,3 +1,5 @@
+import type { Ref } from 'vue'
+
 // ---------------------------------------------------------------------------
 // i18n helper composables
 // ---------------------------------------------------------------------------
@@ -98,7 +100,7 @@ export function useSafeI18n() {
 export function useSafeI18nWithRouter() {
   let t: (key: string, ...args: any[]) => string
   let tm: (key: string) => any
-  let locale: { value: string }
+  let locale: Ref<string>
   try {
     const i18n = useI18n({ useScope: 'global' })
     t = i18n.t
@@ -124,13 +126,13 @@ export function useSafeI18nWithRouter() {
     }
   }
   let localePath: (path: string) => string
-  let switchLocalePath: (locale: string) => string
+  let switchLocalePath: (locale: 'uk' | 'en') => string
   try {
     localePath = useLocalePath()
     switchLocalePath = useSwitchLocalePath()
   } catch (_) {
     localePath = (path: string) => path
-    switchLocalePath = (localeCode: string) => (localeCode === 'uk' ? '/' : `/${localeCode}`)
+    switchLocalePath = (localeCode: 'uk' | 'en') => (localeCode === 'uk' ? '/' : `/${localeCode}`)
   }
   return { t, tm, localePath, switchLocalePath, locale }
 }

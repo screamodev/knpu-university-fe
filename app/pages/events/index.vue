@@ -9,7 +9,7 @@ const { t, localePath, locale } = useSafeI18nWithRouter()
 const { client, assetUrl, publicUrl } = useDirectus()
 const mediaResolvers = {
   assetUrl,
-  strapiImageUrl: (path: string) =>
+  legacyImageUrl: (path: string) =>
     path.startsWith('http://') || path.startsWith('https://')
       ? path
       : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
@@ -162,7 +162,10 @@ function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): st
               v-if="localized(ev, 'location')"
               class="text-sm text-text-muted flex items-center gap-1"
             >
-              <span aria-hidden>📍</span>
+              <svg class="w-3.5 h-3.5 text-gold/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
               {{ localized(ev, 'location') }}
             </p>
             <div class="text-xs text-text-muted mt-2">{{ formatDate(ev.date) }}</div>

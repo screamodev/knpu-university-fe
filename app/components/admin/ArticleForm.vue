@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { StrapiArticle, StrapiCategory, StrapiBlock, StrapiPaginatedResponse } from '~/types/news'
+import { readItems } from '@directus/sdk'
+import type { DirectusArticle, DirectusCategory, RichTextBlock } from '~/types/directus'
 import type { ArticleFormPayload } from '~/types/admin'
-import { normalizeStrapiRichTextForEditor } from '~/utils/articleRichTextNormalize'
+import { normalizeRichTextForEditor } from '~/utils/articleRichTextNormalize'
 
 const { t } = useSafeI18nWithRouter()
 
@@ -46,14 +47,14 @@ function attachmentIdsFromInitial(attachments: unknown): string[] {
   return out
 }
 
-function categoryIdFromInitial(category: StrapiArticle['category']): string | null {
+function categoryIdFromInitial(category: DirectusArticle['category']): string | null {
   if (category == null) return null
   if (typeof category === 'string') return category
   return category.id ?? category.documentId ?? null
 }
 
 const props = defineProps<{
-  initialData?: Partial<StrapiArticle>
+  initialData?: Partial<DirectusArticle>
   saving: boolean
   error: string | null
 }>()
@@ -69,8 +70,8 @@ const titleEn = ref(props.initialData?.titleEn ?? '')
 const slug = ref(props.initialData?.slug ?? '')
 const excerpt = ref(props.initialData?.excerpt ?? '')
 const excerptEn = ref(props.initialData?.excerptEn ?? '')
-const content = ref<StrapiBlock[] | null>(normalizeStrapiRichTextForEditor(props.initialData?.content))
-const contentEn = ref<StrapiBlock[] | null>(normalizeStrapiRichTextForEditor(props.initialData?.contentEn))
+const content = ref<RichTextBlock[] | null>(normalizeRichTextForEditor(props.initialData?.content))
+const contentEn = ref<RichTextBlock[] | null>(normalizeRichTextForEditor(props.initialData?.contentEn))
 const cover = ref<string | null>(coverIdFromInitial(props.initialData?.cover))
 const attachments = ref<string[]>(attachmentIdsFromInitial(props.initialData?.attachments))
 const author = ref(props.initialData?.author ?? '')
@@ -80,19 +81,25 @@ const selectedCategoryId = ref<string | null>(categoryIdFromInitial(props.initia
 const activeTab = ref<'uk' | 'en'>('uk')
 
 // Categories
-const { strapiFetch } = useStrapi()
+const { client } = useDirectus()
 const { data: categoriesData } = await useAsyncData('admin-categories', () =>
-  strapiFetch<StrapiPaginatedResponse<StrapiCategory>>('/categories?pagination[pageSize]=100'),
+  client.request(
+    readItems('categories', {
+      sort: ['name'],
+      limit: 100,
+      fields: ['id', 'name', 'nameEn', 'slug'],
+    }),
+  ),
 )
-const categories = computed(() => categoriesData.value?.data ?? [])
+const categories = computed<DirectusCategory[]>(() => categoriesData.value ?? [])
 
 watch(
   () => props.initialData?.id ?? props.initialData?.documentId,
   () => {
     const data = props.initialData
     if (!data) return
-    content.value = normalizeStrapiRichTextForEditor(data.content)
-    contentEn.value = normalizeStrapiRichTextForEditor(data.contentEn)
+    content.value = normalizeRichTextForEditor(data.content)
+    contentEn.value = normalizeRichTextForEditor(data.contentEn)
   },
 )
 
@@ -228,7 +235,7 @@ function handleSubmit() {
         <label class="block text-sm font-semibold text-navy mb-1.5">{{ t('admin.category') }}</label>
         <select v-model="selectedCategoryId" :class="inputClass">
           <option :value="null">{{ t('admin.noCategory') }}</option>
-          <option v-for="cat in categories" :key="cat.id" :value="cat.id ?? cat.documentId">
+          <option v-for="cat in categories" :key="cat.id" :value="cat.id">
             {{ cat.name }}
           </option>
         </select>

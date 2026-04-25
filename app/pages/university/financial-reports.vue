@@ -1,15 +1,109 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { DirectusFinancialReport } from '~/types/directus'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, locale } = useSafeI18nWithRouter()
+const { client, assetUrl } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.financialReports'),
   meta: [{ name: 'description', content: () => t('university.financialReports.subtitle') }],
 })
 
-const yearKeys = ['2025', '2024', '2023'] as const
-const keyFigureKeys = ['totalBudget', 'stateShare', 'ownShare', 'capital'] as const
+const { data: reportsData, pending } = await useAsyncData('financial-reports', () =>
+  client.request(
+    readItems('financial_reports', {
+      fields: [
+        'id',
+        'reportYear',
+        'title',
+        'titleEn',
+        'summary',
+        'summaryEn',
+        'revenue',
+        'expenses',
+        'stateFunding',
+        'ownRevenue',
+        'order',
+        { reportFile: ['id', 'title', 'filename_download'] },
+      ],
+      sort: ['-reportYear', 'order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const reports = computed<DirectusFinancialReport[]>(() => {
+  return (reportsData.value as DirectusFinancialReport[] | null) ?? []
+})
+
+const sortedReports = computed<DirectusFinancialReport[]>(() => {
+  return [...reports.value].sort((left, right) => right.reportYear - left.reportYear)
+})
+
+const totalRevenue = computed<number>(() => {
+  return reports.value.reduce((sum, item) => sum + (item.revenue ?? 0), 0)
+})
+
+const totalExpenses = computed<number>(() => {
+  return reports.value.reduce((sum, item) => sum + (item.expenses ?? 0), 0)
+})
+
+const totalStateFunding = computed<number>(() => {
+  return reports.value.reduce((sum, item) => sum + (item.stateFunding ?? 0), 0)
+})
+
+const totalOwnRevenue = computed<number>(() => {
+  return reports.value.reduce((sum, item) => sum + (item.ownRevenue ?? 0), 0)
+})
+
+const totalBalance = computed<number>(() => totalRevenue.value - totalExpenses.value)
+
+const keyFigures = computed<{ key: string; value: string }[]>(() => {
+  const budget = totalRevenue.value
+  const stateShare = budget > 0 ? (totalStateFunding.value / budget) * 100 : 0
+  const ownShare = budget > 0 ? (totalOwnRevenue.value / budget) * 100 : 0
+  return [
+    { key: 'totalBudget', value: formatCurrency(totalRevenue.value) },
+    { key: 'stateShare', value: `${stateShare.toFixed(1)}%` },
+    { key: 'ownShare', value: `${ownShare.toFixed(1)}%` },
+    { key: 'capital', value: formatCurrency(totalBalance.value) },
+  ]
+})
+
+const reportMetricLabels = computed(() => {
+  if (locale.value === 'en') {
+    return {
+      revenue: 'Revenue',
+      expenses: 'Expenses',
+      stateFunding: 'State funding',
+      ownRevenue: 'Own revenue',
+    }
+  }
+  return {
+    revenue: 'Надходження',
+    expenses: 'Видатки',
+    stateFunding: 'Державне фінансування',
+    ownRevenue: 'Власні надходження',
+  }
+})
+
+function reportHref(file: DirectusFinancialReport['reportFile']): string {
+  if (!file) return '#'
+  return assetUrl(file) ?? '#'
+}
+
+function formatCurrency(value: number): string {
+  return new Intl.NumberFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    style: 'currency',
+    currency: 'UAH',
+    maximumFractionDigits: 0,
+  }).format(value)
+}
 </script>
 
 <template>
@@ -41,14 +135,27 @@ const keyFigureKeys = ['totalBudget', 'stateShare', 'ownShare', 'capital'] as co
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
         {{ t('university.financialReports.yearCardsTitle') }}
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div v-if="pending" class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <article
-          v-for="year in yearKeys"
-          :key="year"
+          v-for="i in 3"
+          :key="i"
+          class="animate-pulse bg-white border border-border rounded-16 p-6"
+        >
+          <div class="h-8 bg-border rounded w-16 mb-4" />
+          <div class="w-full aspect-square max-h-40 rounded-12 bg-border mb-6" />
+          <div class="h-4 bg-border rounded w-full mb-2" />
+          <div class="h-4 bg-border rounded w-2/3 mb-2" />
+          <div class="h-4 bg-border rounded w-3/4" />
+        </article>
+      </div>
+      <div v-else-if="sortedReports.length" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article
+          v-for="report in sortedReports"
+          :key="report.id"
           class="bg-white border border-border rounded-16 p-6 flex flex-col"
         >
           <h3 class="font-playfair text-xl font-semibold text-navy mb-4">
-            {{ year }}
+            {{ report.reportYear }}
           </h3>
           <div
             class="w-full aspect-square max-h-40 rounded-12 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center mb-6"
@@ -68,24 +175,29 @@ const keyFigureKeys = ['totalBudget', 'stateShare', 'ownShare', 'capital'] as co
           </div>
           <ul class="space-y-2 text-body-sm text-text-muted mb-4">
             <li>
-              {{ t(`university.financialReports.years.${year}.revenue`) }}:
-              <span class="font-medium text-navy">{{ t(`university.financialReports.yearValues.${year}.revenue`) }}</span>
+              {{ reportMetricLabels.revenue }}:
+              <span class="font-medium text-navy">{{ formatCurrency(report.revenue ?? 0) }}</span>
             </li>
             <li>
-              {{ t(`university.financialReports.years.${year}.expenses`) }}:
-              <span class="font-medium text-navy">{{ t(`university.financialReports.yearValues.${year}.expenses`) }}</span>
+              {{ reportMetricLabels.expenses }}:
+              <span class="font-medium text-navy">{{ formatCurrency(report.expenses ?? 0) }}</span>
             </li>
             <li>
-              {{ t(`university.financialReports.years.${year}.stateFunding`) }}:
-              <span class="font-medium text-navy">{{ t(`university.financialReports.yearValues.${year}.stateFunding`) }}</span>
+              {{ reportMetricLabels.stateFunding }}:
+              <span class="font-medium text-navy">{{ formatCurrency(report.stateFunding ?? 0) }}</span>
             </li>
             <li>
-              {{ t(`university.financialReports.years.${year}.ownRevenue`) }}:
-              <span class="font-medium text-navy">{{ t(`university.financialReports.yearValues.${year}.ownRevenue`) }}</span>
+              {{ reportMetricLabels.ownRevenue }}:
+              <span class="font-medium text-navy">{{ formatCurrency(report.ownRevenue ?? 0) }}</span>
             </li>
           </ul>
+          <p class="text-body-sm text-text-muted mb-4">
+            {{ localized(report, 'summary') || localized(report, 'title') }}
+          </p>
           <a
-            href="#"
+            :href="reportHref(report.reportFile)"
+            target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex items-center gap-2 text-body-sm font-medium text-gold no-underline hover:text-gold-light transition-colors mt-auto"
           >
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -97,6 +209,9 @@ const keyFigureKeys = ['totalBudget', 'stateShare', 'ownShare', 'capital'] as co
           </a>
         </article>
       </div>
+      <p v-else class="text-body text-text-muted py-8 text-center bg-off-white border border-border rounded-16">
+        {{ locale === 'en' ? 'Financial reports are not published yet.' : 'Фінансові звіти ще не опубліковані.' }}
+      </p>
     </div>
 
     <!-- Key figures: 4 gold numbers -->
@@ -105,20 +220,23 @@ const keyFigureKeys = ['totalBudget', 'stateShare', 'ownShare', 'capital'] as co
         <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
           {{ t('university.financialReports.keyFiguresTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div v-if="sortedReports.length" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div
-            v-for="key in keyFigureKeys"
-            :key="key"
+            v-for="item in keyFigures"
+            :key="item.key"
             class="text-center"
           >
             <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ t(`university.financialReports.keyFigures.${key}.value`) }}
+              {{ item.value }}
             </p>
             <p class="text-body-sm text-text-muted">
-              {{ t(`university.financialReports.keyFigures.${key}.label`) }}
+              {{ t(`university.financialReports.keyFigures.${item.key}.label`) }}
             </p>
           </div>
         </div>
+        <p v-else class="text-body text-text-muted py-8 text-center bg-white border border-border rounded-16">
+          {{ locale === 'en' ? 'Key figures will appear once reports are available.' : 'Ключові показники з’являться після публікації звітів.' }}
+        </p>
       </div>
     </div>
   </div>

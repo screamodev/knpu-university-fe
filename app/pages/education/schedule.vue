@@ -1,16 +1,79 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { DirectusEducationScheduleKeyDate, DirectusEducationSchedulePeriod } from '~/types/directus'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, locale } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.processSchedule'),
   meta: [{ name: 'description', content: () => t('education.schedule.subtitle') }],
 })
 
-const semesterIds = ['s1', 's2'] as const
-const periodKeys = ['p1', 'p2', 'p3', 'p4'] as const
-const keyDateIds = ['k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8'] as const
+const { data: periodsData, pending: periodsPending } = await useAsyncData('education-schedule-periods', () =>
+  client.request(
+    readItems('education_schedule_periods', {
+      fields: ['id', 'name', 'nameEn', 'semesterType', 'periodType', 'dateStart', 'dateEnd', 'academicYear', 'order'],
+      sort: ['semesterType', 'order', 'dateStart'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const { data: keyDatesData, pending: keyDatesPending } = await useAsyncData('education-schedule-key-dates', () =>
+  client.request(
+    readItems('education_schedule_key_dates', {
+      fields: ['id', 'event', 'eventEn', 'dateLabel', 'dateLabelEn', 'academicYear', 'order'],
+      sort: ['order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const periods = computed<DirectusEducationSchedulePeriod[]>(() => {
+  return (periodsData.value as DirectusEducationSchedulePeriod[] | null) ?? []
+})
+
+const keyDates = computed<DirectusEducationScheduleKeyDate[]>(() => {
+  return (keyDatesData.value as DirectusEducationScheduleKeyDate[] | null) ?? []
+})
+
+const autumnPeriods = computed(() => periods.value.filter((item) => item.semesterType === 'autumn'))
+const springPeriods = computed(() => periods.value.filter((item) => item.semesterType === 'spring'))
+
+function formatDate(value: string): string {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) {
+    return value
+  }
+  return new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date)
+}
+
+function periodRange(item: DirectusEducationSchedulePeriod): string {
+  return `${formatDate(item.dateStart)} - ${formatDate(item.dateEnd)}`
+}
+
+function periodTypeLabel(periodType: DirectusEducationSchedulePeriod['periodType']): string {
+  if (locale.value === 'en') {
+    if (periodType === 'study') return 'Study'
+    if (periodType === 'exam') return 'Exam session'
+    if (periodType === 'vacation') return 'Vacation'
+    return 'Internship'
+  }
+  if (periodType === 'study') return 'Навчання'
+  if (periodType === 'exam') return 'Екзаменаційна сесія'
+  if (periodType === 'vacation') return 'Канікули'
+  return 'Практика'
+}
 </script>
 
 <template>
@@ -36,26 +99,33 @@ const keyDateIds = ['k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8'] as const
         {{ t('education.schedule.intro') }}
       </p>
 
-      <!-- Semester timeline: 2 side-by-side cards -->
+      <!-- Semester timeline -->
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
         {{ t('education.schedule.semestersTitle') }}
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
+
+      <div v-if="periodsPending" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
         <div
-          v-for="semId in semesterIds"
-          :key="semId"
-          class="bg-off-white border border-border rounded-16 p-6 lg:p-8"
+          v-for="i in 2"
+          :key="i"
+          class="animate-pulse bg-off-white border border-border rounded-16 p-6 lg:p-8"
         >
-          <h3 class="font-playfair text-lg font-semibold text-navy mb-1">
-            {{ semId === 's1' ? t('education.schedule.semester1') : t('education.schedule.semester2') }}
-          </h3>
-          <p class="text-body-sm text-gold font-medium mb-6">
-            {{ t(`education.schedule.semesters.${semId}.dateRange`) }}
-          </p>
+          <div class="h-5 bg-border rounded w-1/2 mb-4" />
           <ul class="space-y-4">
+            <li v-for="j in 4" :key="j" class="h-4 bg-border rounded w-3/4" />
+          </ul>
+        </div>
+      </div>
+
+      <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
+        <div class="bg-off-white border border-border rounded-16 p-6 lg:p-8">
+          <h3 class="font-playfair text-lg font-semibold text-navy mb-5">
+            {{ t('education.schedule.semester1') }}
+          </h3>
+          <ul v-if="autumnPeriods.length" class="space-y-4">
             <li
-              v-for="periodKey in periodKeys"
-              :key="periodKey"
+              v-for="period in autumnPeriods"
+              :key="period.id"
               class="flex gap-3 items-start"
             >
               <span
@@ -64,14 +134,46 @@ const keyDateIds = ['k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8'] as const
               />
               <div>
                 <p class="font-medium text-navy text-body-sm">
-                  {{ t(`education.schedule.semesters.${semId}.periods.${periodKey}.name`) }}
+                  {{ localized(period, 'name') }}
                 </p>
                 <p class="text-body-sm text-text-muted">
-                  {{ t(`education.schedule.semesters.${semId}.periods.${periodKey}.range`) }}
+                  {{ periodRange(period) }} · {{ periodTypeLabel(period.periodType) }}
                 </p>
               </div>
             </li>
           </ul>
+          <p v-else class="text-body-sm text-text-muted">
+            {{ locale === 'en' ? 'No periods published for autumn semester.' : 'Для осіннього семестру періоди не опубліковані.' }}
+          </p>
+        </div>
+
+        <div class="bg-off-white border border-border rounded-16 p-6 lg:p-8">
+          <h3 class="font-playfair text-lg font-semibold text-navy mb-5">
+            {{ t('education.schedule.semester2') }}
+          </h3>
+          <ul v-if="springPeriods.length" class="space-y-4">
+            <li
+              v-for="period in springPeriods"
+              :key="period.id"
+              class="flex gap-3 items-start"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-gold shrink-0 mt-1.5"
+                aria-hidden
+              />
+              <div>
+                <p class="font-medium text-navy text-body-sm">
+                  {{ localized(period, 'name') }}
+                </p>
+                <p class="text-body-sm text-text-muted">
+                  {{ periodRange(period) }} · {{ periodTypeLabel(period.periodType) }}
+                </p>
+              </div>
+            </li>
+          </ul>
+          <p v-else class="text-body-sm text-text-muted">
+            {{ locale === 'en' ? 'No periods published for spring semester.' : 'Для весняного семестру періоди не опубліковані.' }}
+          </p>
         </div>
       </div>
 
@@ -91,18 +193,35 @@ const keyDateIds = ['k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8'] as const
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="keyDatesPending">
+            <tr v-for="i in 4" :key="i" class="border-b border-border last:border-b-0">
+              <td class="py-3 px-4">
+                <div class="h-4 bg-border rounded w-3/4 animate-pulse" />
+              </td>
+              <td class="py-3 px-4">
+                <div class="h-4 bg-border rounded w-1/2 animate-pulse" />
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-else-if="keyDates.length">
             <tr
-              v-for="(keyId, index) in keyDateIds"
-              :key="keyId"
+              v-for="(item, index) in keyDates"
+              :key="item.id"
               class="border-b border-border last:border-b-0"
               :class="index % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'"
             >
               <td class="py-3 px-4 text-body-sm text-navy">
-                {{ t(`education.schedule.keyDates.${keyId}.event`) }}
+                {{ localized(item, 'event') }}
               </td>
               <td class="py-3 px-4 text-body-sm text-text-muted">
-                {{ t(`education.schedule.keyDates.${keyId}.date`) }}
+                {{ localized(item, 'dateLabel') }}
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr>
+              <td colspan="2" class="py-5 px-4 text-body-sm text-text-muted text-center">
+                {{ locale === 'en' ? 'Key dates are not published yet.' : 'Ключові дати ще не опубліковані.' }}
               </td>
             </tr>
           </tbody>

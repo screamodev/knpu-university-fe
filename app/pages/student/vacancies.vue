@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, locale } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.vacancies'),
@@ -9,6 +13,19 @@ useHead({
 })
 
 type FilterKey = 'all' | 'fullTime' | 'partTime' | 'internship'
+type VacancyType = Exclude<FilterKey, 'all'>
+
+interface VacancyItem {
+  id: string | number
+  company: string
+  companyEn: string | null
+  position: string
+  positionEn: string | null
+  type: VacancyType
+  location: string
+  locationEn: string | null
+  postedAt: string | null
+}
 
 const activeFilter = ref<FilterKey>('all')
 
@@ -19,21 +36,45 @@ const filterKeys: { value: FilterKey; labelKey: string }[] = [
   { value: 'internship', labelKey: 'student.vacancies.filterInternship' },
 ]
 
-const vacancyIds = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v8'] as const
+const { data: vacanciesData } = await useAsyncData('vacancies-list', () =>
+  client.request(
+    readItems('vacancies', {
+      fields: ['id', 'company', 'companyEn', 'position', 'positionEn', 'type', 'location', 'locationEn', 'postedAt'],
+      sort: ['order', '-postedAt'],
+      filter: { status: { _eq: 'published' } },
+    }),
+  ),
+)
 
-const filteredVacancyIds = computed(() => {
-  if (activeFilter.value === 'all') return vacancyIds
-  return vacancyIds.filter((id) => {
-    const type = t(`student.vacancies.vacancies.${id}.type`) as string
-    return type === activeFilter.value
-  })
+const vacancies = computed<VacancyItem[]>(() => (vacanciesData.value as VacancyItem[] | null) ?? [])
+
+const filteredVacancies = computed(() => {
+  if (activeFilter.value === 'all') return vacancies.value
+  return vacancies.value.filter((vacancy) => vacancy.type === activeFilter.value)
 })
 
-function typeLabelKey(type: string): string {
+function typeLabelKey(type: VacancyType): string {
   if (type === 'internship') return 'student.vacancies.filterInternship'
   if (type === 'fullTime') return 'student.vacancies.filterFullTime'
   if (type === 'partTime') return 'student.vacancies.filterPartTime'
   return type
+}
+
+function formatPostedAt(value: string | null): string {
+  if (!value) {
+    return ''
+  }
+
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) {
+    return ''
+  }
+
+  return new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date)
 }
 </script>
 
@@ -88,31 +129,33 @@ function typeLabelKey(type: string): string {
       </h2>
       <div class="flex flex-col gap-4">
         <article
-          v-for="id in filteredVacancyIds"
-          :key="id"
+          v-for="vacancy in filteredVacancies"
+          :key="vacancy.id"
           class="bg-white border border-border rounded-16 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-all duration-280 hover:border-gold/40"
         >
           <div class="flex-1 min-w-0">
             <p class="text-body-sm text-text-muted mb-1">
-              {{ t(`student.vacancies.vacancies.${id}.company`) }}
+              {{ localized(vacancy, 'company') }}
             </p>
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`student.vacancies.vacancies.${id}.position`) }}
+              {{ localized(vacancy, 'position') }}
             </h3>
             <div class="flex flex-wrap gap-2 items-center text-body-sm text-text-muted">
               <span
                 class="inline-flex items-center rounded-8 bg-gold/15 px-2.5 py-1 text-gold font-medium"
               >
-                {{ t(typeLabelKey(t(`student.vacancies.vacancies.${id}.type`))) }}
+                {{ t(typeLabelKey(vacancy.type)) }}
               </span>
-              <span>{{ t(`student.vacancies.vacancies.${id}.location`) }}</span>
-              <span>·</span>
-              <span>{{ t('student.vacancies.posted') }}: {{ t(`student.vacancies.vacancies.${id}.posted`) }}</span>
+              <span>{{ localized(vacancy, 'location') }}</span>
+              <template v-if="formatPostedAt(vacancy.postedAt)">
+                <span>·</span>
+                <span>{{ t('student.vacancies.posted') }}: {{ formatPostedAt(vacancy.postedAt) }}</span>
+              </template>
             </div>
           </div>
         </article>
         <p
-          v-if="filteredVacancyIds.length === 0"
+          v-if="filteredVacancies.length === 0"
           class="text-body text-text-muted py-8 text-center"
         >
           {{ t('student.vacancies.emptyState') }}

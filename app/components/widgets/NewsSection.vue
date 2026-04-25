@@ -7,7 +7,7 @@ const { t, localePath, locale } = useSafeI18nWithRouter()
 const { client, assetUrl, publicUrl } = useDirectus()
 const mediaResolvers = {
   assetUrl,
-  strapiImageUrl: (path: string) =>
+  legacyImageUrl: (path: string) =>
     path.startsWith('http://') || path.startsWith('https://')
       ? path
       : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,

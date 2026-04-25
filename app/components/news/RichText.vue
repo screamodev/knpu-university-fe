@@ -1,28 +1,30 @@
 <script setup lang="ts">
-import type { StrapiBlock, StrapiBlockChild } from '~/types/news'
+import type { LegacyBlock, LegacyBlockChild } from '~/types/news'
 import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 defineProps<{
-  blocks: StrapiBlock[]
+  blocks: LegacyBlock[]
 }>()
 
-const strapi = useStrapi()
-const { assetUrl } = useDirectus()
+const { assetUrl, publicUrl } = useDirectus()
 
 const mediaResolvers = {
   assetUrl,
-  strapiImageUrl: strapi.imageUrl,
+  legacyImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
 }
 
-function blockImageSrc(image: NonNullable<StrapiBlock['image']>): string {
+function blockImageSrc(image: NonNullable<LegacyBlock['image']>): string {
   return resolveMediaSrc(image, mediaResolvers)
 }
 
-function blockImageAlt(image: NonNullable<StrapiBlock['image']>): string {
+function blockImageAlt(image: NonNullable<LegacyBlock['image']>): string {
   return resolveMediaAlt(image, '')
 }
 
-function renderText(child: StrapiBlockChild): string {
+function renderText(child: LegacyBlockChild): string {
   return child.text ?? ''
 }
 

@@ -1,6 +1,16 @@
 <script setup lang="ts">
 const { t, localePath } = useSafeI18nWithRouter()
 const logoUrl = '/main_logo.png'
+
+type SocialIcon = 'instagram' | 'youtube' | 'telegram' | 'facebook' | 'facebook-group'
+
+const socialLinks = [
+  { title: 'Instagram', href: 'https://www.instagram.com/sk.times/?utm_source=ig_profile_share&igshid=sq991sb25cc5', icon: 'instagram' as SocialIcon },
+  { title: 'YouTube', href: 'https://www.youtube.com/channel/UCDJGXeqlVlbcn26Yy7Y2gQg?view_as=subscriber', icon: 'youtube' as SocialIcon },
+  { title: 'Telegram', href: 'https://web.telegram.org/#/im?p=@Skovoroda_university', icon: 'telegram' as SocialIcon },
+  { title: 'Facebook', href: 'https://www.facebook.com/KhNPU', icon: 'facebook' as SocialIcon },
+  { title: 'Facebook Group', href: 'https://www.facebook.com/groups/1029347057130340/', icon: 'facebook-group' as SocialIcon },
+] as const
 </script>
 
 <template>
@@ -19,15 +29,45 @@ const logoUrl = '/main_logo.png'
             {{ t('footer.desc') }}
           </p>
           <div class="flex flex-col gap-2">
-            <a href="tel:+380577000238" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactPhone') }}</a>
-            <a href="mailto:rector@KhNPU.edu.ua" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactEmail') }}</a>
+            <a href="tel:+380577006909" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactPhone') }}</a>
+            <a :href="`mailto:${(t('utility.email') || '').replace(`{'@'}`, '@')}`" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactEmail') }}</a>
             <NuxtLink :to="localePath('/university/contacts')" class="text-[13px] text-white/65 no-underline hover:text-gold transition-colors duration-280">{{ t('footer.contactAddress') }}</NuxtLink>
             <span class="text-[13px] text-white/65">{{ t('footer.contactHours') }}</span>
           </div>
           <div class="mt-5 flex gap-2">
-            <a href="#" class="w-9 h-9 border border-white/15 rounded-lg flex items-center justify-center text-white/60 text-sm no-underline hover:border-gold hover:text-gold transition-all duration-200">f</a>
-            <a href="#" class="w-9 h-9 border border-white/15 rounded-lg flex items-center justify-center text-white/60 text-sm no-underline hover:border-gold hover:text-gold transition-all duration-200">▶</a>
-            <a href="#" class="w-9 h-9 border border-white/15 rounded-lg flex items-center justify-center text-white/60 text-sm no-underline hover:border-gold hover:text-gold transition-all duration-200">✈</a>
+            <a
+              v-for="social in socialLinks"
+              :key="social.title"
+              :href="social.href"
+              :aria-label="social.title"
+              :title="social.title"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-9 h-9 border border-white/15 rounded-lg bg-white/[0.03] flex items-center justify-center text-white/60 no-underline hover:border-gold hover:text-gold hover:bg-white/[0.08] transition-all duration-200"
+            >
+              <svg v-if="social.icon === 'instagram'" class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+              </svg>
+              <svg v-else-if="social.icon === 'youtube'" class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2.5" y="6.5" width="19" height="11" rx="3.2" />
+                <path d="M10 9.3l5 2.7-5 2.7V9.3z" fill="currentColor" stroke="none" />
+              </svg>
+              <svg v-else-if="social.icon === 'telegram'" class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <path d="M21 4L3.8 10.9c-1.1.4-1 1.9.1 2.2l4.5 1.5 1.7 4.9c.4 1.1 1.9 1.2 2.4.2L21 4z" />
+                <path d="M8.3 14.3l8.6-7.5" />
+              </svg>
+              <svg v-else-if="social.icon === 'facebook'" class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14 8h3V4h-3c-3.3 0-6 2.7-6 6v3H5v4h3v5h4v-5h4l1-4h-5v-3c0-1.1.9-2 2-2z" />
+              </svg>
+              <svg v-else class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="9" cy="9" r="3" />
+                <circle cx="16.5" cy="10.5" r="2.5" />
+                <path d="M3.5 19c.7-2.7 2.9-4.5 5.5-4.5s4.8 1.8 5.5 4.5" />
+                <path d="M13.5 19c.5-1.9 2-3.2 3.8-3.2 1.2 0 2.3.6 3.2 1.8" />
+              </svg>
+            </a>
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

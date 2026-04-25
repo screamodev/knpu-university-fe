@@ -5,7 +5,7 @@ useSeoMeta({
   description: () => t('seo.home.description'),
 })
 useHead({
-  htmlAttrs: { lang: locale },
+  htmlAttrs: { lang: () => locale.value },
 })
 </script>
 

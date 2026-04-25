@@ -57,7 +57,7 @@ const departmentKeys = ['admissions', 'international', 'deans', 'library', 'it']
           <a :href="`tel:${(t('utility.phone') || '').replace(/\s/g, '')}`" class="text-body-sm text-navy no-underline hover:text-gold transition-colors">
             {{ t('utility.phone') }}
           </a>
-          <a href="mailto:rector@KhNPU.edu.ua" class="text-body-sm text-navy no-underline hover:text-gold transition-colors mt-1">
+          <a :href="`mailto:${(t('utility.email') || '').replace(`{'@'}`, '@')}`" class="text-body-sm text-navy no-underline hover:text-gold transition-colors mt-1">
             {{ t('utility.email') }}
           </a>
         </article>

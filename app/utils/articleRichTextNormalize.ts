@@ -1,8 +1,8 @@
-import type { StrapiBlock, StrapiImage } from '~/types/directus'
+import type { LegacyBlock, LegacyImage } from '~/types/directus'
 
 const MARKDOWN_IMAGE_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 
-const STRAPI_BLOCK_TYPES: ReadonlySet<string> = new Set([
+const LEGACY_BLOCK_TYPES: ReadonlySet<string> = new Set([
   'paragraph',
   'heading',
   'list',
@@ -12,18 +12,18 @@ const STRAPI_BLOCK_TYPES: ReadonlySet<string> = new Set([
   'image',
 ])
 
-function isStrapiBlockLike(value: unknown): boolean {
+function isLegacyBlockLike(value: unknown): boolean {
   if (value === null || typeof value !== 'object') return false
   const block = value as Record<string, unknown>
-  if (typeof block.type !== 'string' || !STRAPI_BLOCK_TYPES.has(block.type)) return false
+  if (typeof block.type !== 'string' || !LEGACY_BLOCK_TYPES.has(block.type)) return false
   if (block.type === 'image') {
     return true
   }
   return Array.isArray(block.children)
 }
 
-function normalizeStrapiBlockShape(value: unknown): StrapiBlock {
-  const block = value as StrapiBlock
+function normalizeLegacyBlockShape(value: unknown): LegacyBlock {
+  const block = value as LegacyBlock
   if (block.type === 'image') {
     return {
       ...block,
@@ -33,7 +33,7 @@ function normalizeStrapiBlockShape(value: unknown): StrapiBlock {
   return block
 }
 
-function minimalStrapiImageFromUrl(url: string, alternativeText: string): StrapiImage {
+function minimalLegacyImageFromUrl(url: string, alternativeText: string): LegacyImage {
   return {
     id: 0,
     documentId: '',
@@ -70,12 +70,12 @@ function splitChunkByMarkdownImages(chunk: string): Segment[] {
   return segments
 }
 
-function markdownStringToBlocks(markdown: string): StrapiBlock[] {
+function markdownStringToBlocks(markdown: string): LegacyBlock[] {
   const trimmed = markdown.trim()
   if (!trimmed) return []
 
   const paragraphs = trimmed.split(/\n\s*\n/)
-  const blocks: StrapiBlock[] = []
+  const blocks: LegacyBlock[] = []
 
   for (const paragraph of paragraphs) {
     const chunk = paragraph.trim()
@@ -95,7 +95,7 @@ function markdownStringToBlocks(markdown: string): StrapiBlock[] {
         blocks.push({
           type: 'image',
           children: [],
-          image: minimalStrapiImageFromUrl(segment.url, segment.alt),
+          image: minimalLegacyImageFromUrl(segment.url, segment.alt),
         })
       } else {
         const text = segment.text.trimEnd()
@@ -118,10 +118,26 @@ function hasLocalizedBody(value: unknown): boolean {
   return false
 }
 
-/** Public article body: stored markdown string vs Strapi JSON blocks. */
+/**
+ * Some imported content can contain JSON-escaped newlines as literal text
+ * (e.g. "\\n\\n" instead of real line breaks). Normalize those so markdown
+ * renders correctly in public pages and the admin editor.
+ */
+function normalizeStoredMarkdownString(value: string): string {
+  const trimmed = value.trim()
+  if (!trimmed) return ''
+  const hasRealLineBreak = /[\r\n]/.test(trimmed)
+  const hasEscapedLineBreak = /\\r\\n|\\n|\\r/.test(trimmed)
+  if (!hasRealLineBreak && hasEscapedLineBreak) {
+    return trimmed.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\\r/g, '\n')
+  }
+  return trimmed
+}
+
+/** Public article body: stored markdown string vs legacy JSON blocks. */
 export type LocalizedArticleBody =
   | { kind: 'markdown'; source: string }
-  | { kind: 'blocks'; blocks: StrapiBlock[] }
+  | { kind: 'blocks'; blocks: LegacyBlock[] }
 
 /**
  * Picks `content` vs `contentEn` by locale, then returns either the raw markdown string
@@ -142,29 +158,30 @@ export function normalizedLocalizedBody(
   }
 
   if (typeof raw === 'string') {
-    if (raw.trim() === '') {
+    const normalized = normalizeStoredMarkdownString(raw)
+    if (normalized === '') {
       return { kind: 'blocks', blocks: [] }
     }
-    return { kind: 'markdown', source: raw }
+    return { kind: 'markdown', source: normalized }
   }
 
   if (!Array.isArray(raw)) {
     return { kind: 'blocks', blocks: [] }
   }
 
-  const blocks = raw.filter(isStrapiBlockLike).map(normalizeStrapiBlockShape)
+  const blocks = raw.filter(isLegacyBlockLike).map(normalizeLegacyBlockShape)
   return { kind: 'blocks', blocks }
 }
 
 /**
- * Picks `content` vs `contentEn` by locale, then coerces markdown or blocks to `StrapiBlock[]`
+ * Picks `content` vs `contentEn` by locale, then coerces markdown or blocks to `LegacyBlock[]`
  * for public rendering (`NewsRichText`) or legacy callers.
  */
 export function normalizedLocalizedBodyBlocks(
   content: unknown,
   contentEn: unknown,
   localeCode: string,
-): StrapiBlock[] {
+): LegacyBlock[] {
   const body = normalizedLocalizedBody(content, contentEn, localeCode)
   if (body.kind === 'markdown') {
     return markdownStringToBlocks(body.source)
@@ -173,15 +190,16 @@ export function normalizedLocalizedBodyBlocks(
 }
 
 /**
- * Coerces Strapi article `content` / `contentEn` from the API (blocks JSON or markdown string)
- * into `StrapiBlock[] | null` for the admin rich-text editor.
+ * Coerces article `content` / `contentEn` from the API (blocks JSON or markdown string)
+ * into `LegacyBlock[] | null` for the admin rich-text editor.
  */
-export function normalizeStrapiRichTextForEditor(input: unknown): StrapiBlock[] | null {
+export function normalizeRichTextForEditor(input: unknown): LegacyBlock[] | null {
   if (input === null || input === undefined) return null
 
   if (typeof input === 'string') {
-    if (input.trim() === '') return null
-    const blocks = markdownStringToBlocks(input)
+    const normalized = normalizeStoredMarkdownString(input)
+    if (normalized === '') return null
+    const blocks = markdownStringToBlocks(normalized)
     return blocks.length > 0 ? blocks : null
   }
 
@@ -189,6 +207,6 @@ export function normalizeStrapiRichTextForEditor(input: unknown): StrapiBlock[] 
 
   if (input.length === 0) return null
 
-  const blocks = input.filter(isStrapiBlockLike).map(normalizeStrapiBlockShape)
+  const blocks = input.filter(isLegacyBlockLike).map(normalizeLegacyBlockShape)
   return blocks.length > 0 ? blocks : null
 }

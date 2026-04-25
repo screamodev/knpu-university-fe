@@ -1,5 +1,10 @@
 import MarkdownIt from 'markdown-it'
-import type { DirectusFile, StrapiBlock, StrapiBlockChild, StrapiBlockTextAlign } from '~/types/directus'
+import type {
+  DirectusFile,
+  LegacyBlock as StrapiBlock,
+  LegacyBlockChild as StrapiBlockChild,
+  LegacyBlockTextAlign as StrapiBlockTextAlign,
+} from '~/types/directus'
 
 const ALIGN_EXPORTABLE: readonly StrapiBlockTextAlign[] = ['left', 'center', 'right', 'justify']
 
@@ -68,7 +73,7 @@ export interface TiptapDoc {
 function strapiChildToTiptapTextNodes(child: StrapiBlockChild): TiptapNode[] {
   if (child.type === 'link') {
     const linkChildren = child.children ?? []
-    return linkChildren.flatMap((lc) => {
+    return linkChildren.flatMap((lc: StrapiBlockChild) => {
       const nodes = strapiChildToTiptapTextNodes(lc)
       return nodes.map((n) => ({
         ...n,
@@ -126,8 +131,8 @@ function strapiBlockToTiptapNode(block: StrapiBlock): TiptapNode | null {
     case 'list': {
       const listType = block.format === 'ordered' ? 'orderedList' : 'bulletList'
       const items = block.children
-        .filter((c) => c.type === 'text' || !c.type || c.children)
-        .map((item): TiptapNode => ({
+        .filter((c: StrapiBlockChild) => c.type === 'text' || !c.type || c.children)
+        .map((item: StrapiBlockChild): TiptapNode => ({
           type: 'listItem',
           content: [
             {
@@ -153,7 +158,7 @@ function strapiBlockToTiptapNode(block: StrapiBlock): TiptapNode | null {
       }
 
     case 'code': {
-      const text = block.children.map((c) => c.text ?? '').join('')
+      const text = block.children.map((c: StrapiBlockChild) => c.text ?? '').join('')
       return {
         type: 'codeBlock',
         content: text ? [{ type: 'text', text }] : [],
@@ -429,12 +434,12 @@ function strapiBlockToMarkdownChunk(block: StrapiBlock): string {
       if (!inner) return ''
       return inner
         .split('\n')
-        .map((line) => `> ${line}`)
+        .map((line: string) => `> ${line}`)
         .join('\n')
     }
 
     case 'code': {
-      const text = block.children.map((c) => c.text ?? '').join('')
+      const text = block.children.map((c: StrapiBlockChild) => c.text ?? '').join('')
       return '```\n' + text + '\n```'
     }
 

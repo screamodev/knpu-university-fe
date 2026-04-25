@@ -3,15 +3,6 @@ const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
 const { items } = useNavigation()
 const router = useRouter()
-const {
-  sessionResolving,
-  sessionMeError,
-  showProfile,
-  showSignIn,
-  displayName,
-  initials,
-  retryFetchMe,
-} = useAuthSessionUi()
 
 const memorialLink = computed(() => items.find((i) => i.labelKey === 'nav.memorialPage'))
 onMounted(() => {
@@ -113,66 +104,6 @@ const mobileSections = computed(() => [
         </div>
       </li>
     </ul>
-    <div class="mt-8 pt-6 border-t border-white/10 flex flex-col gap-3">
-      <ClientOnly>
-        <div
-          v-if="sessionResolving"
-          class="flex items-center gap-3 py-2"
-          :aria-busy="true"
-          :aria-label="t('auth.sessionResolving')"
-        >
-          <span class="inline-block size-11 rounded-full bg-white/10 animate-pulse" />
-          <span class="flex-1 h-4 rounded bg-white/10 animate-pulse" />
-        </div>
-        <NuxtLink
-          v-else-if="showProfile"
-          :to="localePath('/profile')"
-          class="flex items-center gap-3 py-3 px-4 rounded-xl border border-white/15 bg-white/5 no-underline text-white hover:border-gold hover:text-gold transition-colors duration-280"
-          @click="close"
-        >
-          <span
-            class="shrink-0 size-11 rounded-full bg-gold/25 border border-gold/50 flex items-center justify-center text-sm font-semibold text-white font-geologica"
-            aria-hidden="true"
-          >
-            {{ initials }}
-          </span>
-          <span class="text-[15px] font-medium font-geologica truncate">{{ displayName }}</span>
-        </NuxtLink>
-        <div
-          v-else-if="sessionMeError"
-          class="flex flex-col gap-3 py-2"
-          role="status"
-        >
-          <p class="text-sm text-warning/95 font-geologica leading-snug m-0">
-            {{ t('auth.sessionMeError') }}
-          </p>
-          <button
-            type="button"
-            class="w-full text-center py-3.5 rounded-xl border border-gold/70 bg-gold/15 text-gold-light text-[15px] font-bold font-geologica hover:bg-gold/25 transition-colors duration-280"
-            @click="retryFetchMe"
-          >
-            {{ t('auth.retry') }}
-          </button>
-        </div>
-        <NuxtLink
-          v-else-if="showSignIn"
-          :to="localePath('/login')"
-          class="block text-center py-3.5 rounded-xl bg-gold text-navy-deep text-[15px] font-bold no-underline font-geologica shadow-sm border border-gold-light/80 hover:bg-gold-light transition-all duration-280"
-          @click="close"
-        >
-          {{ t('auth.loginCta') }}
-        </NuxtLink>
-        <template #fallback>
-          <div
-            class="flex items-center gap-3 py-3 px-1 min-h-[60px]"
-            aria-hidden="true"
-          >
-            <span class="inline-block size-11 shrink-0 rounded-full bg-white/10 animate-pulse" />
-            <span class="flex-1 h-4 rounded bg-white/10 animate-pulse" />
-          </div>
-        </template>
-      </ClientOnly>
-    </div>
     <div class="mt-6 flex flex-col gap-3">
       <a
         v-if="memorialLink?.path"

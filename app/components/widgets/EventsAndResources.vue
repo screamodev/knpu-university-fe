@@ -106,7 +106,13 @@ const resourceList = computed(() => [
                   {{ localized(ev, 'tag') || '—' }}
                 </div>
                 <div class="text-[15px] font-medium text-navy leading-snug">{{ localized(ev, 'title') }}</div>
-                <div class="text-xs text-text-muted mt-1">📍 {{ localized(ev, 'location') || '—' }}</div>
+                <div class="text-xs text-text-muted mt-1 flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-gold/80 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{{ localized(ev, 'location') || '—' }}</span>
+                </div>
               </div>
               <div class="text-border text-xl transition-colors duration-280 group-hover:text-gold">›</div>
             </NuxtLink>

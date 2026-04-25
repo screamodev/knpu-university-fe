@@ -1,14 +1,60 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { DirectusAdmissionOpenDay } from '~/types/directus'
+
 definePageMeta({ layout: 'default' })
 
-const { t, localePath } = useSafeI18nWithRouter()
+const { t, locale, localePath } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.openDays'),
   meta: [{ name: 'description', content: () => t('admissions.openDays.subtitle') }],
 })
 
-const eventKeys = ['event1', 'event2', 'event3'] as const
+const { data: openDaysData, pending } = await useAsyncData('admission-open-days', () =>
+  client.request(
+    readItems('admission_open_days', {
+      fields: ['id', 'title', 'titleEn', 'description', 'descriptionEn', 'eventDate', 'location', 'locationEn', 'registrationUrl', 'order'],
+      sort: ['eventDate', 'order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const openDays = computed<DirectusAdmissionOpenDay[]>(() => {
+  return (openDaysData.value as DirectusAdmissionOpenDay[] | null) ?? []
+})
+
+const sortedOpenDays = computed<DirectusAdmissionOpenDay[]>(() => {
+  return [...openDays.value].sort((left, right) => {
+    const leftTime = Date.parse(left.eventDate)
+    const rightTime = Date.parse(right.eventDate)
+    if (Number.isNaN(leftTime) || Number.isNaN(rightTime)) return 0
+    return leftTime - rightTime
+  })
+})
+
+function formatEventDate(value: string): string {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value
+  return new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(date)
+}
+
+function eventDateBadge(value: string): string {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return '--'
+  return new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'uk-UA', {
+    day: '2-digit',
+    month: '2-digit',
+  }).format(date)
+}
 
 const expectationKeys = ['campusTour', 'meetFaculty', 'qa', 'demoLessons'] as const
 </script>
@@ -43,20 +89,35 @@ const expectationKeys = ['campusTour', 'meetFaculty', 'qa', 'demoLessons'] as co
         <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
           {{ t('admissions.openDays.upcomingTitle') }}
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div v-if="pending" class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            v-for="key in eventKeys"
-            :key="key"
+            v-for="i in 3"
+            :key="i"
+            class="animate-pulse bg-white border border-border rounded-16 p-6"
+          >
+            <div class="w-14 h-14 rounded-12 bg-border mb-4" />
+            <div class="h-5 bg-border rounded w-2/3 mb-3" />
+            <div class="h-4 bg-border rounded w-3/4 mb-2" />
+            <div class="h-4 bg-border rounded w-full" />
+          </div>
+        </div>
+        <div v-else-if="sortedOpenDays.length" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            v-for="event in sortedOpenDays"
+            :key="event.id"
             class="bg-white border border-border rounded-16 p-6 flex flex-col"
           >
             <div
               class="inline-flex items-center justify-center w-14 h-14 rounded-12 bg-gold/15 text-gold font-playfair text-lg font-bold shrink-0 mb-4"
             >
-              {{ t(`admissions.openDays.events.${key}.dateBadge`) }}
+              {{ eventDateBadge(event.eventDate) }}
             </div>
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`admissions.openDays.events.${key}.title`) }}
+              {{ localized(event, 'title') }}
             </h3>
+            <p class="text-body-sm text-text-muted mb-2">
+              {{ formatEventDate(event.eventDate) }}
+            </p>
             <p class="text-body-sm text-text-muted flex items-center gap-2 mb-2">
               <span class="w-5 h-5 rounded bg-slate-100 flex items-center justify-center shrink-0">
                 <svg
@@ -70,13 +131,26 @@ const expectationKeys = ['campusTour', 'meetFaculty', 'qa', 'demoLessons'] as co
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </span>
-              {{ t(`admissions.openDays.events.${key}.location`) }}
+              {{ localized(event, 'location') || (locale === 'en' ? 'Location not specified' : 'Локацію не вказано') }}
             </p>
-            <p class="text-body-sm text-text-muted mt-auto">
-              {{ t(`admissions.openDays.events.${key}.description`) }}
+            <p class="text-body-sm text-text-muted">
+              {{ localized(event, 'description') }}
             </p>
+            <a
+              v-if="event.registrationUrl"
+              :href="event.registrationUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex mt-4 items-center gap-1.5 text-body-sm font-medium text-navy hover:text-gold transition-colors"
+            >
+              {{ locale === 'en' ? 'Register' : 'Зареєструватися' }}
+              <span aria-hidden>-></span>
+            </a>
           </div>
         </div>
+        <p v-else class="text-body text-text-muted text-center py-8 bg-white border border-border rounded-16">
+          {{ locale === 'en' ? 'Open-day events are not published yet.' : 'Події дня відкритих дверей ще не опубліковані.' }}
+        </p>
       </div>
     </div>
 

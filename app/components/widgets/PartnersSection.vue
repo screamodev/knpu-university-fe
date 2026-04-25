@@ -3,11 +3,11 @@ import { readItems } from '@directus/sdk'
 import type { DirectusPartner } from '~/types/directus'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
-const { t, localePath } = useSafeI18nWithRouter()
+const { t } = useSafeI18nWithRouter()
 const { client, assetUrl, publicUrl } = useDirectus()
 const mediaResolvers = {
   assetUrl,
-  strapiImageUrl: (path: string) =>
+  legacyImageUrl: (path: string) =>
     path.startsWith('http://') || path.startsWith('https://')
       ? path
       : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
@@ -24,6 +24,19 @@ const { data, pending, error } = useAsyncData('home-partners', () =>
 )
 
 const partners = computed(() => data.value ?? [])
+
+function isExternalUrl(url: string): boolean {
+  return url.startsWith('http://') || url.startsWith('https://')
+}
+
+function normalizeWebsiteUrl(url: string | null): string | null {
+  if (!url?.trim()) return null
+
+  const trimmed = url.trim()
+  if (isExternalUrl(trimmed)) return trimmed
+
+  return `https://${trimmed}`
+}
 
 function partnerLogoSrc(logo: DirectusPartner['logo']): string {
   return resolveMediaSrc(logo, mediaResolvers)
@@ -75,11 +88,15 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
 
       <!-- Partners grid -->
       <div v-else class="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center min-h-[120px]">
-        <NuxtLink
+        <a
           v-for="partner in partners"
           :key="partner.id"
-          :to="localePath(`/university/partners#${partner.slug}`)"
+          :href="normalizeWebsiteUrl(partner.website) ?? undefined"
+          :target="normalizeWebsiteUrl(partner.website) ? '_blank' : undefined"
+          :rel="normalizeWebsiteUrl(partner.website) ? 'noopener noreferrer' : undefined"
+          :aria-disabled="!normalizeWebsiteUrl(partner.website)"
           class="bg-white border-[1.5px] border-border rounded-12 p-6 h-28 flex items-center justify-center no-underline transition-all duration-280 hover:border-gold hover:shadow-[0_4px_16px_rgba(27,46,75,0.08)]"
+          :class="{ 'cursor-default pointer-events-none': !normalizeWebsiteUrl(partner.website) }"
         >
           <img
             v-if="partner.logo && partnerLogoSrc(partner.logo)"
@@ -88,7 +105,7 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
             class="max-h-14 max-w-full object-contain"
           />
           <span v-else class="text-sm font-medium text-navy truncate">{{ localized(partner, 'name') }}</span>
-        </NuxtLink>
+        </a>
       </div>
     </div>
   </section>

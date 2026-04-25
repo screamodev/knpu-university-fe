@@ -9,11 +9,26 @@ import type { DirectusRole, DirectusUser } from '~/types/auth'
 
 /** Maps Directus collection names to row types for `@directus/sdk`. */
 export interface DirectusSchema {
+  admission_exam_programs: DirectusAdmissionExamProgram[]
+  admission_open_days: DirectusAdmissionOpenDay[]
   articles: DirectusArticle[]
   categories: DirectusCategory[]
+  education_schedule_key_dates: DirectusEducationScheduleKeyDate[]
+  education_schedule_periods: DirectusEducationSchedulePeriod[]
   events: DirectusEvent[]
+  faculties: DirectusFaculty[]
+  financial_reports: DirectusFinancialReport[]
+  faculty_departments: DirectusFacultyDepartment[]
+  gallery_categories: DirectusGalleryCategory[]
+  gallery_items: DirectusGalleryItem[]
+  memorial_entries: DirectusMemorialEntry[]
   partners: DirectusPartner[]
   programmes: DirectusProgramme[]
+  prozorro_procurements: DirectusProzorroProcurement[]
+  science_conferences: DirectusScienceConference[]
+  science_defenses: DirectusScienceDefense[]
+  student_schedule_documents: DirectusStudentScheduleDocument[]
+  university_orders: DirectusUniversityOrder[]
   directus_files: DirectusFile[]
   directus_users: DirectusUser[]
   directus_roles: DirectusRole[]
@@ -24,9 +39,9 @@ export interface DirectusSchema {
 /** Subset of Directus `directus_files` fields used by the Nuxt app. */
 export interface DirectusFile {
   id: string
-  /** Optional resolved public URL (legacy Strapi-style or computed `/assets/:id`). */
+  /** Optional resolved public URL (legacy-style or computed `/assets/:id`). */
   url?: string | null
-  /** Legacy Strapi field name; Directus uses `title` for captions when needed. */
+  /** Legacy field name; Directus uses `title` for captions when needed. */
   alternativeText?: string | null
   storage?: string
   filename_disk?: string | null
@@ -60,9 +75,12 @@ export type ProgrammeLevel = 'bachelor' | 'master' | 'graduate'
 
 export type DirectusContentStatus = 'published' | 'draft' | 'archived'
 
+/** ISO date or datetime returned by Directus for date-like fields. */
+export type DirectusDateLike = string
+
 // ——— Rich-text blocks (editor JSON; stored as markdown string or JSON in API) —
 
-/** A single node inside a rich-text block (TipTap / legacy Strapi-shaped JSON). */
+/** A single node inside a rich-text block (TipTap / legacy-shaped JSON). */
 export interface RichTextBlockChild {
   type: 'text' | 'link'
   text?: string
@@ -96,29 +114,25 @@ export interface RichTextBlock {
   level?: 1 | 2 | 3 | 4 | 5 | 6
   textAlign?: RichTextBlockTextAlign
   format?: 'ordered' | 'unordered'
-  /** Inline image: Directus file, markdown stub, or legacy Strapi-shaped JSON from the editor. */
-  image?: DirectusFile | RichTextImageStub | StrapiImage | null
+  /** Inline image: Directus file, markdown stub, or legacy-shaped JSON from the editor. */
+  image?: DirectusFile | RichTextImageStub | LegacyImage | null
 }
 
-/** @deprecated Use `RichTextBlock` — migration alias. */
-export type StrapiBlock = RichTextBlock
-/** @deprecated Use `RichTextBlockChild` — migration alias. */
-export type StrapiBlockChild = RichTextBlockChild
-/** @deprecated Use `RichTextBlockTextAlign` — migration alias. */
-export type StrapiBlockTextAlign = RichTextBlockTextAlign
+export type LegacyBlock = RichTextBlock
+export type LegacyBlockChild = RichTextBlockChild
+export type LegacyBlockTextAlign = RichTextBlockTextAlign
 
-/** @deprecated Strapi `formats.*`; Directus uses transform query params on `/assets/:id`. */
-export interface StrapiImageFormat {
+/** Legacy `formats.*`; Directus uses transform query params on `/assets/:id`. */
+export interface LegacyImageFormat {
   url: string
   width: number
   height: number
 }
 
 /**
- * @deprecated Legacy Strapi media shape; new code should use `DirectusFile` and `assetUrl()`.
- * Kept so existing converters can narrow during the migration.
+ * Legacy media shape; new code should use `DirectusFile` and `assetUrl()`.
  */
-export interface StrapiImage {
+export interface LegacyImage {
   id: number
   documentId: string
   url: string
@@ -126,31 +140,31 @@ export interface StrapiImage {
   width: number
   height: number
   formats: {
-    thumbnail?: StrapiImageFormat
-    small?: StrapiImageFormat
-    medium?: StrapiImageFormat
-    large?: StrapiImageFormat
+    thumbnail?: LegacyImageFormat
+    small?: LegacyImageFormat
+    medium?: LegacyImageFormat
+    large?: LegacyImageFormat
   } | null
 }
 
-// ——— Legacy Strapi REST wrappers (remove when all list calls use the SDK) ————
+// ——— Legacy REST wrappers (remove when all list calls use the SDK) ————
 
-export interface StrapiResponse<T> {
+export interface LegacyResponse<T> {
   data: T
   meta: Record<string, unknown>
 }
 
-export interface StrapiPagination {
+export interface LegacyPagination {
   page: number
   pageSize: number
   pageCount: number
   total: number
 }
 
-export interface StrapiPaginatedResponse<T> {
+export interface LegacyPaginatedResponse<T> {
   data: T[]
   meta: {
-    pagination: StrapiPagination
+    pagination: LegacyPagination
   }
 }
 
@@ -158,7 +172,7 @@ export interface StrapiPaginatedResponse<T> {
 
 export interface DirectusCategory {
   id: string
-  /** @deprecated Same as `id` (Strapi `documentId`); use `id` for Directus. */
+  /** Same as `id`; prefer `id` for Directus. */
   documentId?: string
   name: string
   nameEn: string | null
@@ -169,7 +183,7 @@ export interface DirectusCategory {
 
 export interface DirectusArticle {
   id: string
-  /** @deprecated Strapi `documentId`; use `id`. */
+  /** Legacy document id alias; use `id`. */
   documentId?: string
   title: string
   titleEn: string | null
@@ -184,13 +198,13 @@ export interface DirectusArticle {
   attachments: DirectusFile[] | DirectusArticleAttachmentLink[] | string[] | null
   author: string | null
   date_published: string | null
-  /** @deprecated Strapi field name; use `date_published`. */
+  /** Legacy field name; use `date_published`. */
   publishedAt?: string
   date_created: string
-  /** @deprecated Strapi field name; use `date_created`. */
+  /** Legacy field name; use `date_created`. */
   createdAt?: string
   date_updated: string
-  /** @deprecated Strapi field name; use `date_updated`. */
+  /** Legacy field name; use `date_updated`. */
   updatedAt?: string
   category: DirectusCategory | string | null
   status?: DirectusContentStatus
@@ -219,7 +233,7 @@ export interface DirectusProgramme {
   duration: string | null
   formOfStudy: string | null
   date_published: string | null
-  /** @deprecated Strapi field name; use `date_published`. */
+  /** Legacy field name; use `date_published`. */
   publishedAt?: string
   date_created?: string
   date_updated?: string
@@ -243,10 +257,64 @@ export interface DirectusEvent {
   tagEn: string | null
   cover: DirectusFile | string | null
   date_published: string | null
-  /** @deprecated Strapi field name; use `date_published`. */
+  /** Legacy field name; use `date_published`. */
   publishedAt?: string
   date_created?: string
   date_updated?: string
+  status?: DirectusContentStatus
+}
+
+export interface DirectusMemorialEntry {
+  id: string
+  name: string
+  nameEn: string | null
+  role: string
+  roleEn: string | null
+  photo: DirectusFile | string | null
+  order: number
+  status?: DirectusContentStatus
+}
+
+export interface DirectusGalleryCategory {
+  id: string
+  name: string
+  nameEn: string | null
+  slug: string
+  order: number
+  status?: DirectusContentStatus
+}
+
+export interface DirectusGalleryItem {
+  id: string
+  title: string
+  titleEn: string | null
+  image: DirectusFile | string | null
+  category: DirectusGalleryCategory | string | null
+  order: number
+  colSpan: number
+  rowSpan: number
+  status?: DirectusContentStatus
+}
+
+export interface DirectusFacultyDepartment {
+  id: string
+  faculty: DirectusFaculty | string | null
+  name: string
+  nameEn: string | null
+  order: number
+}
+
+export interface DirectusFaculty {
+  id: string
+  name: string
+  nameEn: string | null
+  slug: string
+  dean: string | null
+  deanEn: string | null
+  departmentsCount: number
+  studentsCount: number
+  order: number
+  departments?: DirectusFacultyDepartment[]
   status?: DirectusContentStatus
 }
 
@@ -267,11 +335,157 @@ export interface DirectusPartner {
   status?: DirectusContentStatus
 }
 
-/** @deprecated Use `DirectusProgramme`. */
-export type StrapiProgramme = DirectusProgramme
-/** @deprecated Use `DirectusEvent`. */
-export type StrapiEvent = DirectusEvent
-/** @deprecated Use `DirectusPartner`. */
-export type StrapiPartner = DirectusPartner
+export type ScheduleSemesterType = 'autumn' | 'spring'
+export type EducationSchedulePeriodType = 'study' | 'exam' | 'vacation' | 'internship'
+export type ProcurementState = 'completed' | 'active' | 'planned'
+
+export interface DirectusStudentScheduleDocument {
+  id: string
+  status?: DirectusContentStatus
+  title: string
+  titleEn: string | null
+  faculty: string | null
+  facultyEn: string | null
+  groupCode: string | null
+  semester: ScheduleSemesterType | null
+  academicYear: string | null
+  validFrom: DirectusDateLike | null
+  validTo: DirectusDateLike | null
+  file: DirectusFile | string | null
+  order: number
+}
+
+export interface DirectusEducationSchedulePeriod {
+  id: string
+  status?: DirectusContentStatus
+  name: string
+  nameEn: string | null
+  semesterType: ScheduleSemesterType
+  periodType: EducationSchedulePeriodType
+  dateStart: DirectusDateLike
+  dateEnd: DirectusDateLike
+  academicYear: string | null
+  order: number
+}
+
+export interface DirectusEducationScheduleKeyDate {
+  id: string
+  status?: DirectusContentStatus
+  event: string
+  eventEn: string | null
+  dateLabel: string | null
+  dateLabelEn: string | null
+  academicYear: string | null
+  order: number
+}
+
+export interface DirectusAdmissionOpenDay {
+  id: string
+  status?: DirectusContentStatus
+  title: string
+  titleEn: string | null
+  description: string | null
+  descriptionEn: string | null
+  eventDate: DirectusDateLike
+  location: string | null
+  locationEn: string | null
+  registrationUrl: string | null
+  order: number
+}
+
+export interface DirectusAdmissionExamProgram {
+  id: string
+  status?: DirectusContentStatus
+  subject: string
+  subjectEn: string | null
+  level: ProgrammeLevel
+  description: string | null
+  descriptionEn: string | null
+  programmeFile: DirectusFile | string | null
+  order: number
+}
+
+export interface DirectusUniversityOrder {
+  id: string
+  status?: DirectusContentStatus
+  orderNumber: string
+  orderDate: DirectusDateLike
+  title: string
+  titleEn: string | null
+  category: string | null
+  categoryEn: string | null
+  year: number | null
+  documentFile: DirectusFile | string | null
+  order: number
+}
+
+export interface DirectusProzorroProcurement {
+  id: string
+  status?: DirectusContentStatus
+  tenderNumber: string
+  title: string
+  titleEn: string | null
+  amount: number | null
+  currency: string | null
+  procurementDate: DirectusDateLike | null
+  state: ProcurementState
+  prozorroUrl: string | null
+  order: number
+}
+
+export interface DirectusScienceDefense {
+  id: string
+  status?: DirectusContentStatus
+  candidateName: string
+  candidateNameEn: string | null
+  dissertationTitle: string
+  dissertationTitleEn: string | null
+  specialty: string | null
+  specialtyEn: string | null
+  defenseDate: DirectusDateLike
+  board: string | null
+  boardEn: string | null
+  result: string | null
+  resultEn: string | null
+  isUpcoming: boolean
+  order: number
+}
+
+export interface DirectusScienceConference {
+  id: string
+  status?: DirectusContentStatus
+  title: string
+  titleEn: string | null
+  description: string | null
+  descriptionEn: string | null
+  conferenceType: string | null
+  location: string | null
+  locationEn: string | null
+  eventDate: DirectusDateLike
+  isUpcoming: boolean
+  participantsSummary: string | null
+  participantsSummaryEn: string | null
+  order: number
+}
+
+export interface DirectusFinancialReport {
+  id: string
+  status?: DirectusContentStatus
+  reportYear: number
+  title: string
+  titleEn: string | null
+  summary: string | null
+  summaryEn: string | null
+  revenue: number | null
+  expenses: number | null
+  stateFunding: number | null
+  ownRevenue: number | null
+  reportFile: DirectusFile | string | null
+  order: number
+}
+
+export type LegacyProgramme = DirectusProgramme
+export type LegacyEvent = DirectusEvent
+export type LegacyPartner = DirectusPartner
 
 export type { DirectusRole, DirectusUser }

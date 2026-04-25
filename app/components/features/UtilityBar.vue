@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
+
+type SocialIcon = 'instagram' | 'youtube' | 'telegram' | 'facebook'
+
+const socialLinks = [
+  { title: 'Instagram', href: 'https://www.instagram.com/sk.times/?utm_source=ig_profile_share&igshid=sq991sb25cc5', icon: 'instagram' as SocialIcon },
+  { title: 'YouTube', href: 'https://www.youtube.com/channel/UCDJGXeqlVlbcn26Yy7Y2gQg?view_as=subscriber', icon: 'youtube' as SocialIcon },
+  { title: 'Telegram', href: 'https://web.telegram.org/#/im?p=@Skovoroda_university', icon: 'telegram' as SocialIcon },
+  { title: 'Facebook', href: 'https://www.facebook.com/KhNPU', icon: 'facebook' as SocialIcon },
+] as const
 </script>
 
 <template>
@@ -16,7 +25,7 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
           {{ t('utility.phone') }}
         </a>
         <a
-          href="mailto:rector@KhNPU.edu.ua"
+          :href="`mailto:${(t('utility.email') || '').replace(`{'@'}`, '@')}`"
           class="flex items-center gap-1.5 text-white/70 hover:text-gold-light transition-colors duration-280"
         >
           <svg class="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -35,26 +44,37 @@ const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
       </div>
       <div class="flex items-center gap-3">
         <div class="flex gap-2">
-          <a href="#" class="w-[26px] h-[26px] rounded-full border border-white/20 flex items-center justify-center text-[11px] text-white/65 hover:border-gold hover:text-gold transition-all duration-280" title="Facebook">f</a>
-          <a href="#" class="w-[26px] h-[26px] rounded-full border border-white/20 flex items-center justify-center text-[11px] text-white/65 hover:border-gold hover:text-gold transition-all duration-280" title="YouTube">▶</a>
-          <a href="#" class="w-[26px] h-[26px] rounded-full border border-white/20 flex items-center justify-center text-[11px] text-white/65 hover:border-gold hover:text-gold transition-all duration-280" title="Instagram">◈</a>
-          <a href="#" class="w-[26px] h-[26px] rounded-full border border-white/20 flex items-center justify-center text-[11px] text-white/65 hover:border-gold hover:text-gold transition-all duration-280" title="Telegram">✈</a>
+          <a
+            v-for="social in socialLinks"
+            :key="social.title"
+            :href="social.href"
+            :title="social.title"
+            :aria-label="social.title"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-[28px] h-[28px] rounded-[10px] border border-white/20 bg-white/[0.03] flex items-center justify-center text-white/65 hover:border-gold hover:text-gold hover:bg-white/[0.08] transition-all duration-280"
+          >
+            <svg v-if="social.icon === 'instagram'" class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+            </svg>
+            <svg v-else-if="social.icon === 'youtube'" class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2.5" y="6.5" width="19" height="11" rx="3.2" />
+              <path d="M10 9.3l5 2.7-5 2.7V9.3z" fill="currentColor" stroke="none" />
+            </svg>
+            <svg v-else-if="social.icon === 'telegram'" class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M21 4L3.8 10.9c-1.1.4-1 1.9.1 2.2l4.5 1.5 1.7 4.9c.4 1.1 1.9 1.2 2.4.2L21 4z" />
+              <path d="M8.3 14.3l8.6-7.5" />
+            </svg>
+            <svg v-else class="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14 8h3V4h-3c-3.3 0-6 2.7-6 6v3H5v4h3v5h4v-5h4l1-4h-5v-3c0-1.1.9-2 2-2z" />
+            </svg>
+          </a>
         </div>
         <NuxtLink :to="localePath('/feedback')" class="text-[12px] text-white/65 hover:text-gold-light transition-colors duration-280">
           {{ t('utility.feedback') }}
         </NuxtLink>
-        <ClientOnly>
-          <AuthUtilityBarSession />
-          <template #fallback>
-            <div
-              class="flex items-center gap-2 py-0.5 shrink-0"
-              aria-hidden="true"
-            >
-              <span class="inline-block size-[26px] rounded-full bg-white/15 animate-pulse" />
-              <span class="hidden sm:inline-block h-3.5 w-20 rounded bg-white/15 animate-pulse" />
-            </div>
-          </template>
-        </ClientOnly>
         <div class="flex border border-white/20 rounded overflow-hidden">
           <NuxtLink
             :to="switchLocalePath('uk')"

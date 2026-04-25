@@ -1,14 +1,36 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import { resolveMediaSrc } from '~/utils/directusMedia'
+
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
+const { client, assetUrl, publicUrl } = useDirectus()
+const { localized } = useLocalizedField()
+const mediaResolvers = {
+  assetUrl,
+  legacyImageUrl: (path: string) =>
+    path.startsWith('http://') || path.startsWith('https://')
+      ? path
+      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
+}
 
 useHead({
   title: () => t('nav.links.memorial'),
   meta: [{ name: 'description', content: () => t('university.memorial.subtitle') }],
 })
 
-const portraitIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const
+const { data: memorialEntriesData } = await useAsyncData('memorial-entries', () =>
+  client.request(
+    readItems('memorial_entries', {
+      fields: ['id', 'name', 'nameEn', 'role', 'roleEn', { photo: ['id', 'title', 'filename_download', 'description'] }],
+      sort: ['order'],
+      filter: { status: { _eq: 'published' } },
+    }),
+  ),
+)
+
+const memorialEntries = computed(() => memorialEntriesData.value ?? [])
 </script>
 
 <template>
@@ -35,18 +57,25 @@ const portraitIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const
       </p>
     </div>
 
-    <!-- Portrait grid 3x4 -->
+    <!-- Portrait grid -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div v-if="memorialEntries.length" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         <div
-          v-for="id in portraitIds"
-          :key="id"
+          v-for="entry in memorialEntries"
+          :key="entry.id"
           class="flex flex-col items-center text-center"
         >
           <div
             class="w-full aspect-square max-w-[200px] mx-auto rounded-12 overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
           >
+            <img
+              v-if="resolveMediaSrc(entry.photo, mediaResolvers)"
+              :src="resolveMediaSrc(entry.photo, mediaResolvers)"
+              :alt="localized(entry, 'name')"
+              class="w-full h-full object-cover"
+            />
             <svg
+              v-else
               class="w-10 h-10 text-gold/20"
               viewBox="0 0 24 24"
               fill="none"
@@ -58,10 +87,10 @@ const portraitIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const
             </svg>
           </div>
           <p class="mt-3 font-medium text-navy text-body-sm">
-            {{ t(`university.memorial.portrait${id}.name`) }}
+            {{ localized(entry, 'name') }}
           </p>
           <p class="text-body-sm text-text-muted">
-            {{ t(`university.memorial.portrait${id}.role`) }}
+            {{ localized(entry, 'role') }}
           </p>
         </div>
       </div>

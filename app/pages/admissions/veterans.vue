@@ -117,7 +117,7 @@ const benefitCards = [
         </p>
         <div class="flex flex-col sm:flex-row gap-6">
           <a
-            href="tel:+380577000238"
+            href="tel:+380506578073"
             class="inline-flex items-center gap-3 text-body font-medium text-navy hover:text-gold transition-colors"
           >
             <span class="w-10 h-10 rounded-10 bg-gold/15 flex items-center justify-center text-gold">
@@ -131,10 +131,10 @@ const benefitCards = [
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
             </span>
-            <span>{{ t('admissions.veterans.contactPhone') }}: +38 (057) 700-02-38</span>
+            <span>{{ t('admissions.veterans.contactPhone') }}: +38 (050) 657-80-73</span>
           </a>
           <a
-            href="mailto:rector@KhNPU.edu.ua"
+            href="mailto:priimalna@hnpu.edu.ua"
             class="inline-flex items-center gap-3 text-body font-medium text-navy hover:text-gold transition-colors"
           >
             <span class="w-10 h-10 rounded-10 bg-gold/15 flex items-center justify-center text-gold">
@@ -149,7 +149,7 @@ const benefitCards = [
                 <path d="M22 6l-10 7L2 6" />
               </svg>
             </span>
-            <span>{{ t('admissions.veterans.contactEmail') }}: rector@KhNPU.edu.ua</span>
+            <span>{{ t('admissions.veterans.contactEmail') }}: priimalna@hnpu.edu.ua</span>
           </a>
         </div>
       </div>

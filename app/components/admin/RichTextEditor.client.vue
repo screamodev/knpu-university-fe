@@ -10,21 +10,21 @@ import TextAlign from '@tiptap/extension-text-align'
 import Placeholder from '@tiptap/extension-placeholder'
 import type { Editor } from '@tiptap/core'
 import type { EditorState } from '@tiptap/pm/state'
-import type { StrapiBlock } from '~/types/directus'
+import type { LegacyBlock } from '~/types/directus'
 import { strapiBlocksToTiptap, tiptapToStrapiBlocks } from '~/utils/strapiBlocksConverter'
 import type { TiptapDoc } from '~/utils/strapiBlocksConverter'
 
 const props = defineProps<{
-  modelValue: StrapiBlock[] | null
+  modelValue: LegacyBlock[] | null
   placeholder?: string
 }>()
 
 const emit = defineEmits<{
-  'update:modelValue': [blocks: StrapiBlock[]]
+  'update:modelValue': [blocks: LegacyBlock[]]
 }>()
 
 const { uploadFile } = useUpload()
-const { imageUrl } = useStrapi()
+const { assetUrl } = useDirectus()
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
 
@@ -143,7 +143,7 @@ async function handleImageUpload(event: Event): Promise<void> {
   uploading.value = true
   try {
     const image = await uploadFile(file)
-    const src = imageUrl(image.url) ?? image.url
+    const src = assetUrl(image) ?? image.url ?? ''
     editor.value.chain().focus().setImage({ src, alt: image.alternativeText ?? '' }).run()
   } catch {
     // Toast handled by caller if needed

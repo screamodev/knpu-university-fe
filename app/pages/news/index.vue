@@ -9,13 +9,12 @@ const { t, localePath, locale } = useSafeI18nWithRouter()
 const { client, assetUrl, publicUrl } = useDirectus()
 const mediaResolvers = {
   assetUrl,
-  strapiImageUrl: (path: string) =>
+  legacyImageUrl: (path: string) =>
     path.startsWith('http://') || path.startsWith('https://')
       ? path
       : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
 }
 const { localized } = useLocalizedField()
-const { isAdmin } = useAuth()
 
 useHead({
   title: () => t('sections.news.title'),
@@ -88,26 +87,6 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
               {{ t('sections.news.title') }}
             </h1>
           </div>
-          <ClientOnly>
-            <div
-              v-if="isAdmin"
-              class="flex flex-wrap gap-2 shrink-0"
-            >
-              <NuxtLink
-                :to="localePath('/admin/articles/create')"
-                class="inline-flex items-center justify-center rounded-10 bg-gold px-4 py-2.5 text-xs font-bold font-geologica text-navy-deep no-underline border border-gold-light/80 shadow-sm hover:bg-gold-light transition-all duration-280"
-              >
-                {{ t('admin.createArticle') }}
-              </NuxtLink>
-              <NuxtLink
-                :to="localePath('/admin/articles')"
-                class="inline-flex items-center justify-center rounded-10 border border-white/35 px-4 py-2.5 text-xs font-bold font-geologica text-white no-underline hover:bg-white/10 transition-colors duration-280"
-              >
-                {{ t('admin.articlesTitle') }}
-              </NuxtLink>
-            </div>
-            <template #fallback />
-          </ClientOnly>
         </div>
       </div>
     </div>

@@ -1,8 +1,12 @@
 <script setup lang="ts">
-defineProps<{
+interface Props {
   tag: string
   title: string
-}>()
+  /** Optional muted line under the title (e.g. section subtitle). */
+  description?: string
+}
+
+defineProps<Props>()
 </script>
 
 <template>
@@ -14,5 +18,8 @@ defineProps<{
     <h2 class="font-playfair text-[clamp(26px,3.5vw,40px)] font-bold text-navy leading-tight">
       {{ title }}
     </h2>
+    <p v-if="description" class="mt-3 max-w-2xl text-body text-text-muted leading-snug">
+      {{ description }}
+    </p>
   </div>
 </template>

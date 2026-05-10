@@ -133,10 +133,7 @@ const benefitCards = [
             </span>
             <span>{{ t('admissions.veterans.contactPhone') }}: +38 (050) 657-80-73</span>
           </a>
-          <a
-            href="mailto:priimalna@hnpu.edu.ua"
-            class="inline-flex items-center gap-3 text-body font-medium text-navy hover:text-gold transition-colors"
-          >
+          <div class="inline-flex items-center gap-3 text-body font-medium text-navy">
             <span class="w-10 h-10 rounded-10 bg-gold/15 flex items-center justify-center text-gold">
               <svg
                 class="w-5 h-5"
@@ -149,8 +146,8 @@ const benefitCards = [
                 <path d="M22 6l-10 7L2 6" />
               </svg>
             </span>
-            <span>{{ t('admissions.veterans.contactEmail') }}: priimalna@hnpu.edu.ua</span>
-          </a>
+            <span>{{ t('admissions.veterans.contactEmail') }}</span>
+          </div>
         </div>
       </div>
     </div>

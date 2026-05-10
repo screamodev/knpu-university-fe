@@ -31,6 +31,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/mission', key: 'nav.links.mission' },
             { path: '/university/symbolism', key: 'nav.links.symbolism' },
             { path: '/university/memorial', key: 'nav.links.memorial' },
+            { path: '/university/wartime', key: 'nav.links.wartime' },
             { path: '/university/volunteering', key: 'nav.links.volunteering' },
             { path: '/university/gallery', key: 'nav.links.gallery' },
             { path: '/university/newspaper', key: 'nav.links.newspaper' },
@@ -88,6 +89,7 @@ export function useNavigation(): { items: NavItem[] } {
         {
           titleKey: 'nav.admissions.howTo',
           links: [
+            { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
             { path: '/admissions/rules', key: 'nav.links.rules' },
             { path: '/admissions/specialties', key: 'nav.links.specialties' },
             { path: '/admissions/creative', key: 'nav.links.creative' },

@@ -1,3 +1,11 @@
+<script setup lang="ts">
+definePageMeta({ layout: 'default' })
+
+const localePath = useLocalePath()
+
+await navigateTo(localePath('/university/memorial'), { replace: true })
+</script>
+
 <template>
-  <SharedPlaceholderPage title-key="nav.memorialPage" />
+  <div class="min-h-[30vh]" aria-hidden="true" />
 </template>

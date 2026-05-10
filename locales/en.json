@@ -212,6 +212,22 @@
       "title": "Join our\ncommunity",
       "subtitle": "Submit documents online or visit the admissions office",
       "cta": "Learn more"
+    },
+    "remembrance": {
+      "tag": "Remembrance today",
+      "title": "Honouring heroes and staying informed",
+      "memorial": {
+        "tag": "Memorial",
+        "title": "Memorial to the fallen heroes of Skovoroda University",
+        "body": "Honouring students, faculty, staff, and alumni who gave their lives defending Ukraine's sovereignty.",
+        "cta": "Visit the memorial"
+      },
+      "wartime": {
+        "tag": "Updates",
+        "title": "University at wartime\nCurrent information under martial law",
+        "body": "Safety reminders, leadership messages, and authoritative links for the university community.",
+        "cta": "Learn more"
+      }
     }
   },
   "news": {

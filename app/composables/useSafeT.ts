@@ -43,10 +43,10 @@ import type { Ref } from 'vue'
 //   2. The i18n-messages plugin merges the same app/locales/*.json files
 //      via `mergeLocaleMessage` at startup — this is a safety net so that
 //      any keys added only to app/locales/ are guaranteed to be present.
-// Both sources must stay in sync. The root-level `locales/` dir is also
-// loaded by the module (Nuxt 4 srcDir = app/, but @nuxtjs/i18n may resolve
-// langDir from project root depending on version). Keep both dirs identical
-// or consolidate into one to avoid drift.
+// Both sources must stay in sync. Runtime messages come from `app/locales/`
+// (`nuxt.config` → `i18n.langDir`). A duplicate pair `locales/{uk,en}.json` at
+// the project root is not loaded by that `langDir`; ignore it during routine
+// translation edits unless you are explicitly mirroring or removing it.
 // ---------------------------------------------------------------------------
 
 export function resolveMessageValue(v: unknown): string {

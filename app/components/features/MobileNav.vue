@@ -14,6 +14,8 @@ const mobileSections = computed(() => [
     labelKey: 'nav.labels.university',
     links: [
       { path: '/university/history', key: 'nav.links.history' },
+      { path: '/university/memorial', key: 'nav.links.memorial' },
+      { path: '/university/wartime', key: 'nav.links.wartime' },
       { path: '/university/rectorate', key: 'nav.links.rectorate' },
       { path: '/university/structure', key: 'nav.links.structure' },
       { path: '/university/public-info', key: 'nav.links.publicInfo' },
@@ -23,6 +25,7 @@ const mobileSections = computed(() => [
   {
     labelKey: 'nav.labels.admissions',
     links: [
+      { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
       { path: '/admissions/rules', key: 'nav.links.rules' },
       { path: '/admissions/specialties', key: 'nav.links.specialties' },
       { path: '/admissions/tuition', key: 'nav.links.tuition' },

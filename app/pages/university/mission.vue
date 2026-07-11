@@ -8,7 +8,7 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.mission.subtitle') }],
 })
 
-const valueKeys = ['integrity', 'openness', 'respect', 'innovation', 'partnership', 'heritage'] as const
+const valueKeys = ['humanity', 'nationalIdentity', 'service', 'inclusion', 'leadership'] as const
 </script>
 
 <template>

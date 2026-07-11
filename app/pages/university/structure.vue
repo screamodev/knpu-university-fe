@@ -14,9 +14,21 @@ function getList(key: string): string[] {
   return value.map((_, index) => t(`${key}.${index}`))
 }
 
+interface Faculty {
+  name: string
+  departments: string[]
+}
+
+function getTree(key: string): Faculty[] {
+  const value = tm(key)
+  if (!Array.isArray(value)) return []
+  return value.map((_, i) => ({
+    name: t(`${key}.${i}.name`),
+    departments: getList(`${key}.${i}.departments`),
+  }))
+}
+
 const structureSections = computed(() => [
-  { titleKey: 'university.structure.faculties', listKey: 'university.structure.facultiesList' },
-  { titleKey: 'university.structure.institutes', listKey: 'university.structure.institutesList' },
   { titleKey: 'university.structure.administrative', listKey: 'university.structure.administrativeList' },
   { titleKey: 'university.structure.research', listKey: 'university.structure.researchList' },
   { titleKey: 'university.structure.services', listKey: 'university.structure.servicesList' },
@@ -45,6 +57,55 @@ const structureSections = computed(() => [
       <p class="text-body text-text-muted max-w-3xl">
         {{ t('university.structure.intro') }}
       </p>
+    </div>
+
+    <!-- Administration -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <h2 class="font-playfair text-xl font-bold text-navy">
+        {{ t('university.structure.administrationTitle') }}
+      </h2>
+      <p class="mt-1 text-body-sm text-text-muted">
+        {{ t('university.structure.administrationAddress') }}
+      </p>
+      <SharedLeadershipBoard class="mt-6" />
+    </div>
+
+    <!-- Faculties & institutes: collapsible faculty → department tree -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <h2 class="font-playfair text-xl font-bold text-navy mb-6">
+        {{ t('university.structure.treeTitle') }}
+      </h2>
+      <div class="flex flex-col gap-3">
+        <details
+          v-for="(faculty, index) in getTree('university.structure.facultiesTree')"
+          :key="index"
+          class="group border border-border rounded-12 bg-white overflow-hidden"
+        >
+          <summary class="flex items-center gap-3 py-3 px-4 cursor-pointer list-none select-none">
+            <span class="w-2 h-2 rounded-full bg-gold shrink-0" aria-hidden />
+            <span class="text-body font-medium text-navy flex-1">{{ faculty.name }}</span>
+            <svg
+              class="w-4 h-4 text-text-muted shrink-0 transition-transform group-open:rotate-180"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <ul class="flex flex-col gap-2 px-4 pb-4 pl-9">
+            <li
+              v-for="(department, di) in faculty.departments"
+              :key="di"
+              class="py-2 px-4 bg-off-white border border-border rounded-12 text-body-sm text-navy"
+            >
+              {{ department }}
+            </li>
+          </ul>
+        </details>
+      </div>
     </div>
 
     <!-- Org-chart sections: grouped blocks with gold dot markers -->

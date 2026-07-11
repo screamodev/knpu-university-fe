@@ -8,14 +8,13 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.history.subtitle') }],
 })
 
-const timelineEntries = [
+const timelineEntries = computed(() => [
   { year: '1804', titleKey: 'university.history.timeline.1804.title', textKey: 'university.history.timeline.1804.text' },
-  { year: '1851', titleKey: 'university.history.timeline.1851.title', textKey: 'university.history.timeline.1851.text' },
-  { year: '1921', titleKey: 'university.history.timeline.1921.title', textKey: 'university.history.timeline.1921.text' },
-  { year: '1991', titleKey: 'university.history.timeline.1991.title', textKey: 'university.history.timeline.1991.text' },
+  { year: '1945', titleKey: 'university.history.timeline.1945.title', textKey: 'university.history.timeline.1945.text' },
+  { year: '1994', titleKey: 'university.history.timeline.1994.title', textKey: 'university.history.timeline.1994.text' },
   { year: '2004', titleKey: 'university.history.timeline.2004.title', textKey: 'university.history.timeline.2004.text' },
-  { year: '2022', titleKey: 'university.history.timeline.2022.title', textKey: 'university.history.timeline.2022.text' },
-]
+  { year: t('university.history.timeline.now.year'), titleKey: 'university.history.timeline.now.title', textKey: 'university.history.timeline.now.text' },
+])
 </script>
 
 <template>

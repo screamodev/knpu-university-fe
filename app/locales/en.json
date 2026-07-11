@@ -276,73 +276,66 @@
     "history": {
       "tag": "About the university",
       "title": "History and traditions",
-      "subtitle": "From Skovoroda's educational imperatives to a contemporary quality policy in education, research, and international cooperation.",
-      "intro1": "The development of H. S. Skovoroda Kharkiv National Pedagogical University rests on the continuous improvement of teaching, research, innovation, and civic education, responding to society's needs and preparing in-demand educators and scholars. The university positions itself as an educational, research, and cultural centre that shapes competent, spiritually rich teachers who are patriots and engaged citizens of Ukraine.",
-      "intro2": "Historical experience aligns with the Magna Charta Universitatum, respect for human rights, and Ukraine's national interests. The university's policy multiplies civilisational advances in education, spreads pedagogical culture, and pursues a humanistic educational ideal under the motto “Education will save Ukraine!”",
+      "subtitle": "Over 220 years of teacher education: from its founding in 1804 to today's national university.",
+      "intro1": "H. S. Skovoroda Kharkiv National Pedagogical University is one of the oldest institutions of higher pedagogical education in Ukraine, with a history of more than 220 years. Its founding in 1804 is linked to the emergence of teacher education in the region, while its educational and scholarly tradition was shaped by prominent figures of education and culture — H. Kvitka-Osnovianenko, V. Karazin, P. Hulak-Artemovskyi, as well as students and followers of Hryhorii Savych Skovoroda.",
+      "intro2": "In 1945 the university was named after H. S. Skovoroda, in recognition of his contribution to Ukrainian culture, philosophy, and pedagogical thought. In 1994 it became H. S. Skovoroda Kharkiv State Pedagogical University, and in 2004 the institution was granted national status. Today the university positions itself as a leading institution of higher pedagogical education in Ukraine, combining long-standing traditions with innovative approaches to education, research, international cooperation, and public service.",
       "timeline": {
         "1804": {
-          "title": "Identity and tradition",
-          "text": "Our roots lie in Skovoroda's tradition of education and enlightenment, the Ukrainian national idea, and building an educational space for civil society."
+          "title": "Founding of the university",
+          "text": "The institution's history begins in 1804 and is tied to the emergence of teacher education in the region. Its traditions were shaped by H. Kvitka-Osnovianenko, V. Karazin, P. Hulak-Artemovskyi, and the followers of Hryhorii Skovoroda."
         },
-        "1851": {
-          "title": "Autonomy and governance",
-          "text": "The university favours autonomy and self-government, distinguishes rights from responsibilities clearly, and combines collegiality with the ability to provide unified leadership."
+        "1945": {
+          "title": "Named after H. S. Skovoroda",
+          "text": "The university was named after Hryhorii Savych Skovoroda in recognition of his contribution to Ukrainian culture, philosophy, and pedagogical thought. Skovoroda's legacy of values shapes the institution's educational philosophy today."
         },
-        "1921": {
-          "title": "Quality and continuity",
-          "text": "We prioritise depth of learning, continuity of education and scholarship, integrating teaching, development, and upbringing, while steadily improving programmes and methods."
-        },
-        "1991": {
-          "title": "International openness",
-          "text": "Active integration into global educational and research communities, with broader ties and exchange programmes with leading universities in Ukraine, Europe, and worldwide."
+        "1994": {
+          "title": "Kharkiv State Pedagogical University",
+          "text": "H. S. Skovoroda Kharkiv State Pedagogical University was established — a state institution of higher education under the Ministry of Education and Science of Ukraine."
         },
         "2004": {
-          "title": "Innovation and inclusion",
-          "text": "Contemporary methods and technologies, environmental awareness, an open inclusive environment, and support for the talents of everyone involved in learning."
+          "title": "National university status",
+          "text": "The university was granted national status — recognition of its role as one of the leading institutions of higher pedagogical education in Ukraine."
         },
-        "2022": {
-          "title": "Today's strategic priorities",
-          "text": "Focus on high-quality learner preparation, research schools, internationalisation, academic integrity, a quality culture, and a united Skovoroda community."
+        "now": {
+          "year": "Now",
+          "title": "A leading pedagogical university",
+          "text": "Today the university combines over 220 years of tradition with innovative approaches to education, research, international cooperation, and public service, developing its research schools and student community."
         }
       }
     },
     "mission": {
       "tag": "About the university",
       "title": "Mission, vision, and values",
-      "subtitle": "The university motto is “Education will save Ukraine!” Its core meanings are set out in the quality policy and reflect the path of the Skovoroda community.",
+      "subtitle": "The policy, mission, vision, and values of the university, approved by the Development Strategy of H. S. Skovoroda KhNPU for 2026–2030.",
       "missionTitle": "Mission",
-      "missionText1": "We prepare teachers and professionals who embody the Ukrainian national idea, think in innovative ways, conduct research, and carry out educational outreach grounded in national philosophy of education, pedagogy, psychology, culture, and the social sciences, humanities, and natural sciences.",
-      "missionText2": "The mission is to build an educational space and strengthen civil society in Ukraine through high-quality fundamental and professional preparation at every level of higher education and by nurturing responsible agents of change.",
+      "missionText1": "To provide high-quality teacher education and prepare competent professionals for building the educational landscape of Slobozhanshchyna on the basis of the Skovoroda tradition.",
+      "missionText2": "The university's policy is oriented towards shaping a modern European-type pedagogical university that combines academic traditions, innovation, and social responsibility.",
       "visionTitle": "Vision",
-      "visionText1": "As one of the leaders in education, research, and innovation in Slobozhanshchyna, H. S. Skovoroda Kharkiv National Pedagogical University delivers teacher education and outreach in new formats on the basis of broad European and global integration.",
-      "visionText2": "The university actively contributes to the intellectual, spiritual, and socio-economic development of the country and society, pairing the preservation of Ukrainian educational traditions with contemporary innovative approaches.",
+      "visionText1": "The university is a recognised leader in Ukraine in preparing highly qualified specialists, shaping the national system of teacher education.",
+      "visionText2": "Today the university positions itself as a leading pedagogical institution of higher education in Ukraine, combining long-standing traditions with innovative approaches to education, research, international cooperation, and public service.",
       "valuesTitle": "Values",
-      "valuesText1": "Traditions built over the university's history sustain a distinct identity and a strong academic community. Together they form the value system that guides us in teaching, research, and the development of every member of the Skovoroda family.",
-      "valuesText2": "Below are the key principles that shape our culture of cooperation, responsibility, and commitment to high standards across all areas of university life.",
+      "valuesText1": "The values define the culture of the university community and underpin the Development Strategy for 2026–2030.",
+      "valuesText2": "They guide the educational, research, upbringing, and management activities and the conduct of every member of the Skovoroda community.",
       "valuesGrid": {
-        "integrity": {
-          "title": "Academic integrity",
-          "text": "Honesty, integrity, and responsibility in learning, teaching, and research: adherence to ethical standards and the law as the foundation of academic culture."
+        "humanity": {
+          "title": "Humanity",
+          "text": "Respect for the dignity of every person and a culture of care for the mental health, safety, and wellbeing of the university community."
         },
-        "openness": {
-          "title": "Openness",
-          "text": "Democracy and collegiality in decision-making, transparency in governance, and free exchange of knowledge and ideas within the university community."
+        "nationalIdentity": {
+          "title": "Ukrainian national identity",
+          "text": "Affirming and developing Ukrainian cultural, spiritual, and pedagogical traditions in a contemporary context."
         },
-        "respect": {
-          "title": "Respect and equality",
-          "text": "A human-centred approach: respect for dignity and rights, support for diversity, an inclusive environment, and dialogue among cultures."
+        "service": {
+          "title": "Service to society",
+          "text": "The university's responsibility for the development of local communities, the education sector, and the strengthening of the state."
         },
-        "innovation": {
-          "title": "Innovation",
-          "text": "High-quality educational practice, adoption of contemporary methods and technologies, critical thinking, and continuous improvement of programmes."
+        "inclusion": {
+          "title": "Social inclusion",
+          "text": "Equal opportunities for everyone and a barrier-free, safe, and psychologically comfortable learning environment."
         },
-        "partnership": {
-          "title": "Partnership",
-          "text": "The Skovoroda community of students, faculty, and researchers united by shared goals; growing international cooperation and mutual support."
-        },
-        "heritage": {
-          "title": "Heritage preservation",
-          "text": "Patriotism and multiculturalism: esteem for Ukrainian cultural heritage and openness to cooperation and mutual learning among peoples."
+        "leadership": {
+          "title": "Pedagogical leadership",
+          "text": "Developing a professional, innovative, and responsible pedagogical community capable of being an agent of change."
         }
       }
     },
@@ -512,32 +505,7 @@
       "subtitle": "University leadership: rector and vice-rectors.",
       "intro": "The Rectorate exercises day‑to‑day management of the university and implements Academic Council decisions. It comprises the Rector and four vice‑rectors responsible for academic and methodological affairs, research and innovation, international cooperation, and administration and campus development.",
       "rectorTitle": "Rector",
-      "rector": {
-        "name": "Yurii Dmytrovych Boichuk",
-        "title": "Rector of H. S. Skovoroda Kharkiv National Pedagogical University",
-        "degree": "Doctor of Pedagogical Sciences, Professor, Corresponding Member of NAES of Ukraine",
-        "reception": "61002, Kharkiv, 29 Alchevskykh St., room 204. Tel/fax: +38 (057) 700‑69‑09. Email: rector{'@'}hnpu.edu.ua",
-        "phone": "+38 (057) 700‑69‑09",
-        "email": "rector{'@'}hnpu.edu.ua"
-      },
-      "viceRectorsTitle": "Vice-rectors",
-      "viceRectors": {
-        "v1": {
-          "name": "Olena Kovalenko",
-          "title": "First Vice-Rector",
-          "area": "Academic and methodological affairs"
-        },
-        "v2": {
-          "name": "Andriy Melnyk",
-          "title": "Vice-Rector for Research",
-          "area": "Research and international relations"
-        },
-        "v3": {
-          "name": "Maria Sydorenko",
-          "title": "Vice-Rector for Administrative and Campus Affairs",
-          "area": "Campus services and institutional development"
-        }
-      }
+      "viceRectorsTitle": "Vice-rectors"
     },
     "council": {
       "tag": "Management",
@@ -648,23 +616,161 @@
       "tag": "Management",
       "title": "Structural units",
       "subtitle": "Organisational structure of the university: faculties, institutes and services.",
-      "intro": "The university comprises nine faculties and two institutes, administrative offices, science centres and laboratories, and campus services supporting teaching, research, and governance at KhNPU.",
-      "faculties": "Faculties",
-      "facultiesList": [
-        "Faculty of History and Law",
-        "Faculty of Natural Sciences, Special and Health‑Preserving Education",
-        "Faculty of Preschool Education",
-        "Faculty of Foreign Philology",
-        "Faculty of Arts",
-        "Faculty of Primary Education",
-        "Faculty of Social Sciences and Humanities and Social Technologies",
-        "Faculty of Physical Culture and Sport",
-        "Faculty of Physics and Mathematics"
+      "intro": "The university brings together eight faculties and three research institutes, along with administrative offices, research centres and laboratories, and campus services that support teaching, research, and governance at KhNPU.",
+      "treeTitle": "Faculties and institutes",
+      "facultiesTree": [
+        {
+          "name": "Research and Educational Institute of Ukrainian Philology named after H. F. Kvitka-Osnovianenko",
+          "departments": [
+            "Department of Ukrainian Literature and Journalism named after Professor Leonid Ushkalov",
+            "Department of the Ukrainian Language named after Professor L. A. Lysychenko",
+            "Department of Ukrainian Studies and Language Didactics named after Professor O. H. Muromtseva",
+            "Department of Theory and Practice of the English Language and Foreign Literature named after Professor Mykhailo Hetmanets"
+          ]
+        },
+        {
+          "name": "Faculty of History and Law",
+          "departments": [
+            "Department of World History",
+            "Department of History of Ukraine",
+            "Department of Theory and Methods of Teaching Social and Legal Disciplines",
+            "Department of Social and Economic Disciplines and Geography",
+            "Department of Civil Law and Labour Law named after Professor O. I. Protsevskyi",
+            "Department of State and Legal Disciplines, Criminal Law and Procedure",
+            "Research Archaeological Laboratory"
+          ]
+        },
+        {
+          "name": "Faculty of Mathematics, Informatics and Natural Science Education",
+          "departments": [
+            "Department of Physics and Chemistry",
+            "Teaching Laboratory of the Department of Physics and Chemistry",
+            "Department of Mathematics",
+            "Department of Informatics",
+            "Department of Educology and Innovative Pedagogy",
+            "Botanical Garden"
+          ]
+        },
+        {
+          "name": "Faculty of Primary Education",
+          "departments": [
+            "Department of Theory and Methods of Teaching Philological Disciplines in Preschool, Primary and Special Education",
+            "Department of Theory and Methods of Teaching Natural Science and Mathematics Disciplines in Preschool, Primary and Special Education",
+            "Department of Primary and Vocational Education"
+          ]
+        },
+        {
+          "name": "Research and Educational Institute of Special Education and Inclusion",
+          "departments": [
+            "Department of Human Anatomy and Physiology and Medical Training named after Professor Ya. R. Synelnykov",
+            "Department of Biology",
+            "Research Laboratory of Bat Biology",
+            "Department of Special Pedagogy",
+            "Research Laboratory of Special and Inclusive Education",
+            "Department of Correctional Psychopedagogy and Human Health"
+          ]
+        },
+        {
+          "name": "Faculty of Preschool Education",
+          "departments": [
+            "Department of Theory, Technologies and Methods of Preschool Education",
+            "Department of Psychological and Pedagogical Anthropology",
+            "Department of Distance Learning Technologies and Digital Didactics in Preschool Education",
+            "Teaching Laboratory of the Department of Distance Learning Technologies and Digital Didactics in Preschool Education"
+          ]
+        },
+        {
+          "name": "Faculty of Arts",
+          "departments": [
+            "Department of Choreography",
+            "Department of Musical Art",
+            "Department of Design and Technologies",
+            "Department of Fine Arts"
+          ]
+        },
+        {
+          "name": "Faculty of Physical Culture and Sport",
+          "departments": [
+            "Department of Theory, Methods and Practice of Physical Education",
+            "Department of Olympic and Professional Sport, Sports Games and Tourism",
+            "Department of Sports and Pedagogical Disciplines and Fitness",
+            "Research Laboratory of Biophysics, Biomechanics and Kinesiology",
+            "Ski Base"
+          ]
+        },
+        {
+          "name": "Faculty of Foreign Philology",
+          "departments": [
+            "Department of English Philology",
+            "Department of General Linguistics and Romance-Germanic Philology",
+            "Department of English Oral and Written Speech Practice",
+            "Department of Oriental Languages"
+          ]
+        },
+        {
+          "name": "Faculty of Social Sciences and Humanities and Social Technologies",
+          "departments": [
+            "Department of Rehabilitation Psychology",
+            "Department of Developmental Psychology",
+            "Department of Political Science, Sociology and Cultural Studies",
+            "Department of Social Work and Social Pedagogy",
+            "Department of Management and Economics",
+            "Department of Philosophy named after Professor M. D. Kultaieva"
+          ]
+        },
+        {
+          "name": "Institute for Postgraduate Education",
+          "departments": [
+            "Career Growth Centre",
+            "Adult Education Centre",
+            "Centre for Training Primary School Teachers for Pedagogical Staff Certification"
+          ]
+        }
       ],
-      "institutes": "Institutes",
-      "institutesList": [
-        "Institute for Postgraduate Education",
-        "Research and Educational Institute of Ukrainian Philology named after H. F. Kvitka-Osnovianenko"
+      "administrationTitle": "University administration",
+      "administrationAddress": "Kharkiv, 29 Alchevskykh St.",
+      "administration": [
+        {
+          "position": "Rector",
+          "name": "Boychuk Yurii Dmytrovych",
+          "room": "Room 204",
+          "phone": "+38 (057) 700-69-09",
+          "email": "rector{'@'}hnpu.edu.ua",
+          "degree": "Doctor of Pedagogical Sciences, Professor, Corresponding Member of the NAES of Ukraine",
+          "photo": "/images/static/boichuk.jpg"
+        },
+        {
+          "position": "First Vice-Rector",
+          "name": "Borysov Volodymyr Andriiovych",
+          "room": "Room 205",
+          "phone": "+38 (057) 700-34-97",
+          "email": "prorector_borysov{'@'}hnpu.edu.ua",
+          "photo": "/images/static/borisov.jpg"
+        },
+        {
+          "position": "Vice-Rector for Research, Innovation and International Affairs",
+          "name": "Berezhna Svitlana Viktorivna",
+          "room": "Room 208",
+          "phone": "+38 (057) 717-10-36",
+          "email": "prorector_berezhna{'@'}hnpu.edu.ua",
+          "photo": "/images/static/beregna.jpg"
+        },
+        {
+          "position": "Vice-Rector for Educational and Pedagogical Work",
+          "name": "Borysenko Nataliia Oleksiivna",
+          "room": "Room 207",
+          "phone": "+38 (057) 700-35-09",
+          "email": "prorector_borysenko{'@'}hnpu.edu.ua",
+          "photo": "/images/static/Borisenko.png"
+        },
+        {
+          "position": "Vice-Rector for Infrastructure Development",
+          "name": "Chernik Tetiana Valentynivna",
+          "room": "Room 203",
+          "phone": "+38 (057) 700-35-22",
+          "email": "prorector_chernik{'@'}hnpu.edu.ua",
+          "photo": "/images/static/Chernik.png"
+        }
       ],
       "administrative": "Administrative divisions",
       "administrativeList": [

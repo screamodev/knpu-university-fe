@@ -14,12 +14,12 @@ useHead({
     <WidgetsHero />
     <WidgetsQuickAccess />
     <WidgetsNewsSection />
-    <WidgetsNewspaperSection />
     <WidgetsFactsBand />
     <WidgetsProgramsSection />
     <WidgetsAnnouncementBanner />
     <WidgetsHomeRemembrance />
     <WidgetsEventsAndResources />
     <WidgetsPartnersSection />
+    <WidgetsNewspaperSection />
   </div>
 </template>

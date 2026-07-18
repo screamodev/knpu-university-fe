@@ -185,12 +185,12 @@
   },
   "quickAccess": {
     "label": "Quick access",
-    "schedule": "Class schedule",
-    "moodle": "Moodle / e-campus",
-    "email": "Corporate email",
-    "cabinet": "Personal account",
+    "publicInfo": "Public information",
+    "moodle": "Moodle",
     "library": "Research library",
-    "map": "Campus map"
+    "quality": "Quality of education",
+    "monitoring": "Monitoring",
+    "anticorruption": "Anti-corruption"
   },
   "sections": {
     "news": {
@@ -617,7 +617,7 @@
       "title": "Structural units",
       "subtitle": "Organisational structure of the university: faculties, institutes and services.",
       "intro": "The university brings together eight faculties and three research institutes, along with administrative offices, research centres and laboratories, and campus services that support teaching, research, and governance at KhNPU.",
-      "treeTitle": "Faculties and institutes",
+      "treeTitle": "Institutes and faculties",
       "facultiesTree": [
         {
           "name": "Research and Educational Institute of Ukrainian Philology named after H. F. Kvitka-Osnovianenko",
@@ -626,6 +626,25 @@
             "Department of the Ukrainian Language named after Professor L. A. Lysychenko",
             "Department of Ukrainian Studies and Language Didactics named after Professor O. H. Muromtseva",
             "Department of Theory and Practice of the English Language and Foreign Literature named after Professor Mykhailo Hetmanets"
+          ]
+        },
+        {
+          "name": "Research and Educational Institute of Special Education and Inclusion",
+          "departments": [
+            "Department of Human Anatomy and Physiology and Medical Training named after Professor Ya. R. Synelnykov",
+            "Department of Biology",
+            "Research Laboratory of Bat Biology",
+            "Department of Special Pedagogy",
+            "Research Laboratory of Special and Inclusive Education",
+            "Department of Correctional Psychopedagogy and Human Health"
+          ]
+        },
+        {
+          "name": "Institute for Postgraduate Education",
+          "departments": [
+            "Career Growth Centre",
+            "Adult Education Centre",
+            "Centre for Training Primary School Teachers for Pedagogical Staff Certification"
           ]
         },
         {
@@ -657,17 +676,6 @@
             "Department of Theory and Methods of Teaching Philological Disciplines in Preschool, Primary and Special Education",
             "Department of Theory and Methods of Teaching Natural Science and Mathematics Disciplines in Preschool, Primary and Special Education",
             "Department of Primary and Vocational Education"
-          ]
-        },
-        {
-          "name": "Research and Educational Institute of Special Education and Inclusion",
-          "departments": [
-            "Department of Human Anatomy and Physiology and Medical Training named after Professor Ya. R. Synelnykov",
-            "Department of Biology",
-            "Research Laboratory of Bat Biology",
-            "Department of Special Pedagogy",
-            "Research Laboratory of Special and Inclusive Education",
-            "Department of Correctional Psychopedagogy and Human Health"
           ]
         },
         {
@@ -716,14 +724,6 @@
             "Department of Social Work and Social Pedagogy",
             "Department of Management and Economics",
             "Department of Philosophy named after Professor M. D. Kultaieva"
-          ]
-        },
-        {
-          "name": "Institute for Postgraduate Education",
-          "departments": [
-            "Career Growth Centre",
-            "Adult Education Centre",
-            "Centre for Training Primary School Teachers for Pedagogical Staff Certification"
           ]
         }
       ],

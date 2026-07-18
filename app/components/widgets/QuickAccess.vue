@@ -2,11 +2,12 @@
 const { t, localePath } = useSafeI18nWithRouter()
 
 const links = [
-  { path: '/student/schedule', key: 'quickAccess.schedule' },
+  { path: '/university/public-info', key: 'quickAccess.publicInfo' },
   { path: '/student/moodle', key: 'quickAccess.moodle' },
-  { path: '/student/email', key: 'quickAccess.email' },
   { path: '/science/library', key: 'quickAccess.library' },
-  { path: '/university/contacts', key: 'quickAccess.map' },
+  { path: '/education/quality', key: 'quickAccess.quality' },
+  { path: '/education/monitoring', key: 'quickAccess.monitoring' },
+  { path: '/university/anticorruption', key: 'quickAccess.anticorruption' },
 ]
 </script>
 

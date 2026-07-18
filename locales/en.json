@@ -181,12 +181,12 @@
   },
   "quickAccess": {
     "label": "Quick access",
-    "schedule": "Class schedule",
-    "moodle": "Moodle / e-campus",
-    "email": "Corporate email",
-    "cabinet": "Personal account",
+    "publicInfo": "Public information",
+    "moodle": "Moodle",
     "library": "Research library",
-    "map": "Campus map"
+    "quality": "Quality of education",
+    "monitoring": "Monitoring",
+    "anticorruption": "Anti-corruption"
   },
   "sections": {
     "news": {

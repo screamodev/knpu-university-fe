@@ -181,12 +181,12 @@
   },
   "quickAccess": {
     "label": "Швидкий доступ",
-    "schedule": "Розклад занять",
-    "moodle": "Moodle / е-кампус",
-    "email": "Корпоративна пошта",
-    "cabinet": "Особистий кабінет",
+    "publicInfo": "Публічна інформація",
+    "moodle": "Moodle",
     "library": "Наукова бібліотека",
-    "map": "Карта корпусів"
+    "quality": "Якість освіти",
+    "monitoring": "Моніторинг",
+    "anticorruption": "Антикорупція"
   },
   "sections": {
     "news": {

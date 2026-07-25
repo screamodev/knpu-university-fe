@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { STRUCTURE_FACULTIES, STRUCTURE_GROUPS, STRUCTURE_INSTITUTES } from '~/utils/structure'
-import type { StructureUnit } from '~/utils/structure'
+import {
+  countStructureItems,
+  STRUCTURE_ASSOCIATIONS,
+  STRUCTURE_FACULTIES,
+  STRUCTURE_GOVERNANCE,
+  STRUCTURE_GROUPS,
+  STRUCTURE_INSTITUTES,
+} from '~/utils/structure'
 
 definePageMeta({ layout: 'default' })
 
@@ -11,11 +17,6 @@ useHead({
   title: () => t('nav.links.structure'),
   meta: [{ name: 'description', content: () => t('university.structure.subtitle') }],
 })
-
-/** Direct subdivisions plus the museums / laboratories nested under them. */
-function countItems(unit: StructureUnit): number {
-  return unit.items.reduce((total, item) => total + 1 + (item.children?.length ?? 0), 0)
-}
 
 const unitSections = computed(() => [
   { titleKey: 'university.structure.institutesTitle', units: STRUCTURE_INSTITUTES },
@@ -45,6 +46,17 @@ const unitSections = computed(() => [
       <p class="text-body text-text-muted max-w-3xl">
         {{ t('university.structure.intro') }}
       </p>
+      <p class="mt-3 text-body-sm text-text-muted">
+        {{ t('university.structure.asOf') }}
+      </p>
+    </div>
+
+    <!-- Collegiate governing bodies -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <h2 class="font-playfair text-xl font-bold text-navy mb-6">
+        {{ localized(STRUCTURE_GOVERNANCE, 'name') }}
+      </h2>
+      <SharedStructureItemList :items="STRUCTURE_GOVERNANCE.items" />
     </div>
 
     <!-- Administration -->
@@ -86,7 +98,7 @@ const unitSections = computed(() => [
               {{ localized(unit, 'summary') }}
             </p>
             <p class="mt-2 text-body-sm text-text-muted">
-              {{ countItems(unit) }} {{ t('university.structure.subdivisionsCount') }}
+              {{ countStructureItems(unit) }} {{ t('university.structure.subdivisionsCount') }}
             </p>
 
             <!-- Unit with its own site: link out, no page of ours -->
@@ -138,12 +150,38 @@ const unitSections = computed(() => [
       </section>
     </div>
 
-    <!-- Departments, centres, collegiate bodies, public organisations -->
+    <!-- Administrative subdivisions, grouped by supervising member of the rectorate -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+        {{ t('university.structure.administrativeTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted mb-8 max-w-3xl">
+        {{ t('university.structure.administrativeNote') }}
+      </p>
+      <div class="flex flex-col gap-10">
+        <section v-for="group in STRUCTURE_GROUPS" :key="group.id" class="flex flex-col gap-4">
+          <h3 class="font-playfair text-lg font-semibold text-navy">
+            {{ localized(group, 'name') }}
+          </h3>
+          <SharedStructureItemList :items="group.items" />
+        </section>
+      </div>
+    </div>
+
+    <!-- «Skovoroda associations» -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 flex flex-col gap-10">
-      <section v-for="group in STRUCTURE_GROUPS" :key="group.id" class="flex flex-col gap-4">
-        <h2 class="font-playfair text-xl font-bold text-navy">
-          {{ localized(group, 'name') }}
+      <div>
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+          {{ t('university.structure.associationsTitle') }}
         </h2>
+        <p class="text-body-sm text-text-muted max-w-3xl">
+          {{ t('university.structure.associationsNote') }}
+        </p>
+      </div>
+      <section v-for="group in STRUCTURE_ASSOCIATIONS" :key="group.id" class="flex flex-col gap-4">
+        <h3 class="font-playfair text-lg font-semibold text-navy">
+          {{ localized(group, 'name') }}
+        </h3>
         <SharedStructureItemList :items="group.items" />
       </section>
 

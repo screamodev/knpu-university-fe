@@ -65,6 +65,17 @@ useHead({
       </p>
       <SharedStructureItemList v-if="unit" :items="unit.items" />
 
+      <!-- «Skovoroda associations» attached to this unit -->
+      <template v-if="unit?.associations?.length">
+        <h2 class="font-playfair text-xl font-bold text-navy mt-12 mb-2">
+          {{ t('university.structure.associationsTitle') }}
+        </h2>
+        <p class="text-body-sm text-text-muted mb-6 max-w-3xl">
+          {{ t('university.structure.associationsNote') }}
+        </p>
+        <SharedStructureItemList :items="unit.associations" />
+      </template>
+
       <!-- Cross-links -->
       <div class="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row gap-4 sm:gap-8">
         <NuxtLink

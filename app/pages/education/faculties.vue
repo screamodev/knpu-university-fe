@@ -1,14 +1,24 @@
 <script setup lang="ts">
+import { countStructureItems, STRUCTURE_FACULTIES, STRUCTURE_INSTITUTES } from '~/utils/structure'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, localePath } = useSafeI18nWithRouter()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.faculties'),
   meta: [{ name: 'description', content: () => t('education.faculties.subtitle') }],
 })
 
-const facultyCardIds = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'] as const
+/**
+ * Institutes first, then faculties — same order and same source of truth as
+ * /university/structure, so the two pages cannot drift apart.
+ */
+const sections = computed(() => [
+  { titleKey: 'university.structure.institutesTitle', units: STRUCTURE_INSTITUTES },
+  { titleKey: 'university.structure.facultiesTitle', units: STRUCTURE_FACULTIES },
+])
 </script>
 
 <template>
@@ -30,41 +40,66 @@ const facultyCardIds = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'] as const
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Intro -->
-      <p class="text-body text-text-muted max-w-3xl mb-12">
+      <p class="text-body text-text-muted max-w-3xl mb-4">
         {{ t('education.faculties.intro') }}
       </p>
+      <p class="text-body-sm text-text-muted mb-12">
+        {{ t('university.structure.asOf') }}
+      </p>
 
-      <!-- Faculty cards grid (2x3 / 3x3) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article
-          v-for="id in facultyCardIds"
-          :key="id"
-          class="bg-white border border-border rounded-14 overflow-hidden transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
-        >
-          <div
-            class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
-          >
-            <div
-              class="repeating-diagonal-pattern w-full h-full flex items-center justify-center opacity-30"
-              aria-hidden
-            />
+      <div class="flex flex-col gap-12">
+        <section v-for="section in sections" :key="section.titleKey">
+          <h2 class="font-playfair text-xl font-bold text-navy mb-6">
+            {{ t(section.titleKey) }}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article
+              v-for="unit in section.units"
+              :key="unit.name"
+              class="bg-white border border-border rounded-14 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
+            >
+              <div
+                class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
+              >
+                <div class="repeating-diagonal-pattern w-full h-full opacity-30" aria-hidden />
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
+                  {{ localized(unit, 'name') }}
+                </h3>
+                <p class="text-body-sm text-text-muted mb-3">
+                  {{ countStructureItems(unit) }} {{ t('university.structure.subdivisionsCount') }}
+                </p>
+                <p v-if="localized(unit, 'summary')" class="text-body-sm text-text-muted mb-4">
+                  {{ localized(unit, 'summary') }}
+                </p>
+
+                <a
+                  v-if="unit.external"
+                  :href="unit.external"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-primary font-medium hover:underline"
+                >
+                  {{ t('university.structure.visitOwnWebsite') }}
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                    <path d="M7 17L17 7M17 7H8m9 0v9" />
+                  </svg>
+                </a>
+                <NuxtLink
+                  v-else-if="unit.slug"
+                  :to="localePath(`/university/structure/${unit.slug}`)"
+                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-primary font-medium hover:underline"
+                >
+                  {{ t('university.structure.openUnit') }}
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </NuxtLink>
+              </div>
+            </article>
           </div>
-          <div class="p-5">
-            <h2 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`education.faculties.cards.${id}.name`) }}
-            </h2>
-            <p class="text-body-sm text-text-muted mb-2">
-              {{ t('education.faculties.dean') }}: {{ t(`education.faculties.cards.${id}.dean`) }}
-            </p>
-            <p class="text-body-sm text-text-muted mb-3">
-              {{ t(`education.faculties.cards.${id}.departments`) }} {{ t('education.faculties.departmentsCount') }},
-              {{ t(`education.faculties.cards.${id}.students`) }} {{ t('education.faculties.studentsCount') }}
-            </p>
-            <p class="text-body-sm text-text-muted line-clamp-2">
-              {{ t(`education.faculties.cards.${id}.description`) }}
-            </p>
-          </div>
-        </article>
+        </section>
       </div>
     </div>
   </div>

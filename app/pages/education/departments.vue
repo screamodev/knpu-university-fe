@@ -1,50 +1,31 @@
 <script setup lang="ts">
+import { listStructureDepartments, STRUCTURE_UNITS } from '~/utils/structure'
+import type { StructureUnit } from '~/utils/structure'
+
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, localePath } = useSafeI18nWithRouter()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.departments'),
   meta: [{ name: 'description', content: () => t('education.departments.subtitle') }],
 })
 
-type FacultyFilter = string | null
+/** Filter by institute / faculty; `null` shows every department. */
+const selectedUnit = ref<string | null>(null)
 
-const selectedFaculty = ref<FacultyFilter>(null)
+const unitOptions = computed(() => STRUCTURE_UNITS)
 
-const facultyOptions: { value: FacultyFilter; labelKey: string }[] = [
-  { value: null, labelKey: 'education.departments.allFaculties' },
-  { value: 'f1', labelKey: 'education.faculties.cards.f1.name' },
-  { value: 'f2', labelKey: 'education.faculties.cards.f2.name' },
-  { value: 'f3', labelKey: 'education.faculties.cards.f3.name' },
-  { value: 'f4', labelKey: 'education.faculties.cards.f4.name' },
-  { value: 'f5', labelKey: 'education.faculties.cards.f5.name' },
-  { value: 'f6', labelKey: 'education.faculties.cards.f6.name' },
-]
-
-const rowIds = [
-  'd1',
-  'd2',
-  'd3',
-  'd4',
-  'd5',
-  'd6',
-  'd7',
-  'd8',
-  'd9',
-  'd10',
-  'd11',
-  'd12',
-] as const
-
-const filteredRowIds = computed(() => {
-  if (!selectedFaculty.value) return rowIds
-  return rowIds.filter((id) => t(`education.departments.rows.${id}.faculty`) === selectedFaculty.value)
+const departments = computed(() => {
+  const all = listStructureDepartments()
+  if (!selectedUnit.value) return all
+  return all.filter((entry) => entry.unit.name === selectedUnit.value)
 })
 
-function facultyNameForRow(rowId: (typeof rowIds)[number]): string {
-  const facultyKey = t(`education.departments.rows.${rowId}.faculty`)
-  return t(`education.faculties.cards.${facultyKey}.name`)
+/** Departments of a unit we link out to live on that unit's own site. */
+function unitHref(unit: StructureUnit): string | undefined {
+  return unit.slug ? localePath(`/university/structure/${unit.slug}`) : undefined
 }
 </script>
 
@@ -66,53 +47,85 @@ function facultyNameForRow(rowId: (typeof rowIds)[number]): string {
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Faculty filter tabs -->
+      <p class="text-body-sm text-text-muted mb-8">
+        {{ t('university.structure.asOf') }}
+      </p>
+
+      <!-- Unit filter -->
       <div class="flex flex-wrap gap-2 mb-10">
         <button
-          v-for="opt in facultyOptions"
-          :key="opt.value ?? 'all'"
           type="button"
           class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280"
           :class="
-            selectedFaculty === opt.value
+            selectedUnit === null
               ? 'bg-navy text-white border-navy'
               : 'bg-white text-navy border-border hover:border-navy'
           "
-          @click="selectedFaculty = opt.value"
+          @click="selectedUnit = null"
         >
-          {{ t(opt.labelKey) }}
+          {{ t('education.departments.allFaculties') }}
+        </button>
+        <button
+          v-for="unit in unitOptions"
+          :key="unit.name"
+          type="button"
+          class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280 text-left"
+          :class="
+            selectedUnit === unit.name
+              ? 'bg-navy text-white border-navy'
+              : 'bg-white text-navy border-border hover:border-navy'
+          "
+          @click="selectedUnit = unit.name"
+        >
+          {{ localized(unit, 'name') }}
         </button>
       </div>
 
-      <!-- Table-style list: card-rows -->
+      <!-- Department rows -->
       <div class="overflow-x-auto">
         <div class="min-w-[600px] space-y-3">
           <div
             class="hidden sm:grid gap-4 px-4 py-3 text-body-sm font-semibold text-text-muted border-b border-border"
-            style="grid-template-columns: 1fr 1fr 140px"
+            style="grid-template-columns: 1.4fr 1fr"
           >
             <span>{{ t('education.departments.tableDepartment') }}</span>
             <span>{{ t('education.departments.tableFaculty') }}</span>
-            <span>{{ t('education.departments.tableHead') }}</span>
           </div>
           <div
-            v-for="id in filteredRowIds"
-            :key="id"
+            v-for="entry in departments"
+            :key="`${entry.unit.name}-${entry.department.name}`"
             class="bg-off-white border border-border rounded-12 p-4 sm:px-4 sm:py-3 flex flex-col sm:grid sm:gap-4 sm:items-center gap-2"
-            style="grid-template-columns: 1fr 1fr 140px"
+            style="grid-template-columns: 1.4fr 1fr"
           >
-            <span class="font-medium text-navy">
-              {{ t(`education.departments.rows.${id}.name`) }}
+            <a
+              v-if="entry.department.external"
+              :href="entry.department.external"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-navy hover:text-primary hover:underline inline-flex items-start gap-1.5"
+            >
+              {{ localized(entry.department, 'name') }}
+              <svg class="w-3.5 h-3.5 mt-1 shrink-0 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                <path d="M7 17L17 7M17 7H8m9 0v9" />
+              </svg>
+            </a>
+            <span v-else class="font-medium text-navy">
+              {{ localized(entry.department, 'name') }}
             </span>
-            <span class="text-body-sm text-text-muted">
-              {{ facultyNameForRow(id) }}
-            </span>
-            <span class="text-body-sm text-text-muted">
-              {{ t(`education.departments.rows.${id}.head`) }}
+
+            <NuxtLink
+              v-if="unitHref(entry.unit)"
+              :to="unitHref(entry.unit)"
+              class="text-body-sm text-text-muted hover:text-primary hover:underline"
+            >
+              {{ localized(entry.unit, 'name') }}
+            </NuxtLink>
+            <span v-else class="text-body-sm text-text-muted">
+              {{ localized(entry.unit, 'name') }}
             </span>
           </div>
         </div>
-        <p v-if="filteredRowIds.length === 0" class="text-body text-text-muted py-8 text-center">
+        <p v-if="departments.length === 0" class="text-body text-text-muted py-8 text-center">
           {{ t('programs.noPrograms') }}
         </p>
       </div>

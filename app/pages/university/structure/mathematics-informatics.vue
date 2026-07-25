@@ -3,5 +3,5 @@ definePageMeta({ layout: 'default' })
 </script>
 
 <template>
-  <SharedStructureUnitPage slug="physics-mathematics" />
+  <SharedStructureUnitPage slug="mathematics-informatics" />
 </template>

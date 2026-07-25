@@ -24,15 +24,23 @@ interface Admin {
 const KEY = 'university.structure.administration'
 
 /**
- * Optional fields (`degree`, `profile`) are only present for some people, so
- * they are read off the message object rather than probed with `t()` — probing
- * a missing key makes vue-i18n log a "Not found … key" warning on every render.
+ * Optional fields (`degree`, `profile`) exist for some people only.
+ *
+ * Presence is checked on the `tm()` message object — probing a missing key with
+ * `t()` makes vue-i18n log a "Not found … key" warning on every render. The
+ * value itself must still come from `t()`: in a production build messages are
+ * precompiled, so the object holds compiled message functions rather than
+ * strings, and stringifying one yields "[object Object]".
  */
-function field(entry: Record<string, unknown>, name: string): string | undefined {
-  const raw = entry?.[name]
-  if (raw === undefined || raw === null) return undefined
-  const value = resolveMessageValue(raw)
-  return value.trim() ? value : undefined
+function optionalField(entry: unknown, name: string, key: string): string | undefined {
+  if (!entry || typeof entry !== 'object' || !(name in entry)) return undefined
+  const value = t(key)
+  return value && value !== key ? value : undefined
+}
+
+/** Guard the badge href: anything that is not an absolute http(s) URL is dropped. */
+function profileUrl(value: string | undefined): string | undefined {
+  return value && /^https?:\/\//.test(value) ? value : undefined
 }
 
 function getAdmins(): Admin[] {
@@ -45,8 +53,8 @@ function getAdmins(): Admin[] {
     phone: t(`${KEY}.${i}.phone`),
     email: t(`${KEY}.${i}.email`),
     photo: t(`${KEY}.${i}.photo`),
-    degree: field(entry, 'degree'),
-    profile: field(entry, 'profile'),
+    degree: optionalField(entry, 'degree', `${KEY}.${i}.degree`),
+    profile: profileUrl(optionalField(entry, 'profile', `${KEY}.${i}.profile`)),
   }))
 }
 
@@ -94,10 +102,13 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
             :href="rector.profile"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-2 self-start inline-flex items-center gap-1.5 py-1 px-3 rounded-100 border border-gold/50 bg-white text-body-sm font-medium text-navy transition-colors duration-280 hover:border-gold hover:text-primary"
+            class="profile-badge mt-3"
           >
+            <svg class="w-3.5 h-3.5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0" />
+            </svg>
             {{ t('university.structure.personalPage') }}
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+            <svg class="w-3 h-3 shrink-0 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden>
               <path d="M7 17L17 7M17 7H8m9 0v9" />
             </svg>
             <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
@@ -144,10 +155,13 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
             :href="admin.profile"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-auto self-start inline-flex items-center gap-1.5 py-1 px-3 rounded-100 border border-gold/50 bg-white text-body-sm font-medium text-navy transition-colors duration-280 hover:border-gold hover:text-primary"
+            class="profile-badge mt-auto"
           >
+            <svg class="w-3.5 h-3.5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0" />
+            </svg>
             {{ t('university.structure.personalPage') }}
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+            <svg class="w-3 h-3 shrink-0 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden>
               <path d="M7 17L17 7M17 7H8m9 0v9" />
             </svg>
             <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
@@ -157,3 +171,42 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
     </div>
   </div>
 </template>
+
+<style scoped>
+/*
+ * Compact outbound pill. Colours are the literal design tokens (navy / gold /
+ * border from tailwind.config.ts) rather than utility classes, so the label,
+ * the person glyph and the arrow stay on one line inside the narrow
+ * vice-rector cards without a fragile stack of Tailwind classes.
+ */
+.profile-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3125rem 0.625rem;
+  border: 1px solid #dde3ed;
+  border-radius: 100px;
+  background: #fff;
+  color: #1b2e4b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition:
+    border-color 280ms,
+    background-color 280ms,
+    box-shadow 280ms;
+}
+
+.profile-badge:hover {
+  border-color: #c9a227;
+  background: rgba(201, 162, 39, 0.07);
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.18);
+}
+
+.profile-badge:focus-visible {
+  outline: 2px solid #c9a227;
+  outline-offset: 2px;
+}
+</style>

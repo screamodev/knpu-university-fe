@@ -622,7 +622,7 @@
       "tag": "Management",
       "title": "University structure",
       "subtitle": "Institutes, faculties and departments, administrative units, centres, laboratories and collegiate bodies.",
-      "intro": "The structure of H.S. Skovoroda Kharkiv National Pedagogical University, together with the status and functions of its subdivisions, is defined by the University Statute and by the regulations on each subdivision. Subdivisions are established by decision of the Academic Council in the manner prescribed by the Law of Ukraine “On Higher Education” and by the Statute.",
+      "intro": "The structure of H.S. Skovoroda Kharkiv National Pedagogical University, together with the status and functions of its subdivisions, is defined by the University Statute and by the regulations on each subdivision. Subdivisions are established by decision of the Academic Council in the manner prescribed by the Law of Ukraine “On Higher Education” and by the Statute. Teaching is delivered by three educational and research institutes and eight faculties.",
       "administrationTitle": "University administration",
       "administrationAddress": "Kharkiv, 29 Alchevskykh St.",
       "administration": [
@@ -671,7 +671,7 @@
           "photo": "/images/static/Chernik.png"
         }
       ],
-      "personalPage": "Personal page (Google Site)",
+      "personalPage": "Personal page",
       "linkToFaculties": "Full list of faculties and departments",
       "linkToFacultiesUrl": "/university/faculties",
       "administrationLink": "Rectorate: contacts and responsibilities",
@@ -686,7 +686,12 @@
       "visitOwnWebsite": "Go to the unit’s website",
       "openUnit": "About this unit",
       "backToStructure": "University structure",
-      "allUnits": "All institutes and faculties"
+      "allUnits": "All institutes and faculties",
+      "asOf": "Reflects the university’s organisational chart as of 30 June 2026.",
+      "administrativeTitle": "Administrative subdivisions and services",
+      "administrativeNote": "Subdivisions are listed by the member of the rectorate they report to, as in the organisational chart.",
+      "associationsTitle": "«Skovoroda associations»",
+      "associationsNote": "Collegiate, working and advisory bodies, research and methodological laboratories, centres and student organisations operating on a voluntary basis."
     },
     "faculties": {
       "tag": "Management",
@@ -1691,7 +1696,7 @@
         "r5": {
           "code": "014",
           "name": "Secondary education (Mathematics)",
-          "faculty": "Faculty of Physics and Mathematics",
+          "faculty": "Faculty of Mathematics, Computer Science and Natural Science Education",
           "places": "up to 35",
           "form": "fullTime",
           "level": "bachelor"
@@ -2167,68 +2172,7 @@
       "tag": "Education",
       "title": "Faculties",
       "subtitle": "Faculty and department structure of H. S. Skovoroda KhNPU.",
-      "intro": "The university brings together faculties that train teachers, psychologists, philologists, natural scientists and artists.",
-      "dean": "Dean",
-      "departmentsCount": "departments",
-      "studentsCount": "students",
-      "cards": {
-        "f1": {
-          "name": "Pedagogy and Psychology",
-          "dean": "Ivanenko O.M.",
-          "departments": "6",
-          "students": "1,200",
-          "description": "Pedagogy, psychology and educational sciences: teacher training and applied research."
-        },
-        "f2": {
-          "name": "Primary Education",
-          "dean": "Petrenko T.V.",
-          "departments": "4",
-          "students": "980",
-          "description": "Primary education: training teachers and methodologists for primary schools."
-        },
-        "f3": {
-          "name": "Preschool Education",
-          "dean": "Kovalenko L.I.",
-          "departments": "5",
-          "students": "850",
-          "description": "Preschool pedagogy and early childhood education programmes."
-        },
-        "f4": {
-          "name": "Philology and Foreign Languages",
-          "dean": "Sydorenko M.P.",
-          "departments": "7",
-          "students": "1,100",
-          "description": "Ukrainian and foreign languages, literature, linguistics and translation."
-        },
-        "f5": {
-          "name": "Physics and Mathematics",
-          "dean": "Melnyk V.O.",
-          "departments": "5",
-          "students": "620",
-          "description": "Mathematics, physics, astronomy and computer science teacher education."
-        },
-        "f6": {
-          "name": "Arts",
-          "dean": "Shevchenko I.Yu.",
-          "departments": "4",
-          "students": "480",
-          "description": "Music, visual arts and arts teacher education."
-        },
-        "f7": {
-          "name": "Natural Sciences",
-          "dean": "Bondarenko A.S.",
-          "departments": "5",
-          "students": "540",
-          "description": "Chemistry, biology and natural science education for schools."
-        },
-        "f8": {
-          "name": "History and Technology",
-          "dean": "Hrytsenko D.V.",
-          "departments": "6",
-          "students": "720",
-          "description": "History, social studies, technologies and information literacy."
-        }
-      }
+      "intro": "Teaching is delivered by three educational and research institutes and eight faculties, which comprise departments, teaching and research laboratories, centres and museums. Each institute and faculty page lists its own subdivisions."
     },
     "departments": {
       "tag": "Education",
@@ -2236,70 +2180,7 @@
       "subtitle": "Full list of departments by faculty.",
       "allFaculties": "All faculties",
       "tableDepartment": "Department",
-      "tableFaculty": "Faculty",
-      "tableHead": "Head",
-      "rows": {
-        "d1": {
-          "name": "Pedagogy and Primary Education Methodology",
-          "faculty": "f1",
-          "head": "Ivanenko O.M."
-        },
-        "d2": {
-          "name": "Developmental Psychology",
-          "faculty": "f1",
-          "head": "Petrenko T.V."
-        },
-        "d3": {
-          "name": "Preschool Pedagogy",
-          "faculty": "f3",
-          "head": "Kovalenko L.I."
-        },
-        "d4": {
-          "name": "Ukrainian Language and Literature",
-          "faculty": "f4",
-          "head": "Sydorenko M.P."
-        },
-        "d5": {
-          "name": "Foreign Languages",
-          "faculty": "f4",
-          "head": "Tkachenko N.O."
-        },
-        "d6": {
-          "name": "Mathematics and Teaching Methodology",
-          "faculty": "f5",
-          "head": "Melnyk V.O."
-        },
-        "d7": {
-          "name": "Physics and Astronomy",
-          "faculty": "f5",
-          "head": "Oliinyk S.R."
-        },
-        "d8": {
-          "name": "Music",
-          "faculty": "f6",
-          "head": "Shevchenko I.Yu."
-        },
-        "d9": {
-          "name": "Visual Arts",
-          "faculty": "f6",
-          "head": "Lysenko I.V."
-        },
-        "d10": {
-          "name": "Chemistry and Biology",
-          "faculty": "f7",
-          "head": "Bondarenko A.S."
-        },
-        "d11": {
-          "name": "History of Ukraine",
-          "faculty": "f8",
-          "head": "Hrytsenko D.V."
-        },
-        "d12": {
-          "name": "Information Technology",
-          "faculty": "f8",
-          "head": "Kravchenko N.P."
-        }
-      }
+      "tableFaculty": "Faculty"
     },
     "programs": {
       "tag": "Education",
@@ -4313,17 +4194,17 @@
         "t1": {
           "name": "Kovalenko O.I.",
           "role": "Chair",
-          "faculty": "Faculty of Philology"
+          "faculty": "H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology"
         },
         "t2": {
           "name": "Petrenko M.V.",
           "role": "Deputy",
-          "faculty": "Faculty of History"
+          "faculty": "Faculty of History and Law"
         },
         "t3": {
           "name": "Sydorenko A.P.",
           "role": "Secretary",
-          "faculty": "Faculty of Mathematics"
+          "faculty": "Faculty of Mathematics, Computer Science and Natural Science Education"
         },
         "t4": {
           "name": "Shevchenko K.L.",

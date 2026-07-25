@@ -622,7 +622,7 @@
       "tag": "Управління",
       "title": "Структура університету",
       "subtitle": "Інститути, факультети та кафедри, адміністративні підрозділи, центри, лабораторії й колегіальні органи.",
-      "intro": "Структура ХНПУ імені Г.С. Сковороди, статус і функції його структурних підрозділів визначаються Статутом університету та положеннями про відповідні структурні підрозділи. Структурні підрозділи утворюються рішенням вченої ради університету в порядку, визначеному Законом України «Про вищу освіту» і Статутом університету.",
+      "intro": "Структура ХНПУ імені Г.С. Сковороди, статус і функції його структурних підрозділів визначаються Статутом університету та положеннями про відповідні структурні підрозділи. Структурні підрозділи утворюються рішенням вченої ради університету в порядку, визначеному Законом України «Про вищу освіту» і Статутом університету. Освітній процес забезпечують три навчально-наукові інститути та вісім факультетів.",
       "administrationTitle": "Адміністрація університету",
       "administrationAddress": "м. Харків, вул. Алчевських, 29",
       "administration": [
@@ -671,7 +671,7 @@
           "photo": "/images/static/Chernik.png"
         }
       ],
-      "personalPage": "Персональна сторінка (Google Site)",
+      "personalPage": "Персональна сторінка",
       "linkToFaculties": "Повний перелік факультетів та кафедр",
       "linkToFacultiesUrl": "/university/faculties",
       "administrationLink": "Ректорат: контакти й повноваження",
@@ -686,7 +686,12 @@
       "visitOwnWebsite": "Перейти на сайт підрозділу",
       "openUnit": "Детальніше про підрозділ",
       "backToStructure": "Структура університету",
-      "allUnits": "Усі інститути та факультети"
+      "allUnits": "Усі інститути та факультети",
+      "asOf": "Схема відповідає організаційно-структурній схемі університету станом на 30.06.2026.",
+      "administrativeTitle": "Адміністративні підрозділи та служби",
+      "administrativeNote": "Підрозділи наведено за підпорядкуванням членам ректорату, як в організаційно-структурній схемі.",
+      "associationsTitle": "«Skovoroda associations»",
+      "associationsNote": "Колегіальні, робочі та дорадчі органи, наукові й методичні лабораторії, центри та студентські об’єднання, що діють на безоплатній основі."
     },
     "faculties": {
       "tag": "Управління",
@@ -1691,7 +1696,7 @@
         "r5": {
           "code": "014",
           "name": "Середня освіта (математика)",
-          "faculty": "Фізико-математичний факультет",
+          "faculty": "Факультет математики, інформатики і природничої освіти",
           "places": "до 35",
           "form": "fullTime",
           "level": "bachelor"
@@ -2167,68 +2172,7 @@
       "tag": "Навчання",
       "title": "Факультети",
       "subtitle": "Структура факультетів та кафедр ХНПУ імені Г.С. Сковороди.",
-      "intro": "Університет об'єднує факультети, які готують педагогів, психологів, філологів, природників та митців. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "dean": "Декан",
-      "departmentsCount": "кафедр",
-      "studentsCount": "студентів",
-      "cards": {
-        "f1": {
-          "name": "Педагогіки та психології",
-          "dean": "Іваненко О.М.",
-          "departments": "6",
-          "students": "1 200",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
-        },
-        "f2": {
-          "name": "Початкової освіти",
-          "dean": "Петренко Т.В.",
-          "departments": "4",
-          "students": "980",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "f3": {
-          "name": "Дошкільної освіти",
-          "dean": "Коваленко Л.І.",
-          "departments": "5",
-          "students": "850",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
-        },
-        "f4": {
-          "name": "Філології та іноземних мов",
-          "dean": "Сидоренко М.П.",
-          "departments": "7",
-          "students": "1 100",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-        },
-        "f5": {
-          "name": "Фізики та математики",
-          "dean": "Мельник В.О.",
-          "departments": "5",
-          "students": "620",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-        },
-        "f6": {
-          "name": "Мистецтв",
-          "dean": "Шевченко І.Ю.",
-          "departments": "4",
-          "students": "480",
-          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia."
-        },
-        "f7": {
-          "name": "Природничих наук",
-          "dean": "Бондаренко А.С.",
-          "departments": "5",
-          "students": "540",
-          "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae."
-        },
-        "f8": {
-          "name": "Історії та технологій",
-          "dean": "Гриценко Д.В.",
-          "departments": "6",
-          "students": "720",
-          "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium."
-        }
-      }
+      "intro": "Освітній процес забезпечують три навчально-наукові інститути та вісім факультетів, до складу яких входять кафедри, навчальні й навчально-наукові лабораторії, центри та музеї. Перелік підрозділів кожного інституту й факультету наведено на його сторінці."
     },
     "departments": {
       "tag": "Навчання",
@@ -2236,70 +2180,7 @@
       "subtitle": "Повний перелік кафедр за факультетами.",
       "allFaculties": "Усі факультети",
       "tableDepartment": "Кафедра",
-      "tableFaculty": "Факультет",
-      "tableHead": "Завідувач",
-      "rows": {
-        "d1": {
-          "name": "Педагогіки та методики початкової освіти",
-          "faculty": "f1",
-          "head": "Іваненко О.М."
-        },
-        "d2": {
-          "name": "Психології розвитку",
-          "faculty": "f1",
-          "head": "Петренко Т.В."
-        },
-        "d3": {
-          "name": "Дошкільної педагогіки",
-          "faculty": "f3",
-          "head": "Коваленко Л.І."
-        },
-        "d4": {
-          "name": "Української мови та літератури",
-          "faculty": "f4",
-          "head": "Сидоренко М.П."
-        },
-        "d5": {
-          "name": "Іноземних мов",
-          "faculty": "f4",
-          "head": "Ткаченко Н.О."
-        },
-        "d6": {
-          "name": "Математики та методики викладання",
-          "faculty": "f5",
-          "head": "Мельник В.О."
-        },
-        "d7": {
-          "name": "Фізики та астрономії",
-          "faculty": "f5",
-          "head": "Олійник С.Р."
-        },
-        "d8": {
-          "name": "Музичного мистецтва",
-          "faculty": "f6",
-          "head": "Шевченко І.Ю."
-        },
-        "d9": {
-          "name": "Образотворчого мистецтва",
-          "faculty": "f6",
-          "head": "Лисенко І.В."
-        },
-        "d10": {
-          "name": "Хімії та біології",
-          "faculty": "f7",
-          "head": "Бондаренко А.С."
-        },
-        "d11": {
-          "name": "Історії України",
-          "faculty": "f8",
-          "head": "Гриценко Д.В."
-        },
-        "d12": {
-          "name": "Інформаційних технологій",
-          "faculty": "f8",
-          "head": "Кравченко Н.П."
-        }
-      }
+      "tableFaculty": "Факультет"
     },
     "programs": {
       "tag": "Навчання",
@@ -4313,17 +4194,17 @@
         "t1": {
           "name": "Коваленко О.І.",
           "role": "Голова",
-          "faculty": "Філологічний факультет"
+          "faculty": "Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка"
         },
         "t2": {
           "name": "Петренко М.В.",
           "role": "Заступник",
-          "faculty": "Історичний факультет"
+          "faculty": "Факультет історії і права"
         },
         "t3": {
           "name": "Сидоренко А.П.",
           "role": "Секретар",
-          "faculty": "Факультет математики"
+          "faculty": "Факультет математики, інформатики і природничої освіти"
         },
         "t4": {
           "name": "Шевченко К.Л.",

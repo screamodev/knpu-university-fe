@@ -3,5 +3,5 @@ definePageMeta({ layout: 'default' })
 </script>
 
 <template>
-  <SharedStructureUnitPage slug="natural-special-health" />
+  <SharedStructureUnitPage slug="special-education" />
 </template>

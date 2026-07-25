@@ -38,7 +38,17 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
               <li v-for="link in col.links" :key="link.path" class="min-w-0">
+                <a
+                  v-if="link.external"
+                  :href="link.path"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
+                >
+                  {{ t(link.key) }}
+                </a>
                 <NuxtLink
+                  v-else
                   :to="localePath(link.path)"
                   class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
                 >
@@ -55,7 +65,17 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
               <li v-for="link in col.links" :key="link.path" class="min-w-0">
+                <a
+                  v-if="link.external"
+                  :href="link.path"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
+                >
+                  {{ t(link.key) }}
+                </a>
                 <NuxtLink
+                  v-else
                   :to="localePath(link.path)"
                   class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
                 >
@@ -109,7 +129,17 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
           </div>
           <ul class="list-none flex flex-col gap-0.5 min-w-0">
             <li v-for="link in col.links" :key="link.path" class="min-w-0">
+              <a
+                v-if="link.external"
+                :href="link.path"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
+              >
+                {{ t(link.key) }}
+              </a>
               <NuxtLink
+                v-else
                 :to="localePath(link.path)"
                 class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
               >

@@ -14,7 +14,7 @@ const mobileSections = computed(() => [
     labelKey: 'nav.labels.university',
     links: [
       { path: '/university/history', key: 'nav.links.history' },
-      { path: '/university/memorial', key: 'nav.links.memorial' },
+      { path: MEMORIAL_EXTERNAL_URL, key: 'nav.links.memorial', external: true as const },
       { path: '/university/wartime', key: 'nav.links.wartime' },
       { path: '/university/rectorate', key: 'nav.links.rectorate' },
       { path: '/university/structure', key: 'nav.links.structure' },
@@ -95,15 +95,26 @@ const mobileSections = computed(() => [
           v-show="openIndex === idx"
           class="py-2 pb-4 flex flex-col"
         >
-          <NuxtLink
-            v-for="link in section.links"
-            :key="link.path"
-            :to="localePath(link.path)"
-            class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
-            @click="close"
-          >
-            {{ t(link.key) }}
-          </NuxtLink>
+          <template v-for="link in section.links" :key="link.path">
+            <a
+              v-if="link.external"
+              :href="link.path"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
+              @click="close"
+            >
+              {{ t(link.key) }}
+            </a>
+            <NuxtLink
+              v-else
+              :to="localePath(link.path)"
+              class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
+              @click="close"
+            >
+              {{ t(link.key) }}
+            </NuxtLink>
+          </template>
         </div>
       </li>
     </ul>

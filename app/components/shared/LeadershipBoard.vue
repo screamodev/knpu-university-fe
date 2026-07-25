@@ -17,26 +17,37 @@ interface Admin {
   email: string
   photo: string
   degree?: string
+  /** Personal page on an external site, when the person keeps one. */
+  profile?: string
 }
 
 const KEY = 'university.structure.administration'
 
+/**
+ * Optional fields (`degree`, `profile`) are only present for some people, so
+ * they are read off the message object rather than probed with `t()` — probing
+ * a missing key makes vue-i18n log a "Not found … key" warning on every render.
+ */
+function field(entry: Record<string, unknown>, name: string): string | undefined {
+  const raw = entry?.[name]
+  if (raw === undefined || raw === null) return undefined
+  const value = resolveMessageValue(raw)
+  return value.trim() ? value : undefined
+}
+
 function getAdmins(): Admin[] {
   const value = tm(KEY)
   if (!Array.isArray(value)) return []
-  return value.map((_, i) => {
-    const degree = t(`${KEY}.${i}.degree`)
-    return {
-      position: t(`${KEY}.${i}.position`),
-      name: t(`${KEY}.${i}.name`),
-      room: t(`${KEY}.${i}.room`),
-      phone: t(`${KEY}.${i}.phone`),
-      email: t(`${KEY}.${i}.email`),
-      photo: t(`${KEY}.${i}.photo`),
-      // t() echoes the key back when missing — treat that as absent
-      degree: degree === `${KEY}.${i}.degree` ? undefined : degree,
-    }
-  })
+  return value.map((entry, i) => ({
+    position: t(`${KEY}.${i}.position`),
+    name: t(`${KEY}.${i}.name`),
+    room: t(`${KEY}.${i}.room`),
+    phone: t(`${KEY}.${i}.phone`),
+    email: t(`${KEY}.${i}.email`),
+    photo: t(`${KEY}.${i}.photo`),
+    degree: field(entry, 'degree'),
+    profile: field(entry, 'profile'),
+  }))
 }
 
 const admins = computed(() => getAdmins())
@@ -78,6 +89,19 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
           <a :href="`mailto:${rector.email}`" class="text-body-sm text-primary hover:underline break-all">
             {{ rector.email }}
           </a>
+          <a
+            v-if="rector.profile"
+            :href="rector.profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 self-start inline-flex items-center gap-1.5 py-1 px-3 rounded-100 border border-gold/50 bg-white text-body-sm font-medium text-navy transition-colors duration-280 hover:border-gold hover:text-primary"
+          >
+            {{ t('university.structure.personalPage') }}
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M7 17L17 7M17 7H8m9 0v9" />
+            </svg>
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
         </div>
       </article>
     </template>
@@ -114,6 +138,19 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
           </a>
           <a :href="`mailto:${admin.email}`" class="text-body-sm text-primary hover:underline break-all">
             {{ admin.email }}
+          </a>
+          <a
+            v-if="admin.profile"
+            :href="admin.profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-auto self-start inline-flex items-center gap-1.5 py-1 px-3 rounded-100 border border-gold/50 bg-white text-body-sm font-medium text-navy transition-colors duration-280 hover:border-gold hover:text-primary"
+          >
+            {{ t('university.structure.personalPage') }}
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M7 17L17 7M17 7H8m9 0v9" />
+            </svg>
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
           </a>
         </div>
       </div>

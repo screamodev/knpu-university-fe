@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
+
 definePageMeta({ layout: 'default' })
 
-const localePath = useLocalePath()
-
-await navigateTo(localePath('/university/memorial'), { replace: true })
+await navigateTo(MEMORIAL_EXTERNAL_URL, { external: true, replace: true })
 </script>
 
 <template>

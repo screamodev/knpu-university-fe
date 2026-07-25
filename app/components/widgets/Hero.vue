@@ -95,23 +95,5 @@ onUnmounted(stopRotation)
         </NuxtLink>
       </div>
     </div>
-    <div class="absolute bottom-12 right-8 z-[2] flex gap-0.5 max-lg:hidden">
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 py-4 px-6 text-center rounded-l-[12px]">
-        <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">220</div>
-        <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">{{ t('hero.statYears') }}</div>
-      </div>
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 py-4 px-6 text-center">
-        <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">8 000+</div>
-        <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">{{ t('hero.statStudents') }}</div>
-      </div>
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 py-4 px-6 text-center">
-        <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">30+</div>
-        <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">{{ t('hero.statJournals') }}</div>
-      </div>
-      <div class="bg-white/5 backdrop-blur-md border border-white/10 py-4 px-6 text-center rounded-r-[12px]">
-        <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">95+</div>
-        <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">{{ t('hero.statPrograms') }}</div>
-      </div>
-    </div>
   </section>
 </template>

@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
 import { resolveMediaSrc } from '~/utils/directusMedia'
+import { MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 definePageMeta({ layout: 'default' })
+
+// Page kept in repo but hidden: send visitors to the official external memorial.
+await navigateTo(MEMORIAL_EXTERNAL_URL, { external: true, replace: true })
 
 const { t } = useSafeI18nWithRouter()
 const { client, assetUrl, publicUrl } = useDirectus()

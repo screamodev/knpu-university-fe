@@ -1,6 +1,9 @@
+import { MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
+
 export interface NavLink {
   path: string
   key: string
+  external?: boolean
 }
 
 export interface NavColumn {
@@ -30,7 +33,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/history', key: 'nav.links.history' },
             { path: '/university/mission', key: 'nav.links.mission' },
             { path: '/university/symbolism', key: 'nav.links.symbolism' },
-            { path: '/university/memorial', key: 'nav.links.memorial' },
+            { path: MEMORIAL_EXTERNAL_URL, key: 'nav.links.memorial', external: true },
             { path: '/university/wartime', key: 'nav.links.wartime' },
             { path: '/university/volunteering', key: 'nav.links.volunteering' },
             { path: '/university/gallery', key: 'nav.links.gallery' },

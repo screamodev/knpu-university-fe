@@ -1,6 +1,7 @@
 {
   "common": {
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "opensInNewTab": "Opens in a new tab"
   },
   "utility": {
     "phone": "+38 (057) 700-69-09",
@@ -503,9 +504,14 @@
       "tag": "Management",
       "title": "Rectorate",
       "subtitle": "University leadership: rector and vice-rectors.",
-      "intro": "The Rectorate exercises day‑to‑day management of the university and implements Academic Council decisions. It comprises the Rector and four vice‑rectors responsible for academic and methodological affairs, research and innovation, international cooperation, and administration and campus development.",
+      "intro": "The Rectorate exercises day-to-day management of the university and implements the decisions of the Academic Council. It comprises the Rector and four vice-rectors responsible for research, innovation and international activity; academic and research affairs; teaching and student affairs; and administration and facilities.",
       "rectorTitle": "Rector",
-      "viceRectorsTitle": "Vice-rectors"
+      "viceRectorsTitle": "Vice-rectors",
+      "addressTitle": "Address",
+      "address": "Kharkiv, 29 Alchevskykh St.",
+      "relatedTitle": "Also part of the administration",
+      "headsOfDepartments": "Heads of the university departments",
+      "languageOfficer": "Commissioner for the functioning of the Ukrainian language"
     },
     "council": {
       "tag": "Management",
@@ -614,119 +620,9 @@
     },
     "structure": {
       "tag": "Management",
-      "title": "Structural units",
-      "subtitle": "Organisational structure of the university: faculties, institutes and services.",
-      "intro": "The university brings together eight faculties and three research institutes, along with administrative offices, research centres and laboratories, and campus services that support teaching, research, and governance at KhNPU.",
-      "treeTitle": "Institutes and faculties",
-      "facultiesTree": [
-        {
-          "name": "Research and Educational Institute of Ukrainian Philology named after H. F. Kvitka-Osnovianenko",
-          "departments": [
-            "Department of Ukrainian Literature and Journalism named after Professor Leonid Ushkalov",
-            "Department of the Ukrainian Language named after Professor L. A. Lysychenko",
-            "Department of Ukrainian Studies and Language Didactics named after Professor O. H. Muromtseva",
-            "Department of Theory and Practice of the English Language and Foreign Literature named after Professor Mykhailo Hetmanets"
-          ]
-        },
-        {
-          "name": "Research and Educational Institute of Special Education and Inclusion",
-          "departments": [
-            "Department of Human Anatomy and Physiology and Medical Training named after Professor Ya. R. Synelnykov",
-            "Department of Biology",
-            "Research Laboratory of Bat Biology",
-            "Department of Special Pedagogy",
-            "Research Laboratory of Special and Inclusive Education",
-            "Department of Correctional Psychopedagogy and Human Health"
-          ]
-        },
-        {
-          "name": "Institute for Postgraduate Education",
-          "departments": [
-            "Career Growth Centre",
-            "Adult Education Centre",
-            "Centre for Training Primary School Teachers for Pedagogical Staff Certification"
-          ]
-        },
-        {
-          "name": "Faculty of History and Law",
-          "departments": [
-            "Department of World History",
-            "Department of History of Ukraine",
-            "Department of Theory and Methods of Teaching Social and Legal Disciplines",
-            "Department of Social and Economic Disciplines and Geography",
-            "Department of Civil Law and Labour Law named after Professor O. I. Protsevskyi",
-            "Department of State and Legal Disciplines, Criminal Law and Procedure",
-            "Research Archaeological Laboratory"
-          ]
-        },
-        {
-          "name": "Faculty of Mathematics, Informatics and Natural Science Education",
-          "departments": [
-            "Department of Physics and Chemistry",
-            "Teaching Laboratory of the Department of Physics and Chemistry",
-            "Department of Mathematics",
-            "Department of Informatics",
-            "Department of Educology and Innovative Pedagogy",
-            "Botanical Garden"
-          ]
-        },
-        {
-          "name": "Faculty of Primary Education",
-          "departments": [
-            "Department of Theory and Methods of Teaching Philological Disciplines in Preschool, Primary and Special Education",
-            "Department of Theory and Methods of Teaching Natural Science and Mathematics Disciplines in Preschool, Primary and Special Education",
-            "Department of Primary and Vocational Education"
-          ]
-        },
-        {
-          "name": "Faculty of Preschool Education",
-          "departments": [
-            "Department of Theory, Technologies and Methods of Preschool Education",
-            "Department of Psychological and Pedagogical Anthropology",
-            "Department of Distance Learning Technologies and Digital Didactics in Preschool Education",
-            "Teaching Laboratory of the Department of Distance Learning Technologies and Digital Didactics in Preschool Education"
-          ]
-        },
-        {
-          "name": "Faculty of Arts",
-          "departments": [
-            "Department of Choreography",
-            "Department of Musical Art",
-            "Department of Design and Technologies",
-            "Department of Fine Arts"
-          ]
-        },
-        {
-          "name": "Faculty of Physical Culture and Sport",
-          "departments": [
-            "Department of Theory, Methods and Practice of Physical Education",
-            "Department of Olympic and Professional Sport, Sports Games and Tourism",
-            "Department of Sports and Pedagogical Disciplines and Fitness",
-            "Research Laboratory of Biophysics, Biomechanics and Kinesiology",
-            "Ski Base"
-          ]
-        },
-        {
-          "name": "Faculty of Foreign Philology",
-          "departments": [
-            "Department of English Philology",
-            "Department of General Linguistics and Romance-Germanic Philology",
-            "Department of English Oral and Written Speech Practice",
-            "Department of Oriental Languages"
-          ]
-        },
-        {
-          "name": "Faculty of Social Sciences and Humanities and Social Technologies",
-          "departments": [
-            "Department of Rehabilitation Psychology",
-            "Department of Developmental Psychology",
-            "Department of Political Science, Sociology and Cultural Studies",
-            "Department of Social Work and Social Pedagogy",
-            "Department of Management and Economics",
-            "Department of Philosophy named after Professor M. D. Kultaieva"
-          ]
-        }
-      ],
+      "title": "University structure",
+      "subtitle": "Institutes, faculties and departments, administrative units, centres, laboratories and collegiate bodies.",
+      "intro": "The structure of H.S. Skovoroda Kharkiv National Pedagogical University, together with the status and functions of its subdivisions, is defined by the University Statute and by the regulations on each subdivision. Subdivisions are established by decision of the Academic Council in the manner prescribed by the Law of Ukraine “On Higher Education” and by the Statute.",
       "administrationTitle": "University administration",
       "administrationAddress": "Kharkiv, 29 Alchevskykh St.",
       "administration": [
@@ -737,26 +633,29 @@
           "phone": "+38 (057) 700-69-09",
           "email": "rector{'@'}hnpu.edu.ua",
           "degree": "Doctor of Pedagogical Sciences, Professor, Corresponding Member of the NAES of Ukraine",
-          "photo": "/images/static/boichuk.jpg"
+          "photo": "/images/static/boichuk.jpg",
+          "profile": "https://sites.google.com/hnpu.edu.ua/boichuk"
         },
         {
-          "position": "First Vice-Rector",
-          "name": "Borysov Volodymyr Andriiovych",
-          "room": "Room 205",
-          "phone": "+38 (057) 700-34-97",
-          "email": "prorector_borysov{'@'}hnpu.edu.ua",
-          "photo": "/images/static/borisov.jpg"
-        },
-        {
-          "position": "Vice-Rector for Research, Innovation and International Affairs",
+          "position": "Vice-Rector for Research, Innovation and International Activity",
           "name": "Berezhna Svitlana Viktorivna",
           "room": "Room 208",
           "phone": "+38 (057) 717-10-36",
           "email": "prorector_berezhna{'@'}hnpu.edu.ua",
-          "photo": "/images/static/beregna.jpg"
+          "photo": "/images/static/beregna.jpg",
+          "profile": "https://sites.google.com/hnpu.edu.ua/berezhna/головна-сторінка"
         },
         {
-          "position": "Vice-Rector for Educational and Pedagogical Work",
+          "position": "Vice-Rector for Academic and Research Affairs",
+          "name": "Borysov Volodymyr Andriiovych",
+          "room": "Room 205",
+          "phone": "+38 (057) 700-34-97",
+          "email": "prorector_borysov{'@'}hnpu.edu.ua",
+          "photo": "/images/static/borisov.jpg",
+          "profile": "https://sites.google.com/hnpu.edu.ua/borisov/головна-сторінка"
+        },
+        {
+          "position": "Vice-Rector for Teaching and Student Affairs",
           "name": "Borysenko Nataliia Oleksiivna",
           "room": "Room 207",
           "phone": "+38 (057) 700-35-09",
@@ -764,7 +663,7 @@
           "photo": "/images/static/Borisenko.png"
         },
         {
-          "position": "Vice-Rector for Infrastructure Development",
+          "position": "Vice-Rector for Administration and Facilities",
           "name": "Chernik Tetiana Valentynivna",
           "room": "Room 203",
           "phone": "+38 (057) 700-35-22",
@@ -772,37 +671,22 @@
           "photo": "/images/static/Chernik.png"
         }
       ],
-      "administrative": "Administrative divisions",
-      "administrativeList": [
-        "General office",
-        "HR division",
-        "Legal division",
-        "Teaching and curriculum office",
-        "Academic secretary service",
-        "Accounting office",
-        "Publishing desk",
-        "Campus administration"
-      ],
-      "research": "Research centres and laboratories",
-      "researchList": [
-        "Centre for quality assurance of education",
-        "Centre for international education",
-        "Centre for digitalisation of education",
-        "Career centre",
-        "Inclusive education centre",
-        "Student veterans' development centre",
-        "Science labs in biotechnology, environmental monitoring, architecture, STEAM technologies"
-      ],
-      "services": "Services",
-      "servicesList": [
-        "Research library",
-        "Psychological service",
-        "Legal clinic",
-        "Museum complex",
-        "Health service"
-      ],
+      "personalPage": "Personal page (Google Site)",
       "linkToFaculties": "Full list of faculties and departments",
-      "linkToFacultiesUrl": "/university/faculties"
+      "linkToFacultiesUrl": "/university/faculties",
+      "administrationLink": "Rectorate: contacts and responsibilities",
+      "institutesTitle": "Institutes",
+      "facultiesTitle": "Faculties",
+      "tagInstitute": "Institute",
+      "tagFaculty": "Faculty",
+      "subdivisionsTitle": "Subdivisions",
+      "subdivisionsCount": "subdivisions",
+      "subdivisionsNote": "Departments, centres, museums and laboratories that form part of this unit. Subdivisions that run their own website open on that site.",
+      "ownWebsite": "Has its own website",
+      "visitOwnWebsite": "Go to the unit’s website",
+      "openUnit": "About this unit",
+      "backToStructure": "University structure",
+      "allUnits": "All institutes and faculties"
     },
     "faculties": {
       "tag": "Management",

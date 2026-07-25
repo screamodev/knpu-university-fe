@@ -7,8 +7,10 @@ const { t, localePath } = useSafeI18nWithRouter()
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
       <SharedSectionHeader :tag="t('sections.remembrance.tag')" :title="t('sections.remembrance.title')" />
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12">
-        <NuxtLink
-          :to="localePath('/university/memorial')"
+        <a
+          :href="MEMORIAL_EXTERNAL_URL"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group relative block overflow-hidden rounded-14 bg-gradient-to-br from-navy-mid to-navy-deep p-8 no-underline transition-all duration-280 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(27,46,75,0.14)] min-h-[220px]"
         >
           <svg
@@ -39,7 +41,7 @@ const { t, localePath } = useSafeI18nWithRouter()
               {{ t('sections.remembrance.memorial.cta') }} →
             </span>
           </div>
-        </NuxtLink>
+        </a>
         <NuxtLink
           :to="localePath('/university/wartime')"
           class="group relative block overflow-hidden rounded-14 bg-gradient-to-br from-navy-mid to-navy-deep p-8 no-underline transition-all duration-280 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(27,46,75,0.14)] min-h-[220px]"

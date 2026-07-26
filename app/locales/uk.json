@@ -264,7 +264,11 @@
     "author": "Автор",
     "attachments": "Вкладення",
     "download": "Завантажити",
-    "noArticles": "Статті не знайдено."
+    "noArticles": "Статті не знайдено.",
+    "prevPage": "Назад",
+    "nextPage": "Далі",
+    "pageInfo": "Сторінка {page} з {total}",
+    "articlesCount": "новин"
   },
   "facts": {
     "founded": "Рік заснування",
@@ -3676,7 +3680,7 @@
       },
       "pastTitle": "Минулі захисти",
       "tableYear": "Рік",
-      "tableCandidate": "Кандидат", 
+      "tableCandidate": "Кандидат",
       "tableTitle": "Назва дисертації",
       "tableSpecialty": "Спеціальність",
       "tableResult": "Рішення",

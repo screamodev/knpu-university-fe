@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { readItems } from '@directus/sdk'
+import { aggregate, readItems } from '@directus/sdk'
 import type { DirectusArticle } from '~/types/news'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
@@ -21,33 +21,106 @@ useHead({
   meta: [{ name: 'description', content: () => t('sections.news.title') }],
 })
 
-const selectedCategorySlug = ref<string | null>(null)
+const PAGE_SIZE = 12
+
+const route = useRoute()
+const router = useRouter()
+
+/**
+ * The page number lives in the URL so a listing page is shareable, crawlable and
+ * survives a reload — with 400+ migrated articles the archive is deep enough that
+ * "newest 12 only" hides most of it.
+ */
+const currentPage = computed(() => {
+  const raw = Number(Array.isArray(route.query.page) ? route.query.page[0] : route.query.page)
+  return Number.isFinite(raw) && raw >= 1 ? Math.floor(raw) : 1
+})
+
+const selectedCategorySlug = computed<string | null>(() => {
+  const raw = Array.isArray(route.query.category) ? route.query.category[0] : route.query.category
+  return raw ? String(raw) : null
+})
 
 const { data: categoriesData } = await useAsyncData('news-categories', () =>
   client.request(readItems('categories', { sort: ['name'] })),
 )
 const categories = computed(() => categoriesData.value ?? [])
 
-const { data: articlesData, pending } = useAsyncData(
+const articleFilter = computed(() =>
+  selectedCategorySlug.value ? { category: { slug: { _eq: selectedCategorySlug.value } } } : {},
+)
+
+const { data: articlesData, pending } = await useAsyncData(
   'news-listing',
-  () => {
-    const filter: { category?: { slug: { _eq: string } } } = {}
-    if (selectedCategorySlug.value) {
-      filter.category = { slug: { _eq: selectedCategorySlug.value } }
-    }
-    return client.request(
+  () =>
+    client.request(
       readItems('articles', {
         fields: ['*', { cover: ['*'] }, { category: ['*'] }],
         sort: ['-date_published'],
-        limit: 12,
-        ...(Object.keys(filter).length ? { filter } : {}),
+        limit: PAGE_SIZE,
+        offset: (currentPage.value - 1) * PAGE_SIZE,
+        ...(selectedCategorySlug.value ? { filter: articleFilter.value } : {}),
       }),
-    )
-  },
+    ),
+  { watch: [currentPage, selectedCategorySlug] },
+)
+
+const { data: totalData } = await useAsyncData(
+  'news-total',
+  () =>
+    client.request(
+      aggregate('articles', {
+        aggregate: { count: '*' },
+        ...(selectedCategorySlug.value ? { query: { filter: articleFilter.value } } : {}),
+      }),
+    ),
   { watch: [selectedCategorySlug] },
 )
 
 const articles = computed(() => articlesData.value ?? [])
+
+const totalArticles = computed(() => {
+  const raw = totalData.value?.[0]?.count
+  const parsed = typeof raw === 'string' ? Number(raw) : raw
+  return typeof parsed === 'number' && Number.isFinite(parsed) ? parsed : 0
+})
+
+const totalPages = computed(() => Math.max(1, Math.ceil(totalArticles.value / PAGE_SIZE)))
+
+/** Windowed page numbers: always first and last, plus neighbours of the current page. */
+const pageNumbers = computed<(number | 'gap')[]>(() => {
+  const total = totalPages.value
+  const current = currentPage.value
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
+
+  const pages = new Set<number>([1, total, current])
+  for (const offset of [-1, 1]) {
+    const page = current + offset
+    if (page > 1 && page < total) pages.add(page)
+  }
+  const sorted = [...pages].sort((a, b) => a - b)
+
+  const result: (number | 'gap')[] = []
+  sorted.forEach((page, index) => {
+    if (index > 0 && page - (sorted[index - 1] as number) > 1) result.push('gap')
+    result.push(page)
+  })
+  return result
+})
+
+function pageLink(page: number) {
+  const query: Record<string, string> = {}
+  if (selectedCategorySlug.value) query.category = selectedCategorySlug.value
+  if (page > 1) query.page = String(page)
+  return { path: localePath('/news'), query }
+}
+
+/** Changing the category always returns to page 1 — offsets do not carry over. */
+function selectCategory(slug: string | null) {
+  const query: Record<string, string> = {}
+  if (slug) query.category = slug
+  router.push({ path: localePath('/news'), query })
+}
 
 function formatDate(dateStr: string): string {
   return new Intl.DateTimeFormat(locale.value === 'uk' ? 'uk-UA' : 'en-US', {
@@ -101,7 +174,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
               ? 'bg-navy text-white border-navy'
               : 'bg-white text-navy border-border hover:border-navy'
           "
-          @click="selectedCategorySlug = null"
+          @click="selectCategory(null)"
         >
           {{ t('news.allCategories') }}
         </button>
@@ -114,7 +187,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
               ? 'bg-navy text-white border-navy'
               : 'bg-white text-navy border-border hover:border-navy'
           "
-          @click="selectedCategorySlug = category.slug"
+          @click="selectCategory(category.slug)"
         >
           {{ localized(category, 'name') }}
         </button>
@@ -185,6 +258,56 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
       <div v-else class="py-24 text-center text-text-muted">
         {{ t('news.noArticles') }}
       </div>
+
+      <!-- Pagination -->
+      <nav
+        v-if="totalPages > 1"
+        class="mt-12 flex flex-col items-center gap-4"
+        :aria-label="t('sections.news.title')"
+      >
+        <div class="flex flex-wrap items-center justify-center gap-1.5">
+          <NuxtLink
+            v-if="currentPage > 1"
+            :to="pageLink(currentPage - 1)"
+            class="px-3 py-1.5 rounded-10 text-sm font-medium text-navy border border-border no-underline transition-colors duration-280 hover:border-navy"
+            rel="prev"
+          >
+            ← {{ t('news.prevPage') }}
+          </NuxtLink>
+
+          <template v-for="(page, index) in pageNumbers" :key="`${page}-${index}`">
+            <span v-if="page === 'gap'" class="px-1.5 text-text-muted select-none">…</span>
+            <NuxtLink
+              v-else-if="page !== currentPage"
+              :to="pageLink(page)"
+              class="min-w-[2.25rem] text-center px-2.5 py-1.5 rounded-10 text-sm font-medium text-navy border border-border no-underline transition-colors duration-280 hover:border-navy"
+            >
+              {{ page }}
+            </NuxtLink>
+            <span
+              v-else
+              aria-current="page"
+              class="min-w-[2.25rem] text-center px-2.5 py-1.5 rounded-10 text-sm font-semibold text-white bg-navy border border-navy"
+            >
+              {{ page }}
+            </span>
+          </template>
+
+          <NuxtLink
+            v-if="currentPage < totalPages"
+            :to="pageLink(currentPage + 1)"
+            class="px-3 py-1.5 rounded-10 text-sm font-medium text-navy border border-border no-underline transition-colors duration-280 hover:border-navy"
+            rel="next"
+          >
+            {{ t('news.nextPage') }} →
+          </NuxtLink>
+        </div>
+
+        <p class="text-body-sm text-text-muted">
+          {{ t('news.pageInfo', { page: currentPage, total: totalPages }) }} ·
+          {{ totalArticles }} {{ t('news.articlesCount') }}
+        </p>
+      </nav>
     </div>
   </div>
 </template>

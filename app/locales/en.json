@@ -264,7 +264,11 @@
     "author": "Author",
     "attachments": "Attachments",
     "download": "Download",
-    "noArticles": "No articles found."
+    "noArticles": "No articles found.",
+    "prevPage": "Previous",
+    "nextPage": "Next",
+    "pageInfo": "Page {page} of {total}",
+    "articlesCount": "news items"
   },
   "facts": {
     "founded": "Year founded",

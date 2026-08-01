@@ -1,37 +1,54 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
 import type { DirectusArticle, RichTextBlock } from '~/types/news'
-import { normalizeArticleAttachment, resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
+import { partitionArticleAttachments, resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 const route = useRoute()
 const slug = route.params.slug as string
 
+/**
+ * Directus Live Preview opens this page with `?preview=<secret>` so editors can see a draft.
+ * The draft is not readable by the public role, so it comes from a server route holding a
+ * privileged token; the secret never unlocks anything on its own.
+ */
+const previewSecret = computed(() => {
+  const raw = Array.isArray(route.query.preview) ? route.query.preview[0] : route.query.preview
+  return raw ? String(raw) : ''
+})
+const isPreview = computed(() => previewSecret.value.length > 0)
+
 const { data } = await useAsyncData(
-  `directus-article-${locale.value}-${slug}`,
+  `directus-article-${locale.value}-${slug}${isPreview.value ? '-preview' : ''}`,
   () =>
-    client.request(
-      readItems('articles', {
-        filter: { slug: { _eq: slug } },
-        fields: ['*', { cover: ['*'] }, { category: ['*'] }, { attachments: [{ directus_files_id: ['*'] }] }],
-        limit: 1,
-      }),
-    ),
+    isPreview.value
+      ? $fetch<DirectusArticle>(`/api/preview/articles/${encodeURIComponent(slug)}`, {
+          query: { secret: previewSecret.value },
+        }).then(item => [item])
+      : client.request(
+          readItems('articles', {
+            filter: { slug: { _eq: slug } },
+            fields: [
+              '*',
+              { cover: ['*'] },
+              { categories: [{ categories_id: ['*'] }] },
+              { attachments: [{ directus_files_id: ['*'] }] },
+            ],
+            limit: 1,
+          }),
+        ),
 )
 
 const article = computed(() => data.value?.[0] ?? null)
+
+/** M2M — an article can carry several categories; all of them get a badge. */
+const categories = computed(() => articleCategories(article.value))
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found' })
@@ -64,18 +81,31 @@ function articlePublishedAt(a: DirectusArticle): string {
 }
 
 function articleCoverSrc(cover: DirectusArticle['cover']): string {
-  return resolveMediaSrc(cover, mediaResolvers)
+  return resolveMediaSrc(cover, mediaResolvers, HERO_COVER_TRANSFORM)
+}
+
+/** Crop anchor from the focal point an editor set on the file in Directus. */
+function coverPosition(cover: DirectusArticle['cover']): string {
+  return objectPositionFromFile(cover)
 }
 
 function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
   return resolveMediaAlt(cover, titleFallback)
 }
 
-const normalizedAttachments = computed(() => {
-  const list = article.value?.attachments
-  if (!list?.length) return []
-  return list.map((att) => normalizeArticleAttachment(att, mediaResolvers))
-})
+const partitionedAttachments = computed(() =>
+  partitionArticleAttachments(article.value?.attachments, mediaResolvers),
+)
+
+const photoAttachments = computed(() =>
+  partitionedAttachments.value.photos.map((photo) => ({
+    key: photo.key,
+    src: photo.href,
+    alt: photo.alt || photo.label,
+  })),
+)
+
+const fileAttachments = computed(() => partitionedAttachments.value.files)
 
 const localizedBody = computed(() => {
   const a = article.value
@@ -88,10 +118,19 @@ const localizedBody = computed(() => {
 
 <template>
   <div v-if="article" class="bg-white min-h-screen">
+    <!-- Draft preview marker: this page can show unpublished content -->
+    <div
+      v-if="isPreview"
+      class="bg-gold text-navy text-[11px] font-semibold tracking-wider uppercase text-center py-1.5"
+    >
+      {{ t('news.previewBanner') }}
+    </div>
+
     <!-- Hero cover -->
-    <div class="relative h-72 md:h-96 bg-navy overflow-hidden">
+    <div class="relative w-full h-[20rem] md:h-[26rem] lg:h-[32rem] bg-navy overflow-hidden">
       <img
         v-if="article.cover && articleCoverSrc(article.cover)"
+        :style="{ objectPosition: coverPosition(article.cover) }"
         :src="articleCoverSrc(article.cover)"
         :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
         class="w-full h-full object-cover"
@@ -105,10 +144,11 @@ const localizedBody = computed(() => {
       <!-- Overlay content -->
       <div class="absolute bottom-0 left-0 right-0 max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <span
-          v-if="article.category"
-          class="inline-block text-[11px] font-semibold tracking-wider uppercase text-gold mb-3"
+          v-for="category in categories"
+          :key="category.id"
+          class="inline-block text-[11px] font-semibold tracking-wider uppercase text-gold mb-3 mr-3"
         >
-          {{ localized(article.category, 'name') }}
+          {{ localized(category, 'name') }}
         </span>
         <h1 class="font-playfair text-2xl md:text-4xl font-bold text-white leading-snug max-w-3xl">
           {{ localized(article, 'title') }}
@@ -150,24 +190,36 @@ const localizedBody = computed(() => {
 
         <!-- Rich-text body -->
         <NewsMarkdownBody
-          v-if="localizedBody.kind === 'markdown'"
-          :markdown="localizedBody.source"
+          v-if="localizedBody.kind === 'markdown' || localizedBody.kind === 'html'"
+          :source="localizedBody.source"
+          :kind="localizedBody.kind"
         />
         <NewsRichText
           v-else-if="localizedBody.blocks.length"
           :blocks="localizedBody.blocks"
         />
 
-        <!-- Attachments -->
+        <!-- Photo gallery (carousel when multiple images) -->
         <div
-          v-if="normalizedAttachments.length"
+          v-if="photoAttachments.length"
+          class="mt-12 pt-8 border-t border-border"
+        >
+          <NewsImageCarousel
+            :images="photoAttachments"
+            :label="t('news.carousel.label')"
+          />
+        </div>
+
+        <!-- Non-image attachments -->
+        <div
+          v-if="fileAttachments.length"
           class="mt-12 pt-8 border-t border-border"
         >
           <h2 class="font-playfair text-xl font-semibold text-navy mb-4">
             {{ t('news.attachments') }}
           </h2>
           <ul class="space-y-2">
-            <li v-for="attachment in normalizedAttachments" :key="attachment.key">
+            <li v-for="attachment in fileAttachments" :key="attachment.key">
               <a
                 :href="attachment.href"
                 :download="attachment.downloadable ? attachment.label : undefined"

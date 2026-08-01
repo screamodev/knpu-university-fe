@@ -6,14 +6,8 @@ import { resolveMediaSrc } from '~/utils/directusMedia'
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 useHead({
@@ -133,7 +127,7 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
               :href="normalizeWebsiteUrl(partner.website) ?? '#'"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors no-underline"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-navy hover:text-gold transition-colors no-underline"
             >
               {{ t('partners.visitWebsite') }}
               <svg

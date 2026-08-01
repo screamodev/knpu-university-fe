@@ -119,7 +119,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
             <a
               v-if="item.kind === 'external'"
               :href="item.href"
-              class="text-body text-primary underline hover:text-primary-dark inline-flex items-center gap-1"
+              class="text-body text-navy underline hover:text-gold inline-flex items-center gap-1"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -132,7 +132,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
             <NuxtLink
               v-else
               :to="localePath(item.path)"
-              class="text-body text-primary underline hover:text-primary-dark"
+              class="text-body text-navy underline hover:text-gold"
             >
               {{ t(item.labelKey) }}
             </NuxtLink>
@@ -161,7 +161,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
               :href="order.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-semibold text-navy text-body underline hover:text-primary transition-colors"
+              class="font-semibold text-navy text-body underline hover:text-gold transition-colors"
             >
               {{ t(order.titleKey) }}
             </a>
@@ -184,7 +184,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
               :href="item.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-body text-text-muted underline hover:text-primary"
+              class="text-body text-text-muted underline hover:text-gold"
             >
               {{ t(item.textKey) }}
             </a>
@@ -202,7 +202,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
       </p>
       <a
         :href="mobilityUrl"
-        class="text-body text-primary underline hover:text-primary-dark inline-flex items-center gap-1"
+        class="text-body text-navy underline hover:text-gold inline-flex items-center gap-1"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -224,7 +224,7 @@ const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchod
         </p>
         <a
           :href="recruitingUrl"
-          class="text-body text-primary font-semibold underline hover:text-primary-dark inline-flex items-center gap-1"
+          class="text-body text-navy font-semibold underline hover:text-gold inline-flex items-center gap-1"
           target="_blank"
           rel="noopener noreferrer"
         >

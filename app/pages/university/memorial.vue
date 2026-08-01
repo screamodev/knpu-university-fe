@@ -9,15 +9,9 @@ definePageMeta({ layout: 'default' })
 await navigateTo(MEMORIAL_EXTERNAL_URL, { external: true, replace: true })
 
 const { t } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
+const { client } = useDirectus()
 const { localized } = useLocalizedField()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { mediaResolvers } = useMediaResolvers()
 
 useHead({
   title: () => t('nav.links.memorial'),

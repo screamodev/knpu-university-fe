@@ -76,7 +76,7 @@ const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
               {{ t('admissions.committee.contacts.email') }}
             </p>
             <a
-              class="text-body text-primary underline hover:text-primary-dark break-all"
+              class="text-body text-navy underline hover:text-gold break-all"
               :href="`mailto:${t('admissions.committee.contactsEmailValue')}`"
             >
               {{ t('admissions.committee.contactsEmailValue') }}
@@ -87,7 +87,7 @@ const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
               {{ t('admissions.committee.contacts.phone') }}
             </p>
             <a
-              class="text-body text-primary underline hover:text-primary-dark"
+              class="text-body text-navy underline hover:text-gold"
               :href="telHref(t('admissions.committee.contactsPhoneValue'))"
             >
               {{ t('admissions.committee.contactsPhoneValue') }}
@@ -127,7 +127,7 @@ const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
               {{ t(`admissions.committee.roles.${key}.role`) }}
             </p>
             <a
-              class="text-body-sm text-primary mt-1 inline-block underline hover:text-primary-dark"
+              class="text-body-sm text-navy mt-1 inline-block underline hover:text-gold"
               :href="telHref(t(`admissions.committee.roles.${key}.phone`))"
             >
               {{ t(`admissions.committee.roles.${key}.phone`) }}
@@ -146,7 +146,7 @@ const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
           <li v-for="item in documentLinks" :key="item.href">
             <a
               :href="item.href"
-              class="text-body text-primary underline hover:text-primary-dark inline-flex items-center gap-1"
+              class="text-body text-navy underline hover:text-gold inline-flex items-center gap-1"
               target="_blank"
               rel="noopener noreferrer"
             >

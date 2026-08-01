@@ -57,7 +57,7 @@ useHead({
             class="group flex items-center gap-3 py-2 px-4 bg-white border border-border rounded-12 transition-colors duration-280 hover:border-gold/60"
           >
             <span class="w-2 h-2 rounded-full bg-gold shrink-0" aria-hidden />
-            <span class="flex-1 text-body text-navy group-hover:text-primary">
+            <span class="flex-1 text-body text-navy group-hover:text-gold">
               {{ t('university.rectorate.headsOfDepartments') }}
             </span>
             <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>

@@ -70,7 +70,7 @@ const unitSections = computed(() => [
       <SharedLeadershipBoard class="mt-6" />
       <NuxtLink
         :to="localePath('/university/rectorate')"
-        class="mt-6 inline-flex items-center gap-2 text-primary font-medium hover:underline"
+        class="mt-6 inline-flex items-center gap-2 text-navy font-medium hover:underline"
       >
         {{ t('university.structure.administrationLink') }}
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -107,7 +107,7 @@ const unitSections = computed(() => [
                 :href="unit.external"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-4 inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                class="mt-4 inline-flex items-center gap-2 text-navy font-medium hover:underline"
               >
                 {{ t('university.structure.visitOwnWebsite') }}
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -138,7 +138,7 @@ const unitSections = computed(() => [
             <NuxtLink
               v-else-if="unit.slug"
               :to="localePath(`/university/structure/${unit.slug}`)"
-              class="mt-4 inline-flex items-center gap-2 text-primary font-medium hover:underline"
+              class="mt-4 inline-flex items-center gap-2 text-navy font-medium hover:underline"
             >
               {{ t('university.structure.openUnit') }}
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -189,7 +189,7 @@ const unitSections = computed(() => [
       <div class="pt-8 border-t border-border">
         <NuxtLink
           :to="localePath(t('university.structure.linkToFacultiesUrl'))"
-          class="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+          class="inline-flex items-center gap-2 text-navy font-medium hover:underline"
         >
           {{ t('university.structure.linkToFaculties') }}
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>

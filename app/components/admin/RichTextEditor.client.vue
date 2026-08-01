@@ -137,14 +137,17 @@ function triggerImageUpload(): void {
 
 async function handleImageUpload(event: Event): Promise<void> {
   const input = event.target as HTMLInputElement
-  const file = input.files?.[0]
-  if (!file || !editor.value) return
+  const files = input.files
+  if (!files || files.length === 0 || !editor.value) return
 
   uploading.value = true
   try {
-    const image = await uploadFile(file)
-    const src = assetUrl(image) ?? image.url ?? ''
-    editor.value.chain().focus().setImage({ src, alt: image.alternativeText ?? '' }).run()
+    for (const file of Array.from(files)) {
+      const image = await uploadFile(file)
+      const src = assetUrl(image) ?? image.url ?? ''
+      if (!src) continue
+      editor.value.chain().focus().setImage({ src, alt: image.alternativeText ?? '' }).run()
+    }
   } catch {
     // Toast handled by caller if needed
   } finally {
@@ -249,6 +252,7 @@ async function handleImageUpload(event: Event): Promise<void> {
       ref="fileInputRef"
       type="file"
       accept="image/*"
+      multiple
       class="hidden"
       @change="handleImageUpload"
     />

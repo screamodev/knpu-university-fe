@@ -1,31 +1,44 @@
 <script setup lang="ts">
 import { slugifyUkrainian } from '~/utils/slugify'
 
-const props = defineProps<{
-  modelValue: string
-  sourceText: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    modelValue: string
+    sourceText: string
+    /** When true, keep auto-mode even if an initial slug already exists. */
+    forceAuto?: boolean
+  }>(),
+  { forceAuto: false },
+)
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
 
-const autoMode = ref(true)
+const autoMode = ref(props.forceAuto || !props.modelValue.trim())
 
-watch(() => props.sourceText, (text) => {
-  if (autoMode.value) {
-    emit('update:modelValue', slugifyUkrainian(text))
-  }
-})
+function syncFromSource(text: string): void {
+  if (!autoMode.value) return
+  emit('update:modelValue', slugifyUkrainian(text))
+}
 
-function toggleAutoMode() {
+watch(
+  () => props.sourceText,
+  (text) => {
+    syncFromSource(text)
+  },
+  { immediate: true },
+)
+
+function toggleAutoMode(): void {
   autoMode.value = !autoMode.value
   if (autoMode.value) {
-    emit('update:modelValue', slugifyUkrainian(props.sourceText))
+    syncFromSource(props.sourceText)
   }
 }
 
-function onInput(event: Event) {
+function onInput(event: Event): void {
+  autoMode.value = false
   const value = (event.target as HTMLInputElement).value
   emit('update:modelValue', value)
 }

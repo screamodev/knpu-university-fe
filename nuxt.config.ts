@@ -13,6 +13,13 @@ export default defineNuxtConfig({
      * If unset, `public.directusUrl` is used everywhere.
      */
     directusServerUrl: env.NUXT_DIRECTUS_SERVER_URL || '',
+    /**
+     * Directus live preview. The editor opens `/news/<slug>?preview=<secret>` in an iframe;
+     * the server route checks the secret and reads the draft with a read-only Directus token.
+     * Both stay server-side — a draft must never be reachable from the browser alone.
+     */
+    previewSecret: env.NUXT_PREVIEW_SECRET || '',
+    directusPreviewToken: env.NUXT_DIRECTUS_PREVIEW_TOKEN || '',
     public: {
       directusUrl:
         env.NUXT_PUBLIC_DIRECTUS_URL ||

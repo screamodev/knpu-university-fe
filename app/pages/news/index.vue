@@ -6,14 +6,8 @@ import { resolveMediaSrc } from '~/utils/directusMedia'
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 useHead({
@@ -47,7 +41,9 @@ const { data: categoriesData } = await useAsyncData('news-categories', () =>
 const categories = computed(() => categoriesData.value ?? [])
 
 const articleFilter = computed(() =>
-  selectedCategorySlug.value ? { category: { slug: { _eq: selectedCategorySlug.value } } } : {},
+  selectedCategorySlug.value
+    ? { categories: { categories_id: { slug: { _eq: selectedCategorySlug.value } } } }
+    : {},
 )
 
 const { data: articlesData, pending } = await useAsyncData(
@@ -55,7 +51,7 @@ const { data: articlesData, pending } = await useAsyncData(
   () =>
     client.request(
       readItems('articles', {
-        fields: ['*', { cover: ['*'] }, { category: ['*'] }],
+        fields: ['*', { cover: ['*'] }, { categories: [{ categories_id: ['*'] }] }],
         sort: ['-date_published'],
         limit: PAGE_SIZE,
         offset: (currentPage.value - 1) * PAGE_SIZE,
@@ -134,8 +130,20 @@ function articlePublishedAt(article: DirectusArticle): string {
   return article.date_published ?? article.publishedAt ?? article.date_created ?? ''
 }
 
+/** An article can sit in several categories — the card lists them on one line. */
+function categoryNames(article: DirectusArticle): string {
+  return articleCategories(article)
+    .map((category) => localized(category, 'name'))
+    .join(' · ')
+}
+
 function articleCoverSrc(cover: DirectusArticle['cover']): string {
-  return resolveMediaSrc(cover, mediaResolvers)
+  return resolveMediaSrc(cover, mediaResolvers, CARD_COVER_TRANSFORM)
+}
+
+/** Crop anchor from the focal point an editor set on the file in Directus. */
+function coverPosition(cover: DirectusArticle['cover']): string {
+  return objectPositionFromFile(cover)
 }
 
 function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
@@ -222,8 +230,10 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
               v-if="article.cover && articleCoverSrc(article.cover)"
+              :style="{ objectPosition: coverPosition(article.cover) }"
               :src="articleCoverSrc(article.cover)"
               :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
+              loading="lazy"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div
@@ -241,7 +251,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           <!-- Card body -->
           <div class="p-5 flex flex-col flex-1">
             <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-2">
-              {{ article.category ? localized(article.category, 'name') : '' }}
+              {{ categoryNames(article) }}
             </div>
             <div class="font-playfair text-[16px] font-semibold text-navy leading-snug flex-1 mb-3">
               {{ localized(article, 'title') }}

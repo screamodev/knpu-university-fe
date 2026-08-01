@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { readItems } from '@directus/sdk'
+import { STRUCTURE_FACULTIES, STRUCTURE_INSTITUTES, type StructureUnit } from '~/utils/structure'
+import { structureUnitManifest } from '~/utils/structureContent'
 
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
-const { client } = useDirectus()
+/**
+ * "Факультети та кафедри": every institute and faculty with its head and its full list of
+ * subdivisions, on one page.
+ *
+ * Built from `structure.ts` (the 30.06.2026 chart) and the migrated contact block, not from the
+ * Directus `faculties` collection — that collection holds two invented demo rows and no longer
+ * matches the official structure.
+ */
+const { t, localePath } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
 useHead({
@@ -12,32 +20,22 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.faculties.subtitle') }],
 })
 
-const { data: facultiesData } = await useAsyncData('faculties-list', () =>
-  client.request(
-    readItems('faculties', {
-      fields: [
-        'id',
-        'name',
-        'nameEn',
-        'dean',
-        'deanEn',
-        'departmentsCount',
-        'studentsCount',
-        'order',
-        { departments: ['id', 'name', 'nameEn', 'order'] },
-      ],
-      sort: ['order'],
-      filter: { status: { _eq: 'published' } },
-      deep: {
-        departments: {
-          _sort: ['order'],
-        },
-      },
-    }),
-  ),
-)
+const sections = computed(() => [
+  { titleKey: 'university.structure.institutesTitle', units: STRUCTURE_INSTITUTES },
+  { titleKey: 'university.structure.facultiesTitle', units: STRUCTURE_FACULTIES },
+])
 
-const faculties = computed(() => facultiesData.value ?? [])
+function headOf(unit: StructureUnit): { name: string; title: string } | null {
+  const contacts = unit.slug ? structureUnitManifest(unit.slug)?.contacts : undefined
+  const name = contacts ? localized(contacts, 'dean') : ''
+  if (!name) return null
+  return {
+    name,
+    title: unit.kind === 'institute'
+      ? t('university.structure.unit.directorTitle')
+      : t('university.structure.unit.deanTitle'),
+  }
+}
 </script>
 
 <template>
@@ -57,43 +55,88 @@ const faculties = computed(() => facultiesData.value ?? [])
       </div>
     </div>
 
-    <!-- Intro -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl">
+      <p class="text-body text-text-muted max-w-3xl mb-2">
         {{ t('university.faculties.intro') }}
       </p>
-    </div>
+      <p class="text-body-sm text-text-muted mb-12">
+        {{ t('university.structure.asOf') }}
+      </p>
 
-    <!-- Faculty cards: bg-off-white, gold left border, department list -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-      <div class="flex flex-col gap-6">
-        <article
-          v-for="faculty in faculties"
-          :key="faculty.id"
-          class="bg-off-white border border-border rounded-16 p-6 lg:p-8 border-l-4 border-l-gold"
-        >
-          <div class="mb-4">
-            <h2 class="font-playfair text-xl font-bold text-navy mb-2">
-              {{ localized(faculty, 'name') }}
-            </h2>
-            <p v-if="localized(faculty, 'dean')" class="text-body-sm text-text-muted">
-              {{ t('university.faculties.dean') }}: {{ localized(faculty, 'dean') }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ faculty.departmentsCount }} {{ t('university.faculties.departmentsCount') }} ·
-              {{ faculty.studentsCount }} {{ t('university.faculties.studentsCount') }}
-            </p>
-          </div>
-          <ul v-if="faculty.departments?.length" class="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-            <li
-              v-for="department in faculty.departments"
-              :key="department.id"
-              class="text-body-sm text-text-muted pl-4 border-l-2 border-slate-200"
+      <div class="flex flex-col gap-12">
+        <section v-for="section in sections" :key="section.titleKey">
+          <h2 class="font-playfair text-xl font-bold text-navy mb-6">
+            {{ t(section.titleKey) }}
+          </h2>
+
+          <div class="flex flex-col gap-6">
+            <article
+              v-for="unit in section.units"
+              :key="unit.name"
+              class="bg-off-white border border-border border-l-4 border-l-gold rounded-16 p-6 lg:p-8"
             >
-              {{ localized(department, 'name') }}
-            </li>
-          </ul>
-        </article>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div class="min-w-0">
+                  <h3 class="font-playfair text-lg font-bold text-navy">
+                    {{ localized(unit, 'name') }}
+                  </h3>
+                  <p v-if="headOf(unit)" class="text-body-sm text-text-muted mt-1">
+                    {{ headOf(unit)!.title }}: {{ headOf(unit)!.name }}
+                  </p>
+                  <p v-if="localized(unit, 'summary')" class="text-body-sm text-text-muted mt-2 max-w-3xl">
+                    {{ localized(unit, 'summary') }}
+                  </p>
+                </div>
+
+                <a
+                  v-if="unit.external"
+                  :href="unit.external"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="shrink-0 inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:text-gold transition-colors duration-280"
+                >
+                  {{ t('university.structure.visitOwnWebsite') }}
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                    <path d="M7 17L17 7M17 7H8m9 0v9" />
+                  </svg>
+                </a>
+                <NuxtLink
+                  v-else-if="unit.slug"
+                  :to="localePath(`/university/structure/${unit.slug}`)"
+                  class="shrink-0 inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:text-gold transition-colors duration-280"
+                >
+                  {{ t('university.structure.openUnit') }}
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </NuxtLink>
+              </div>
+
+              <ul
+                v-if="unit.items.length"
+                class="mt-5 pt-5 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-none p-0"
+              >
+                <li
+                  v-for="item in unit.items"
+                  :key="item.name"
+                  class="text-body-sm text-text-muted pl-4 border-l-2 border-border"
+                >
+                  <a
+                    v-if="item.external"
+                    :href="item.external"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-navy no-underline hover:text-gold transition-colors duration-280"
+                  >
+                    {{ localized(item, 'name') }}
+                    <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+                  </a>
+                  <template v-else>{{ localized(item, 'name') }}</template>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
       </div>
     </div>
   </div>

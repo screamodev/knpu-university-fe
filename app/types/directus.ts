@@ -16,12 +16,11 @@ export interface DirectusSchema {
   education_schedule_key_dates: DirectusEducationScheduleKeyDate[]
   education_schedule_periods: DirectusEducationSchedulePeriod[]
   events: DirectusEvent[]
-  faculties: DirectusFaculty[]
   financial_reports: DirectusFinancialReport[]
-  faculty_departments: DirectusFacultyDepartment[]
   gallery_categories: DirectusGalleryCategory[]
   gallery_items: DirectusGalleryItem[]
   memorial_entries: DirectusMemorialEntry[]
+  newspaper_issues: DirectusNewspaperIssue[]
   partners: DirectusPartner[]
   programmes: DirectusProgramme[]
   prozorro_procurements: DirectusProzorroProcurement[]
@@ -206,8 +205,16 @@ export interface DirectusArticle {
   date_updated: string
   /** Legacy field name; use `date_updated`. */
   updatedAt?: string
-  category: DirectusCategory | string | null
+  /** M2M → `categories` through `articles_categories`; expanded or junction rows. */
+  categories: (DirectusCategory | DirectusArticleCategoryLink | string)[] | null
   status?: DirectusContentStatus
+}
+
+/** Junction row shape for the `articles_categories` M2M. */
+export interface DirectusArticleCategoryLink {
+  id?: number
+  articles_id?: string
+  categories_id?: string | DirectusCategory
 }
 
 /** Junction row shape when M2M is queried without deep expansion (optional). */
@@ -296,28 +303,6 @@ export interface DirectusGalleryItem {
   status?: DirectusContentStatus
 }
 
-export interface DirectusFacultyDepartment {
-  id: string
-  faculty: DirectusFaculty | string | null
-  name: string
-  nameEn: string | null
-  order: number
-}
-
-export interface DirectusFaculty {
-  id: string
-  name: string
-  nameEn: string | null
-  slug: string
-  dean: string | null
-  deanEn: string | null
-  departmentsCount: number
-  studentsCount: number
-  order: number
-  departments?: DirectusFacultyDepartment[]
-  status?: DirectusContentStatus
-}
-
 export interface DirectusPartner {
   id: string
   slug: string
@@ -402,6 +387,23 @@ export interface DirectusAdmissionExamProgram {
   description: string | null
   descriptionEn: string | null
   programmeFile: DirectusFile | string | null
+  order: number
+}
+
+/** One issue of the university newspaper «Учитель»; the site composes the label itself. */
+export interface DirectusNewspaperIssue {
+  id: string
+  status?: DirectusContentStatus
+  /** As printed on the issue: `7`, `8-9`. */
+  number: string
+  /** Continuous number shown in brackets: `360`, `349-350`. */
+  serial: string
+  /** First day of the issue's month — drives sorting and the year filter. */
+  issueDate: DirectusDateLike
+  title: string | null
+  titleEn: string | null
+  pdfFile: DirectusFile | string | null
+  cover: DirectusFile | string | null
   order: number
 }
 

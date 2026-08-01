@@ -12,6 +12,9 @@ services:
     environment:
       NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
       NUXT_DIRECTUS_SERVER_URL: ${NUXT_DIRECTUS_SERVER_URL}
+      # Directus live preview of drafts; leave empty to disable the preview route.
+      NUXT_PREVIEW_SECRET: ${NUXT_PREVIEW_SECRET:-}
+      NUXT_DIRECTUS_PREVIEW_TOKEN: ${NUXT_DIRECTUS_PREVIEW_TOKEN:-}
     networks:
       - webnet
     healthcheck:

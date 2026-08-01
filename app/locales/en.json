@@ -179,10 +179,12 @@
     "subtitle": "A university that educates future teachers and researchers in the spirit of freedom, humanism and a lasting love of knowledge.",
     "ctaApply": "Apply",
     "ctaAbout": "About the university",
-    "statYears": "Years of\ntradition",
-    "statStudents": "Students\nenrolled",
-    "statJournals": "Academic\njournals",
-    "statPrograms": "Specialties\nand programmes"
+    "statGraduatesValue": "250,000",
+    "statGraduatesLabel": "Graduates",
+    "statSpecialtiesValue": "30",
+    "statSpecialtiesLabel": "Specialties",
+    "statProgramsValue": "50",
+    "statProgramsLabel": "Educational\nprogrammes"
   },
   "quickAccess": {
     "label": "Quick access",
@@ -264,11 +266,21 @@
     "author": "Author",
     "attachments": "Attachments",
     "download": "Download",
+    "carousel": {
+      "label": "News photos",
+      "role": "carousel",
+      "prev": "Previous photo",
+      "next": "Next photo",
+      "dots": "Photo pagination",
+      "goTo": "Go to photo {n}",
+      "status": "Photo {current} of {total}"
+    },
     "noArticles": "No articles found.",
     "prevPage": "Previous",
     "nextPage": "Next",
     "pageInfo": "Page {page} of {total}",
-    "articlesCount": "news items"
+    "articlesCount": "news items",
+    "previewBanner": "Preview — draft, not published"
   },
   "facts": {
     "founded": "Year founded",
@@ -468,41 +480,11 @@
       "title": "\"Uchitel\" newspaper",
       "subtitle": "The official serial publication of H. S. Skovoroda Kharkiv National Pedagogical University.",
       "aboutText1": "\"Uchitel\" is a mass‑circulation paper covering university life and news: educational initiatives, research achievements, cultural events, and voices from staff, students, and graduates.",
-      "aboutText2": "Electronic editions of recent issues are available for download. The full archive of past issues is preserved on the university's official website.",
-      "issuesTitle": "Latest issues",
-      "archiveCta": "View full archive",
-      "issues": {
-        "1": {
-          "number": "Issue",
-          "date": "March 2026",
-          "description": "Published 29 April 2026. Electronic edition available for download."
-        },
-        "2": {
-          "number": "Issue",
-          "date": "February 2026",
-          "description": "Published 30 March 2026. Electronic edition available for download."
-        },
-        "3": {
-          "number": "Issue",
-          "date": "January 2026",
-          "description": "Published 3 March 2026. Electronic edition available for download."
-        },
-        "4": {
-          "number": "Issue",
-          "date": "December 2025",
-          "description": "Published 24 December 2025. Electronic edition available for download."
-        },
-        "5": {
-          "number": "Issue",
-          "date": "Archive issues",
-          "description": "Earlier issues are available via the «Uchitel newspaper archive» link."
-        },
-        "6": {
-          "number": "Issue",
-          "date": "—",
-          "description": "—"
-        }
-      }
+      "aboutText2": "Every issue is available to download below — the archive covers 2015 to the present.",
+      "issuesTitle": "Issue archive",
+      "filterAll": "All years",
+      "download": "Download PDF",
+      "noIssues": "No issues for this year yet."
     },
     "rectorate": {
       "tag": "Management",
@@ -695,87 +677,38 @@
       "administrativeTitle": "Administrative subdivisions and services",
       "administrativeNote": "Subdivisions are listed by the member of the rectorate they report to, as in the organisational chart.",
       "associationsTitle": "«Skovoroda associations»",
-      "associationsNote": "Collegiate, working and advisory bodies, research and methodological laboratories, centres and student organisations operating on a voluntary basis."
+      "associationsNote": "Collegiate, working and advisory bodies, research and methodological laboratories, centres and student organisations operating on a voluntary basis.",
+      "unit": {
+        "tabs": {
+          "home": "Overview",
+          "admission": "Admissions",
+          "structure": "Structure",
+          "history": "History",
+          "education": "Education",
+          "science": "Research",
+          "students": "Student life",
+          "news": "News",
+          "cooperation": "Cooperation"
+        },
+        "contactsTitle": "Contacts",
+        "deanTitle": "Dean",
+        "directorTitle": "Director",
+        "addressLabel": "Address",
+        "phoneLabel": "Phone",
+        "emailLabel": "Email",
+        "socialsTitle": "Social media",
+        "documentsTitle": "Useful links and documents",
+        "newsEmpty": "There are no news items for this unit yet.",
+        "newsAll": "All university news",
+        "translationPending": "The English version of this page is still being prepared — the Ukrainian text is shown below.",
+        "sourceNote": "Migrated from the university's former website."
+      }
     },
     "faculties": {
       "tag": "Management",
       "title": "Faculties and departments",
       "subtitle": "Faculty structure, deans and list of departments at KhNPU.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "dean": "Dean",
-      "departmentsCount": "Departments",
-      "studentsCount": "Students",
-      "facultiesList": {
-        "f1": {
-          "name": "Faculty of Education",
-          "dean": "Olena Kovalenko",
-          "departments": [
-            "Department of Pedagogy and Psychology",
-            "Department of Primary Education",
-            "Department of Preschool Education",
-            "Department of Social Pedagogy"
-          ],
-          "departmentsNum": "4",
-          "students": "1 200"
-        },
-        "f2": {
-          "name": "Faculty of History",
-          "dean": "Andriy Melnyk",
-          "departments": [
-            "Department of History of Ukraine",
-            "Department of World History",
-            "Department of Archaeology and Museology"
-          ],
-          "departmentsNum": "3",
-          "students": "450"
-        },
-        "f3": {
-          "name": "Faculty of Philology",
-          "dean": "Maria Sydorenko",
-          "departments": [
-            "Department of Ukrainian Language",
-            "Department of Ukrainian Literature",
-            "Department of Foreign Languages",
-            "Department of Journalism"
-          ],
-          "departmentsNum": "4",
-          "students": "890"
-        },
-        "f4": {
-          "name": "Faculty of Natural Sciences",
-          "dean": "Dmytro Tkachenko",
-          "departments": [
-            "Department of Mathematics",
-            "Department of Physics",
-            "Department of Chemistry",
-            "Department of Biology",
-            "Department of Geography"
-          ],
-          "departmentsNum": "5",
-          "students": "620"
-        },
-        "f5": {
-          "name": "Faculty of Arts",
-          "dean": "Kateryna Bondarenko",
-          "departments": [
-            "Department of Music",
-            "Department of Visual Arts",
-            "Department of Choreography"
-          ],
-          "departmentsNum": "3",
-          "students": "380"
-        },
-        "f6": {
-          "name": "Faculty of Physical Culture",
-          "dean": "Yurii Shevchenko",
-          "departments": [
-            "Department of Theory and Methods of Physical Education",
-            "Department of Sport Games"
-          ],
-          "departmentsNum": "2",
-          "students": "410"
-        }
-      }
+      "intro": "Teaching and research are organised across three educational and research institutes and eight faculties, made up of departments, laboratories, centres and museums. Units that run their own website open in a new tab."
     },
     "press": {
       "tag": "Management",
@@ -2971,28 +2904,44 @@
           "director": "Director: Dr Ivanenko O.M.",
           "founded": "1991",
           "description": "Large-scale projects in pedagogy, inclusive education and teacher professional development.",
-          "focus": ["f1", "f2", "f3"]
+          "focus": [
+            "f1",
+            "f2",
+            "f3"
+          ]
         },
         "i2": {
           "name": "Laboratory of Cognitive Research",
           "director": "Head: Dr Petrenko T.V.",
           "founded": "2005",
           "description": "Experimental studies in cognition, learning processes and educational assessment.",
-          "focus": ["f4", "f5", "f6"]
+          "focus": [
+            "f4",
+            "f5",
+            "f6"
+          ]
         },
         "i3": {
           "name": "Centre for Philological Studies",
           "director": "Director: Dr Sydorenko M.P.",
           "founded": "1998",
           "description": "Philology, literary theory and language teaching methodology in Ukrainian and foreign languages.",
-          "focus": ["f7", "f8", "f9"]
+          "focus": [
+            "f7",
+            "f8",
+            "f9"
+          ]
         },
         "i4": {
           "name": "Research Institute of Science Education",
           "director": "Director: Dr Bondarenko A.S.",
           "founded": "1992",
           "description": "STEM education research, environmental chemistry and biology education innovation.",
-          "focus": ["f10", "f11", "f12"]
+          "focus": [
+            "f10",
+            "f11",
+            "f12"
+          ]
         }
       },
       "focusLabels": {
@@ -3286,19 +3235,43 @@
       "sections": {
         "general": {
           "title": "General requirements",
-          "items": ["item1", "item2", "item3", "item4", "item5"]
+          "items": [
+            "item1",
+            "item2",
+            "item3",
+            "item4",
+            "item5"
+          ]
         },
         "formatting": {
           "title": "Formatting",
-          "items": ["fmt1", "fmt2", "fmt3", "fmt4", "fmt5"]
+          "items": [
+            "fmt1",
+            "fmt2",
+            "fmt3",
+            "fmt4",
+            "fmt5"
+          ]
         },
         "citation": {
           "title": "Citation style",
-          "items": ["cit1", "cit2", "cit3", "cit4", "cit5"]
+          "items": [
+            "cit1",
+            "cit2",
+            "cit3",
+            "cit4",
+            "cit5"
+          ]
         },
         "submission": {
           "title": "Submission process",
-          "items": ["sub1", "sub2", "sub3", "sub4", "sub5"]
+          "items": [
+            "sub1",
+            "sub2",
+            "sub3",
+            "sub4",
+            "sub5"
+          ]
         }
       },
       "generalItems": {
@@ -3614,7 +3587,11 @@
           "chairman": "Ivanenko O.M.",
           "secretary": "Sydorenko M.P.",
           "members": "15",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b2": {
           "name": "Philology",
@@ -3622,7 +3599,11 @@
           "chairman": "Petrenko T.V.",
           "secretary": "Melnyk V.O.",
           "members": "12",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b3": {
           "name": "History and Archaeology",
@@ -3630,7 +3611,11 @@
           "chairman": "Bondarenko A.S.",
           "secretary": "Kovalenko O.S.",
           "members": "11",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b4": {
           "name": "Natural Sciences",
@@ -3638,7 +3623,11 @@
           "chairman": "Hrytsenko D.V.",
           "secretary": "Tkachenko I.V.",
           "members": "14",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         }
       },
       "chairmanLabel": "Chairman",

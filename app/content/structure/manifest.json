@@ -1,0 +1,196 @@
+{
+  "arts": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-mystectv",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "students"
+    ],
+    "contacts": {
+      "dean": "Фомін Володимир Вікторович",
+      "deanUrl": "https://sites.google.com/view/fominv/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "position": "доктор педагогічних наук, професор",
+      "address": "61166, м. Харків, пров. Фанінський, 3-в, (станція метро «Наукова»)",
+      "phone": "+38 (066) 200 81 91",
+      "email": "faculty-arts@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/people/%D0%A4%D0%B0%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D0%B5%D1%82-%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%86%D1%82%D0%B2/pfbid0SvwSFkHJYQAEvFoUZ6HKzThPQNmTSq9Dh2otfMqLLicdSwEMzGR2QWMPN6zJHeGBl/",
+      "instagram": "https://www.instagram.com/art17hnpu/"
+    }
+  },
+  "foreign-philology": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/fac-inoz-fil",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Корнільєва Лілія Миколаївна",
+      "address": "61168, Харків, вул. Валентинiвська (Блюхера), 2, кор. В, к. 503",
+      "phone": "(0572) 68-61-38",
+      "email": "faculty-foreign-philology@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/1714845055201143/?ref=share",
+      "instagram": "https://instagram.com/in.yaz_hnpu?igshid=uelazxphhbpp"
+    }
+  },
+  "history-law": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-istoriyi-i-prava",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Людмила Дмитрівна Зеленська",
+      "deanUrl": "https://www.kaf-pedagogy-hnpu.com/zelenska",
+      "position": "доктор педагогічних наук, професор, професор кафедри освітології та інноваційної педагогіки",
+      "address": "380992795342 е-mаil: faculty_history_law@hnpu.edu.ua",
+      "phone": "+380992795342",
+      "email": "faculty_history_law@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/5278599615588908/?ref=share",
+      "instagram": "https://instagram.com/faculty_history_law?igshid=YmMyMTA2M2Y="
+    }
+  },
+  "mathematics-informatics": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fizyko-matematychnyy-fakultet",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "structure",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Пономарьова Наталія Олександрівна",
+      "deanUrl": "https://hnpu.edu.ua/uk/ponomarova-nataliya-oleksandrivna",
+      "position": "доктор педагогічних наук, професор , професор кафедри інформатики",
+      "address": "61168, Україна.",
+      "email": "fizmat_hnpu@ukr.net",
+      "facebook": "https://www.facebook.com/fizmatHNPU/"
+    }
+  },
+  "physical-education": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/fac-fizvosp",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Коробейнік Віталій Анатолійович",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/korobeinik",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, навчально-спортивний комплекс, к. 131",
+      "phone": "(0572) 68-06-13",
+      "email": "faculty-sport@hnpu.edu.ua"
+    }
+  },
+  "preschool": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Тетяна Петрівна Танько",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/tanko/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "position": "доктор педагогічних наук, професор",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, к. 212-В",
+      "phone": "(0572) 68-48-83",
+      "email": "faculty-pre-school@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/1352145248216025/",
+      "instagram": "https://www.instagram.com/doshfak_hnpu_/"
+    }
+  },
+  "social-humanities": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-socialnyh-i-povedinkovyh-nauk",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Денисенко Ірина Дмитрівна",
+      "deanUrl": "https://hnpu.edu.ua/uk/denysenko-iryna-dmytrivna",
+      "position": "доктор філософських наук, професор",
+      "address": "61166, м. Харків, вул. Чернишевська, 60",
+      "phone": "+380669987368",
+      "email": "faculty-psychology-sociology@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/202724270257499",
+      "instagram": "https://www.instagram.com/psych.soc_skovoroda/?hl=ru"
+    }
+  },
+  "special-education": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/fac-prirodn",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Микитюк Сергій Олександрович",
+      "deanUrl": "https://hnpu.edu.ua/uk/mykytyuk-sergiy-oleksandrovych",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 224",
+      "phone": "(0572) 67-69-92",
+      "email": "faculty-natyral@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/1808806579380082/"
+    }
+  },
+  "ukrainian-philology": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/ukrayinskyy-movno-literaturnyy-fakultet-imeni-gf-kvitky-osnovyanenka",
+    "capturedAt": "2026-08-01",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students"
+    ],
+    "contacts": {
+      "dean": "Костянтин Юрійович Голобородько",
+      "deanUrl": "https://hnpu.edu.ua/uk/goloborodko-kostyantyn-yuriyovych",
+      "position": "доктор філологічних наук, професор",
+      "address": "61168, м.Харків, вул. Валентинiвська (Блюхера) , 2, кор. А, к. 202",
+      "phone": "(0572) 68-11-74",
+      "email": "faculty-ukrainian@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/umlf.hnpu",
+      "instagram": "https://www.instagram.com/umlf_khnpu/"
+    }
+  }
+}

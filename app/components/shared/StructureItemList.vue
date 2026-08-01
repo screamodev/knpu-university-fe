@@ -29,7 +29,7 @@ const items = computed(() => props.items ?? [])
         :class="nested ? 'text-body-sm' : 'text-body'"
       >
         <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" aria-hidden />
-        <span class="flex-1 text-navy group-hover:text-primary">
+        <span class="flex-1 text-navy group-hover:text-navy">
           {{ localized(item, 'name') }}
           <span class="block text-body-sm text-text-muted">
             {{ t('university.structure.ownWebsite') }}

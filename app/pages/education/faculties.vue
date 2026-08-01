@@ -53,16 +53,13 @@ const sections = computed(() => [
             {{ t(section.titleKey) }}
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- No cover art exists for the units, so the card is text-only: an empty
+                 4:3 placeholder was most of the card's height and said nothing. -->
             <article
               v-for="unit in section.units"
               :key="unit.name"
-              class="bg-white border border-border rounded-14 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
+              class="bg-white border border-border border-t-4 border-t-gold rounded-14 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
             >
-              <div
-                class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
-              >
-                <div class="repeating-diagonal-pattern w-full h-full opacity-30" aria-hidden />
-              </div>
               <div class="p-5 flex flex-col flex-1">
                 <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
                   {{ localized(unit, 'name') }}
@@ -79,7 +76,7 @@ const sections = computed(() => [
                   :href="unit.external"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-primary font-medium hover:underline"
+                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:underline"
                 >
                   {{ t('university.structure.visitOwnWebsite') }}
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -89,7 +86,7 @@ const sections = computed(() => [
                 <NuxtLink
                   v-else-if="unit.slug"
                   :to="localePath(`/university/structure/${unit.slug}`)"
-                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-primary font-medium hover:underline"
+                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:underline"
                 >
                   {{ t('university.structure.openUnit') }}
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -104,15 +101,3 @@ const sections = computed(() => [
     </div>
   </div>
 </template>
-
-<style scoped>
-.repeating-diagonal-pattern {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(201, 162, 39, 0.06) 0,
-    rgba(201, 162, 39, 0.06) 1px,
-    transparent 1px,
-    transparent 24px
-  );
-}
-</style>

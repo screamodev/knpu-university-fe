@@ -23,21 +23,34 @@ const issues = useNewspaperHomeIssues()
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <NuxtLink
+        <!-- A card is the issue itself: it opens the PDF. -->
+        <component
+          :is="issue.href ? 'a' : 'div'"
           v-for="issue in issues"
           :key="issue.id"
-          :to="localePath('/university/newspaper')"
+          :href="issue.href"
+          :target="issue.href ? '_blank' : undefined"
+          :rel="issue.href ? 'noopener noreferrer' : undefined"
           class="group bg-white border border-border rounded-12 overflow-hidden flex flex-col no-underline transition-all duration-280 hover:border-gold hover:-translate-y-1 hover:shadow-gold max-sm:max-w-md max-sm:mx-auto w-full"
         >
           <div
-            class="aspect-[3/4] max-h-[220px] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
+            class="aspect-[3/4] max-h-[220px] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0 overflow-hidden"
           >
+            <img
+              v-if="issue.cover"
+              :src="issue.cover"
+              :alt="issue.issueLabel"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
+            />
             <svg
+              v-else
               class="w-10 h-10 text-gold/30 transition-transform duration-280 group-hover:scale-110"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="1"
+              aria-hidden
             >
               <path d="M4 4h16v16H4z" />
               <path d="M4 8h16M4 12h16M4 16h8" />
@@ -47,11 +60,15 @@ const issues = useNewspaperHomeIssues()
             <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-1">
               {{ issue.issueLabel }} · {{ issue.dateLabel }}
             </div>
-            <p class="text-sm text-text-muted leading-snug line-clamp-3">
+            <p v-if="issue.description" class="text-sm text-text-muted leading-snug line-clamp-3">
               {{ issue.description }}
             </p>
+            <span v-if="issue.href" class="mt-auto pt-3 text-sm text-navy font-medium">
+              {{ t('university.newspaper.download') }}
+              <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            </span>
           </div>
-        </NuxtLink>
+        </component>
       </div>
     </div>
   </section>

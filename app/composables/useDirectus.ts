@@ -9,6 +9,7 @@ import {
 } from '@directus/sdk'
 
 import type { DirectusSchema } from '~/types/directus'
+import { assetTransformQuery, type AssetTransform } from '~/utils/imageTransform'
 
 /**
  * Fully-composed Directus client used throughout the app: typed access to
@@ -104,8 +105,14 @@ export function useDirectus() {
    * when no valid id is available so callers can use `<img v-if="src">`.
    * Always uses the public URL so the URL works in the browser regardless of
    * whether it was produced on the server during SSR.
+   *
+   * Pass `transform` to have Directus resize/convert the image instead of serving the
+   * original — covers are multi-megabyte photos straight off a camera.
    */
-  function assetUrl(fileOrId: string | DirectusFileRef | null | undefined): string | null {
+  function assetUrl(
+    fileOrId: string | DirectusFileRef | null | undefined,
+    transform?: AssetTransform,
+  ): string | null {
     if (fileOrId === null || fileOrId === undefined) {
       return null
     }
@@ -113,7 +120,8 @@ export function useDirectus() {
     if (typeof id !== 'string' || id.length === 0) {
       return null
     }
-    return `${publicUrl}/assets/${id}`
+    const query = assetTransformQuery(transform)
+    return `${publicUrl}/assets/${id}${query ? `?${query}` : ''}`
   }
 
   return { client, assetUrl, publicUrl, baseUrl }

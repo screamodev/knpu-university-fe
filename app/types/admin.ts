@@ -13,5 +13,6 @@ export interface ArticleFormPayload {
   /** `directus_files.id` list (M2M attachments). */
   attachments: string[]
   author: string
-  categoryId: string | null
+  /** `categories.id` list (M2M through `articles_categories`). */
+  categoryIds: string[]
 }

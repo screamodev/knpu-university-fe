@@ -179,10 +179,12 @@
     "subtitle": "Університет, що виховує майбутніх педагогів та дослідників у дусі свободи, гуманізму та невгасимої любові до знань.",
     "ctaApply": "Подати документи",
     "ctaAbout": "Про університет",
-    "statYears": "Років\nтрадицій",
-    "statStudents": "Студентів\nнавчаються",
-    "statJournals": "Наукових\nжурналів",
-    "statPrograms": "Спеціальностей\nі програм"
+    "statGraduatesValue": "250 000",
+    "statGraduatesLabel": "Випускників",
+    "statSpecialtiesValue": "30",
+    "statSpecialtiesLabel": "Спеціальностей",
+    "statProgramsValue": "50",
+    "statProgramsLabel": "Освітніх\nпрограм"
   },
   "quickAccess": {
     "label": "Швидкий доступ",
@@ -264,11 +266,21 @@
     "author": "Автор",
     "attachments": "Вкладення",
     "download": "Завантажити",
+    "carousel": {
+      "label": "Фото новини",
+      "role": "карусель",
+      "prev": "Попереднє фото",
+      "next": "Наступне фото",
+      "dots": "Навігація по фото",
+      "goTo": "Перейти до фото {n}",
+      "status": "Фото {current} з {total}"
+    },
     "noArticles": "Статті не знайдено.",
     "prevPage": "Назад",
     "nextPage": "Далі",
     "pageInfo": "Сторінка {page} з {total}",
-    "articlesCount": "новин"
+    "articlesCount": "новин",
+    "previewBanner": "Попередній перегляд — чернетка, не опублікована"
   },
   "facts": {
     "founded": "Рік заснування",
@@ -468,41 +480,11 @@
       "title": "Газета «Учитель»",
       "subtitle": "Офіційне періодичне видання ХНПУ імені Г.С. Сковороди.",
       "aboutText1": "«Учитель» — багатотиражне видання, що висвітлює життя та події університету: освітні ініціативи, наукові досягнення, культурні заходи, голоси викладачів, студентів та випускників.",
-      "aboutText2": "Електронні версії свіжих номерів доступні для завантаження. Повний архів випусків попередніх років зберігається на офіційному сайті університету.",
-      "issuesTitle": "Останні випуски",
-      "archiveCta": "Переглянути повний архів",
-      "issues": {
-        "1": {
-          "number": "Випуск",
-          "date": "Березень 2026",
-          "description": "Опубліковано 29 квітня 2026 р. Електронна версія доступна для завантаження."
-        },
-        "2": {
-          "number": "Випуск",
-          "date": "Лютий 2026",
-          "description": "Опубліковано 30 березня 2026 р. Електронна версія доступна для завантаження."
-        },
-        "3": {
-          "number": "Випуск",
-          "date": "Січень 2026",
-          "description": "Опубліковано 3 березня 2026 р. Електронна версія доступна для завантаження."
-        },
-        "4": {
-          "number": "Випуск",
-          "date": "Грудень 2025",
-          "description": "Опубліковано 24 грудня 2025 р. Електронна версія доступна для завантаження."
-        },
-        "5": {
-          "number": "Випуск",
-          "date": "Архівні номери",
-          "description": "Архів попередніх випусків доступний за посиланням «Архів газети Учитель»."
-        },
-        "6": {
-          "number": "Випуск",
-          "date": "—",
-          "description": "—"
-        }
-      }
+      "aboutText2": "Електронні версії всіх номерів доступні для завантаження нижче — архів охоплює випуски з 2015 року донині.",
+      "issuesTitle": "Архів номерів",
+      "filterAll": "Усі роки",
+      "download": "Завантажити PDF",
+      "noIssues": "Номерів за цей рік поки немає."
     },
     "rectorate": {
       "tag": "Управління",
@@ -695,87 +677,38 @@
       "administrativeTitle": "Адміністративні підрозділи та служби",
       "administrativeNote": "Підрозділи наведено за підпорядкуванням членам ректорату, як в організаційно-структурній схемі.",
       "associationsTitle": "«Skovoroda associations»",
-      "associationsNote": "Колегіальні, робочі та дорадчі органи, наукові й методичні лабораторії, центри та студентські об’єднання, що діють на безоплатній основі."
+      "associationsNote": "Колегіальні, робочі та дорадчі органи, наукові й методичні лабораторії, центри та студентські об’єднання, що діють на безоплатній основі.",
+      "unit": {
+        "tabs": {
+          "home": "Головна",
+          "admission": "Вступнику",
+          "structure": "Структура",
+          "history": "Історія",
+          "education": "Освіта",
+          "science": "Наука",
+          "students": "Студентство",
+          "news": "Новини",
+          "cooperation": "Співпраця"
+        },
+        "contactsTitle": "Контакти",
+        "deanTitle": "Декан",
+        "directorTitle": "Директор",
+        "addressLabel": "Адреса",
+        "phoneLabel": "Телефон",
+        "emailLabel": "Пошта",
+        "socialsTitle": "Соцмережі",
+        "documentsTitle": "Корисні посилання та документи",
+        "newsEmpty": "Новин цього підрозділу поки немає.",
+        "newsAll": "Усі новини університету",
+        "translationPending": "Англомовна версія цієї сторінки ще готується — нижче український текст.",
+        "sourceNote": "Матеріал перенесено зі старого сайту університету."
+      }
     },
     "faculties": {
       "tag": "Управління",
       "title": "Факультети та кафедри",
       "subtitle": "Структура факультетів, декани та перелік кафедр ХНПУ.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "dean": "Декан",
-      "departmentsCount": "Кафедр",
-      "studentsCount": "Студентів",
-      "facultiesList": {
-        "f1": {
-          "name": "Педагогічний факультет",
-          "dean": "Олена Коваленко",
-          "departments": [
-            "Педагогіки та психології",
-            "Початкової освіти",
-            "Дошкільної освіти",
-            "Соціальної педагогіки"
-          ],
-          "departmentsNum": "4",
-          "students": "1 200"
-        },
-        "f2": {
-          "name": "Історичний факультет",
-          "dean": "Андрій Мельник",
-          "departments": [
-            "Історії України",
-            "Всесвітньої історії",
-            "Археології та музеєзнавства"
-          ],
-          "departmentsNum": "3",
-          "students": "450"
-        },
-        "f3": {
-          "name": "Філологічний факультет",
-          "dean": "Марія Сидоренко",
-          "departments": [
-            "Української мови",
-            "Української літератури",
-            "Іноземних мов",
-            "Журналістики"
-          ],
-          "departmentsNum": "4",
-          "students": "890"
-        },
-        "f4": {
-          "name": "Природничий факультет",
-          "dean": "Дмитро Ткаченко",
-          "departments": [
-            "Математики",
-            "Фізики",
-            "Хімії",
-            "Біології",
-            "Географії"
-          ],
-          "departmentsNum": "5",
-          "students": "620"
-        },
-        "f5": {
-          "name": "Факультет мистецтв",
-          "dean": "Катерина Бондаренко",
-          "departments": [
-            "Музичного мистецтва",
-            "Образотворчого мистецтва",
-            "Хореографії"
-          ],
-          "departmentsNum": "3",
-          "students": "380"
-        },
-        "f6": {
-          "name": "Факультет фізичного виховання",
-          "dean": "Юрій Шевченко",
-          "departments": [
-            "Теорії та методики фізичного виховання",
-            "Спортивних ігор"
-          ],
-          "departmentsNum": "2",
-          "students": "410"
-        }
-      }
+      "intro": "Освітній процес забезпечують три навчально-наукові інститути та вісім факультетів. До їхнього складу входять кафедри, навчальні й навчально-наукові лабораторії, центри та музеї. Підрозділи, що мають власний сайт, відкриваються за зовнішнім посиланням."
     },
     "press": {
       "tag": "Управління",
@@ -2971,28 +2904,44 @@
           "director": "Директор: д.п.н. Іваненко О.М.",
           "founded": "1991",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "focus": ["f1", "f2", "f3"]
+          "focus": [
+            "f1",
+            "f2",
+            "f3"
+          ]
         },
         "i2": {
           "name": "Лабораторія когнітивних досліджень",
           "director": "Керівник: д.псих.н. Петренко Т.В.",
           "founded": "2005",
           "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-          "focus": ["f4", "f5", "f6"]
+          "focus": [
+            "f4",
+            "f5",
+            "f6"
+          ]
         },
         "i3": {
           "name": "Центр філологічних студій",
           "director": "Директор: д.ф.н. Сидоренко М.П.",
           "founded": "1998",
           "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "focus": ["f7", "f8", "f9"]
+          "focus": [
+            "f7",
+            "f8",
+            "f9"
+          ]
         },
         "i4": {
           "name": "НДІ природничої освіти",
           "director": "Директор: д.х.н. Бондаренко А.С.",
           "founded": "1992",
           "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "focus": ["f10", "f11", "f12"]
+          "focus": [
+            "f10",
+            "f11",
+            "f12"
+          ]
         }
       },
       "focusLabels": {
@@ -3286,19 +3235,43 @@
       "sections": {
         "general": {
           "title": "Загальні вимоги",
-          "items": ["item1", "item2", "item3", "item4", "item5"]
+          "items": [
+            "item1",
+            "item2",
+            "item3",
+            "item4",
+            "item5"
+          ]
         },
         "formatting": {
           "title": "Оформлення рукопису",
-          "items": ["fmt1", "fmt2", "fmt3", "fmt4", "fmt5"]
+          "items": [
+            "fmt1",
+            "fmt2",
+            "fmt3",
+            "fmt4",
+            "fmt5"
+          ]
         },
         "citation": {
           "title": "Стиль цитування",
-          "items": ["cit1", "cit2", "cit3", "cit4", "cit5"]
+          "items": [
+            "cit1",
+            "cit2",
+            "cit3",
+            "cit4",
+            "cit5"
+          ]
         },
         "submission": {
           "title": "Процедура подання",
-          "items": ["sub1", "sub2", "sub3", "sub4", "sub5"]
+          "items": [
+            "sub1",
+            "sub2",
+            "sub3",
+            "sub4",
+            "sub5"
+          ]
         }
       },
       "generalItems": {
@@ -3614,7 +3587,11 @@
           "chairman": "Іваненко О.М.",
           "secretary": "Сидоренко М.П.",
           "members": "15",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b2": {
           "name": "Філологія",
@@ -3622,7 +3599,11 @@
           "chairman": "Петренко Т.В.",
           "secretary": "Мельник В.О.",
           "members": "12",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b3": {
           "name": "Історія та археологія",
@@ -3630,7 +3611,11 @@
           "chairman": "Бондаренко А.С.",
           "secretary": "Коваленко О.С.",
           "members": "11",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         },
         "b4": {
           "name": "Природничі науки",
@@ -3638,7 +3623,11 @@
           "chairman": "Гриценко Д.В.",
           "secretary": "Ткаченко І.В.",
           "members": "14",
-          "areas": ["area1", "area2", "area3"]
+          "areas": [
+            "area1",
+            "area2",
+            "area3"
+          ]
         }
       },
       "chairmanLabel": "Голова ради",

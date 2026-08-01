@@ -4,20 +4,14 @@ import type { DirectusArticle } from '~/types/news'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 const { data, pending, error } = useAsyncData('home-news-articles', () =>
   client.request(
     readItems('articles', {
-      fields: ['*', { cover: ['*'] }, { category: ['*'] }],
+      fields: ['*', { cover: ['*'] }, { categories: [{ categories_id: ['*'] }] }],
       sort: ['-date_published'],
       limit: 4,
     }),
@@ -40,8 +34,20 @@ function articlePublishedAt(article: DirectusArticle): string {
   return article.date_published ?? article.publishedAt ?? article.date_created ?? ''
 }
 
+/** An article can sit in several categories — the badge lists them on one line. */
+function categoryNames(article: DirectusArticle): string {
+  return articleCategories(article)
+    .map((category) => localized(category, 'name'))
+    .join(' · ')
+}
+
 function articleCoverSrc(cover: DirectusArticle['cover']): string {
-  return resolveMediaSrc(cover, mediaResolvers)
+  return resolveMediaSrc(cover, mediaResolvers, CARD_COVER_TRANSFORM)
+}
+
+/** Crop anchor from the focal point an editor set on the file in Directus. */
+function coverPosition(cover: DirectusArticle['cover']): string {
+  return objectPositionFromFile(cover)
 }
 
 function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
@@ -128,6 +134,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           <div class="h-60 relative overflow-hidden">
             <img
               v-if="mainArticle.cover && articleCoverSrc(mainArticle.cover)"
+              :style="{ objectPosition: coverPosition(mainArticle.cover) }"
               :src="articleCoverSrc(mainArticle.cover)"
               :alt="articleCoverAlt(mainArticle.cover, localized(mainArticle, 'title'))"
               class="w-full h-full object-cover"
@@ -146,7 +153,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           </div>
           <div class="p-6 flex-1 flex flex-col">
             <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-2.5">
-              {{ mainArticle.category ? localized(mainArticle.category, 'name') : '' }}
+              {{ categoryNames(mainArticle) }}
             </div>
             <div class="font-playfair text-xl font-semibold text-white leading-snug flex-1 mb-4">
               {{ localized(mainArticle, 'title') }}
@@ -172,7 +179,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
             class="block bg-off-white border border-border rounded-12 p-4 no-underline transition-all duration-280 hover:border-gold hover:bg-gold-pale hover:translate-x-1"
           >
             <div class="text-[11px] font-semibold tracking-wider uppercase text-gold">
-              {{ article.category ? localized(article.category, 'name') : '' }}
+              {{ categoryNames(article) }}
             </div>
             <div class="font-playfair text-[15px] text-navy mb-2 leading-snug">{{ localized(article, 'title') }}</div>
             <div class="text-xs text-text-muted">{{ formatDate(articlePublishedAt(article)) }}</div>

@@ -134,9 +134,22 @@ function normalizeStoredMarkdownString(value: string): string {
   return trimmed
 }
 
-/** Public article body: stored markdown string vs legacy JSON blocks. */
+/**
+ * Bodies written in the Directus WYSIWYG are HTML documents; everything stored before that
+ * (legacy imports, hand-written markdown) is markdown. A body opens with a block-level tag only
+ * in the HTML case — markdown that merely *contains* inline HTML still has to go through
+ * markdown-it, so the test deliberately looks at the very first character only.
+ */
+const HTML_BODY_RE = /^\s*<(?:p|div|h[1-6]|ul|ol|dl|table|figure|blockquote|pre|img|hr|section|article)[\s/>]/i
+
+function looksLikeHtmlBody(source: string): boolean {
+  return HTML_BODY_RE.test(source)
+}
+
+/** Public article body: stored HTML/markdown string vs legacy JSON blocks. */
 export type LocalizedArticleBody =
   | { kind: 'markdown'; source: string }
+  | { kind: 'html'; source: string }
   | { kind: 'blocks'; blocks: LegacyBlock[] }
 
 /**
@@ -162,7 +175,9 @@ export function normalizedLocalizedBody(
     if (normalized === '') {
       return { kind: 'blocks', blocks: [] }
     }
-    return { kind: 'markdown', source: normalized }
+    return looksLikeHtmlBody(normalized)
+      ? { kind: 'html', source: normalized }
+      : { kind: 'markdown', source: normalized }
   }
 
   if (!Array.isArray(raw)) {
@@ -183,7 +198,8 @@ export function normalizedLocalizedBodyBlocks(
   localeCode: string,
 ): LegacyBlock[] {
   const body = normalizedLocalizedBody(content, contentEn, localeCode)
-  if (body.kind === 'markdown') {
+  // HTML bodies have no block representation; callers that need blocks predate the WYSIWYG.
+  if (body.kind === 'markdown' || body.kind === 'html') {
     return markdownStringToBlocks(body.source)
   }
   return body.blocks

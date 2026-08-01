@@ -24,3 +24,7 @@ services:
       NUXT_PUBLIC_DIRECTUS_URL: http://localhost:8055
       # SSR / server fetches from inside the container (localhost there is not Directus).
       NUXT_DIRECTUS_SERVER_URL: http://host.docker.internal:8055
+      # Directus live preview of drafts. Must match PREVIEW_SECRET / PREVIEW_TOKEN passed to
+      # knpu-university-be/snapshots/bootstrap-editor-experience.sh.
+      NUXT_PREVIEW_SECRET: ${NUXT_PREVIEW_SECRET:-local-preview-secret}
+      NUXT_DIRECTUS_PREVIEW_TOKEN: ${NUXT_DIRECTUS_PREVIEW_TOKEN:-local-preview-token}

@@ -91,10 +91,10 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
             {{ rector.degree }}
           </p>
           <div class="text-body-sm text-text-muted">{{ rector.room }}</div>
-          <a :href="telHref(rector.phone)" class="text-body-sm text-primary hover:underline">
+          <a :href="telHref(rector.phone)" class="text-body-sm text-navy hover:underline">
             {{ rector.phone }}
           </a>
-          <a :href="`mailto:${rector.email}`" class="text-body-sm text-primary hover:underline break-all">
+          <a :href="`mailto:${rector.email}`" class="text-body-sm text-navy hover:underline break-all">
             {{ rector.email }}
           </a>
           <a
@@ -144,10 +144,10 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`
             {{ admin.name }}
           </div>
           <div class="text-body-sm text-text-muted">{{ admin.room }}</div>
-          <a :href="telHref(admin.phone)" class="text-body-sm text-primary hover:underline">
+          <a :href="telHref(admin.phone)" class="text-body-sm text-navy hover:underline">
             {{ admin.phone }}
           </a>
-          <a :href="`mailto:${admin.email}`" class="text-body-sm text-primary hover:underline break-all">
+          <a :href="`mailto:${admin.email}`" class="text-body-sm text-navy hover:underline break-all">
             {{ admin.email }}
           </a>
           <a

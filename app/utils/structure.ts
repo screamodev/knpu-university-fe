@@ -50,6 +50,11 @@ export interface StructureUnit {
   summaryEn?: string
   /** Own website on an external domain — when set, no page is built for the unit. */
   external?: string
+  /**
+   * Slug of the Directus category whose articles are the unit's news feed.
+   * Defaults to `slug`; set it only when the category slug has to differ.
+   */
+  newsCategorySlug?: string
   /** Departments, laboratories and centres (Додаток 1). */
   items: StructureItem[]
   /** «Skovoroda associations» attached to this unit (Додаток 6). */

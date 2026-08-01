@@ -6,14 +6,8 @@ import { resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
 definePageMeta({ layout: 'default' })
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 const route = useRoute()
@@ -79,7 +73,12 @@ const localizedBody = computed(() => {
 })
 
 function eventCoverSrc(cover: DirectusEvent['cover']): string {
-  return resolveMediaSrc(cover, mediaResolvers)
+  return resolveMediaSrc(cover, mediaResolvers, HERO_COVER_TRANSFORM)
+}
+
+/** Crop anchor from the focal point an editor set on the file in Directus. */
+function coverPosition(cover: DirectusEvent['cover']): string {
+  return objectPositionFromFile(cover)
 }
 
 function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): string {
@@ -90,9 +89,10 @@ function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): st
 <template>
   <div v-if="event" class="bg-white min-h-screen">
     <!-- Hero cover -->
-    <div class="relative h-72 md:h-96 bg-navy overflow-hidden">
+    <div class="relative w-full h-[20rem] md:h-[26rem] lg:h-[32rem] bg-navy overflow-hidden">
       <img
         v-if="event.cover && eventCoverSrc(event.cover)"
+        :style="{ objectPosition: coverPosition(event.cover) }"
         :src="eventCoverSrc(event.cover)"
         :alt="eventCoverAlt(event.cover, localized(event, 'title'))"
         class="w-full h-full object-cover"
@@ -165,8 +165,9 @@ function eventCoverAlt(cover: DirectusEvent['cover'], titleFallback: string): st
 
         <!-- Rich-text body -->
         <NewsMarkdownBody
-          v-if="localizedBody.kind === 'markdown'"
-          :markdown="localizedBody.source"
+          v-if="localizedBody.kind === 'markdown' || localizedBody.kind === 'html'"
+          :source="localizedBody.source"
+          :kind="localizedBody.kind"
         />
         <NewsRichText
           v-else-if="localizedBody.blocks.length"

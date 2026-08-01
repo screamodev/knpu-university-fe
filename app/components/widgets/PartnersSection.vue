@@ -4,14 +4,8 @@ import type { DirectusPartner } from '~/types/directus'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
 const { t } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 const { data, pending, error } = useAsyncData('home-partners', () =>

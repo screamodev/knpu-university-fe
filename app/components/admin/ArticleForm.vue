@@ -47,12 +47,6 @@ function attachmentIdsFromInitial(attachments: unknown): string[] {
   return out
 }
 
-function categoryIdFromInitial(category: DirectusArticle['category']): string | null {
-  if (category == null) return null
-  if (typeof category === 'string') return category
-  return category.id ?? category.documentId ?? null
-}
-
 const props = defineProps<{
   initialData?: Partial<DirectusArticle>
   saving: boolean
@@ -75,7 +69,14 @@ const contentEn = ref<RichTextBlock[] | null>(normalizeRichTextForEditor(props.i
 const cover = ref<string | null>(coverIdFromInitial(props.initialData?.cover))
 const attachments = ref<string[]>(attachmentIdsFromInitial(props.initialData?.attachments))
 const author = ref(props.initialData?.author ?? '')
-const selectedCategoryId = ref<string | null>(categoryIdFromInitial(props.initialData?.category ?? null))
+const selectedCategoryIds = ref<string[]>(articleCategoryIds(props.initialData ?? null))
+
+function toggleCategory(id: string) {
+  const next = new Set(selectedCategoryIds.value)
+  if (next.has(id)) next.delete(id)
+  else next.add(id)
+  selectedCategoryIds.value = [...next]
+}
 
 // Tabs
 const activeTab = ref<'uk' | 'en'>('uk')
@@ -122,7 +123,7 @@ function handleSubmit() {
     cover: cover.value,
     attachments: attachments.value,
     author: author.value,
-    categoryId: selectedCategoryId.value,
+    categoryIds: selectedCategoryIds.value,
   })
 }
 </script>
@@ -233,12 +234,26 @@ function handleSubmit() {
 
       <div>
         <label class="block text-sm font-semibold text-navy mb-1.5">{{ t('admin.category') }}</label>
-        <select v-model="selectedCategoryId" :class="inputClass">
-          <option :value="null">{{ t('admin.noCategory') }}</option>
-          <option v-for="cat in categories" :key="cat.id" :value="cat.id">
+        <div class="flex flex-wrap gap-2">
+          <button
+            v-for="cat in categories"
+            :key="cat.id"
+            type="button"
+            :aria-pressed="selectedCategoryIds.includes(cat.id)"
+            :class="[
+              'py-2 px-3.5 rounded-[12px] border text-sm font-geologica transition-[border-color,background-color] duration-280',
+              selectedCategoryIds.includes(cat.id)
+                ? 'border-gold bg-gold-pale text-navy'
+                : 'border-border bg-white text-text-muted hover:border-gold',
+            ]"
+            @click="toggleCategory(cat.id)"
+          >
             {{ cat.name }}
-          </option>
-        </select>
+          </button>
+        </div>
+        <p v-if="!selectedCategoryIds.length" class="mt-1.5 text-xs text-text-muted">
+          {{ t('admin.noCategory') }}
+        </p>
       </div>
 
       <AdminAttachmentsUpload v-model="attachments" />

@@ -57,6 +57,15 @@ const structureUnits = computed(() =>
     name: localized(unit, 'name'),
     path: unit.external ?? `/university/structure/${unit.slug}`,
     external: Boolean(unit.external),
+    // Sub-tabs are separate URLs with their own content, so they belong here too.
+    tabs: unit.external || !unit.slug
+      ? []
+      : structureUnitTabs(unit.slug)
+          .filter(tab => tab !== 'home')
+          .map(tab => ({
+            tab,
+            path: `/university/structure/${unit.slug}/${tab}`,
+          })),
   })),
 )
 
@@ -136,6 +145,16 @@ const serviceLinks: FlatNavLink[] = [
             >
               {{ unit.name }}
             </NuxtLink>
+            <ul v-if="unit.tabs.length" class="list-none p-0 m-0 mt-1 ml-3 flex flex-wrap gap-x-3">
+              <li v-for="tab in unit.tabs" :key="tab.path">
+                <NuxtLink
+                  :to="localePath(tab.path)"
+                  class="text-body-sm text-text-muted/80 hover:text-gold no-underline transition-colors"
+                >
+                  {{ t(`university.structure.unit.tabs.${tab.tab}`) }}
+                </NuxtLink>
+              </li>
+            </ul>
           </li>
         </ul>
       </section>

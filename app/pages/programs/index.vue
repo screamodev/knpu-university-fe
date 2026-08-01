@@ -6,14 +6,8 @@ import { resolveMediaSrc } from '~/utils/directusMedia'
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
-const { client, assetUrl, publicUrl } = useDirectus()
-const mediaResolvers = {
-  assetUrl,
-  legacyImageUrl: (path: string) =>
-    path.startsWith('http://') || path.startsWith('https://')
-      ? path
-      : `${publicUrl.replace(/\/$/, '')}${path.startsWith('/') ? path : `/${path}`}`,
-}
+const { client } = useDirectus()
+const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 useHead({
@@ -51,7 +45,12 @@ const { data: programmesData, pending } = useAsyncData(
 const programmes = computed(() => programmesData.value ?? [])
 
 function programmeCoverSrc(cover: DirectusProgramme['cover']): string {
-  return resolveMediaSrc(cover, mediaResolvers)
+  return resolveMediaSrc(cover, mediaResolvers, CARD_COVER_TRANSFORM)
+}
+
+/** Crop anchor from the focal point an editor set on the file in Directus. */
+function coverPosition(cover: DirectusProgramme['cover']): string {
+  return objectPositionFromFile(cover)
 }
 
 function programmeCoverAlt(cover: DirectusProgramme['cover'], titleFallback: string): string {
@@ -133,8 +132,10 @@ function programmeCoverAlt(cover: DirectusProgramme['cover'], titleFallback: str
           <div class="h-48 bg-navy-mid overflow-hidden relative">
             <img
               v-if="prog.cover && programmeCoverSrc(prog.cover)"
+              :style="{ objectPosition: coverPosition(prog.cover) }"
               :src="programmeCoverSrc(prog.cover)"
               :alt="programmeCoverAlt(prog.cover, localized(prog, 'title'))"
+              loading="lazy"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div

@@ -102,7 +102,7 @@ function unitHref(unit: StructureUnit): string | undefined {
               :href="entry.department.external"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-medium text-navy hover:text-primary hover:underline inline-flex items-start gap-1.5"
+              class="font-medium text-navy hover:text-navy hover:underline inline-flex items-start gap-1.5"
             >
               {{ localized(entry.department, 'name') }}
               <svg class="w-3.5 h-3.5 mt-1 shrink-0 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -116,7 +116,7 @@ function unitHref(unit: StructureUnit): string | undefined {
             <NuxtLink
               v-if="unitHref(entry.unit)"
               :to="unitHref(entry.unit)"
-              class="text-body-sm text-text-muted hover:text-primary hover:underline"
+              class="text-body-sm text-text-muted hover:text-navy hover:underline"
             >
               {{ localized(entry.unit, 'name') }}
             </NuxtLink>

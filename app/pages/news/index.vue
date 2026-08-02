@@ -119,23 +119,17 @@ function pageLink(page: number) {
   return { path: localePath('/news'), query }
 }
 
-function isCategorySelected(slug: string): boolean {
-  return selectedCategorySlugs.value.includes(slug)
-}
+const categoryOptions = computed(() =>
+  categories.value
+    .filter(category => category.slug)
+    .map(category => ({ value: category.slug as string, label: localized(category, 'name') })),
+)
 
 /** Changing the filter always returns to page 1 — offsets do not carry over. */
 function applyCategories(slugs: string[]) {
   const query: Record<string, string | string[]> = {}
   if (slugs.length) query.category = slugs
   router.push({ path: localePath('/news'), query })
-}
-
-/** Chips toggle: clicking an active one removes it, so a filter can be undone where it was set. */
-function toggleCategory(slug: string) {
-  const current = selectedCategorySlugs.value
-  applyCategories(
-    current.includes(slug) ? current.filter(item => item !== slug) : [...current, slug],
-  )
 }
 
 function formatDate(dateStr: string): string {
@@ -193,46 +187,18 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Category filters -->
-      <div v-if="categories.length" class="flex flex-wrap gap-2 mb-10">
-        <button
-          class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280"
-          :class="
-            selectedCategorySlugs.length === 0
-              ? 'bg-navy text-white border-navy'
-              : 'bg-white text-navy border-border hover:border-navy'
-          "
-          @click="applyCategories([])"
-        >
-          {{ t('news.allCategories') }}
-        </button>
-        <button
-          v-for="category in categories"
-          :key="category.id"
-          type="button"
-          :aria-pressed="isCategorySelected(category.slug)"
-          class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280 inline-flex items-center gap-1.5"
-          :class="
-            isCategorySelected(category.slug)
-              ? 'bg-navy text-white border-navy'
-              : 'bg-white text-navy border-border hover:border-navy'
-          "
-          @click="toggleCategory(category.slug)"
-        >
-          {{ localized(category, 'name') }}
-          <svg
-            v-if="isCategorySelected(category.slug)"
-            class="w-3 h-3 opacity-70"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-            aria-hidden
-          >
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
-      </div>
+      <!-- Category filter: dropdown + chips (see SharedMultiSelectFilter) -->
+      <SharedMultiSelectFilter
+        v-if="categoryOptions.length"
+        :model-value="selectedCategorySlugs"
+        :options="categoryOptions"
+        :label="t('news.categoriesFilter')"
+        :search-placeholder="t('news.categoriesSearch')"
+        :all-label="t('news.allCategories')"
+        :clear-label="t('news.categoriesClear')"
+        :empty-label="t('news.categoriesEmpty')"
+        @update:model-value="applyCategories"
+      />
 
       <!-- Loading skeleton -->
       <div v-if="pending" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

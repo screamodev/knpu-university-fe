@@ -280,7 +280,11 @@
     "nextPage": "Next",
     "pageInfo": "Page {page} of {total}",
     "articlesCount": "news items",
-    "previewBanner": "Preview — draft, not published"
+    "previewBanner": "Preview — draft, not published",
+    "categoriesFilter": "Categories",
+    "categoriesSearch": "Search categories…",
+    "categoriesClear": "Clear all",
+    "categoriesEmpty": "Nothing found"
   },
   "facts": {
     "founded": "Year founded",

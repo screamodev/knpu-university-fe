@@ -280,7 +280,11 @@
     "nextPage": "Далі",
     "pageInfo": "Сторінка {page} з {total}",
     "articlesCount": "новин",
-    "previewBanner": "Попередній перегляд — чернетка, не опублікована"
+    "previewBanner": "Попередній перегляд — чернетка, не опублікована",
+    "categoriesFilter": "Категорії",
+    "categoriesSearch": "Пошук категорії…",
+    "categoriesClear": "Зняти всі",
+    "categoriesEmpty": "Нічого не знайдено"
   },
   "facts": {
     "founded": "Рік заснування",

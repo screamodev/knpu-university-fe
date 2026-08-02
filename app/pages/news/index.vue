@@ -30,9 +30,14 @@ const currentPage = computed(() => {
   return Number.isFinite(raw) && raw >= 1 ? Math.floor(raw) : 1
 })
 
-const selectedCategorySlug = computed<string | null>(() => {
-  const raw = Array.isArray(route.query.category) ? route.query.category[0] : route.query.category
-  return raw ? String(raw) : null
+/**
+ * Several categories can be active at once — `?category=arts&category=akredytatsiia`. An article
+ * matches if it carries **any** of them, which is what a reader expects from filter chips.
+ */
+const selectedCategorySlugs = computed<string[]>(() => {
+  const raw = route.query.category
+  const values = Array.isArray(raw) ? raw : raw ? [raw] : []
+  return [...new Set(values.map(String).filter(Boolean))]
 })
 
 const { data: categoriesData } = await useAsyncData('news-categories', () =>
@@ -41,8 +46,8 @@ const { data: categoriesData } = await useAsyncData('news-categories', () =>
 const categories = computed(() => categoriesData.value ?? [])
 
 const articleFilter = computed(() =>
-  selectedCategorySlug.value
-    ? { categories: { categories_id: { slug: { _eq: selectedCategorySlug.value } } } }
+  selectedCategorySlugs.value.length
+    ? { categories: { categories_id: { slug: { _in: selectedCategorySlugs.value } } } }
     : {},
 )
 
@@ -55,10 +60,10 @@ const { data: articlesData, pending } = await useAsyncData(
         sort: ['-date_published'],
         limit: PAGE_SIZE,
         offset: (currentPage.value - 1) * PAGE_SIZE,
-        ...(selectedCategorySlug.value ? { filter: articleFilter.value } : {}),
+        ...(selectedCategorySlugs.value.length ? { filter: articleFilter.value } : {}),
       }),
     ),
-  { watch: [currentPage, selectedCategorySlug] },
+  { watch: [currentPage, selectedCategorySlugs] },
 )
 
 const { data: totalData } = await useAsyncData(
@@ -66,17 +71,20 @@ const { data: totalData } = await useAsyncData(
   () =>
     client.request(
       aggregate('articles', {
-        aggregate: { count: '*' },
-        ...(selectedCategorySlug.value ? { query: { filter: articleFilter.value } } : {}),
+        // countDistinct, not count: filtering on the categories M2M joins the junction, so a
+        // plain count returns one row per (article, category) pair and inflates the total.
+        aggregate: { countDistinct: 'id' },
+        ...(selectedCategorySlugs.value.length ? { query: { filter: articleFilter.value } } : {}),
       }),
     ),
-  { watch: [selectedCategorySlug] },
+  { watch: [selectedCategorySlugs] },
 )
 
 const articles = computed(() => articlesData.value ?? [])
 
 const totalArticles = computed(() => {
-  const raw = totalData.value?.[0]?.count
+  const raw = (totalData.value?.[0] as { countDistinct?: { id?: string | number } } | undefined)
+    ?.countDistinct?.id
   const parsed = typeof raw === 'string' ? Number(raw) : raw
   return typeof parsed === 'number' && Number.isFinite(parsed) ? parsed : 0
 })
@@ -105,17 +113,29 @@ const pageNumbers = computed<(number | 'gap')[]>(() => {
 })
 
 function pageLink(page: number) {
-  const query: Record<string, string> = {}
-  if (selectedCategorySlug.value) query.category = selectedCategorySlug.value
+  const query: Record<string, string | string[]> = {}
+  if (selectedCategorySlugs.value.length) query.category = selectedCategorySlugs.value
   if (page > 1) query.page = String(page)
   return { path: localePath('/news'), query }
 }
 
-/** Changing the category always returns to page 1 — offsets do not carry over. */
-function selectCategory(slug: string | null) {
-  const query: Record<string, string> = {}
-  if (slug) query.category = slug
+function isCategorySelected(slug: string): boolean {
+  return selectedCategorySlugs.value.includes(slug)
+}
+
+/** Changing the filter always returns to page 1 — offsets do not carry over. */
+function applyCategories(slugs: string[]) {
+  const query: Record<string, string | string[]> = {}
+  if (slugs.length) query.category = slugs
   router.push({ path: localePath('/news'), query })
+}
+
+/** Chips toggle: clicking an active one removes it, so a filter can be undone where it was set. */
+function toggleCategory(slug: string) {
+  const current = selectedCategorySlugs.value
+  applyCategories(
+    current.includes(slug) ? current.filter(item => item !== slug) : [...current, slug],
+  )
 }
 
 function formatDate(dateStr: string): string {
@@ -178,26 +198,39 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
         <button
           class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280"
           :class="
-            selectedCategorySlug === null
+            selectedCategorySlugs.length === 0
               ? 'bg-navy text-white border-navy'
               : 'bg-white text-navy border-border hover:border-navy'
           "
-          @click="selectCategory(null)"
+          @click="applyCategories([])"
         >
           {{ t('news.allCategories') }}
         </button>
         <button
           v-for="category in categories"
           :key="category.id"
-          class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280"
+          type="button"
+          :aria-pressed="isCategorySelected(category.slug)"
+          class="px-4 py-1.5 rounded-100 text-sm font-medium border transition-colors duration-280 inline-flex items-center gap-1.5"
           :class="
-            selectedCategorySlug === category.slug
+            isCategorySelected(category.slug)
               ? 'bg-navy text-white border-navy'
               : 'bg-white text-navy border-border hover:border-navy'
           "
-          @click="selectCategory(category.slug)"
+          @click="toggleCategory(category.slug)"
         >
           {{ localized(category, 'name') }}
+          <svg
+            v-if="isCategorySelected(category.slug)"
+            class="w-3 h-3 opacity-70"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            aria-hidden
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
         </button>
       </div>
 

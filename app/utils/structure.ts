@@ -79,6 +79,7 @@ export interface StructureGroup {
 export const STRUCTURE_INSTITUTES: StructureUnit[] = [
   {
     slug: 'ukrainian-philology',
+    newsCategorySlug: 'navchalno-naukovyi-instytut-ukrainskoi-filolohii',
     kind: 'institute',
     name: 'Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка',
     nameEn: 'H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology',
@@ -125,6 +126,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
   },
   {
     slug: 'special-education',
+    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
     kind: 'institute',
     name: 'Навчально-науковий інститут спеціальної освіти та інклюзії',
     nameEn: 'Educational and Research Institute of Special Education and Inclusion',
@@ -210,6 +212,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
 export const STRUCTURE_FACULTIES: StructureUnit[] = [
   {
     slug: 'history-law',
+    newsCategorySlug: 'fakultet-istoriyi-i-prava',
     kind: 'faculty',
     name: 'Факультет історії і права',
     nameEn: 'Faculty of History and Law',
@@ -253,6 +256,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'mathematics-informatics',
+    newsCategorySlug: 'fakultet-matematyky-informatyky-i-pryrodnychoyi-osvity',
     kind: 'faculty',
     name: 'Факультет математики, інформатики і природничої освіти',
     nameEn: 'Faculty of Mathematics, Computer Science and Natural Science Education',
@@ -304,6 +308,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'arts',
+    newsCategorySlug: 'fakultet-mystetstv',
     kind: 'faculty',
     name: 'Факультет мистецтв',
     nameEn: 'Faculty of Arts',
@@ -321,6 +326,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'foreign-philology',
+    newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
     kind: 'faculty',
     name: 'Факультет іноземної філології',
     nameEn: 'Faculty of Foreign Philology',
@@ -397,6 +403,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'preschool',
+    newsCategorySlug: 'fakultet-doshkilnoyi-osvity',
     kind: 'faculty',
     name: 'Факультет дошкільної освіти',
     nameEn: 'Faculty of Preschool Education',
@@ -439,6 +446,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'physical-education',
+    newsCategorySlug: 'fakultet-fizychnoho-vykhovannya-i-sportu',
     kind: 'faculty',
     name: 'Факультет фізичного виховання і спорту',
     nameEn: 'Faculty of Physical Education and Sports',
@@ -469,6 +477,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
   },
   {
     slug: 'social-humanities',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
     kind: 'faculty',
     name: 'Факультет соціально-гуманітарних наук і соціальних технологій',
     nameEn: 'Faculty of Social and Humanitarian Sciences and Social Technologies',

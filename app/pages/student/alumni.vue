@@ -9,7 +9,6 @@ useHead({
 })
 
 const benefitKeys = ['networking', 'mentorship', 'careerSupport', 'discounts'] as const
-const alumniIds = ['a1', 'a2', 'a3'] as const
 </script>
 
 <template>
@@ -91,36 +90,12 @@ const alumniIds = ['a1', 'a2', 'a3'] as const
         </article>
       </div>
 
-      <!-- Notable alumni: 3-column portrait cards with gold accents -->
+      <!-- Notable alumni: the three previous entries were invented people. -->
       <div class="bg-off-white border border-gold/20 rounded-16 p-8 lg:p-10">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
           {{ t('student.alumni.notableTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div
-            v-for="id in alumniIds"
-            :key="id"
-            class="bg-white border border-border rounded-16 p-6 flex flex-col items-center text-center transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
-          >
-            <div
-              class="w-24 h-24 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center mb-4 shrink-0 ring-2 ring-gold/30"
-              aria-hidden
-            >
-              <span class="text-gold font-playfair text-2xl font-bold">
-                {{ t(`student.alumni.notable.${id}.name`).charAt(0) }}
-              </span>
-            </div>
-            <h3 class="font-playfair text-lg font-semibold text-navy mb-1">
-              {{ t(`student.alumni.notable.${id}.name`) }}
-            </h3>
-            <p class="text-body-sm text-gold font-medium mb-2">
-              {{ t(`student.alumni.notable.${id}.year`) }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.alumni.notable.${id}.achievement`) }}
-            </p>
-          </div>
-        </div>
+        <SharedSectionPending />
       </div>
     </div>
   </div>

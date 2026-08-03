@@ -60,9 +60,6 @@ onUnmounted(() => {
         <NuxtLink :to="localePath('/admissions/rules')" class="text-[13px] text-white/65 no-underline bg-white/5 py-1 px-3 rounded-100 border border-white/10">
           {{ translate('search.tagVstup') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/student/moodle')" class="text-[13px] text-white/65 no-underline bg-white/5 py-1 px-3 rounded-100 border border-white/10">
-          {{ translate('search.tagMoodle') }}
-        </NuxtLink>
         <NuxtLink :to="localePath('/education/faculties')" class="text-[13px] text-white/65 no-underline bg-white/5 py-1 px-3 rounded-100 border border-white/10">
           {{ translate('search.tagFaculties') }}
         </NuxtLink>

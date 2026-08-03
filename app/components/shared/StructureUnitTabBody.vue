@@ -2,10 +2,15 @@
 import { loadStructureTabContent, type StructureTabId } from '~/utils/structureContent'
 
 /** Migrated legacy content for one tab of one unit. */
-const props = defineProps<{
-  slug: string
-  tab: StructureTabId
-}>()
+const props = withDefaults(
+  defineProps<{
+    slug: string
+    tab: StructureTabId
+    /** Off on the Головна tab, where the same links are shown as tiles instead. */
+    showLinks?: boolean
+  }>(),
+  { showLinks: true },
+)
 
 const { t, locale } = useSafeI18nWithRouter()
 
@@ -37,8 +42,16 @@ const showTranslationNotice = computed(() => locale.value !== 'uk' && data.value
         {{ section.heading }}
       </h2>
       <NewsMarkdownBody :source="section.html" kind="html" />
+
+      <!-- The unit's leadership, lifted out of the migrated table into cards. -->
+      <SharedPeopleRow
+        v-if="section.people?.length"
+        class="mt-10"
+        :people="section.people"
+        :heading="section.peopleHeading ?? t('university.structure.unit.leadership')"
+      />
     </section>
 
-    <SharedStructureUnitLinkList :links="links" />
+    <SharedStructureUnitLinkList v-if="showLinks" :links="links" />
   </div>
 </template>

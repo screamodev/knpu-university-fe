@@ -55,9 +55,6 @@ const schoolIds = ['pedagogy', 'linguistics', 'psychology', 'mathematics', 'hist
             <h2 class="font-playfair text-lg font-semibold text-navy mb-2">
               {{ t(`science.directions.schools.${id}.name`) }}
             </h2>
-            <p class="text-body-sm text-gold font-medium mb-3">
-              {{ t(`science.directions.schools.${id}.lead`) }}
-            </p>
             <p class="text-body-sm text-text-muted">
               {{ t(`science.directions.schools.${id}.description`) }}
             </p>

@@ -45,7 +45,7 @@ const collectionIds = ['c1', 'c2', 'c3', 'c4', 'c5'] as const
             {{ t(`science.collections.items.${id}.title`) }}
           </h2>
           <p class="text-body-sm text-gold font-medium mb-2">
-            {{ t(`science.collections.items.${id}.year`) }} · {{ t(`science.collections.items.${id}.editors`) }}
+            {{ t(`science.collections.items.${id}.year`) }}
           </p>
           <p class="text-body-sm text-text-muted mb-2">
             {{ t(`science.collections.items.${id}.articles`) }}

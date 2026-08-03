@@ -88,8 +88,13 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
           class="bg-off-white border border-border rounded-16 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold hover:shadow-gold"
         >
           <!-- Logo / name header -->
+          <!--
+            Navy plate on purpose: the logos are white/gold artwork on transparency (that is how
+            the university published them), so a white plate would swallow them.
+          -->
           <div
-            class="p-6 min-h-[140px] flex items-center justify-center bg-white border-b border-border"
+            class="p-6 min-h-[140px] flex items-center justify-center border-b border-border"
+            :class="partner.logo && partnerLogoSrc(partner.logo) ? 'bg-navy' : 'bg-white'"
           >
             <img
               v-if="partner.logo && partnerLogoSrc(partner.logo)"

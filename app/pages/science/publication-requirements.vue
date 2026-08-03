@@ -101,12 +101,8 @@ function getItemPath(sectionKey: (typeof sectionKeys)[number], itemKey: string):
           <p class="text-body-sm text-text-muted mb-4">
             {{ t('science.publicationRequirements.templateDescription') }}
           </p>
-          <a
-            href="#"
-            class="inline-flex items-center gap-2 text-gold font-semibold text-body no-underline transition-colors hover:text-gold-light"
-          >
-            {{ t('science.publicationRequirements.templateButton') }} →
-          </a>
+          <!-- The template file itself has not been supplied yet; a dead link is worse. -->
+          <SharedSectionPending />
         </div>
       </div>
     </div>

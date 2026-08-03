@@ -1,4 +1,4 @@
-import { MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
+import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 export interface NavLink {
   path: string
@@ -38,6 +38,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/volunteering', key: 'nav.links.volunteering' },
             { path: '/university/gallery', key: 'nav.links.gallery' },
             { path: '/university/newspaper', key: 'nav.links.newspaper' },
+            { path: '/news/announcements', key: 'nav.links.announcements' },
           ],
         },
         {
@@ -60,6 +61,13 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/orders', key: 'nav.links.orders' },
             { path: '/university/financial-reports', key: 'nav.links.financialReports' },
             { path: '/university/prozorro', key: 'nav.links.prozorro' },
+            { path: '/university/rector-report', key: 'nav.links.rectorReport' },
+            { path: '/university/regulations', key: 'nav.links.regulations' },
+            { path: '/university/regulation-drafts', key: 'nav.links.regulationDrafts' },
+            { path: '/university/facilities', key: 'nav.links.facilities' },
+            { path: '/university/vacancies', key: 'nav.links.universityVacancies' },
+            { path: '/university/attestation', key: 'nav.links.attestation' },
+            { path: '/university/language-exam', key: 'nav.links.languageExam' },
           ],
         },
         {
@@ -69,7 +77,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/mobility', key: 'nav.links.mobility' },
             { path: '/university/partners', key: 'nav.links.partners' },
             { path: '/university/inclusive', key: 'nav.links.inclusive' },
-            { path: '/university/anticorruption', key: 'nav.links.anticorruption' },
+            { path: ANTICORRUPTION_EXTERNAL_URL, key: 'nav.links.anticorruption', external: true },
             { path: '/university/integrity', key: 'nav.links.integrity' },
           ],
         },
@@ -211,22 +219,19 @@ export function useNavigation(): { items: NavItem[] } {
       minWidth: '800px',
       columns: [
         {
+          // The client struck Moodle, АСУ НЗ / Е-відомості and corporate mail off this column.
           titleKey: 'nav.student.digital',
           links: [
             { path: '/student/schedule', key: 'nav.links.schedule' },
-            { path: '/student/moodle', key: 'nav.links.moodle' },
-            { path: '/student/grades', key: 'nav.links.grades' },
-            { path: '/student/email', key: 'nav.links.email' },
           ],
         },
         {
+          // Canteens and medical services struck off as well.
           titleKey: 'nav.student.life',
           links: [
             { path: '/student/dormitories', key: 'nav.links.dormitories' },
             { path: '/student/psychology', key: 'nav.links.psychology' },
             { path: '/student/social', key: 'nav.links.social' },
-            { path: '/student/canteens', key: 'nav.links.canteens' },
-            { path: '/student/medical', key: 'nav.links.medical' },
           ],
         },
         {

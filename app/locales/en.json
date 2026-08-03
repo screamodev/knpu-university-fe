@@ -1,7 +1,9 @@
 {
   "common": {
     "comingSoon": "Coming soon",
-    "opensInNewTab": "Opens in a new tab"
+    "opensInNewTab": "Opens in a new tab",
+    "readMore": "Read more",
+    "sectionPending": "This section is being prepared by the university."
   },
   "utility": {
     "phone": "+38 (057) 700-69-09",
@@ -139,14 +141,9 @@
       "boards": "Specialized boards",
       "defenses": "PhD defenses",
       "schedule": "Class schedule",
-      "moodle": "E-campus (Moodle)",
-      "grades": "ASU NZ / E-grades",
-      "email": "Corporate email",
       "psychology": "Psychological service",
       "social": "Social support",
-      "canteens": "Canteens",
-      "medical": "Medical care",
-      "studentCouncil": "Student council",
+      "studentCouncil": "Student Parliament",
       "union": "Student union",
       "sports": "Sports",
       "arts": "Arts groups",
@@ -154,7 +151,15 @@
       "vacancies": "Vacancies and internships",
       "alumni": "Alumni association",
       "nonformal": "Non-formal education",
-      "veteransCenter": "Veterans development centre"
+      "veteransCenter": "Veterans development centre",
+      "rectorReport": "Rector’s report",
+      "regulations": "Regulations",
+      "regulationDrafts": "Draft regulations",
+      "facilities": "Facilities",
+      "universityVacancies": "University vacancies",
+      "attestation": "Staff attestation",
+      "languageExam": "State language exam",
+      "announcements": "Announcements"
     }
   },
   "header": {
@@ -167,7 +172,6 @@
     "popular": "Popular:",
     "tagSchedule": "Class schedule",
     "tagVstup": "Admissions 2026",
-    "tagMoodle": "Moodle",
     "tagFaculties": "Faculties"
   },
   "hero": {
@@ -178,22 +182,16 @@
     "titleName": "",
     "subtitle": "A university that educates future teachers and researchers in the spirit of freedom, humanism and a lasting love of knowledge.",
     "ctaApply": "Apply",
-    "ctaAbout": "About the university",
-    "statGraduatesValue": "250,000",
-    "statGraduatesLabel": "Graduates",
-    "statSpecialtiesValue": "30",
-    "statSpecialtiesLabel": "Specialties",
-    "statProgramsValue": "50",
-    "statProgramsLabel": "Educational\nprogrammes"
+    "ctaAbout": "About the university"
   },
   "quickAccess": {
-    "label": "Quick access",
-    "publicInfo": "Public information",
-    "moodle": "Moodle",
-    "library": "Research library",
+    "label": "Useful links",
     "quality": "Quality of education",
-    "monitoring": "Monitoring",
-    "anticorruption": "Anti-corruption"
+    "admissions": "Admissions",
+    "abroad": "For Abroad Enrollees",
+    "languageExam": "State language exam",
+    "integrity": "Academic integrity",
+    "eduhub": "Skovoroda Hub"
   },
   "sections": {
     "news": {
@@ -228,7 +226,9 @@
       "tag": "Admissions 2026",
       "title": "Join our\ncommunity",
       "subtitle": "Submit documents online or visit the admissions office",
-      "cta": "Learn more"
+      "cta": "Learn more",
+      "tagLive": "Announcement",
+      "ctaLive": "Read more"
     },
     "remembrance": {
       "tag": "Remembrance today",
@@ -366,20 +366,20 @@
       "subtitle": "Official symbols and attributes of H. S. Skovoroda Kharkiv National Pedagogical University.",
       "coatOfArms": {
         "title": "Coat of arms",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "text": ""
       },
       "flag": {
         "title": "Flag",
-        "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "text": ""
       },
       "colors": {
         "title": "Official colors",
-        "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        "text": ""
       },
       "anthem": {
         "title": "Anthem",
-        "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-        "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        "excerpt": "",
+        "text": ""
       }
     },
     "memorial": {
@@ -444,20 +444,6 @@
           "tag": "Culture",
           "title": "Patriotic and cultural events",
           "text": "Organisation of patriotic events and exhibitions; support for traditional university ceremonies; \"Cossack Glory\" outreach lessons in Kharkiv and regional schools."
-        }
-      },
-      "stats": {
-        "volunteers": {
-          "num": "500+",
-          "label": "Volunteers joined"
-        },
-        "hours": {
-          "num": "12,000+",
-          "label": "Hours of volunteer work"
-        },
-        "projects": {
-          "num": "45+",
-          "label": "Projects delivered"
         }
       },
       "cta": {
@@ -535,22 +521,22 @@
         "d1": {
           "date": "15.02.2026",
           "title": "On approval of educational programmes",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "d2": {
           "date": "28.01.2026",
           "title": "On conferral of academic degrees",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "d3": {
           "date": "10.01.2026",
           "title": "On the academic calendar 2025/2026",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "text": ""
         },
         "d4": {
           "date": "20.12.2025",
           "title": "On approval of structural unit regulations",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "text": ""
         }
       }
     },
@@ -558,53 +544,21 @@
       "tag": "Management",
       "title": "Supervisory board",
       "subtitle": "The supervisory board exercises strategic oversight and protects the interests of the university.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "intro": "",
       "membersTitle": "Board members",
-      "members": {
-        "m1": {
-          "name": "Serhiy Oliynyk",
-          "position": "Chair of the board",
-          "organisation": "Ministry of Education and Science of Ukraine"
-        },
-        "m2": {
-          "name": "Nataliya Kravchenko",
-          "position": "Deputy chair",
-          "organisation": "Kharkiv Regional Council"
-        },
-        "m3": {
-          "name": "Dmytro Tkachenko",
-          "position": "Board member",
-          "organisation": "KhNPU Alumni Association"
-        },
-        "m4": {
-          "name": "Kateryna Bondarenko",
-          "position": "Board member",
-          "organisation": "Education Employers Federation"
-        },
-        "m5": {
-          "name": "Yuriy Shevchenko",
-          "position": "Board member",
-          "organisation": "Academic community"
-        },
-        "m6": {
-          "name": "Iryna Lysenko",
-          "position": "Board member",
-          "organisation": "International partners"
-        }
-      },
       "functionsTitle": "Functions of the supervisory board",
       "functions": {
         "strategic": {
           "title": "Strategic oversight",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "text": ""
         },
         "financial": {
           "title": "Financial control",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat."
+          "text": ""
         },
         "development": {
           "title": "Institutional development",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "text": ""
         }
       }
     },
@@ -692,7 +646,10 @@
           "science": "Research",
           "students": "Student life",
           "news": "News",
-          "cooperation": "Cooperation"
+          "cooperation": "Cooperation",
+          "doctoral": "For doctoral students",
+          "regulations": "Regulations",
+          "announcements": "Announcements"
         },
         "contactsTitle": "Contacts",
         "deanTitle": "Dean",
@@ -705,8 +662,12 @@
         "newsEmpty": "There are no news items for this unit yet.",
         "newsAll": "All university news",
         "translationPending": "The English version of this page is still being prepared — the Ukrainian text is shown below.",
-        "sourceNote": "Migrated from the university's former website."
-      }
+        "sourceNote": "Migrated from the university's former website.",
+        "sectionsTitle": "Sections and services",
+        "headTitle": "Head of office",
+        "leadership": "Leadership"
+      },
+      "tagDepartment": "Department"
     },
     "faculties": {
       "tag": "Management",
@@ -791,34 +752,6 @@
       "subtitle": "Official documents underpinning KhNPU's educational activity.",
       "intro": "This page lists documents that certify Kharkiv National Pedagogical University named after H. S. Skovoroda's right to provide educational services and acknowledge the quality of the learning process. Full versions are archived in university administration.",
       "documentsTitle": "Documents",
-      "documents": {
-        "d1": {
-          "name": "License for provision of educational services (L_ZVO_2025.pdf)",
-          "date": "2025",
-          "authority": "National licensing authority of Ukraine"
-        },
-        "d2": {
-          "name": "Certificate for the institution's educational quality management system",
-          "date": "—",
-          "authority": "Certification bodies"
-        },
-        "d3": {
-          "name": "Award diploma «Modern education in Ukraine – 2011» for prominent creative achievements",
-          "date": "February 2011",
-          "authority": "Ministry of Education and Science of Ukraine and CARSHE"
-        },
-        "d4": {
-          "name": "Honorary title «Leader of modern education»",
-          "date": "2011",
-          "authority": "International exhibition organisers"
-        },
-        "d5": {
-          "name": "Gold medal nomination «Developing new organisational forms for teaching and learning processes»",
-          "date": "2011",
-          "authority": "Ministry of Education and Science of Ukraine and CARSHE"
-        }
-      },
-      "viewPdf": "View PDF",
       "regulatoryNote": "Complete lists of licences, certificates, and awards together with the University Charter (endorsed by the Ministry of Education and Science of Ukraine) are held at the Rectorate and published in part on the official website."
     },
     "publicInfo": {
@@ -851,24 +784,26 @@
         "international": {
           "title": "Self-assessment materials",
           "text": "Documents supporting national university-status reviews and institutional self-evaluations."
+        },
+        "drafts": {
+          "title": "Draft regulations",
+          "text": "Documents open for public discussion."
+        },
+        "vacancies": {
+          "title": "Vacancies",
+          "text": "Announcements of competitions for university positions."
+        },
+        "attestation": {
+          "title": "Staff attestation",
+          "text": "Attestation schedules and documents."
+        },
+        "procurement": {
+          "title": "Public procurement",
+          "text": "Disclosure of the university’s procurement information."
         }
       },
-      "reportingTitle": "Reporting",
-      "reporting": {
-        "annual": {
-          "title": "Annual report",
-          "year": "2025"
-        },
-        "selfAssessment": {
-          "title": "Self-assessment report",
-          "year": "2025"
-        },
-        "audit": {
-          "title": "External audit",
-          "year": "2024"
-        }
-      },
-      "download": "Download"
+      "download": "Download",
+      "latestTitle": "Latest documents"
     },
     "orders": {
       "tag": "Transparency",
@@ -876,196 +811,29 @@
       "subtitle": "Official Rector's orders governing the institution's substantive operations.",
       "intro": "Orders on substantive university matters are grouped chronologically by year and capture organisational, HR, and campus decisions of Kharkiv National Pedagogical University named after H. S. Skovoroda.",
       "filterAll": "All",
-      "documentsTitle": "Orders and charters",
-      "documents": {
-        "doc1": {
-          "number": "No. 49-od",
-          "date": "02.04.2026",
-          "title": "On announcing competitions to fill faculty positions",
-          "category": "Human resources"
-        },
-        "doc2": {
-          "number": "No. 9-od",
-          "date": "22.01.2026",
-          "title": "On announcing competitions to fill faculty positions",
-          "category": "Human resources"
-        },
-        "doc3": {
-          "number": "No. 223-od",
-          "date": "03.11.2025",
-          "title": "On establishing a working group",
-          "category": "Organisation"
-        },
-        "doc4": {
-          "number": "No. 212-od",
-          "date": "22.10.2025",
-          "title": "On announcing competitions to fill faculty positions",
-          "category": "Human resources"
-        },
-        "doc5": {
-          "number": "No. 109-od",
-          "date": "15.05.2025",
-          "title": "On updating paid educational services tariffs",
-          "category": "Finance"
-        },
-        "doc6": {
-          "number": "No. 102-od",
-          "date": "13.05.2025",
-          "title": "On announcing competitions to fill faculty positions",
-          "category": "Human resources"
-        },
-        "doc7": {
-          "number": "No. 251-od",
-          "date": "08.11.2024",
-          "title": "Restricting use of Telegram messenger",
-          "category": "Organisation"
-        },
-        "doc8": {
-          "number": "No. 217-od",
-          "date": "26.09.2024",
-          "title": "On announcing competitions to fill faculty positions",
-          "category": "Human resources"
-        }
-      }
+      "documentsTitle": "Orders and charters"
     },
     "financialReports": {
       "tag": "Transparency",
       "title": "Financial reports",
       "subtitle": "Budget, revenue, expenditure and financial reporting of the university.",
-      "intro": "This subsection presents public financial disclosures for Kharkiv National Pedagogical University named after H. S. Skovoroda, including accounting policy, budgeting documents, balance sheets, performance reports, and staffing schedules. Historical materials are published from 2017 onward.",
-      "yearCardsTitle": "Reports by year",
-      "download": "Download",
-      "years": {
-        "2025": {
-          "revenue": "Revenue",
-          "expenses": "Expenses",
-          "stateFunding": "State funding",
-          "ownRevenue": "Own revenue"
-        },
-        "2024": {
-          "revenue": "Revenue",
-          "expenses": "Expenses",
-          "stateFunding": "State funding",
-          "ownRevenue": "Own revenue"
-        },
-        "2023": {
-          "revenue": "Revenue",
-          "expenses": "Expenses",
-          "stateFunding": "State funding",
-          "ownRevenue": "Own revenue"
-        }
-      },
-      "yearValues": {
-        "2025": {
-          "revenue": "125 m UAH",
-          "expenses": "118 m UAH",
-          "stateFunding": "95 m UAH",
-          "ownRevenue": "30 m UAH"
-        },
-        "2024": {
-          "revenue": "118 m UAH",
-          "expenses": "112 m UAH",
-          "stateFunding": "88 m UAH",
-          "ownRevenue": "30 m UAH"
-        },
-        "2023": {
-          "revenue": "110 m UAH",
-          "expenses": "105 m UAH",
-          "stateFunding": "82 m UAH",
-          "ownRevenue": "28 m UAH"
-        }
-      },
-      "keyFiguresTitle": "Key figures",
-      "keyFigures": {
-        "totalBudget": {
-          "value": "125 m UAH",
-          "label": "Total budget (2025)"
-        },
-        "stateShare": {
-          "value": "76%",
-          "label": "State funding share"
-        },
-        "ownShare": {
-          "value": "24%",
-          "label": "Own revenue"
-        },
-        "capital": {
-          "value": "8 m UAH",
-          "label": "Capital investments"
-        }
-      }
+      "intro": "Balance sheets, budgets, staffing schedules and spending reports from 2016 onwards."
     },
     "prozorro": {
       "tag": "Transparency",
       "title": "Prozorro",
       "subtitle": "University procurements in the electronic procurement system.",
       "intro": "The university publishes technical and qualitative specifications for procurements pursuant to Ukrainian Cabinet Resolution No. 710 of 11 October 2016 «On the efficient use of public funds». All tenders are executed in Prozorro.",
-      "statsTitle": "Procurement indicators",
-      "stats": {
-        "totalTenders": {
-          "value": "142",
-          "label": "Total tenders"
-        },
-        "completed": {
-          "value": "128",
-          "label": "Completed"
-        },
-        "totalValue": {
-          "value": "18 m UAH",
-          "label": "Total value"
-        }
-      },
       "procurementsTitle": "Recent procurements",
-      "procurements": {
-        "p1": {
-          "number": "UA-2026-01-28-006004-a",
-          "title": "Electricity supply (universal service)",
-          "status": "active",
-          "amount": "—",
-          "date": "28.01.2026"
-        },
-        "p2": {
-          "number": "UA-2026-01-29-009596-a",
-          "title": "Heat energy supply",
-          "status": "active",
-          "amount": "—",
-          "date": "29.01.2026"
-        },
-        "p3": {
-          "number": "UA-2025-12-16-016931-a",
-          "title": "Electricity supply without distribution surcharge",
-          "status": "active",
-          "amount": "—",
-          "date": "16.12.2025"
-        },
-        "p4": {
-          "number": "UA-2025-12-31-003206-a",
-          "title": "Natural gas supply for household consumers",
-          "status": "active",
-          "amount": "—",
-          "date": "31.12.2025"
-        },
-        "p5": {
-          "number": "—",
-          "title": "Archived procurement rationales for 2025 (available online)",
-          "status": "completed",
-          "amount": "—",
-          "date": "2025"
-        },
-        "p6": {
-          "number": "—",
-          "title": "Archived procurement rationales for 2024 (available online)",
-          "status": "completed",
-          "amount": "—",
-          "date": "2024"
-        }
-      },
       "statusCompleted": "Completed",
       "statusActive": "In progress",
       "statusPlanned": "Planned",
       "ctaTitle": "Full procurement register",
       "ctaSubtitle": "All university procurements are published on the official Prozorro portal.",
-      "ctaButton": "Go to Prozorro"
+      "ctaButton": "Go to Prozorro",
+      "documentsTitle": "Procurement documents",
+      "widgetTitle": "University procurements",
+      "widgetNote": "Data comes from the Prozorro system for legal entity code 02125585."
     },
     "erasmus": {
       "tag": "International",
@@ -1135,87 +903,12 @@
           "title": "Outgoing staff",
           "text": "Faculty and administrative staff undertake training abroad sharing experience in educator preparation and quality assurance governance."
         }
-      },
-      "statsTitle": "Indicators",
-      "stats": {
-        "sent": {
-          "value": "85",
-          "label": "Mobility participants (outbound)"
-        },
-        "received": {
-          "value": "42",
-          "label": "Mobility participants (inbound)"
-        },
-        "countries": {
-          "value": "12",
-          "label": "Partner countries"
-        },
-        "agreements": {
-          "value": "28",
-          "label": "International cooperation agreements"
-        }
-      },
-      "testimonialsTitle": "Participant testimonials",
-      "testimonials": {
-        "t1": {
-          "quote": "Studying overseas for one semester unveiled different teaching philosophies and plugged me straight into wider European academia.",
-          "name": "Olena Kovalenko",
-          "programme": "Erasmus+, Poland"
-        },
-        "t2": {
-          "quote": "My staff mobility let me transplant project-driven teaching habits into my classrooms back in Kharkiv.",
-          "name": "Andriy Melnyk",
-          "programme": "Erasmus+, Germany"
-        },
-        "t3": {
-          "quote": "The language and cultural experience made international collaboration with peers and pupils far easier afterward.",
-          "name": "Maria Sydorenko",
-          "programme": "Erasmus+, Italy"
-        }
       }
     },
     "inclusive": {
       "tag": "International",
       "title": "Inclusive environment",
-      "subtitle": "Accessibility and support for all participants in university life.",
-      "intro": "Support protocols for learners with special educational needs derive from Presidential Decree of Ukraine № 401/2017 as well as internal university orders. KhNPU maintains an Inclusive Education Centre and adopts regulations outlining support for enrolled students.",
-      "featuresTitle": "Accessibility and support",
-      "features": {
-        "barrierFree": {
-          "title": "Barrier-free access",
-          "text": "Academic buildings are adapted for convenient movement — agree any entrance-exam itinerary in advance with the Inclusive Education Centre."
-        },
-        "assistive": {
-          "title": "Assistive technologies",
-          "text": "Students with sensory or mobility needs may rely on rehabilitative aids and differentiated exam arrangements confirmed with the inclusive education team before enrolment deadlines."
-        },
-        "signLanguage": {
-          "title": "Sign language support",
-          "text": "On advance request the university explores sign-language interpretation or alternative communication aids for consultations and entrance activities."
-        },
-        "adapted": {
-          "title": "Adapted materials",
-          "text": "Study resources can be customised with faculty support when recommended by specialised assessment documentation."
-        },
-        "individual": {
-          "title": "Individual study plans",
-          "text": "After admission, tailored trajectories outline remediation and enrichment measures aligned with recommendations from IRC specialists and faculties."
-        },
-        "transport": {
-          "title": "Mobility accompaniment",
-          "text": "On-campus accompaniment to exam venues may be coordinated with the accountable inclusion officer whenever required."
-        }
-      },
-      "supportTitle": "Support desk",
-      "supportText": "Students with special educational needs should notify responsible staff ahead of arrival. Visiting rooms outline available services and provide escorting to whichever unit handles the request — or onward to security staff when exits are concerned.",
-      "supportImageAlt": "Inclusive campus support",
-      "contactTitle": "Coordinator contact",
-      "contact": {
-        "name": "Svitlana Anatoliyivna Biletska",
-        "position": "Accountable officer supporting persons with special educational needs",
-        "phone": "+38 (096) 613‑41‑70",
-        "email": "Email"
-      }
+      "subtitle": "Accessibility and support for all participants in university life."
     },
     "anticorruption": {
       "tag": "Transparency",
@@ -1241,7 +934,6 @@
           "date": "2024"
         }
       },
-      "viewPdf": "View PDF",
       "channelsTitle": "Reporting channels",
       "channels": {
         "online": {
@@ -1257,21 +949,8 @@
           "contact": "+38 (067) 713‑16‑87"
         }
       },
-      "statsTitle": "Compliance and training",
-      "stats": {
-        "reportsReviewed": {
-          "value": "24",
-          "label": "Reports reviewed (2025)"
-        },
-        "trainingsConducted": {
-          "value": "12",
-          "label": "Trainings conducted"
-        },
-        "staffTrained": {
-          "value": "98%",
-          "label": "Staff trained"
-        }
-      }
+      "externalSite": "Open the anticorruption site",
+      "onExternalSite": "File is on the unit’s site"
     },
     "integrity": {
       "tag": "International",
@@ -1320,7 +999,6 @@
           "date": "2023"
         }
       },
-      "viewPdf": "View PDF",
       "resourcesTitle": "Resources",
       "resources": {
         "antiplagiarism": {
@@ -1336,6 +1014,45 @@
           "text": "Attend trainings on originality, attribution, and research-data handling announced each semester."
         }
       }
+    },
+    "rectorreport": {
+      "tag": "Transparency",
+      "title": "Rector’s report",
+      "subtitle": "Annual reports on the university’s activity.",
+      "intro": "The rector’s reports are published annually under the Law of Ukraine “On Higher Education” and the university statute."
+    },
+    "regulations": {
+      "tag": "Transparency",
+      "title": "University regulations",
+      "subtitle": "Statutes, procedures and other governing documents.",
+      "intro": "Documents currently in force. Drafts open for discussion are collected on a separate page."
+    },
+    "regulationdrafts": {
+      "tag": "Transparency",
+      "title": "Draft regulations",
+      "subtitle": "Documents open for public discussion.",
+      "intro": "Drafts of statutes and procedures are published here before approval. Send comments to the university’s email."
+    },
+    "facilities": {
+      "tag": "Transparency",
+      "title": "Facilities and equipment",
+      "subtitle": "Information on facilities under the licensing conditions.",
+      "intro": "Published in line with the Licensing Conditions for educational activity."
+    },
+    "vacancies": {
+      "tag": "Transparency",
+      "title": "University vacancies",
+      "subtitle": "Open positions and competition terms."
+    },
+    "attestation": {
+      "tag": "Transparency",
+      "title": "Staff attestation",
+      "subtitle": "Documents and schedules for staff attestation."
+    },
+    "languageExam": {
+      "tag": "For visitors",
+      "title": "State Language Examination 2.0",
+      "subtitle": "Taking the Ukrainian language proficiency examination required for public service positions at H.S. Skovoroda KhNPU."
     }
   },
   "admissions": {
@@ -2030,45 +1747,25 @@
       "tag": "Admissions",
       "title": "Open days",
       "subtitle": "Visit the campus, meet the faculties and get answers to your questions about applying.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "intro": "",
       "upcomingTitle": "Upcoming dates",
-      "events": {
-        "event1": {
-          "dateBadge": "Mar 15",
-          "title": "Open day — humanities",
-          "location": "Main building, assembly hall",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "event2": {
-          "dateBadge": "Apr 12",
-          "title": "Open day — natural sciences",
-          "location": "Building 2, conference room",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "event3": {
-          "dateBadge": "May 10",
-          "title": "General open day",
-          "location": "Main building, lobby and lecture rooms",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      },
       "expectTitle": "What to expect",
       "expectations": {
         "campusTour": {
           "title": "Campus tour",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "meetFaculty": {
           "title": "Meet the faculty",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "qa": {
           "title": "Q&A session",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "demoLessons": {
           "title": "Demo lessons",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         }
       },
       "ctaTitle": "Register for an open day",
@@ -2083,27 +1780,27 @@
       "buildings": {
         "building1": {
           "name": "Main building",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "building2": {
           "name": "Building 2",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "building3": {
           "name": "Research library",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "building4": {
           "name": "Sports complex",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "description": ""
         },
         "building5": {
           "name": "Laboratory building",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "description": ""
         },
         "building6": {
           "name": "Administrative building",
-          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+          "description": ""
         }
       }
     }
@@ -2130,56 +1827,7 @@
       "allLevels": "All levels",
       "levelBachelor": "Bachelor",
       "levelMaster": "Master",
-      "levelGraduate": "Graduate",
-      "noPrograms": "No programmes found.",
-      "codeLabel": "Specialty code",
-      "cards": {
-        "p1": {
-          "name": "Primary education",
-          "code": "011",
-          "level": "bachelor"
-        },
-        "p2": {
-          "name": "Preschool education",
-          "code": "012",
-          "level": "bachelor"
-        },
-        "p3": {
-          "name": "Secondary education (Ukrainian language)",
-          "code": "014",
-          "level": "bachelor"
-        },
-        "p4": {
-          "name": "Psychology",
-          "code": "053",
-          "level": "bachelor"
-        },
-        "p5": {
-          "name": "Computer science",
-          "code": "122",
-          "level": "bachelor"
-        },
-        "p6": {
-          "name": "Educational institution management",
-          "code": "011",
-          "level": "master"
-        },
-        "p7": {
-          "name": "Higher education pedagogy",
-          "code": "014",
-          "level": "master"
-        },
-        "p8": {
-          "name": "Special needs education",
-          "code": "016",
-          "level": "master"
-        },
-        "p9": {
-          "name": "Educational sciences",
-          "code": "011",
-          "level": "graduate"
-        }
-      }
+      "levelGraduate": "Graduate"
     },
     "curriculum": {
       "tag": "Education",
@@ -2437,88 +2085,24 @@
       "subtitle": "Information on programme accreditation and validity periods.",
       "intro": "Study programmes are accredited periodically by NAQA. Below is the accreditation status of our main programmes.",
       "cardsTitle": "Accredited programmes",
-      "cards": {
-        "a1": {
-          "programme": "Primary education",
-          "body": "NAQA",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a2": {
-          "programme": "Preschool education",
-          "body": "NAQA",
-          "validity": "2023–2029",
-          "status": "active"
-        },
-        "a3": {
-          "programme": "Psychology",
-          "body": "NAQA",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a4": {
-          "programme": "Secondary education (Ukrainian language)",
-          "body": "NAQA",
-          "validity": "2023–2029",
-          "status": "active"
-        },
-        "a5": {
-          "programme": "Educational institution management",
-          "body": "NAQA",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a6": {
-          "programme": "Educational sciences",
-          "body": "NAQA",
-          "validity": "2024–2030",
-          "status": "active"
-        }
-      },
       "statusActive": "Active",
       "calloutTitle": "About the accreditation process",
       "calloutText": "Periodic accreditation confirms that programmes meet national legal requirements and quality standards. The university undergoes external review and reports to NAQA."
     },
     "quality": {
       "tag": "Education",
-      "title": "Quality centre",
-      "subtitle": "Mission, goals and team of the Education Quality Centre.",
-      "intro": "The Education Quality Centre develops the internal quality assurance system, monitors learning outcomes and supports teaching staff.",
-      "missionTitle": "Mission",
-      "missionText": "To ensure transparent, evidence-based quality management and continuous improvement of teaching and learning at KhNPU.",
-      "goalsTitle": "Our goals",
-      "goals": {
-        "g1": {
-          "title": "Quality standards",
-          "text": "We align internal quality criteria with national standards and programme learning outcomes."
-        },
-        "g2": {
-          "title": "Support for teachers",
-          "text": "We provide methodological support, training and peer review for lecturers and programme teams."
-        },
-        "g3": {
-          "title": "Transparency of results",
-          "text": "We publish summaries of surveys and quality findings for students and stakeholders."
-        }
-      },
-      "teamTitle": "Team",
-      "team": {
-        "t1": {
-          "name": "Ivanenko O.M.",
-          "role": "Centre director"
-        },
-        "t2": {
-          "name": "Petrenko T.V.",
-          "role": "Monitoring specialist"
-        },
-        "t3": {
-          "name": "Kovalenko L.I.",
-          "role": "Methodologist"
-        },
-        "t4": {
-          "name": "Sydorenko M.P.",
-          "role": "Quality analyst"
-        }
+      "title": "Centre for Educational Quality Assurance",
+      "subtitle": "The unit running the internal quality assurance system.",
+      "contentPending": "This section is being prepared — the quality centre will supply the content.",
+      "tabs": {
+        "home": "Home",
+        "news": "News",
+        "regulations": "Regulations",
+        "documents": "Documents",
+        "students": "For students",
+        "quality": "Educational quality",
+        "programmes": "Study programmes",
+        "accreditation": "Accreditation"
       }
     },
     "monitoring": {
@@ -2544,21 +2128,6 @@
           "title": "Employer feedback",
           "text": "Employers report on competences and suggest updates to practice-oriented courses."
         }
-      },
-      "statsTitle": "Key figures",
-      "stats": {
-        "s1": {
-          "num": "2,400+",
-          "label": "Surveys conducted"
-        },
-        "s2": {
-          "num": "24",
-          "label": "Programmes reviewed"
-        },
-        "s3": {
-          "num": "87%",
-          "label": "Student satisfaction"
-        }
       }
     },
     "rankings": {
@@ -2567,38 +2136,6 @@
       "subtitle": "University positions in national and international rankings.",
       "intro": "KhNPU participates in rankings that assess teaching, research and internationalisation. An overview of positions and methodology is given below.",
       "cardsTitle": "Our positions",
-      "cards": {
-        "r1": {
-          "name": "QS World University Rankings",
-          "position": "Top 800",
-          "year": "2024",
-          "note": "Overall institutional position in the global ranking (illustrative example)."
-        },
-        "r2": {
-          "name": "Webometrics",
-          "position": "Top 15 Ukraine",
-          "year": "2024",
-          "note": "Web presence and research visibility among Ukrainian higher education institutions."
-        },
-        "r3": {
-          "name": "Scopus",
-          "position": "Indexed",
-          "year": "—",
-          "note": "University output is indexed in the Scopus database for publication and citation tracking."
-        },
-        "r4": {
-          "name": "TOP-200 Ukraine",
-          "position": "Top 50",
-          "year": "2024",
-          "note": "Position in the national consolidated ranking of Ukrainian universities."
-        },
-        "r5": {
-          "name": "Subject rankings (Education)",
-          "position": "Top 10 Ukraine",
-          "year": "2024",
-          "note": "Subject-level assessment in the field of education (national comparison)."
-        }
-      },
       "methodologyTitle": "Methodology",
       "methodologyText": "Rankings use different combinations of publication metrics, citations, international cooperation, student–staff ratios and employer surveys. We use these results to improve programmes and transparency."
     },
@@ -2795,60 +2332,7 @@
     "students": {
       "tag": "Education",
       "title": "Student body",
-      "subtitle": "Statistics and structure of the university student body.",
-      "stats": {
-        "total": {
-          "num": "8,000+",
-          "label": "Total students and graduate students"
-        },
-        "bachelor": {
-          "num": "5,200",
-          "label": "Bachelor students"
-        },
-        "master": {
-          "num": "2,100",
-          "label": "Master students"
-        },
-        "graduate": {
-          "num": "700+",
-          "label": "Graduate and doctoral students"
-        }
-      },
-      "byFacultyTitle": "Breakdown by faculty",
-      "chartPlaceholder": "Chart (illustrative visualisation)",
-      "facultiesListTitle": "Students by faculty",
-      "faculties": {
-        "f1": {
-          "name": "Pedagogy and Psychology",
-          "count": "1,200"
-        },
-        "f2": {
-          "name": "Primary Education",
-          "count": "980"
-        },
-        "f3": {
-          "name": "Preschool Education",
-          "count": "850"
-        },
-        "f4": {
-          "name": "Philology and Foreign Languages",
-          "count": "1,100"
-        },
-        "f5": {
-          "name": "Physics and Mathematics",
-          "count": "620"
-        },
-        "f6": {
-          "name": "Arts and Natural Sciences",
-          "count": "1,020"
-        }
-      },
-      "genderTitle": "Gender distribution",
-      "genderPlaceholder": "Distribution chart (male / female)",
-      "internationalTitle": "International students",
-      "internationalIntro": "The university welcomes international students at all levels of study.",
-      "internationalCount": "180+",
-      "internationalLabel": "International students"
+      "subtitle": "Statistics and structure of the university student body."
     }
   },
   "science": {
@@ -2860,37 +2344,31 @@
       "schools": {
         "pedagogy": {
           "name": "Pedagogical school",
-          "lead": "Lead: Prof. Ivanenko O.M.",
           "est": "Est. 1992",
           "description": "Theory and practice of teaching, comparative pedagogy and school improvement research."
         },
         "linguistics": {
           "name": "Linguistic school",
-          "lead": "Lead: Prof. Sydorenko M.P.",
           "est": "Est. 1988",
           "description": "Ukrainian and contrastive linguistics, language policy and literary studies."
         },
         "psychology": {
           "name": "Psychology school",
-          "lead": "Lead: Prof. Petrenko T.V.",
           "est": "Est. 1995",
           "description": "Developmental, educational and applied psychology for learning and well-being."
         },
         "mathematics": {
           "name": "Mathematics school",
-          "lead": "Lead: Prof. Melnyk V.O.",
           "est": "Est. 1990",
           "description": "Mathematics education, didactics of STEM subjects and assessment research."
         },
         "history": {
           "name": "History school",
-          "lead": "Lead: Prof. Hrytsenko D.V.",
           "est": "Est. 1985",
           "description": "History of Ukraine and regional studies in education and culture."
         },
         "naturalSciences": {
           "name": "Natural sciences school",
-          "lead": "Lead: Prof. Bondarenko A.S.",
           "est": "Est. 1993",
           "description": "Natural science education, biology and chemistry didactics, environmental research."
         }
@@ -2905,8 +2383,6 @@
       "items": {
         "i1": {
           "name": "Institute of Pedagogy and Psychology",
-          "director": "Director: Dr Ivanenko O.M.",
-          "founded": "1991",
           "description": "Large-scale projects in pedagogy, inclusive education and teacher professional development.",
           "focus": [
             "f1",
@@ -2916,8 +2392,6 @@
         },
         "i2": {
           "name": "Laboratory of Cognitive Research",
-          "director": "Head: Dr Petrenko T.V.",
-          "founded": "2005",
           "description": "Experimental studies in cognition, learning processes and educational assessment.",
           "focus": [
             "f4",
@@ -2927,8 +2401,6 @@
         },
         "i3": {
           "name": "Centre for Philological Studies",
-          "director": "Director: Dr Sydorenko M.P.",
-          "founded": "1998",
           "description": "Philology, literary theory and language teaching methodology in Ukrainian and foreign languages.",
           "focus": [
             "f7",
@@ -2938,8 +2410,6 @@
         },
         "i4": {
           "name": "Research Institute of Science Education",
-          "director": "Director: Dr Bondarenko A.S.",
-          "founded": "1992",
           "description": "STEM education research, environmental chemistry and biology education innovation.",
           "focus": [
             "f10",
@@ -2987,25 +2457,7 @@
           "text": "Mobility and joint activities with partner universities and labs."
         }
       },
-      "teamTitle": "Council members",
-      "members": {
-        "m1": {
-          "name": "Kovalenko O.S.",
-          "role": "Chair, Faculty of Pedagogy"
-        },
-        "m2": {
-          "name": "Tkachenko I.V.",
-          "role": "Deputy chair, Faculty of Philology"
-        },
-        "m3": {
-          "name": "Lysenko M.O.",
-          "role": "Member, Faculty of Psychology"
-        },
-        "m4": {
-          "name": "Shevchenko A.P.",
-          "role": "Member, Faculty of Natural Sciences"
-        }
-      }
+      "teamTitle": "Council members"
     },
     "studentSociety": {
       "tag": "Science",
@@ -3024,20 +2476,6 @@
         "publications": {
           "name": "Student publications",
           "description": "Guidance on writing articles and abstracts for student collections and bulletins."
-        }
-      },
-      "stats": {
-        "members": {
-          "num": "450+",
-          "label": "Active members"
-        },
-        "papers": {
-          "num": "120",
-          "label": "Papers published"
-        },
-        "competitions": {
-          "num": "25",
-          "label": "Competitions won"
         }
       },
       "ctaTitle": "Join our community",
@@ -3088,29 +2526,6 @@
       "subtitle": "Academic events at the university and with partners.",
       "intro": "KhNPU hosts international and national conferences, seminars and round tables across its academic profile.",
       "upcomingTitle": "Upcoming events",
-      "events": {
-        "e1": {
-          "dateBadge": "Apr 15",
-          "title": "Pedagogy and psychology in times of change",
-          "type": "Conference",
-          "location": "Kharkiv, 29 Alchevskykh St",
-          "description": "Plenary and parallel sessions on educational policy, psychology and school practice."
-        },
-        "e2": {
-          "dateBadge": "May 22",
-          "title": "Philological studies: language and literature",
-          "type": "Seminar",
-          "location": "Online",
-          "description": "Workshop-oriented meeting on linguistics, literature and language teaching."
-        },
-        "e3": {
-          "dateBadge": "Jun 10",
-          "title": "Natural sciences in education",
-          "type": "Round table",
-          "location": "Kharkiv, Research Institute",
-          "description": "Discussion of STEM didactics, ecology and natural science education."
-        }
-      },
       "pastTitle": "Past events",
       "past": {
         "p1": {
@@ -3143,42 +2558,36 @@
       "journals": {
         "j1": {
           "name": "Pedagogy and psychology",
-          "issn": "ISSN 1234-5678",
           "frequency": "Quarterly",
           "scopus": true,
           "wos": false
         },
         "j2": {
           "name": "Philological studies",
-          "issn": "ISSN 2345-6789",
           "frequency": "Semi-annual",
           "scopus": true,
           "wos": true
         },
         "j3": {
           "name": "Natural sciences in education",
-          "issn": "ISSN 3456-7890",
           "frequency": "Quarterly",
           "scopus": false,
           "wos": false
         },
         "j4": {
           "name": "Historical archive",
-          "issn": "ISSN 4567-8901",
           "frequency": "Annual",
           "scopus": true,
           "wos": false
         },
         "j5": {
           "name": "Mathematics in school and university",
-          "issn": "ISSN 5678-9012",
           "frequency": "Quarterly",
           "scopus": false,
           "wos": false
         },
         "j6": {
           "name": "Inclusive education",
-          "issn": "ISSN 6789-0123",
           "frequency": "Semi-annual",
           "scopus": true,
           "wos": true
@@ -3194,35 +2603,30 @@
         "c1": {
           "title": "Proceedings of the international conference «Pedagogy 2025»",
           "year": "2025",
-          "editors": "Eds. Ivanenko O.M., Sydorenko M.P.",
           "articles": "42 articles",
           "description": "Selected papers from the international “Pedagogy 2025” conference."
         },
         "c2": {
           "title": "Philological readings KhNPU",
           "year": "2025",
-          "editors": "Ed. Petrenko T.V.",
           "articles": "28 articles",
           "description": "Materials from the annual philological readings at KhNPU."
         },
         "c3": {
           "title": "Psychology and education: collected papers",
           "year": "2024",
-          "editors": "Eds. Melnyk V.O., Hrytsenko D.V.",
           "articles": "35 articles",
           "description": "Collected research on psychology and education from faculty and guests."
         },
         "c4": {
           "title": "Natural sciences: research and practice",
           "year": "2024",
-          "editors": "Ed. Bondarenko A.S.",
           "articles": "19 articles",
           "description": "Natural science education and outdoor learning case studies."
         },
         "c5": {
           "title": "Inclusive education in Ukraine",
           "year": "2024",
-          "editors": "Eds. Kovalenko O.S., Tkachenko I.V.",
           "articles": "24 articles",
           "description": "Inclusive education policy and classroom practice in Ukraine."
         }
@@ -3307,99 +2711,13 @@
         "sub5": "Publication according to the issue schedule."
       },
       "templateTitle": "Manuscript template",
-      "templateDescription": "Download the article template for journal or proceedings.",
-      "templateButton": "Download template"
+      "templateDescription": "Download the article template for journal or proceedings."
     },
     "scopus": {
       "tag": "Science",
       "title": "Scopus / WOS",
       "subtitle": "Staff publications in international databases.",
-      "intro": "KhNPU supports publication in Scopus and Web of Science; examples of indexed output are listed below.",
-      "stats": {
-        "scopus": {
-          "num": "280+",
-          "label": "Scopus publications"
-        },
-        "wos": {
-          "num": "95+",
-          "label": "WOS publications"
-        },
-        "hIndex": {
-          "num": "4.2",
-          "label": "Average h-index"
-        }
-      },
-      "tableAuthor": "Author(s)",
-      "tableTitle": "Title",
-      "tableJournal": "Journal",
-      "tableYear": "Year",
-      "tableDatabase": "Database",
-      "publications": {
-        "p1": {
-          "authors": "Ivanenko O.M., Sydorenko M.P.",
-          "title": "Pedagogical comparativistics in the context of European integration",
-          "journal": "Pedagogy and psychology",
-          "year": "2025",
-          "scopus": true,
-          "wos": false
-        },
-        "p2": {
-          "authors": "Petrenko T.V., Melnyk V.O.",
-          "title": "Cognitive learning strategies in higher education",
-          "journal": "Psychology bulletin",
-          "year": "2025",
-          "scopus": true,
-          "wos": true
-        },
-        "p3": {
-          "authors": "Bondarenko A.S.",
-          "title": "Environmental education and sustainable development",
-          "journal": "Natural sciences in education",
-          "year": "2024",
-          "scopus": true,
-          "wos": false
-        },
-        "p4": {
-          "authors": "Kovalenko O.S., Tkachenko I.V., Lysenko M.O.",
-          "title": "Inclusive education: experience and prospects",
-          "journal": "Inclusive education",
-          "year": "2024",
-          "scopus": true,
-          "wos": true
-        },
-        "p5": {
-          "authors": "Hrytsenko D.V.",
-          "title": "Ukrainian literature in world context",
-          "journal": "Philological studies",
-          "year": "2024",
-          "scopus": false,
-          "wos": true
-        },
-        "p6": {
-          "authors": "Shevchenko A.P., Ivanenko O.M.",
-          "title": "Digital technologies in teacher education",
-          "journal": "Pedagogy and psychology",
-          "year": "2023",
-          "scopus": true,
-          "wos": false
-        },
-        "p7": {
-          "authors": "Sydorenko M.P.",
-          "title": "Linguodidactics and language teaching methodology",
-          "journal": "Philological studies",
-          "year": "2023",
-          "scopus": true,
-          "wos": true
-        },
-        "p8": {
-          "authors": "Melnyk V.O., Petrenko T.V.",
-          "title": "Psychometrics and assessment of learning outcomes",
-          "journal": "Psychology bulletin",
-          "year": "2023",
-          "scopus": true,
-          "wos": false
-        }
-      }
+      "intro": "KhNPU supports publication in Scopus and Web of Science; examples of indexed output are listed below."
     },
     "publishing": {
       "tag": "Science",
@@ -3428,17 +2746,14 @@
       "books": {
         "b1": {
           "title": "Higher education pedagogy",
-          "author": "Ivanenko O.M.",
           "year": "2025"
         },
         "b2": {
           "title": "Psychology of learning",
-          "author": "Petrenko T.V., Melnyk V.O.",
           "year": "2025"
         },
         "b3": {
           "title": "Ukrainian literature of the 20th century",
-          "author": "Sydorenko M.P.",
           "year": "2024"
         }
       }
@@ -3473,24 +2788,6 @@
           "title": "Exhibitions",
           "description": "Temporary displays of rare books, university history and thematic collections."
         }
-      },
-      "stats": {
-        "holdings": {
-          "num": "761,955",
-          "label": "Items in collections"
-        },
-        "eresources": {
-          "num": "12,000+",
-          "label": "E-resources"
-        },
-        "readingRooms": {
-          "num": "8",
-          "label": "Reading rooms"
-        },
-        "visitors": {
-          "num": "45,000+",
-          "label": "Annual visitors"
-        }
       }
     },
     "catalog": {
@@ -3519,20 +2816,6 @@
       "title": "eSSPUIR repository",
       "subtitle": "Open archive of research and teaching materials.",
       "intro": "The institutional repository stores theses, articles, teaching materials and reports with open or campus access.",
-      "stats": {
-        "records": {
-          "num": "4,200+",
-          "label": "Records in repository"
-        },
-        "downloads": {
-          "num": "28,000+",
-          "label": "Downloads per year"
-        },
-        "faculties": {
-          "num": "12",
-          "label": "Faculties represented"
-        }
-      },
       "features": {
         "openAccess": {
           "title": "Open access",
@@ -3551,96 +2834,13 @@
           "description": "DOI assignment for eligible outputs according to editorial workflows."
         }
       },
-      "recentTitle": "Recent deposits",
-      "deposits": {
-        "d1": {
-          "title": "Pedagogical comparative studies in European integration",
-          "author": "Ivanenko O.M.",
-          "faculty": "Pedagogy and Psychology",
-          "date": "2025-02-15"
-        },
-        "d2": {
-          "title": "Cognitive learning strategies in higher education",
-          "author": "Petrenko T.V.",
-          "faculty": "Pedagogy and Psychology",
-          "date": "2025-02-10"
-        },
-        "d3": {
-          "title": "Ukrainian literature in a global context",
-          "author": "Sydorenko M.P.",
-          "faculty": "Philology",
-          "date": "2025-02-05"
-        },
-        "d4": {
-          "title": "Environmental education and sustainable development",
-          "author": "Bondarenko A.S.",
-          "faculty": "Natural Sciences",
-          "date": "2025-01-28"
-        }
-      }
+      "recentTitle": "Recent deposits"
     },
     "boards": {
       "tag": "Science",
       "title": "Specialized academic boards",
       "subtitle": "Boards with the right to consider and conduct dissertation defenses.",
-      "intro": "Specialised academic boards are authorised to review dissertations in defined scientific fields.",
-      "boards": {
-        "b1": {
-          "name": "Pedagogy and Psychology",
-          "code": "011",
-          "chairman": "Ivanenko O.M.",
-          "secretary": "Sydorenko M.P.",
-          "members": "15",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b2": {
-          "name": "Philology",
-          "code": "035",
-          "chairman": "Petrenko T.V.",
-          "secretary": "Melnyk V.O.",
-          "members": "12",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b3": {
-          "name": "History and Archaeology",
-          "code": "032",
-          "chairman": "Bondarenko A.S.",
-          "secretary": "Kovalenko O.S.",
-          "members": "11",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b4": {
-          "name": "Natural Sciences",
-          "code": "013",
-          "chairman": "Hrytsenko D.V.",
-          "secretary": "Tkachenko I.V.",
-          "members": "14",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        }
-      },
-      "chairmanLabel": "Chairman",
-      "secretaryLabel": "Academic secretary",
-      "membersLabel": "Board members",
-      "areasLabel": "Research areas",
-      "area1": "Higher education pedagogy",
-      "area2": "Comparative pedagogy",
-      "area3": "Research methodology"
+      "intro": "Specialised academic boards are authorised to review dissertations in defined scientific fields."
     },
     "defenses": {
       "tag": "Science",
@@ -3648,79 +2848,12 @@
       "subtitle": "Schedule and results of candidate and doctoral dissertation defenses.",
       "intro": "Dissertation defences in approved specialties are scheduled throughout the year; upcoming and past sessions are listed below.",
       "upcomingTitle": "Upcoming defenses",
-      "upcoming": {
-        "d1": {
-          "dateBadge": "Apr 20",
-          "candidate": "Kovalenko O.S.",
-          "dissertation": "Pedagogical comparativistics in the context of European integration",
-          "specialty": "011 Pedagogy",
-          "board": "Specialized board 011, KhNPU"
-        },
-        "d2": {
-          "dateBadge": "May 15",
-          "candidate": "Tkachenko I.V.",
-          "dissertation": "Cognitive learning strategies in higher education",
-          "specialty": "011 Pedagogy",
-          "board": "Specialized board 011, KhNPU"
-        },
-        "d3": {
-          "dateBadge": "May 28",
-          "candidate": "Lysenko M.O.",
-          "dissertation": "Ukrainian literature in a global context",
-          "specialty": "035 Philology",
-          "board": "Specialized board 035, KhNPU"
-        }
-      },
       "pastTitle": "Past defenses",
       "tableYear": "Year",
       "tableCandidate": "Candidate",
       "tableTitle": "Dissertation title",
       "tableSpecialty": "Specialty",
-      "tableResult": "Result",
-      "past": {
-        "p1": {
-          "year": "2025",
-          "candidate": "Ivanenko O.M.",
-          "title": "Pedagogical comparativistics in the context of European integration",
-          "specialty": "011 Pedagogy",
-          "result": "Accepted"
-        },
-        "p2": {
-          "year": "2025",
-          "candidate": "Petrenko T.V.",
-          "title": "Cognitive learning strategies in higher education",
-          "specialty": "011 Pedagogy",
-          "result": "Accepted"
-        },
-        "p3": {
-          "year": "2024",
-          "candidate": "Bondarenko A.S.",
-          "title": "Environmental education and sustainable development",
-          "specialty": "013 Natural sciences",
-          "result": "Accepted"
-        },
-        "p4": {
-          "year": "2024",
-          "candidate": "Hrytsenko D.V.",
-          "title": "Ukrainian literature in world context",
-          "specialty": "035 Philology",
-          "result": "Accepted"
-        },
-        "p5": {
-          "year": "2024",
-          "candidate": "Shevchenko A.P.",
-          "title": "Digital technologies in teacher education",
-          "specialty": "011 Pedagogy",
-          "result": "Accepted"
-        },
-        "p6": {
-          "year": "2023",
-          "candidate": "Sydorenko M.P.",
-          "title": "Linguodidactics and language teaching methodology",
-          "specialty": "035 Philology",
-          "result": "Accepted"
-        }
-      }
+      "tableResult": "Result"
     }
   },
   "programs": {
@@ -3785,7 +2918,6 @@
     "linkFaculties": "Faculties",
     "linkPrograms": "Programmes",
     "linkSchedule": "Schedule",
-    "linkMoodle": "Moodle",
     "linkQuality": "Quality of education",
     "linkPublications": "Publications",
     "linkLibrary": "Library",
@@ -3839,165 +2971,10 @@
         }
       }
     },
-    "moodle": {
-      "tag": "For students",
-      "title": "E-campus (Moodle)",
-      "subtitle": "Courses, materials, assignments and grades in one place.",
-      "intro": "Moodle is the e-campus for blended and online learning: materials, assignments, forums and grades.",
-      "featuresTitle": "Platform features",
-      "features": {
-        "materials": {
-          "title": "Course materials",
-          "text": "Lecture slides, readings, links and media organised by week or topic."
-        },
-        "assignments": {
-          "title": "Assignments",
-          "text": "Submit files, essays and projects before the course deadline."
-        },
-        "forum": {
-          "title": "Forum discussions",
-          "text": "Discuss topics with peers and instructors in course forums."
-        },
-        "grades": {
-          "title": "Grades",
-          "text": "See marked work, feedback and running totals where released by the teacher."
-        },
-        "video": {
-          "title": "Video lectures",
-          "text": "Recorded or linked sessions and playlists attached to the course."
-        },
-        "quizzes": {
-          "title": "Quizzes",
-          "text": "Online tests with automated or instructor grading."
-        }
-      },
-      "gettingStartedTitle": "Getting started",
-      "steps": {
-        "credentials": {
-          "title": "Get credentials",
-          "text": "Use the university login issued by IT or your faculty for Moodle access."
-        },
-        "login": {
-          "title": "Log in",
-          "text": "Sign in via the official Moodle portal and select your role (student)."
-        },
-        "enrol": {
-          "title": "Enrol in courses",
-          "text": "Self-enrol or wait for automatic enrolment when the term opens."
-        },
-        "learn": {
-          "title": "Start learning",
-          "text": "Follow the weekly plan, complete tasks and attend online sessions as scheduled."
-        }
-      }
-    },
-    "grades": {
-      "tag": "For students",
-      "title": "ASU NZ / E-grades",
-      "subtitle": "View grades and academic progress.",
-      "intro": "The ASU NZ national system lets you view grades, academic progress and official transcripts online.",
-      "featuresTitle": "Features",
-      "features": {
-        "view": {
-          "title": "View grades",
-          "text": "Semester marks and exam results as entered by your faculty."
-        },
-        "progress": {
-          "title": "Track progress",
-          "text": "Credits earned, averages and degree requirements status where available."
-        },
-        "transcripts": {
-          "title": "Download transcripts",
-          "text": "Request printable transcripts and confirmations for employers or embassies."
-        },
-        "appeal": {
-          "title": "Appeal process",
-          "text": "Follow the faculty appeal procedure for disputed grades within the statutory window."
-        }
-      }
-    },
-    "email": {
-      "tag": "For students",
-      "title": "Corporate email",
-      "subtitle": "University email for study and official communication.",
-      "intro": "Each student receives a university-issued mailbox for study-related and official correspondence; domains and quotas are documented by campus IT alongside faculty onboarding instructions.",
-      "setupTitle": "Setup instructions",
-      "steps": {
-        "credentials": {
-          "title": "Receive credentials",
-          "text": "Collect login details from the IT service point or faculty notice."
-        },
-        "configure": {
-          "title": "Configure client",
-          "text": "Add the account to Outlook, Thunderbird or your phone using IMAP/SMTP settings."
-        },
-        "webmail": {
-          "title": "Access webmail",
-          "text": "Use the webmail interface when you are off campus or on borrowed devices."
-        }
-      },
-      "faqTitle": "Frequently asked questions",
-      "faq": {
-        "storage": {
-          "title": "Storage limits",
-          "text": "Mailbox quotas follow the university IT policy; archive old mail to stay within limits."
-        },
-        "password": {
-          "title": "Password reset",
-          "text": "Reset passwords via the IT helpdesk or the self-service portal when available."
-        },
-        "mobile": {
-          "title": "Mobile setup",
-          "text": "Configure secure app access; do not share credentials with third parties."
-        },
-        "forwarding": {
-          "title": "Forwarding",
-          "text": "Forwarding rules may be restricted—check IT policy before enabling auto-forward."
-        }
-      }
-    },
     "dormitories": {
       "tag": "For students",
       "title": "Dormitories",
-      "subtitle": "University housing for full-time students.",
-      "intro": "Full-time students may apply for a place in a university dormitory through the dean’s office or campus housing service.",
-      "cardsTitle": "Our dormitories",
-      "dorm1": {
-        "name": "Dormitory No. 1",
-        "address": "29 Alchevskykh St",
-        "capacity": "280 places",
-        "distance": "5 min walk from campus",
-        "amenity1": "Canteen",
-        "amenity2": "Laundry",
-        "amenity3": "Contact RA for room swap"
-      },
-      "dorm2": {
-        "name": "Dormitory No. 2",
-        "address": "33 Alchevskykh St",
-        "capacity": "320 places",
-        "distance": "7 min walk from campus",
-        "amenity1": "Sports hall",
-        "amenity2": "Reading room",
-        "amenity3": "Study rooms"
-      },
-      "dorm3": {
-        "name": "Dormitory No. 3",
-        "address": "35 Alchevskykh St",
-        "capacity": "240 places",
-        "distance": "8 min walk from campus",
-        "amenity1": "Wi‑Fi",
-        "amenity2": "Common kitchen",
-        "amenity3": "Contact RA for room swap"
-      },
-      "howToGetTitle": "How to get a room",
-      "step1Title": "Apply via dean's office",
-      "step1Text": "Submit a housing application through your faculty dean's office or the social support service.",
-      "step2Title": "Receive assignment",
-      "step2Text": "Wait for the allocation decision. You will be notified of your dormitory and room number.",
-      "step3Title": "Check in",
-      "step3Text": "Arrive at the dormitory with your ID and assignment notice to complete check-in.",
-      "step4Title": "Settle in",
-      "step4Text": "Get familiar with the rules, meet your RA and collect your key. Contact the office for any room swap requests."
+      "subtitle": "University housing for full-time students."
     },
     "psychology": {
       "tag": "For students",
@@ -4069,165 +3046,27 @@
       "step3Title": "Submit application",
       "step3Text": "Submit your application and documents by the deadline via the dean's office or social service."
     },
-    "canteens": {
-      "tag": "For students",
-      "title": "Canteens",
-      "subtitle": "Student canteens: opening hours and sample menu.",
-      "intro": "On-campus canteens offer affordable set meals and snacks during teaching days. Hours may vary by vacations.",
-      "cardsTitle": "University canteens",
-      "canteen1": {
-        "name": "Canteen No. 1",
-        "building": "Main building, 1st floor",
-        "hours": "Mon–Fri 8:00 AM–4:00 PM",
-        "capacity": "120 seats"
-      },
-      "canteen2": {
-        "name": "Canteen No. 2",
-        "building": "Building 2",
-        "hours": "Mon–Fri 8:30 AM–3:30 PM",
-        "capacity": "80 seats"
-      },
-      "canteen3": {
-        "name": "Canteen No. 3",
-        "building": "Dormitory No. 1",
-        "hours": "Daily 7:00 AM–8:00 PM",
-        "capacity": "60 seats"
-      },
-      "menuTitle": "Sample menu",
-      "menu": {
-        "breakfast": {
-          "title": "Breakfast",
-          "dish1": "Oatmeal",
-          "price1": "25 UAH",
-          "dish2": "Syrnyky",
-          "price2": "35 UAH",
-          "dish3": "Omelette",
-          "price3": "30 UAH",
-          "dish4": "Cheese sandwich",
-          "price4": "20 UAH"
-        },
-        "lunch": {
-          "title": "Lunch",
-          "dish1": "Borscht",
-          "price1": "40 UAH",
-          "dish2": "Cutlet with side",
-          "price2": "55 UAH",
-          "dish3": "Salad",
-          "price3": "30 UAH",
-          "dish4": "Compote",
-          "price4": "15 UAH"
-        },
-        "dinner": {
-          "title": "Dinner",
-          "dish1": "Soup",
-          "price1": "35 UAH",
-          "dish2": "Fish with vegetables",
-          "price2": "60 UAH",
-          "dish3": "Buckwheat with meat",
-          "price3": "50 UAH",
-          "dish4": "Tea",
-          "price4": "10 UAH"
-        }
-      }
-    },
-    "medical": {
-      "tag": "For students",
-      "title": "Medical care",
-      "subtitle": "Medical points and basic health services for students.",
-      "intro": "Medical points provide basic health services, referrals and documentation required for physical education and practice.",
-      "servicesTitle": "Services",
-      "services": {
-        "checkups": {
-          "title": "General check-ups",
-          "text": "Preventive examinations and chronic condition monitoring for students."
-        },
-        "vaccinations": {
-          "title": "Vaccinations",
-          "text": "Immunisations according to national calendar and outbreak response."
-        },
-        "dental": {
-          "title": "Dental care",
-          "text": "Basic dental triage and referral to clinics where agreements exist."
-        },
-        "firstAid": {
-          "title": "First aid",
-          "text": "First aid, injury assessment and emergency escalation on campus."
-        },
-        "referrals": {
-          "title": "Specialist referrals",
-          "text": "Referrals to municipal clinics and specialists when needed."
-        },
-        "certificates": {
-          "title": "Health certificates",
-          "text": "Health certificates for admission, sports and teaching practice."
-        }
-      },
-      "locationsTitle": "Medical points",
-      "locationAddress": "Address",
-      "locationPhone": "Phone",
-      "locationHours": "Hours",
-      "locations": {
-        "location1": {
-          "name": "Medical point (main building)",
-          "address": "29 Alchevskykh St, room 104",
-          "phone": "+38 (057) 700-02-38",
-          "hours": "Mon–Fri 9:00 AM–5:00 PM"
-        },
-        "location2": {
-          "name": "Medical point (dormitory No. 1)",
-          "address": "31 Alchevskykh St",
-          "phone": "+38 (057) 700-02-39",
-          "hours": "Mon–Fri 8:00 AM–4:00 PM"
-        }
-      }
-    },
     "council": {
-      "tag": "For students",
-      "title": "Student council",
-      "subtitle": "Representing student interests and organising student life.",
-      "intro": "The student council represents the student body to the administration and coordinates activities, projects and advocacy.",
-      "teamTitle": "Leadership team",
-      "team": {
-        "t1": {
-          "name": "Kovalenko O.I.",
-          "role": "Chair",
-          "faculty": "H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology"
-        },
-        "t2": {
-          "name": "Petrenko M.V.",
-          "role": "Deputy",
-          "faculty": "Faculty of History and Law"
-        },
-        "t3": {
-          "name": "Sydorenko A.P.",
-          "role": "Secretary",
-          "faculty": "Faculty of Mathematics, Computer Science and Natural Science Education"
-        },
-        "t4": {
-          "name": "Shevchenko K.L.",
-          "role": "Council member",
-          "faculty": "Faculty of Arts"
-        }
-      },
-      "areasTitle": "Activity areas",
-      "areas": {
-        "rights": {
-          "title": "Student rights",
-          "text": "Protecting academic rights, assessment rules and student participation in governance."
-        },
-        "academic": {
-          "title": "Academic affairs",
-          "text": "Collecting feedback on teaching quality and curriculum issues."
-        },
-        "events": {
-          "title": "Social events",
-          "text": "Culture, sport and charity initiatives for the student community."
-        },
-        "international": {
-          "title": "International cooperation",
-          "text": "Welcoming international students and mobility programmes."
-        }
-      }
+      "tag": "Students",
+      "title": "Student Parliament",
+      "subtitle": "The student self-government body of H. S. Skovoroda KhNPU.",
+      "sectionEmpty": "This section is being filled in by the student parliament.",
+      "aboutTitle": "About the parliament",
+      "missionTitle": "Mission",
+      "objectivesTitle": "Objectives",
+      "contactsTitle": "Contacts",
+      "contactsAddress": "Address",
+      "contactsEmail": "Email",
+      "contactsTrustBox": "Trust box",
+      "contactsSocials": "Social media",
+      "leadershipTitle": "Leadership",
+      "chairTitle": "Chair",
+      "deputiesTitle": "Deputy chairs",
+      "facultyChairsTitle": "Faculty student council chairs",
+      "sectorsTitle": "Sectors",
+      "auditTitle": "Audit commission",
+      "newsTitle": "News",
+      "documentsTitle": "Documents"
     },
     "union": {
       "tag": "For students",
@@ -4276,58 +3115,30 @@
       "sections": {
         "football": {
           "name": "Football",
-          "schedule": "Mon, Wed, Fri 5:00 PM",
-          "coach": "Coach: Ivanenko O.P."
+          "schedule": "Mon, Wed, Fri 5:00 PM"
         },
         "basketball": {
           "name": "Basketball",
-          "schedule": "Tue, Thu 6:00 PM",
-          "coach": "Coach: Petrenko M.V."
+          "schedule": "Tue, Thu 6:00 PM"
         },
         "swimming": {
           "name": "Swimming",
-          "schedule": "Mon–Fri 7:00 AM",
-          "coach": "Coach: Sydorenko L.I."
+          "schedule": "Mon–Fri 7:00 AM"
         },
         "athletics": {
           "name": "Athletics",
-          "schedule": "Tue, Fri 5:30 PM",
-          "coach": "Coach: Kovalenko A.S."
+          "schedule": "Tue, Fri 5:30 PM"
         },
         "volleyball": {
           "name": "Volleyball",
-          "schedule": "Wed, Sun 4:00 PM",
-          "coach": "Coach: Shevchenko V.O."
+          "schedule": "Wed, Sun 4:00 PM"
         },
         "martial": {
           "name": "Martial arts",
-          "schedule": "Mon, Wed, Fri 6:30 PM",
-          "coach": "Coach: Melnyk R.P."
+          "schedule": "Mon, Wed, Fri 6:30 PM"
         }
       },
-      "achievementsTitle": "Achievements",
-      "achievements": {
-        "a1": {
-          "name": "Regional Universiade",
-          "year": "2024",
-          "result": "1st place (volleyball)"
-        },
-        "a2": {
-          "name": "City championship (athletics)",
-          "year": "2024",
-          "result": "2nd place"
-        },
-        "a3": {
-          "name": "Basketball cup",
-          "year": "2023",
-          "result": "3rd place"
-        },
-        "a4": {
-          "name": "Swimming competition",
-          "year": "2024",
-          "result": "1st place (relay)"
-        }
-      }
+      "achievementsTitle": "Achievements"
     },
     "arts": {
       "tag": "For students",
@@ -4338,47 +3149,26 @@
       "ensembles": {
         "choir": {
           "name": "Folk choir",
-          "director": "Director: Sydorenko L.I.",
           "members": "45 members",
           "text": "Ukrainian and international choral repertoire; concerts and competitions."
         },
         "dance": {
           "name": "Dance ensemble",
-          "director": "Director: Kovalenko O.P.",
           "members": "32 members",
           "text": "Contemporary and folk choreography with public showcases."
         },
         "theatre": {
           "name": "Theatre studio",
-          "director": "Director: Petrenko M.V.",
           "members": "28 members",
           "text": "Acting studio, productions and participation in student festivals."
         },
         "instrumental": {
           "name": "Instrumental ensemble",
-          "director": "Director: Shevchenko V.O.",
           "members": "20 members",
           "text": "Small ensembles and instrumental coaching across classical and popular styles."
         }
       },
-      "eventsTitle": "Upcoming performances",
-      "events": {
-        "e1": {
-          "date": "15 March 2026",
-          "title": "Concert for International Theatre Day",
-          "location": "Assembly hall, main building"
-        },
-        "e2": {
-          "date": "22 March 2026",
-          "title": "Evening of folk music",
-          "location": "Skovoroda Hall"
-        },
-        "e3": {
-          "date": "5 April 2026",
-          "title": "Student theatre festival",
-          "location": "Theatre studio"
-        }
-      }
+      "eventsTitle": "Upcoming performances"
     },
     "career": {
       "tag": "For students",
@@ -4434,65 +3224,7 @@
       "position": "Position",
       "type": "Type",
       "location": "Location",
-      "posted": "Posted",
-      "vacancies": {
-        "v1": {
-          "company": "Education Plus LLC",
-          "position": "Trainee teacher",
-          "type": "internship",
-          "location": "Kharkiv",
-          "posted": "5 March 2026"
-        },
-        "v2": {
-          "company": "Kindergarten No. 45",
-          "position": "Preschool educator",
-          "type": "fullTime",
-          "location": "Kharkiv",
-          "posted": "4 March 2026"
-        },
-        "v3": {
-          "company": "Children's Development Centre",
-          "position": "English teacher",
-          "type": "partTime",
-          "location": "Kharkiv",
-          "posted": "3 March 2026"
-        },
-        "v4": {
-          "company": "Lyceum No. 12",
-          "position": "Mathematics teacher",
-          "type": "fullTime",
-          "location": "Kharkiv",
-          "posted": "2 March 2026"
-        },
-        "v5": {
-          "company": "Innovation LLC",
-          "position": "IT department intern",
-          "type": "internship",
-          "location": "Remote",
-          "posted": "1 March 2026"
-        },
-        "v6": {
-          "company": "Korolenko Library",
-          "position": "Trainee librarian",
-          "type": "internship",
-          "location": "Kharkiv",
-          "posted": "28 February 2026"
-        },
-        "v7": {
-          "company": "School of Arts",
-          "position": "Music teacher",
-          "type": "partTime",
-          "location": "Kharkiv",
-          "posted": "27 February 2026"
-        },
-        "v8": {
-          "company": "Research Centre",
-          "position": "Research assistant",
-          "type": "fullTime",
-          "location": "Kharkiv",
-          "posted": "26 February 2026"
-        }
-      }
+      "posted": "Posted"
     },
     "alumni": {
       "tag": "For students",
@@ -4518,24 +3250,7 @@
           "text": "Reduced fees for continuing education and selected campus events for members."
         }
       },
-      "notableTitle": "Notable alumni",
-      "notable": {
-        "a1": {
-          "name": "Olena Kovalenko",
-          "year": "Class of 2015",
-          "achievement": "PhD in Education, Associate Professor of History."
-        },
-        "a2": {
-          "name": "Andriy Petrenko",
-          "year": "Class of 2012",
-          "achievement": "Principal of Lyceum No. 12, Honoured Teacher of Ukraine."
-        },
-        "a3": {
-          "name": "Maria Sydorenko",
-          "year": "Class of 2018",
-          "achievement": "Research fellow at the Institute of Pedagogy, NAES of Ukraine."
-        }
-      }
+      "notableTitle": "Notable alumni"
     },
     "nonformal": {
       "tag": "For students",
@@ -4628,8 +3343,7 @@
       "contactPhone": "Phone",
       "contactEmail": "Email",
       "contactHours": "Office hours",
-      "contactCoordinator": "Coordinator",
-      "coordinatorName": "Ivanenko O.P."
+      "contactCoordinator": "Coordinator"
     }
   },
   "auth": {
@@ -4833,5 +3547,11 @@
     "noCategory": "No category",
     "fieldRequired": "Required field",
     "adminPanel": "Admin Panel"
+  },
+  "documents": {
+    "filterAll": "All years",
+    "empty": "No documents yet.",
+    "externalLink": "Link",
+    "listTitle": "Documents"
   }
 }

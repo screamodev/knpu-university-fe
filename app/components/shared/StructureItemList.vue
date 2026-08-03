@@ -7,7 +7,7 @@ const props = defineProps<{
   nested?: boolean
 }>()
 
-const { t } = useSafeI18nWithRouter()
+const { t, localePath } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
 const items = computed(() => props.items ?? [])
@@ -47,6 +47,27 @@ const items = computed(() => props.items ?? [])
         </svg>
         <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
       </a>
+
+      <!-- Subdivision with a page here -->
+      <NuxtLink
+        v-else-if="item.path"
+        :to="localePath(item.path)"
+        class="group flex items-start gap-3 py-2 px-4 bg-white border border-border rounded-12 no-underline transition-colors duration-280 hover:border-gold/60"
+        :class="nested ? 'text-body-sm' : 'text-body'"
+      >
+        <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" aria-hidden />
+        <span class="flex-1 text-navy">{{ localized(item, 'name') }}</span>
+        <svg
+          class="w-4 h-4 text-text-muted shrink-0 mt-1.5 transition-transform duration-280 group-hover:translate-x-0.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </NuxtLink>
 
       <!-- Subdivision without a site of its own -->
       <div

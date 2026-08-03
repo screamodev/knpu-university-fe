@@ -9,7 +9,6 @@ useHead({
 })
 
 const methodologyIds = ['m1', 'm2', 'm3', 'm4'] as const
-const statIds = ['s1', 's2', 's3'] as const
 </script>
 
 <template>
@@ -63,24 +62,6 @@ const statIds = ['s1', 's2', 's3'] as const
         </article>
       </div>
 
-      <!-- Stats band: 3 gold-number stats -->
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-        {{ t('education.monitoring.statsTitle') }}
-      </h2>
-      <div class="bg-off-white py-12 lg:py-16 rounded-16">
-        <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div v-for="id in statIds" :key="id" class="flex flex-col items-center">
-              <div class="font-playfair text-4xl md:text-5xl font-bold text-gold leading-none mb-2">
-                {{ t(`education.monitoring.stats.${id}.num`) }}
-              </div>
-              <div class="text-[15px] text-text-muted">
-                {{ t(`education.monitoring.stats.${id}.label`) }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>

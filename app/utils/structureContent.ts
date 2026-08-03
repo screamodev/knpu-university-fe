@@ -24,11 +24,25 @@ export const STRUCTURE_TAB_IDS = [
   'education',
   'science',
   'students',
+  'doctoral',
+  'regulations',
   'news',
+  'announcements',
   'cooperation',
 ] as const
 
 export type StructureTabId = (typeof STRUCTURE_TAB_IDS)[number]
+
+/**
+ * Tabs whose body is a list of documents rather than migrated prose.
+ *
+ * The unit page renders `SharedDocumentList` for these, reading the section named here out of
+ * the shared `documents` collection, so editors maintain them the same way as every other
+ * document page on the site.
+ */
+export const STRUCTURE_DOCUMENT_TABS: Partial<Record<StructureTabId, string>> = {
+  regulations: 'postgraduate-regulations',
+}
 
 export interface StructureUnitContacts {
   dean?: string
@@ -51,17 +65,48 @@ export interface StructureUnitManifestEntry {
   capturedAt?: string
   /** Tabs that have a body file. `home` is listed here too; `structure`/`news` are derived. */
   tabs?: StructureTabId[]
+  /** Tabs backed by the `documents` collection — see `STRUCTURE_DOCUMENT_TABS`. */
+  documentTabs?: StructureTabId[]
+  /** Tabs that are a news feed for one category, keyed by tab id. */
+  categoryTabs?: StructureTabId[]
+  /** Category slug per `categoryTabs` entry; defaults to the unit's own news category. */
+  categorySlugs?: Partial<Record<string, string>>
+  /**
+   * Tab captions that differ for this unit. The shared captions are written for faculties
+   * («Вступнику», «Студентство»), which reads wrong for a department whose audience is
+   * postgraduates, so a unit may name its own tabs.
+   */
+  tabLabels?: Partial<Record<StructureTabId, { uk: string; en?: string }>>
   contacts?: StructureUnitContacts
+}
+
+/**
+ * One member of a unit's leadership, lifted out of the migrated «Деканат» table by
+ * `migration/structure-pages/6_extract_people.py` so it can render as a card row.
+ */
+export interface StructureUnitPerson {
+  /** `/assets/<uuid>`; null where the old site had no portrait for that person. */
+  photo: string | null
+  position: string | null
+  name: string
+  degree: string | null
+  profileUrl: string | null
 }
 
 export interface StructureTabSection {
   heading?: string
   html: string
+  people?: StructureUnitPerson[]
+  /** Caption that stood above the extracted block, e.g. «Деканат». */
+  peopleHeading?: string | null
 }
 
 export interface StructureTabLink {
   label: string
-  url: string
+  /** Address on another site. */
+  url?: string
+  /** Route on this site — used where the legacy link pointed at a page we now host ourselves. */
+  path?: string
 }
 
 export interface StructureTabContent {
@@ -102,10 +147,13 @@ export function structureUnitTabs(slug: string): StructureTabId[] {
   const unit = findStructureUnit(slug)
   if (!unit) return []
 
-  const withBody = new Set(structureUnitManifest(slug)?.tabs ?? [])
+  const manifestEntry = structureUnitManifest(slug)
+  const withBody = new Set(manifestEntry?.tabs ?? [])
   const available = new Set<StructureTabId>(['home'])
 
   for (const tab of withBody) available.add(tab)
+  for (const tab of manifestEntry?.documentTabs ?? []) available.add(tab)
+  for (const tab of manifestEntry?.categoryTabs ?? []) available.add(tab)
   if (unit.items.length > 0 || unit.associations?.length) available.add('structure')
   if (unit.newsCategorySlug ?? unit.slug) available.add('news')
 
@@ -134,4 +182,18 @@ export async function loadStructureTabContent(
     return { content: module.default, locale: candidate }
   }
   return null
+}
+
+/**
+ * Caption for one tab of one unit — the unit's own wording where it has one, otherwise the
+ * shared translation. English falls back to Ukrainian, as elsewhere in the migrated content.
+ */
+export function structureTabLabelOverride(
+  slug: string,
+  tab: StructureTabId,
+  locale: string,
+): string | undefined {
+  const label = structureUnitManifest(slug)?.tabLabels?.[tab]
+  if (!label) return undefined
+  return (locale === 'en' ? label.en : label.uk) ?? label.uk
 }

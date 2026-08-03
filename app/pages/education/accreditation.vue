@@ -8,7 +8,6 @@ useHead({
   meta: [{ name: 'description', content: () => t('education.accreditation.subtitle') }],
 })
 
-const cardIds = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] as const
 </script>
 
 <template>
@@ -34,32 +33,11 @@ const cardIds = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'] as const
         {{ t('education.accreditation.intro') }}
       </p>
 
-      <!-- Accreditation cards: 3-column grid, 6 mock entries -->
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
         {{ t('education.accreditation.cardsTitle') }}
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <article
-          v-for="id in cardIds"
-          :key="id"
-          class="bg-off-white border border-border rounded-16 p-6"
-        >
-          <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-            {{ t(`education.accreditation.cards.${id}.programme`) }}
-          </h3>
-          <p class="text-body-sm text-text-muted mb-1">
-            {{ t(`education.accreditation.cards.${id}.body`) }}
-          </p>
-          <p class="text-body-sm text-text-muted mb-3">
-            {{ t(`education.accreditation.cards.${id}.validity`) }}
-          </p>
-          <span
-            class="inline-block px-2.5 py-1 rounded-100 text-xs font-medium bg-gold/15 text-gold border border-gold/30"
-          >
-            {{ t('education.accreditation.statusActive') }}
-          </span>
-        </article>
-      </div>
+      <!-- Programme accreditations: the six entries here were invented, dates included. -->
+      <SharedSectionPending />
 
       <!-- Callout: gold left border -->
       <div

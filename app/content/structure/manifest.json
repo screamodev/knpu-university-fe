@@ -192,5 +192,50 @@
       "facebook": "https://www.facebook.com/umlf.hnpu",
       "instagram": "https://www.instagram.com/umlf_khnpu/"
     }
+  },
+  "postgraduate": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/viddil-aspirantury-i-doktorantury",
+    "capturedAt": "2026-08-02",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "students",
+      "doctoral"
+    ],
+    "documentTabs": [
+      "regulations"
+    ],
+    "categoryTabs": [
+      "announcements"
+    ],
+    "categorySlugs": {
+      "announcements": "ogoloshennya"
+    },
+    "contacts": {
+      "dean": "Разуменко Ірина Василівна",
+      "position": "кандидат філологічних наук, професор, завідувач відділу",
+      "address": "61002, м. Харків, вул. Алчевських, 29, к. 103",
+      "phone": "+38 (067) 940 31 33",
+      "email": "aspirantura-2010@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "home": {
+        "uk": "Про відділ",
+        "en": "About"
+      },
+      "admission": {
+        "uk": "Абітурієнту",
+        "en": "For applicants"
+      },
+      "education": {
+        "uk": "Освітній процес",
+        "en": "Studies"
+      },
+      "students": {
+        "uk": "Аспіранту",
+        "en": "For PhD students"
+      }
+    }
   }
 }

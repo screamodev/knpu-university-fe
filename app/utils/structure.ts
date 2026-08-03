@@ -34,6 +34,8 @@ export interface StructureItem {
   nameEn: string
   /** Own website on an external domain, if any. */
   external?: string
+  /** Page on this site, for subdivisions that have one (see `STRUCTURE_DEPARTMENTS`). */
+  path?: string
   /** Laboratories, museums and centres attached to the item above. */
   children?: StructureItem[]
 }
@@ -42,7 +44,7 @@ export interface StructureItem {
 export interface StructureUnit {
   /** Route segment under /university/structure. Omitted for units we link out to. */
   slug?: string
-  kind: 'institute' | 'faculty'
+  kind: 'institute' | 'faculty' | 'department'
   name: string
   nameEn: string
   /** Short blurb shown on the unit page hero and on the hub cards. */
@@ -506,7 +508,34 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
 ]
 
 /** Institutes and faculties in one list, in the order used on the hub page. */
-export const STRUCTURE_UNITS: StructureUnit[] = [...STRUCTURE_INSTITUTES, ...STRUCTURE_FACULTIES]
+/**
+ * Administrative departments that have a page of their own.
+ *
+ * Kept apart from institutes and faculties: they use the same tabbed page, but they are not
+ * academic units, so the structure hub lists them under Додаток 1 rather than in the faculty
+ * grid, and their page shows no dean line.
+ */
+export const STRUCTURE_DEPARTMENTS: StructureUnit[] = [
+  {
+    slug: 'postgraduate',
+    kind: 'department',
+    name: 'Відділ аспірантури і докторантури',
+    nameEn: 'Postgraduate and Doctoral Studies Office',
+    summary:
+      'Організація, планування і супровід освітньо-наукових програм здобуття наукового ступеня '
+      + 'доктора філософії та доктора наук.',
+    summaryEn:
+      'Organisation, planning and support of the doctoral and PhD programmes of the university.',
+    newsCategorySlug: 'aspirantura-i-doktorantura',
+    items: [],
+  },
+]
+
+export const STRUCTURE_UNITS: StructureUnit[] = [
+  ...STRUCTURE_INSTITUTES,
+  ...STRUCTURE_FACULTIES,
+  ...STRUCTURE_DEPARTMENTS,
+]
 
 /** Units that have a static page of their own under /university/structure. */
 export function findStructureUnit(slug: string): StructureUnit | undefined {
@@ -625,6 +654,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         name: 'Відділ аспірантури і докторантури',
         nameEn: 'Postgraduate and Doctoral Studies Department',
+        path: '/university/structure/postgraduate',
       },
       {
         name: 'Відділ наукової, інноваційної і міжнародної діяльності',

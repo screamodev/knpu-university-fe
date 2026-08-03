@@ -1,14 +1,26 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { DirectusProgramme, ProgrammeLevel } from '~/types/directus'
+
+/**
+ * Освітні програми.
+ *
+ * The list is whatever the university publishes in Directus. It used to be nine hardcoded cards
+ * with plausible names and codes that nobody had checked; those are gone — an empty collection
+ * now reads as empty rather than as a catalogue.
+ */
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.programs'),
   meta: [{ name: 'description', content: () => t('education.programs.subtitle') }],
 })
 
-type LevelFilter = 'bachelor' | 'master' | 'graduate' | null
+type LevelFilter = ProgrammeLevel | null
 
 const selectedLevel = ref<LevelFilter>(null)
 
@@ -19,14 +31,24 @@ const levelOptions: { value: LevelFilter; labelKey: string }[] = [
   { value: 'graduate', labelKey: 'education.programs.levelGraduate' },
 ]
 
-const programCardIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'] as const
+const { data } = await useAsyncData('education-programmes', () =>
+  client.request(
+    readItems('programmes', {
+      fields: ['id', 'slug', 'title', 'titleEn', 'level', 'faculty', 'facultyEn'],
+      sort: ['title'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
 
-const filteredProgramIds = computed(() => {
-  if (!selectedLevel.value) return programCardIds
-  return programCardIds.filter(
-    (id) => t(`education.programs.cards.${id}.level`) === selectedLevel.value
-  )
-})
+const programmes = computed<DirectusProgramme[]>(() => (data.value as DirectusProgramme[] | null) ?? [])
+
+const filteredProgrammes = computed(() =>
+  selectedLevel.value
+    ? programmes.value.filter(programme => programme.level === selectedLevel.value)
+    : programmes.value,
+)
 
 function levelLabelKey(level: string): string {
   const key: Record<string, string> = {
@@ -35,21 +57,6 @@ function levelLabelKey(level: string): string {
     graduate: 'education.programs.levelGraduate',
   }
   return key[level] ?? level
-}
-
-function programSlug(id: string): string {
-  const slugs: Record<string, string> = {
-    p1: 'primary-education',
-    p2: 'preschool-education',
-    p3: 'secondary-education-ukrainian',
-    p4: 'psychology',
-    p5: 'computer-science',
-    p6: 'educational-institution-management',
-    p7: 'higher-education-pedagogy',
-    p8: 'special-needs-education',
-    p9: 'educational-sciences',
-  }
-  return slugs[id] ?? id
 }
 </script>
 
@@ -71,8 +78,8 @@ function programSlug(id: string): string {
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Level filter tabs -->
-      <div class="flex flex-wrap gap-2 mb-10">
+      <!-- Level filter: pointless while the collection is empty. -->
+      <div v-if="programmes.length" class="flex flex-wrap gap-2 mb-10">
         <button
           v-for="opt in levelOptions"
           :key="opt.value ?? 'all'"
@@ -89,12 +96,11 @@ function programSlug(id: string): string {
         </button>
       </div>
 
-      <!-- Programme cards grid -->
-      <div v-if="filteredProgramIds.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="filteredProgrammes.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <NuxtLink
-          v-for="id in filteredProgramIds"
-          :key="id"
-          :to="localePath(`/programs/${programSlug(id)}`)"
+          v-for="programme in filteredProgrammes"
+          :key="programme.id"
+          :to="localePath(`/programs/${programme.slug}`)"
           class="group bg-white border border-border rounded-14 overflow-hidden no-underline transition-all duration-280 hover:border-gold/40 hover:shadow-gold"
         >
           <div
@@ -109,20 +115,19 @@ function programSlug(id: string): string {
             <span
               class="inline-block text-[11px] font-semibold uppercase tracking-wider text-gold mb-2"
             >
-              {{ t(levelLabelKey(t(`education.programs.cards.${id}.level`))) }}
+              {{ t(levelLabelKey(programme.level)) }}
             </span>
             <h2 class="font-playfair text-lg font-semibold text-navy mb-1 group-hover:text-navy">
-              {{ t(`education.programs.cards.${id}.name`) }}
+              {{ localized(programme, 'title') }}
             </h2>
-            <p class="text-body-sm text-text-muted">
-              {{ t('education.programs.codeLabel') }}: {{ t(`education.programs.cards.${id}.code`) }}
+            <p v-if="localized(programme, 'faculty')" class="text-body-sm text-text-muted">
+              {{ localized(programme, 'faculty') }}
             </p>
           </div>
         </NuxtLink>
       </div>
-      <p v-else class="text-body text-text-muted py-8 text-center">
-        {{ t('education.programs.noPrograms') }}
-      </p>
+
+      <SharedSectionPending v-else />
     </div>
   </div>
 </template>

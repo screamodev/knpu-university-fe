@@ -9,7 +9,6 @@ useHead({
 })
 
 const activityIds = ['conferences', 'competitions', 'publications'] as const
-const statIds = ['members', 'papers', 'competitions'] as const
 </script>
 
 <template>
@@ -58,20 +57,6 @@ const statIds = ['members', 'papers', 'competitions'] as const
             </p>
           </div>
         </article>
-      </div>
-
-      <!-- Stats band: 3 gold-number stats -->
-      <div class="bg-navy py-16 rounded-16">
-        <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div v-for="id in statIds" :key="id" class="flex flex-col items-center">
-            <div class="font-playfair text-4xl md:text-5xl font-bold text-gold leading-none mb-2">
-              {{ t(`science.studentSociety.stats.${id}.num`) }}
-            </div>
-            <div class="text-[15px] text-white/60">
-              {{ t(`science.studentSociety.stats.${id}.label`) }}
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- CTA: gradient strip with Join button -->

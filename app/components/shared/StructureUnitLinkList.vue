@@ -4,7 +4,7 @@ import type { StructureTabLink } from '~/utils/structureContent'
 /** Outbound documents and services referenced by a tab: schedules on Drive, PDFs, the LMS. */
 defineProps<{ links: StructureTabLink[] }>()
 
-const { t } = useSafeI18nWithRouter()
+const { t, localePath } = useSafeI18nWithRouter()
 </script>
 
 <template>
@@ -13,11 +13,14 @@ const { t } = useSafeI18nWithRouter()
       {{ t('university.structure.unit.documentsTitle') }}
     </h2>
     <ul class="space-y-2">
-      <li v-for="link in links" :key="link.url">
-        <a
-          :href="link.url"
-          target="_blank"
-          rel="noopener noreferrer"
+      <li v-for="link in links" :key="link.url ?? link.path">
+        <component
+          :is="link.url ? 'a' : 'NuxtLink'"
+          v-bind="
+            link.url
+              ? { href: link.url, target: '_blank', rel: 'noopener noreferrer' }
+              : { to: localePath(link.path ?? '/') }
+          "
           class="flex items-start gap-2 px-4 py-3 rounded-12 border border-border bg-off-white text-navy no-underline hover:border-navy transition-colors duration-280"
         >
           <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
@@ -26,9 +29,9 @@ const { t } = useSafeI18nWithRouter()
           </svg>
           <span>
             {{ link.label }}
-            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            <span v-if="link.url" class="sr-only">{{ t('common.opensInNewTab') }}</span>
           </span>
-        </a>
+        </component>
       </li>
     </ul>
   </section>

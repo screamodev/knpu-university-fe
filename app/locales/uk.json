@@ -1,7 +1,9 @@
 {
   "common": {
     "comingSoon": "Сторінка готується",
-    "opensInNewTab": "Відкривається в новій вкладці"
+    "opensInNewTab": "Відкривається в новій вкладці",
+    "readMore": "Детальніше",
+    "sectionPending": "Розділ наповнюється — інформацію готує університет."
   },
   "utility": {
     "phone": "+38 (057) 700-69-09",
@@ -139,14 +141,9 @@
       "boards": "Спеціалізовані вчені ради",
       "defenses": "Захисти PhD",
       "schedule": "Розклад занять",
-      "moodle": "Електронний кампус (Moodle)",
-      "grades": "АСУ НЗ / Е-відомості",
-      "email": "Корпоративна пошта",
       "psychology": "Психологічна служба",
       "social": "Соціальна підтримка",
-      "canteens": "Їдальні",
-      "medical": "Медичне обслуговування",
-      "studentCouncil": "Студентська рада",
+      "studentCouncil": "Студентський парламент",
       "union": "Профспілка студентів",
       "sports": "Спортивні секції",
       "arts": "Мистецькі колективи",
@@ -154,7 +151,15 @@
       "vacancies": "Вакансії та практика",
       "alumni": "Асоціація випускників",
       "nonformal": "Неформальна освіта",
-      "veteransCenter": "Центр розвитку ветеранів"
+      "veteransCenter": "Центр розвитку ветеранів",
+      "rectorReport": "Звіт ректора",
+      "regulations": "Нормативна документація",
+      "regulationDrafts": "Проєкти нормативних документів",
+      "facilities": "Матеріально-технічне забезпечення",
+      "universityVacancies": "Вакансії університету",
+      "attestation": "Атестація педпрацівників",
+      "languageExam": "Іспит з державної мови",
+      "announcements": "Оголошення"
     }
   },
   "header": {
@@ -167,7 +172,6 @@
     "popular": "Популярне:",
     "tagSchedule": "Розклад занять",
     "tagVstup": "Вступ 2026",
-    "tagMoodle": "Moodle",
     "tagFaculties": "Факультети"
   },
   "hero": {
@@ -178,22 +182,16 @@
     "titleName": "Г.С. Сковороди",
     "subtitle": "Університет, що виховує майбутніх педагогів та дослідників у дусі свободи, гуманізму та невгасимої любові до знань.",
     "ctaApply": "Подати документи",
-    "ctaAbout": "Про університет",
-    "statGraduatesValue": "250 000",
-    "statGraduatesLabel": "Випускників",
-    "statSpecialtiesValue": "30",
-    "statSpecialtiesLabel": "Спеціальностей",
-    "statProgramsValue": "50",
-    "statProgramsLabel": "Освітніх\nпрограм"
+    "ctaAbout": "Про університет"
   },
   "quickAccess": {
-    "label": "Швидкий доступ",
-    "publicInfo": "Публічна інформація",
-    "moodle": "Moodle",
-    "library": "Наукова бібліотека",
+    "label": "Корисні покликання",
     "quality": "Якість освіти",
-    "monitoring": "Моніторинг",
-    "anticorruption": "Антикорупція"
+    "admissions": "Вступ",
+    "abroad": "For Abroad Enrollees",
+    "languageExam": "Іспит з державної мови",
+    "integrity": "Академічна доброчесність",
+    "eduhub": "Сковорода-хаб"
   },
   "sections": {
     "news": {
@@ -228,7 +226,9 @@
       "tag": "Вступна кампанія 2026",
       "title": "Стань частиною\nнашої спільноти",
       "subtitle": "Подайте документи онлайн або відвідайте приймальну комісію",
-      "cta": "Дізнатись більше"
+      "cta": "Дізнатись більше",
+      "tagLive": "Оголошення",
+      "ctaLive": "Читати"
     },
     "remembrance": {
       "tag": "Пам'ять і сьогодення",
@@ -366,20 +366,20 @@
       "subtitle": "Офіційні символи та атрибути ХНПУ імені Г.С. Сковороди.",
       "coatOfArms": {
         "title": "Герб",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "text": ""
       },
       "flag": {
         "title": "Прапор",
-        "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "text": ""
       },
       "colors": {
         "title": "Офіційні кольори",
-        "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        "text": ""
       },
       "anthem": {
         "title": "Гімн",
-        "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-        "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        "excerpt": "",
+        "text": ""
       }
     },
     "memorial": {
@@ -444,20 +444,6 @@
           "tag": "Культура",
           "title": "Патріотичні та культурні заходи",
           "text": "Організація патріотичних подій та виставок. Підтримка традиційних університетських церемоній. Уроки «Козацька слава» у школах Харкова та області."
-        }
-      },
-      "stats": {
-        "volunteers": {
-          "num": "500+",
-          "label": "Волонтерів долучилось"
-        },
-        "hours": {
-          "num": "12 000+",
-          "label": "Годин волонтерської роботи"
-        },
-        "projects": {
-          "num": "45+",
-          "label": "Реалізованих проєктів"
         }
       },
       "cta": {
@@ -535,22 +521,22 @@
         "d1": {
           "date": "15.02.2026",
           "title": "Про затвердження освітніх програм",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "d2": {
           "date": "28.01.2026",
           "title": "Про присудження наукових ступенів",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "d3": {
           "date": "10.01.2026",
           "title": "Про графік навчального процесу 2025/2026",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "text": ""
         },
         "d4": {
           "date": "20.12.2025",
           "title": "Про затвердження положень про структурні підрозділи",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "text": ""
         }
       }
     },
@@ -558,53 +544,21 @@
       "tag": "Управління",
       "title": "Наглядова рада",
       "subtitle": "Наглядова рада здійснює стратегічний контроль та захист інтересів університету.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "intro": "",
       "membersTitle": "Члени наглядової ради",
-      "members": {
-        "m1": {
-          "name": "Сергій Олійник",
-          "position": "Голова ради",
-          "organisation": "Міністерство освіти і науки України"
-        },
-        "m2": {
-          "name": "Наталія Кравченко",
-          "position": "Заступник голови",
-          "organisation": "Харківська обласна рада"
-        },
-        "m3": {
-          "name": "Дмитро Ткаченко",
-          "position": "Член ради",
-          "organisation": "Асоціація випускників ХНПУ"
-        },
-        "m4": {
-          "name": "Катерина Бондаренко",
-          "position": "Член ради",
-          "organisation": "Федерація роботодавців освіти"
-        },
-        "m5": {
-          "name": "Юрій Шевченко",
-          "position": "Член ради",
-          "organisation": "Наукова спільнота"
-        },
-        "m6": {
-          "name": "Ірина Лисенко",
-          "position": "Член ради",
-          "organisation": "Міжнародні партнери"
-        }
-      },
       "functionsTitle": "Функції наглядової ради",
       "functions": {
         "strategic": {
           "title": "Стратегічний нагляд",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "text": ""
         },
         "financial": {
           "title": "Фінансовий контроль",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat."
+          "text": ""
         },
         "development": {
           "title": "Інституційний розвиток",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "text": ""
         }
       }
     },
@@ -692,7 +646,10 @@
           "science": "Наука",
           "students": "Студентство",
           "news": "Новини",
-          "cooperation": "Співпраця"
+          "cooperation": "Співпраця",
+          "doctoral": "Докторанту",
+          "regulations": "Нормативні документи",
+          "announcements": "Оголошення"
         },
         "contactsTitle": "Контакти",
         "deanTitle": "Декан",
@@ -705,8 +662,12 @@
         "newsEmpty": "Новин цього підрозділу поки немає.",
         "newsAll": "Усі новини університету",
         "translationPending": "Англомовна версія цієї сторінки ще готується — нижче український текст.",
-        "sourceNote": "Матеріал перенесено зі старого сайту університету."
-      }
+        "sourceNote": "Матеріал перенесено зі старого сайту університету.",
+        "sectionsTitle": "Розділи та сервіси",
+        "headTitle": "Керівництво",
+        "leadership": "Керівництво"
+      },
+      "tagDepartment": "Підрозділ"
     },
     "faculties": {
       "tag": "Управління",
@@ -791,34 +752,6 @@
       "subtitle": "Основні документи, що регулюють діяльність університету.",
       "intro": "На цій сторінці розміщено офіційні документи, що засвідчують право ХНПУ імені Г.С. Сковороди надавати освітні послуги, та визнання якості навчального процесу. Повні версії документів зберігаються в адміністрації університету.",
       "documentsTitle": "Документи",
-      "documents": {
-        "d1": {
-          "name": "Ліцензія на надання освітніх послуг (L_ZVO_2025.pdf)",
-          "date": "2025",
-          "authority": "Орган ліцензування України"
-        },
-        "d2": {
-          "name": "Сертифікат на систему управління якістю освіти",
-          "date": "—",
-          "authority": "Органи сертифікації"
-        },
-        "d3": {
-          "name": "Диплом «Сучасна освіта в Україні – 2011» за високі творчі досягнення",
-          "date": "лютий 2011",
-          "authority": "МОН України та CARSHE"
-        },
-        "d4": {
-          "name": "Почесне звання «Лідер сучасної освіти»",
-          "date": "2011",
-          "authority": "Організатори міжнародної виставки"
-        },
-        "d5": {
-          "name": "Золота медаль у номінації «Впровадження нових форм організації навчально-виховного процесу»",
-          "date": "2011",
-          "authority": "МОН України та CARSHE"
-        }
-      },
-      "viewPdf": "Переглянути PDF",
       "regulatoryNote": "Повний перелік ліцензій, сертифікатів та нагород, а також сам Статут університету (затверджено МОН України) зберігається в ректораті та частково оприлюднено на офіційному сайті."
     },
     "publicInfo": {
@@ -851,24 +784,26 @@
         "international": {
           "title": "Документи самоаналізу",
           "text": "Матеріали для підтвердження статусу національного закладу вищої освіти та результати самооцінювання."
+        },
+        "drafts": {
+          "title": "Проєкти нормативної документації",
+          "text": "Документи, винесені на громадське обговорення."
+        },
+        "vacancies": {
+          "title": "Вакансії",
+          "text": "Оголошення про заміщення посад працівників університету."
+        },
+        "attestation": {
+          "title": "Атестація педагогічних працівників",
+          "text": "Графіки та документи щодо атестації."
+        },
+        "procurement": {
+          "title": "Публічні закупівлі",
+          "text": "Оприлюднення інформації про закупівлі університету."
         }
       },
-      "reportingTitle": "Звітність",
-      "reporting": {
-        "annual": {
-          "title": "Річний звіт",
-          "year": "2025"
-        },
-        "selfAssessment": {
-          "title": "Звіт з самооцінювання",
-          "year": "2025"
-        },
-        "audit": {
-          "title": "Зовнішній аудит",
-          "year": "2024"
-        }
-      },
-      "download": "Завантажити"
+      "download": "Завантажити",
+      "latestTitle": "Останні документи"
     },
     "orders": {
       "tag": "Публічність",
@@ -876,196 +811,29 @@
       "subtitle": "Офіційні накази ректора з основної діяльності університету.",
       "intro": "Накази з основної діяльності університету впорядковані хронологічно за роками й відображають організаційні, кадрові та господарські рішення керівництва ХНПУ імені Г.С. Сковороди.",
       "filterAll": "Усі",
-      "documentsTitle": "Накази та положення",
-      "documents": {
-        "doc1": {
-          "number": "№ 49-од",
-          "date": "02.04.2026",
-          "title": "Про оголошення конкурсу на заміщення посад науково-педагогічних працівників",
-          "category": "Кадри"
-        },
-        "doc2": {
-          "number": "№ 9-од",
-          "date": "22.01.2026",
-          "title": "Про оголошення конкурсу на заміщення посад науково-педагогічних працівників",
-          "category": "Кадри"
-        },
-        "doc3": {
-          "number": "№ 223-од",
-          "date": "03.11.2025",
-          "title": "Про створення робочої групи",
-          "category": "Організація"
-        },
-        "doc4": {
-          "number": "№ 212-од",
-          "date": "22.10.2025",
-          "title": "Про оголошення конкурсу на заміщення посад науково-педагогічних працівників",
-          "category": "Кадри"
-        },
-        "doc5": {
-          "number": "№ 109-од",
-          "date": "15.05.2025",
-          "title": "Про внесення змін до платних освітніх послуг",
-          "category": "Фінанси"
-        },
-        "doc6": {
-          "number": "№ 102-од",
-          "date": "13.05.2025",
-          "title": "Про оголошення конкурсу на заміщення посад науково-педагогічних працівників",
-          "category": "Кадри"
-        },
-        "doc7": {
-          "number": "№ 251-од",
-          "date": "08.11.2024",
-          "title": "Про обмеження використання месенджера Telegram",
-          "category": "Організація"
-        },
-        "doc8": {
-          "number": "№ 217-од",
-          "date": "26.09.2024",
-          "title": "Про оголошення конкурсу на заміщення посад науково-педагогічних працівників",
-          "category": "Кадри"
-        }
-      }
+      "documentsTitle": "Накази та положення"
     },
     "financialReports": {
       "tag": "Публічність",
       "title": "Фінансові звіти",
       "subtitle": "Бюджет, доходи, видатки та фінансова звітність університету.",
-      "intro": "Розділ присвячено публічному розкриттю фінансової інформації ХНПУ імені Г.С. Сковороди. Матеріали включають облікову політику, кошторисну документацію, баланси, звіти про фінансові результати та штатні розписи університету. Архівні документи доступні починаючи з 2017 року.",
-      "yearCardsTitle": "Звіти за роками",
-      "download": "Завантажити",
-      "years": {
-        "2025": {
-          "revenue": "Доходи",
-          "expenses": "Видатки",
-          "stateFunding": "Держфінансування",
-          "ownRevenue": "Власні доходи"
-        },
-        "2024": {
-          "revenue": "Доходи",
-          "expenses": "Видатки",
-          "stateFunding": "Держфінансування",
-          "ownRevenue": "Власні доходи"
-        },
-        "2023": {
-          "revenue": "Доходи",
-          "expenses": "Видатки",
-          "stateFunding": "Держфінансування",
-          "ownRevenue": "Власні доходи"
-        }
-      },
-      "yearValues": {
-        "2025": {
-          "revenue": "125 млн грн",
-          "expenses": "118 млн грн",
-          "stateFunding": "95 млн грн",
-          "ownRevenue": "30 млн грн"
-        },
-        "2024": {
-          "revenue": "118 млн грн",
-          "expenses": "112 млн грн",
-          "stateFunding": "88 млн грн",
-          "ownRevenue": "30 млн грн"
-        },
-        "2023": {
-          "revenue": "110 млн грн",
-          "expenses": "105 млн грн",
-          "stateFunding": "82 млн грн",
-          "ownRevenue": "28 млн грн"
-        }
-      },
-      "keyFiguresTitle": "Ключові показники",
-      "keyFigures": {
-        "totalBudget": {
-          "value": "125 млн грн",
-          "label": "Загальний бюджет (2025)"
-        },
-        "stateShare": {
-          "value": "76%",
-          "label": "Частка держфінансування"
-        },
-        "ownShare": {
-          "value": "24%",
-          "label": "Власні доходи"
-        },
-        "capital": {
-          "value": "8 млн грн",
-          "label": "Капітальні інвестиції"
-        }
-      }
+      "intro": "Баланси, кошториси, штатні розписи та звіти про використання коштів — від 2016 року донині."
     },
     "prozorro": {
       "tag": "Публічність",
       "title": "Prozorro",
       "subtitle": "Закупівлі університету в системі електронних закупівель.",
       "intro": "Університет публікує обґрунтування технічних та якісних характеристик предметів закупівлі відповідно до Постанови Кабінету Міністрів України № 710 від 11 жовтня 2016 року «Про ефективне використання державних коштів». Усі тендери проходять у системі Prozorro.",
-      "statsTitle": "Показники закупівель",
-      "stats": {
-        "totalTenders": {
-          "value": "142",
-          "label": "Всього тендерів"
-        },
-        "completed": {
-          "value": "128",
-          "label": "Завершено"
-        },
-        "totalValue": {
-          "value": "18 млн грн",
-          "label": "Загальна вартість"
-        }
-      },
       "procurementsTitle": "Останні закупівлі",
-      "procurements": {
-        "p1": {
-          "number": "UA-2026-01-28-006004-a",
-          "title": "Постачання електричної енергії (універсальна послуга)",
-          "status": "active",
-          "amount": "—",
-          "date": "28.01.2026"
-        },
-        "p2": {
-          "number": "UA-2026-01-29-009596-a",
-          "title": "Постачання теплової енергії",
-          "status": "active",
-          "amount": "—",
-          "date": "29.01.2026"
-        },
-        "p3": {
-          "number": "UA-2025-12-16-016931-a",
-          "title": "Постачання електричної енергії (без розподілу)",
-          "status": "active",
-          "amount": "—",
-          "date": "16.12.2025"
-        },
-        "p4": {
-          "number": "UA-2025-12-31-003206-a",
-          "title": "Постачання природного газу для побутових споживачів",
-          "status": "active",
-          "amount": "—",
-          "date": "31.12.2025"
-        },
-        "p5": {
-          "number": "—",
-          "title": "Архів обґрунтувань закупівель за 2025 рік (доступний на сайті)",
-          "status": "completed",
-          "amount": "—",
-          "date": "2025"
-        },
-        "p6": {
-          "number": "—",
-          "title": "Архів обґрунтувань закупівель за 2024 рік (доступний на сайті)",
-          "status": "completed",
-          "amount": "—",
-          "date": "2024"
-        }
-      },
       "statusCompleted": "Завершено",
       "statusActive": "В процесі",
       "statusPlanned": "Заплановано",
       "ctaTitle": "Повний реєстр закупівель",
       "ctaSubtitle": "Усі закупівлі університету публікуються на офіційному порталі Prozorro.",
-      "ctaButton": "Перейти на Prozorro"
+      "ctaButton": "Перейти на Prozorro",
+      "documentsTitle": "Документи про закупівлі",
+      "widgetTitle": "Закупівлі університету",
+      "widgetNote": "Дані надходять із системи Prozorro за кодом ЄДРПОУ 02125585."
     },
     "erasmus": {
       "tag": "Міжнародна діяльність",
@@ -1135,87 +903,12 @@
           "title": "Від'їзний персонал",
           "text": "Викладачі й співробітники університету проходять стажування за кордоном для обміну досвідом підготовки педагогів і управління якістю освіти."
         }
-      },
-      "statsTitle": "Показники",
-      "stats": {
-        "sent": {
-          "value": "85",
-          "label": "Учасників мобільності (відправлено)"
-        },
-        "received": {
-          "value": "42",
-          "label": "Учасників мобільності (прийнято)"
-        },
-        "countries": {
-          "value": "12",
-          "label": "Країн партнерства"
-        },
-        "agreements": {
-          "value": "28",
-          "label": "Міжнародних угод"
-        }
-      },
-      "testimonialsTitle": "Відгуки учасників",
-      "testimonials": {
-        "t1": {
-          "quote": "Семестр за кордоном допоміг побачити інші підходи до викладання й відчути себе частиною європейської академічної спільноти.",
-          "name": "Олена Коваленко",
-          "programme": "Erasmus+, Польща"
-        },
-        "t2": {
-          "quote": "Стажування викладача дало змогу перенести нові практики проєктного навчання до власної аудиторії в Харкові.",
-          "name": "Андрій Мельник",
-          "programme": "Erasmus+, Німеччина"
-        },
-        "t3": {
-          "quote": "Найціннішим був мовний і культурний досвід — після повернення легше працювати з іноземними колегами та студентами.",
-          "name": "Марія Сидоренко",
-          "programme": "Erasmus+, Італія"
-        }
       }
     },
     "inclusive": {
       "tag": "Міжнародна діяльність",
       "title": "Інклюзивний простір",
-      "subtitle": "Доступність та підтримка для всіх учасників освітнього процесу.",
-      "intro": "Порядок супроводу осіб з особливими освітніми потребами розроблено на основі Указу Президента України № 401/2017 та внутрішнього наказу університету. У ХНПУ діє Центр інклюзивної освіти та Положення про супровід студентів з особливими освітніми потребами.",
-      "featuresTitle": "Доступність та підтримка",
-      "features": {
-        "barrierFree": {
-          "title": "Безбар'єрний доступ",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
-        },
-        "assistive": {
-          "title": "Асистивні технології",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "signLanguage": {
-          "title": "Послуги сурдоперекладу",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit."
-        },
-        "adapted": {
-          "title": "Адаптовані матеріали",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-        },
-        "individual": {
-          "title": "Індивідуальні плани",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-        },
-        "transport": {
-          "title": "Транспортна підтримка",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
-        }
-      },
-      "supportTitle": "Служба підтримки",
-      "supportText": "Студентам з особливими освітніми потребами рекомендовано попередньо повідомити про візит відповідальній особі. У кімнаті для відвідувачів надається інформація про послуги університету, забезпечується супровід до необхідного підрозділу, а за потреби — до виходу з університету. Альтернативно можна звернутись до чергового (сторожа) навчального корпусу.",
-      "supportImageAlt": "Інклюзивний простір",
-      "contactTitle": "Контакт координатора",
-      "contact": {
-        "name": "Білецька Світлана Анатоліївна",
-        "position": "Відповідальна особа з супроводу осіб з особливими освітніми потребами",
-        "phone": "+38 (096) 613-41-70",
-        "email": "Ел. пошта"
-      }
+      "subtitle": "Доступність та підтримка для всіх учасників освітнього процесу."
     },
     "anticorruption": {
       "tag": "Публічність",
@@ -1241,7 +934,6 @@
           "date": "2024"
         }
       },
-      "viewPdf": "Переглянути PDF",
       "channelsTitle": "Канали звернень",
       "channels": {
         "online": {
@@ -1257,21 +949,8 @@
           "contact": "+38 (067) 713-16-87"
         }
       },
-      "statsTitle": "Дотримання та навчання",
-      "stats": {
-        "reportsReviewed": {
-          "value": "24",
-          "label": "Звернень розглянуто (2025)"
-        },
-        "trainingsConducted": {
-          "value": "12",
-          "label": "Навчань проведено"
-        },
-        "staffTrained": {
-          "value": "98%",
-          "label": "Працівників пройшли навчання"
-        }
-      }
+      "externalSite": "Перейти на сайт з протидії корупції",
+      "onExternalSite": "Файл — на сайті підрозділу"
     },
     "integrity": {
       "tag": "Міжнародна діяльність",
@@ -1282,27 +961,27 @@
       "principles": {
         "honesty": {
           "title": "Чесність",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "trust": {
           "title": "Довіра",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "fairness": {
           "title": "Справедливість",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit."
+          "text": ""
         },
         "respect": {
           "title": "Повага",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "text": ""
         },
         "responsibility": {
           "title": "Відповідальність",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "text": ""
         },
         "courage": {
           "title": "Мужність",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+          "text": ""
         }
       },
       "documentsTitle": "Документи",
@@ -1320,22 +999,60 @@
           "date": "2023"
         }
       },
-      "viewPdf": "Переглянути PDF",
       "resourcesTitle": "Ресурси",
       "resources": {
         "antiplagiarism": {
           "title": "Інструменти антиплагіату",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "citation": {
           "title": "Правила цитування",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "training": {
           "title": "Навчальні семінари",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit."
+          "text": ""
         }
       }
+    },
+    "rectorreport": {
+      "tag": "Публічність",
+      "title": "Звіт ректора",
+      "subtitle": "Щорічні звіти ректора про діяльність університету.",
+      "intro": "Звіти ректора оприлюднюються щороку відповідно до Закону України «Про вищу освіту» та Статуту університету."
+    },
+    "regulations": {
+      "tag": "Публічність",
+      "title": "Нормативна документація університету",
+      "subtitle": "Положення, порядки та інші документи, що регулюють діяльність університету.",
+      "intro": "Чинні положення й порядки. Проєкти документів, винесені на обговорення, зібрані на окремій сторінці."
+    },
+    "regulationdrafts": {
+      "tag": "Публічність",
+      "title": "Проєкти нормативної документації",
+      "subtitle": "Документи, винесені на громадське обговорення.",
+      "intro": "Тут публікуються проєкти положень і порядків до їх затвердження. Зауваження та пропозиції надсилайте на пошту університету."
+    },
+    "facilities": {
+      "tag": "Публічність",
+      "title": "Матеріально-технічне забезпечення",
+      "subtitle": "Відомості про матеріально-технічну базу згідно з ліцензійними умовами.",
+      "intro": "Інформація оприлюднюється відповідно до Ліцензійних умов провадження освітньої діяльності."
+    },
+    "vacancies": {
+      "tag": "Публічність",
+      "title": "Вакансії університету",
+      "subtitle": "Інформація про наявні вакансії та умови конкурсів."
+    },
+    "attestation": {
+      "tag": "Публічність",
+      "title": "Атестація педагогічних працівників",
+      "subtitle": "Документи та графіки атестації педагогічних працівників."
+    },
+    "languageExam": {
+      "tag": "Відвідувачу",
+      "title": "Іспит з державної мови 2.0",
+      "subtitle": "Складання іспиту на визначення рівня володіння державною мовою для виконання службових обов’язків на базі ХНПУ імені Г.С. Сковороди."
     }
   },
   "admissions": {
@@ -1398,7 +1115,7 @@
         "it": "Інформаційні технології"
       },
       "researchFocus": "Дослідницький фокус",
-      "researchText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "researchText": "",
       "specialtiesPreview": "Спеціальності (фрагмент)",
       "viewAllSpecialties": "Переглянути всі спеціальності",
       "specialty": "Спеціальність",
@@ -2030,45 +1747,25 @@
       "tag": "Вступ",
       "title": "Дні відкритих дверей",
       "subtitle": "Відвідайте кампус, познайомтесь з факультетами та отримайте відповіді на питання про вступ.",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "intro": "",
       "upcomingTitle": "Найближчі дати",
-      "events": {
-        "event1": {
-          "dateBadge": "15 березня",
-          "title": "День відкритих дверей — гуманітарні спеціальності",
-          "location": "Головний корпус, актова зала",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "event2": {
-          "dateBadge": "12 квітня",
-          "title": "День відкритих дверей — природничі науки",
-          "location": "Корпус № 2, конференц-зал",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "event3": {
-          "dateBadge": "10 травня",
-          "title": "Загальний день відкритих дверей",
-          "location": "Головний корпус, хол та аудиторії",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      },
       "expectTitle": "Що вас чекає",
       "expectations": {
         "campusTour": {
           "title": "Екскурсія кампусом",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "meetFaculty": {
           "title": "Знайомство з викладачами",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "qa": {
           "title": "Питання та відповіді",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "demoLessons": {
           "title": "Пробні заняття",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         }
       },
       "ctaTitle": "Зареєструйтесь на день відкритих дверей",
@@ -2083,27 +1780,27 @@
       "buildings": {
         "building1": {
           "name": "Головний корпус",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "building2": {
           "name": "Корпус № 2",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "building3": {
           "name": "Наукова бібліотека",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "building4": {
           "name": "Спортивний комплекс",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "description": ""
         },
         "building5": {
           "name": "Лабораторний корпус",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "description": ""
         },
         "building6": {
           "name": "Адміністративний корпус",
-          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+          "description": ""
         }
       }
     }
@@ -2130,62 +1827,13 @@
       "allLevels": "Усі рівні",
       "levelBachelor": "Бакалаврат",
       "levelMaster": "Магістратура",
-      "levelGraduate": "Аспірантура",
-      "noPrograms": "Програми не знайдено.",
-      "codeLabel": "Код спеціальності",
-      "cards": {
-        "p1": {
-          "name": "Початкова освіта",
-          "code": "011",
-          "level": "bachelor"
-        },
-        "p2": {
-          "name": "Дошкільна освіта",
-          "code": "012",
-          "level": "bachelor"
-        },
-        "p3": {
-          "name": "Середня освіта (українська мова)",
-          "code": "014",
-          "level": "bachelor"
-        },
-        "p4": {
-          "name": "Психологія",
-          "code": "053",
-          "level": "bachelor"
-        },
-        "p5": {
-          "name": "Комп'ютерні науки",
-          "code": "122",
-          "level": "bachelor"
-        },
-        "p6": {
-          "name": "Управління навчальним закладом",
-          "code": "011",
-          "level": "master"
-        },
-        "p7": {
-          "name": "Педагогіка вищої школи",
-          "code": "014",
-          "level": "master"
-        },
-        "p8": {
-          "name": "Корекційна педагогіка",
-          "code": "016",
-          "level": "master"
-        },
-        "p9": {
-          "name": "Освітні, педагогічні науки",
-          "code": "011",
-          "level": "graduate"
-        }
-      }
+      "levelGraduate": "Аспірантура"
     },
     "curriculum": {
       "tag": "Навчання",
       "title": "Навчальні плани",
       "subtitle": "Структура навчального року та плани курсів для програм бакалаврату.",
-      "intro": "Навчальний план побудовано як збалансоване поєднання обов'язкових та вибіркових дисциплін. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Навчальний план побудовано як збалансоване поєднання обов'язкових та вибіркових дисциплін.",
       "yearsTitle": "Навчальні роки",
       "creditsLabel": "Кредити",
       "years": {
@@ -2243,7 +1891,7 @@
       "tag": "Навчання",
       "title": "Дисципліни вільного вибору",
       "subtitle": "Вибіркові дисципліни для формування індивідуальної траєкторії.",
-      "intro": "Студенти обирають дисципліни з широкого спектру гуманітарних, природничих та професійних курсів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Студенти обирають дисципліни з широкого спектру гуманітарних, природничих та професійних курсів.",
       "categories": {
         "humanities": {
           "heading": "Гуманітарні",
@@ -2252,19 +1900,19 @@
               "name": "Історія мистецтва",
               "credits": "3",
               "semester": "3",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+              "description": ""
             },
             "h2": {
               "name": "Філософія та етика",
               "credits": "4",
               "semester": "2",
-              "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+              "description": ""
             },
             "h3": {
               "name": "Культурологія",
               "credits": "3",
               "semester": "4",
-              "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+              "description": ""
             }
           }
         },
@@ -2275,19 +1923,19 @@
               "name": "Основи аналізу даних",
               "credits": "4",
               "semester": "3",
-              "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+              "description": ""
             },
             "s2": {
               "name": "Екологічна освіта",
               "credits": "3",
               "semester": "5",
-              "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+              "description": ""
             },
             "s3": {
               "name": "Наукова комунікація",
               "credits": "3",
               "semester": "4",
-              "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit."
+              "description": ""
             }
           }
         },
@@ -2298,7 +1946,7 @@
               "name": "Управління проєктами",
               "credits": "4",
               "semester": "5",
-              "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+              "description": ""
             },
             "p2": {
               "name": "Цифрові інструменти для вчителів",
@@ -2321,19 +1969,19 @@
               "name": "Англійська для академічних цілей",
               "credits": "4",
               "semester": "2–4",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod."
+              "description": ""
             },
             "l2": {
               "name": "Німецька B1",
               "credits": "3",
               "semester": "3",
-              "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse."
+              "description": ""
             },
             "l3": {
               "name": "Польська для початківців",
               "credits": "3",
               "semester": "4",
-              "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa."
+              "description": ""
             }
           }
         }
@@ -2345,7 +1993,7 @@
       "tag": "Навчання",
       "title": "Графік навчального процесу",
       "subtitle": "Ключові дати та структура семестрів на навчальний рік.",
-      "intro": "Навчальний рік складається з двох семестрів. Нижче наведено основні періоди та важливі терміни. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Навчальний рік складається з двох семестрів. Нижче наведено основні періоди та важливі терміни.",
       "semestersTitle": "Семестри",
       "semester1": "Семестр 1",
       "semester2": "Семестр 2",
@@ -2435,129 +2083,52 @@
       "tag": "Навчання",
       "title": "Акредитація програм",
       "subtitle": "Інформація про акредитацію освітніх програм та термін дії.",
-      "intro": "Університет проходить періодичну акредитацію освітніх програм у відповідних органах. Нижче наведено статус акредитації основних програм. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет проходить періодичну акредитацію освітніх програм у відповідних органах. Нижче наведено статус акредитації основних програм.",
       "cardsTitle": "Акредитовані програми",
-      "cards": {
-        "a1": {
-          "programme": "Початкова освіта",
-          "body": "НАЗЯВО",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a2": {
-          "programme": "Дошкільна освіта",
-          "body": "НАЗЯВО",
-          "validity": "2023–2029",
-          "status": "active"
-        },
-        "a3": {
-          "programme": "Психологія",
-          "body": "НАЗЯВО",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a4": {
-          "programme": "Середня освіта (українська мова)",
-          "body": "НАЗЯВО",
-          "validity": "2023–2029",
-          "status": "active"
-        },
-        "a5": {
-          "programme": "Управління навчальним закладом",
-          "body": "НАЗЯВО",
-          "validity": "2022–2028",
-          "status": "active"
-        },
-        "a6": {
-          "programme": "Освітні, педагогічні науки",
-          "body": "НАЗЯВО",
-          "validity": "2024–2030",
-          "status": "active"
-        }
-      },
       "statusActive": "Діюча",
       "calloutTitle": "Про процес акредитації",
-      "calloutText": "Періодична акредитація забезпечує відповідність освітніх програм вимогам законодавства та стандартам якості. Університет проходить зовнішнє оцінювання та надає звіти НАЗЯВО. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "calloutText": "Періодична акредитація забезпечує відповідність освітніх програм вимогам законодавства та стандартам якості. Університет проходить зовнішнє оцінювання та надає звіти НАЗЯВО."
     },
     "quality": {
       "tag": "Навчання",
-      "title": "Центр якості освіти",
-      "subtitle": "Місія, цілі та команда Центру якості освіти.",
-      "intro": "Центр якості освіти забезпечує розвиток системи внутрішнього забезпечення якості, моніторинг освітніх результатів та підтримку викладачів. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "missionTitle": "Місія",
-      "missionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      "goalsTitle": "Наші цілі",
-      "goals": {
-        "g1": {
-          "title": "Стандарти якості",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "g2": {
-          "title": "Підтримка викладачів",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat."
-        },
-        "g3": {
-          "title": "Прозорість результатів",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
+      "title": "Центр забезпечення якості освіти",
+      "subtitle": "Підрозділ, що супроводжує систему внутрішнього забезпечення якості освіти.",
+      "contentPending": "Розділ готується — матеріали надасть центр якості освіти.",
+      "tabs": {
+        "home": "Головна",
+        "news": "Новини",
+        "regulations": "Нормативна база",
+        "documents": "Документи",
+        "students": "Здобувачу",
+        "quality": "Якість освіти",
+        "programmes": "Освітні програми",
+        "accreditation": "Акредитація"
       },
-      "teamTitle": "Команда",
-      "team": {
-        "t1": {
-          "name": "Іваненко О.М.",
-          "role": "Директор центру"
-        },
-        "t2": {
-          "name": "Петренко Т.В.",
-          "role": "Спеціаліст з моніторингу"
-        },
-        "t3": {
-          "name": "Коваленко Л.І.",
-          "role": "Методист"
-        },
-        "t4": {
-          "name": "Сидоренко М.П.",
-          "role": "Аналітик якості"
-        }
-      }
+      "intro": "",
+      "missionText": ""
     },
     "monitoring": {
       "tag": "Навчання",
       "title": "Моніторинг якості",
       "subtitle": "Методологія та інструменти оцінки якості освіти.",
-      "intro": "Система моніторингу якості охоплює опитування студентів, зовнішні оцінки, відстеження випускників та зворотний зв'язок від роботодавців. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Система моніторингу якості охоплює опитування студентів, зовнішні оцінки, відстеження випускників та зворотний зв'язок від роботодавців.",
       "methodologyTitle": "Методологія",
       "methodology": {
         "m1": {
           "title": "Опитування студентів",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "text": ""
         },
         "m2": {
           "title": "Зовнішня експертиза",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "m3": {
           "title": "Відстеження випускників",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
+          "text": ""
         },
         "m4": {
           "title": "Зворотний зв'язок роботодавців",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      },
-      "statsTitle": "Показники",
-      "stats": {
-        "s1": {
-          "num": "2 400+",
-          "label": "Опитувань проведено"
-        },
-        "s2": {
-          "num": "24",
-          "label": "Програм оцінено"
-        },
-        "s3": {
-          "num": "87%",
-          "label": "Задоволеність студентів"
+          "text": ""
         }
       }
     },
@@ -2565,64 +2136,32 @@
       "tag": "Навчання",
       "title": "Рейтинги",
       "subtitle": "Позиції університету в національних та міжнародних рейтингах.",
-      "intro": "ХНПУ бере участь у різних рейтингових системах, які оцінюють навчання, науку та інтернаціоналізацію. Нижче — огляд наших позицій та методології. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "ХНПУ бере участь у різних рейтингових системах, які оцінюють навчання, науку та інтернаціоналізацію. Нижче — огляд наших позицій та методології.",
       "cardsTitle": "Наші позиції",
-      "cards": {
-        "r1": {
-          "name": "QS World University Rankings",
-          "position": "Топ-800",
-          "year": "2024",
-          "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "r2": {
-          "name": "Webometrics",
-          "position": "Топ-15 Україна",
-          "year": "2024",
-          "note": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "r3": {
-          "name": "Scopus",
-          "position": "Індексовано",
-          "year": "—",
-          "note": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        },
-        "r4": {
-          "name": "ТОП-200 Україна",
-          "position": "Топ-50",
-          "year": "2024",
-          "note": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
-        },
-        "r5": {
-          "name": "Предметні рейтинги (освіта)",
-          "position": "Топ-10 Україна",
-          "year": "2024",
-          "note": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
-        }
-      },
       "methodologyTitle": "Методологія",
-      "methodologyText": "Рейтинги використовують різні критерії: публікаційна активність, цитування, міжнародна співпраця, співвідношення студентів і викладачів, опитування роботодавців. Ми використовуємо дані для покращення програм та прозорості. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "methodologyText": "Рейтинги використовують різні критерії: публікаційна активність, цитування, міжнародна співпраця, співвідношення студентів і викладачів, опитування роботодавців. Ми використовуємо дані для покращення програм та прозорості."
     },
     "practice": {
       "tag": "Навчання",
       "title": "Практична підготовка",
       "subtitle": "Педагогічна, виробнича та наукова практика для студентів.",
-      "intro": "Практика — невід'ємна частина навчального плану. Студенти отримують досвід у школах, підприємствах та наукових установах. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Практика — невід'ємна частина навчального плану. Студенти отримують досвід у школах, підприємствах та наукових установах.",
       "typesTitle": "Види практики",
       "types": {
         "t1": {
           "title": "Педагогічна практика",
           "duration": "4–8 тижнів",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+          "description": ""
         },
         "t2": {
           "title": "Виробнича практика",
           "duration": "2–4 тижні",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+          "description": ""
         },
         "t3": {
           "title": "Наукова практика",
           "duration": "2–6 тижнів",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis."
+          "description": ""
         }
       },
       "partnersTitle": "Партнерські підприємства та заклади",
@@ -2632,7 +2171,7 @@
       "tag": "Навчання",
       "title": "Заочна форма",
       "subtitle": "Навчання у форматі, що поєднує сесії та самостійну роботу.",
-      "intro": "Заочна форма дає змогу поєднувати роботу та навчання. Заняття організовані у вигляді сесій із консультаціями та самостійною роботою між ними. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Заочна форма дає змогу поєднувати роботу та навчання. Заняття організовані у вигляді сесій із консультаціями та самостійною роботою між ними.",
       "differencesTitle": "Ключові особливості",
       "differences": {
         "d1": {
@@ -2685,7 +2224,7 @@
       "tag": "Навчання",
       "title": "Дистанційне навчання",
       "subtitle": "Навчання онлайн за допомогою сучасних платформ та інструментів.",
-      "intro": "Дистанційний формат дозволяє навчатися з будь-якої точки. Використовуємо Moodle, Zoom та інші сервіси для лекцій, матеріалів та здачі робіт. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Дистанційний формат дозволяє навчатися з будь-якої точки. Використовуємо Moodle, Zoom та інші сервіси для лекцій, матеріалів та здачі робіт.",
       "platformsTitle": "Платформи та інструменти",
       "platforms": {
         "moodle": {
@@ -2725,7 +2264,7 @@
       "tag": "Навчання",
       "title": "Дуальна освіта",
       "subtitle": "Поєднання навчання в університеті з практикою на робочому місці.",
-      "intro": "Дуальна освіта дає змогу отримувати теоретичну підготовку в університеті та практичний досвід у партнерських підприємствах одночасно. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Дуальна освіта дає змогу отримувати теоретичну підготовку в університеті та практичний досвід у партнерських підприємствах одночасно.",
       "benefitsTitle": "Переваги дуальної освіти",
       "benefits": {
         "b1": {
@@ -2760,7 +2299,7 @@
       "tag": "Навчання",
       "title": "Підвищення кваліфікації",
       "subtitle": "Програми підвищення кваліфікації та перепідготовки для педагогів і фахівців.",
-      "intro": "Університет пропонує програми підвищення кваліфікації та професійної перепідготовки для вчителів, методистів та керівників освітніх закладів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет пропонує програми підвищення кваліфікації та професійної перепідготовки для вчителів, методистів та керівників освітніх закладів.",
       "programmesTitle": "Програми",
       "programmes": {
         "p1": {
@@ -2795,60 +2334,7 @@
     "students": {
       "tag": "Навчання",
       "title": "Контингент студентів",
-      "subtitle": "Статистика та структура студентського контингенту університету.",
-      "stats": {
-        "total": {
-          "num": "8 000+",
-          "label": "Студентів та аспірантів всього"
-        },
-        "bachelor": {
-          "num": "5 200",
-          "label": "Студентів бакалаврату"
-        },
-        "master": {
-          "num": "2 100",
-          "label": "Студентів магістратури"
-        },
-        "graduate": {
-          "num": "700+",
-          "label": "Аспірантів та докторантів"
-        }
-      },
-      "byFacultyTitle": "Розподіл за факультетами",
-      "chartPlaceholder": "Діаграма (місце для візуалізації)",
-      "facultiesListTitle": "Студенти за факультетами",
-      "faculties": {
-        "f1": {
-          "name": "Педагогіки та психології",
-          "count": "1 200"
-        },
-        "f2": {
-          "name": "Початкової освіти",
-          "count": "980"
-        },
-        "f3": {
-          "name": "Дошкільної освіти",
-          "count": "850"
-        },
-        "f4": {
-          "name": "Філології та іноземних мов",
-          "count": "1 100"
-        },
-        "f5": {
-          "name": "Фізики та математики",
-          "count": "620"
-        },
-        "f6": {
-          "name": "Мистецтв та природничих наук",
-          "count": "1 020"
-        }
-      },
-      "genderTitle": "Статевий склад",
-      "genderPlaceholder": "Діаграма розподілу (чол. / жін.)",
-      "internationalTitle": "Іноземні студенти",
-      "internationalIntro": "Університет приймає іноземних студентів на різні рівні освіти.",
-      "internationalCount": "180+",
-      "internationalLabel": "Іноземних студентів"
+      "subtitle": "Статистика та структура студентського контингенту університету."
     }
   },
   "science": {
@@ -2856,43 +2342,37 @@
       "tag": "Наука",
       "title": "Наукові напрями та школи",
       "subtitle": "Дослідницькі школи університету та їхні керівники.",
-      "intro": "У ХНПУ імені Г.С. Сковороди діють наукові школи з педагогіки, філології, психології, математики, історії та природничих наук. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "У ХНПУ імені Г.С. Сковороди діють наукові школи з педагогіки, філології, психології, математики, історії та природничих наук.",
       "schools": {
         "pedagogy": {
           "name": "Педагогічна школа",
-          "lead": "Керівник: проф. Іваненко О.М.",
           "est": "Засн. 1992",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "linguistics": {
           "name": "Лінгвістична школа",
-          "lead": "Керівник: проф. Сидоренко М.П.",
           "est": "Засн. 1988",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "psychology": {
           "name": "Психологічна школа",
-          "lead": "Керівник: проф. Петренко Т.В.",
           "est": "Засн. 1995",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "mathematics": {
           "name": "Математична школа",
-          "lead": "Керівник: проф. Мельник В.О.",
           "est": "Засн. 1990",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "description": ""
         },
         "history": {
           "name": "Історична школа",
-          "lead": "Керівник: проф. Гриценко Д.В.",
           "est": "Засн. 1985",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "description": ""
         },
         "naturalSciences": {
           "name": "Природнича школа",
-          "lead": "Керівник: проф. Бондаренко А.С.",
           "est": "Засн. 1993",
-          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+          "description": ""
         }
       }
     },
@@ -2900,14 +2380,12 @@
       "tag": "Наука",
       "title": "НДІ, центри та лабораторії",
       "subtitle": "Науково-дослідні інститути та лабораторії університету.",
-      "intro": "У структурі ХНПУ працюють інститути та лабораторії, що займаються фундаментальними та прикладними дослідженнями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "У структурі ХНПУ працюють інститути та лабораторії, що займаються фундаментальними та прикладними дослідженнями.",
       "foundedLabel": "Засновано",
       "items": {
         "i1": {
           "name": "Інститут педагогіки та психології",
-          "director": "Директор: д.п.н. Іваненко О.М.",
-          "founded": "1991",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": "",
           "focus": [
             "f1",
             "f2",
@@ -2916,36 +2394,30 @@
         },
         "i2": {
           "name": "Лабораторія когнітивних досліджень",
-          "director": "Керівник: д.псих.н. Петренко Т.В.",
-          "founded": "2005",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           "focus": [
             "f4",
             "f5",
             "f6"
-          ]
+          ],
+          "description": ""
         },
         "i3": {
           "name": "Центр філологічних студій",
-          "director": "Директор: д.ф.н. Сидоренко М.П.",
-          "founded": "1998",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "focus": [
             "f7",
             "f8",
             "f9"
-          ]
+          ],
+          "description": ""
         },
         "i4": {
           "name": "НДІ природничої освіти",
-          "director": "Директор: д.х.н. Бондаренко А.С.",
-          "founded": "1992",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "focus": [
             "f10",
             "f11",
             "f12"
-          ]
+          ],
+          "description": ""
         }
       },
       "focusLabels": {
@@ -2967,77 +2439,45 @@
       "tag": "Наука",
       "title": "Рада молодих вчених",
       "subtitle": "Підтримка та представництво інтересів молодих дослідників.",
-      "intro": "Рада молодих вчених об'єднує аспірантів, докторантів та молодих науковців університету. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Рада молодих вчених об'єднує аспірантів, докторантів та молодих науковців університету.",
       "goalsTitle": "Напрями діяльності",
       "goals": {
         "g1": {
           "title": "Грантова підтримка",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "g2": {
           "title": "Організація конференцій",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "g3": {
           "title": "Допомога з публікаціями",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
+          "text": ""
         },
         "g4": {
           "title": "Міжнародна співпраця",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "text": ""
         }
       },
-      "teamTitle": "Склад ради",
-      "members": {
-        "m1": {
-          "name": "Коваленко О.С.",
-          "role": "Голова, факультет педагогіки"
-        },
-        "m2": {
-          "name": "Ткаченко І.В.",
-          "role": "Заступник, факультет філології"
-        },
-        "m3": {
-          "name": "Лисенко М.О.",
-          "role": "Член ради, факультет психології"
-        },
-        "m4": {
-          "name": "Шевченко А.П.",
-          "role": "Член ради, факультет природничих наук"
-        }
-      }
+      "teamTitle": "Склад ради"
     },
     "studentSociety": {
       "tag": "Наука",
       "title": "Наукове товариство студентів",
       "subtitle": "Участь студентів у науковій діяльності та дослідженнях.",
-      "intro": "Наукове товариство студентів об'єднує бажаючих займатися наукою під керівництвом викладачів. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Наукове товариство студентів об'єднує бажаючих займатися наукою під керівництвом викладачів.",
       "activities": {
         "conferences": {
           "name": "Наукові конференції",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "competitions": {
           "name": "Дослідницькі конкурси",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "publications": {
           "name": "Студентські публікації",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      },
-      "stats": {
-        "members": {
-          "num": "450+",
-          "label": "Активних учасників"
-        },
-        "papers": {
-          "num": "120",
-          "label": "Опублікованих статей"
-        },
-        "competitions": {
-          "num": "25",
-          "label": "Перемог на конкурсах"
+          "description": ""
         }
       },
       "ctaTitle": "Приєднуйтесь до нас",
@@ -3048,13 +2488,13 @@
       "tag": "Наука",
       "title": "Аспірантура та докторантура",
       "subtitle": "Підготовка наукових та науково-педагогічних кадрів.",
-      "intro": "Університет здійснює підготовку аспірантів та докторантів за програмами третього (освітньо-наукового) та четвертого (наукового) рівнів. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет здійснює підготовку аспірантів та докторантів за програмами третього (освітньо-наукового) та четвертого (наукового) рівнів.",
       "programmesTitle": "Програми підготовки",
       "phd": {
         "title": "Аспірантура (PhD)",
         "duration": "4 роки",
         "form": "Денна / заочна форма",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "description": "",
         "req1": "Диплом магістра або спеціаліста",
         "req2": "Вступні іспити з іноземної мови та спеціальності",
         "req3": "Публікації та наукові статті за бажанням"
@@ -3063,10 +2503,10 @@
         "title": "Докторантура",
         "duration": "3 роки",
         "form": "Денна форма",
-        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
         "req1": "Диплом PhD або науковий ступінь кандидата наук",
         "req2": "Дисертація та публікації за спеціальністю",
-        "req3": "Рекомендація Вченої ради"
+        "req3": "Рекомендація Вченої ради",
+        "description": ""
       },
       "admissionTitle": "Вступ",
       "admissionStep1": {
@@ -3086,31 +2526,8 @@
       "tag": "Наука",
       "title": "Конференції та семінари",
       "subtitle": "Наукові заходи університету та партнерів.",
-      "intro": "ХНПУ регулярно проводить міжнародні та всеукраїнські конференції, семінари та круглі столи. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "ХНПУ регулярно проводить міжнародні та всеукраїнські конференції, семінари та круглі столи.",
       "upcomingTitle": "Найближчі події",
-      "events": {
-        "e1": {
-          "dateBadge": "15.04",
-          "title": "Педагогіка та психологія в умовах змін",
-          "type": "Конференція",
-          "location": "Харків, вул. Алчевських, 29",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "e2": {
-          "dateBadge": "22.05",
-          "title": "Філологічні студії: мова та література",
-          "type": "Семінар",
-          "location": "Онлайн",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "e3": {
-          "dateBadge": "10.06",
-          "title": "Природничі науки в освіті",
-          "type": "Круглий стіл",
-          "location": "Харків, НДІ",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      },
       "pastTitle": "Минулі заходи",
       "past": {
         "p1": {
@@ -3139,46 +2556,40 @@
       "tag": "Наука",
       "title": "Фахові наукові журнали",
       "subtitle": "Періодичні видання університету, включені до переліку ВАК та міжнародних баз.",
-      "intro": "ХНПУ видає фахові наукові журнали з педагогіки, психології, філології та природничих наук. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "ХНПУ видає фахові наукові журнали з педагогіки, психології, філології та природничих наук.",
       "journals": {
         "j1": {
           "name": "Педагогіка та психологія",
-          "issn": "ISSN 1234-5678",
           "frequency": "Квартальний",
           "scopus": true,
           "wos": false
         },
         "j2": {
           "name": "Філологічні студії",
-          "issn": "ISSN 2345-6789",
           "frequency": "Піврічний",
           "scopus": true,
           "wos": true
         },
         "j3": {
           "name": "Природничі науки в освіті",
-          "issn": "ISSN 3456-7890",
           "frequency": "Квартальний",
           "scopus": false,
           "wos": false
         },
         "j4": {
           "name": "Історичний архів",
-          "issn": "ISSN 4567-8901",
           "frequency": "Щорічний",
           "scopus": true,
           "wos": false
         },
         "j5": {
           "name": "Математика в школі та вузі",
-          "issn": "ISSN 5678-9012",
           "frequency": "Квартальний",
           "scopus": false,
           "wos": false
         },
         "j6": {
           "name": "Інклюзивна освіта",
-          "issn": "ISSN 6789-0123",
           "frequency": "Піврічний",
           "scopus": true,
           "wos": true
@@ -3189,42 +2600,37 @@
       "tag": "Наука",
       "title": "Збірники наукових праць",
       "subtitle": "Збірники матеріалів конференцій та тематичні випуски.",
-      "intro": "Університет публікує збірники наукових праць за матеріалами конференцій та тематичні випуски. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Університет публікує збірники наукових праць за матеріалами конференцій та тематичні випуски.",
       "items": {
         "c1": {
           "title": "Матеріали міжнародної конференції «Педагогіка 2025»",
           "year": "2025",
-          "editors": "Ред. Іваненко О.М., Сидоренко М.П.",
           "articles": "42 статті",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "c2": {
           "title": "Філологічні читання ХНПУ",
           "year": "2025",
-          "editors": "Ред. Петренко Т.В.",
           "articles": "28 статей",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "c3": {
           "title": "Психологія та освіта: збірник статей",
           "year": "2024",
-          "editors": "Ред. Мельник В.О., Гриценко Д.В.",
           "articles": "35 статей",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "c4": {
           "title": "Природничі науки: дослідження та практика",
           "year": "2024",
-          "editors": "Ред. Бондаренко А.С.",
           "articles": "19 статей",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "description": ""
         },
         "c5": {
           "title": "Інклюзивна освіта в Україні",
           "year": "2024",
-          "editors": "Ред. Коваленко О.С., Ткаченко І.В.",
           "articles": "24 статті",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "description": ""
         }
       },
       "submissionTitle": "Вимоги до публікації",
@@ -3235,7 +2641,7 @@
       "tag": "Наука",
       "title": "Вимоги до публікацій",
       "subtitle": "Правила оформлення рукописів та процедура подання до журналів і збірників.",
-      "intro": "Університет встановлює єдині вимоги до оформлення статей та матеріалів конференцій. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Університет встановлює єдині вимоги до оформлення статей та матеріалів конференцій.",
       "sections": {
         "general": {
           "title": "Загальні вимоги",
@@ -3307,138 +2713,49 @@
         "sub5": "Публікація згідно з черговістю випусків."
       },
       "templateTitle": "Шаблон рукопису",
-      "templateDescription": "Завантажте шаблон оформлення статті для журналу або збірника.",
-      "templateButton": "Завантажити шаблон"
+      "templateDescription": "Завантажте шаблон оформлення статті для журналу або збірника."
     },
     "scopus": {
       "tag": "Наука",
       "title": "Scopus / WOS",
       "subtitle": "Публікації співробітників у міжнародних базах даних.",
-      "intro": "ХНПУ підтримує публікаційну активність у Scopus та Web of Science. Нижче наведено приклади індексованих публікацій. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "stats": {
-        "scopus": {
-          "num": "280+",
-          "label": "Публікацій у Scopus"
-        },
-        "wos": {
-          "num": "95+",
-          "label": "Публікацій у WOS"
-        },
-        "hIndex": {
-          "num": "4.2",
-          "label": "Середній h-індекс"
-        }
-      },
-      "tableAuthor": "Автор(и)",
-      "tableTitle": "Назва",
-      "tableJournal": "Журнал",
-      "tableYear": "Рік",
-      "tableDatabase": "База",
-      "publications": {
-        "p1": {
-          "authors": "Іваненко О.М., Сидоренко М.П.",
-          "title": "Педагогічна компаративістика в умовах євроінтеграції",
-          "journal": "Педагогіка та психологія",
-          "year": "2025",
-          "scopus": true,
-          "wos": false
-        },
-        "p2": {
-          "authors": "Петренко Т.В., Мельник В.О.",
-          "title": "Когнітивні стратегії навчання в вищій школі",
-          "journal": "Вісник психології",
-          "year": "2025",
-          "scopus": true,
-          "wos": true
-        },
-        "p3": {
-          "authors": "Бондаренко А.С.",
-          "title": "Екологічна освіта та сталий розвиток",
-          "journal": "Природничі науки в освіті",
-          "year": "2024",
-          "scopus": true,
-          "wos": false
-        },
-        "p4": {
-          "authors": "Коваленко О.С., Ткаченко І.В., Лисенко М.О.",
-          "title": "Інклюзивна освіта: досвід та перспективи",
-          "journal": "Інклюзивна освіта",
-          "year": "2024",
-          "scopus": true,
-          "wos": true
-        },
-        "p5": {
-          "authors": "Гриценко Д.В.",
-          "title": "Українська література в контексті світової",
-          "journal": "Філологічні студії",
-          "year": "2024",
-          "scopus": false,
-          "wos": true
-        },
-        "p6": {
-          "authors": "Шевченко А.П., Іваненко О.М.",
-          "title": "Цифрові технології в педагогічній освіті",
-          "journal": "Педагогіка та психологія",
-          "year": "2023",
-          "scopus": true,
-          "wos": false
-        },
-        "p7": {
-          "authors": "Сидоренко М.П.",
-          "title": "Лінгводидактика та методика викладання мов",
-          "journal": "Філологічні студії",
-          "year": "2023",
-          "scopus": true,
-          "wos": true
-        },
-        "p8": {
-          "authors": "Мельник В.О., Петренко Т.В.",
-          "title": "Психометрія та оцінювання навчальних досягнень",
-          "journal": "Вісник психології",
-          "year": "2023",
-          "scopus": true,
-          "wos": false
-        }
-      }
+      "intro": "ХНПУ підтримує публікаційну активність у Scopus та Web of Science. Нижче наведено приклади індексованих публікацій."
     },
     "publishing": {
       "tag": "Наука",
       "title": "Видавництво університету",
       "subtitle": "Видання монографій, журналів та навчально-методичних матеріалів.",
-      "intro": "Видавництво ХНПУ забезпечує випуск наукових, навчальних та методичних видань. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Видавництво ХНПУ забезпечує випуск наукових, навчальних та методичних видань.",
       "services": {
         "books": {
           "title": "Видання книг",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "journals": {
           "title": "Випуск журналів",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "methodology": {
           "title": "Методичні матеріали",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "digital": {
           "title": "Цифрове видання",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "description": ""
         }
       },
       "recentTitle": "Останні видання",
       "books": {
         "b1": {
           "title": "Педагогіка вищої школи",
-          "author": "Іваненко О.М.",
           "year": "2025"
         },
         "b2": {
           "title": "Психологія навчання",
-          "author": "Петренко Т.В., Мельник В.О.",
           "year": "2025"
         },
         "b3": {
           "title": "Українська література XX століття",
-          "author": "Сидоренко М.П.",
           "year": "2024"
         }
       }
@@ -3447,49 +2764,31 @@
       "tag": "Наука",
       "title": "Наукова бібліотека",
       "subtitle": "Фонди, читальні зали та електронні ресурси.",
-      "intro": "Наукова бібліотека ХНПУ надає доступ до паперових та електронних фондів, читальних залів та довідкових послуг. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Наукова бібліотека ХНПУ надає доступ до паперових та електронних фондів, читальних залів та довідкових послуг.",
       "services": {
         "readingRooms": {
           "title": "Читальні зали",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "description": ""
         },
         "interlibrary": {
           "title": "Міжбібліотечний абонемент",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "eresources": {
           "title": "Електронні ресурси",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
+          "description": ""
         },
         "reference": {
           "title": "Довідкові послуги",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          "description": ""
         },
         "workshops": {
           "title": "Майстер-класи",
-          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+          "description": ""
         },
         "exhibitions": {
           "title": "Виставки",
-          "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
-        }
-      },
-      "stats": {
-        "holdings": {
-          "num": "761 955",
-          "label": "Примірників у фондах"
-        },
-        "eresources": {
-          "num": "12 000+",
-          "label": "Електронних ресурсів"
-        },
-        "readingRooms": {
-          "num": "8",
-          "label": "Читальних залів"
-        },
-        "visitors": {
-          "num": "45 000+",
-          "label": "Відвідувачів на рік"
+          "description": ""
         }
       }
     },
@@ -3497,7 +2796,7 @@
       "tag": "Наука",
       "title": "Електронний каталог",
       "subtitle": "Пошук видань у фондах наукової бібліотеки.",
-      "intro": "Електронний каталог дозволяє шукати книги, періодику та інші видання за автором, назвою, ключовими словами. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "intro": "Електронний каталог дозволяє шукати книги, періодику та інші видання за автором, назвою, ключовими словами.",
       "howToSearchTitle": "Як шукати в каталозі",
       "steps": {
         "register": {
@@ -3518,209 +2817,45 @@
       "tag": "Наука",
       "title": "Репозитарій eSSPUIR",
       "subtitle": "Відкритий архів наукових та навчально-методичних матеріалів університету.",
-      "intro": "У репозитарії зберігаються дисертації, статті, навчальні матеріали та звіти. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "stats": {
-        "records": {
-          "num": "4 200+",
-          "label": "Записів у репозитарії"
-        },
-        "downloads": {
-          "num": "28 000+",
-          "label": "Завантажень на рік"
-        },
-        "faculties": {
-          "num": "12",
-          "label": "Факультетів представлено"
-        }
-      },
+      "intro": "У репозитарії зберігаються дисертації, статті, навчальні матеріали та звіти.",
       "features": {
         "openAccess": {
           "title": "Відкритий доступ",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "description": ""
         },
         "fullText": {
           "title": "Повнотекстовий пошук",
-          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "description": ""
         },
         "citation": {
           "title": "Експорт цитування",
-          "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "description": ""
         },
         "doi": {
           "title": "Реєстрація DOI",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "description": ""
         }
       },
-      "recentTitle": "Останні надходження",
-      "deposits": {
-        "d1": {
-          "title": "Педагогічна компаративістика в умовах євроінтеграції",
-          "author": "Іваненко О.М.",
-          "faculty": "Педагогіки та психології",
-          "date": "2025-02-15"
-        },
-        "d2": {
-          "title": "Когнітивні стратегії навчання в вищій школі",
-          "author": "Петренко Т.В.",
-          "faculty": "Педагогіки та психології",
-          "date": "2025-02-10"
-        },
-        "d3": {
-          "title": "Українська література в контексті світової",
-          "author": "Сидоренко М.П.",
-          "faculty": "Філології",
-          "date": "2025-02-05"
-        },
-        "d4": {
-          "title": "Екологічна освіта та сталий розвиток",
-          "author": "Бондаренко А.С.",
-          "faculty": "Природничих наук",
-          "date": "2025-01-28"
-        }
-      }
+      "recentTitle": "Останні надходження"
     },
     "boards": {
       "tag": "Наука",
       "title": "Спеціалізовані вчені ради",
       "subtitle": "Ради з правом прийняття до розгляду та проведення захистів дисертацій.",
-      "intro": "При університеті діють спеціалізовані вчені ради з різних галузей знань. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "boards": {
-        "b1": {
-          "name": "Педагогіка та психологія",
-          "code": "011",
-          "chairman": "Іваненко О.М.",
-          "secretary": "Сидоренко М.П.",
-          "members": "15",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b2": {
-          "name": "Філологія",
-          "code": "035",
-          "chairman": "Петренко Т.В.",
-          "secretary": "Мельник В.О.",
-          "members": "12",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b3": {
-          "name": "Історія та археологія",
-          "code": "032",
-          "chairman": "Бондаренко А.С.",
-          "secretary": "Коваленко О.С.",
-          "members": "11",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        },
-        "b4": {
-          "name": "Природничі науки",
-          "code": "013",
-          "chairman": "Гриценко Д.В.",
-          "secretary": "Ткаченко І.В.",
-          "members": "14",
-          "areas": [
-            "area1",
-            "area2",
-            "area3"
-          ]
-        }
-      },
-      "chairmanLabel": "Голова ради",
-      "secretaryLabel": "Вчений секретар",
-      "membersLabel": "Членів ради",
-      "areasLabel": "Напрями",
-      "area1": "Педагогіка вищої школи",
-      "area2": "Порівняльна педагогіка",
-      "area3": "Методологія наукових досліджень"
+      "intro": "При університеті діють спеціалізовані вчені ради з різних галузей знань."
     },
     "defenses": {
       "tag": "Наука",
       "title": "Захисти дисертацій",
       "subtitle": "Графік та результати захистів кандидатських та докторських дисертацій.",
-      "intro": "При університеті проводяться захисти дисертацій за спеціальностями, затвердженими спеціалізованими вченими радами. Нижче наведено найближчі захисти та архів минулих років. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "При університеті проводяться захисти дисертацій за спеціальностями, затвердженими спеціалізованими вченими радами. Нижче наведено найближчі захисти та архів минулих років.",
       "upcomingTitle": "Найближчі захисти",
-      "upcoming": {
-        "d1": {
-          "dateBadge": "20.04",
-          "candidate": "Коваленко О.С.",
-          "dissertation": "Педагогічна компаративістика в умовах євроінтеграції",
-          "specialty": "011 Педагогіка",
-          "board": "Спеціалізована Вчена рада 011, ХНПУ"
-        },
-        "d2": {
-          "dateBadge": "15.05",
-          "candidate": "Ткаченко І.В.",
-          "dissertation": "Когнітивні стратегії навчання в вищій школі",
-          "specialty": "011 Педагогіка",
-          "board": "Спеціалізована Вчена рада 011, ХНПУ"
-        },
-        "d3": {
-          "dateBadge": "28.05",
-          "candidate": "Лисенко М.О.",
-          "dissertation": "Українська література в контексті світової",
-          "specialty": "035 Філологія",
-          "board": "Спеціалізована Вчена рада 035, ХНПУ"
-        }
-      },
       "pastTitle": "Минулі захисти",
       "tableYear": "Рік",
       "tableCandidate": "Кандидат",
       "tableTitle": "Назва дисертації",
       "tableSpecialty": "Спеціальність",
-      "tableResult": "Рішення",
-      "past": {
-        "p1": {
-          "year": "2025",
-          "candidate": "Іваненко О.М.",
-          "title": "Педагогічна компаративістика в умовах євроінтеграції",
-          "specialty": "011 Педагогіка",
-          "result": "Прийнято"
-        },
-        "p2": {
-          "year": "2025",
-          "candidate": "Петренко Т.В.",
-          "title": "Когнітивні стратегії навчання в вищій школі",
-          "specialty": "011 Педагогіка",
-          "result": "Прийнято"
-        },
-        "p3": {
-          "year": "2024",
-          "candidate": "Бондаренко А.С.",
-          "title": "Екологічна освіта та сталий розвиток",
-          "specialty": "013 Природничі науки",
-          "result": "Прийнято"
-        },
-        "p4": {
-          "year": "2024",
-          "candidate": "Гриценко Д.В.",
-          "title": "Українська література в контексті світової",
-          "specialty": "035 Філологія",
-          "result": "Прийнято"
-        },
-        "p5": {
-          "year": "2024",
-          "candidate": "Шевченко А.П.",
-          "title": "Цифрові технології в педагогічній освіті",
-          "specialty": "011 Педагогіка",
-          "result": "Прийнято"
-        },
-        "p6": {
-          "year": "2023",
-          "candidate": "Сидоренко М.П.",
-          "title": "Лінгводидактика та методика викладання мов",
-          "specialty": "035 Філологія",
-          "result": "Прийнято"
-        }
-      }
+      "tableResult": "Рішення"
     }
   },
   "programs": {
@@ -3785,7 +2920,6 @@
     "linkFaculties": "Факультети",
     "linkPrograms": "Програми",
     "linkSchedule": "Розклад",
-    "linkMoodle": "Moodle",
     "linkQuality": "Якість освіти",
     "linkPublications": "Наукові видання",
     "linkLibrary": "Бібліотека",
@@ -3807,152 +2941,35 @@
       "tag": "Студенту",
       "title": "Розклад занять",
       "subtitle": "Актуальний розклад пар за факультетами та групами.",
-      "intro": "Переглядайте розклад занять у зручному форматі. Оберіть факультет і групу, щоб побачити розклад. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Переглядайте розклад занять у зручному форматі. Оберіть факультет і групу, щоб побачити розклад.",
       "howToTitle": "Як скористатися розкладом",
       "steps": {
         "faculty": {
           "title": "Оберіть факультет",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "group": {
           "title": "Оберіть групу",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "view": {
           "title": "Переглядайте розклад",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         }
       },
       "quickLinksTitle": "Корисні посилання",
       "quickLinks": {
         "mobile": {
           "title": "Мобільний додаток",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "text": ""
         },
         "printable": {
           "title": "Версія для друку",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit."
+          "text": ""
         },
         "contacts": {
           "title": "Контакти деканатів",
-          "text": "Excepteur sint occaecat cupidatat non proident."
-        }
-      }
-    },
-    "moodle": {
-      "tag": "Студенту",
-      "title": "Електронний кампус (Moodle)",
-      "subtitle": "Курси, матеріали, завдання та оцінки в одному місці.",
-      "intro": "Moodle — це платформа для дистанційного та змішаного навчання. Тут зберігаються матеріали курсів, завдання, форуми та оцінки. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "featuresTitle": "Можливості платформи",
-      "features": {
-        "materials": {
-          "title": "Матеріали курсів",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "assignments": {
-          "title": "Завдання",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "forum": {
-          "title": "Форуми",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        },
-        "grades": {
-          "title": "Оцінки",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
-        },
-        "video": {
-          "title": "Відеолекції",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
-        },
-        "quizzes": {
-          "title": "Тести",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit."
-        }
-      },
-      "gettingStartedTitle": "Як почати",
-      "steps": {
-        "credentials": {
-          "title": "Отримайте доступ",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "login": {
-          "title": "Увійдіть у систему",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "enrol": {
-          "title": "Запишіться на курси",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        },
-        "learn": {
-          "title": "Почніть навчання",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
-        }
-      }
-    },
-    "grades": {
-      "tag": "Студенту",
-      "title": "АСУ НЗ / Е-відомості",
-      "subtitle": "Перегляд оцінок та академічної успішності.",
-      "intro": "Система АСУ НЗ дозволяє переглядати оцінки, відстежувати прогрес та отримувати витяги. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "featuresTitle": "Можливості",
-      "features": {
-        "view": {
-          "title": "Перегляд оцінок",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "progress": {
-          "title": "Відстеження прогресу",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "transcripts": {
-          "title": "Витяги та довідки",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        },
-        "appeal": {
-          "title": "Процес апеляції",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
-        }
-      }
-    },
-    "email": {
-      "tag": "Студенту",
-      "title": "Корпоративна пошта",
-      "subtitle": "Університетська пошта для навчання та офіційного листування.",
-      "intro": "Кожен студент отримує корпоративну поштову скриньку для навчальних матеріалів, оголошень та офіційного листування. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "setupTitle": "Як налаштувати",
-      "steps": {
-        "credentials": {
-          "title": "Отримайте облікові дані",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "configure": {
-          "title": "Налаштуйте клієнт",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "webmail": {
-          "title": "Доступ до веб-пошти",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        }
-      },
-      "faqTitle": "Часті запитання",
-      "faq": {
-        "storage": {
-          "title": "Ліміти зберігання",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "password": {
-          "title": "Скидання пароля",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "mobile": {
-          "title": "Налаштування на телефоні",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        "forwarding": {
-          "title": "Пересилання листів",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "text": ""
         }
       }
     },
@@ -3960,67 +2977,30 @@
       "tag": "Студенту",
       "title": "Гуртожитки",
       "subtitle": "Університетське житло для студентів денної форми.",
-      "intro": "Студенти денної форми можуть подати заявку на поселення в один із гуртожитків. Звертайтеся до деканату або соціальної служби щодо заявки та обміну кімнатами. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "cardsTitle": "Наші гуртожитки",
-      "dorm1": {
-        "name": "Гуртожиток № 1",
-        "address": "вул. Алчевських, 31",
-        "capacity": "280 місць",
-        "distance": "5 хв пішки від корпусу",
-        "amenity1": "Їдальня",
-        "amenity2": "Пральня",
-        "amenity3": "Обмін кімнатами — через вихователя"
-      },
-      "dorm2": {
-        "name": "Гуртожиток № 2",
-        "address": "вул. Алчевських, 33",
-        "capacity": "320 місць",
-        "distance": "7 хв пішки від корпусу",
-        "amenity1": "Спортивний зал",
-        "amenity2": "Читальний зал",
-        "amenity3": "Кімнати для самопідготовки"
-      },
-      "dorm3": {
-        "name": "Гуртожиток № 3",
-        "address": "вул. Алчевських, 35",
-        "capacity": "240 місць",
-        "distance": "8 хв пішки від корпусу",
-        "amenity1": "Wi‑Fi",
-        "amenity2": "Спільна кухня",
-        "amenity3": "Обмін кімнатами — через вихователя"
-      },
-      "howToGetTitle": "Як отримати місце",
-      "step1Title": "Подайте заявку через деканат",
-      "step1Text": "Подайте заявку на поселення через деканат факультету або соціальну службу.",
-      "step2Title": "Отримайте направлення",
-      "step2Text": "Дочекайтесь рішення про розселення. Вам повідомлять номер гуртожитку та кімнати.",
-      "step3Title": "Заселіться",
-      "step3Text": "Прибуйте до гуртожитку з паспортом та направленням для оформлення поселення.",
-      "step4Title": "Оселіться",
-      "step4Text": "Ознайомтесь із правилами, познайомтесь із вихователем та отримайте ключ. Щодо обміну кімнатами звертайтесь до офісу."
+      "intro": ""
     },
     "psychology": {
       "tag": "Студенту",
       "title": "Психологічна служба",
       "subtitle": "Конфіденційна підтримка психічного здоров'я та благополуччя студентів.",
-      "intro": "Психологічна служба університету пропонує індивідуальну та групову підтримку, щоб допомогти впоратися зі стресом, адаптуватися до студентського життя та підтримувати благополуччя. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Психологічна служба університету пропонує індивідуальну та групову підтримку, щоб допомогти впоратися зі стресом, адаптуватися до студентського життя та підтримувати благополуччя.",
       "servicesTitle": "Наші послуги",
       "services": {
         "individual": {
           "title": "Індивідуальне консультування",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "group": {
           "title": "Групові заняття",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "crisis": {
           "title": "Кризова підтримка",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "workshops": {
           "title": "Майстер-класи",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         }
       },
       "contactTitle": "Контакти",
@@ -4033,32 +3013,32 @@
       "tag": "Студенту",
       "title": "Соціальна підтримка",
       "subtitle": "Стипендії, матеріальна допомога та пільги для студентів.",
-      "intro": "Університет надає різні види соціальної підтримки: стипендії, матеріальну допомогу, пільги для окремих категорій студентів. Звертайтеся до деканату та соціальної служби за деталями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет надає різні види соціальної підтримки: стипендії, матеріальну допомогу, пільги для окремих категорій студентів. Звертайтеся до деканату та соціальної служби за деталями.",
       "categoriesTitle": "Види підтримки",
       "categories": {
         "scholarships": {
           "title": "Стипендії",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "financialAid": {
           "title": "Матеріальна допомога",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat."
+          "text": ""
         },
         "orphanSupport": {
           "title": "Підтримка дітей-сиріт",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt."
+          "text": ""
         },
         "disabilitySupport": {
           "title": "Інклюзивна підтримка",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
+          "text": ""
         },
         "warAffected": {
           "title": "Студенти, постраждалі від війни",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+          "text": ""
         },
         "housingAssistance": {
           "title": "Допомога з проживанням",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+          "text": ""
         }
       },
       "howToApplyTitle": "Як подати заявку",
@@ -4069,196 +3049,59 @@
       "step3Title": "Подайте заявку",
       "step3Text": "Подайте заявку та документи в установлені терміни через деканат або соціальну службу."
     },
-    "canteens": {
-      "tag": "Студенту",
-      "title": "Їдальні",
-      "subtitle": "Студентські їдальні: розклад роботи та приклад меню.",
-      "intro": "У кампусі працюють їдальні з доступними цінами та зручним графіком. Нижче — приклад меню та адреси. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "cardsTitle": "Їдальні університету",
-      "canteen1": {
-        "name": "Їдальня № 1",
-        "building": "Головний корпус, 1 поверх",
-        "hours": "Пн–Пт 8:00–16:00",
-        "capacity": "120 місць"
-      },
-      "canteen2": {
-        "name": "Їдальня № 2",
-        "building": "Корпус № 2",
-        "hours": "Пн–Пт 8:30–15:30",
-        "capacity": "80 місць"
-      },
-      "canteen3": {
-        "name": "Їдальня № 3",
-        "building": "Гуртожиток № 1",
-        "hours": "Щодня 7:00–20:00",
-        "capacity": "60 місць"
-      },
-      "menuTitle": "Приклад меню",
-      "menu": {
-        "breakfast": {
-          "title": "Сніданок",
-          "dish1": "Каша вівсяна",
-          "price1": "25 грн",
-          "dish2": "Сирники",
-          "price2": "35 грн",
-          "dish3": "Омлет",
-          "price3": "30 грн",
-          "dish4": "Бутерброд з сиром",
-          "price4": "20 грн"
-        },
-        "lunch": {
-          "title": "Обід",
-          "dish1": "Борщ",
-          "price1": "40 грн",
-          "dish2": "Котлета з гарніром",
-          "price2": "55 грн",
-          "dish3": "Салат",
-          "price3": "30 грн",
-          "dish4": "Компот",
-          "price4": "15 грн"
-        },
-        "dinner": {
-          "title": "Вечеря",
-          "dish1": "Суп",
-          "price1": "35 грн",
-          "dish2": "Риба з овочами",
-          "price2": "60 грн",
-          "dish3": "Гречка з м'ясом",
-          "price3": "50 грн",
-          "dish4": "Чай",
-          "price4": "10 грн"
-        }
-      }
-    },
-    "medical": {
-      "tag": "Студенту",
-      "title": "Медичне обслуговування",
-      "subtitle": "Медичні пункти та базові медичні послуги для студентів.",
-      "intro": "Університет надає студентам доступ до медичного обслуговування: профілактичні огляди, щеплення, перша допомога та довідки для навчання. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "servicesTitle": "Послуги",
-      "services": {
-        "checkups": {
-          "title": "Профілактичні огляди",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
-        },
-        "vaccinations": {
-          "title": "Щеплення",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-        },
-        "dental": {
-          "title": "Стоматологія",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-        },
-        "firstAid": {
-          "title": "Перша допомога",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
-        },
-        "referrals": {
-          "title": "Направлення до спеціалістів",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
-        },
-        "certificates": {
-          "title": "Медичні довідки",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
-        }
-      },
-      "locationsTitle": "Медичні пункти",
-      "locationAddress": "Адреса",
-      "locationPhone": "Телефон",
-      "locationHours": "Години роботи",
-      "locations": {
-        "location1": {
-          "name": "Медичний пункт (головний корпус)",
-          "address": "вул. Алчевських, 29, к. 104",
-          "phone": "+38 (057) 700-02-38",
-          "hours": "Пн–Пт 9:00–17:00"
-        },
-        "location2": {
-          "name": "Медичний пункт (гуртожиток № 1)",
-          "address": "вул. Алчевських, 31",
-          "phone": "+38 (057) 700-02-39",
-          "hours": "Пн–Пт 8:00–16:00"
-        }
-      }
-    },
     "council": {
       "tag": "Студенту",
-      "title": "Студентська рада",
-      "subtitle": "Представництво інтересів студентів та організація студентського життя.",
-      "intro": "Студентська рада — це орган студентського самоврядування, який представляє інтереси студентів перед адміністрацією, організовує заходи та сприяє розвитку студентського життя. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "teamTitle": "Керівництво",
-      "team": {
-        "t1": {
-          "name": "Коваленко О.І.",
-          "role": "Голова",
-          "faculty": "Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка"
-        },
-        "t2": {
-          "name": "Петренко М.В.",
-          "role": "Заступник",
-          "faculty": "Факультет історії і права"
-        },
-        "t3": {
-          "name": "Сидоренко А.П.",
-          "role": "Секретар",
-          "faculty": "Факультет математики, інформатики і природничої освіти"
-        },
-        "t4": {
-          "name": "Шевченко К.Л.",
-          "role": "Член ради",
-          "faculty": "Факультет мистецтв"
-        }
-      },
-      "areasTitle": "Напрями діяльності",
-      "areas": {
-        "rights": {
-          "title": "Права студентів",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "academic": {
-          "title": "Навчальні справи",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        },
-        "events": {
-          "title": "Соціальні заходи",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
-        },
-        "international": {
-          "title": "Міжнародна співпраця",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      }
+      "title": "Студентський парламент",
+      "subtitle": "Орган студентського самоврядування ХНПУ імені Г. С. Сковороди.",
+      "sectionEmpty": "Розділ наповнюється — інформацію додасть студентський парламент.",
+      "aboutTitle": "Про парламент",
+      "missionTitle": "Місія",
+      "objectivesTitle": "Завдання",
+      "contactsTitle": "Контакти",
+      "contactsAddress": "Адреса",
+      "contactsEmail": "Пошта",
+      "contactsTrustBox": "Скринька довіри",
+      "contactsSocials": "Соцмережі",
+      "leadershipTitle": "Керівництво",
+      "chairTitle": "Голова",
+      "deputiesTitle": "Заступники голови",
+      "facultyChairsTitle": "Голови студентських рад факультетів",
+      "sectorsTitle": "Сектори",
+      "auditTitle": "Ревізійна комісія",
+      "newsTitle": "Новини",
+      "documentsTitle": "Документи",
+      "intro": ""
     },
     "union": {
       "tag": "Студенту",
       "title": "Профспілка студентів",
       "subtitle": "Правова підтримка, пільги та культурно-спортивні заходи для студентів.",
-      "intro": "Профспілка студентів захищає права студентів, надає юридичні консультації, організовує знижки та культурні та спортивні заходи. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Профспілка студентів захищає права студентів, надає юридичні консультації, організовує знижки та культурні та спортивні заходи.",
       "benefitsTitle": "Переваги членства",
       "benefits": {
         "legal": {
           "title": "Правова допомога",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "discounts": {
           "title": "Знижки",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "cultural": {
           "title": "Культурні заходи",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "sports": {
           "title": "Спорт",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         },
         "financial": {
           "title": "Матеріальна допомога",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+          "text": ""
         },
         "development": {
           "title": "Професійний розвиток",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit."
+          "text": ""
         }
       },
       "contactTitle": "Контакти",
@@ -4271,145 +3114,96 @@
       "tag": "Студенту",
       "title": "Спортивні секції",
       "subtitle": "Секції з різних видів спорту, розклад тренувань та досягнення.",
-      "intro": "Університет пропонує студентам заняття у спортивних секціях: футбол, баскетбол, плавання, легка атлетика, волейбол, єдиноборства. Тренування проводять досвідчені тренери. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет пропонує студентам заняття у спортивних секціях: футбол, баскетбол, плавання, легка атлетика, волейбол, єдиноборства. Тренування проводять досвідчені тренери.",
       "sectionsTitle": "Секції",
       "sections": {
         "football": {
           "name": "Футбол",
-          "schedule": "Пн, Ср, Пт 17:00",
-          "coach": "Тренер: Іваненко О.П."
+          "schedule": "Пн, Ср, Пт 17:00"
         },
         "basketball": {
           "name": "Баскетбол",
-          "schedule": "Вт, Чт 18:00",
-          "coach": "Тренер: Петренко М.В."
+          "schedule": "Вт, Чт 18:00"
         },
         "swimming": {
           "name": "Плавання",
-          "schedule": "Пн–Пт 7:00",
-          "coach": "Тренер: Сидоренко Л.І."
+          "schedule": "Пн–Пт 7:00"
         },
         "athletics": {
           "name": "Легка атлетика",
-          "schedule": "Вт, Пт 17:30",
-          "coach": "Тренер: Коваленко А.С."
+          "schedule": "Вт, Пт 17:30"
         },
         "volleyball": {
           "name": "Волейбол",
-          "schedule": "Ср, Нд 16:00",
-          "coach": "Тренер: Шевченко В.О."
+          "schedule": "Ср, Нд 16:00"
         },
         "martial": {
           "name": "Єдиноборства",
-          "schedule": "Пн, Ср, Пт 18:30",
-          "coach": "Тренер: Мельник Р.П."
+          "schedule": "Пн, Ср, Пт 18:30"
         }
       },
-      "achievementsTitle": "Досягнення",
-      "achievements": {
-        "a1": {
-          "name": "Універсіада регіону",
-          "year": "2024",
-          "result": "І місце (волейбол)"
-        },
-        "a2": {
-          "name": "Чемпіонат міста (легка атлетика)",
-          "year": "2024",
-          "result": "ІІ місце"
-        },
-        "a3": {
-          "name": "Кубок з баскетболу",
-          "year": "2023",
-          "result": "ІІІ місце"
-        },
-        "a4": {
-          "name": "Змагання з плавання",
-          "year": "2024",
-          "result": "І місце (естафета)"
-        }
-      }
+      "achievementsTitle": "Досягнення"
     },
     "arts": {
       "tag": "Студенту",
       "title": "Мистецькі колективи",
       "subtitle": "Хор, танці, театр та інструментальні ансамблі для студентів.",
-      "intro": "Університет підтримує мистецькі колективи: народний хор, танцювальний ансамбль, театральна студія, інструментальний ансамбль. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет підтримує мистецькі колективи: народний хор, танцювальний ансамбль, театральна студія, інструментальний ансамбль.",
       "ensemblesTitle": "Колективи",
       "ensembles": {
         "choir": {
           "name": "Народний хор",
-          "director": "Керівник: Сидоренко Л.І.",
           "members": "45 учасників",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": ""
         },
         "dance": {
           "name": "Танцювальний ансамбль",
-          "director": "Керівник: Коваленко О.П.",
           "members": "32 учасники",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla."
+          "text": ""
         },
         "theatre": {
           "name": "Театральна студія",
-          "director": "Керівник: Петренко М.В.",
           "members": "28 учасників",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit."
+          "text": ""
         },
         "instrumental": {
           "name": "Інструментальний ансамбль",
-          "director": "Керівник: Шевченко В.О.",
           "members": "20 учасників",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
+          "text": ""
         }
       },
-      "eventsTitle": "Найближчі виступи",
-      "events": {
-        "e1": {
-          "date": "15 березня 2026",
-          "title": "Концерт до Міжнародного дня театру",
-          "location": "Актовий зал, головний корпус"
-        },
-        "e2": {
-          "date": "22 березня 2026",
-          "title": "Вечір народної музики",
-          "location": "Зал ім. Сковороди"
-        },
-        "e3": {
-          "date": "5 квітня 2026",
-          "title": "Студентський театральний фестиваль",
-          "location": "Театральна студія"
-        }
-      }
+      "eventsTitle": "Найближчі виступи"
     },
     "career": {
       "tag": "Студенту",
       "title": "Центр кар'єри",
       "subtitle": "Консультації, ярмарки вакансій та підтримка трудоустрою.",
-      "intro": "Центр кар'єри допомагає студентам і випускникам знайти роботу, готує до співбесід та організовує зустрічі з роботодавцями. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Центр кар'єри допомагає студентам і випускникам знайти роботу, готує до співбесід та організовує зустрічі з роботодавцями.",
       "servicesTitle": "Послуги",
       "services": {
         "cv": {
           "title": "Майстер-класи з резюме",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "interview": {
           "title": "Підготовка до співбесід",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "fairs": {
           "title": "Ярмарки вакансій",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "employers": {
           "title": "Презентації роботодавців",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         },
         "internship": {
           "title": "Підбір практики",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+          "text": ""
         },
         "counselling": {
           "title": "Кар'єрне консультування",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+          "text": ""
         }
       },
       "statsTitle": "Результати",
@@ -4423,7 +3217,7 @@
       "tag": "Студенту",
       "title": "Вакансії та практика",
       "subtitle": "Актуальні вакансії, стажування та подання заявок.",
-      "intro": "Центр кар'єри публікує вакансії від партнерів університету та допомагає з підбором практики. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Центр кар'єри публікує вакансії від партнерів університету та допомагає з підбором практики.",
       "filterAll": "Усі",
       "filterFullTime": "Повна зайнятість",
       "filterPartTime": "Часткова зайнятість",
@@ -4434,151 +3228,76 @@
       "position": "Позиція",
       "type": "Тип",
       "location": "Локація",
-      "posted": "Опубліковано",
-      "vacancies": {
-        "v1": {
-          "company": "ТОВ «Освіта плюс»",
-          "position": "Педагог-стажист",
-          "type": "internship",
-          "location": "Харків",
-          "posted": "5 березня 2026"
-        },
-        "v2": {
-          "company": "ДНЗ № 45",
-          "position": "Вихователь",
-          "type": "fullTime",
-          "location": "Харків",
-          "posted": "4 березня 2026"
-        },
-        "v3": {
-          "company": "Центр розвитку дітей",
-          "position": "Викладач англійської",
-          "type": "partTime",
-          "location": "Харків",
-          "posted": "3 березня 2026"
-        },
-        "v4": {
-          "company": "Ліцей № 12",
-          "position": "Вчитель математики",
-          "type": "fullTime",
-          "location": "Харків",
-          "posted": "2 березня 2026"
-        },
-        "v5": {
-          "company": "ТОВ «Інновація»",
-          "position": "Стажист IT-відділу",
-          "type": "internship",
-          "location": "Віддалено",
-          "posted": "1 березня 2026"
-        },
-        "v6": {
-          "company": "Бібліотека ім. Короленка",
-          "position": "Бібліотекар-стажист",
-          "type": "internship",
-          "location": "Харків",
-          "posted": "28 лютого 2026"
-        },
-        "v7": {
-          "company": "Школа мистецтв",
-          "position": "Викладач музики",
-          "type": "partTime",
-          "location": "Харків",
-          "posted": "27 лютого 2026"
-        },
-        "v8": {
-          "company": "Дослідницький центр",
-          "position": "Асистент дослідника",
-          "type": "fullTime",
-          "location": "Харків",
-          "posted": "26 лютого 2026"
-        }
-      }
+      "posted": "Опубліковано"
     },
     "alumni": {
       "tag": "Студенту",
       "title": "Асоціація випускників",
       "subtitle": "Мережа випускників, менторство та підтримка кар'єри.",
-      "intro": "Асоціація випускників об'єднує випускників ХНПУ, організовує заходи для нетворкінгу, менторські програми та підтримку кар'єри. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Асоціація випускників об'єднує випускників ХНПУ, організовує заходи для нетворкінгу, менторські програми та підтримку кар'єри.",
       "benefitsTitle": "Переваги членства",
       "benefits": {
         "networking": {
           "title": "Заходи для нетворкінгу",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "mentorship": {
           "title": "Менторська програма",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "careerSupport": {
           "title": "Підтримка кар'єри",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "discounts": {
           "title": "Пільги університету",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         }
       },
-      "notableTitle": "Випускники, якими ми пишаємося",
-      "notable": {
-        "a1": {
-          "name": "Олена Коваленко",
-          "year": "Випуск 2015",
-          "achievement": "Кандидат педагогічних наук, доцент кафедри історії."
-        },
-        "a2": {
-          "name": "Андрій Петренко",
-          "year": "Випуск 2012",
-          "achievement": "Директор школи-ліцею № 12, заслужений вчитель України."
-        },
-        "a3": {
-          "name": "Марія Сидоренко",
-          "year": "Випуск 2018",
-          "achievement": "Наукова співробітниця Інституту педагогіки НАПН України."
-        }
-      }
+      "notableTitle": "Випускники, якими ми пишаємося"
     },
     "nonformal": {
       "tag": "Студенту",
       "title": "Неформальна освіта",
       "subtitle": "Курси мов, IT, лідерство та волонтерство з заліком кредитів.",
-      "intro": "Університет пропонує програми неформальної освіти: мовні курси, IT-навички, лідерство, волонтерські кредити, софт-скіли та підприємництво. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Університет пропонує програми неформальної освіти: мовні курси, IT-навички, лідерство, волонтерські кредити, софт-скіли та підприємництво.",
       "programmesTitle": "Програми",
       "programmes": {
         "language": {
           "name": "Мовні курси",
           "duration": "1–2 семестри",
           "credits": "3–6 кредитів",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "it": {
           "name": "IT-навички",
           "duration": "1 семестр",
           "credits": "2 кредити",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "leadership": {
           "name": "Лідерство",
           "duration": "2 семестри",
           "credits": "4 кредити",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "volunteering": {
           "name": "Волонтерські кредити",
           "duration": "за участю",
           "credits": "до 5 кредитів",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         },
         "softSkills": {
           "name": "Софт-скіли",
           "duration": "1 семестр",
           "credits": "2 кредити",
-          "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+          "text": ""
         },
         "entrepreneurship": {
           "name": "Підприємництво",
           "duration": "2 семестри",
           "credits": "4 кредити",
-          "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+          "text": ""
         }
       },
       "certTitle": "Залік та сертифікація",
@@ -4589,47 +3308,46 @@
       "tag": "Студенту",
       "title": "Центр розвитку ветеранів",
       "subtitle": "Підтримка ветеранів: психологія, кар'єра, освіта та спільнота.",
-      "intro": "Центр розвитку ветеранів надає психологічну підтримку, допомагає з реінтеграцією в освіту та кар'єру, організовує менторство та адаптивний спорт. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "intro": "Центр розвитку ветеранів надає психологічну підтримку, допомагає з реінтеграцією в освіту та кар'єру, організовує менторство та адаптивний спорт.",
       "servicesTitle": "Послуги",
       "services": {
         "psychological": {
           "title": "Психологічна підтримка",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+          "text": ""
         },
         "career": {
           "title": "Кар'єрна реінтеграція",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+          "text": ""
         },
         "educational": {
           "title": "Освітні програми",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+          "text": ""
         },
         "peer": {
           "title": "Пієр-спільнота",
-          "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+          "text": ""
         }
       },
       "supportTitle": "Програми підтримки",
       "support": {
         "tuition": {
           "title": "Підтримка навчання",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "text": ""
         },
         "mentorship": {
           "title": "Менторство",
-          "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "text": ""
         },
         "sports": {
           "title": "Адаптивний спорт",
-          "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "text": ""
         }
       },
       "contactTitle": "Контакти",
       "contactPhone": "Телефон",
       "contactEmail": "Email",
       "contactHours": "Години роботи",
-      "contactCoordinator": "Координатор",
-      "coordinatorName": "Іваненко О.П."
+      "contactCoordinator": "Координатор"
     }
   },
   "auth": {
@@ -4833,5 +3551,11 @@
     "noCategory": "Без категорії",
     "fieldRequired": "Обов'язкове поле",
     "adminPanel": "Адмін-панель"
+  },
+  "documents": {
+    "filterAll": "Усі роки",
+    "empty": "Документів поки немає.",
+    "externalLink": "Посилання",
+    "listTitle": "Документи"
   }
 }

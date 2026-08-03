@@ -90,6 +90,21 @@ function pdfSize(issue: DirectusNewspaperIssue): string {
 function coverSrc(issue: DirectusNewspaperIssue): string {
   return issue.cover ? (assetUrl(issue.cover as never, CARD_COVER_TRANSFORM) ?? '') : ''
 }
+
+/**
+ * Issues whose PDF could not be rendered (encrypted, malformed, missing file) — those cards drop
+ * back to the icon instead of keeping an empty tall panel.
+ */
+const previewFailed = ref(new Set<string>())
+
+function markPreviewFailed(id: string) {
+  previewFailed.value = new Set(previewFailed.value).add(id)
+}
+
+/** A card reserves cover-sized space only while a preview is still possible. */
+function hasPreview(issue: DirectusNewspaperIssue): boolean {
+  return Boolean(issue.pdfFile) && !previewFailed.value.has(issue.id)
+}
 </script>
 
 <template>
@@ -165,10 +180,13 @@ function coverSrc(issue: DirectusNewspaperIssue): string {
             rel="noopener noreferrer"
             class="group bg-white border border-border rounded-16 overflow-hidden no-underline flex flex-col transition-all duration-280 hover:border-gold hover:-translate-y-1 hover:shadow-gold"
           >
-            <!-- A cover is optional; without one a tall empty panel would be all the card is. -->
+            <!--
+              An uploaded cover wins. Without one we render page 1 of the PDF itself, and only
+              fall back to the flat icon when that fails — so the card is never a bare panel.
+            -->
             <div
-              class="bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0 overflow-hidden"
-              :class="coverSrc(issue) ? 'aspect-[3/4]' : 'h-24'"
+              class="bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0 overflow-hidden relative"
+              :class="coverSrc(issue) || hasPreview(issue) ? 'aspect-[3/4]' : 'h-24'"
             >
               <img
                 v-if="coverSrc(issue)"
@@ -177,6 +195,14 @@ function coverSrc(issue: DirectusNewspaperIssue): string {
                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
               />
+
+              <NewsPdfFirstPage
+                v-else-if="pdfHref(issue) && !previewFailed.has(issue.id)"
+                :src="pdfHref(issue)"
+                class="transition-transform duration-280 group-hover:scale-105"
+                @failed="markPreviewFailed(issue.id)"
+              />
+
               <svg
                 v-else
                 class="w-10 h-10 text-gold/30 transition-transform duration-280 group-hover:scale-110"

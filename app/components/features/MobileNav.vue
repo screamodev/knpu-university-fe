@@ -1,64 +1,29 @@
 <script setup lang="ts">
+import type { NavLink } from '~/composables/useNavigation'
+
 const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
 const { items } = useNavigation()
 const router = useRouter()
 
-const memorialLink = computed(() => items.find((i) => i.labelKey === 'nav.memorialPage'))
 onMounted(() => {
   router.afterEach(() => close())
 })
 
-const mobileSections = computed(() => [
-  {
-    labelKey: 'nav.labels.university',
-    links: [
-      { path: '/university/history', key: 'nav.links.history' },
-      { path: MEMORIAL_EXTERNAL_URL, key: 'nav.links.memorial', external: true as const },
-      { path: '/university/wartime', key: 'nav.links.wartime' },
-      { path: '/university/rectorate', key: 'nav.links.rectorate' },
-      { path: '/university/structure', key: 'nav.links.structure' },
-      { path: '/university/public-info', key: 'nav.links.publicInfo' },
-      { path: '/university/erasmus', key: 'nav.links.erasmus' },
-    ],
-  },
-  {
-    labelKey: 'nav.labels.admissions',
-    links: [
-      { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
-      { path: '/admissions/rules', key: 'nav.links.rules' },
-      { path: '/admissions/specialties', key: 'nav.links.specialties' },
-      { path: '/admissions/tuition', key: 'nav.links.tuition' },
-      { path: '/admissions/open-days', key: 'nav.links.openDays' },
-    ],
-  },
-  {
-    labelKey: 'nav.labels.education',
-    links: [
-      { path: '/education/faculties', key: 'nav.links.faculties' },
-      { path: '/education/programs', key: 'nav.links.programs' },
-      { path: '/student/schedule', key: 'nav.links.schedule' },
-      { path: '/education/schedule', key: 'nav.links.processSchedule' },
-    ],
-  },
-  {
-    labelKey: 'nav.labels.science',
-    links: [
-      { path: '/science/directions', key: 'nav.links.directions' },
-      { path: '/science/journals', key: 'nav.links.journals' },
-      { path: '/science/library', key: 'nav.links.library' },
-    ],
-  },
-  {
-    labelKey: 'nav.labels.student',
-    links: [
-      { path: '/student/moodle', key: 'nav.links.moodle' },
-      { path: '/student/dormitories', key: 'nav.links.dormitories' },
-      { path: '/student/council', key: 'nav.links.studentCouncil' },
-      { path: '/student/career', key: 'nav.links.career' },
-    ],
-  },
-])
+/** Same links as desktop mega menu — derived from useNavigation(), not a trimmed subset. */
+const mobileSections = computed(() =>
+  items
+    .filter((item) => (item.columns?.length ?? 0) > 0)
+    .map((item) => ({
+      labelKey: item.labelKey,
+      columns: item.columns ?? [],
+      cta: item.cta,
+    })),
+)
+
+function linkKey(link: NavLink): string {
+  return `${link.key}:${link.path}`
+}
 </script>
 
 <template>
@@ -80,7 +45,7 @@ const mobileSections = computed(() => [
     <ul class="list-none flex flex-col">
       <li
         v-for="(section, idx) in mobileSections"
-        :key="idx"
+        :key="section.labelKey"
         class="border-b border-white/8"
       >
         <button
@@ -93,44 +58,60 @@ const mobileSections = computed(() => [
         </button>
         <div
           v-show="openIndex === idx"
-          class="py-2 pb-4 flex flex-col"
+          class="py-2 pb-4 flex flex-col gap-4"
         >
-          <template v-for="link in section.links" :key="link.path">
-            <a
-              v-if="link.external"
-              :href="link.path"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
-              @click="close"
-            >
-              {{ t(link.key) }}
-            </a>
+          <div
+            v-for="column in section.columns"
+            :key="column.titleKey"
+            class="flex flex-col"
+          >
+            <div class="text-[11px] font-semibold tracking-widest uppercase text-gold/90 mb-2">
+              {{ t(column.titleKey) }}
+            </div>
+            <template v-for="link in column.links" :key="linkKey(link)">
+              <a
+                v-if="link.external"
+                :href="link.path"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
+                @click="close"
+              >
+                {{ t(link.key) }}
+              </a>
+              <NuxtLink
+                v-else
+                :to="localePath(link.path)"
+                class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
+                @click="close"
+              >
+                {{ t(link.key) }}
+              </NuxtLink>
+            </template>
+          </div>
+
+          <div v-if="section.cta" class="flex flex-col gap-2 pt-1">
             <NuxtLink
-              v-else
-              :to="localePath(link.path)"
-              class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
+              :to="localePath(section.cta.primaryPath)"
+              class="block py-2.5 px-3 text-sm font-semibold text-navy-deep bg-gold rounded-lg no-underline text-center"
               @click="close"
             >
-              {{ t(link.key) }}
+              {{ t(section.cta.primaryKey) }}
             </NuxtLink>
-          </template>
+            <NuxtLink
+              :to="localePath(section.cta.secondaryPath)"
+              class="block py-2 text-sm text-white/80 no-underline text-center border border-white/20 rounded-lg hover:border-gold hover:text-gold transition-colors duration-280"
+              @click="close"
+            >
+              {{ t(section.cta.secondaryKey) }}
+            </NuxtLink>
+          </div>
         </div>
       </li>
     </ul>
     <div class="mt-6 flex flex-col gap-3">
-      <a
-        v-if="memorialLink?.path"
-        :href="memorialLink.path"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="block text-center py-3 text-white/80 no-underline border border-white/20 rounded-lg text-[14px] hover:border-gold hover:text-gold transition-colors duration-280"
-        @click="close"
-      >
-        {{ t('nav.memorialPage') }}
-      </a>
       <NuxtLink
-        :to="localePath('/admissions/rules')"
+        :to="localePath('/admissions/edebo')"
         class="block text-center bg-gold text-navy-deep py-3.5 rounded-[10px] font-bold no-underline text-[15px]"
         @click="close"
       >

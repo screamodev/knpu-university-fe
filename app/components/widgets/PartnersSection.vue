@@ -89,8 +89,11 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
           :target="normalizeWebsiteUrl(partner.website) ? '_blank' : undefined"
           :rel="normalizeWebsiteUrl(partner.website) ? 'noopener noreferrer' : undefined"
           :aria-disabled="!normalizeWebsiteUrl(partner.website)"
-          class="bg-white border-[1.5px] border-border rounded-12 p-6 h-28 flex items-center justify-center no-underline transition-all duration-280 hover:border-gold hover:shadow-[0_4px_16px_rgba(27,46,75,0.08)]"
-          :class="{ 'cursor-default pointer-events-none': !normalizeWebsiteUrl(partner.website) }"
+          class="border-[1.5px] border-border rounded-12 p-6 h-28 flex items-center justify-center no-underline transition-all duration-280 hover:border-gold hover:shadow-[0_4px_16px_rgba(27,46,75,0.08)]"
+          :class="[
+            partner.logo && partnerLogoSrc(partner.logo) ? 'bg-navy' : 'bg-white',
+            !normalizeWebsiteUrl(partner.website) ? 'cursor-default pointer-events-none' : '',
+          ]"
         >
           <img
             v-if="partner.logo && partnerLogoSrc(partner.logo)"
@@ -98,7 +101,10 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
             :alt="localized(partner, 'name')"
             class="max-h-14 max-w-full object-contain"
           />
-          <span v-else class="text-sm font-medium text-navy truncate">{{ localized(partner, 'name') }}</span>
+          <!-- No logo: wrap the name over up to three lines rather than cutting it mid-word. -->
+          <span v-else class="text-sm font-medium text-navy text-center leading-snug line-clamp-3">
+            {{ localized(partner, 'name') }}
+          </span>
         </a>
       </div>
     </div>

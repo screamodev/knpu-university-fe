@@ -13,7 +13,7 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.prozorro.subtitle') }],
 })
 
-const { data: procurementsData, pending } = await useAsyncData('prozorro-procurements', () =>
+const { data: procurementsData } = await useAsyncData('prozorro-procurements', () =>
   client.request(
     readItems('prozorro_procurements', {
       fields: ['id', 'tenderNumber', 'title', 'titleEn', 'amount', 'currency', 'procurementDate', 'state', 'prozorroUrl', 'order'],
@@ -26,14 +26,6 @@ const { data: procurementsData, pending } = await useAsyncData('prozorro-procure
 
 const procurements = computed<DirectusProzorroProcurement[]>(() => {
   return (procurementsData.value as DirectusProzorroProcurement[] | null) ?? []
-})
-
-const totalTenders = computed<number>(() => procurements.value.length)
-const completedTenders = computed<number>(() => procurements.value.filter((item) => item.state === 'completed').length)
-const totalValue = computed<number>(() => {
-  return procurements.value.reduce((sum, item) => {
-    return sum + (item.amount ?? 0)
-  }, 0)
 })
 
 const displayCurrency = computed<string>(() => {
@@ -61,6 +53,11 @@ function formatProcurementDate(value: string | null): string {
 }
 
 const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
+
+/** The same widget the old site embedded: state purchases for ЄДРПОУ 02125585. */
+const PROZORRO_WIDGET_URL
+  = 'https://my.zakupki.prom.ua/remote/widget/state_purchase_iframe/'
+    + '570e8020-99cd-4510-916c-e34351ba72e2?locale=uk&srn=02125585'
 </script>
 
 <template>
@@ -87,58 +84,36 @@ const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
       </p>
     </div>
 
-    <!-- Stats band: 3 gold numbers -->
+    <!--
+      The old site published nothing of its own here — its whole page was this prom.ua widget,
+      keyed on the university's ЄДРПОУ (srn=02125585). Keeping it means the list stays live
+      without anyone re-typing tenders into the CMS.
+    -->
     <div class="bg-off-white py-10 lg:py-12">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-          {{ t('university.prozorro.statsTitle') }}
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+          {{ t('university.prozorro.widgetTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div class="text-center">
-            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ totalTenders }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t('university.prozorro.stats.totalTenders.label') }}
-            </p>
-          </div>
-          <div class="text-center">
-            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ completedTenders }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t('university.prozorro.stats.completed.label') }}
-            </p>
-          </div>
-          <div class="text-center">
-            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ formatCurrency(totalValue, displayCurrency) }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t('university.prozorro.stats.totalValue.label') }}
-            </p>
-          </div>
+        <div class="bg-white border border-border rounded-16 overflow-hidden">
+          <iframe
+            :src="PROZORRO_WIDGET_URL"
+            :title="t('university.prozorro.widgetTitle')"
+            loading="lazy"
+            class="w-full min-h-[800px] border-0"
+          />
         </div>
+        <p class="mt-3 text-body-sm text-text-muted">
+          {{ t('university.prozorro.widgetNote') }}
+        </p>
       </div>
     </div>
 
-    <!-- Procurements list: 5–6 card-rows -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Optional hand-curated rows; hidden entirely while the collection is empty. -->
+    <div v-if="procurements.length" class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
         {{ t('university.prozorro.procurementsTitle') }}
       </h2>
-      <div v-if="pending" class="space-y-4">
-        <article
-          v-for="i in 3"
-          :key="i"
-          class="animate-pulse bg-white border border-border rounded-16 p-6"
-        >
-          <div class="h-4 bg-border rounded w-40 mb-2" />
-          <div class="h-5 bg-border rounded w-3/4 mb-3" />
-          <div class="h-4 bg-border rounded w-2/3" />
-        </article>
-      </div>
-      <div v-else-if="procurements.length" class="space-y-4">
+      <div class="space-y-4">
         <article
           v-for="item in procurements"
           :key="item.id"
@@ -186,9 +161,17 @@ const PROZORRO_PORTAL_URL = 'https://prozorro.gov.ua'
           </span>
         </article>
       </div>
-      <p v-else class="text-body text-text-muted py-8 text-center bg-off-white border border-border rounded-16">
-        {{ locale === 'en' ? 'Procurement records are not published yet.' : 'Закупівлі ще не опубліковані.' }}
-      </p>
+    </div>
+
+    <!--
+      «Інформація про публічні закупівлі» from the client's list: procurement paperwork that is
+      not a Prozorro record. Editors add rows in Directus under the `procurement-info` section.
+    -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('university.prozorro.documentsTitle') }}
+      </h2>
+      <SharedDocumentList section="procurement-info" />
     </div>
 
     <!-- CTA: external Prozorro -->

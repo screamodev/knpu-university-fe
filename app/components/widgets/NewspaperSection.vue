@@ -1,6 +1,17 @@
 <script setup lang="ts">
 const { t, localePath } = useSafeI18nWithRouter()
 const issues = useNewspaperHomeIssues()
+
+/** Issues whose PDF could not be rendered — those cards fall back to the flat icon. */
+const previewFailed = ref(new Set<string>())
+
+function markPreviewFailed(id: string) {
+  previewFailed.value = new Set(previewFailed.value).add(id)
+}
+
+function hasPreview(issue: { id: string; href?: string }): boolean {
+  return Boolean(issue.href) && !previewFailed.value.has(issue.id)
+}
 </script>
 
 <template>
@@ -43,6 +54,16 @@ const issues = useNewspaperHomeIssues()
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
+
+            <!-- No uploaded cover: draw page 1 of the PDF, same as the archive page. -->
+            <NewsPdfFirstPage
+              v-else-if="hasPreview(issue)"
+              :src="issue.href!"
+              :width="300"
+              class="transition-transform duration-280 group-hover:scale-105"
+              @failed="markPreviewFailed(issue.id)"
+            />
+
             <svg
               v-else
               class="w-10 h-10 text-gold/30 transition-transform duration-280 group-hover:scale-110"

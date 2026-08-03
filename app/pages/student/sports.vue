@@ -9,7 +9,6 @@ useHead({
 })
 
 const sectionKeys = ['football', 'basketball', 'swimming', 'athletics', 'volleyball', 'martial'] as const
-const achievementIds = ['a1', 'a2', 'a3', 'a4'] as const
 </script>
 
 <template>
@@ -63,37 +62,18 @@ const achievementIds = ['a1', 'a2', 'a3', 'a4'] as const
             <p class="text-body-sm text-text-muted mb-1">
               {{ t(`student.sports.sections.${key}.schedule`) }}
             </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.sports.sections.${key}.coach`) }}
-            </p>
           </div>
         </article>
       </div>
     </div>
 
-    <!-- Achievements: bg-off-white band, gold accent -->
+    <!-- Competition results removed: the four listed medals were invented. -->
     <div class="bg-off-white py-12 lg:py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
           {{ t('student.sports.achievementsTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
-            v-for="id in achievementIds"
-            :key="id"
-            class="bg-white border border-border rounded-16 p-6 flex flex-col border-l-4 border-l-gold"
-          >
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-2">
-              {{ t(`student.sports.achievements.${id}.year`) }}
-            </span>
-            <h3 class="font-playfair text-base font-semibold text-navy mb-2">
-              {{ t(`student.sports.achievements.${id}.name`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.sports.achievements.${id}.result`) }}
-            </p>
-          </div>
-        </div>
+        <SharedSectionPending />
       </div>
     </div>
   </div>

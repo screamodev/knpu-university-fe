@@ -4,17 +4,17 @@ import type { StructureUnitContacts } from '~/utils/structureContent'
 /** Dean, address and social links for a unit. Shown beside every tab. */
 const props = defineProps<{
   contacts: StructureUnitContacts
-  kind: 'institute' | 'faculty'
+  kind: 'institute' | 'faculty' | 'department'
 }>()
 
 const { t } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
-const headTitle = computed(() =>
-  props.kind === 'institute'
-    ? t('university.structure.unit.directorTitle')
-    : t('university.structure.unit.deanTitle'),
-)
+const headTitle = computed(() => {
+  if (props.kind === 'institute') return t('university.structure.unit.directorTitle')
+  if (props.kind === 'department') return t('university.structure.unit.headTitle')
+  return t('university.structure.unit.deanTitle')
+})
 
 const dean = computed(() => localized(props.contacts, 'dean'))
 const position = computed(() => localized(props.contacts, 'position'))
@@ -33,7 +33,14 @@ const hasAny = computed(() =>
 </script>
 
 <template>
-  <aside v-if="hasAny" class="bg-off-white border border-border rounded-16 p-5 lg:sticky lg:top-6">
+  <!--
+    `self-start` keeps the card at the height of its own content: as a grid item it would
+    otherwise stretch over the whole (very tall) main column, which also made `lg:sticky` inert.
+  -->
+  <aside
+    v-if="hasAny"
+    class="self-start bg-off-white border border-border rounded-16 p-5 lg:sticky lg:top-6"
+  >
     <h2 class="font-playfair text-lg font-bold text-navy mb-4">
       {{ t('university.structure.unit.contactsTitle') }}
     </h2>

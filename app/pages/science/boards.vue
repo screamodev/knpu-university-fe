@@ -8,8 +8,6 @@ useHead({
   meta: [{ name: 'description', content: () => t('science.boards.subtitle') }],
 })
 
-const boardIds = ['b1', 'b2', 'b3', 'b4'] as const
-const areaKeys = ['area1', 'area2', 'area3'] as const
 </script>
 
 <template>
@@ -35,49 +33,11 @@ const areaKeys = ['area1', 'area2', 'area3'] as const
         {{ t('science.boards.intro') }}
       </p>
 
-      <div class="space-y-0">
-        <div
-          v-for="id in boardIds"
-          :key="id"
-          class="bg-white border border-border rounded-16 p-6 lg:p-8 border-l-4 border-l-gold mb-6 last:mb-0"
-        >
-          <h2 class="font-playfair text-xl font-semibold text-navy mb-1">
-            {{ t(`science.boards.boards.${id}.name`) }}
-          </h2>
-          <p class="text-body-sm text-gold font-medium mb-3">
-            {{ t(`science.boards.boards.${id}.code`) }}
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-body-sm text-text-muted mb-3">
-            <p>
-              <span class="font-medium text-navy">{{ t('science.boards.chairmanLabel') }}:</span>
-              {{ t(`science.boards.boards.${id}.chairman`) }}
-            </p>
-            <p>
-              <span class="font-medium text-navy">{{ t('science.boards.secretaryLabel') }}:</span>
-              {{ t(`science.boards.boards.${id}.secretary`) }}
-            </p>
-          </div>
-          <p class="text-body-sm text-text-muted mb-3">
-            <span class="font-medium text-navy">{{ t('science.boards.membersLabel') }}:</span>
-            {{ t(`science.boards.boards.${id}.members`) }}
-          </p>
-          <div>
-            <p class="text-body-sm font-medium text-navy mb-1">
-              {{ t('science.boards.areasLabel') }}:
-            </p>
-            <ul class="flex flex-wrap gap-x-4 gap-y-1 text-body-sm text-text-muted">
-              <li
-                v-for="areaKey in areaKeys"
-                :key="areaKey"
-                class="flex items-center gap-1.5"
-              >
-                <span class="text-gold">•</span>
-                {{ t(`science.boards.${areaKey}`) }}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!--
+        The four councils listed here were unverified: one carried speciality code 013 («Початкова
+        освіта») under the name «Природничі науки». The real list is published by МОН.
+      -->
+      <SharedSectionPending />
     </div>
   </div>
 </template>

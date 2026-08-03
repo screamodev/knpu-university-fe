@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { StructureTabId } from '~/utils/structureContent'
+import { structureTabLabelOverride, type StructureTabId } from '~/utils/structureContent'
 
 /**
  * Sub-navigation for a unit page. Real links rather than buttons: every tab is its own URL, so
@@ -11,7 +11,12 @@ const props = defineProps<{
   active: StructureTabId
 }>()
 
-const { t, localePath } = useSafeI18nWithRouter()
+const { t, localePath, locale } = useSafeI18nWithRouter()
+
+function tabLabel(tab: StructureTabId) {
+  return structureTabLabelOverride(props.slug, tab, locale.value)
+    ?? t(`university.structure.unit.tabs.${tab}`)
+}
 
 function tabHref(tab: StructureTabId) {
   return localePath(
@@ -41,7 +46,7 @@ function tabHref(tab: StructureTabId) {
               : 'bg-white text-navy border-border hover:border-navy'
           "
         >
-          {{ t(`university.structure.unit.tabs.${tab}`) }}
+          {{ tabLabel(tab) }}
         </NuxtLink>
       </li>
     </ul>

@@ -107,6 +107,20 @@ export function resolveDirectusPublicUrl(url: string, directusPublicUrl: string)
   return `${normalizeDirectusPublicUrl(directusPublicUrl)}${trimmed}`
 }
 
+/** Widest a body image is ever displayed, doubled for retina — see `NewsMarkdownBody`'s cap. */
+const BODY_IMAGE_WIDTH = 1200
+
+/**
+ * Ask Directus for a display-sized copy of a body image. Migrated bodies point at the original
+ * upload, which for a scan or a poster can be several megabytes.
+ */
+export function withAssetWidth(url: string, width = BODY_IMAGE_WIDTH): string {
+  if (!url.includes('/assets/')) return url
+  // Anything already carrying a query was sized deliberately (editor presets) — leave it alone.
+  if (url.includes('?')) return url
+  return `${url}?width=${width}&quality=80`
+}
+
 /**
  * The Directus base for the sanitize pass currently running. DOMPurify hooks are global and
  * cannot take arguments; sanitize is synchronous, so setting this immediately before the call
@@ -169,7 +183,8 @@ function ensureArticlePurifyHooks(): void {
     for (const attribute of ['src', 'href'] as const) {
       if (!node.hasAttribute?.(attribute)) continue
       const current = node.getAttribute(attribute) ?? ''
-      const resolved = resolveDirectusPublicUrl(current, activeDirectusPublicUrl)
+      let resolved = resolveDirectusPublicUrl(current, activeDirectusPublicUrl)
+      if (node.nodeName === 'IMG' && attribute === 'src') resolved = withAssetWidth(resolved)
       if (resolved !== current) node.setAttribute(attribute, resolved)
     }
   })

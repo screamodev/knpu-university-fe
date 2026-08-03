@@ -1,15 +1,30 @@
 <script setup lang="ts">
+/**
+ * Студентський парламент.
+ *
+ * The client asked for the section structure knmu.edu.ua uses for its student self-government,
+ * left empty: nothing is carried over from the old site, only the news feed has to work from day
+ * one. Every prose block therefore renders a "being filled in" note until the parliament supplies
+ * copy; news and documents are already live from Directus, so they can publish without a deploy.
+ */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
 
 useHead({
-  title: () => t('nav.links.studentCouncil'),
+  title: () => t('student.council.title'),
   meta: [{ name: 'description', content: () => t('student.council.subtitle') }],
 })
 
-const teamIds = ['t1', 't2', 't3', 't4'] as const
-const areaKeys = ['rights', 'academic', 'events', 'international'] as const
+/** Prose sections that are intentionally empty for now, in the order the client listed them. */
+const emptySections = [
+  'aboutTitle',
+  'missionTitle',
+  'objectivesTitle',
+] as const
+
+const leadershipBlocks = ['chairTitle', 'deputiesTitle', 'facultyChairsTitle'] as const
+const contactRows = ['contactsAddress', 'contactsEmail', 'contactsTrustBox', 'contactsSocials'] as const
 </script>
 
 <template>
@@ -29,74 +44,90 @@ const areaKeys = ['rights', 'academic', 'events', 'international'] as const
       </div>
     </div>
 
-    <!-- Intro -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl">
-        {{ t('student.council.intro') }}
-      </p>
+    <!-- Про парламент / Місія / Завдання -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      <section v-for="key in emptySections" :key="key">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-3">
+          {{ t(`student.council.${key}`) }}
+        </h2>
+        <p class="text-body text-text-muted max-w-3xl">
+          {{ t('student.council.sectionEmpty') }}
+        </p>
+      </section>
     </div>
 
-    <!-- Leadership team: 3-4 member cards -->
-    <div class="bg-off-white py-12 lg:py-16">
+    <!-- Контакти -->
+    <div class="bg-off-white border-t border-border py-12">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-          {{ t('student.council.teamTitle') }}
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+          {{ t('student.council.contactsTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
-            v-for="id in teamIds"
-            :key="id"
-            class="bg-white border border-border rounded-16 p-6 flex flex-col items-center text-center"
-          >
-            <div
-              class="w-20 h-20 rounded-full bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center mb-4 shrink-0"
-              aria-hidden
-            >
-              <span class="text-gold/60 font-playfair text-xl font-bold">
-                {{ t(`student.council.team.${id}.name`).charAt(0) }}
-              </span>
-            </div>
-            <h3 class="font-playfair text-base font-semibold text-navy mb-1">
-              {{ t(`student.council.team.${id}.name`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted mb-1">
-              {{ t(`student.council.team.${id}.role`) }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.council.team.${id}.faculty`) }}
-            </p>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div v-for="row in contactRows" :key="row">
+            <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-1.5">
+              {{ t(`student.council.${row}`) }}
+            </dt>
+            <dd class="text-body-sm text-text-muted">
+              {{ t('student.council.sectionEmpty') }}
+            </dd>
           </div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Керівництво -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('student.council.leadershipTitle') }}
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div
+          v-for="key in leadershipBlocks"
+          :key="key"
+          class="bg-white border border-border rounded-16 p-6"
+        >
+          <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
+            {{ t(`student.council.${key}`) }}
+          </h3>
+          <p class="text-body-sm text-text-muted">
+            {{ t('student.council.sectionEmpty') }}
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Activity areas: 2x2 grid -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-        {{ t('student.council.areasTitle') }}
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <article
-          v-for="key in areaKeys"
-          :key="key"
-          class="bg-white border border-border rounded-16 p-6 flex flex-col transition-all duration-280 hover:border-gold/40"
-        >
-          <div
-            class="w-12 h-12 rounded-12 bg-gold/15 flex items-center justify-center mb-4"
-            aria-hidden
-          >
-            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-            {{ t(`student.council.areas.${key}.title`) }}
-          </h3>
-          <p class="text-body-sm text-text-muted">
-            {{ t(`student.council.areas.${key}.text`) }}
-          </p>
-        </article>
+    <!-- Сектори / Ревізійна комісія -->
+    <div class="bg-off-white border-y border-border py-12">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <section>
+          <h2 class="font-playfair text-2xl font-bold text-navy mb-3">
+            {{ t('student.council.sectorsTitle') }}
+          </h2>
+          <p class="text-body text-text-muted">{{ t('student.council.sectionEmpty') }}</p>
+        </section>
+        <section>
+          <h2 class="font-playfair text-2xl font-bold text-navy mb-3">
+            {{ t('student.council.auditTitle') }}
+          </h2>
+          <p class="text-body text-text-muted">{{ t('student.council.sectionEmpty') }}</p>
+        </section>
       </div>
+    </div>
+
+    <!-- Новини: live from the «Студентський парламент» category -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('student.council.newsTitle') }}
+      </h2>
+      <SharedStructureUnitNews category-slug="studentskyi-parlament" :limit="6" />
+    </div>
+
+    <!-- Документи: editors add rows in Directus, section `student-council` -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('student.council.documentsTitle') }}
+      </h2>
+      <SharedDocumentList section="student-council" />
     </div>
   </div>
 </template>

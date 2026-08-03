@@ -9,7 +9,6 @@ useHead({
 })
 
 const activityKeys = ['humanitarian', 'education', 'environment', 'culture'] as const
-const statKeys = ['volunteers', 'hours', 'projects'] as const
 </script>
 
 <template>
@@ -69,22 +68,6 @@ const statKeys = ['volunteers', 'hours', 'projects'] as const
             <p class="text-sm text-text-muted line-clamp-3 flex-1">
               {{ t(`university.volunteering.activities.${key}.text`) }}
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats row -->
-    <div class="bg-off-white py-12 lg:py-16">
-      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div v-for="key in statKeys" :key="key" class="flex flex-col items-center">
-            <div class="font-playfair text-4xl md:text-5xl font-bold text-gold leading-none mb-2">
-              {{ t(`university.volunteering.stats.${key}.num`) }}
-            </div>
-            <div class="text-[15px] text-text-muted">
-              {{ t(`university.volunteering.stats.${key}.label`) }}
-            </div>
           </div>
         </div>
       </div>

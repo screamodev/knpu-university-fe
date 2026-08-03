@@ -16,7 +16,6 @@ const serviceIds = [
   'workshops',
   'exhibitions',
 ] as const
-const statIds = ['holdings', 'eresources', 'readingRooms', 'visitors'] as const
 </script>
 
 <template>
@@ -84,21 +83,7 @@ const statIds = ['holdings', 'eresources', 'readingRooms', 'visitors'] as const
         </article>
       </div>
 
-      <!-- Stats band: 4 gold numbers -->
-      <div class="bg-navy py-16 rounded-16">
-        <div
-          class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-        >
-          <div v-for="id in statIds" :key="id" class="flex flex-col items-center">
-            <div class="font-playfair text-4xl md:text-5xl font-bold text-gold leading-none mb-2">
-              {{ t(`science.library.stats.${id}.num`) }}
-            </div>
-            <div class="text-[15px] text-white/60">
-              {{ t(`science.library.stats.${id}.label`) }}
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Holdings and visitor counts removed: the invented figures had no source. -->
     </div>
   </div>
 </template>

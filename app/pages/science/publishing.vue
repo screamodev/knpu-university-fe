@@ -100,9 +100,6 @@ const bookIds = ['b1', 'b2', 'b3'] as const
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
               {{ t(`science.publishing.books.${id}.title`) }}
             </h3>
-            <p class="text-body-sm text-text-muted mb-1">
-              {{ t(`science.publishing.books.${id}.author`) }}
-            </p>
             <p class="text-body-sm text-gold font-medium">
               {{ t(`science.publishing.books.${id}.year`) }}
             </p>

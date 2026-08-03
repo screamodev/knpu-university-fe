@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { findStructureUnit } from '~/utils/structure'
-import { structureUnitManifest, structureUnitTabs, type StructureTabId } from '~/utils/structureContent'
+import {
+  STRUCTURE_DOCUMENT_TABS,
+  structureTabLabelOverride,
+  structureUnitManifest,
+  structureUnitTabs,
+  type StructureTabId,
+} from '~/utils/structureContent'
+import { isDocumentSection } from '~/utils/documentSections'
 
 /**
  * One institute / faculty page, with in-page tabs.
@@ -11,7 +18,7 @@ import { structureUnitManifest, structureUnitTabs, type StructureTabId } from '~
  */
 const props = withDefaults(defineProps<{ slug: string; tab?: StructureTabId }>(), { tab: 'home' })
 
-const { t, localePath } = useSafeI18nWithRouter()
+const { t, localePath, locale } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
 const unit = computed(() => findStructureUnit(props.slug))
@@ -20,13 +27,16 @@ const tabs = computed(() => structureUnitTabs(props.slug))
 
 const unitName = computed(() => (unit.value ? localized(unit.value, 'name') : ''))
 const unitSummary = computed(() => (unit.value ? localized(unit.value, 'summary') : ''))
-const tag = computed(() =>
-  unit.value?.kind === 'institute'
-    ? t('university.structure.tagInstitute')
-    : t('university.structure.tagFaculty'),
-)
+const tag = computed(() => {
+  if (unit.value?.kind === 'institute') return t('university.structure.tagInstitute')
+  if (unit.value?.kind === 'department') return t('university.structure.tagDepartment')
+  return t('university.structure.tagFaculty')
+})
 
-const tabLabel = computed(() => t(`university.structure.unit.tabs.${props.tab}`))
+const tabLabel = computed(
+  () => structureTabLabelOverride(props.slug, props.tab, locale.value)
+    ?? t(`university.structure.unit.tabs.${props.tab}`),
+)
 
 /** Tab pages get their own title so each URL is distinct in search results. */
 useHead({
@@ -35,6 +45,23 @@ useHead({
 })
 
 const hasContentBody = computed(() => (manifest.value?.tabs ?? []).includes(props.tab))
+
+/** A tab backed by the `documents` collection instead of by migrated prose. */
+const documentSection = computed(() => {
+  if (!(manifest.value?.documentTabs ?? []).includes(props.tab)) return null
+  const section = STRUCTURE_DOCUMENT_TABS[props.tab]
+  return section && isDocumentSection(section) ? section : null
+})
+
+/**
+ * News feed for this tab. `news` is the unit's own category; other tabs (Оголошення) name theirs
+ * in the manifest, since those articles are university-wide rather than unit-specific.
+ */
+const newsCategory = computed(() => {
+  if (props.tab === 'news') return unit.value?.newsCategorySlug ?? props.slug
+  if (!(manifest.value?.categoryTabs ?? []).includes(props.tab)) return null
+  return manifest.value?.categorySlugs?.[props.tab] ?? unit.value?.newsCategorySlug ?? props.slug
+})
 </script>
 
 <template>
@@ -91,18 +118,26 @@ const hasContentBody = computed(() => (manifest.value?.tabs ?? []).includes(prop
             </template>
           </template>
 
-          <!-- Новини: the unit's own feed out of the shared news collection -->
-          <SharedStructureUnitNews
-            v-else-if="tab === 'news' && unit"
-            :category-slug="unit.newsCategorySlug ?? slug"
-          />
+          <!-- Новини / Оголошення: a feed out of the shared news collection -->
+          <SharedStructureUnitNews v-else-if="newsCategory" :category-slug="newsCategory" />
+
+          <!-- Нормативні документи: rows of the shared `documents` collection -->
+          <SharedDocumentList v-else-if="documentSection" :section="documentSection" />
 
           <!-- Everything else: migrated legacy content -->
-          <SharedStructureUnitTabBody v-else-if="hasContentBody" :slug="slug" :tab="tab" />
+          <SharedStructureUnitTabBody
+            v-else-if="hasContentBody"
+            :slug="slug"
+            :tab="tab"
+            :show-links="tab !== 'home'"
+          />
 
-          <p v-else class="text-text-muted">
+          <p v-else-if="tab !== 'home'" class="text-text-muted">
             {{ t('common.comingSoon') }}
           </p>
+
+          <!-- Головна doubles as the unit's hub: every other tab, plus its outbound links -->
+          <SharedStructureUnitTiles v-if="tab === 'home'" :slug="slug" :tabs="tabs" />
         </div>
 
         <SharedStructureUnitContacts

@@ -9,7 +9,6 @@ useHead({
 })
 
 const goalIds = ['g1', 'g2', 'g3', 'g4'] as const
-const memberIds = ['m1', 'm2', 'm3', 'm4'] as const
 </script>
 
 <template>
@@ -81,33 +80,12 @@ const memberIds = ['m1', 'm2', 'm3', 'm4'] as const
         </article>
       </div>
 
-      <!-- Team section: bg-off-white, 4 member cards -->
+      <!-- Council members: awaiting the real list from the university. -->
       <section class="bg-off-white rounded-16 border border-border p-8 lg:p-10">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
           {{ t('science.youngScientists.teamTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article
-            v-for="id in memberIds"
-            :key="id"
-            class="bg-white border border-border rounded-14 p-5 text-center"
-          >
-            <div
-              class="w-20 h-20 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 mx-auto mb-4 flex items-center justify-center"
-              aria-hidden
-            >
-              <span class="text-slate-500 text-body-sm font-medium">
-                {{ (t(`science.youngScientists.members.${id}.name`) as string).charAt(0) }}
-              </span>
-            </div>
-            <h3 class="font-playfair text-base font-semibold text-navy mb-1">
-              {{ t(`science.youngScientists.members.${id}.name`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`science.youngScientists.members.${id}.role`) }}
-            </p>
-          </article>
-        </div>
+        <SharedSectionPending />
       </section>
     </div>
   </div>

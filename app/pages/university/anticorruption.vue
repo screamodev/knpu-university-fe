@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
+
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -10,7 +12,6 @@ useHead({
 
 const documentIds = ['d1', 'd2', 'd3', 'd4'] as const
 const channelKeys = ['online', 'email', 'hotline'] as const
-const statKeys = ['reportsReviewed', 'trainingsConducted', 'staffTrained'] as const
 </script>
 
 <template>
@@ -30,11 +31,22 @@ const statKeys = ['reportsReviewed', 'trainingsConducted', 'staffTrained'] as co
       </div>
     </div>
 
-    <!-- Intro -->
+    <!-- Intro + the unit's own site, which the menu now points at directly -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <p class="text-body text-text-muted max-w-3xl">
         {{ t('university.anticorruption.intro') }}
       </p>
+      <a
+        :href="ANTICORRUPTION_EXTERNAL_URL"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gold text-navy font-semibold rounded-12 no-underline hover:bg-gold-light transition-colors"
+      >
+        {{ t('university.anticorruption.externalSite') }}
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+          <path d="M7 17L17 7M17 7H8m9 0v9" />
+        </svg>
+      </a>
     </div>
 
     <!-- Policy documents: 3–4 stacked cards, gold left border -->
@@ -57,19 +69,20 @@ const statKeys = ['reportsReviewed', 'trainingsConducted', 'staffTrained'] as co
                 {{ t(`university.anticorruption.documents.${id}.date`) }}
               </p>
             </div>
-            <a
-              href="#"
-              class="inline-flex items-center gap-2 text-body-sm font-medium text-gold no-underline hover:text-gold-light transition-colors shrink-0"
-            >
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!--
+              The files themselves live on the unit's own site; there is no upload here, so this
+              is deliberately not a link (it used to be a dead `href="#"`).
+            -->
+            <span class="inline-flex items-center gap-2 text-body-sm text-text-muted shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round" />
                 <polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round" />
                 <line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round" stroke-linejoin="round" />
                 <line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round" stroke-linejoin="round" />
                 <polyline points="10 9 9 9 8 9" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              {{ t('university.anticorruption.viewPdf') }}
-            </a>
+              {{ t('university.anticorruption.onExternalSite') }}
+            </span>
           </div>
         </article>
       </div>
@@ -104,27 +117,5 @@ const statKeys = ['reportsReviewed', 'trainingsConducted', 'staffTrained'] as co
       </div>
     </div>
 
-    <!-- Compliance stats: bg-off-white band, 3 gold numbers -->
-    <div class="bg-off-white py-10 lg:py-12">
-      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-          {{ t('university.anticorruption.statsTitle') }}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div
-            v-for="key in statKeys"
-            :key="key"
-            class="text-center"
-          >
-            <p class="font-playfair text-3xl md:text-4xl font-bold text-gold mb-2">
-              {{ t(`university.anticorruption.stats.${key}.value`) }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`university.anticorruption.stats.${key}.label`) }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>

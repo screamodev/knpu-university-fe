@@ -1,7 +1,38 @@
 {
   "sections": [
     {
-      "html": "<p><iframe src=\"https://www.youtube.com/embed/xPeQaGv46_g\" allowfullscreen></iframe></p>\r\n\r\n<p>На факультеті працює 3 спеціалізовані кафедри:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"https://hnpu.edu.ua/uk/division/kafedra-olimpiyskogo-i-profesiynogo-sportu-sportyvnyh-igor-ta-turyzmu\"><em><strong>кафедра олімпійського і професійного спорту, спортивних ігор та туризму</strong></em></a> (завідувач кафедри доктор наук з фіз. вих. та спорту, професор Ж.Л. Козіна),</li>\r\n\t<li><em><strong><a href=\"https://hnpu.edu.ua/uk/division/kafedra-sportyvno-pedagogichnyh-dyscyplin-i-fitnesu\">кафедра спортивно-педагогічних дисциплін і фітнесу</a> </strong></em>(завідувач кафедри кандидат наук з фіз. вих. та спорту, доцент Ю.В. Голенкова),</li>\r\n\t<li><em><strong><a href=\"http://hnpu.edu.ua/uk/division/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya\">кафедра теорії, методики і практики фізичного виховання</a></strong></em> (завідувач кафедри кандидат педагогічних наук, доцент І.В. Кривенцова).</li>\r\n</ul>\r\n\r\n<p><img src=\"/assets/12d267df-0316-4b75-a8f4-377f7bd57c8f\" loading=\"lazy\" /><br>\r\nНа факультеті працюють: 4 – доктори наук, професори; 14 – кандидатів наук, доцентів; 3 – кандидатів наук, викладачів; 11 – старші викладачі, ЗМС – 3, МСМК – 2, МС – 14, ЗТУ – 3.</p>\r\n\r\n<p><strong>Деканат:</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n <tr>\r\n <td>\r\n <img src=\"/assets/485f811d-2edf-477a-b823-34bd9db81066\" loading=\"lazy\" />\r\n\r\n <strong><a href=\"https://sites.google.com/hnpu.edu.ua/korobeinik\">Коробейнік Віталій Анатолійович</a>, </strong>\r\n\r\n декан факультету \r\n\r\n \r\n </td>\r\n <td>\r\n <img src=\"/assets/a241b2c5-711b-4bc4-9161-2305e1c22c7f\" loading=\"lazy\" />\r\n\r\n <strong><a href=\"https://hnpu.edu.ua/uk/kravchuk-tetyana-mykolayivna-0\">Кравчук Тетяна Миколаївна</a>,</strong>\r\n\r\n заступник декана з навчальної роботи\r\n </td>\r\n <td>\r\n <img src=\"/assets/93c36ce1-07e8-4741-b64b-755d5213abae\" loading=\"lazy\" />\r\n\r\n <strong><a href=\"https://sites.google.com/view/sobko-iryna/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0\">Собко Ірина Миколаївна</a>,</strong>\r\n\r\n координатор з виховної роботи\r\n </td>\r\n <td>\r\n <img src=\"/assets/e85f125d-aade-4aea-948b-65e127a5b271\" loading=\"lazy\" />\r\n\r\n <strong>Івченко Зінаїда Олександрівна,</strong>\r\n\r\n диспетчер деканату\r\n </td>\r\n </tr>\r\n\t</tbody>\r\n</table>"
+      "html": "<p><iframe src=\"https://www.youtube.com/embed/xPeQaGv46_g\" allowfullscreen></iframe></p>\r\n\r\n<p>На факультеті працює 3 спеціалізовані кафедри:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"https://hnpu.edu.ua/uk/division/kafedra-olimpiyskogo-i-profesiynogo-sportu-sportyvnyh-igor-ta-turyzmu\"><em><strong>кафедра олімпійського і професійного спорту, спортивних ігор та туризму</strong></em></a> (завідувач кафедри доктор наук з фіз. вих. та спорту, професор Ж.Л. Козіна),</li>\r\n\t<li><em><strong><a href=\"https://hnpu.edu.ua/uk/division/kafedra-sportyvno-pedagogichnyh-dyscyplin-i-fitnesu\">кафедра спортивно-педагогічних дисциплін і фітнесу</a> </strong></em>(завідувач кафедри кандидат наук з фіз. вих. та спорту, доцент Ю.В. Голенкова),</li>\r\n\t<li><em><strong><a href=\"http://hnpu.edu.ua/uk/division/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya\">кафедра теорії, методики і практики фізичного виховання</a></strong></em> (завідувач кафедри кандидат педагогічних наук, доцент І.В. Кривенцова).</li>\r\n</ul>\r\n\r\n<p><img src=\"/assets/12d267df-0316-4b75-a8f4-377f7bd57c8f\" loading=\"lazy\" /><br>\r\nНа факультеті працюють: 4 – доктори наук, професори; 14 – кандидатів наук, доцентів; 3 – кандидатів наук, викладачів; 11 – старші викладачі, ЗМС – 3, МСМК – 2, МС – 14, ЗТУ – 3.</p>\r\n\r\n\r\n\r\n",
+      "people": [
+        {
+          "photo": "/assets/485f811d-2edf-477a-b823-34bd9db81066",
+          "position": "декан факультету",
+          "name": "Коробейнік Віталій Анатолійович",
+          "degree": null,
+          "profileUrl": "https://sites.google.com/hnpu.edu.ua/korobeinik"
+        },
+        {
+          "photo": "/assets/a241b2c5-711b-4bc4-9161-2305e1c22c7f",
+          "position": "заступник декана з навчальної роботи",
+          "name": "Кравчук Тетяна Миколаївна",
+          "degree": null,
+          "profileUrl": "https://hnpu.edu.ua/uk/kravchuk-tetyana-mykolayivna-0"
+        },
+        {
+          "photo": "/assets/93c36ce1-07e8-4741-b64b-755d5213abae",
+          "position": "координатор з виховної роботи",
+          "name": "Собко Ірина Миколаївна",
+          "degree": null,
+          "profileUrl": "https://sites.google.com/view/sobko-iryna/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0"
+        },
+        {
+          "photo": "/assets/e85f125d-aade-4aea-948b-65e127a5b271",
+          "position": "диспетчер деканату",
+          "name": "Івченко Зінаїда Олександрівна",
+          "degree": null,
+          "profileUrl": null
+        }
+      ],
+      "peopleHeading": "Деканат"
     }
   ],
   "sourceUrls": [

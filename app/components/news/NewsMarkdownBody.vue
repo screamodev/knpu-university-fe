@@ -154,9 +154,16 @@ const segments = computed(() => {
   font-size: theme('fontSize.body-sm[0]');
 }
 
+/*
+ * Migrated bodies carry raw <img> with no dimensions, so a 2000px logo used to fill the whole
+ * column. Cap the height and let the width follow — `contain` keeps logos and scans undistorted.
+ */
 .news-article-md img {
   max-width: 100%;
+  max-height: 22rem;
+  width: auto;
   height: auto;
+  object-fit: contain;
   border-radius: theme('borderRadius.12');
 }
 
@@ -165,6 +172,15 @@ const segments = computed(() => {
 .news-article-md figure img {
   display: block;
   margin: 0 auto;
+}
+
+/*
+ * The structure-page migration leaves the unit's logo inline at the head of the first paragraph.
+ * Give it its own line above the text instead of letting a single line of text sit beside it.
+ */
+.news-article-md p > img:first-child:not(:only-child):not([style*='float']) {
+  display: block;
+  margin: 0 auto 1rem;
 }
 
 .news-article-md figure {

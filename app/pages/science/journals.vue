@@ -9,15 +9,6 @@ useHead({
 })
 
 const journalIds = ['j1', 'j2', 'j3', 'j4', 'j5', 'j6'] as const
-
-const journalBadges: Record<(typeof journalIds)[number], { scopus: boolean; wos: boolean }> = {
-  j1: { scopus: true, wos: false },
-  j2: { scopus: true, wos: true },
-  j3: { scopus: false, wos: false },
-  j4: { scopus: true, wos: false },
-  j5: { scopus: false, wos: false },
-  j6: { scopus: true, wos: true },
-}
 </script>
 
 <template>
@@ -61,26 +52,9 @@ const journalBadges: Record<(typeof journalIds)[number], { scopus: boolean; wos:
             <h2 class="font-playfair text-lg font-semibold text-navy mb-2">
               {{ t(`science.journals.journals.${id}.name`) }}
             </h2>
-            <p class="text-body-sm text-text-muted mb-2">
-              {{ t(`science.journals.journals.${id}.issn`) }}
-            </p>
-            <p class="text-body-sm text-gold font-medium mb-3">
+            <p class="text-body-sm text-gold font-medium">
               {{ t(`science.journals.journals.${id}.frequency`) }}
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-if="journalBadges[id].scopus"
-                class="inline-block px-2.5 py-0.5 rounded-100 text-xs font-medium bg-gold/15 text-gold border border-gold/30"
-              >
-                Scopus
-              </span>
-              <span
-                v-if="journalBadges[id].wos"
-                class="inline-block px-2.5 py-0.5 rounded-100 text-xs font-medium bg-gold/15 text-gold border border-gold/30"
-              >
-                WOS
-              </span>
-            </div>
           </div>
         </article>
       </div>

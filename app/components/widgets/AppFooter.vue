@@ -87,7 +87,6 @@ const socialLinks = [
               <li><NuxtLink :to="localePath('/education/faculties')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkFaculties') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/education/programs')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkPrograms') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/student/schedule')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkSchedule') }}</NuxtLink></li>
-              <li><NuxtLink :to="localePath('/student/moodle')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkMoodle') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/education/quality')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkQuality') }}</NuxtLink></li>
             </ul>
           </div>

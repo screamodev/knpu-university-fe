@@ -8,7 +8,6 @@ useHead({
   meta: [{ name: 'description', content: () => t('education.rankings.subtitle') }],
 })
 
-const cardIds = ['r1', 'r2', 'r3', 'r4', 'r5'] as const
 </script>
 
 <template>
@@ -34,35 +33,11 @@ const cardIds = ['r1', 'r2', 'r3', 'r4', 'r5'] as const
         {{ t('education.rankings.intro') }}
       </p>
 
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
         {{ t('education.rankings.cardsTitle') }}
       </h2>
-      <div class="space-y-4 mb-12">
-        <article
-          v-for="id in cardIds"
-          :key="id"
-          class="border-l-4 border-gold bg-off-white border border-border rounded-12 p-6 lg:p-8 flex gap-6 items-start"
-        >
-          <div
-            class="w-16 h-16 shrink-0 rounded-12 bg-gradient-to-br from-gold/30 to-gold/10"
-            aria-hidden
-          />
-          <div class="min-w-0 flex-1">
-            <h3 class="font-playfair text-lg font-semibold text-navy mb-1">
-              {{ t(`education.rankings.cards.${id}.name`) }}
-            </h3>
-            <p class="text-body-sm text-gold font-medium mb-2">
-              {{ t(`education.rankings.cards.${id}.position`) }}
-              <span v-if="t(`education.rankings.cards.${id}.year`) !== '—'">
-                · {{ t(`education.rankings.cards.${id}.year`) }}
-              </span>
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`education.rankings.cards.${id}.note`) }}
-            </p>
-          </div>
-        </article>
-      </div>
+      <!-- The five placements listed here were invented; real ones need a verifiable source. -->
+      <SharedSectionPending />
 
       <!-- Methodology -->
       <section>

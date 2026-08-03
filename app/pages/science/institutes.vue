@@ -63,12 +63,6 @@ const instituteFocusKeys: Record<(typeof instituteIds)[number], readonly string[
           <h2 class="font-playfair text-2xl font-bold text-navy">
             {{ t(`science.institutes.items.${id}.name`) }}
           </h2>
-          <p class="text-body-sm text-gold font-medium">
-            {{ t(`science.institutes.items.${id}.director`) }}
-          </p>
-          <p class="text-body-sm text-slate-500">
-            {{ t('science.institutes.foundedLabel') }} {{ t(`science.institutes.items.${id}.founded`) }}
-          </p>
           <p class="text-body text-text-muted">
             {{ t(`science.institutes.items.${id}.description`) }}
           </p>

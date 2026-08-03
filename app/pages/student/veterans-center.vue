@@ -138,12 +138,6 @@ const supportIds = ['tuition', 'mentorship', 'sports'] as const
             </span>
             <span>Пн–Пт 9:00–17:00</span>
           </div>
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-1">
-              {{ t('student.veteransCenter.contactCoordinator') }}
-            </span>
-            <span>{{ t('student.veteransCenter.coordinatorName') }}</span>
-          </div>
         </div>
       </div>
     </div>

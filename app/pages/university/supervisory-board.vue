@@ -8,7 +8,6 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.supervisoryBoard.subtitle') }],
 })
 
-const memberIds = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'] as const
 const functionKeys = ['strategic', 'financial', 'development'] as const
 </script>
 
@@ -36,36 +35,12 @@ const functionKeys = ['strategic', 'financial', 'development'] as const
       </p>
     </div>
 
-    <!-- Board members grid: 2x3 -->
+    <!-- Members: the previous six were invented; the real composition is approved by МОН. -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
         {{ t('university.supervisoryBoard.membersTitle') }}
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          v-for="id in memberIds"
-          :key="id"
-          class="bg-white border border-border rounded-16 p-6 flex flex-col items-center text-center"
-        >
-          <div
-            class="w-20 h-20 rounded-full bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center mb-4 shrink-0"
-            aria-hidden
-          >
-            <span class="text-gold/60 font-playfair text-xl font-bold">
-              {{ t(`university.supervisoryBoard.members.${id}.name`).charAt(0) }}
-            </span>
-          </div>
-          <h3 class="font-playfair text-base font-semibold text-navy mb-1">
-            {{ t(`university.supervisoryBoard.members.${id}.name`) }}
-          </h3>
-          <p class="text-body-sm font-medium text-navy mb-1">
-            {{ t(`university.supervisoryBoard.members.${id}.position`) }}
-          </p>
-          <p class="text-body-sm text-text-muted">
-            {{ t(`university.supervisoryBoard.members.${id}.organisation`) }}
-          </p>
-        </div>
-      </div>
+      <SharedSectionPending />
     </div>
 
     <!-- Functions block: 3 cards in a row -->

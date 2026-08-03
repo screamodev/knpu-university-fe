@@ -9,7 +9,6 @@ useHead({
 })
 
 const ensembleKeys = ['choir', 'dance', 'theatre', 'instrumental'] as const
-const eventIds = ['e1', 'e2', 'e3'] as const
 </script>
 
 <template>
@@ -69,9 +68,6 @@ const eventIds = ['e1', 'e2', 'e3'] as const
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
               {{ t(`student.arts.ensembles.${key}.name`) }}
             </h3>
-            <p class="text-body-sm text-text-muted mb-1">
-              {{ t(`student.arts.ensembles.${key}.director`) }}
-            </p>
             <p class="text-body-sm text-text-muted mb-3">
               {{ t(`student.arts.ensembles.${key}.members`) }}
             </p>
@@ -83,29 +79,13 @@ const eventIds = ['e1', 'e2', 'e3'] as const
       </div>
     </div>
 
-    <!-- Events: bg-off-white band, 3 upcoming performance cards (date badge, title, location) -->
+    <!-- Upcoming performances: the three dated events listed here were invented. -->
     <div class="bg-off-white py-12 lg:py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
           {{ t('student.arts.eventsTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            v-for="id in eventIds"
-            :key="id"
-            class="bg-white border border-border rounded-16 p-6 flex flex-col border-l-4 border-l-gold"
-          >
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-2">
-              {{ t(`student.arts.events.${id}.date`) }}
-            </span>
-            <h3 class="font-playfair text-base font-semibold text-navy mb-2">
-              {{ t(`student.arts.events.${id}.title`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.arts.events.${id}.location`) }}
-            </p>
-          </div>
-        </div>
+        <SharedSectionPending />
       </div>
     </div>
   </div>

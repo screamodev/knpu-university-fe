@@ -16,11 +16,11 @@ export interface DirectusSchema {
   education_schedule_key_dates: DirectusEducationScheduleKeyDate[]
   education_schedule_periods: DirectusEducationSchedulePeriod[]
   events: DirectusEvent[]
-  financial_reports: DirectusFinancialReport[]
   gallery_categories: DirectusGalleryCategory[]
   gallery_items: DirectusGalleryItem[]
   memorial_entries: DirectusMemorialEntry[]
   newspaper_issues: DirectusNewspaperIssue[]
+  documents: DirectusDocument[]
   partners: DirectusPartner[]
   programmes: DirectusProgramme[]
   prozorro_procurements: DirectusProzorroProcurement[]
@@ -390,6 +390,23 @@ export interface DirectusAdmissionExamProgram {
   order: number
 }
 
+/** A document on one of the «Відвідувачу» pages; `section` decides which page shows it. */
+export interface DirectusDocument {
+  id: string
+  status?: DirectusContentStatus
+  section: string
+  title: string
+  titleEn: string | null
+  description: string | null
+  descriptionEn: string | null
+  documentDate: DirectusDateLike
+  /** Either an uploaded file… */
+  file: DirectusFile | string | null
+  /** …or a link to the document on another site. */
+  externalUrl: string | null
+  order: number
+}
+
 /** One issue of the university newspaper «Учитель»; the site composes the label itself. */
 export interface DirectusNewspaperIssue {
   id: string
@@ -467,22 +484,6 @@ export interface DirectusScienceConference {
   isUpcoming: boolean
   participantsSummary: string | null
   participantsSummaryEn: string | null
-  order: number
-}
-
-export interface DirectusFinancialReport {
-  id: string
-  status?: DirectusContentStatus
-  reportYear: number
-  title: string
-  titleEn: string | null
-  summary: string | null
-  summaryEn: string | null
-  revenue: number | null
-  expenses: number | null
-  stateFunding: number | null
-  ownRevenue: number | null
-  reportFile: DirectusFile | string | null
   order: number
 }
 

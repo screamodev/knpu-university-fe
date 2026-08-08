@@ -5,8 +5,12 @@ import { resolveMediaSrc } from '~/utils/directusMedia'
 
 /**
  * News feed for one unit: the shared `articles` collection filtered by the unit's category.
- * Nothing is duplicated per faculty — an article is tagged with the faculty category and shows
- * up both here and in the site-wide news list.
+ * Nothing is duplicated per faculty — an article is tagged with one category and shows up both
+ * here and in the site-wide news list.
+ *
+ * The categories form a tree (`categories.parent`): a кафедра's category sits under its faculty's.
+ * `includeChildren` rolls that up on a faculty page, and `fallbackCategorySlug` lets a кафедра page
+ * show its faculty's feed until the кафедра starts publishing under its own category.
  */
 const props = withDefaults(
   defineProps<{
@@ -14,8 +18,12 @@ const props = withDefaults(
     limit?: number
     /** Hide the bottom «all news» link when the parent section already provides one. */
     hideAllLink?: boolean
+    /** Also show articles of categories whose parent is `categorySlug`. */
+    includeChildren?: boolean
+    /** Shown as well — used by кафедра pages, whose own category is usually still empty. */
+    fallbackCategorySlug?: string | null
   }>(),
-  { limit: 9, hideAllLink: false },
+  { limit: 9, hideAllLink: false, includeChildren: false, fallbackCategorySlug: null },
 )
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
@@ -26,18 +34,33 @@ const { localized } = useLocalizedField()
 const limit = computed(() => props.limit ?? 9)
 const isPreview = computed(() => limit.value <= 3)
 
+/** One `_or` over the unit's own category, its children and the fallback, as configured. */
+const categoryFilter = computed(() => {
+  const clauses: Record<string, unknown>[] = [
+    { categories: { categories_id: { slug: { _eq: props.categorySlug } } } },
+  ]
+  if (props.includeChildren) {
+    clauses.push({ categories: { categories_id: { parent: { slug: { _eq: props.categorySlug } } } } })
+  }
+  if (props.fallbackCategorySlug) {
+    clauses.push({ categories: { categories_id: { slug: { _eq: props.fallbackCategorySlug } } } })
+  }
+  return clauses.length === 1 ? clauses[0]! : { _or: clauses }
+})
+
 const { data } = await useAsyncData(
-  () => `structure-news-${props.categorySlug}-${locale.value}-${limit.value}`,
+  () => `structure-news-${props.categorySlug}-${props.fallbackCategorySlug ?? ''}`
+    + `-${props.includeChildren ? 'tree' : 'own'}-${locale.value}-${limit.value}`,
   () =>
     client.request(
       readItems('articles', {
         fields: ['*', { cover: ['*'] }],
         sort: ['-date_published'],
         limit: limit.value,
-        filter: { categories: { categories_id: { slug: { _eq: props.categorySlug } } } },
+        filter: categoryFilter.value as never,
       }),
     ),
-  { watch: [() => props.categorySlug, limit] },
+  { watch: [() => props.categorySlug, () => props.fallbackCategorySlug, () => props.includeChildren, limit] },
 )
 
 const articles = computed(() => data.value ?? [])
@@ -73,13 +96,13 @@ function coverSrc(cover: DirectusArticle['cover']): string {
         :to="localePath(`/news/${article.slug}`)"
         class="group bg-off-white border border-border rounded-16 overflow-hidden no-underline flex flex-col transition-all duration-280 hover:border-gold hover:-translate-y-1 hover:shadow-gold"
       >
-        <div v-if="article.cover && coverSrc(article.cover)" class="h-40 bg-navy-mid overflow-hidden">
+        <div v-if="article.cover && coverSrc(article.cover)" class="aspect-[5/2] bg-navy-mid overflow-hidden relative">
           <img
             :style="{ objectPosition: objectPositionFromFile(article.cover) }"
             :src="coverSrc(article.cover)"
             :alt="localized(article, 'title')"
             loading="lazy"
-            class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
           />
         </div>
         <div class="p-5 flex flex-col flex-1">

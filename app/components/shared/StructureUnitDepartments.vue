@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { StructureItem } from '~/utils/structure'
+import { type StructureItem, structureItemPath } from '~/utils/structure'
 import { type LinkTileIcon, linkTileIconPaths } from '~/utils/linkTileIcons'
 
 /**
@@ -25,9 +25,12 @@ function iconFor(index: number): LinkTileIcon {
   return ICON_CYCLE[index % ICON_CYCLE.length]!
 }
 
+/** Own `path`, or the кафедра page built for this item. */
+const pathOf = (item: StructureItem) => structureItemPath(item)
+
 function tileTag(item: StructureItem): unknown {
   if (item.external) return 'a'
-  if (item.path) return NuxtLink
+  if (pathOf(item)) return NuxtLink
   return 'div'
 }
 
@@ -83,8 +86,8 @@ function scrollBy(direction: -1 | 1) {
         v-bind="
           item.external
             ? { href: item.external, target: '_blank', rel: 'noopener noreferrer' }
-            : item.path
-              ? { to: localePath(item.path) }
+            : pathOf(item)
+              ? { to: localePath(pathOf(item)!) }
               : {}
         "
         class="group snap-start shrink-0 w-[240px] sm:w-[260px] aspect-square rounded-16 bg-navy p-6 flex flex-col justify-between no-underline transition-transform duration-280 hover:-translate-y-1"

@@ -182,6 +182,7 @@
     "open": "Search",
     "close": "Close search",
     "clear": "Clear",
+    "shortcut": "⌘K",
     "filterAll": "All",
     "tag": "Search",
     "title": "Search the site",
@@ -692,9 +693,12 @@
         "ctaApplicant": "For applicants",
         "ctaGraduate": "For graduates",
         "headTitle": "Head of office",
-        "leadership": "Leadership"
+        "leadership": "Leadership",
+        "chairTitle": "Head of the department",
+        "newsTitleChair": "Faculty news"
       },
-      "tagDepartment": "Department"
+      "tagDepartment": "Department",
+      "tagChair": "Department"
     },
     "faculties": {
       "tag": "Management",
@@ -2199,9 +2203,9 @@
         "students": "For students",
         "quality": "Educational quality",
         "programmes": "Study programmes",
-        "accreditation": "Accreditation"
+        "accreditation": "Accreditation",
+        "documents": "Documents"
       },
-      "newsPending": "The centre’s news will be migrated together with the archive of its site.",
       "studentsIntro": "The centre’s materials for students are collected on the relevant pages of this site.",
       "qualityIntro": "The centre runs the internal quality assurance system: monitoring studies, academic integrity and work with programme guarantors.",
       "accreditationIntro": "Accreditation dossiers: self-assessment reports, expert visit programmes, expert reports and decisions of the National Agency.",

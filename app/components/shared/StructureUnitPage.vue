@@ -33,6 +33,7 @@ const unitSummary = computed(() => (unit.value ? localized(unit.value, 'summary'
 const tag = computed(() => {
   if (unit.value?.kind === 'institute') return t('university.structure.tagInstitute')
   if (unit.value?.kind === 'department') return t('university.structure.tagDepartment')
+  if (unit.value?.kind === 'chair') return t('university.structure.tagChair')
   return t('university.structure.tagFaculty')
 })
 
@@ -60,17 +61,32 @@ const documentSection = computed(() => {
  * News feed for this tab. `news` is the unit's own category; other tabs (Оголошення) name theirs
  * in the manifest, since those articles are university-wide rather than unit-specific.
  */
+const isChair = computed(() => unit.value?.kind === 'chair')
+
+/**
+ * Категорії новин утворюють дерево: категорія кафедри лежить під факультетською.
+ * Кафедра читає свою категорію (slug сторінки) і, поки та порожня, факультетську;
+ * факультет — свою разом з усіма кафедральними.
+ */
+const ownNewsCategory = computed(() =>
+  isChair.value ? props.slug : (unit.value?.newsCategorySlug ?? props.slug))
+
+const fallbackNewsCategory = computed(() =>
+  isChair.value ? (unit.value?.newsCategorySlug ?? null) : null)
+
 const newsCategory = computed(() => {
-  if (props.tab === 'news') return unit.value?.newsCategorySlug ?? props.slug
+  if (props.tab === 'news') return ownNewsCategory.value
   if (!(manifest.value?.categoryTabs ?? []).includes(props.tab)) return null
-  return manifest.value?.categorySlugs?.[props.tab] ?? unit.value?.newsCategorySlug ?? props.slug
+  return manifest.value?.categorySlugs?.[props.tab] ?? ownNewsCategory.value
 })
 
-const homeNewsCategory = computed(() => unit.value?.newsCategorySlug ?? props.slug)
+const homeNewsCategory = computed(() => ownNewsCategory.value)
 
 const homeNewsTitle = computed(() => {
   if (unit.value?.kind === 'institute') return t('university.structure.unit.newsTitleInstitute')
   if (unit.value?.kind === 'department') return t('university.structure.unit.newsTitleUnit')
+  // Кафедри have no category of their own — the feed is the faculty's, and says so.
+  if (unit.value?.kind === 'chair') return t('university.structure.unit.newsTitleChair')
   return t('university.structure.unit.newsTitleFaculty')
 })
 
@@ -144,7 +160,12 @@ const showAudienceCta = computed(
           </template>
 
           <!-- Новини / Оголошення: a feed out of the shared news collection -->
-          <SharedStructureUnitNews v-else-if="newsCategory" :category-slug="newsCategory" />
+          <SharedStructureUnitNews
+            v-else-if="newsCategory"
+            :category-slug="newsCategory"
+            :include-children="tab === 'news' && !isChair"
+            :fallback-category-slug="tab === 'news' ? fallbackNewsCategory : null"
+          />
 
           <!-- Нормативні документи: rows of the shared `documents` collection -->
           <SharedDocumentList v-else-if="documentSection" :section="documentSection" />
@@ -202,6 +223,8 @@ const showAudienceCta = computed(
           <SharedStructureUnitNews
             :category-slug="homeNewsCategory"
             :limit="3"
+            :include-children="!isChair"
+            :fallback-category-slug="fallbackNewsCategory"
             hide-all-link
           />
           <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-8">

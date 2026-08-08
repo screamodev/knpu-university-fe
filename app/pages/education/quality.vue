@@ -22,12 +22,16 @@ const localePath = useLocalePath()
 const TAB_IDS = [
   'home',
   'news',
+  'documents',
   'regulations',
   'students',
   'quality',
   'programmes',
   'accreditation',
 ] as const
+
+/** Articles the centre publishes; migrated from the accordion «Новини» page of its old site. */
+const NEWS_CATEGORY = 'tsentr-zabezpechennya-yakosti'
 
 type QualityTabId = (typeof TAB_IDS)[number]
 
@@ -148,13 +152,21 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         <SharedStaticPageBody slug="quality-centre" />
       </template>
 
-      <!-- Новини центру приїдуть разом з дампом його сайту -->
+      <!-- Новини центру: перенесені з його сайту, далі публікуються в CMS -->
       <template v-else-if="activeTab === 'news'">
-        <SharedSectionPending :note="t('education.quality.newsPending')" />
+        <SharedStructureUnitNews :category-slug="NEWS_CATEGORY" :limit="9" />
+      </template>
+
+      <!-- Документи центру: на старому сайті цей розділ був закритий авторизацією -->
+      <template v-else-if="activeTab === 'documents'">
+        <SharedStaticPageBody slug="quality-centre-documents" />
       </template>
 
       <template v-else-if="activeTab === 'regulations'">
-        <SharedDocumentList section="quality-centre" />
+        <SharedStaticPageBody slug="quality-centre-regulations" />
+        <div class="mt-8">
+          <SharedDocumentList section="quality-centre" />
+        </div>
       </template>
 
       <!-- Здобувачу: дисципліни вільного вибору веде центр, решта — на сторінках сайту -->
@@ -176,6 +188,9 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
             <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
           </NuxtLink>
         </div>
+        <div class="mt-10">
+          <SharedStaticPageBody slug="quality-centre-students" />
+        </div>
       </template>
 
       <!-- Якість освіти: моніторинг веде окрема сторінка -->
@@ -196,6 +211,9 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
             <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
           </NuxtLink>
         </div>
+        <div class="mt-10">
+          <SharedStaticPageBody slug="quality-centre-quality" />
+        </div>
       </template>
 
       <!-- Гарантам освітніх програм -->
@@ -211,6 +229,10 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         <p class="text-body text-text-muted max-w-3xl mb-8">
           {{ t('education.quality.accreditationIntro') }}
         </p>
+
+        <div class="mb-10">
+          <SharedStaticPageBody slug="quality-centre-accreditation" />
+        </div>
 
         <div v-if="pending" class="space-y-3">
           <div v-for="i in 3" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />

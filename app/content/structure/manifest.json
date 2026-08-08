@@ -1,7 +1,7 @@
 {
   "arts": {
     "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-mystectv",
-    "capturedAt": "2026-08-01",
+    "capturedAt": "2026-08-08",
     "tabs": [
       "home",
       "admission",
@@ -22,7 +22,7 @@
   },
   "foreign-philology": {
     "legacyUrl": "https://hnpu.edu.ua/uk/fac-inoz-fil",
-    "capturedAt": "2026-08-01",
+    "capturedAt": "2026-08-08",
     "tabs": [
       "home",
       "admission",
@@ -43,7 +43,7 @@
   },
   "history-law": {
     "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-istoriyi-i-prava",
-    "capturedAt": "2026-08-01",
+    "capturedAt": "2026-08-08",
     "tabs": [
       "home",
       "admission",
@@ -63,9 +63,841 @@
       "instagram": "https://instagram.com/faculty_history_law?igshid=YmMyMTA2M2Y="
     }
   },
+  "kafedra-anatomiyi-i-fiziologiyi-lyudyny": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-anatomiyi-i-fiziologiyi-lyudyny-imeni-profesora-yar-synelnykova",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61166, м. Харків, пров. Фанінський, 3-в, к. 101 - 118 (станція метро «Наукова»)",
+      "phone": "(057) 702-15-30",
+      "email": "kaf-anatomy-physiology@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-angliyskoyi-filologiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-angliyskoyi-filologiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Тучина Наталія Василівна",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. В, к. 504",
+      "phone": "(0572) 68-61-38",
+      "email": "kaf-english-philology@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-biologiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-zoologiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Чаплигіна Анжела Борисівна",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/chaplygina/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера), 2, кор. Б, к. 323",
+      "phone": "(0572)67-69-92",
+      "email": "kaf-zoology@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-dyzaynu-i-tehnologiy": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-dizaynu",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Григорова Лариса Сергіївна",
+      "deanUrl": "https://sites.google.com/view/hryhorova",
+      "address": "61166, м. Харків, пров. Фанінський, 3-в, к. 404 (станція метро «Наукова»)",
+      "phone": "(067) 969-46-41",
+      "email": "kaf-design@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D1%83-%D0%A5%D0%9D%D0%9F%D0%A3-%D1%96%D0%BC%D0%B5%D0%BD%D1%96-%D0%93%D0%A1-%D0%A1%D0%BA%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D0%B4%D0%B8-1123796710974542/"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      }
+    }
+  },
+  "kafedra-filosofiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-filosofiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61168, Україна, м.Харків, вул..Валентинівська, 2, к.311-В.",
+      "phone": "(0572) 68-16-78",
+      "email": "kaf-philosophy@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/profile.php?id=100086114753514"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-horeografiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-horeografiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/yefimova/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61002, м. Харків, вул. Алчевських (Артема), 29, к. 133",
+      "phone": "(057) 700-35-11",
+      "email": "kaf-choreography@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-informatyky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-informatyky",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Олефіренко Надія Василівна",
+      "address": "61168, Україна.",
+      "phone": "+380 688916975",
+      "email": "kafedra@kafinfo.org.ua",
+      "facebook": "https://www.facebook.com/kafinfo.hnpu"
+    },
+    "tabLabels": {
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-istoriyi-ukrayiny": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-istoriyi-ukrayini",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61002, м.Харків, вул. Алчевських (Артема) 29, к. 303",
+      "phone": "(057) 700-48-01",
+      "email": "kaf-ukraine-history@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-korekciynoyi-psyhopedagogiky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-zdorovya-lyudini-ta-korekciynoyi-osviti",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 222",
+      "phone": "(0572) 68-42-34",
+      "email": "zd_reab_spps@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/kaf222b/?ref=share"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-menedzhmentu-ta-ekonomiky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-menedzhmentu-ta-ekonomiky",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science"
+    ],
+    "contacts": {
+      "address": "61002, м. Харків, вул. Чернишевська, 60",
+      "phone": "(096) 1940-503",
+      "email": "kaf-scientific-management@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-muzychnogo-mystectva": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-muzychnogo-mystectva",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61166, м. Харків, пров. Фанінський, 3-в, к.409. (станція метро «Наукова»)",
+      "phone": "(057) 702-15- 26",
+      "email": "kaf-muzart@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/muzart.hnpu/",
+      "instagram": "https://www.instagram.com/muzart.hnpu"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-obrazotvorchogo-mystectva": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-obrazotvorchogo-mistectva",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Паньок Тетяна Володимирівна",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/panyok/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61166, пров. Фанінський, 3-В, ауд.309",
+      "phone": "(057) 702-15-26",
+      "email": "kaf-fine-art@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/kafedra.izo/"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-olimpiyskogo-i-profesiynogo-sportu": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-olimpiyskogo-i-profesiynogo-sportu-sportyvnyh-igor-ta-turyzmu",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Козіна Жаннета Леонідівна",
+      "deanUrl": "https://sites.google.com/view/zhanneta-kozina/",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, навчально-спортивний комплекс, к. 106",
+      "phone": "(057) 778-67-46",
+      "email": "kaf-sport-games@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-politologiyi-sociologiyi-i-kulturologiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-politologiyi-sociologiyi-i-kulturologiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Безрук Олександр Олександрович",
+      "address": "61166, м. Харків, пров. Фанінський 3-в, ауд. 214",
+      "phone": "(057)-701-04-64",
+      "email": "kaf-politology-sociology@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-praktyky-angliyskogo-movlennya": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-praktyky-angliyskogo-usnogo-i-pysemnogo-movlennya",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "deanUrl": "https://sites.google.com/view/zosimova/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера), 2, кор. В, к. 303",
+      "phone": "(0572) 68-43-25",
+      "email": "kaf-practice-english-language@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-psyhologichnoyi-i-pedagogichnoyi-antropologiyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-psihologiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Дорожко Ірина Іванівна",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера), 2, кор. А, к. 231",
+      "phone": "(0572) 68-10-76",
+      "email": "kaf-anthropology@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-psyhologiyi-rozvytku": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-psyhologiyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Хомуленко Тамара Борисівна",
+      "deanUrl": "https://sites.google.com/view/khomulenko/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61002, м. Харків, вул. Чернишевська, 60, к. 5-А",
+      "phone": "(057) 702-66-15",
+      "email": "kaf-practical-psychology@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/488030022514574"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-shidnyh-mov": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-shidnih-mov",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Руда Наталія Вікторівна",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера), 2, корп. В, к. 509",
+      "phone": "(0572) 68-61-74",
+      "email": "shidna_kafedra@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/2857496080930247",
+      "instagram": "https://instagram.com/shidnimovi.hnpu?utm_medium=copy_link"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-socialnoyi-roboty": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-socialnoyi-pedagogiki",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "students"
+    ],
+    "contacts": {
+      "dean": "Романова Інна Анатоліївна",
+      "address": "61002, м. Харків, вул. Чернишевська, 60, к.6",
+      "phone": "(057) 702-66-15",
+      "email": "sphnpu@ukr.net",
+      "facebook": "https://www.facebook.com/groups/395426701191646/?ref=bookmarks",
+      "instagram": "https://instagram.com/skovoroda_g.s?igshid=5a22q72jos65"
+    },
+    "tabLabels": {
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-specialnoyi-pedagogiky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-specialnoyi-pedagogiky",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/kovalenkov/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 222",
+      "phone": "(0572) 68-42-34",
+      "email": "sp_ped@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/kaf222b/?ref=share"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61002, м. Харків, вул. Алчевських (Артема), 29, к. 304",
+      "phone": "(057) 700-48-01",
+      "email": "kaf-law@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/kryventsova/",
+      "address": "61168, г. Харків, вул. Валентинiвська (Блюхера) 2, кор. Г, к. 105",
+      "phone": "(0572) 68-06-13",
+      "email": "Kaf-fencing@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/886769738725647"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-ukrayinoznavstva-i-lingvodydaktyky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinoznavstva-i-lingvodydaktyky-imeni-profesora-og-muromcevoyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Маленко Олена Олегівна",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/malenko",
+      "address": "61168, м. Харків, вул. Валентинівська, корп. А, к.209",
+      "phone": "(0572) 68-11-69",
+      "email": "kaf-ukr-linguodidactics@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky-imeni-profesora-leonida-ushkalova",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/melnykiv/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "address": "61168 тел. (0572) 68-11-74",
+      "phone": "(0572) 68-11-74",
+      "email": "kaf-ukr-world-literature@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-ukrayinskoyi-movy": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-movy-imeni-profesora-lidiyi-andriyivny-lysychenko",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Осіпова Тетяна Федорівна",
+      "address": "61168, Харків, вул. Валентинівська, 2, к. 211-А",
+      "phone": "+38 (0572) 68-02-36",
+      "email": "kaf-ukr-language@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-vsesvitnoyi-istoriyi": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-vsesvitnoyi-istoriyi",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "address": "61002, м. Харків, вул. Алчевських, 29, к. 312",
+      "phone": "+38(057) 700-48-01",
+      "email": "kaf-world-history@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
+  "kafedra-zagalnogo-movoznavstva": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-angliyskoy-fonetiki-i-grammatiki",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "history",
+      "education",
+      "science",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Сазонова Ярослава Юріївна",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. В, к.409",
+      "email": "kaf-english-phonetics-grammar@hnpu.edu.ua"
+    },
+    "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "education": {
+        "uk": "Освітня діяльність",
+        "en": "Teaching"
+      },
+      "science": {
+        "uk": "Наукова діяльність",
+        "en": "Research"
+      }
+    }
+  },
   "mathematics-informatics": {
     "legacyUrl": "https://hnpu.edu.ua/uk/division/fizyko-matematychnyy-fakultet",
-    "capturedAt": "2026-08-01",
+    "capturedAt": "2026-08-08",
     "tabs": [
       "home",
       "admission",
@@ -78,7 +910,6 @@
     ],
     "contacts": {
       "dean": "Пономарьова Наталія Олександрівна",
-      "deanUrl": "https://hnpu.edu.ua/uk/ponomarova-nataliya-oleksandrivna",
       "position": "доктор педагогічних наук, професор , професор кафедри інформатики",
       "address": "61168, Україна.",
       "email": "fizmat_hnpu@ukr.net",
@@ -87,7 +918,7 @@
   },
   "physical-education": {
     "legacyUrl": "https://hnpu.edu.ua/uk/fac-fizvosp",
-    "capturedAt": "2026-08-01",
+    "capturedAt": "2026-08-08",
     "tabs": [
       "home",
       "admission",
@@ -103,94 +934,6 @@
       "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, навчально-спортивний комплекс, к. 131",
       "phone": "(0572) 68-06-13",
       "email": "faculty-sport@hnpu.edu.ua"
-    }
-  },
-  "preschool": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",
-    "capturedAt": "2026-08-01",
-    "tabs": [
-      "home",
-      "admission",
-      "education",
-      "science",
-      "students",
-      "cooperation"
-    ],
-    "contacts": {
-      "dean": "Тетяна Петрівна Танько",
-      "deanUrl": "https://sites.google.com/hnpu.edu.ua/tanko/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
-      "position": "доктор педагогічних наук, професор",
-      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, к. 212-В",
-      "phone": "(0572) 68-48-83",
-      "email": "faculty-pre-school@hnpu.edu.ua",
-      "facebook": "https://www.facebook.com/groups/1352145248216025/",
-      "instagram": "https://www.instagram.com/doshfak_hnpu_/"
-    }
-  },
-  "social-humanities": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-socialnyh-i-povedinkovyh-nauk",
-    "capturedAt": "2026-08-01",
-    "tabs": [
-      "home",
-      "admission",
-      "history",
-      "education",
-      "science",
-      "students",
-      "cooperation"
-    ],
-    "contacts": {
-      "dean": "Денисенко Ірина Дмитрівна",
-      "deanUrl": "https://hnpu.edu.ua/uk/denysenko-iryna-dmytrivna",
-      "position": "доктор філософських наук, професор",
-      "address": "61166, м. Харків, вул. Чернишевська, 60",
-      "phone": "+380669987368",
-      "email": "faculty-psychology-sociology@hnpu.edu.ua",
-      "facebook": "https://www.facebook.com/groups/202724270257499",
-      "instagram": "https://www.instagram.com/psych.soc_skovoroda/?hl=ru"
-    }
-  },
-  "special-education": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/fac-prirodn",
-    "capturedAt": "2026-08-01",
-    "tabs": [
-      "home",
-      "admission",
-      "history",
-      "education",
-      "science",
-      "students",
-      "cooperation"
-    ],
-    "contacts": {
-      "dean": "Микитюк Сергій Олександрович",
-      "deanUrl": "https://hnpu.edu.ua/uk/mykytyuk-sergiy-oleksandrovych",
-      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 224",
-      "phone": "(0572) 67-69-92",
-      "email": "faculty-natyral@hnpu.edu.ua",
-      "facebook": "https://www.facebook.com/groups/1808806579380082/"
-    }
-  },
-  "ukrainian-philology": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/ukrayinskyy-movno-literaturnyy-fakultet-imeni-gf-kvitky-osnovyanenka",
-    "capturedAt": "2026-08-01",
-    "tabs": [
-      "home",
-      "admission",
-      "history",
-      "education",
-      "science",
-      "students"
-    ],
-    "contacts": {
-      "dean": "Костянтин Юрійович Голобородько",
-      "deanUrl": "https://hnpu.edu.ua/uk/goloborodko-kostyantyn-yuriyovych",
-      "position": "доктор філологічних наук, професор",
-      "address": "61168, м.Харків, вул. Валентинiвська (Блюхера) , 2, кор. А, к. 202",
-      "phone": "(0572) 68-11-74",
-      "email": "faculty-ukrainian@hnpu.edu.ua",
-      "facebook": "https://www.facebook.com/umlf.hnpu",
-      "instagram": "https://www.instagram.com/umlf_khnpu/"
     }
   },
   "postgraduate": {
@@ -236,6 +979,91 @@
         "uk": "Аспіранту",
         "en": "For PhD students"
       }
+    }
+  },
+  "preschool": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Тетяна Петрівна Танько",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/tanko/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
+      "position": "доктор педагогічних наук, професор",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, к. 212-В",
+      "phone": "(0572) 68-48-83",
+      "email": "faculty-pre-school@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/1352145248216025/",
+      "instagram": "https://www.instagram.com/doshfak_hnpu_/"
+    }
+  },
+  "social-humanities": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-socialnyh-i-povedinkovyh-nauk",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Денисенко Ірина Дмитрівна",
+      "position": "доктор філософських наук, професор",
+      "address": "61166, м. Харків, вул. Чернишевська, 60",
+      "phone": "+380669987368",
+      "email": "faculty-psychology-sociology@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/202724270257499",
+      "instagram": "https://www.instagram.com/psych.soc_skovoroda/?hl=ru"
+    }
+  },
+  "special-education": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/fac-prirodn",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students",
+      "cooperation"
+    ],
+    "contacts": {
+      "dean": "Микитюк Сергій Олександрович",
+      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 224",
+      "phone": "(0572) 67-69-92",
+      "email": "faculty-natyral@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/groups/1808806579380082/"
+    }
+  },
+  "ukrainian-philology": {
+    "legacyUrl": "https://hnpu.edu.ua/uk/division/ukrayinskyy-movno-literaturnyy-fakultet-imeni-gf-kvitky-osnovyanenka",
+    "capturedAt": "2026-08-08",
+    "tabs": [
+      "home",
+      "admission",
+      "history",
+      "education",
+      "science",
+      "students"
+    ],
+    "contacts": {
+      "dean": "Костянтин Юрійович Голобородько",
+      "position": "доктор філологічних наук, професор",
+      "address": "61168, м.Харків, вул. Валентинiвська (Блюхера) , 2, кор. А, к. 202",
+      "phone": "(0572) 68-11-74",
+      "email": "faculty-ukrainian@hnpu.edu.ua",
+      "facebook": "https://www.facebook.com/umlf.hnpu",
+      "instagram": "https://www.instagram.com/umlf_khnpu/"
     }
   }
 }

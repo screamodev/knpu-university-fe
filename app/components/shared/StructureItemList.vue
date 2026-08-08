@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { StructureItem } from '~/utils/structure'
+import { type StructureItem, structureItemPath } from '~/utils/structure'
 
 const props = defineProps<{
   items: StructureItem[]
@@ -11,6 +11,9 @@ const { t, localePath } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
 const items = computed(() => props.items ?? [])
+
+/** Own `path`, or the кафедра page built for this item. */
+const pathOf = (item: StructureItem) => structureItemPath(item)
 </script>
 
 <template>
@@ -50,8 +53,8 @@ const items = computed(() => props.items ?? [])
 
       <!-- Subdivision with a page here -->
       <NuxtLink
-        v-else-if="item.path"
-        :to="localePath(item.path)"
+        v-else-if="pathOf(item)"
+        :to="localePath(pathOf(item)!)"
         class="group flex items-start gap-3 py-2 px-4 bg-white border border-border rounded-12 no-underline transition-colors duration-280 hover:border-gold/60"
         :class="nested ? 'text-body-sm' : 'text-body'"
       >

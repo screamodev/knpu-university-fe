@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { listStructureDepartments, STRUCTURE_UNITS } from '~/utils/structure'
-import type { StructureUnit } from '~/utils/structure'
+import { listStructureDepartments, STRUCTURE_UNITS, structureItemPath } from '~/utils/structure'
+import type { StructureItem, StructureUnit } from '~/utils/structure'
 
 definePageMeta({ layout: 'default' })
 
@@ -26,6 +26,12 @@ const departments = computed(() => {
 /** Departments of a unit we link out to live on that unit's own site. */
 function unitHref(unit: StructureUnit): string | undefined {
   return unit.slug ? localePath(`/university/structure/${unit.slug}`) : undefined
+}
+
+/** Кафедри migrated from the old site have a page here; the rest link out or stay plain text. */
+function departmentHref(department: StructureItem): string | undefined {
+  const path = structureItemPath(department)
+  return path ? localePath(path) : undefined
 }
 </script>
 
@@ -109,6 +115,13 @@ function unitHref(unit: StructureUnit): string | undefined {
                 <path d="M7 17L17 7M17 7H8m9 0v9" />
               </svg>
             </a>
+            <NuxtLink
+              v-else-if="departmentHref(entry.department)"
+              :to="departmentHref(entry.department)!"
+              class="font-medium text-navy hover:underline"
+            >
+              {{ localized(entry.department, 'name') }}
+            </NuxtLink>
             <span v-else class="font-medium text-navy">
               {{ localized(entry.department, 'name') }}
             </span>

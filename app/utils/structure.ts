@@ -46,7 +46,7 @@ export interface StructureItem {
 export interface StructureUnit {
   /** Route segment under /university/structure. Omitted for units we link out to. */
   slug?: string
-  kind: 'institute' | 'faculty' | 'department'
+  kind: 'institute' | 'faculty' | 'department' | 'chair'
   name: string
   nameEn: string
   /** Short blurb shown on the unit page hero and on the hub cards. */
@@ -533,11 +533,266 @@ export const STRUCTURE_DEPARTMENTS: StructureUnit[] = [
   },
 ]
 
+/**
+ * Кафедри that have a page of their own.
+ *
+ * Only those that had a `division` page on the old site are here — the rest run their own Google
+ * Site and are linked out to instead (see `migration/structure-pages/units.map.json`). The slug is
+ * the legacy alias, so old links keep working, and `newsCategorySlug` points at the faculty: news
+ * are tagged per faculty, not per кафедра.
+ *
+ * `name` must match the wording of the same кафедра inside its faculty's `items` — that is how
+ * `structureItemPath()` turns the entry in the faculty's list into a link.
+ */
+export const STRUCTURE_CHAIRS: StructureUnit[] = [
+  // ННІ української філології
+  {
+    slug: 'kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky',
+    kind: 'chair',
+    name: 'Кафедра української літератури та журналістики імені професора Леоніда Ушкалова',
+    nameEn: 'Professor Leonid Ushkalov Department of Ukrainian Literature and Journalism',
+    newsCategorySlug: 'navchalno-naukovyi-instytut-ukrainskoi-filolohii',
+    items: [],
+  },
+  {
+    slug: 'kafedra-ukrayinskoyi-movy',
+    kind: 'chair',
+    name: 'Кафедра української мови імені професора Л. А. Лисиченко',
+    nameEn: 'Professor L.A. Lysychenko Department of Ukrainian Language',
+    newsCategorySlug: 'navchalno-naukovyi-instytut-ukrainskoi-filolohii',
+    items: [],
+  },
+  {
+    slug: 'kafedra-ukrayinoznavstva-i-lingvodydaktyky',
+    kind: 'chair',
+    name: 'Кафедра українознавства і лінгводидактики імені професора О.Г. Муромцевої',
+    nameEn: 'Professor O.H. Muromtseva Department of Ukrainian Studies and Linguodidactics',
+    newsCategorySlug: 'navchalno-naukovyi-instytut-ukrainskoi-filolohii',
+    items: [],
+  },
+  // ННІ спеціальної освіти та інклюзії
+  {
+    slug: 'kafedra-anatomiyi-i-fiziologiyi-lyudyny',
+    kind: 'chair',
+    name: 'Кафедра анатомії і фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
+    nameEn:
+      'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
+    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-biologiyi',
+    kind: 'chair',
+    name: 'Кафедра біології',
+    nameEn: 'Department of Biology',
+    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-specialnoyi-pedagogiky',
+    kind: 'chair',
+    name: 'Кафедра спеціальної педагогіки',
+    nameEn: 'Department of Special Pedagogy',
+    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-korekciynoyi-psyhopedagogiky',
+    kind: 'chair',
+    name: 'Кафедра корекційної психопедагогіки та здоров’я людини',
+    nameEn: 'Department of Corrective Psychopedagogy and Human Health',
+    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
+    items: [],
+  },
+  // Факультет історії і права
+  {
+    slug: 'kafedra-vsesvitnoyi-istoriyi',
+    kind: 'chair',
+    name: 'Кафедра всесвітньої історії',
+    nameEn: 'Department of World History',
+    newsCategorySlug: 'fakultet-istoriyi-i-prava',
+    items: [],
+  },
+  {
+    slug: 'kafedra-istoriyi-ukrayiny',
+    kind: 'chair',
+    name: 'Кафедра історії України',
+    nameEn: 'Department of History of Ukraine',
+    newsCategorySlug: 'fakultet-istoriyi-i-prava',
+    items: [],
+  },
+  {
+    slug: 'kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin',
+    kind: 'chair',
+    name: 'Кафедра теорії і методики викладання суспільно-правових дисциплін',
+    nameEn: 'Department of Theory and Methods of Teaching Social and Legal Disciplines',
+    newsCategorySlug: 'fakultet-istoriyi-i-prava',
+    items: [],
+  },
+  // Факультет математики, інформатики і природничої освіти
+  {
+    slug: 'kafedra-informatyky',
+    kind: 'chair',
+    name: 'Кафедра інформатики',
+    nameEn: 'Department of Computer Science',
+    newsCategorySlug: 'fakultet-matematyky-informatyky-i-pryrodnychoyi-osvity',
+    items: [],
+  },
+  // Факультет мистецтв
+  {
+    slug: 'kafedra-horeografiyi',
+    kind: 'chair',
+    name: 'Кафедра хореографії',
+    nameEn: 'Department of Choreography',
+    newsCategorySlug: 'fakultet-mystetstv',
+    items: [],
+  },
+  {
+    slug: 'kafedra-muzychnogo-mystectva',
+    kind: 'chair',
+    name: 'Кафедра музичного мистецтва',
+    nameEn: 'Department of Music Art',
+    newsCategorySlug: 'fakultet-mystetstv',
+    items: [],
+  },
+  {
+    slug: 'kafedra-dyzaynu-i-tehnologiy',
+    kind: 'chair',
+    name: 'Кафедра дизайну і технологій',
+    nameEn: 'Department of Design and Technologies',
+    newsCategorySlug: 'fakultet-mystetstv',
+    items: [],
+  },
+  {
+    slug: 'kafedra-obrazotvorchogo-mystectva',
+    kind: 'chair',
+    name: 'Кафедра образотворчого мистецтва',
+    nameEn: 'Department of Fine Arts',
+    newsCategorySlug: 'fakultet-mystetstv',
+    items: [],
+  },
+  // Факультет іноземної філології
+  {
+    slug: 'kafedra-angliyskoyi-filologiyi',
+    kind: 'chair',
+    name: 'Кафедра англійської філології',
+    nameEn: 'Department of English Philology',
+    newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-zagalnogo-movoznavstva',
+    kind: 'chair',
+    name: 'Кафедра загального мовознавства і романо-германської філології',
+    nameEn: 'Department of General Linguistics and Romance-Germanic Philology',
+    newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-praktyky-angliyskogo-movlennya',
+    kind: 'chair',
+    name: 'Кафедра практики англійського усного і писемного мовлення',
+    nameEn: 'Department of Practice of English Oral and Written Communication',
+    newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
+    items: [],
+  },
+  {
+    slug: 'kafedra-shidnyh-mov',
+    kind: 'chair',
+    name: 'Кафедра східних мов',
+    nameEn: 'Department of Oriental Languages',
+    newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
+    items: [],
+  },
+  // Факультет дошкільної освіти
+  {
+    slug: 'kafedra-psyhologichnoyi-i-pedagogichnoyi-antropologiyi',
+    kind: 'chair',
+    name: 'Кафедра психологічної і педагогічної антропології',
+    nameEn: 'Department of Psychological and Pedagogical Anthropology',
+    newsCategorySlug: 'fakultet-doshkilnoyi-osvity',
+    items: [],
+  },
+  // Факультет фізичного виховання і спорту
+  {
+    slug: 'kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya',
+    kind: 'chair',
+    name: 'Кафедра теорії, методики і практики фізичного виховання',
+    nameEn: 'Department of Theory, Methods and Practice of Physical Education',
+    newsCategorySlug: 'fakultet-fizychnoho-vykhovannya-i-sportu',
+    items: [],
+  },
+  {
+    slug: 'kafedra-olimpiyskogo-i-profesiynogo-sportu',
+    kind: 'chair',
+    name: 'Кафедра олімпійського і професійного спорту, спортивних ігор та туризму',
+    nameEn: 'Department of Olympic and Professional Sports, Sports Games and Tourism',
+    newsCategorySlug: 'fakultet-fizychnoho-vykhovannya-i-sportu',
+    items: [],
+  },
+  // Факультет соціально-гуманітарних наук і соціальних технологій
+  {
+    slug: 'kafedra-psyhologiyi-rozvytku',
+    kind: 'chair',
+    name: 'Кафедра психології розвитку',
+    nameEn: 'Department of Developmental Psychology',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
+    items: [],
+  },
+  {
+    slug: 'kafedra-politologiyi-sociologiyi-i-kulturologiyi',
+    kind: 'chair',
+    name: 'Кафедра політології, соціології і культурології',
+    nameEn: 'Department of Political Science, Sociology and Cultural Studies',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
+    items: [],
+  },
+  {
+    slug: 'kafedra-socialnoyi-roboty',
+    kind: 'chair',
+    name: 'Кафедра соціальної роботи і соціальної педагогіки',
+    nameEn: 'Department of Social Work and Social Pedagogy',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
+    items: [],
+  },
+  {
+    slug: 'kafedra-menedzhmentu-ta-ekonomiky',
+    kind: 'chair',
+    name: 'Кафедра менеджменту та економіки',
+    nameEn: 'Department of Management and Economics',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
+    items: [],
+  },
+  {
+    slug: 'kafedra-filosofiyi',
+    kind: 'chair',
+    name: 'Кафедра філософії імені професора М. Д. Култаєвої',
+    nameEn: 'Professor M.D. Kultaieva Department of Philosophy',
+    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
+    items: [],
+  },
+]
+
 export const STRUCTURE_UNITS: StructureUnit[] = [
   ...STRUCTURE_INSTITUTES,
   ...STRUCTURE_FACULTIES,
   ...STRUCTURE_DEPARTMENTS,
+  ...STRUCTURE_CHAIRS,
 ]
+
+/** Кафедра name → its own page, so the faculty lists can link without repeating the path. */
+const CHAIR_PATH_BY_NAME = new Map(
+  STRUCTURE_CHAIRS.map(unit => [unit.name, `/university/structure/${unit.slug}`]),
+)
+
+/**
+ * Where an item of a unit's list points: its own `path`, or the кафедра page built for it.
+ * Items with neither (кафедри that keep an external site, laboratories, centres) return undefined
+ * and are rendered as plain text or as an outbound link.
+ */
+export function structureItemPath(item: StructureItem): string | undefined {
+  return item.path ?? CHAIR_PATH_BY_NAME.get(item.name)
+}
 
 /** Units that have a static page of their own under /university/structure. */
 export function findStructureUnit(slug: string): StructureUnit | undefined {

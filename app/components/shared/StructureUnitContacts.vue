@@ -4,7 +4,7 @@ import type { StructureUnitContacts } from '~/utils/structureContent'
 /** Dean, address and social links for a unit. Shown beside every tab. */
 const props = defineProps<{
   contacts: StructureUnitContacts
-  kind: 'institute' | 'faculty' | 'department'
+  kind: 'institute' | 'faculty' | 'department' | 'chair'
 }>()
 
 const { t } = useSafeI18nWithRouter()
@@ -13,6 +13,7 @@ const { localized } = useLocalizedField()
 const headTitle = computed(() => {
   if (props.kind === 'institute') return t('university.structure.unit.directorTitle')
   if (props.kind === 'department') return t('university.structure.unit.headTitle')
+  if (props.kind === 'chair') return t('university.structure.unit.chairTitle')
   return t('university.structure.unit.deanTitle')
 })
 

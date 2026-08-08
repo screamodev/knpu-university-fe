@@ -29,6 +29,9 @@ export interface DirectusSchema {
   contingent_reports: DirectusContingentReport[]
   science_schools: DirectusScienceSchool[]
   science_directions: DirectusScienceDirection[]
+  student_council_info: DirectusStudentCouncilInfo[]
+  student_council_members: DirectusStudentCouncilMember[]
+  student_council_sectors: DirectusStudentCouncilSector[]
   partners: DirectusPartner[]
   programmes: DirectusProgramme[]
   prozorro_procurements: DirectusProzorroProcurement[]
@@ -536,6 +539,53 @@ export interface DirectusScienceDirection {
   departmentEn: string | null
   topic: string
   supervisor: string | null
+  order: number
+}
+
+/**
+ * Тексти й контакти сторінки «Студентське самоврядування» — singleton the students edit
+ * themselves. Every field may be empty: the page shows a «розділ наповнюється» note instead.
+ */
+export interface DirectusStudentCouncilInfo {
+  id: string | null
+  status?: DirectusContentStatus
+  about: string | null
+  mission: string | null
+  objectives: string | null
+  address: string | null
+  email: string | null
+  trustBoxUrl: string | null
+  facebook: string | null
+  instagram: string | null
+  telegram: string | null
+}
+
+/** Which block of the student-government page a person belongs to. */
+export type StudentCouncilGroup = 'chair' | 'deputy' | 'faculty-chair' | 'audit'
+
+export interface DirectusStudentCouncilMember {
+  id: string
+  status?: DirectusContentStatus
+  group: StudentCouncilGroup
+  name: string
+  position: string | null
+  /** Set for the heads of the faculty student councils. */
+  faculty: string | null
+  email: string | null
+  photo: DirectusFile | string | null
+  profileUrl: string | null
+  order: number
+}
+
+/** Сектор студентського самоврядування. */
+export interface DirectusStudentCouncilSector {
+  id: string
+  status?: DirectusContentStatus
+  name: string
+  description: string | null
+  leadName: string | null
+  leadEmail: string | null
+  externalUrl: string | null
   order: number
 }
 

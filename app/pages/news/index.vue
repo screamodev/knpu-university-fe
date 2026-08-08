@@ -207,7 +207,7 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           :key="i"
           class="bg-off-white border border-border rounded-16 overflow-hidden animate-pulse"
         >
-          <div class="h-48 bg-border" />
+          <div class="aspect-[5/2] bg-border" />
           <div class="p-5 space-y-3">
             <div class="h-3 bg-border rounded w-1/4" />
             <div class="h-5 bg-border rounded w-4/5" />
@@ -225,19 +225,19 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           :to="localePath(`/news/${article.slug}`)"
           class="group bg-off-white border border-border rounded-16 overflow-hidden no-underline flex flex-col transition-all duration-280 hover:border-gold hover:-translate-y-1 hover:shadow-gold"
         >
-          <!-- Cover image -->
-          <div class="h-48 bg-navy-mid overflow-hidden relative">
+          <!-- Cover: 5/2 matches Directus cover-hero-focal frame -->
+          <div class="aspect-[5/2] bg-navy-mid overflow-hidden relative">
             <img
               v-if="article.cover && articleCoverSrc(article.cover)"
               :style="{ objectPosition: coverPosition(article.cover) }"
               :src="articleCoverSrc(article.cover)"
               :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
               loading="lazy"
-              class="w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-280 group-hover:scale-105"
             />
             <div
               v-else
-              class="w-full h-full bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
+              class="absolute inset-0 w-full h-full bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center"
             >
               <svg class="w-10 h-10 text-gold/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                 <rect x="3" y="3" width="18" height="18" rx="2" />

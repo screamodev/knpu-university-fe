@@ -3,6 +3,7 @@ import type { NavLink } from '~/composables/useNavigation'
 
 const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
+const { open: openSearch } = useSearch()
 const { items } = useNavigation()
 const router = useRouter()
 
@@ -42,6 +43,18 @@ function linkKey(link: NavLink): string {
     >
       ✕
     </button>
+    <button
+      type="button"
+      class="flex items-center gap-3 w-full mb-4 py-3 px-4 rounded-12 border border-white/15 bg-white/5 text-white/80 font-geologica text-body-sm cursor-pointer"
+      @click="close(); openSearch()"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </svg>
+      {{ t('search.placeholder') }}
+    </button>
+
     <ul class="list-none flex flex-col">
       <li
         v-for="(section, idx) in mobileSections"

@@ -131,13 +131,13 @@ function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string)
           :to="localePath(`/news/${mainArticle.slug}`)"
           class="bg-navy rounded-16 overflow-hidden flex flex-col no-underline transition-transform duration-280 hover:-translate-y-1"
         >
-          <div class="h-60 relative overflow-hidden">
+          <div class="aspect-[5/2] relative overflow-hidden">
             <img
               v-if="mainArticle.cover && articleCoverSrc(mainArticle.cover)"
               :style="{ objectPosition: coverPosition(mainArticle.cover) }"
               :src="articleCoverSrc(mainArticle.cover)"
               :alt="articleCoverAlt(mainArticle.cover, localized(mainArticle, 'title'))"
-              class="w-full h-full object-cover"
+              class="absolute inset-0 w-full h-full object-cover"
             />
             <div
               v-else

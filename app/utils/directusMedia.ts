@@ -180,5 +180,5 @@ export function isDirectusImageFile(file: DirectusFile): boolean {
 }
 
 export function isProbablyImageHref(href: string): boolean {
-  return /\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)/i.test(href)
+  return /\.(jpg|jpeg|png|gif|webp|svg|avif|heic|heif)(\?|$)/i.test(href)
 }

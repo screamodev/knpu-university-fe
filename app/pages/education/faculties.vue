@@ -62,37 +62,31 @@ const sections = computed(() => [
             >
               <div class="p-5 flex flex-col flex-1">
                 <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-                  {{ localized(unit, 'name') }}
+                  <a
+                    v-if="unit.external"
+                    :href="unit.external"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-navy no-underline hover:text-gold transition-colors duration-280"
+                  >
+                    {{ localized(unit, 'name') }}
+                    <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+                  </a>
+                  <NuxtLink
+                    v-else-if="unit.slug"
+                    :to="localePath(`/university/structure/${unit.slug}`)"
+                    class="text-navy no-underline hover:text-gold transition-colors duration-280"
+                  >
+                    {{ localized(unit, 'name') }}
+                  </NuxtLink>
+                  <template v-else>{{ localized(unit, 'name') }}</template>
                 </h3>
                 <p class="text-body-sm text-text-muted mb-3">
                   {{ countStructureItems(unit) }} {{ t('university.structure.subdivisionsCount') }}
                 </p>
-                <p v-if="localized(unit, 'summary')" class="text-body-sm text-text-muted mb-4">
+                <p v-if="localized(unit, 'summary')" class="text-body-sm text-text-muted">
                   {{ localized(unit, 'summary') }}
                 </p>
-
-                <a
-                  v-if="unit.external"
-                  :href="unit.external"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:underline"
-                >
-                  {{ t('university.structure.visitOwnWebsite') }}
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-                    <path d="M7 17L17 7M17 7H8m9 0v9" />
-                  </svg>
-                </a>
-                <NuxtLink
-                  v-else-if="unit.slug"
-                  :to="localePath(`/university/structure/${unit.slug}`)"
-                  class="mt-auto inline-flex items-center gap-2 text-body-sm text-navy font-medium hover:underline"
-                >
-                  {{ t('university.structure.openUnit') }}
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </NuxtLink>
               </div>
             </article>
           </div>

@@ -7,5 +7,6 @@
     </main>
     <WidgetsAppFooter />
     <FeaturesMobileNav />
+    <FeaturesSearchOverlay />
   </div>
 </template>

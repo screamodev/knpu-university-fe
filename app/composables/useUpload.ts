@@ -1,6 +1,8 @@
 import { uploadFiles as directusUploadFiles } from '@directus/sdk'
 
 import type { DirectusFile } from '~/types/directus'
+import { compressImageFile } from '~/utils/compressImageFile'
+import { convertHeicFile } from '~/utils/convertHeicFile'
 
 function isDirectusFileRecord(value: unknown): value is DirectusFile {
   return typeof value === 'object' && value !== null && 'id' in value
@@ -20,6 +22,12 @@ function normalizeUploadedFile(uploaded: unknown): DirectusFile {
   return uploaded
 }
 
+/** HEIC → JPEG, then compress oversized photos before sending to Directus. */
+async function prepareFileForUpload(file: File): Promise<File> {
+  const webSafe = await convertHeicFile(file)
+  return compressImageFile(webSafe)
+}
+
 /**
  * Upload files to Directus `/files` via the SDK (`multipart/form-data`, field `file`).
  * Each request sends one file; multi-file flows loop and collect `directus_files.id` values.
@@ -37,8 +45,9 @@ export function useUpload() {
   async function uploadFile(file: File): Promise<DirectusFile> {
     await requireAuthToken()
 
+    const uploadable = await prepareFileForUpload(file)
     const formData = new FormData()
-    formData.append('file', file)
+    formData.append('file', uploadable)
 
     const uploaded = await client.request(directusUploadFiles(formData))
     const record = normalizeUploadedFile(uploaded)
@@ -66,8 +75,9 @@ export function useUpload() {
 
     const ids: string[] = []
     for (const file of files) {
+      const uploadable = await prepareFileForUpload(file)
       const formData = new FormData()
-      formData.append('file', file)
+      formData.append('file', uploadable)
 
       const uploaded = await client.request(directusUploadFiles(formData))
       const record = normalizeUploadedFile(uploaded)

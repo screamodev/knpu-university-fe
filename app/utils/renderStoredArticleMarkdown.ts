@@ -1,6 +1,7 @@
 import type { Config } from 'dompurify'
 import DOMPurify from 'isomorphic-dompurify'
 import MarkdownIt from 'markdown-it'
+import { decodeHtmlEntities, fixDoubleEncodedHtmlEntities } from '~/utils/decodeHtmlEntities'
 
 export interface RenderStoredArticleMarkdownOptions {
   /** Same base as `useRuntimeConfig().public.directusUrl` / `useDirectus().assetUrl`. */
@@ -220,7 +221,7 @@ export function renderStoredArticleMarkdown(
   markdown: string,
   options: RenderStoredArticleMarkdownOptions,
 ): string {
-  const source = markdown.trim()
+  const source = decodeHtmlEntities(markdown.trim())
   if (!source) return ''
   return sanitizeArticleHtml(getMarkdownIt().render(source), options.directusPublicUrl)
 }
@@ -233,7 +234,7 @@ export function renderStoredArticleHtml(
   html: string,
   options: RenderStoredArticleMarkdownOptions,
 ): string {
-  const source = html.trim()
+  const source = fixDoubleEncodedHtmlEntities(html.trim())
   if (!source) return ''
   return sanitizeArticleHtml(source, options.directusPublicUrl)
 }

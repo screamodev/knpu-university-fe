@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
 import type { DirectusArticle, RichTextBlock } from '~/types/news'
-import { partitionArticleAttachments, resolveMediaAlt, resolveMediaSrc } from '~/utils/directusMedia'
+import { partitionArticleAttachments, resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
 
@@ -89,10 +89,6 @@ function coverPosition(cover: DirectusArticle['cover']): string {
   return objectPositionFromFile(cover)
 }
 
-function articleCoverAlt(cover: DirectusArticle['cover'], titleFallback: string): string {
-  return resolveMediaAlt(cover, titleFallback)
-}
-
 const partitionedAttachments = computed(() =>
   partitionArticleAttachments(article.value?.attachments, mediaResolvers),
 )
@@ -126,31 +122,33 @@ const localizedBody = computed(() => {
       {{ t('news.previewBanner') }}
     </div>
 
-    <!-- Hero cover -->
-    <div class="relative w-full h-[20rem] md:h-[26rem] lg:h-[32rem] bg-navy overflow-hidden">
+    <!-- Hero cover: soft-focus backdrop — shapes/colors remain, photo stays out of focus -->
+    <div class="relative w-full h-[16rem] sm:h-[20rem] md:h-[24rem] lg:h-[28rem] bg-navy overflow-hidden">
       <img
         v-if="article.cover && articleCoverSrc(article.cover)"
         :style="{ objectPosition: coverPosition(article.cover) }"
         :src="articleCoverSrc(article.cover)"
-        :alt="articleCoverAlt(article.cover, localized(article, 'title'))"
-        class="w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover scale-105 blur-md brightness-90 saturate-90"
+        alt=""
+        aria-hidden="true"
       />
       <div
         v-else
-        class="w-full h-full bg-gradient-to-br from-navy-mid to-navy-deep"
+        class="absolute inset-0 w-full h-full bg-gradient-to-br from-navy-mid to-navy-deep"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+      <div class="absolute inset-0 bg-navy/30" />
+      <div class="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/25 to-navy/15" />
 
       <!-- Overlay content -->
-      <div class="absolute bottom-0 left-0 right-0 max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+      <div class="absolute bottom-0 left-0 right-0 max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8">
         <span
           v-for="category in categories"
           :key="category.id"
-          class="inline-block text-[11px] font-semibold tracking-wider uppercase text-gold mb-3 mr-3"
+          class="inline-block text-[11px] font-semibold tracking-wider uppercase text-gold mb-2 sm:mb-3 mr-3"
         >
           {{ localized(category, 'name') }}
         </span>
-        <h1 class="font-playfair text-2xl md:text-4xl font-bold text-white leading-snug max-w-3xl">
+        <h1 class="font-playfair text-xl sm:text-2xl md:text-4xl font-bold text-white leading-snug max-w-3xl">
           {{ localized(article, 'title') }}
         </h1>
       </div>
@@ -179,15 +177,7 @@ const localizedBody = computed(() => {
         </span>
       </div>
 
-      <!-- Excerpt -->
-      <p
-        v-if="localized(article, 'excerpt')"
-        class="text-lead font-medium text-slate-700 mb-8 leading-relaxed"
-      >
-        {{ localized(article, 'excerpt') }}
-      </p>
-
-      <!-- Rich-text body -->
+      <!-- Rich-text body (excerpt stays on listing cards only — it often duplicates the body lead) -->
       <NewsMarkdownBody
         v-if="localizedBody.kind === 'markdown' || localizedBody.kind === 'html'"
         :source="localizedBody.source"

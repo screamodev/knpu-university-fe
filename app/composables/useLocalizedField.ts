@@ -13,9 +13,12 @@ export function useLocalizedField() {
     if (locale.value === 'en') {
       const enKey = `${field}En`
       const enValue = record[enKey]
-      if (enValue && typeof enValue === 'string' && enValue.trim()) return enValue
+      if (enValue && typeof enValue === 'string' && enValue.trim()) {
+        return decodeHtmlEntities(enValue)
+      }
     }
-    return (record[field] as string) ?? ''
+    const value = record[field]
+    return typeof value === 'string' ? decodeHtmlEntities(value) : ''
   }
 
   return { localized }

@@ -20,5 +20,10 @@ if [ ! -f node_modules/@tiptap/extension-text-align/package.json ]; then
   exit 1
 fi
 
+# Static half of the site search index. Built by `pnpm build` in production; dev needs it too,
+# otherwise search silently falls back to Directus content only.
+echo "[entrypoint-dev] building search index…"
+node scripts/build-search-index.mjs || echo "[entrypoint-dev] WARN: search index build failed; search will cover Directus content only" >&2
+
 echo "[entrypoint-dev] starting dev server…"
 exec pnpm run dev

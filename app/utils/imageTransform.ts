@@ -42,15 +42,40 @@ export function assetTransformQuery(transform: AssetTransform | undefined): stri
  */
 export const DEFAULT_COVER_POSITION = '50% 35%'
 
+/** Hero band aspect (width / height). Must stay in sync with Directus `cover-hero-focal`. */
+export const HERO_COVER_ASPECT_RATIO = 2.5
+
+function clampPercent(value: number): number {
+  return Math.min(100, Math.max(0, value))
+}
+
 /**
- * CSS `object-position` honouring the focal point an editor set in the Directus file editor.
+ * Largest rectangle of aspect `ratio` (w/h) that fits inside the image — same as the admin frame.
+ */
+function maxHeroFrameSize(
+  width: number,
+  height: number,
+  ratio: number,
+): { width: number; height: number } {
+  const imageRatio = width / height
+
+  if (imageRatio >= ratio) {
+    return { width: height * ratio, height }
+  }
+
+  return { width, height: width / ratio }
+}
+
+/**
+ * CSS `object-position` so `object-fit: cover` shows the hero frame when the box aspect matches.
  *
- * Directus stores the focal point in pixels, so it only means something together with the
- * file's dimensions. Anything missing — an unset focal point, a legacy image, an older Directus
- * that lacks the columns — falls back to the default anchor above.
+ * Directus stores the frame center as focal pixels. Mapping `focal/size` straight to % pins that
+ * point to the same % of the box (near the top for a top frame) and clips heads above it.
+ * Travel along the freer axis maps the rectangle instead.
  */
 export function objectPositionFromFile(
   file: string | DirectusFile | LegacyImage | null | undefined,
+  aspectRatio: number = HERO_COVER_ASPECT_RATIO,
 ): string {
   if (!file || typeof file !== 'object') return DEFAULT_COVER_POSITION
 
@@ -58,8 +83,17 @@ export function objectPositionFromFile(
   if (typeof x !== 'number' || typeof y !== 'number') return DEFAULT_COVER_POSITION
   if (!width || !height) return DEFAULT_COVER_POSITION
 
-  const clamp = (value: number) => Math.min(100, Math.max(0, value))
-  return `${clamp((x / width) * 100).toFixed(2)}% ${clamp((y / height) * 100).toFixed(2)}%`
+  const safeRatio = aspectRatio > 0 ? aspectRatio : HERO_COVER_ASPECT_RATIO
+  const frame = maxHeroFrameSize(width, height, safeRatio)
+  const frameX = Math.min(Math.max(x - frame.width / 2, 0), width - frame.width)
+  const frameY = Math.min(Math.max(y - frame.height / 2, 0), height - frame.height)
+
+  const travelX = width - frame.width
+  const travelY = height - frame.height
+  const left = travelX <= 0 ? 50 : clampPercent((frameX / travelX) * 100)
+  const top = travelY <= 0 ? 50 : clampPercent((frameY / travelY) * 100)
+
+  return `${left.toFixed(2)}% ${top.toFixed(2)}%`
 }
 
 /**

@@ -18,7 +18,7 @@ function blockImageAlt(image: NonNullable<LegacyBlock['image']>): string {
 }
 
 function renderText(child: LegacyBlockChild): string {
-  return child.text ?? ''
+  return decodeHtmlEntities(child.text ?? '')
 }
 
 const headingTag: Record<number, string> = {

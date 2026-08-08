@@ -251,7 +251,7 @@ async function handleImageUpload(event: Event): Promise<void> {
     <input
       ref="fileInputRef"
       type="file"
-      accept="image/*"
+      accept="image/*,.heic,.heif,image/heic,image/heif"
       multiple
       class="hidden"
       @change="handleImageUpload"

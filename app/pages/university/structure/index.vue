@@ -92,7 +92,24 @@ const unitSections = computed(() => [
             class="bg-off-white border border-border rounded-16 p-6 border-l-4 border-l-gold flex flex-col"
           >
             <h3 class="font-playfair text-lg font-semibold text-navy">
-              {{ localized(unit, 'name') }}
+              <a
+                v-if="unit.external"
+                :href="unit.external"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-navy no-underline hover:text-gold transition-colors duration-280"
+              >
+                {{ localized(unit, 'name') }}
+                <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+              </a>
+              <NuxtLink
+                v-else-if="unit.slug"
+                :to="localePath(`/university/structure/${unit.slug}`)"
+                class="text-navy no-underline hover:text-gold transition-colors duration-280"
+              >
+                {{ localized(unit, 'name') }}
+              </NuxtLink>
+              <template v-else>{{ localized(unit, 'name') }}</template>
             </h3>
             <p v-if="localized(unit, 'summary')" class="mt-2 text-body-sm text-text-muted">
               {{ localized(unit, 'summary') }}
@@ -101,50 +118,25 @@ const unitSections = computed(() => [
               {{ countStructureItems(unit) }} {{ t('university.structure.subdivisionsCount') }}
             </p>
 
-            <!-- Unit with its own site: link out, no page of ours -->
-            <template v-if="unit.external">
-              <a
-                :href="unit.external"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-flex items-center gap-2 text-navy font-medium hover:underline"
+            <!-- External unit: subdivisions accordion only (title links out) -->
+            <details v-if="unit.external && unit.items.length" class="group mt-4">
+              <summary
+                class="flex items-center gap-2 cursor-pointer list-none select-none text-body-sm font-medium text-navy"
               >
-                {{ t('university.structure.visitOwnWebsite') }}
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-                  <path d="M7 17L17 7M17 7H8m9 0v9" />
-                </svg>
-              </a>
-              <details v-if="unit.items.length" class="group mt-4">
-                <summary
-                  class="flex items-center gap-2 cursor-pointer list-none select-none text-body-sm font-medium text-navy"
+                {{ t('university.structure.subdivisionsTitle') }}
+                <svg
+                  class="w-4 h-4 text-text-muted transition-transform group-open:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden
                 >
-                  {{ t('university.structure.subdivisionsTitle') }}
-                  <svg
-                    class="w-4 h-4 text-text-muted transition-transform group-open:rotate-180"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    aria-hidden
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </summary>
-                <SharedStructureItemList class="mt-3" :items="unit.items" />
-              </details>
-            </template>
-
-            <!-- Unit with a page on this site -->
-            <NuxtLink
-              v-else-if="unit.slug"
-              :to="localePath(`/university/structure/${unit.slug}`)"
-              class="mt-4 inline-flex items-center gap-2 text-navy font-medium hover:underline"
-            >
-              {{ t('university.structure.openUnit') }}
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </NuxtLink>
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </summary>
+              <SharedStructureItemList class="mt-3" :items="unit.items" />
+            </details>
           </article>
         </div>
       </section>

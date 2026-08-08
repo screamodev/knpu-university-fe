@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t, localePath } = useSafeI18nWithRouter()
 const { open: openMobile } = useMobileNav()
+const { open: openSearch } = useSearch()
 </script>
 
 <template>
@@ -10,13 +11,24 @@ const { open: openMobile } = useMobileNav()
       <nav class="flex-1 flex items-center justify-center max-lg:hidden min-w-0">
         <FeaturesNavList />
       </nav>
-      <div class="flex items-center gap-3 shrink-0">
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <NuxtLink
           :to="localePath('/admissions/rules')"
           class="hidden lg:inline-flex bg-gold text-navy-deep border-none py-2.5 px-5 rounded-lg text-[13.5px] font-semibold no-underline font-geologica transition-all duration-280 hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
         >
           {{ t('header.vstup2026') }}
         </NuxtLink>
+        <button
+          type="button"
+          class="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-transparent text-navy hover:border-gold hover:text-gold transition-colors duration-280 cursor-pointer"
+          :aria-label="t('search.open')"
+          @click="openSearch"
+        >
+          <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+        </button>
         <button
           type="button"
           class="lg:hidden flex flex-col gap-1.5 cursor-pointer border-none bg-transparent p-1"

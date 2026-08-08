@@ -1,22 +1,28 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { FileLinkItem } from '~/components/shared/FileLinkList.vue'
+import type { DirectusAccreditationDossier } from '~/types/directus'
+
 /**
  * Центр забезпечення якості освіти.
  *
- * The centre runs its own Joomla site (smc.hnpu.edu.ua) which is being folded into this one. The
- * client asked for the tab structure now and the content later («информацию брать пока рано»), so
- * every tab is a shell. The tab lives in the URL so a filled-in section can be linked to later.
+ * The centre ran its own Joomla site (smc.hnpu.edu.ua); this page folds it in. Prose comes from
+ * the migrated static content, documents from the `documents` collection, and the accreditation
+ * dossiers from their own collection. «Новини» stays pending: the centre's news are still on the
+ * old site and arrive with its database dump.
  */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
+const { client } = useDirectus()
 const route = useRoute()
 const router = useRouter()
+const localePath = useLocalePath()
 
 const TAB_IDS = [
   'home',
   'news',
   'regulations',
-  'documents',
   'students',
   'quality',
   'programmes',
@@ -38,6 +44,60 @@ useHead({
   title: () => t('education.quality.title'),
   meta: [{ name: 'description', content: () => t('education.quality.subtitle') }],
 })
+
+const { data, pending } = await useAsyncData('accreditation-dossiers', () =>
+  client.request(
+    readItems('accreditation_dossiers', {
+      fields: [
+        'id',
+        'academicYear',
+        'level',
+        'programmeTitle',
+        'order',
+        {
+          files: [
+            'id',
+            'kind',
+            'title',
+            'externalUrl',
+            'order',
+            'status',
+            { file: ['id', 'filename_download', 'filesize', 'type'] },
+          ],
+        },
+      ],
+      sort: ['order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const dossiers = computed<DirectusAccreditationDossier[]>(
+  () => (data.value as DirectusAccreditationDossier[] | null) ?? [],
+)
+
+/** Навчальний рік → освітні програми, newest year first. */
+const dossierYears = computed(() => {
+  const years = [...new Set(dossiers.value.map(item => item.academicYear).filter(Boolean))] as string[]
+  return years
+    .sort((left, right) => right.localeCompare(left))
+    .map(year => ({
+      year,
+      items: dossiers.value.filter(item => item.academicYear === year),
+    }))
+})
+
+function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
+  return (dossier.files ?? [])
+    .filter(entry => entry.status !== 'draft' && entry.status !== 'archived')
+    .map(entry => ({
+      id: entry.id,
+      title: entry.title || t(`education.quality.dossierKinds.${entry.kind}`),
+      file: entry.file,
+      externalUrl: entry.externalUrl,
+    }))
+}
 </script>
 
 <template>
@@ -78,14 +138,114 @@ useHead({
       </div>
     </div>
 
-    <!-- Tab body: empty until the centre supplies content -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-3">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
         {{ t(`education.quality.tabs.${activeTab}`) }}
       </h2>
-      <p class="text-body text-text-muted max-w-3xl">
-        {{ t('education.quality.contentPending') }}
-      </p>
+
+      <!-- Про центр: опис, склад, положення -->
+      <template v-if="activeTab === 'home'">
+        <SharedStaticPageBody slug="quality-centre" />
+      </template>
+
+      <!-- Новини центру приїдуть разом з дампом його сайту -->
+      <template v-else-if="activeTab === 'news'">
+        <SharedSectionPending :note="t('education.quality.newsPending')" />
+      </template>
+
+      <template v-else-if="activeTab === 'regulations'">
+        <SharedDocumentList section="quality-centre" />
+      </template>
+
+      <!-- Здобувачу: дисципліни вільного вибору веде центр, решта — на сторінках сайту -->
+      <template v-else-if="activeTab === 'students'">
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('education.quality.studentsIntro') }}
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <NuxtLink
+            v-for="link in [
+              { path: '/education/electives', key: 'nav.links.electives' },
+              { path: '/education/schedule', key: 'nav.links.processSchedule' },
+              { path: '/student/schedule', key: 'nav.links.schedule' },
+            ]"
+            :key="link.path"
+            :to="localePath(link.path)"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
+          </NuxtLink>
+        </div>
+      </template>
+
+      <!-- Якість освіти: моніторинг веде окрема сторінка -->
+      <template v-else-if="activeTab === 'quality'">
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('education.quality.qualityIntro') }}
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink
+            v-for="link in [
+              { path: '/education/monitoring', key: 'nav.links.monitoring' },
+              { path: '/university/integrity', key: 'nav.links.integrity' },
+            ]"
+            :key="link.path"
+            :to="localePath(link.path)"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
+          </NuxtLink>
+        </div>
+      </template>
+
+      <!-- Гарантам освітніх програм -->
+      <template v-else-if="activeTab === 'programmes'">
+        <SharedStaticPageBody slug="quality-centre-programmes" />
+        <div class="mt-8">
+          <SharedDocumentList section="quality-centre-programmes" />
+        </div>
+      </template>
+
+      <!-- Акредитаційні справи -->
+      <template v-else>
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('education.quality.accreditationIntro') }}
+        </p>
+
+        <div v-if="pending" class="space-y-3">
+          <div v-for="i in 3" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
+        </div>
+
+        <div v-else-if="dossierYears.length" class="space-y-4">
+          <SharedAccordion
+            v-for="(entry, index) in dossierYears"
+            :key="entry.year"
+            :title="t('education.quality.dossierYear', { year: entry.year })"
+            :hint="`${entry.items.length}`"
+            :open="index === 0"
+          >
+            <div class="space-y-6 pt-4">
+              <article
+                v-for="dossier in entry.items"
+                :key="dossier.id"
+                class="border-l-4 border-gold pl-4 sm:pl-5"
+              >
+                <h3 class="font-medium text-navy mb-2">{{ dossier.programmeTitle }}</h3>
+                <SharedFileLinkList :items="dossierFiles(dossier)" dense />
+              </article>
+            </div>
+          </SharedAccordion>
+        </div>
+
+        <SharedSectionPending v-else />
+
+        <NuxtLink
+          :to="localePath('/education/accreditation')"
+          class="inline-block mt-10 font-medium text-navy underline hover:text-gold"
+        >
+          {{ t('education.quality.certificatesLink') }}
+        </NuxtLink>
+      </template>
     </div>
   </div>
 </template>

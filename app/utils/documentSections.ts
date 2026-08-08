@@ -19,6 +19,19 @@ export const DOCUMENT_SECTIONS = [
   'inclusive-support',
   'student-council',
   'postgraduate-regulations',
+  'licenses',
+  'awards',
+  'academic-office',
+  'education-schedule',
+  'scientific-secretary',
+  'specialized-councils',
+  'quality-centre',
+  'quality-centre-programmes',
+  'digital-center',
+  'admissions-committee',
+  'monitoring',
+  'science-schools',
+  'contacts',
 ] as const
 
 export type DocumentSection = (typeof DOCUMENT_SECTIONS)[number]

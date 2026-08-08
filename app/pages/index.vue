@@ -15,11 +15,10 @@ useHead({
     <WidgetsQuickAccess />
     <WidgetsNewsSection />
     <WidgetsFactsBand />
-    <WidgetsProgramsSection />
+    <WidgetsEventsAndResources />
     <WidgetsAnnouncementBanner />
     <WidgetsHomeRemembrance />
-    <WidgetsEventsAndResources />
-    <WidgetsPartnersSection />
     <WidgetsNewspaperSection />
+    <WidgetsPartnersSection />
   </div>
 </template>

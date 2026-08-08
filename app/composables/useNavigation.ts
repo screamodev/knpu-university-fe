@@ -46,6 +46,7 @@ export function useNavigation(): { items: NavItem[] } {
           links: [
             { path: '/university/rectorate', key: 'nav.links.rectorate' },
             { path: '/university/council', key: 'nav.links.academicCouncil' },
+            { path: '/university/scientific-secretary', key: 'nav.links.scientificSecretary' },
             { path: '/university/supervisory-board', key: 'nav.links.supervisoryBoard' },
             { path: '/university/structure', key: 'nav.links.structure' },
             { path: '/university/faculties', key: 'nav.links.facultiesAndDepts' },
@@ -57,6 +58,7 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.university.publicity',
           links: [
             { path: '/university/statute', key: 'nav.links.statute' },
+            { path: '/university/licenses', key: 'nav.links.licenses' },
             { path: '/university/public-info', key: 'nav.links.publicInfo' },
             { path: '/university/orders', key: 'nav.links.orders' },
             { path: '/university/financial-reports', key: 'nav.links.financialReports' },
@@ -152,6 +154,8 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/education/programs', key: 'nav.links.programs' },
             { path: '/education/curriculum', key: 'nav.links.curriculum' },
             { path: '/education/electives', key: 'nav.links.electives' },
+            { path: '/education/academic-office', key: 'nav.links.academicOffice' },
+            { path: '/education/digital-center', key: 'nav.links.digitalCenter' },
           ],
         },
         {
@@ -169,8 +173,10 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.education.forms',
           links: [
             { path: '/education/distance', key: 'nav.links.distance' },
-            { path: '/education/remote', key: 'nav.links.remote' },
-            { path: '/education/dual', key: 'nav.links.dual' },
+            // Distance learning is delivered through Moodle, so the client replaced the
+            // «Дистанційне навчання» and «Дуальна освіта» entries with the platform itself.
+            // Both pages stay in the app, just unlinked from the menu.
+            { path: MOODLE_EXTERNAL_URL, key: 'nav.links.moodle', external: true },
             { path: '/education/continuing', key: 'nav.links.continuing' },
             { path: '/education/students', key: 'nav.links.studentContingent' },
           ],
@@ -209,6 +215,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/catalog', key: 'nav.links.catalog' },
             { path: '/science/repository', key: 'nav.links.repository' },
             { path: '/science/boards', key: 'nav.links.boards' },
+            { path: '/science/dissertation-councils', key: 'nav.links.dissertationCouncils' },
             { path: '/science/defenses', key: 'nav.links.defenses' },
           ],
         },

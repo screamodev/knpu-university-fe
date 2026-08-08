@@ -6,6 +6,7 @@ import type { DirectusEvent, DirectusSchema } from '~/types/directus'
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 const { client } = useDirectus()
+const NuxtLink = resolveComponent('NuxtLink')
 
 const today = new Date().toISOString().slice(0, 10)
 const { data, pending, error } = useAsyncData('home-events-upcoming', () =>
@@ -30,16 +31,68 @@ const eventDay = (dateStr: string): string =>
 const eventMonth = (dateStr: string): string =>
   new Intl.DateTimeFormat(dateLocale.value, { month: 'short' }).format(new Date(dateStr))
 
-const resourceList = computed(() => [
-  { path: '/science/library', titleKey: 'resources.library.title', subKey: 'resources.library.sub', icon: '📚', gold: false },
-  { path: '/admissions/rules', titleKey: 'resources.vstup.title', subKey: 'resources.vstup.sub', icon: '🎓', gold: true },
-  { path: '/student/career', titleKey: 'resources.career.title', subKey: 'resources.career.sub', icon: '💼', gold: false },
-  { path: '/university/erasmus', titleKey: 'resources.erasmus.title', subKey: 'resources.erasmus.sub', icon: '🌍', gold: false },
+interface ResourceCard {
+  titleKey: string
+  subKey: string
+  icon: string
+  gold: boolean
+  path?: string
+  url?: string
+  disabled?: boolean
+}
+
+const EDUHUB_EXTERNAL_URL
+  = 'https://sites.google.com/hnpu.edu.ua/khnpu-eduhub/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80'
+const INTEGRITY_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/akdob'
+
+const resourceList = computed<ResourceCard[]>(() => [
+  {
+    path: '/education/quality',
+    titleKey: 'resources.quality.title',
+    subKey: 'resources.quality.sub',
+    icon: '🏅',
+    gold: false,
+  },
+  {
+    path: '/admissions/committee',
+    titleKey: 'resources.vstup.title',
+    subKey: 'resources.vstup.sub',
+    icon: '🎓',
+    gold: true,
+  },
+  {
+    titleKey: 'resources.abroad.title',
+    subKey: 'resources.abroad.sub',
+    icon: '🌍',
+    gold: false,
+    disabled: true,
+  },
+  {
+    path: '/university/language-exam',
+    titleKey: 'resources.languageExam.title',
+    subKey: 'resources.languageExam.sub',
+    icon: '📝',
+    gold: false,
+  },
+  {
+    url: INTEGRITY_EXTERNAL_URL,
+    titleKey: 'resources.integrity.title',
+    subKey: 'resources.integrity.sub',
+    icon: '🛡️',
+    gold: false,
+  },
+  {
+    url: EDUHUB_EXTERNAL_URL,
+    titleKey: 'resources.eduhub.title',
+    subKey: 'resources.eduhub.sub',
+    icon: '📅',
+    gold: false,
+  },
 ])
 </script>
 
 <template>
-  <section class="py-20 bg-white">
+  <section class="pt-10 pb-20 bg-white">
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
@@ -121,12 +174,22 @@ const resourceList = computed(() => [
         <div>
           <SharedSectionHeader :tag="t('sections.resources.tag')" :title="t('sections.resources.title')" />
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NuxtLink
+            <component
+              :is="res.disabled ? 'span' : res.url ? 'a' : NuxtLink"
               v-for="(res, i) in resourceList"
               :key="i"
-              :to="localePath(res.path)"
-              class="flex flex-col gap-3 p-6 rounded-14 no-underline transition-transform duration-200 hover:-translate-y-0.5"
-              :class="res.gold ? 'bg-gold' : 'bg-navy border border-border'"
+              v-bind="
+                res.disabled
+                  ? {}
+                  : res.url
+                    ? { href: res.url, target: '_blank', rel: 'noopener noreferrer' }
+                    : { to: localePath(res.path ?? '/') }
+              "
+              class="flex flex-col gap-3 p-6 rounded-14 no-underline transition-transform duration-200"
+              :class="[
+                res.gold ? 'bg-gold' : 'bg-navy border border-border',
+                res.disabled ? 'opacity-55 cursor-default' : 'hover:-translate-y-0.5',
+              ]"
             >
               <div class="text-2xl">{{ res.icon }}</div>
               <div
@@ -141,7 +204,8 @@ const resourceList = computed(() => [
               >
                 {{ t(res.subKey) }}
               </div>
-            </NuxtLink>
+              <span v-if="res.url" class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            </component>
           </div>
         </div>
       </div>

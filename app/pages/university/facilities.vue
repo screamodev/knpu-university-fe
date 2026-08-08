@@ -31,6 +31,11 @@ useHead({
       </p>
 
       <SharedDocumentList section="facilities" />
+
+      <!-- The videos the old site published on this page and on the faculty's own one. -->
+      <div class="mt-14">
+        <SharedStaticPageBody slug="facilities" />
+      </div>
     </div>
   </div>
 </template>

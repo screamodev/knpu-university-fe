@@ -21,11 +21,21 @@ export interface DirectusSchema {
   memorial_entries: DirectusMemorialEntry[]
   newspaper_issues: DirectusNewspaperIssue[]
   documents: DirectusDocument[]
+  monitoring_surveys: DirectusMonitoringSurvey[]
+  monitoring_survey_results: DirectusMonitoringSurveyResult[]
+  accreditation_certificates: DirectusAccreditationCertificate[]
+  accreditation_dossiers: DirectusAccreditationDossier[]
+  accreditation_dossier_files: DirectusAccreditationDossierFile[]
+  contingent_reports: DirectusContingentReport[]
+  science_schools: DirectusScienceSchool[]
+  science_directions: DirectusScienceDirection[]
   partners: DirectusPartner[]
   programmes: DirectusProgramme[]
   prozorro_procurements: DirectusProzorroProcurement[]
   science_conferences: DirectusScienceConference[]
   science_defenses: DirectusScienceDefense[]
+  dissertation_councils: DirectusDissertationCouncil[]
+  dissertation_council_files: DirectusDissertationCouncilFile[]
   student_schedule_documents: DirectusStudentScheduleDocument[]
   university_orders: DirectusUniversityOrder[]
   directus_files: DirectusFile[]
@@ -407,6 +417,128 @@ export interface DirectusDocument {
   order: number
 }
 
+/** Освітній рівень, as used by the accreditation collections. */
+export type EducationLevel = 'bachelor' | 'master' | 'phd'
+
+/** Напрям діяльності a monitoring survey belongs to; groups the list on /education/monitoring. */
+export type MonitoringArea =
+  | 'educational-activity'
+  | 'programme-implementation'
+  | 'phd-programmes'
+  | 'educational-environment'
+  | 'research'
+  | 'other'
+
+/** One questionnaire of the university's monitoring programme. */
+export interface DirectusMonitoringSurvey {
+  id: string
+  status?: DirectusContentStatus
+  /** As numbered on the legacy page: `2`, `11/1`. */
+  number: string | null
+  area: MonitoringArea
+  title: string
+  titleEn: string | null
+  researchGroup: string | null
+  programmeFile: DirectusFile | string | null
+  /** The live Google form, when the survey is still open. */
+  formUrl: string | null
+  order: number
+  results?: DirectusMonitoringSurveyResult[]
+}
+
+/** Results of one questionnaire for one year. */
+export interface DirectusMonitoringSurveyResult {
+  id: string
+  status?: DirectusContentStatus
+  survey: DirectusMonitoringSurvey | string | null
+  /** `2024`, or `2026/2027` for surveys reported per academic year. */
+  year: string | null
+  file: DirectusFile | string | null
+  externalUrl: string | null
+  order: number
+}
+
+/** Сертифікат про акредитацію освітньої програми або спеціальності. */
+export interface DirectusAccreditationCertificate {
+  id: string
+  status?: DirectusContentStatus
+  level: EducationLevel
+  /** Галузь знань, e.g. `01 Освіта/Педагогіка`. */
+  branch: string | null
+  specialtyCode: string | null
+  title: string
+  titleEn: string | null
+  file: DirectusFile | string | null
+  externalUrl: string | null
+  order: number
+}
+
+/** Акредитаційна справа однієї освітньої програми (матеріали НАЗЯВО). */
+export interface DirectusAccreditationDossier {
+  id: string
+  status?: DirectusContentStatus
+  academicYear: string | null
+  level: EducationLevel | null
+  programmeTitle: string
+  order: number
+  files?: DirectusAccreditationDossierFile[]
+}
+
+export type AccreditationDossierKind =
+  | 'self-assessment'
+  | 'visit-program'
+  | 'expert-report'
+  | 'ger-conclusion'
+  | 'naqa-decision'
+  | 'other'
+
+export interface DirectusAccreditationDossierFile {
+  id: string
+  status?: DirectusContentStatus
+  dossier: DirectusAccreditationDossier | string | null
+  kind: AccreditationDossierKind
+  title: string | null
+  file: DirectusFile | string | null
+  externalUrl: string | null
+  order: number
+}
+
+/** Monthly report on the number of students, per form of study. */
+export interface DirectusContingentReport {
+  id: string
+  status?: DirectusContentStatus
+  academicYear: string | null
+  formOfStudy: 'full-time' | 'part-time'
+  reportDate: DirectusDateLike
+  title: string
+  file: DirectusFile | string | null
+  order: number
+}
+
+/** Наукова школа університету. */
+export interface DirectusScienceSchool {
+  id: string
+  status?: DirectusContentStatus
+  name: string
+  nameEn: string | null
+  leader: string | null
+  founder: string | null
+  file: DirectusFile | string | null
+  externalUrl: string | null
+  order: number
+}
+
+/** Напрям наукової або мистецької діяльності однієї кафедри. */
+export interface DirectusScienceDirection {
+  id: string
+  status?: DirectusContentStatus
+  department: string
+  departmentEn: string | null
+  topic: string
+  supervisor: string | null
+  order: number
+}
+
 /** One issue of the university newspaper «Учитель»; the site composes the label itself. */
 export interface DirectusNewspaperIssue {
   id: string
@@ -467,6 +599,59 @@ export interface DirectusScienceDefense {
   result: string | null
   resultEn: string | null
   isUpcoming: boolean
+  order: number
+}
+
+/** Kind of document submitted for a PhD defense; drives the grouping on the council page. */
+export type DissertationCouncilFileKind =
+  | 'dissertation'
+  | 'conclusion'
+  | 'supervisor'
+  | 'opponent'
+  | 'review'
+  | 'decision'
+  | 'video'
+  | 'other'
+
+/**
+ * Разова спеціалізована вчена рада — one PhD defense, migrated from the old site.
+ *
+ * `legacySlug` is both the old path segment and the route on this site: links to these pages are
+ * recorded in the state dissertation register, so the slug must never change.
+ */
+export interface DirectusDissertationCouncil {
+  id: string
+  status?: DirectusContentStatus
+  legacySlug: string
+  councilCode: string | null
+  candidateName: string
+  candidateNameEn: string | null
+  dissertationTitle: string | null
+  dissertationTitleEn: string | null
+  specialty: string | null
+  branch: string | null
+  defenseDate: DirectusDateLike | null
+  defenseTime: string | null
+  year: number | null
+  contentHtml: string | null
+  streamUrl: string | null
+  legacyUrl: string | null
+  order: number
+  files?: DirectusDissertationCouncilFile[]
+}
+
+export interface DirectusDissertationCouncilFile {
+  id: string
+  status?: DirectusContentStatus
+  council?: DirectusDissertationCouncil | string | null
+  kind: DissertationCouncilFileKind | null
+  title: string | null
+  /** Either a re-hosted file… */
+  file: DirectusFile | string | null
+  /** …or a link that stayed where it was (the qualified-signature copies on Google Drive). */
+  externalUrl: string | null
+  /** Path this document had on the old site — what `legacy_redirects` sends visitors from. */
+  legacyPath: string | null
   order: number
 }
 

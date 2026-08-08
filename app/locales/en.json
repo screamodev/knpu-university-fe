@@ -114,10 +114,10 @@
       "programs": "Study programmes",
       "curriculum": "Curriculum",
       "electives": "Elective courses",
-      "processSchedule": "Academic calendar",
+      "processSchedule": "Academic year schedule",
       "accreditation": "Programme accreditation",
       "qualityCenter": "Quality centre",
-      "monitoring": "Quality monitoring",
+      "monitoring": "Monitoring",
       "rankings": "Rankings",
       "practice": "Practical training",
       "distance": "Part-time",
@@ -139,6 +139,7 @@
       "catalog": "Electronic catalog",
       "repository": "eSSPUIR repository",
       "boards": "Specialized boards",
+      "dissertationCouncils": "One-time specialized boards",
       "defenses": "PhD defenses",
       "schedule": "Class schedule",
       "psychology": "Psychological service",
@@ -159,7 +160,12 @@
       "universityVacancies": "University vacancies",
       "attestation": "Staff attestation",
       "languageExam": "State language exam",
-      "announcements": "Announcements"
+      "announcements": "Announcements",
+      "licenses": "Licence and certificates",
+      "scientificSecretary": "Academic secretary office",
+      "academicOffice": "Academic affairs office",
+      "digitalCenter": "Centre for digitalisation of education",
+      "moodle": "Moodle"
     }
   },
   "header": {
@@ -182,16 +188,22 @@
     "titleName": "",
     "subtitle": "A university that educates future teachers and researchers in the spirit of freedom, humanism and a lasting love of knowledge.",
     "ctaApply": "Apply",
-    "ctaAbout": "About the university"
+    "ctaAbout": "About the university",
+    "statGraduatesValue": "90,688",
+    "statGraduatesLabel": "Graduates",
+    "statSpecialtiesValue": "73",
+    "statSpecialtiesLabel": "Specialties",
+    "statProgramsValue": "193",
+    "statProgramsLabel": "Programmes"
   },
   "quickAccess": {
-    "label": "Useful links",
+    "label": "Quick Access",
+    "publicInfo": "Public information",
+    "moodle": "Moodle",
+    "library": "Research library",
     "quality": "Quality of education",
-    "admissions": "Admissions",
-    "abroad": "For Abroad Enrollees",
-    "languageExam": "State language exam",
-    "integrity": "Academic integrity",
-    "eduhub": "Skovoroda Hub"
+    "monitoring": "Monitoring",
+    "anticorruption": "Anti-corruption"
   },
   "sections": {
     "news": {
@@ -424,28 +436,6 @@
       "title": "Volunteering",
       "subtitle": "Students and staff of KhNPU take part in volunteer initiatives for the benefit of society.",
       "intro": "Volunteering at KhNPU is organised across 14 faculty-based volunteer corps. During the full-scale war their activities focus on supporting the Armed Forces of Ukraine, people affected by the war, wounded service members, internally displaced persons, and defenders' families.",
-      "activities": {
-        "humanitarian": {
-          "tag": "Humanitarian aid",
-          "title": "Support for the Armed Forces of Ukraine and affected communities",
-          "text": "Collection of medicines, food, and tactical gear for the Armed Forces of Ukraine. Assistance for civilians and displaced persons, shifts at military hospitals and shelters."
-        },
-        "education": {
-          "tag": "Education and psychology",
-          "title": "Educational and psychological support",
-          "text": "Crisis psychological counselling for people who have experienced trauma. Online classes for students from affected regions. Tactical medicine training for volunteers."
-        },
-        "environment": {
-          "tag": "Social outreach",
-          "title": "Social and environmental initiatives",
-          "text": "Support for children's homes and care institutions, as well as older adults. Helping animals in difficult circumstances. Regular blood donation drives."
-        },
-        "culture": {
-          "tag": "Culture",
-          "title": "Patriotic and cultural events",
-          "text": "Organisation of patriotic events and exhibitions; support for traditional university ceremonies; \"Cossack Glory\" outreach lessons in Kharkiv and regional schools."
-        }
-      },
       "cta": {
         "title": "Join our volunteers",
         "subtitle": "Contact your faculty volunteer corps coordinator or write to inna.chernikova{'@'}hnpu.edu.ua for the \"Cossack Glory\" school programme.",
@@ -661,9 +651,22 @@
         "documentsTitle": "Useful links and documents",
         "newsEmpty": "There are no news items for this unit yet.",
         "newsAll": "All university news",
+        "newsTitleFaculty": "Faculty news",
+        "newsTitleInstitute": "Institute news",
+        "newsTitleUnit": "Unit news",
+        "newsViewAll": "View all news",
         "translationPending": "The English version of this page is still being prepared — the Ukrainian text is shown below.",
         "sourceNote": "Migrated from the university's former website.",
         "sectionsTitle": "Sections and services",
+        "announcementsTitle": "Announcements",
+        "announcementsEmpty": "No announcements yet.",
+        "newsAllFaculty": "All faculty news",
+        "announcementsAllFaculty": "All faculty announcements",
+        "departmentsTitle": "Departments",
+        "departmentsAll": "All departments",
+        "breadcrumbHome": "Home",
+        "ctaApplicant": "For applicants",
+        "ctaGraduate": "For graduates",
         "headTitle": "Head of office",
         "leadership": "Leadership"
       },
@@ -713,38 +716,82 @@
       "title": "Contacts and map",
       "subtitle": "Address, directions, opening hours and contacts of structural units.",
       "addressTitle": "Address and directions",
-      "addressText": "Main building: Kharkiv, 29 Alchevskykh Street, Rector's office 204. Other sites: 2 Valentyrivska Street (former Blucher) and 3 Faninsky Lane.",
+      "addressText": "29 Alchevskykh St., Kharkiv, 61002, Ukraine",
       "phoneEmailTitle": "Phone and email",
       "hoursTitle": "Working hours",
       "hoursText": "Mon–Fri 9:00–16:00 (lunch break 12:00–13:00). In-person visits by appointment.",
-      "departmentsTitle": "Key departments",
-      "departments": {
-        "admissions": {
-          "name": "Admissions committee (priimalna{'@'}hnpu.edu.ua)",
-          "phone": "+38 (050) 657-80-73",
-          "room": "1st floor, rooms 102 and 120"
+      "departmentsTitle": "Services and responsible officers",
+      "campusesTitle": "University buildings",
+      "mapLink": "Show on the map",
+      "referenceTitle": "Reference documents",
+      "services": [
+        {
+          "name": "Rector",
+          "person": "Yurii Boichuk",
+          "phone": "+38 (057) 700-69-09",
+          "email": "rector{'@'}hnpu.edu.ua",
+          "room": "room 204"
         },
-        "international": {
-          "name": "Centre for international activity",
-          "phone": "+38 (057) 700-02-38",
-          "room": "29 Alchevskykh Street"
+        {
+          "name": "Public and media relations office",
+          "email": "press{'@'}hnpu.edu.ua"
         },
-        "deans": {
-          "name": "Distance education administrator (iio.do{'@'}hnpu.edu.ua)",
-          "phone": "+38 (057) 700-02-38",
-          "room": "Room 314"
+        {
+          "name": "Commissioner for the use of the Ukrainian language",
+          "email": "shcherbakovanv72{'@'}hnpu.edu.ua"
         },
-        "library": {
-          "name": "Department of Public Relations and Mass Media (press{'@'}hnpu.edu.ua)",
-          "phone": "+38 (057) 700-02-38",
-          "room": "29 Alchevskykh Street"
+        {
+          "name": "Commissioner for corruption prevention and detection",
+          "person": "Dmytro Razumenko",
+          "phone": "+38 (050) 309-07-95",
+          "email": "anti-corruption{'@'}hnpu.edu.ua",
+          "room": "room 110"
         },
-        "it": {
-          "name": "Anti-corruption affairs (anti-corruption{'@'}hnpu.edu.ua)",
-          "phone": "+38 (067) 713-16-87",
-          "room": "Trust line"
+        {
+          "name": "Trust line",
+          "phone": "+38 (050) 309-07-95"
+        },
+        {
+          "name": "Preventing and countering discrimination",
+          "email": "non_discrimination{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Countering bullying",
+          "email": "stopbullying{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Academic ethics and integrity",
+          "email": "ethics{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Distance learning administrator",
+          "email": "iio.do{'@'}hnpu.edu.ua",
+          "room": "room 314"
+        },
+        {
+          "name": "Admissions office",
+          "phone": "+38 (057) 700-35-20",
+          "email": "priimalna{'@'}hnpu.edu.ua",
+          "room": "room 214, 2nd floor"
         }
-      }
+      ],
+      "campuses": [
+        {
+          "name": "Main building",
+          "address": "29 Alchevskykh St., Kharkiv, 61002",
+          "mapUrl": "https://www.google.com/maps?q=50.005008,36.242543"
+        },
+        {
+          "name": "Valentynivska building",
+          "address": "2 Valentynivska St., Kharkiv",
+          "mapUrl": "https://www.google.com/maps?q=50.01946,36.319404"
+        },
+        {
+          "name": "Faninskyi building",
+          "address": "3 Faninskyi Lane, Kharkiv",
+          "mapUrl": "https://www.google.com/maps?q=50.018343,36.236246"
+        }
+      ]
     },
     "statute": {
       "tag": "Transparency",
@@ -1053,6 +1100,26 @@
       "tag": "For visitors",
       "title": "State Language Examination 2.0",
       "subtitle": "Taking the Ukrainian language proficiency examination required for public service positions at H.S. Skovoroda KhNPU."
+    },
+    "licenses": {
+      "tag": "University",
+      "title": "Licence, certificates and awards",
+      "subtitle": "Documents confirming the university’s right to provide education.",
+      "intro": "The university operates under a licence issued by the Ministry of Education and Science of Ukraine. Its quality management system is certified; accreditation certificates for individual programmes are collected on the Programme accreditation page.",
+      "licenceTitle": "Licence and certificates",
+      "awardsTitle": "Awards",
+      "awardsIntro": "Awards of the «Modern Education in Ukraine» exhibition held by the Ministry of Education and Science of Ukraine.",
+      "accreditationTitle": "Accreditation certificates",
+      "accreditationText": "Accreditation certificates are grouped by level of higher education and field of knowledge.",
+      "accreditationLink": "Go to accreditation certificates"
+    },
+    "scientificSecretary": {
+      "tag": "University",
+      "title": "Academic secretary office",
+      "subtitle": "The office supporting the work of the Academic Council.",
+      "documentsTitle": "Documents",
+      "councilLink": "Composition and powers of the collegial governing body",
+      "boardsLink": "Boards authorised to hold dissertation defences"
     }
   },
   "admissions": {
@@ -1293,15 +1360,12 @@
         }
       },
       "documentsTitle": "Useful documents and links",
-      "doc1": "Rules of admission to KhNPU for higher education in 2026 (PDF)",
-      "doc2": "Admissions committee documentation hub",
-      "doc3": "Regulatory documents (licence, certificates)",
       "doc4": "Ukrainian legislation on the admissions campaign (Ministry of Education and Science)",
-      "doc5": "Admissions campaign archives 2020–2025",
       "ctaTitle": "Next steps",
       "ctaText": "Detailed timelines, competition offers, and application filing are published in the Rules of Admission and in the national applicant e-cabinet.",
       "ctaPrimary": "Admission rules 2026",
-      "ctaSecondary": "EDEBO — submit an application"
+      "ctaSecondary": "EDEBO — submit an application",
+      "externalTitle": "External resources"
     },
     "specialties": {
       "tag": "Admissions",
@@ -2077,57 +2141,75 @@
         }
       },
       "tableEvent": "Event",
-      "tableDate": "Date"
+      "tableDate": "Date",
+      "documentsTitle": "Approved schedules",
+      "contingentLink": "Student numbers",
+      "officeLink": "The office preparing the schedules"
     },
     "accreditation": {
       "tag": "Education",
       "title": "Programme accreditation",
       "subtitle": "Information on programme accreditation and validity periods.",
       "intro": "Study programmes are accredited periodically by NAQA. Below is the accreditation status of our main programmes.",
-      "cardsTitle": "Accredited programmes",
+      "cardsTitle": "Accreditation certificates",
       "statusActive": "Active",
       "calloutTitle": "About the accreditation process",
-      "calloutText": "Periodic accreditation confirms that programmes meet national legal requirements and quality standards. The university undergoes external review and reports to NAQA."
+      "calloutText": "Periodic accreditation confirms that programmes meet national legal requirements and quality standards. The university undergoes external review and reports to NAQA.",
+      "levels": {
+        "bachelor": "First (bachelor’s) level",
+        "master": "Second (master’s) level",
+        "phd": "Third (PhD) level"
+      },
+      "otherBranch": "Other programmes",
+      "dossiersLink": "Programme accreditation dossiers",
+      "licenceLink": "University licence and certificates"
     },
     "quality": {
       "tag": "Education",
       "title": "Centre for Educational Quality Assurance",
       "subtitle": "The unit running the internal quality assurance system.",
-      "contentPending": "This section is being prepared — the quality centre will supply the content.",
       "tabs": {
         "home": "Home",
         "news": "News",
         "regulations": "Regulations",
-        "documents": "Documents",
         "students": "For students",
         "quality": "Educational quality",
         "programmes": "Study programmes",
         "accreditation": "Accreditation"
+      },
+      "newsPending": "The centre’s news will be migrated together with the archive of its site.",
+      "studentsIntro": "The centre’s materials for students are collected on the relevant pages of this site.",
+      "qualityIntro": "The centre runs the internal quality assurance system: monitoring studies, academic integrity and work with programme guarantors.",
+      "accreditationIntro": "Accreditation dossiers: self-assessment reports, expert visit programmes, expert reports and decisions of the National Agency.",
+      "dossierYear": "Accreditation, academic year {year}",
+      "certificatesLink": "Accreditation certificates",
+      "dossierKinds": {
+        "self-assessment": "Self-assessment report",
+        "visit-program": "Expert group visit programme",
+        "expert-report": "Expert group report",
+        "ger-conclusion": "Sectoral expert council conclusion",
+        "naqa-decision": "Decision of the National Agency",
+        "other": "Dossier document"
       }
     },
     "monitoring": {
       "tag": "Education",
-      "title": "Quality monitoring",
-      "subtitle": "Methodology and tools for assessing education quality.",
-      "intro": "Quality monitoring includes student surveys, external panels, graduate tracking and employer feedback.",
-      "methodologyTitle": "Methodology",
-      "methodology": {
-        "m1": {
-          "title": "Student surveys",
-          "text": "Regular course and programme evaluations with actionable feedback to faculties."
-        },
-        "m2": {
-          "title": "External review",
-          "text": "External experts review curricula, materials and graduate achievement indicators."
-        },
-        "m3": {
-          "title": "Graduate tracking",
-          "text": "Longitudinal follow-up with graduates on employment and professional development."
-        },
-        "m4": {
-          "title": "Employer feedback",
-          "text": "Employers report on competences and suggest updates to practice-oriented courses."
-        }
+      "title": "Monitoring",
+      "subtitle": "Monitoring studies across the university’s areas of activity.",
+      "intro": "Monitoring covers teaching, the delivery of study and PhD programmes, and the learning environment. Each questionnaire is published with its research programme and yearly results.",
+      "documentsTitle": "Regulations",
+      "surveysTitle": "Questionnaires and results",
+      "surveysIntro": "Questionnaires are grouped by area of activity. A title links to the survey form when it is still open.",
+      "programmeLabel": "Research programme",
+      "resultsLabel": "Results",
+      "researchGroupLabel": "Research team",
+      "areas": {
+        "educational-activity": "Teaching and learning",
+        "programme-implementation": "Delivery of study programmes",
+        "phd-programmes": "Delivery of PhD programmes",
+        "educational-environment": "Learning environment",
+        "research": "Research activity",
+        "other": "Other studies"
       }
     },
     "rankings": {
@@ -2332,47 +2414,51 @@
     "students": {
       "tag": "Education",
       "title": "Student body",
-      "subtitle": "Statistics and structure of the university student body."
+      "subtitle": "Statistics and structure of the university student body.",
+      "intro": "The academic affairs office publishes monthly figures for full-time and part-time students.",
+      "academicYear": "Academic year {year}",
+      "forms": {
+        "full-time": "Full-time",
+        "part-time": "Part-time"
+      },
+      "scheduleLink": "Academic year schedules by level",
+      "officeLink": "The office keeping these records"
+    },
+    "academicOffice": {
+      "tag": "Education",
+      "title": "Academic affairs office",
+      "subtitle": "Planning, organising and monitoring teaching and methodological work.",
+      "documentsTitle": "Documents",
+      "scheduleLink": "Academic year schedules",
+      "contingentLink": "Student numbers",
+      "programsLink": "Study programmes"
+    },
+    "digitalCenter": {
+      "tag": "Education",
+      "title": "Centre for digitalisation of education",
+      "subtitle": "Digital services of the learning process: Moodle, corporate accounts, technical support.",
+      "documentsTitle": "Guides and documents",
+      "tiles": {
+        "moodle": "Moodle platform",
+        "support": "Technical support: support{'@'}hnpu.edu.ua",
+        "centre": "Centre: cdo{'@'}hnpu.edu.ua"
+      }
     }
   },
   "science": {
     "directions": {
       "tag": "Science",
-      "title": "Research areas and schools",
-      "subtitle": "Research schools at the university and their lead researchers.",
-      "intro": "KhNPU hosts research schools in pedagogy, linguistics, psychology, mathematics, history and natural sciences.",
-      "schools": {
-        "pedagogy": {
-          "name": "Pedagogical school",
-          "est": "Est. 1992",
-          "description": "Theory and practice of teaching, comparative pedagogy and school improvement research."
-        },
-        "linguistics": {
-          "name": "Linguistic school",
-          "est": "Est. 1988",
-          "description": "Ukrainian and contrastive linguistics, language policy and literary studies."
-        },
-        "psychology": {
-          "name": "Psychology school",
-          "est": "Est. 1995",
-          "description": "Developmental, educational and applied psychology for learning and well-being."
-        },
-        "mathematics": {
-          "name": "Mathematics school",
-          "est": "Est. 1990",
-          "description": "Mathematics education, didactics of STEM subjects and assessment research."
-        },
-        "history": {
-          "name": "History school",
-          "est": "Est. 1985",
-          "description": "History of Ukraine and regional studies in education and culture."
-        },
-        "naturalSciences": {
-          "name": "Natural sciences school",
-          "est": "Est. 1993",
-          "description": "Natural science education, biology and chemistry didactics, environmental research."
-        }
-      }
+      "title": "Research and artistic activity",
+      "subtitle": "The university’s research schools and the research areas of its departments.",
+      "intro": "Research at the university is carried out within its research schools and the areas pursued by academic departments.",
+      "schoolsTitle": "Research schools",
+      "schoolsIntro": "Schools are listed with their leaders and founders as published by the university.",
+      "schoolsDocumentsTitle": "Regulations",
+      "leaderLabel": "Head",
+      "founderLabel": "Founder",
+      "schoolLink": "School materials",
+      "departmentsTitle": "Departmental research areas",
+      "departmentsIntro": "Main areas of research and artistic activity of the departments, with their academic supervisors."
     },
     "institutes": {
       "tag": "Science",
@@ -2840,7 +2926,42 @@
       "tag": "Science",
       "title": "Specialized academic boards",
       "subtitle": "Boards with the right to consider and conduct dissertation defenses.",
-      "intro": "Specialised academic boards are authorised to review dissertations in defined scientific fields."
+      "intro": "Specialised academic boards are authorised to review dissertations in defined scientific fields.",
+      "councilLabel": "Specialised academic board",
+      "councils": {
+        "pedagogy": "Pedagogical sciences",
+        "philology": "Philology — language",
+        "psychology": "Psychology"
+      },
+      "documentsTitle": "Documents",
+      "secretaryLink": "The office supporting the boards",
+      "defensesLink": "Dissertation defence announcements"
+    },
+    "dissertationCouncils": {
+      "tag": "Science",
+      "title": "One-time specialized academic boards",
+      "subtitle": "Defences of dissertations for the degree of Doctor of Philosophy.",
+      "intro": "A separate one-time board is formed for every defence. Listed below are all such boards of the university, together with the documents submitted for the defence: the dissertation, the conclusions, the opponents' reviews and the decision awarding the degree.",
+      "searchLabel": "Search by candidate or board code",
+      "searchPlaceholder": "Name, topic or board code",
+      "undatedGroup": "No year",
+      "dateUnset": "Date not announced",
+      "empty": "No boards match this search.",
+      "documentsTitle": "Documents submitted for the defence",
+      "fieldBranch": "Field of knowledge",
+      "fieldSpecialty": "Specialty",
+      "fieldDefense": "Defence",
+      "boardsLink": "The university's standing boards",
+      "kinds": {
+        "dissertation": "Dissertation",
+        "conclusion": "Conclusion on scientific novelty",
+        "supervisor": "Supervisor's conclusion",
+        "opponent": "Opponent's review",
+        "review": "Reviewer's report",
+        "decision": "Decision awarding the degree",
+        "video": "Recording of the defence",
+        "other": "Other document"
+      }
     },
     "defenses": {
       "tag": "Science",
@@ -2883,21 +3004,29 @@
     "noPartners": "No partners found."
   },
   "resources": {
-    "library": {
-      "title": "Research library",
-      "sub": "761,955 items"
+    "quality": {
+      "title": "Quality of education",
+      "sub": "Quality assurance centre"
     },
     "vstup": {
-      "title": "Admissions 2026",
-      "sub": "Apply"
+      "title": "Admissions",
+      "sub": "Admissions office"
     },
-    "career": {
-      "title": "Career centre",
-      "sub": "Vacancies and internships"
+    "abroad": {
+      "title": "For Abroad Enrollees",
+      "sub": "Coming soon"
     },
-    "erasmus": {
-      "title": "Erasmus+",
-      "sub": "Academic mobility"
+    "languageExam": {
+      "title": "State language proficiency exam",
+      "sub": "State language"
+    },
+    "integrity": {
+      "title": "Integrity",
+      "sub": "Academic integrity"
+    },
+    "eduhub": {
+      "title": "Skovoroda Hub",
+      "sub": "Event calendar"
     }
   },
   "footer": {
@@ -3448,7 +3577,39 @@
       "cardGeneralBody": "Call the main university line during published hours or write to the rectorate mailbox for formal correspondence.",
       "cardAdmissionsTitle": "Admissions committee",
       "cardAdmissionsBody": "Competition lists, document submission, and entrance exams are handled exclusively by the admissions office. See the dedicated page for direct contacts.",
-      "admissionsPageLink": "Go to “Ask a question online”"
+      "admissionsPageLink": "Go to “Ask a question online”",
+      "topicsTitle": "Where to write",
+      "topicsIntro": "Enquiries are handled by the relevant university service — pick the right address.",
+      "topics": [
+        {
+          "name": "Questions to the rector",
+          "email": "rector{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Admissions questions",
+          "email": "priimalna{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Corruption prevention",
+          "email": "anti-corruption{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Countering discrimination",
+          "email": "non_discrimination{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Countering bullying",
+          "email": "stopbullying{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Academic ethics and integrity",
+          "email": "ethics{'@'}hnpu.edu.ua"
+        },
+        {
+          "name": "Website technical support",
+          "email": "support{'@'}hnpu.edu.ua"
+        }
+      ]
     },
     "admissionsAsk": {
       "tag": "Admissions",

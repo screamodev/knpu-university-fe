@@ -1,3 +1,5 @@
+import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
+
 /**
  * University structure — single source of truth for the /university/structure section.
  *
@@ -623,6 +625,9 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         name: 'Уповноважений підрозділ з питань запобігання та виявлення корупції',
         nameEn: 'Authorised Unit for Corruption Prevention and Detection',
+        // The unit keeps its work on a Google site; the client asked the structure entry to lead
+        // there rather than to the internal placeholder page.
+        external: ANTICORRUPTION_EXTERNAL_URL,
       },
     ],
   },

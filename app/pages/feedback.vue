@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
-const { t, localePath } = useSafeI18nWithRouter()
+const { t, tm, localePath } = useSafeI18nWithRouter()
 
 useSeoMeta({
   title: () => t('seo.feedback.title'),
@@ -14,6 +14,21 @@ function mailHref(messageKey: string): string {
 
 const utilityMail = computed(() => mailHref('utility.email'))
 const utilityTel = computed(() => `tel:${t('utility.phone').replace(/\s/g, '')}`)
+
+/**
+ * The old site routed enquiries through a form with a «Категорія» dropdown; each category has its
+ * own mailbox, so the categories are published as addresses instead of rebuilding the form.
+ */
+const TOPICS_KEY = 'standalonePages.feedback.topics'
+
+const topics = computed(() => {
+  const rows = tm(TOPICS_KEY)
+  if (!Array.isArray(rows)) return []
+  return rows.map((_, index) => ({
+    name: t(`${TOPICS_KEY}.${index}.name`),
+    email: t(`${TOPICS_KEY}.${index}.email`).replace(/\{'@'\}/g, '@'),
+  }))
+})
 </script>
 
 <template>
@@ -68,6 +83,29 @@ const utilityTel = computed(() => `tel:${t('utility.phone').replace(/\s/g, '')}`
           </NuxtLink>
         </article>
       </div>
+
+      <!-- Categories of the old feedback form, as the mailboxes that handle them -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-2">
+        {{ t('standalonePages.feedback.topicsTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('standalonePages.feedback.topicsIntro') }}
+      </p>
+      <ul class="list-none p-0 m-0 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl">
+        <li
+          v-for="topic in topics"
+          :key="topic.email"
+          class="border border-border rounded-12 px-4 py-3 flex flex-col gap-0.5"
+        >
+          <span class="font-medium text-navy">{{ topic.name }}</span>
+          <a
+            :href="`mailto:${topic.email}`"
+            class="text-body-sm text-navy underline hover:text-gold break-all"
+          >
+            {{ topic.email }}
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

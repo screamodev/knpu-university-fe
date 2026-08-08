@@ -19,26 +19,14 @@ function telHref(phoneLabel: string): string {
   return `tel:${digits}`
 }
 
-const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
-  {
-    href: 'https://hnpu.edu.ua/sites/default/files/files/Priimalna/2026%20pk/PravylaPryjomu_2026/2026__00_Pravyla%20pryjomu%20do%20KhNPU%20_2026_04_21_.pdf',
-    labelKey: 'admissions.committee.doc1',
-  },
-  {
-    href: 'https://hnpu.edu.ua/uk/dokumentaciya-pryymalnoyi-komisiyi',
-    labelKey: 'admissions.committee.doc2',
-  },
-  {
-    href: 'https://hnpu.edu.ua/uk/normatyvna-dokumentaciya-licenziya-sertyfikaty-0',
-    labelKey: 'admissions.committee.doc3',
-  },
+/**
+ * Ministry pages the committee links to; everything the university itself publishes now lives in
+ * the `documents` collection under `admissions-committee`, migrated from the old site.
+ */
+const externalLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
   {
     href: 'https://mon.gov.ua/osvita-2/vishcha-osvita-ta-osvita-doroslikh/vstupna-kampaniia-do-zvo/vstupna-kampaniia-do-zakladiv-vyshchoi-osvity-2026-roku',
     labelKey: 'admissions.committee.doc4',
-  },
-  {
-    href: 'https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2025-roku',
-    labelKey: 'admissions.committee.doc5',
   },
 ]
 </script>
@@ -142,8 +130,13 @@ const documentLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
         <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
           {{ t('admissions.committee.documentsTitle') }}
         </h2>
+        <SharedDocumentList section="admissions-committee" />
+
+        <h3 class="font-playfair text-lg font-semibold text-navy mt-10 mb-4">
+          {{ t('admissions.committee.externalTitle') }}
+        </h3>
         <ul class="space-y-3 list-none p-0">
-          <li v-for="item in documentLinks" :key="item.href">
+          <li v-for="item in externalLinks" :key="item.href">
             <a
               :href="item.href"
               class="text-body text-navy underline hover:text-gold inline-flex items-center gap-1"

@@ -158,96 +158,94 @@ const localizedBody = computed(() => {
 
     <!-- Article body -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div class="max-w-3xl">
-        <!-- Back link -->
+      <!-- Back link -->
+      <NuxtLink
+        :to="localePath('/news')"
+        class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-navy transition-colors mb-8 no-underline"
+      >
+        <span>←</span>
+        {{ t('news.backToNews') }}
+      </NuxtLink>
+
+      <!-- Metadata row -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-muted mb-8 pb-8 border-b border-border">
+        <span v-if="articlePublishedAt(article)">
+          <span class="font-medium text-slate-600">{{ t('news.published') }}:</span>
+          {{ formatDate(articlePublishedAt(article)) }}
+        </span>
+        <span v-if="article.author">
+          <span class="font-medium text-slate-600">{{ t('news.author') }}:</span>
+          {{ article.author }}
+        </span>
+      </div>
+
+      <!-- Excerpt -->
+      <p
+        v-if="localized(article, 'excerpt')"
+        class="text-lead font-medium text-slate-700 mb-8 leading-relaxed"
+      >
+        {{ localized(article, 'excerpt') }}
+      </p>
+
+      <!-- Rich-text body -->
+      <NewsMarkdownBody
+        v-if="localizedBody.kind === 'markdown' || localizedBody.kind === 'html'"
+        :source="localizedBody.source"
+        :kind="localizedBody.kind"
+      />
+      <NewsRichText
+        v-else-if="localizedBody.blocks.length"
+        :blocks="localizedBody.blocks"
+      />
+
+      <!-- Photo gallery (carousel when multiple images) -->
+      <div
+        v-if="photoAttachments.length"
+        class="mt-12 pt-8 border-t border-border"
+      >
+        <NewsImageCarousel
+          :images="photoAttachments"
+          :label="t('news.carousel.label')"
+        />
+      </div>
+
+      <!-- Non-image attachments -->
+      <div
+        v-if="fileAttachments.length"
+        class="mt-12 pt-8 border-t border-border"
+      >
+        <h2 class="font-playfair text-xl font-semibold text-navy mb-4">
+          {{ t('news.attachments') }}
+        </h2>
+        <ul class="space-y-2">
+          <li v-for="attachment in fileAttachments" :key="attachment.key">
+            <a
+              :href="attachment.href"
+              :download="attachment.downloadable ? attachment.label : undefined"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors text-sm underline"
+            >
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              {{ attachment.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Back to news (bottom) -->
+      <div class="mt-12 pt-8 border-t border-border">
         <NuxtLink
           :to="localePath('/news')"
-          class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-navy transition-colors mb-8 no-underline"
+          class="inline-flex items-center gap-2 px-5 py-2.5 border border-navy rounded-10 text-sm font-medium text-navy hover:bg-navy hover:text-white transition-colors duration-280 no-underline"
         >
           <span>←</span>
           {{ t('news.backToNews') }}
         </NuxtLink>
-
-        <!-- Metadata row -->
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-muted mb-8 pb-8 border-b border-border">
-          <span v-if="articlePublishedAt(article)">
-            <span class="font-medium text-slate-600">{{ t('news.published') }}:</span>
-            {{ formatDate(articlePublishedAt(article)) }}
-          </span>
-          <span v-if="article.author">
-            <span class="font-medium text-slate-600">{{ t('news.author') }}:</span>
-            {{ article.author }}
-          </span>
-        </div>
-
-        <!-- Excerpt -->
-        <p
-          v-if="localized(article, 'excerpt')"
-          class="text-lead font-medium text-slate-700 mb-8 leading-relaxed"
-        >
-          {{ localized(article, 'excerpt') }}
-        </p>
-
-        <!-- Rich-text body -->
-        <NewsMarkdownBody
-          v-if="localizedBody.kind === 'markdown' || localizedBody.kind === 'html'"
-          :source="localizedBody.source"
-          :kind="localizedBody.kind"
-        />
-        <NewsRichText
-          v-else-if="localizedBody.blocks.length"
-          :blocks="localizedBody.blocks"
-        />
-
-        <!-- Photo gallery (carousel when multiple images) -->
-        <div
-          v-if="photoAttachments.length"
-          class="mt-12 pt-8 border-t border-border"
-        >
-          <NewsImageCarousel
-            :images="photoAttachments"
-            :label="t('news.carousel.label')"
-          />
-        </div>
-
-        <!-- Non-image attachments -->
-        <div
-          v-if="fileAttachments.length"
-          class="mt-12 pt-8 border-t border-border"
-        >
-          <h2 class="font-playfair text-xl font-semibold text-navy mb-4">
-            {{ t('news.attachments') }}
-          </h2>
-          <ul class="space-y-2">
-            <li v-for="attachment in fileAttachments" :key="attachment.key">
-              <a
-                :href="attachment.href"
-                :download="attachment.downloadable ? attachment.label : undefined"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors text-sm underline"
-              >
-                <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                {{ attachment.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Back to news (bottom) -->
-        <div class="mt-12 pt-8 border-t border-border">
-          <NuxtLink
-            :to="localePath('/news')"
-            class="inline-flex items-center gap-2 px-5 py-2.5 border border-navy rounded-10 text-sm font-medium text-navy hover:bg-navy hover:text-white transition-colors duration-280 no-underline"
-          >
-            <span>←</span>
-            {{ t('news.backToNews') }}
-          </NuxtLink>
-        </div>
       </div>
     </div>
   </div>

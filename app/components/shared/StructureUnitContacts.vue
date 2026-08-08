@@ -33,13 +33,10 @@ const hasAny = computed(() =>
 </script>
 
 <template>
-  <!--
-    `self-start` keeps the card at the height of its own content: as a grid item it would
-    otherwise stretch over the whole (very tall) main column, which also made `lg:sticky` inert.
-  -->
-  <aside
+  <!-- Card only — sticky positioning lives on the parent sidebar stack in StructureUnitPage. -->
+  <div
     v-if="hasAny"
-    class="self-start bg-off-white border border-border rounded-16 p-5 lg:sticky lg:top-6"
+    class="bg-off-white border border-border rounded-16 p-5"
   >
     <h2 class="font-playfair text-lg font-bold text-navy mb-4">
       {{ t('university.structure.unit.contactsTitle') }}
@@ -110,5 +107,5 @@ const hasAny = computed(() =>
         </li>
       </ul>
     </div>
-  </aside>
+  </div>
 </template>

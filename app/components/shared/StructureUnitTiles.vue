@@ -28,6 +28,10 @@ const TAB_ICONS: Record<StructureTabId, LinkTileIcon> = {
   students: 'students',
   news: 'globe',
   cooperation: 'shield',
+  // Tabs of the відділ аспірантури і докторантури, which is not a faculty.
+  doctoral: 'award',
+  regulations: 'document',
+  announcements: 'globe',
 }
 
 const { data } = await useAsyncData(
@@ -55,7 +59,7 @@ const tiles = computed<LinkTile[]>(() => [
 </script>
 
 <template>
-  <section v-if="tiles.length" class="mt-12 pt-8 border-t border-border">
+  <section v-if="tiles.length" class="py-12 border-t border-border">
     <h2 class="font-playfair text-xl font-bold text-navy mb-6">
       {{ t('university.structure.unit.sectionsTitle') }}
     </h2>

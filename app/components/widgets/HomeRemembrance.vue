@@ -3,7 +3,7 @@ const { t, localePath } = useSafeI18nWithRouter()
 </script>
 
 <template>
-  <section class="py-20 bg-white">
+  <section class="pt-20 pb-10 bg-white">
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
       <SharedSectionHeader :tag="t('sections.remembrance.tag')" :title="t('sections.remembrance.title')" />
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12">

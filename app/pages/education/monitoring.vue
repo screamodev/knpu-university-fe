@@ -1,14 +1,97 @@
 <script setup lang="ts">
+import { readItems } from '@directus/sdk'
+import type { FileLinkItem } from '~/components/shared/FileLinkList.vue'
+import type { DirectusMonitoringSurvey, MonitoringArea } from '~/types/directus'
+
+/**
+ * Моніторинг.
+ *
+ * The legacy page was one 300-link wall: ~50 questionnaires, each with a programme PDF and a row
+ * of yearly results. Here each напрям діяльності is a collapsed group, and a survey shows its
+ * research team, the programme and its results in one card — the same data, findable.
+ */
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, locale } = useSafeI18nWithRouter()
+const { client } = useDirectus()
+const { localized } = useLocalizedField()
 
 useHead({
   title: () => t('nav.links.monitoring'),
   meta: [{ name: 'description', content: () => t('education.monitoring.subtitle') }],
 })
 
-const methodologyIds = ['m1', 'm2', 'm3', 'm4'] as const
+const AREAS: MonitoringArea[] = [
+  'educational-activity',
+  'programme-implementation',
+  'phd-programmes',
+  'educational-environment',
+  'research',
+  'other',
+]
+
+const { data, pending } = await useAsyncData('monitoring-surveys', () =>
+  client.request(
+    readItems('monitoring_surveys', {
+      fields: [
+        'id',
+        'number',
+        'area',
+        'title',
+        'titleEn',
+        'researchGroup',
+        'formUrl',
+        'order',
+        { programmeFile: ['id', 'filename_download', 'filesize', 'type'] },
+        {
+          results: [
+            'id',
+            'year',
+            'externalUrl',
+            'order',
+            'status',
+            { file: ['id', 'filename_download', 'filesize', 'type'] },
+          ],
+        },
+      ],
+      sort: ['order'],
+      filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+const surveys = computed<DirectusMonitoringSurvey[]>(
+  () => (data.value as DirectusMonitoringSurvey[] | null) ?? [],
+)
+
+const groups = computed(() =>
+  AREAS
+    .map(area => ({ area, items: surveys.value.filter(survey => survey.area === area) }))
+    .filter(group => group.items.length > 0),
+)
+
+/** Results are stored newest-last on the legacy page; show the most recent year first. */
+function resultItems(survey: DirectusMonitoringSurvey): FileLinkItem[] {
+  return [...(survey.results ?? [])]
+    .filter(result => result.status !== 'draft' && result.status !== 'archived')
+    .sort((left, right) => String(right.year ?? '').localeCompare(String(left.year ?? '')))
+    .map(result => ({
+      id: result.id,
+      title: result.year || t('education.monitoring.resultsLabel'),
+      file: result.file,
+      externalUrl: result.externalUrl,
+    }))
+}
+
+function programmeItems(survey: DirectusMonitoringSurvey): FileLinkItem[] {
+  if (!survey.programmeFile) return []
+  return [{
+    id: `${survey.id}-programme`,
+    title: t('education.monitoring.programmeLabel'),
+    file: survey.programmeFile,
+  }]
+}
 </script>
 
 <template>
@@ -28,40 +111,83 @@ const methodologyIds = ['m1', 'm2', 'm3', 'm4'] as const
       </div>
     </div>
 
-    <!-- Intro -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <p class="text-body text-text-muted max-w-3xl mb-12">
         {{ t('education.monitoring.intro') }}
       </p>
 
-      <!-- Methodology cards: 2x2 grid -->
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-        {{ t('education.monitoring.methodologyTitle') }}
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('education.monitoring.documentsTitle') }}
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-14">
-        <article
-          v-for="id in methodologyIds"
-          :key="id"
-          class="bg-off-white border border-border rounded-16 p-6 flex gap-4"
-        >
-          <div
-            class="w-12 h-12 rounded-12 bg-gold/15 flex items-center justify-center text-gold shrink-0"
-          >
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`education.monitoring.methodology.${id}.title`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`education.monitoring.methodology.${id}.text`) }}
-            </p>
-          </div>
-        </article>
+      <SharedDocumentList section="monitoring" />
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-2">
+        {{ t('education.monitoring.surveysTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('education.monitoring.surveysIntro') }}
+      </p>
+
+      <div v-if="pending" class="space-y-3">
+        <div v-for="i in 4" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
       </div>
 
+      <div v-else-if="groups.length" class="space-y-4">
+        <SharedAccordion
+          v-for="(group, index) in groups"
+          :key="group.area"
+          :title="t(`education.monitoring.areas.${group.area}`)"
+          :hint="`${group.items.length}`"
+          :open="index === 0"
+        >
+          <div class="space-y-6 pt-4">
+            <article
+              v-for="survey in group.items"
+              :key="survey.id"
+              class="border-l-4 border-gold pl-4 sm:pl-5"
+            >
+              <h3 class="font-medium text-navy">
+                <a
+                  v-if="survey.formUrl"
+                  :href="survey.formUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-navy hover:text-gold no-underline"
+                >
+                  {{ localized(survey, 'title') }}
+                  <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+                </a>
+                <template v-else>{{ localized(survey, 'title') }}</template>
+              </h3>
+              <p v-if="survey.researchGroup" class="text-body-sm text-text-muted mt-1">
+                {{ t('education.monitoring.researchGroupLabel') }}: {{ survey.researchGroup }}
+              </p>
+
+              <div class="mt-3 space-y-2">
+                <SharedFileLinkList
+                  v-if="programmeItems(survey).length"
+                  :items="programmeItems(survey)"
+                  dense
+                />
+                <div v-if="resultItems(survey).length">
+                  <p class="text-body-sm font-semibold text-navy mb-1.5">
+                    {{ t('education.monitoring.resultsLabel') }}
+                  </p>
+                  <SharedFileLinkList :items="resultItems(survey)" dense />
+                </div>
+                <p
+                  v-if="!programmeItems(survey).length && !resultItems(survey).length"
+                  class="text-body-sm text-text-muted"
+                >
+                  {{ locale === 'en' ? 'Results are not published yet.' : 'Результати ще не оприлюднені.' }}
+                </p>
+              </div>
+            </article>
+          </div>
+        </SharedAccordion>
+      </div>
+
+      <SharedSectionPending v-else />
     </div>
   </div>
 </template>

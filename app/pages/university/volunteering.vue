@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Волонтерський рух.
+ *
+ * The four «напрями» cards here were invented; the university's own account of its volunteer
+ * work — with photos and a film — is migrated into `app/content/pages/volunteering.uk.json`.
+ */
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
@@ -7,8 +13,6 @@ useHead({
   title: () => t('nav.links.volunteering'),
   meta: [{ name: 'description', content: () => t('university.volunteering.subtitle') }],
 })
-
-const activityKeys = ['humanitarian', 'education', 'environment', 'culture'] as const
 </script>
 
 <template>
@@ -28,49 +32,13 @@ const activityKeys = ['humanitarian', 'education', 'environment', 'culture'] as 
       </div>
     </div>
 
-    <!-- Intro -->
+    <!-- Intro + the university's own account of its volunteer work -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="max-w-3xl text-body text-text-muted">
+      <p class="max-w-3xl text-body text-text-muted mb-10">
         {{ t('university.volunteering.intro') }}
       </p>
-    </div>
 
-    <!-- Activity cards 2x2 -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div
-          v-for="key in activityKeys"
-          :key="key"
-          class="group bg-off-white border border-border rounded-16 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold hover:-translate-y-1 hover:shadow-gold"
-        >
-          <div
-            class="h-48 bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
-          >
-            <svg
-              class="w-12 h-12 text-gold/30 transition-transform duration-280 group-hover:scale-110"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-            >
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </div>
-          <div class="p-5 flex flex-col flex-1">
-            <div class="text-[11px] font-semibold tracking-wider uppercase text-gold mb-2">
-              {{ t(`university.volunteering.activities.${key}.tag`) }}
-            </div>
-            <h3 class="font-playfair text-[16px] font-semibold text-navy leading-snug mb-2">
-              {{ t(`university.volunteering.activities.${key}.title`) }}
-            </h3>
-            <p class="text-sm text-text-muted line-clamp-3 flex-1">
-              {{ t(`university.volunteering.activities.${key}.text`) }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <SharedStaticPageBody slug="volunteering" />
     </div>
 
     <!-- CTA banner (AnnouncementBanner pattern) -->
@@ -85,7 +53,7 @@ const activityKeys = ['humanitarian', 'education', 'environment', 'culture'] as 
           </p>
         </div>
         <NuxtLink
-          :to="localePath('/contacts')"
+          :to="localePath('/university/contacts')"
           class="shrink-0 py-3.5 px-9 bg-gold text-navy-deep no-underline rounded-[10px] font-bold text-sm font-geologica transition-all duration-280 hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
         >
           {{ t('university.volunteering.cta.button') }} →

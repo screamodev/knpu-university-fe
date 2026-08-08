@@ -7,6 +7,7 @@ definePageMeta({ layout: 'default' })
 const { t, locale } = useSafeI18nWithRouter()
 const { client } = useDirectus()
 const { localized } = useLocalizedField()
+const localePath = useLocalePath()
 
 useHead({
   title: () => t('nav.links.processSchedule'),
@@ -226,6 +227,37 @@ function periodTypeLabel(periodType: DirectusEducationSchedulePeriod['periodType
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Затверджені графіки, як їх публікує навчальний відділ -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('education.schedule.documentsTitle') }}
+      </h2>
+      <SharedDocumentList section="education-schedule" />
+
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <NuxtLink
+          :to="localePath('/education/students')"
+          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+        >
+          <span class="block font-playfair text-lg font-semibold text-navy">
+            {{ t('nav.links.studentContingent') }}
+          </span>
+          <span class="block text-body-sm text-text-muted mt-1">
+            {{ t('education.schedule.contingentLink') }}
+          </span>
+        </NuxtLink>
+        <NuxtLink
+          :to="localePath('/education/academic-office')"
+          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+        >
+          <span class="block font-playfair text-lg font-semibold text-navy">
+            {{ t('nav.links.academicOffice') }}
+          </span>
+          <span class="block text-body-sm text-text-muted mt-1">
+            {{ t('education.schedule.officeLink') }}
+          </span>
+        </NuxtLink>
       </div>
     </div>
   </div>

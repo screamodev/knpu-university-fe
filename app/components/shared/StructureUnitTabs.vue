@@ -4,6 +4,8 @@ import { structureTabLabelOverride, type StructureTabId } from '~/utils/structur
 /**
  * Sub-navigation for a unit page. Real links rather than buttons: every tab is its own URL, so
  * it must be crawlable, bookmarkable and middle-clickable.
+ *
+ * Sticky under the site header (76px) so tabs stay reachable while scrolling long faculty homes.
  */
 const props = defineProps<{
   slug: string
@@ -30,7 +32,7 @@ function tabHref(tab: StructureTabId) {
 <template>
   <nav
     v-if="tabs.length > 1"
-    class="border-b border-border"
+    class="sticky top-[76px] z-20 border-b border-border bg-white/95 backdrop-blur-sm"
     :aria-label="t('university.structure.tag')"
   >
     <!-- Nine pills do not fit a phone; scroll them instead of wrapping into three rows. -->

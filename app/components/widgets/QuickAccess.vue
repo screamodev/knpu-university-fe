@@ -3,30 +3,28 @@ import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { type LinkTileIcon, linkTileIconPaths } from '~/utils/linkTileIcons'
 
 /**
- * «Корисні покликання» on the home page — the six destinations the client listed.
+ * «Швидкий доступ» on the home page — six high-traffic destinations under the hero.
  *
  * Rendered as the row of pills this band has always used. The icon-tile grid belongs to the
- * faculty and postgraduate pages (`SharedLinkTileGrid`), which is where the client asked for it.
+ * faculty and postgraduate pages (`SharedLinkTileGrid`).
  *
- * «For Abroad Enrollees» has no address yet, so it renders disabled rather than pointing at a
- * page that does not exist.
+ * NuxtLink must be used directly — `:is="'NuxtLink'"` SSR-renders as an unknown custom element
+ * with a `to` attribute and never becomes a clickable `<a>`.
  */
 const { t, localePath } = useSafeI18nWithRouter()
 
+const MOODLE_EXTERNAL_URL = 'https://lms.hnpu.edu.ua/moodle'
+
 const links = computed<LinkTile[]>(() => [
-  { label: t('quickAccess.quality'), path: '/education/quality', icon: 'award' },
-  { label: t('quickAccess.admissions'), path: '/admissions/committee', icon: 'students' },
-  { label: t('quickAccess.abroad'), icon: 'globe', disabled: true },
-  { label: t('quickAccess.languageExam'), path: '/university/language-exam', icon: 'document' },
+  { label: t('quickAccess.publicInfo'), path: '/university/public-info', icon: 'document' },
+  { label: t('quickAccess.moodle'), url: MOODLE_EXTERNAL_URL, icon: 'document' },
+  { label: t('quickAccess.library'), path: '/science/library', icon: 'document' },
+  { label: t('quickAccess.quality'), path: '/education/quality', icon: 'document' },
+  { label: t('quickAccess.monitoring'), path: '/education/monitoring', icon: 'document' },
   {
-    label: t('quickAccess.integrity'),
-    url: 'https://sites.google.com/hnpu.edu.ua/akdob',
-    icon: 'shield',
-  },
-  {
-    label: t('quickAccess.eduhub'),
-    url: 'https://sites.google.com/hnpu.edu.ua/khnpu-eduhub/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80',
-    icon: 'book',
+    label: t('quickAccess.anticorruption'),
+    path: '/university/anticorruption',
+    icon: 'document',
   },
 ])
 
@@ -47,54 +45,91 @@ function iconPaths(icon: LinkTileIcon | undefined): string[] {
 <template>
   <div class="bg-off-white border-b border-border py-5">
     <div
-      class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex flex-nowrap items-center gap-3 min-w-0 overflow-x-auto"
+      class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex flex-nowrap items-center gap-3 min-w-0"
     >
       <span class="text-xs text-text-muted font-medium tracking-wider uppercase shrink-0">
         {{ t('quickAccess.label') }}
       </span>
 
-      <div class="flex flex-nowrap items-center gap-2 min-w-0">
-        <component
-          :is="link.disabled ? 'span' : link.url ? 'a' : 'NuxtLink'"
-          v-for="link in links"
-          :key="link.label"
-          v-bind="
-            link.disabled
-              ? {}
-              : link.url
-                ? { href: link.url, target: '_blank', rel: 'noopener noreferrer' }
-                : { to: localePath(link.path ?? '/') }
-          "
-          :class="[chipClass, link.disabled ? 'opacity-55 cursor-default' : chipInteractiveClass]"
-        >
-          <svg
-            class="w-3.5 h-3.5 shrink-0 text-gold"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden
+      <!--
+        Horizontal scroll lives on the pills row only. `py-1 -my-1` keeps room for the hover
+        lift + border/shadow; without it `overflow-x-auto` clips the top edge (CSS forces
+        overflow-y to clip whenever overflow-x is not visible).
+      -->
+      <div class="flex flex-nowrap items-center gap-2 min-w-0 overflow-x-auto py-1 -my-1">
+        <template v-for="link in links" :key="link.label">
+          <NuxtLink
+            v-if="link.path && !link.disabled"
+            :to="localePath(link.path)"
+            :class="[chipClass, chipInteractiveClass]"
           >
-            <path v-for="(d, index) in iconPaths(link.icon)" :key="index" :d="d" />
-          </svg>
+            <svg
+              class="w-3.5 h-3.5 shrink-0 text-gold"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden
+            >
+              <path v-for="(d, index) in iconPaths(link.icon)" :key="index" :d="d" />
+            </svg>
+            {{ link.label }}
+          </NuxtLink>
 
-          {{ link.label }}
-
-          <svg
-            v-if="link.url"
-            class="w-3 h-3 shrink-0 text-text-muted"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden
+          <a
+            v-else-if="link.url && !link.disabled"
+            :href="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="[chipClass, chipInteractiveClass]"
           >
-            <path d="M7 17L17 7M17 7H8m9 0v9" />
-          </svg>
-          <span v-if="link.url" class="sr-only">{{ t('common.opensInNewTab') }}</span>
-        </component>
+            <svg
+              class="w-3.5 h-3.5 shrink-0 text-gold"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden
+            >
+              <path v-for="(d, index) in iconPaths(link.icon)" :key="index" :d="d" />
+            </svg>
+            {{ link.label }}
+            <svg
+              class="w-3 h-3 shrink-0 text-text-muted"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden
+            >
+              <path d="M7 17L17 7M17 7H8m9 0v9" />
+            </svg>
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
+
+          <span
+            v-else
+            :class="[chipClass, 'opacity-55 cursor-default']"
+          >
+            <svg
+              class="w-3.5 h-3.5 shrink-0 text-gold"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden
+            >
+              <path v-for="(d, index) in iconPaths(link.icon)" :key="index" :d="d" />
+            </svg>
+            {{ link.label }}
+          </span>
+        </template>
       </div>
     </div>
   </div>

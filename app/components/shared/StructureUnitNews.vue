@@ -8,7 +8,15 @@ import { resolveMediaSrc } from '~/utils/directusMedia'
  * Nothing is duplicated per faculty — an article is tagged with the faculty category and shows
  * up both here and in the site-wide news list.
  */
-const props = defineProps<{ categorySlug: string; limit?: number }>()
+const props = withDefaults(
+  defineProps<{
+    categorySlug: string
+    limit?: number
+    /** Hide the bottom «all news» link when the parent section already provides one. */
+    hideAllLink?: boolean
+  }>(),
+  { limit: 9, hideAllLink: false },
+)
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const { client } = useDirectus()
@@ -16,9 +24,10 @@ const { mediaResolvers } = useMediaResolvers()
 const { localized } = useLocalizedField()
 
 const limit = computed(() => props.limit ?? 9)
+const isPreview = computed(() => limit.value <= 3)
 
 const { data } = await useAsyncData(
-  () => `structure-news-${props.categorySlug}-${locale.value}`,
+  () => `structure-news-${props.categorySlug}-${locale.value}-${limit.value}`,
   () =>
     client.request(
       readItems('articles', {
@@ -28,7 +37,7 @@ const { data } = await useAsyncData(
         filter: { categories: { categories_id: { slug: { _eq: props.categorySlug } } } },
       }),
     ),
-  { watch: [() => props.categorySlug] },
+  { watch: [() => props.categorySlug, limit] },
 )
 
 const articles = computed(() => data.value ?? [])
@@ -53,7 +62,11 @@ function coverSrc(cover: DirectusArticle['cover']): string {
 
 <template>
   <div>
-    <div v-if="articles.length" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div
+      v-if="articles.length"
+      class="grid grid-cols-1 gap-6"
+      :class="isPreview ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2'"
+    >
       <NuxtLink
         v-for="article in articles"
         :key="article.id"
@@ -74,6 +87,12 @@ function coverSrc(cover: DirectusArticle['cover']): string {
             {{ localized(article, 'title') }}
           </div>
           <div class="text-xs text-text-muted">{{ formatDate(publishedAt(article)) }}</div>
+          <span
+            v-if="isPreview"
+            class="mt-3 inline-flex text-sm font-medium text-navy group-hover:text-gold transition-colors"
+          >
+            {{ t('common.readMore') }}
+          </span>
         </div>
       </NuxtLink>
     </div>
@@ -83,6 +102,7 @@ function coverSrc(cover: DirectusArticle['cover']): string {
     </p>
 
     <NuxtLink
+      v-if="!hideAllLink"
       :to="{ path: localePath('/news'), query: { category: categorySlug } }"
       class="mt-8 inline-flex items-center gap-2 text-navy font-medium hover:text-gold transition-colors duration-280"
     >

@@ -9,6 +9,21 @@ const FADE_DURATION_MS = 2000
 const OPACITY_TRANSITION_MS = 1600
 const ROTATE_INTERVAL_MS = 30000
 
+const heroStats = computed(() => [
+  {
+    value: t('hero.statGraduatesValue'),
+    label: t('hero.statGraduatesLabel'),
+  },
+  {
+    value: t('hero.statSpecialtiesValue'),
+    label: t('hero.statSpecialtiesLabel'),
+  },
+  {
+    value: t('hero.statProgramsValue'),
+    label: t('hero.statProgramsLabel'),
+  },
+])
+
 function applySlide() {
   currentIndex.value = nextLayerIndex.value
   showingNext.value = false
@@ -108,6 +123,48 @@ onUnmounted(stopRotation)
         >
           {{ t('hero.ctaAbout') }}
         </NuxtLink>
+      </div>
+
+      <!-- Stats: in-flow on small screens -->
+      <div
+        class="mt-10 flex w-full max-w-xl overflow-hidden rounded-12 border border-white/10 bg-white/5 backdrop-blur-md lg:hidden"
+        role="list"
+      >
+        <div
+          v-for="(stat, index) in heroStats"
+          :key="stat.label"
+          class="flex-1 py-3.5 px-3 text-center"
+          :class="index > 0 ? 'border-l border-white/10' : ''"
+          role="listitem"
+        >
+          <div class="font-playfair text-[22px] sm:text-[26px] font-bold text-gold-light leading-none mb-1">
+            {{ stat.value }}
+          </div>
+          <div class="text-[10px] sm:text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">
+            {{ stat.label }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats: bottom-right on large screens -->
+    <div
+      class="absolute bottom-10 right-6 xl:right-10 z-[3] hidden lg:flex overflow-hidden rounded-12 border border-white/10 bg-white/5 backdrop-blur-md"
+      role="list"
+    >
+      <div
+        v-for="(stat, index) in heroStats"
+        :key="`desktop-${stat.label}`"
+        class="py-4 px-6 text-center min-w-[7.5rem]"
+        :class="index > 0 ? 'border-l border-white/10' : ''"
+        role="listitem"
+      >
+        <div class="font-playfair text-[28px] font-bold text-gold-light leading-none mb-1">
+          {{ stat.value }}
+        </div>
+        <div class="text-[11px] text-white/55 font-normal leading-snug whitespace-pre-line">
+          {{ stat.label }}
+        </div>
       </div>
     </div>
   </section>

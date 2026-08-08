@@ -17,9 +17,21 @@ function extractImgAttrs(imgTag: string): ArticleBodyImage | null {
   return { src, alt }
 }
 
+function extractImagesFromMatch(matchedHtml: string): ArticleBodyImage[] {
+  const imgTags = matchedHtml.match(/<img\b[^>]*>/gi) ?? []
+  const images: ArticleBodyImage[] = []
+
+  for (const imgTag of imgTags) {
+    const image = extractImgAttrs(imgTag)
+    if (image) images.push(image)
+  }
+
+  return images
+}
+
 /**
  * Image-only top-level blocks produced by markdown-it and the Directus WYSIWYG:
- * - `<p><img …></p>` (the `<p>` may carry alignment attributes)
+ * - `<p><img …></p>` or `<p><img …><img …>…</p>` (the `<p>` may carry alignment attributes)
  * - a bare `<img …>` that stands between two tags
  *
  * A picture that shares a paragraph with text, sits inside a link, or is wrapped in a
@@ -27,8 +39,8 @@ function extractImgAttrs(imgTag: string): ArticleBodyImage | null {
  */
 const IMAGE_ONLY_BLOCK_RE = new RegExp(
   [
-    // <p …>[breaks]<img …>[breaks]</p>
-    '<p[^>]*>(?:\\s|&nbsp;|<br\\s*/?>)*<img\\b[^>]*>(?:\\s|&nbsp;|<br\\s*/?>)*</p>',
+    // <p …>[breaks]<img …>[breaks]…</p> — one or more consecutive images
+    '<p[^>]*>(?:\\s|&nbsp;|<br\\s*/?>)*(?:<img\\b[^>]*>(?:\\s|&nbsp;|<br\\s*/?>)*)+</p>',
     // a standalone <img …>: preceded by a tag, followed by a tag, and not closing a
     // container that owns it
     '(?<=>)\\s*<img\\b[^>]*>(?!\\s*(?:</(?:p|a|li|td|th|figure|figcaption)\\b|<figcaption\\b))(?=\\s*<|\\s*$)',
@@ -47,7 +59,7 @@ export function splitArticleHtmlByImages(html: string): ArticleHtmlSegment[] {
   type ImageMatch = {
     start: number
     end: number
-    image: ArticleBodyImage
+    images: ArticleBodyImage[]
   }
 
   const matches: ImageMatch[] = []
@@ -55,14 +67,12 @@ export function splitArticleHtmlByImages(html: string): ArticleHtmlSegment[] {
   let match: RegExpExecArray | null
 
   while ((match = re.exec(source)) !== null) {
-    const imgTag = match[0].match(/<img\b[^>]*>/i)?.[0]
-    if (!imgTag) continue
-    const image = extractImgAttrs(imgTag)
-    if (!image) continue
+    const images = extractImagesFromMatch(match[0])
+    if (images.length === 0) continue
     matches.push({
       start: match.index,
       end: match.index + match[0].length,
-      image,
+      images,
     })
   }
 
@@ -84,7 +94,7 @@ export function splitArticleHtmlByImages(html: string): ArticleHtmlSegment[] {
       }
     }
 
-    const group = [first.image]
+    const group = [...first.images]
     let end = first.end
     let nextIndex = index + 1
 
@@ -92,7 +102,7 @@ export function splitArticleHtmlByImages(html: string): ArticleHtmlSegment[] {
       const next = matches[nextIndex]!
       const between = source.slice(end, next.start)
       if (between.trim() !== '') break
-      group.push(next.image)
+      group.push(...next.images)
       end = next.end
       nextIndex += 1
     }

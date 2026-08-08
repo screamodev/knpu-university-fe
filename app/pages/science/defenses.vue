@@ -7,6 +7,7 @@ definePageMeta({ layout: 'default' })
 const { t, locale } = useSafeI18nWithRouter()
 const { client } = useDirectus()
 const { localized } = useLocalizedField()
+const localePath = useLocalePath()
 
 useHead({
   title: () => t('nav.links.defenses'),
@@ -104,9 +105,21 @@ function defenseYear(value: string): string {
 
     <!-- Intro + upcoming + past -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl mb-12">
+      <p class="text-body text-text-muted max-w-3xl mb-8">
         {{ t('science.defenses.intro') }}
       </p>
+
+      <NuxtLink
+        :to="localePath('/science/dissertation-councils')"
+        class="block rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors mb-12"
+      >
+        <span class="block font-playfair text-lg font-semibold text-navy">
+          {{ t('nav.links.dissertationCouncils') }}
+        </span>
+        <span class="block text-body-sm text-text-muted mt-1">
+          {{ t('science.dissertationCouncils.subtitle') }}
+        </span>
+      </NuxtLink>
 
       <!-- Upcoming defenses: 3 event-style cards -->
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">

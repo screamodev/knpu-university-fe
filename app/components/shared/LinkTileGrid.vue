@@ -23,6 +23,7 @@ export interface LinkTile {
 withDefaults(defineProps<{ tiles: LinkTile[]; columns?: 2 | 3 }>(), { columns: 3 })
 
 const { t, localePath } = useSafeI18nWithRouter()
+const NuxtLink = resolveComponent('NuxtLink')
 
 function iconPaths(icon: LinkTileIcon | undefined): string[] {
   return linkTileIconPaths(icon)
@@ -36,7 +37,7 @@ function iconPaths(icon: LinkTileIcon | undefined): string[] {
   >
     <li v-for="tile in tiles" :key="tile.label">
       <component
-        :is="tile.disabled ? 'div' : tile.url ? 'a' : 'NuxtLink'"
+        :is="tile.disabled ? 'div' : tile.url ? 'a' : NuxtLink"
         v-bind="
           tile.disabled
             ? {}

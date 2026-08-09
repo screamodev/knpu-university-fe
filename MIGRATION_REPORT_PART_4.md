@@ -351,3 +351,33 @@ https://sites.google.com/view/khnpuanticorupcia (як інші зовнішні 
 **Прод:** контент статичний і їде з git — окремих команд не потрібно, достатньо перезбирання
 фронтенду. Якщо колись повторно генеруються сторінки центру якості (`migration/smc/3_emit_pages.py`),
 після цього обов'язково `python3 ../pass2/tidy_legacy_html.py --write --only 'quality-centre-*'`.
+
+---
+
+# Приймальна комісія — що редагується самостійно
+
+Пункт клієнта «продумати можливість самостійного редагування сторінки відділом».
+
+**Уже працює.** Блок «Документи» на `/admissions/committee` — це колекція `documents` з розділом
+`admissions-committee` (`SharedDocumentList section="admissions-committee"`, зараз 6 записів).
+Роль **Editor** (`knpu-university-be/snapshots/bootstrap-editor-role.sh`) має повний CRUD на
+`documents` і `directus_files`, тож співробітник комісії працює в адмінці сам:
+Документи → «+» → розділ «Приймальна комісія» → назва, дата, файл або `externalUrl` →
+статус `published`. Порядок у списку — поле `order`, деплой не потрібен.
+
+Обліковий запис відділу:
+
+```bash
+docker compose -f docker-compose.prod.yml exec \
+  -e EDITOR_EMAIL=pk@hnpu.edu.ua -e EDITOR_PASSWORD=… \
+  directus sh /directus/snapshots/bootstrap-editor-role.sh
+```
+
+**Ще в коді** (`app/locales/{uk,en}.json`, потрібен розробник і перезбирання): заголовок,
+підзаголовок, вступний текст, контакти (пошта, телефон, години), склад комісії — чотири картки
+`admissions.committee.roles.*`, тексти кнопок і зовнішнє покликання на МОН.
+
+**Щоб закрити пункт повністю** — винести ці блоки в Directus за зразком студентського
+самоврядування: сінглтон `admissions_committee` (вступ + контакти) і колекція
+`admissions_committee_members` (ПІБ, посада, телефон, фото), плюс права в
+`bootstrap-editor-role.sh` і `bootstrap-public-access.sh`. Оцінка — близько пів дня.

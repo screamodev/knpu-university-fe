@@ -258,10 +258,73 @@ const segments = computed(() => {
   color: theme('colors.gold');
 }
 
+/*
+ * Two shapes produced by the legacy clean-up (`migration/pass2/tidy_legacy_html.py`):
+ * a green banner-button of the old site turned into a real link, and a Joomla `{spoiler}`
+ * accordion of downloads turned into a plain list of files.
+ */
+.news-article-md a.legacy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+  padding: 0.6rem 1.1rem;
+  background: theme('colors.navy');
+  color: #fff;
+  border-radius: theme('borderRadius.12');
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-article-md a.legacy-btn::after {
+  content: '→';
+  font-weight: 400;
+}
+
+.news-article-md a.legacy-btn:hover {
+  background: theme('colors.gold');
+  color: theme('colors.navy');
+}
+
+.news-article-md ul.legacy-files {
+  list-style: none;
+  margin: 1.25em 0;
+  padding: 0;
+  border: 1px solid theme('colors.border');
+  border-radius: theme('borderRadius.12');
+  overflow: hidden;
+}
+
+.news-article-md ul.legacy-files > li {
+  margin: 0;
+  padding: 0.7rem 1rem 0.7rem 2.25rem;
+  position: relative;
+  border-top: 1px solid theme('colors.border');
+  background: theme('colors.off-white');
+}
+
+.news-article-md ul.legacy-files > li:first-child {
+  border-top: 0;
+}
+
+.news-article-md ul.legacy-files > li::before {
+  content: '↓';
+  position: absolute;
+  left: 0.9rem;
+  color: theme('colors.gold');
+  font-weight: 700;
+}
+
 @media (max-width: 640px) {
   .news-article-md img[style*='float'] {
     float: none !important;
     margin: 1em auto;
+  }
+
+  .news-article-md a.legacy-btn {
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

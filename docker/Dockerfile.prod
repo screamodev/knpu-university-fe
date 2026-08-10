@@ -19,6 +19,12 @@ COPY . .
 ARG NUXT_PUBLIC_DIRECTUS_URL
 ENV NUXT_PUBLIC_DIRECTUS_URL=${NUXT_PUBLIC_DIRECTUS_URL}
 
+# Nitro bundles the whole server in one pass and needs more heap than Node gives itself on a
+# 1 GB host — that build died with «Ineffective mark-compacts near heap limit». The host needs
+# swap to back this; see DEPLOY-2026-08-08.md.
+ARG NODE_OPTIONS="--max-old-space-size=3072"
+ENV NODE_OPTIONS=${NODE_OPTIONS}
+
 RUN pnpm build
 
 # ---- runtime ----

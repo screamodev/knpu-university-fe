@@ -2465,7 +2465,12 @@
       "tag": "Education",
       "title": "Centre for digitalisation of education",
       "subtitle": "Digital services of the learning process: Moodle, corporate accounts, technical support.",
-      "documentsTitle": "Guides and documents",
+      "orderButton": "Order No. 251 of 08.11.2024 on restricting the use of Telegram",
+      "calendarTitle": "Events calendar",
+      "calendarNote": "Visible only to users signed in with an {'@'}hnpu.edu.ua account.",
+      "newsTitle": "Centre news",
+      "newsViewAll": "All centre news",
+      "address": "29 Alchevskykh St., room 129, Kharkiv, 61002",
       "tiles": {
         "moodle": "Moodle platform",
         "support": "Technical support: support{'@'}hnpu.edu.ua",

@@ -29,12 +29,35 @@ const showTranslationNotice = computed(() => locale.value !== 'uk' && data.value
       {{ t('university.structure.unit.translationPending') }}
     </p>
 
-    <section v-for="(section, index) in sections" :key="index" :class="index > 0 ? 'mt-12' : ''">
-      <h2 v-if="section.heading" class="font-playfair text-xl font-bold text-navy mb-4">
-        {{ section.heading }}
-      </h2>
-      <NewsMarkdownBody :source="section.html" kind="html" />
-    </section>
+    <template v-for="(section, index) in sections" :key="index">
+      <!-- Drop-down, as the old site had it: consecutive ones sit right under each other. -->
+      <SharedAccordion
+        v-if="section.collapsible"
+        :title="section.heading ?? ''"
+        :class="index > 0 ? 'mt-3' : ''"
+      >
+        <div class="pt-4">
+          <NewsMarkdownBody v-if="section.html" :source="section.html" kind="html" />
+          <SharedAccordion
+            v-for="(child, childIndex) in section.children ?? []"
+            :key="childIndex"
+            :title="child.heading ?? ''"
+            class="mt-4"
+          >
+            <div class="pt-4">
+              <NewsMarkdownBody :source="child.html" kind="html" />
+            </div>
+          </SharedAccordion>
+        </div>
+      </SharedAccordion>
+
+      <section v-else :class="index > 0 ? 'mt-12' : ''">
+        <h2 v-if="section.heading" class="font-playfair text-xl font-bold text-navy mb-4">
+          {{ section.heading }}
+        </h2>
+        <NewsMarkdownBody v-if="section.html" :source="section.html" kind="html" />
+      </section>
+    </template>
 
     <SharedStructureUnitLinkList :links="links" />
   </div>

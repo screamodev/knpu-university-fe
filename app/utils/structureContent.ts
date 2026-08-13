@@ -99,6 +99,14 @@ export interface StructureTabSection {
   people?: StructureUnitPerson[]
   /** Caption that stood above the extracted block, e.g. «Деканат». */
   peopleHeading?: string | null
+  /**
+   * Render the section as a drop-down instead of a plain block — the old site wrapped long
+   * topics in `[collapse]` shortcodes and the client asked to keep that reading experience.
+   * Only `SharedStaticPageBody` honours it so far.
+   */
+  collapsible?: boolean
+  /** Drop-downs nested inside this one; the legacy editor allowed one level. */
+  children?: StructureTabSection[]
 }
 
 export interface StructureTabLink {

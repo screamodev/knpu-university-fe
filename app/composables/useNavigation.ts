@@ -109,6 +109,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
             { path: '/admissions/rules', key: 'nav.links.rules' },
             { path: '/admissions/results', key: 'nav.links.admissionResults' },
+            { path: '/admissions/archive/2025', key: 'nav.links.admissionArchive' },
             { path: '/admissions/specialties', key: 'nav.links.specialties' },
             { path: '/admissions/creative', key: 'nav.links.creative' },
             { path: '/admissions/budget', key: 'nav.links.budget' },

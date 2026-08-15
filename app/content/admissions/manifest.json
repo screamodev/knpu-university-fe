@@ -1,0 +1,787 @@
+{
+  "root": "pk-pryymalna-komisiya",
+  "campaign": [
+    {
+      "slug": "pk-pryymalna-komisiya",
+      "title": "Приймальна комісія",
+      "source": "https://hnpu.edu.ua/uk/division/pryymalna-komisiya"
+    },
+    {
+      "slug": "pk-osvit-centr-donbaskrym-ukrayina-2026",
+      "title": "2026-ПК. Освітній центр \"Донбас/Крим-Україна\"",
+      "source": "https://hnpu.edu.ua/uk/osvit-centr-donbaskrym-ukrayina-2026"
+    },
+    {
+      "slug": "pk-2026-programy-vstup-vyprob",
+      "title": "2026-ПК. ПРОГРАМИ вступних випробувань",
+      "source": "https://hnpu.edu.ua/uk/2026-programy-vstup-vyprob"
+    },
+    {
+      "slug": "pk-2026-video-zneosroboty",
+      "title": "2026-ПК. ВІДЕОМАТЕРІАЛИ та ЗНЕОСОБЛЕНІ письмові роботи",
+      "source": "https://hnpu.edu.ua/uk/2026-video-zneosroboty"
+    },
+    {
+      "slug": "pk-2026-obsyag-derzh-zam",
+      "title": "2026-ПК. Обсяги державного замовлення",
+      "source": "https://hnpu.edu.ua/uk/2026-obsyag-derzh-zam"
+    },
+    {
+      "slug": "pk-2026-rozklady-vstup-vyprob",
+      "title": "2026-ПК. РОЗКЛАД вступних випробувань",
+      "source": "https://hnpu.edu.ua/uk/2026-rozklady-vstup-vyprob"
+    },
+    {
+      "slug": "pk-2026-rezultaty-vstup-vyprob",
+      "title": "2026-ПК. РЕЗУЛЬТАТИ вступних випробувань",
+      "source": "https://hnpu.edu.ua/uk/2026-rezultaty-vstup-vyprob"
+    },
+    {
+      "slug": "pk-2026-reytyng-spysky-rekomend",
+      "title": "2026-ПК. РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+      "source": "https://hnpu.edu.ua/uk/2026-reytyng-spysky-rekomend"
+    },
+    {
+      "slug": "pk-rishennya-pryymalnoyi-komisiyi-shchodo-nadannya-rekomendaciy-do-zarahuvannya-",
+      "title": "РІШЕННЯ приймальної комісії щодо надання рекомендацій до зарахування у 2026 році",
+      "source": "https://hnpu.edu.ua/uk/rishennya-pryymalnoyi-komisiyi-shchodo-nadannya-rekomendaciy-do-zarahuvannya-u-2026-roci"
+    },
+    {
+      "slug": "pk-nakazy-pro-zarahuvannya-u-2026-roci",
+      "title": "Накази про зарахування у 2026 році",
+      "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya-u-2026-roci"
+    },
+    {
+      "slug": "pk-2026-vartist-rekvizyty-oplaty",
+      "title": "2026-ПК. Вартість навчання у 2026-2027 н.р. Реквізити для оплати",
+      "source": "https://hnpu.edu.ua/uk/2026-vartist-rekvizyty-oplaty"
+    },
+    {
+      "slug": "pk-2026-vaucher-na-navchannya",
+      "title": "2026-ПК. Ваучер на навчання",
+      "source": "https://hnpu.edu.ua/uk/2026-vaucher-na-navchannya"
+    },
+    {
+      "slug": "pk-dokumentaciya-pryymalnoyi-komisiyi",
+      "title": "Документація Приймальної комісії",
+      "source": "https://hnpu.edu.ua/uk/dokumentaciya-pryymalnoyi-komisiyi"
+    },
+    {
+      "slug": "pk-normatyvna-dokumentaciya-licenziya-sertyfikaty-0",
+      "title": "Нормативна документація (ліцензія, сертифікати)",
+      "source": "https://hnpu.edu.ua/uk/normatyvna-dokumentaciya-licenziya-sertyfikaty-0"
+    },
+    {
+      "slug": "pk-ogoloshennya-vstup-kamp-2026",
+      "title": "2026-ПК. О Г О Л О Ш Е Н Н Я щодо вступної кампанії",
+      "source": "https://hnpu.edu.ua/uk/ogoloshennya-vstup-kamp-2026"
+    }
+  ],
+  "archives": [
+    {
+      "year": "2025",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2025-roku",
+          "title": "АРХІВ. Вступна кампанія 2025 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2025-roku"
+        },
+        {
+          "slug": "pk-o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2023",
+          "title": "О Г О Л О Ш Е Н Н Я щодо вступної кампанії 2024",
+          "source": "https://hnpu.edu.ua/uk/o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2023"
+        },
+        {
+          "slug": "pk-2024-magistr-evi-efvv",
+          "title": "Вступ-2024. Магістр. Реєстрація на ЄВІ та ЄФВВ в університеті",
+          "source": "https://hnpu.edu.ua/uk/2024_magistr_EVI_EFVV"
+        },
+        {
+          "slug": "pk-osvitniy-centr-donbaskrym-ukrayina-2024-rik",
+          "title": "Освітній центр \"Донбас/Крим-Україна\" (2025 рік)",
+          "source": "https://hnpu.edu.ua/uk/osvitniy-centr-donbaskrym-ukrayina-2024-rik"
+        },
+        {
+          "slug": "pk-2024-reytyng-spysky-rekomendovanyh",
+          "title": "2024. РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2024-reytyng-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-2024-vaucher-na-navchannya",
+          "title": "2024. Ваучер на навчання",
+          "source": "https://hnpu.edu.ua/uk/2024-vaucher-na-navchannya"
+        },
+        {
+          "slug": "pk-zakonodavstvo-ukrayiny-posylannya-na-dokumenty-z-umov-pryyomu",
+          "title": "Законодавство України (посилання на документи з Умов прийому)",
+          "source": "https://hnpu.edu.ua/uk/zakonodavstvo-ukrayiny-posylannya-na-dokumenty-z-umov-pryyomu"
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2024-roku",
+          "title": "АРХІВ. Вступна кампанія 2024 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2024-roku"
+        },
+        {
+          "slug": "pk-bakalavr-na-osnovi-pzso-ta-nrk5-programy-vstupnyh-vyprobuvan-spivbesida-tvorc",
+          "title": "Бакалавр (на основі ПЗСО та НРК5). Програми вступних випробувань (співбесіда, творчий конкурс)",
+          "source": "https://hnpu.edu.ua/uk/bakalavr-na-osnovi-pzso-ta-nrk5-programy-vstupnyh-vyprobuvan-spivbesida-tvorchyy-konkurs"
+        },
+        {
+          "slug": "pk-2024-bakalavr-na-osnovi-nrk6-nrk7-zi-skorochenym-terminom-programy-vstupnyh-v",
+          "title": "2024. Бакалавр (на основі НРК6, НРК7 зі скороченим терміном). Програми вступних випробувань (фаховий іспит)",
+          "source": "https://hnpu.edu.ua/uk/2024-bakalavr-na-osnovi-nrk6-nrk7-zi-skorochenym-terminom-programy-vstupnyh-vyprobuvan-fahovyy-ispyt"
+        },
+        {
+          "slug": "pk-2024-rozklad-bakalavr-pzso-nrk5",
+          "title": "2024. РОЗКЛАД співбесід та творчих конкурсів (ступінь \"Бакалавр\" на основі ПЗСО, НРК5)",
+          "source": "https://hnpu.edu.ua/uk/2024-rozklad-bakalavr-pzso-nrk5"
+        },
+        {
+          "slug": "pk-2024-rozklad-bakalavr-nrk67",
+          "title": "2024. РОЗКЛАД вступних випробувань (фахових іспитів) (ступінь \"Бакалавр\" на основі НРК6, НРК7)",
+          "source": "https://hnpu.edu.ua/uk/2024-rozklad-bakalavr-nrk67"
+        },
+        {
+          "slug": "pk-rezultaty-vstupnyh-vyprobuvan",
+          "title": "РЕЗУЛЬТАТИ вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2024-bakalavr-pzso-reytyng-rekomend",
+          "title": "2024. Бакалавр (ПЗСО). РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2024-bakalavr-pzso-reytyng-rekomend"
+        },
+        {
+          "slug": "pk-2024-bakalavr-nrk5-reytyng-rekomend",
+          "title": "2024. Бакалавр (НРК5). РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2024-bakalavr-nrk5-reytyng-rekomend"
+        },
+        {
+          "slug": "pk-2024-bakalavr-nrk6-nrk7-reytyng-rekomend",
+          "title": "2024. Бакалавр (НРК6, НРК7). РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2024-bakalavr-nrk6-nrk7-reytyng-rekomend"
+        },
+        {
+          "slug": "pk-zustrich-z-dekanamy-2024-os-bakalavr",
+          "title": "Зустріч з деканами (2024, ОС \"Бакалавр\")",
+          "source": "https://hnpu.edu.ua/uk/zustrich-z-dekanamy-2024-os-bakalavr"
+        },
+        {
+          "slug": "pk-dodatkovyy-pryyom-veresen-2024-os-bakalavr",
+          "title": "Додатковий прийом (вересень 2024). ОС \"БАКАЛАВР\"",
+          "source": "https://hnpu.edu.ua/uk/dodatkovyy-pryyom-veresen-2024-os-bakalavr"
+        },
+        {
+          "slug": "pk-2024-dodatk-rozklad-bakalavr-pzso-nrk5",
+          "title": "2024. ДОДАТКОВИЙ ПРИЙОМ. РОЗКЛАД співбесід та творчих конкурсів (ступінь \"Бакалавр\" на основі ПЗСО, НРК5)",
+          "source": "https://hnpu.edu.ua/uk/2024-dodatk-rozklad-bakalavr-pzso-nrk5"
+        },
+        {
+          "slug": "pk-2024-dodatr-rozklad-bakalavr-nrk67",
+          "title": "2024. ДОДАТКОВИЙ ПРИЙОМ. РОЗКЛАД вступних випробувань (фахових іспитів) (ступінь \"Бакалавр\" на основі НРК6, НРК7)",
+          "source": "https://hnpu.edu.ua/uk/2024-dodatr-rozklad-bakalavr-nrk67"
+        },
+        {
+          "slug": "pk-dodatkovyy-nabir-2024-bakalavr-pzso-nrk5-nrk6-nrk7-spysky-rekomendovanyh",
+          "title": "Додатковий набір-2024. Бакалавр (ПЗСО; НРК5; НРК6, НРК7). СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/dodatkovyy-nabir-2024-bakalavr-pzso-nrk5-nrk6-nrk7-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-2024-magistr-programy-vstupnyh-vyprobuvan",
+          "title": "2024. Магістр. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2024-magistr-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2024-magistr-rozklad-fahovivypr",
+          "title": "2024. Магістр. Розклад вступних випробувань (фахові іспити)",
+          "source": "https://hnpu.edu.ua/uk/2024-magistr-rozklad-fahovivypr"
+        },
+        {
+          "slug": "pk-2024-magistr-rozklad-86-specumov",
+          "title": "2024. Магістр. Розклад вступних випробувань (п. 8.6 Правил прийому)",
+          "source": "https://hnpu.edu.ua/uk/2024-magistr-rozklad-86-specumov"
+        },
+        {
+          "slug": "pk-2024-magistr-rozklad-kontrakt-812",
+          "title": "2024. Магістр. Розклад вступних випробувань (КОНТРАКТ; п. 8.12 Правил прийому)",
+          "source": "https://hnpu.edu.ua/uk/2024-magistr-rozklad-kontrakt-812"
+        },
+        {
+          "slug": "pk-2024-magistr-reytyng-rekomend",
+          "title": "2024. Магістр. РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2024-magistr-reytyng-rekomend"
+        },
+        {
+          "slug": "pk-dodatkovyy-pryyom-veresen-2024-os-magistr",
+          "title": "Додатковий прийом (вересень 2024). ОС \"МАГІСТР\"",
+          "source": "https://hnpu.edu.ua/uk/dodatkovyy-pryyom-veresen-2024-os-magistr"
+        },
+        {
+          "slug": "pk-2024-dodatk-magistr-rozklad",
+          "title": "2024. ДОДАТКОВИЙ ПРИЙОМ. Магістр. Розклад вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2024-dodatk-magistr-rozklad"
+        },
+        {
+          "slug": "pk-2024-aspirantura-evi",
+          "title": "Вступ-2024. Доктор філософії (Аспірантура). Реєстрація на ЄВІ в університеті",
+          "source": "https://hnpu.edu.ua/uk/2024_aspirantura_EVI"
+        },
+        {
+          "slug": "pk-osvitniy-centr-donbaskrym-ukrayina-2024-arhiv",
+          "title": "Освітній центр \"Донбас/Крим-Україна\" (2024 рік), архів",
+          "source": "https://hnpu.edu.ua/uk/osvitniy-centr-donbaskrym-ukrayina-2024-arhiv"
+        },
+        {
+          "slug": "pk-2024-programy-vstupnyh-vyprobuvan",
+          "title": "2024. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2024-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2024-motyvaciynyy-lyst-vymogy-do-ml",
+          "title": "2024 Мотиваційний лист. Вимоги до МЛ",
+          "source": "https://hnpu.edu.ua/uk/2024-motyvaciynyy-lyst-vymogy-do-ml"
+        },
+        {
+          "slug": "pk-2024-obsyagy-derzhavnogo-zamovlennya",
+          "title": "2024. Обсяги державного замовлення",
+          "source": "https://hnpu.edu.ua/uk/2024-obsyagy-derzhavnogo-zamovlennya"
+        },
+        {
+          "slug": "pk-2024-rozklady-vstupnyh-vyprobuvan",
+          "title": "2024. РОЗКЛАДИ ВСТУПНИХ ВИПРОБУВАНЬ",
+          "source": "https://hnpu.edu.ua/uk/2024-rozklady-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-rishennya-pryymalnoyi-komisiyi-shchodo-nadannya-rekomendaciy-do-zarahuvannya-",
+          "title": "РІШЕННЯ приймальної комісії щодо надання рекомендацій до зарахування у 2024 році",
+          "source": "https://hnpu.edu.ua/uk/rishennya-pryymalnoyi-komisiyi-shchodo-nadannya-rekomendaciy-do-zarahuvannya-u-2024-roci"
+        },
+        {
+          "slug": "pk-nakazy-pro-zarahuvannya-u-2024-roci",
+          "title": "Накази про зарахування у 2024 році",
+          "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya-u-2024-roci"
+        },
+        {
+          "slug": "pk-vartist-navchannya-u-2024-2025-nr-rekvizyty-dlya-oplaty",
+          "title": "Вартість навчання у 2024-2025 н.р. Реквізити для оплати",
+          "source": "https://hnpu.edu.ua/uk/vartist-navchannya-u-2024-2025-nr-rekvizyty-dlya-oplaty"
+        },
+        {
+          "slug": "pk-2024-ugody-partnerski-organizaciyi",
+          "title": "2024. Угоди. Партнерські організації",
+          "source": "https://hnpu.edu.ua/uk/2024-ugody-partnerski-organizaciyi"
+        },
+        {
+          "slug": "pk-rezultaty-spivbesidy-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5",
+          "title": "РЕЗУЛЬТАТИ СПІВБЕСІДИ ВСТУПНИКІВ (ОС \"Бакалавр\" на основі ПЗСО, НРК5)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-spivbesidy-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5"
+        },
+        {
+          "slug": "pk-rezultaty-tvorchyh-konkursiv-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5",
+          "title": "РЕЗУЛЬТАТИ ТВОРЧИХ КОНКУРСІВ ВСТУПНИКІВ (ОС \"Бакалавр\" на основі ПЗСО, НРК5)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-tvorchyh-konkursiv-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5"
+        },
+        {
+          "slug": "pk-rezultaty-fahov-isp-bakalavr-nrk6nrk7",
+          "title": "РЕЗУЛЬТАТИ ФАХОВИХ ІСПИТІВ (денна та заочна форма здобуття освіти, ОС \"Бакалавр\" на основі НРК6,НРК7)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-fahov-isp-bakalavr-nrk6nrk7"
+        },
+        {
+          "slug": "pk-rezultaty-vstup-vyprob-os-magistr",
+          "title": "РЕЗУЛЬТАТИ ВСТУПНИХ ВИПРОБУВАНЬ (денна та заочна форми здобуття освіти, ОС \"МАГІСТР\")",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-vstup-vyprob-os-magistr"
+        },
+        {
+          "slug": "pk-rezultaty-spivbesidy-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5-dodatkovyy-na",
+          "title": "РЕЗУЛЬТАТИ СПІВБЕСІДИ ВСТУПНИКІВ (ОС \"Бакалавр\" на основі ПЗСО, НРК5; додатковий набір)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-spivbesidy-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5-dodatkovyy-nabir"
+        },
+        {
+          "slug": "pk-rezultaty-tvorchyh-konkursiv-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5-dodat",
+          "title": "РЕЗУЛЬТАТИ ТВОРЧИХ КОНКУРСІВ ВСТУПНИКІВ (ОС \"Бакалавр\" на основі ПЗСО, НРК5; додатковий набір)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-tvorchyh-konkursiv-vstupnykiv-os-bakalavr-na-osnovi-pzso-nrk5-dodatkovyy-nabir"
+        },
+        {
+          "slug": "pk-rezultaty-vstupnyh-vyprobuvan-os-magistr-dodatkovyy-nabir",
+          "title": "РЕЗУЛЬТАТИ ВСТУПНИХ ВИПРОБУВАНЬ (ОС \"МАГІСТР\", додатковий набір)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-vstupnyh-vyprobuvan-os-magistr-dodatkovyy-nabir"
+        },
+        {
+          "slug": "pk-2024-pomylky-pry-stvorenni-elektronnogo-kabinetu",
+          "title": "2024. ПОМИЛКИ ПРИ СТВОРЕННІ ЕЛЕКТРОННОГО КАБІНЕТУ",
+          "source": "https://hnpu.edu.ua/uk/2024-pomylky-pry-stvorenni-elektronnogo-kabinetu"
+        },
+        {
+          "slug": "pk-2023-inozemci-bakalavrmagistr-programy-vstupnyh-vyprobuvan",
+          "title": "2024. Іноземці. Бакалавр+Магістр. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-inozemci-bakalavrmagistr-programy-vstupnyh-vyprobuvan"
+        }
+      ]
+    },
+    {
+      "year": "2023",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2023-roku",
+          "title": "АРХІВ. Вступна кампанія 2023 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2023-roku"
+        },
+        {
+          "slug": "pk-2023-rozklad-spivb-ta-tvorch-konk-os-bakalavr",
+          "title": "2023. РОЗКЛАД співбесід та творчих конкурсів (ОС \"Бакалавр\" на основі ПЗСО, НРК5)",
+          "source": "https://hnpu.edu.ua/uk/2023-rozklad-spivb-ta-tvorch-konk-os-bakalavr"
+        },
+        {
+          "slug": "pk-2023-bakalavr-pzso-programy-vstupnyh-vyprobuvan",
+          "title": "2023. Бакалавр (ПЗСО; скороч.термін). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-bakalavr-pzso-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2023-bakalavr-pzso-reytyng-spysky-rekomendovanyh",
+          "title": "2023. Бакалавр (пзсо). РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2023-bakalavr-pzso-reytyng-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-2023-bakalavr-nrk5-reytyng-spysky-rekomendovanyh",
+          "title": "2023. Бакалавр (НРК5). РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2023-bakalavr-nrk5-reytyng-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-vstup-2023-magistr-reyestraciya-na-yevi-ta-yefvv-v-universyteti",
+          "title": "Вступ-2023. Магістр. Реєстрація на ЄВІ та ЄФВВ в університеті",
+          "source": "https://hnpu.edu.ua/uk/vstup-2023-magistr-reyestraciya-na-yevi-ta-yefvv-v-universyteti"
+        },
+        {
+          "slug": "pk-2023-magistr-rozklad-vstupnyh-vyprobuvan",
+          "title": "2023. Магістр. Розклад вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-magistr-rozklad-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2023-magistr-rozklad-vstupnyh-vyprobuvan-dadatkovyy-pryyom",
+          "title": "2023. Магістр. Розклад вступних випробувань (дадатковий прийом)",
+          "source": "https://hnpu.edu.ua/uk/2023-magistr-rozklad-vstupnyh-vyprobuvan-dadatkovyy-pryyom"
+        },
+        {
+          "slug": "pk-2023-magistr-programy-vstupnyh-vyprobuvan",
+          "title": "2023. Магістр. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-magistr-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2023-magistr-reytyng-spysky-rekomendovanyh",
+          "title": "2023. Магістр. РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2023-magistr-reytyng-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-osvitniy-centr-donbaskrym-ukrayina-2023-rik",
+          "title": "Освітній центр \"Донбас/Крим-Україна\" (2023 рік)",
+          "source": "https://hnpu.edu.ua/uk/osvitniy-centr-donbaskrym-ukrayina-2023-rik"
+        },
+        {
+          "slug": "pk-2023-programy-vstupnyh-vyprobuvan",
+          "title": "2023. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2023-motyvaciynyy-lyst-vymogy-do-ml",
+          "title": "2023 Мотиваційний лист. Вимоги до МЛ",
+          "source": "https://hnpu.edu.ua/uk/2023-motyvaciynyy-lyst-vymogy-do-ml"
+        },
+        {
+          "slug": "pk-2023-obsyagy-derzhavnogo-zamovlennya",
+          "title": "2023. Обсяги державного замовлення",
+          "source": "https://hnpu.edu.ua/uk/2023-obsyagy-derzhavnogo-zamovlennya"
+        },
+        {
+          "slug": "pk-2023-rozklady-vstupnyh-vyprobuvn",
+          "title": "2023. РОЗКЛАДИ ВСТУПНИХ ВИПРОБУВНЬ",
+          "source": "https://hnpu.edu.ua/uk/2023-rozklady-vstupnyh-vyprobuvn"
+        },
+        {
+          "slug": "pk-2023-rezultaty-vstupnyh-vyprobuvan",
+          "title": "РЕЗУЛЬТАТИ вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-rezultaty-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2023-reytyng-spysky-rekomendovanyh",
+          "title": "2023. РЕЙТИНГ, СПИСКИ РЕКОМЕНДОВАНИХ",
+          "source": "https://hnpu.edu.ua/uk/2023-reytyng-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-nakazy-pro-zarahuvannya-u-2023-roci",
+          "title": "Накази про зарахування у 2023 році",
+          "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya-u-2023-roci"
+        },
+        {
+          "slug": "pk-vartist-navchannya-u-2023-2024-nr-rekvizyty-dlya-oplaty",
+          "title": "Вартість навчання у 2023-2024 н.р. Реквізити для оплати",
+          "source": "https://hnpu.edu.ua/uk/vartist-navchannya-u-2023-2024-nr-rekvizyty-dlya-oplaty"
+        },
+        {
+          "slug": "pk-2023-vaucher-na-navchannya",
+          "title": "2023. Ваучер на навчання",
+          "source": "https://hnpu.edu.ua/uk/2023-vaucher-na-navchannya"
+        },
+        {
+          "slug": "pk-2023-ugody-partnerski-organizaciyi",
+          "title": "2023. Угоди. Партнерські організації",
+          "source": "https://hnpu.edu.ua/uk/2023-ugody-partnerski-organizaciyi"
+        },
+        {
+          "slug": "pk-2023-magistr-rezultaty-vstupnyh-vyprobuvan",
+          "title": "2023. Магістр. РЕЗУЛЬТАТИ вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2023-magistr-rezultaty-vstupnyh-vyprobuvan"
+        }
+      ]
+    },
+    {
+      "year": "2022",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2022-roku",
+          "title": "АРХІВ. Вступна кампанія 2022 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2022-roku"
+        },
+        {
+          "slug": "pk-osvitniy-centr-donbaskrym-ukrayina",
+          "title": "Освітній центр \"Донбас/Крим-Україна\" (2022 рік)",
+          "source": "https://hnpu.edu.ua/uk/division/osvitniy-centr-donbaskrym-ukrayina"
+        },
+        {
+          "slug": "pk-obsyagy-derzhavnogo-zamovlennya-u-2022-roci",
+          "title": "Обсяги державного замовлення у 2022 році",
+          "source": "https://hnpu.edu.ua/uk/obsyagy-derzhavnogo-zamovlennya-u-2022-roci"
+        },
+        {
+          "slug": "pk-2022-programy-vstupnyh-vyprobuvan-tvorchi-konkursy-spivbesida-vstupni-ta-faho",
+          "title": "2022. Програми вступних випробувань (творчі конкурси, співбесіда, вступні та фахові іспити)",
+          "source": "https://hnpu.edu.ua/uk/2022-programy-vstupnyh-vyprobuvan-tvorchi-konkursy-spivbesida-vstupni-ta-fahovi-ispyty"
+        },
+        {
+          "slug": "pk-rozklad-vstupnyh-vyprobuvan-2022",
+          "title": "РОЗКЛАД вступних випробувань 2022",
+          "source": "https://hnpu.edu.ua/uk/rozklad-vstupnyh-vyprobuvan-2022"
+        },
+        {
+          "slug": "pk-rezultaty-vstupnyh-vyprobuvan-2022",
+          "title": "Результати вступних випробувань 2022",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-vstupnyh-vyprobuvan-2022"
+        },
+        {
+          "slug": "pk-reytyngovi-spysky-vstupnykiv-u-2022-roci",
+          "title": "Рейтингові списки вступників у 2022 році",
+          "source": "https://hnpu.edu.ua/uk/reytyngovi-spysky-vstupnykiv-u-2022-roci"
+        },
+        {
+          "slug": "pk-spysky-rekomendovanyh",
+          "title": "Списки рекомендованих",
+          "source": "https://hnpu.edu.ua/uk/spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-nakazy-pro-zarahuvannya-u-2022-roci",
+          "title": "Накази про зарахування у 2022 році",
+          "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya-u-2022-roci"
+        },
+        {
+          "slug": "pk-o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2022",
+          "title": "О Г О Л О Ш Е Н Н Я щодо вступної кампанії 2022",
+          "source": "https://hnpu.edu.ua/uk/o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2022"
+        },
+        {
+          "slug": "pk-vaucher-na-navchannya",
+          "title": "Ваучер на навчання",
+          "source": "https://hnpu.edu.ua/uk/vaucher-na-navchannya"
+        },
+        {
+          "slug": "pk-vstup-2022-bakalavr-pzso-programy-vstupnyh-vyprobuvan",
+          "title": "2022. Бакалавр (ПЗСО). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/vstup-2022-bakalavr-pzso-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2022-bakalavr-skorochnormat-termin-programy-vstupnyh-vyprobuvan",
+          "title": "2022. Бакалавр (скороч./нормат. термін). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2022-bakalavr-skorochnormat-termin-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2022-magistr-programy-vstupnyh-vyprobuvan",
+          "title": "2022. Магістр. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2022-magistr-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2022-bakalavrmagistr-inozemni-gromadyany-programy-vstupnyh-vyprobuvan",
+          "title": "2022. Бакалавр+Магістр (іноземні громадяни). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2022-bakalavrmagistr-inozemni-gromadyany-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2022-bakalavr-pzso-programy-vstupnyh-vyprobuvan",
+          "title": "2022. Бакалавр (ПЗСО). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2022-bakalavr-pzso-programy-vstupnyh-vyprobuvan"
+        }
+      ]
+    },
+    {
+      "year": "2021",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2021-roku",
+          "title": "АРХІВ. Вступна кампанія 2021 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2021-roku"
+        },
+        {
+          "slug": "pk-o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2021",
+          "title": "О Г О Л О Ш Е Н Н Я щодо вступної кампанії 2021",
+          "source": "https://hnpu.edu.ua/uk/o-g-o-l-o-sh-e-n-n-ya-shchodo-vstupnoyi-kampaniyi-2021"
+        },
+        {
+          "slug": "pk-bakalavr-2021-zagalna-informaciya-vstup-na-osnovi-pzso",
+          "title": "Бакалавр-2021 (загальна інформація). Вступ на основі ПЗСО",
+          "source": "https://hnpu.edu.ua/uk/bakalavr-2021-zagalna-informaciya-vstup-na-osnovi-pzso"
+        },
+        {
+          "slug": "pk-reytyngovi-spysky-vstupnykiv",
+          "title": "Рейтингові списки вступників",
+          "source": "https://hnpu.edu.ua/uk/reytyngovi-spysky-vstupnykiv"
+        },
+        {
+          "slug": "pk-bakalavr-2021-zagalna-informaciya-vstup-na-osnovi-molspec-bakalavraspecialist",
+          "title": "Бакалавр-2021 (загальна інформація). Вступ на основі мол.спец. (бакалавра/спеціаліста/магістра)",
+          "source": "https://hnpu.edu.ua/uk/bakalavr-2021-zagalna-informaciya-vstup-na-osnovi-molspec-bakalavraspecialistamagistra"
+        },
+        {
+          "slug": "pk-obsyagy-derzhavnogo-zamovlennya-u-2021-roci",
+          "title": "Обсяги державного замовлення у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/obsyagy-derzhavnogo-zamovlennya-u-2021-roci"
+        },
+        {
+          "slug": "pk-magistr-2021-zagalna-informaciya",
+          "title": "Магістр-2021 (загальна інформація)",
+          "source": "https://hnpu.edu.ua/uk/magistr-2021-zagalna-informaciya"
+        },
+        {
+          "slug": "pk-pravyla-pryyomu-do-hnpu-imeni-g-s-skovorody-u-2021-roci",
+          "title": "ПРАВИЛА ПРИЙОМУ до ХНПУ імені Г. С. Сковороди у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/pravyla-pryyomu-do-hnpu-imeni-g-s-skovorody-u-2021-roci"
+        },
+        {
+          "slug": "pk-povidomlennya-ogoloshennya-pryymalnoyi-komisiyi",
+          "title": "Повідомлення, оголошення Приймальної комісії",
+          "source": "https://hnpu.edu.ua/uk/povidomlennya-ogoloshennya-pryymalnoyi-komisiyi"
+        },
+        {
+          "slug": "pk-programy-vstupnyh-ispytiv-fahovyh-vyprobuvan-spivbesid-toshcho",
+          "title": "2023. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/programy-vstupnyh-ispytiv-fahovyh-vyprobuvan-spivbesid-toshcho"
+        },
+        {
+          "slug": "pk-umovy-pryyomu-do-zvo-ukrayiny-u-2021-roci",
+          "title": "Умови прийому до ЗВО України у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/umovy-pryyomu-do-zvo-ukrayiny-u-2021-roci"
+        },
+        {
+          "slug": "pk-vstup-do-aspirantury-ta-doktorantury-u-2021-roci",
+          "title": "Вступ до аспірантури та докторантури у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/vstup-do-aspirantury-ta-doktorantury-u-2021-roci"
+        },
+        {
+          "slug": "pk-nakazy-pro-zarahuvannya",
+          "title": "Накази про зарахування",
+          "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya"
+        },
+        {
+          "slug": "pk-pryyom-inozemciv-umovy-vstupu-2021-rik",
+          "title": "Прийом іноземців. Умови вступу (2021 рік)",
+          "source": "https://hnpu.edu.ua/uk/pryyom-inozemciv-umovy-vstupu-2021-rik"
+        },
+        {
+          "slug": "pk-perelik-dokumentiv-dlya-vstupu",
+          "title": "Перелік документів для вступу",
+          "source": "https://hnpu.edu.ua/uk/perelik-dokumentiv-dlya-vstupu"
+        },
+        {
+          "slug": "pk-zakonodavstvo-ukrayiny-pomichnyk-dlya-vstupu",
+          "title": "Законодавство України (посилання на документи з Умов прийому)",
+          "source": "https://hnpu.edu.ua/uk/zakonodavstvo-ukrayiny-pomichnyk-dlya-vstupu"
+        },
+        {
+          "slug": "pk-pytannya-vidpovidi-shchodo-vstupu-do-hnpu-imeni-gs-skovorody-u-2021-roci",
+          "title": "ПИТАННЯ-ВІДПОВІДІ щодо вступу до ХНПУ імені Г.С. Сковороди у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/pytannya-vidpovidi-shchodo-vstupu-do-hnpu-imeni-gs-skovorody-u-2021-roci"
+        },
+        {
+          "slug": "pk-arhiv-programy-vstupnyh-ispytiv-fahovyh-vyprobuvan-spivbesid-toshcho-vstupna-",
+          "title": "АРХІВ. Програми вступних іспитів, фахових випробувань, співбесід тощо. Вступна кампанія 2021 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-programy-vstupnyh-ispytiv-fahovyh-vyprobuvan-spivbesid-toshcho-vstupna-kampaniya-2021-roku"
+        },
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2021-roku-spysky-rekomendovanyh",
+          "title": "АРХІВ. Вступна кампанія 2021 року. Списки рекомендованих",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2021-roku-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-magistr-2021-reyestraciya-na-yeviyefvv-za-tehnologiyeyu-zno",
+          "title": "Магістр-2021. Реєстрація на ЄВІ/ЄФВВ (за технологією ЗНО)",
+          "source": "https://hnpu.edu.ua/uk/magistr-2021-reyestraciya-na-yeviyefvv-za-tehnologiyeyu-zno"
+        },
+        {
+          "slug": "pk-2021-b-k-l-v-r-na-osnovi-pzso-perelik-specialnostey-vstupnyh-ispytiv-perelik-",
+          "title": "2021 / Б А К А Л А В Р (на основі ПЗСО). Перелік спеціальностей, вступних іспитів, перелік документів тощо",
+          "source": "https://hnpu.edu.ua/uk/2021-b-k-l-v-r-na-osnovi-pzso-perelik-specialnostey-vstupnyh-ispytiv-perelik-dokumentiv-toshcho"
+        },
+        {
+          "slug": "pk-2021-bakalavr-pzso-programy-vstupnyh-vyprobuvan",
+          "title": "2021 / БАКАЛАВР (пзсо). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2021-bakalavr-pzso-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-tvorchi-konkursy-dlya-vstupu-do-hnpu-imeni-gs-skovorody-u-2021-roci",
+          "title": "Творчі конкурси для вступу до ХНПУ імені Г.С. Сковороди у 2021 році",
+          "source": "https://hnpu.edu.ua/uk/tvorchi-konkursy-dlya-vstupu-do-hnpu-imeni-gs-skovorody-u-2021-roci"
+        },
+        {
+          "slug": "pk-rozklad-vstupnyh-vyprobuvan-bakalavr-na-osnovi-pzso-2021-rik",
+          "title": "Розклад вступних випробувань. Бакалавр на основі ПЗСО (2021 рік)",
+          "source": "https://hnpu.edu.ua/uk/rozklad-vstupnyh-vyprobuvan-bakalavr-na-osnovi-pzso-2021-rik"
+        },
+        {
+          "slug": "pk-2021-spysky-rekomendovanyh-denna-ta-zaochna-formy-zdobuttya-osvity-os-bakalav",
+          "title": "2021. Списки рекомендованих (денна та заочна форми здобуття освіти ОС \"бакалавр\" на основі ПЗСО)",
+          "source": "https://hnpu.edu.ua/uk/2021-spysky-rekomendovanyh-denna-ta-zaochna-formy-zdobuttya-osvity-os-bakalavr-na-osnovi-pzso"
+        },
+        {
+          "slug": "pk-2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-",
+          "title": "2021. Рейтингові списки вступників денної та заочної форм здобуття освіти (ОС \"бакалавр\" на основі ПЗСО)",
+          "source": "https://hnpu.edu.ua/uk/2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-os-bakalavr-na-osnovi"
+        },
+        {
+          "slug": "pk-2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-",
+          "title": "2021. Рейтингові списки вступників денної та заочної форм здобуття освіти (ОС \"бакалавр\" на основі дипломів молодшого спеціаліста, бакалавра, спеціаліста, магістра)",
+          "source": "https://hnpu.edu.ua/uk/2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-os-bakalavr-na-osnovi-0"
+        },
+        {
+          "slug": "pk-2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-",
+          "title": "2021. Рейтингові списки вступників денної та заочної форм здобуття освіти (ОС \"магістр\")",
+          "source": "https://hnpu.edu.ua/uk/2021-reytyngovi-spysky-vstupnykiv-dennoyi-ta-zaochnoyi-form-zdobuttya-osvity-os-magistr"
+        },
+        {
+          "slug": "pk-2021-b-k-l-v-r-na-osnovi-molodsh-spec-tabakalavraspecialistamagistra",
+          "title": "2021 / Б А К А Л А В Р (на основі молодш. спец-та/бакалавра/спеціаліста/магістра)",
+          "source": "https://hnpu.edu.ua/uk/2021-b-k-l-v-r-na-osnovi-molodsh-spec-tabakalavraspecialistamagistra"
+        },
+        {
+          "slug": "pk-2021-b-k-l-v-r-2-r-10-mis-1-r-10-mis-programy-vstupnyh-vyprobuvan",
+          "title": "2021 / Б А К А Л А В Р (2 р. 10 міс. / 1 р. 10 міс.). Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2021-b-k-l-v-r-2-r-10-mis-1-r-10-mis-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-rozklad-vstupnyh-vyprobuvan-bakalavr-zi-skorochenym-ta-normatyvnym-terminom-n",
+          "title": "Розклад вступних випробувань. Бакалавр зі скороченим та нормативним терміном навчання (2021 рік)",
+          "source": "https://hnpu.edu.ua/uk/rozklad-vstupnyh-vyprobuvan-bakalavr-zi-skorochenym-ta-normatyvnym-terminom-navchannya-2021-rik"
+        },
+        {
+          "slug": "pk-2021-m-g-i-s-t-r-perelik-specialnostey-vstupnyh-ispytiv-perelik-dokumentiv-to",
+          "title": "2021 / М А Г І С Т Р. Перелік спеціальностей, вступних іспитів, перелік документів тощо",
+          "source": "https://hnpu.edu.ua/uk/2021-m-g-i-s-t-r-perelik-specialnostey-vstupnyh-ispytiv-perelik-dokumentiv-toshcho"
+        },
+        {
+          "slug": "pk-magistr-2021-reyestraciya-na-yeviyefvv",
+          "title": "Магістр-2021. Реєстрація на ЄВІ/ЄФВВ (за технологією ЗНО)",
+          "source": "https://hnpu.edu.ua/uk/magistr-2021-reyestraciya-na-yeviyefvv"
+        },
+        {
+          "slug": "pk-rozklad-vstupnyh-vyprobuvan-magistr-2021-rik",
+          "title": "Розклад вступних випробувань. Магістр (2021 рік)",
+          "source": "https://hnpu.edu.ua/uk/rozklad-vstupnyh-vyprobuvan-magistr-2021-rik"
+        },
+        {
+          "slug": "pk-2021-m-g-i-s-t-r-programy-vstupnyh-vyprobuvan",
+          "title": "2021 / М А Г І С Т Р. Програми вступних випробувань",
+          "source": "https://hnpu.edu.ua/uk/2021-m-g-i-s-t-r-programy-vstupnyh-vyprobuvan"
+        },
+        {
+          "slug": "pk-2021-spysky-rekomendovanyh-denna-ta-zaochna-formy-zdobuttya-osvity-os-magistr",
+          "title": "2021. Списки рекомендованих (денна та заочна форми здобуття освіти ОС \"магістр\")",
+          "source": "https://hnpu.edu.ua/uk/2021-spysky-rekomendovanyh-denna-ta-zaochna-formy-zdobuttya-osvity-os-magistr"
+        },
+        {
+          "slug": "pk-programy-vstupnyh-vyprobuvan-dlya-inozemciv-y-osib-bez-gromadyanstva",
+          "title": "ПРОГРАМИ вступних випробувань для іноземців й осіб без громадянства",
+          "source": "https://hnpu.edu.ua/uk/programy-vstupnyh-vyprobuvan-dlya-inozemciv-y-osib-bez-gromadyanstva"
+        },
+        {
+          "slug": "pk-spysky-rekomendovanyh-stanom-na-25092021-dodatkovyy-pryyom-os-bakalavr-ta-os-",
+          "title": "Списки рекомендованих станом на 25.09.2021 (додатковий прийом: ОС \"бакалавр\" та ОС \"магістр\")",
+          "source": "https://hnpu.edu.ua/uk/spysky-rekomendovanyh-stanom-na-25092021-dodatkovyy-pryyom-os-bakalavr-ta-os-magistr"
+        },
+        {
+          "slug": "pk-rezultaty-tvorchyh-konkursiv-vstupnykiv-1-sesiya-01072021-02072021",
+          "title": "Результати творчих конкурсів вступників (1 сесія: 01.07.2021–02.07.2021)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-tvorchyh-konkursiv-vstupnykiv-1-sesiya-01072021-02072021"
+        },
+        {
+          "slug": "pk-rezultaty-tvorchyh-konkursiv-vstupnykiv-2-sesiya-08072021-09072021",
+          "title": "Результати творчих конкурсів вступників (2 сесія: 08.07.2021–09.07.2021)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-tvorchyh-konkursiv-vstupnykiv-2-sesiya-08072021-09072021"
+        },
+        {
+          "slug": "pk-rezultaty-tvorchyh-konkursiv-vstupnykiv-3-sesiya-19072021-20072021",
+          "title": "Результати творчих конкурсів вступників (3 сесія: 19.07.2021–20.07.2021)",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-tvorchyh-konkursiv-vstupnykiv-3-sesiya-19072021-20072021"
+        }
+      ]
+    },
+    {
+      "year": "2020",
+      "pages": [
+        {
+          "slug": "pk-arhiv-vstupna-kampaniya-2020-roku",
+          "title": "АРХІВ. Вступна кампанія 2020 року",
+          "source": "https://hnpu.edu.ua/uk/arhiv-vstupna-kampaniya-2020-roku"
+        },
+        {
+          "slug": "pk-reytyngovi-spysky-vstupnykiv-os-bakalavr-na-osnovi-pzso-2020-rik",
+          "title": "Рейтингові списки вступників. ОС \"бакалавр\" на основі ПЗСО, 2020 рік",
+          "source": "https://hnpu.edu.ua/uk/reytyngovi-spysky-vstupnykiv-os-bakalavr-na-osnovi-pzso-2020-rik"
+        },
+        {
+          "slug": "pk-reytyngovi-spysky-vstupnykiv-os-magistr-2020-rik",
+          "title": "Рейтингові списки вступників. ОС \"магістр\", 2020 рік",
+          "source": "https://hnpu.edu.ua/uk/reytyngovi-spysky-vstupnykiv-os-magistr-2020-rik"
+        },
+        {
+          "slug": "pk-spysky-rekomendovanyh-derzhzamovlennya-bakalavr-denna-27082020",
+          "title": "Списки рекомендованих - держзамовлення (бакалавр, денна, 27.08.2020)",
+          "source": "https://hnpu.edu.ua/uk/spysky-rekomendovanyh-derzhzamovlennya-bakalavr-denna-27082020"
+        },
+        {
+          "slug": "pk-spysky-rekomendovanyh-kontrakt-bakalavr-zaochna-12092020",
+          "title": "Списки рекомендованих - контракт (бакалавр, заочна, 12.09.2020)",
+          "source": "https://hnpu.edu.ua/uk/spysky-rekomendovanyh-kontrakt-bakalavr-zaochna-12092020"
+        },
+        {
+          "slug": "pk-rezultaty-vstupnyh-vyprobuvan-spysky-rekomendovanyh",
+          "title": "Результати вступних випробувань. Списки рекомендованих",
+          "source": "https://hnpu.edu.ua/uk/rezultaty-vstupnyh-vyprobuvan-spysky-rekomendovanyh"
+        },
+        {
+          "slug": "pk-magistr-spysky-rekomendovanyh-vid-07092020",
+          "title": "Магістр. Списки рекомендованих (денна форма, 2020)",
+          "source": "https://hnpu.edu.ua/uk/magistr-spysky-rekomendovanyh-vid-07092020"
+        },
+        {
+          "slug": "pk-magistr-spysky-rekomendovanyh-vid-31082020",
+          "title": "Магістр. Списки рекомендованих (заочна форма, 2020)",
+          "source": "https://hnpu.edu.ua/uk/magistr-spysky-rekomendovanyh-vid-31082020"
+        },
+        {
+          "slug": "pk-nakazy-pro-zarahuvannya-2020-rik",
+          "title": "Накази про зарахування (2020 рік)",
+          "source": "https://hnpu.edu.ua/uk/nakazy-pro-zarahuvannya-2020-rik"
+        }
+      ]
+    }
+  ]
+}

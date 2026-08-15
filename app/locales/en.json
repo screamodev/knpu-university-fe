@@ -98,6 +98,7 @@
       "admissionCommittee": "Admissions committee",
       "rules": "Admission rules 2026",
       "admissionResults": "Admission results",
+      "admissionArchive": "Admission campaign archives",
       "specialties": "List of specialties",
       "creative": "Creative competitions",
       "budget": "State-funded places",
@@ -1983,6 +1984,18 @@
       "recommendationsIntro": "Minutes and decisions of the admissions committee on recommendations for enrolment, both state-funded and fee-paying.",
       "enrolmentOrdersTitle": "Enrolment orders",
       "enrolmentOrdersIntro": "Lists of enrolled students — the rector’s orders issued on the results of the campaign."
+    },
+    "section": {
+      "tag": "Admissions committee",
+      "archiveTag": "{year} admission campaign",
+      "campaignTitle": "2026 admission campaign",
+      "campaignIntro": "Admissions committee materials migrated from the old site: deadlines, exam programmes, schedules, results, ranking lists, enrolment orders and the committee’s documentation.",
+      "archivesTitle": "Archives of admission campaigns",
+      "archiveChip": "{year} · {count}",
+      "archiveTitle": "ARCHIVE. {year} admission campaign",
+      "archiveSubtitle": "Pages of that campaign, migrated from the old site.",
+      "backToCommittee": "Back to the admissions committee",
+      "backToArchive": "Back to the {year} archive"
     }
   },
   "education": {

@@ -141,6 +141,46 @@ const requiredInfo: ReadonlyArray<{ key: string; path: string }> = [
       </div>
     </div>
 
+    <!-- Розділ приймальної комісії, перенесений зі старого сайту -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-14 lg:pb-20">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+        {{ t('admissions.section.campaignTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('admissions.section.campaignIntro') }}
+      </p>
+
+      <div class="mb-10">
+        <SharedStaticPageBody v-if="ADMISSIONS_ROOT_SLUG" :slug="ADMISSIONS_ROOT_SLUG" />
+      </div>
+
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 list-none p-0 m-0">
+        <li v-for="page in ADMISSIONS_CAMPAIGN" :key="page.slug">
+          <NuxtLink
+            :to="localePath(`/admissions/info/${page.slug}`)"
+            class="group flex items-start gap-3 h-full rounded-12 border border-border bg-white px-5 py-4 no-underline transition-colors duration-280 hover:border-gold"
+          >
+            <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" aria-hidden />
+            <span class="flex-1 text-body text-navy">{{ page.title }}</span>
+          </NuxtLink>
+        </li>
+      </ul>
+
+      <h3 class="font-playfair text-xl font-bold text-navy mt-12 mb-4">
+        {{ t('admissions.section.archivesTitle') }}
+      </h3>
+      <div class="flex flex-wrap gap-3">
+        <NuxtLink
+          v-for="archive in ADMISSIONS_ARCHIVES"
+          :key="archive.year"
+          :to="localePath(`/admissions/archive/${archive.year}`)"
+          class="rounded-100 border border-border px-5 py-2.5 text-body-sm font-medium text-navy no-underline transition-colors duration-280 hover:border-gold"
+        >
+          {{ t('admissions.section.archiveChip', { year: archive.year, count: archive.pages.length }) }}
+        </NuxtLink>
+      </div>
+    </div>
+
     <!-- Mandatory campaign information, each item leading to the page that carries it -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-14 lg:pb-20">
       <h2 class="font-playfair text-2xl font-bold text-navy mb-2">

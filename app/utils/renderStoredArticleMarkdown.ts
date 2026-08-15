@@ -129,7 +129,11 @@ export function withAssetWidth(url: string, width = BODY_IMAGE_WIDTH): string {
  */
 let activeDirectusPublicUrl = ''
 
-/** Hosts whose iframes may stay: video embeds only, nothing that can run arbitrary scripts. */
+/**
+ * Hosts whose iframes may stay: video and document embeds, nothing that can run arbitrary
+ * scripts. Google's published documents (`/pubembed`, `/preview`) are here because the admissions
+ * committee publishes its slide decks that way and the pages carry no copy of them.
+ */
 const EMBED_HOSTS = new Set([
   'www.youtube.com',
   'youtube.com',
@@ -137,6 +141,9 @@ const EMBED_HOSTS = new Set([
   'youtube-nocookie.com',
   'player.vimeo.com',
   'vimeo.com',
+  'docs.google.com',
+  'drive.google.com',
+  'calendar.google.com',
 ])
 
 /** `/assets/<uuid>` on our own Directus — used to embed a PDF viewer in an article body. */

@@ -228,6 +228,24 @@ const segments = computed(() => {
   cursor: zoom-in;
 }
 
+/*
+ * A migrated banner sits inside a link and carries no width/height, so before it loads the box is
+ * 0×0 — and a lazy image that is never laid out is never fetched. A floor on the size breaks that
+ * loop; the real dimensions take over as soon as the file arrives.
+ */
+.news-article-md a > img:only-child {
+  min-width: 8rem;
+  min-height: 1.5rem;
+}
+
+/* Videos and slides inside a migrated table stack instead of shrinking to 300px on a phone. */
+@media (max-width: 640px) {
+  .news-article-md td:has(iframe) {
+    display: block;
+    width: 100%;
+  }
+}
+
 /* A picture on its own line gets breathing room; one floated beside text must not. */
 .news-article-md p > img:only-child,
 .news-article-md figure img {

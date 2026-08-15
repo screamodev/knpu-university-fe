@@ -29,9 +29,19 @@ export const DOCUMENT_SECTIONS = [
   'quality-centre-programmes',
   'digital-center',
   'admissions-committee',
+  // Вступна кампанія: the lists the admissions office has to publish each year.
+  'tuition',
+  'admissions-programmes',
+  'admissions-rating-lists',
+  'admissions-recommendations',
+  'admissions-enrolment-orders',
   'monitoring',
   'science-schools',
   'contacts',
+  'academic-council-decisions',
+  'candidate-support',
+  'science-council',
+  'science-events',
 ] as const
 
 export type DocumentSection = (typeof DOCUMENT_SECTIONS)[number]

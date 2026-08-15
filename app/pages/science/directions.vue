@@ -97,8 +97,44 @@ const departments = computed(() => {
         {{ t('science.directions.intro') }}
       </p>
 
-      <!-- Наукові школи -->
+      <!-- Напрями кафедр — first on the page, as the client asked -->
       <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+        {{ t('science.directions.departmentsTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('science.directions.departmentsIntro') }}
+      </p>
+
+      <div v-if="directionsPending" class="space-y-3">
+        <div v-for="i in 5" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
+      </div>
+
+      <div v-else-if="departments.length" class="space-y-3">
+        <SharedAccordion
+          v-for="(group, index) in departments"
+          :key="group.department"
+          :title="group.department"
+          :hint="`${group.items.length}`"
+          :open="index === 0"
+        >
+          <ul class="list-none p-0 m-0 space-y-3 pt-4">
+            <li v-for="item in group.items" :key="item.id" class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2" aria-hidden="true" />
+              <div>
+                <p class="text-body text-navy">{{ item.topic }}</p>
+                <p v-if="item.supervisor" class="text-body-sm text-text-muted mt-0.5">
+                  {{ item.supervisor }}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </SharedAccordion>
+      </div>
+
+      <SharedSectionPending v-else />
+
+      <!-- Наукові школи, after the напрями -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-16 mb-2">
         {{ t('science.directions.schoolsTitle') }}
       </h2>
       <p class="text-body-sm text-text-muted max-w-3xl mb-6">
@@ -145,42 +181,6 @@ const departments = computed(() => {
         {{ t('science.directions.schoolsDocumentsTitle') }}
       </h2>
       <SharedDocumentList section="science-schools" />
-
-      <!-- Напрями кафедр -->
-      <h2 class="font-playfair text-2xl font-bold text-navy mt-16 mb-2">
-        {{ t('science.directions.departmentsTitle') }}
-      </h2>
-      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
-        {{ t('science.directions.departmentsIntro') }}
-      </p>
-
-      <div v-if="directionsPending" class="space-y-3">
-        <div v-for="i in 5" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
-      </div>
-
-      <div v-else-if="departments.length" class="space-y-3">
-        <SharedAccordion
-          v-for="(group, index) in departments"
-          :key="group.department"
-          :title="group.department"
-          :hint="`${group.items.length}`"
-          :open="index === 0"
-        >
-          <ul class="list-none p-0 m-0 space-y-3 pt-4">
-            <li v-for="item in group.items" :key="item.id" class="flex gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2" aria-hidden="true" />
-              <div>
-                <p class="text-body text-navy">{{ item.topic }}</p>
-                <p v-if="item.supervisor" class="text-body-sm text-text-muted mt-0.5">
-                  {{ item.supervisor }}
-                </p>
-              </div>
-            </li>
-          </ul>
-        </SharedAccordion>
-      </div>
-
-      <SharedSectionPending v-else />
     </div>
   </div>
 </template>

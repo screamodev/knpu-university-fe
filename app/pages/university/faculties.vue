@@ -13,6 +13,8 @@ definePageMeta({ layout: 'default' })
  * matches the official structure.
  */
 const { t, localePath } = useSafeI18nWithRouter()
+// Кафедри with a page of their own become links here too — on this page they were
+// plain grey text, which the client flagged.
 const { localized } = useLocalizedField()
 
 useHead({
@@ -125,6 +127,13 @@ function headOf(unit: StructureUnit): { name: string; title: string } | null {
                     {{ localized(item, 'name') }}
                     <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
                   </a>
+                  <NuxtLink
+                    v-else-if="structureItemPath(item)"
+                    :to="localePath(structureItemPath(item)!)"
+                    class="text-navy no-underline hover:text-gold transition-colors duration-280"
+                  >
+                    {{ localized(item, 'name') }}
+                  </NuxtLink>
                   <template v-else>{{ localized(item, 'name') }}</template>
                 </li>
               </ul>

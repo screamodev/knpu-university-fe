@@ -3,7 +3,8 @@
     "comingSoon": "Coming soon",
     "opensInNewTab": "Opens in a new tab",
     "readMore": "Read more",
-    "sectionPending": "This section is being prepared by the university."
+    "sectionPending": "This section is being prepared by the university.",
+    "sectionNav": "Section navigation"
   },
   "utility": {
     "phone": "+38 (057) 700-69-09",
@@ -81,7 +82,7 @@
       "contacts": "Contacts and map",
       "statute": "Charter and licences",
       "publicInfo": "Public information",
-      "orders": "Orders and regulations",
+      "orders": "Orders",
       "financialReports": "Financial reports",
       "prozorro": "Prozorro",
       "erasmus": "Erasmus+ programmes",
@@ -96,6 +97,7 @@
       "secondDegree": "Second higher education",
       "admissionCommittee": "Admissions committee",
       "rules": "Admission rules 2026",
+      "admissionResults": "Admission results",
       "specialties": "List of specialties",
       "creative": "Creative competitions",
       "budget": "State-funded places",
@@ -116,7 +118,7 @@
       "electives": "Elective courses",
       "processSchedule": "Academic year schedule",
       "accreditation": "Programme accreditation",
-      "qualityCenter": "Quality centre",
+      "qualityCenter": "Educational quality assurance centre",
       "monitoring": "Monitoring",
       "rankings": "Rankings",
       "practice": "Practical training",
@@ -165,7 +167,12 @@
       "scientificSecretary": "Academic secretary office",
       "academicOffice": "Academic affairs office",
       "digitalCenter": "Centre for digitalisation of education",
-      "moodle": "Moodle"
+      "moodle": "Moodle",
+      "plagiarism": "Plagiarism check",
+      "agreements": "Cooperation agreements",
+      "activity": "Research activity",
+      "scienceCouncil": "Research Council",
+      "candidateSupport": "Support for candidates"
     }
   },
   "header": {
@@ -219,7 +226,7 @@
     "statSpecialtiesValue": "73",
     "statSpecialtiesLabel": "Specialties",
     "statProgramsValue": "193",
-    "statProgramsLabel": "Programmes"
+    "statProgramsLabel": "Study programmes"
   },
   "quickAccess": {
     "label": "Quick Access",
@@ -531,29 +538,9 @@
         "students": "Student representatives"
       },
       "facultiesRepresented": "The Council includes representatives of nine university faculties — History and Law; Natural Sciences, Special and Health-Preserving Education; Preschool Education; Foreign Philology; Arts; Primary Education; Social Sciences and Humanities; Physical Culture and Sport; Physics and Mathematics — as well as two academic institutes.",
-      "decisionsTitle": "Recent decisions",
-      "decisions": {
-        "d1": {
-          "date": "15.02.2026",
-          "title": "On approval of educational programmes",
-          "text": ""
-        },
-        "d2": {
-          "date": "28.01.2026",
-          "title": "On conferral of academic degrees",
-          "text": ""
-        },
-        "d3": {
-          "date": "10.01.2026",
-          "title": "On the academic calendar 2025/2026",
-          "text": ""
-        },
-        "d4": {
-          "date": "20.12.2025",
-          "title": "On approval of structural unit regulations",
-          "text": ""
-        }
-      }
+      "decisionsTitle": "Decisions of the academic council",
+      "fullCompositionLink": "Full membership of the academic council",
+      "decisionsIntro": "Decisions adopted at the university academic council meetings, by year."
     },
     "supervisoryBoard": {
       "tag": "Management",
@@ -574,6 +561,54 @@
         "development": {
           "title": "Institutional development",
           "text": ""
+        }
+      },
+      "membersNote": "The composition was approved by Order No. 60 of the Ministry of Education and Science of Ukraine of 25.01.2022.",
+      "members": {
+        "m1": {
+          "name": "Larysa Lukianova",
+          "position": "Director of the Ivan Ziaziun Institute of Pedagogical and Adult Education of the National Academy of Educational Sciences of Ukraine",
+          "role": "Chair of the Supervisory Board"
+        },
+        "m2": {
+          "name": "Volodymyr Ihnatiev",
+          "position": "Deputy Director of the Department of Science and Education of the Kharkiv Regional State Administration — Head of the Directorate for Science, Higher and Vocational Education and Staffing",
+          "role": "Deputy Chair of the Supervisory Board"
+        },
+        "m3": {
+          "name": "Yurii Taimasov",
+          "position": "Head of the training unit of the Special Purpose Rescue Squad, Main Directorate of the State Emergency Service of Ukraine in Kharkiv Region",
+          "role": "Secretary of the Supervisory Board"
+        },
+        "m4": {
+          "name": "Borys Hryniov",
+          "position": "Director of the Institute for Scintillation Materials of the National Academy of Sciences of Ukraine, Director of the State Fund for Fundamental Research of Ukraine",
+          "role": ""
+        },
+        "m5": {
+          "name": "Mykola Zhulynskyi",
+          "position": "Director of the Taras Shevchenko Institute of Literature of the National Academy of Sciences of Ukraine",
+          "role": ""
+        },
+        "m6": {
+          "name": "Nellia Nychkalo",
+          "position": "Academician-Secretary of the Department of Vocational and Adult Education of the National Academy of Educational Sciences of Ukraine, full member (academician) of the Academy",
+          "role": ""
+        },
+        "m7": {
+          "name": "Mykola Nosko",
+          "position": "Adviser to the Rector of the Taras Shevchenko National University «Chernihiv Colehium»",
+          "role": ""
+        },
+        "m8": {
+          "name": "Heorhii Filipchuk",
+          "position": "First Deputy Head of the Taras Shevchenko All-Ukrainian Society «Prosvita»",
+          "role": ""
+        },
+        "m9": {
+          "name": "Franciszek Szlosek",
+          "position": "Director of the Institute of Pedagogy at the Maria Grzegorzewska Academy of Special Education in Warsaw, Head of the «Poland — Ukraine» Scientific Pedagogical Society",
+          "role": ""
         }
       }
     },
@@ -648,9 +683,9 @@
       "allUnits": "All institutes and faculties",
       "asOf": "Reflects the university’s organisational chart as of 30 June 2026.",
       "administrativeTitle": "Administrative subdivisions and services",
-      "administrativeNote": "Subdivisions are listed by the member of the rectorate they report to, as in the organisational chart.",
+      "administrativeNote": "Subdivisions are listed by type — centres, departments and services, other units. Those with a page on this site or a site of their own open by link.",
       "associationsTitle": "«Skovoroda associations»",
-      "associationsNote": "Collegiate, working and advisory bodies, research and methodological laboratories, centres and student organisations operating on a voluntary basis.",
+      "associationsNote": "Collegiate, working and advisory bodies, research and methodological laboratories, centres and student associations operating on a voluntary basis. Listed as one set, with no grouping by vice-rector.",
       "unit": {
         "tabs": {
           "home": "Overview",
@@ -698,7 +733,12 @@
         "newsTitleChair": "Faculty news"
       },
       "tagDepartment": "Department",
-      "tagChair": "Department"
+      "tagChair": "Department",
+      "types": {
+        "centres": "Centres",
+        "departments": "Departments and services",
+        "other": "Other subdivisions"
+      }
     },
     "faculties": {
       "tag": "Management",
@@ -886,7 +926,7 @@
       "subtitle": "Official Rector's orders governing the institution's substantive operations.",
       "intro": "Orders on substantive university matters are grouped chronologically by year and capture organisational, HR, and campus decisions of Kharkiv National Pedagogical University named after H. S. Skovoroda.",
       "filterAll": "All",
-      "documentsTitle": "Orders and charters"
+      "documentsTitle": "Orders and instructions"
     },
     "financialReports": {
       "tag": "Transparency",
@@ -953,32 +993,9 @@
         }
       },
       "partnersTitle": "Partner universities",
-      "partnersNote": "The European partner network expands continuously — in particular, a cooperation agreement was signed with the University of the Balearic Islands (Spain) in 2026."
-    },
-    "mobility": {
-      "tag": "International",
-      "title": "Academic mobility",
-      "subtitle": "Student and staff exchange with international partners.",
-      "intro": "Academic mobility at Kharkiv National Pedagogical University named after H. S. Skovoroda is coordinated by the Centre for International Activity: counselling on Erasmus+ programmes, preparation of Learning Agreements, hosting inbound exchange students, and partnership management. Annual competitions and updated quotas appear on the official university website.",
-      "typesTitle": "Types of mobility",
-      "types": {
-        "incomingStudents": {
-          "title": "Incoming students",
-          "text": "International students arriving under bilateral agreements or Erasmus+ complete semester-length study programmes with support arranging dormitory placements and timetable orientation."
-        },
-        "outgoingStudents": {
-          "title": "Outgoing students",
-          "text": "Ukrainian students study abroad on credit-exchange programmes backed by tuition grants followed by transcript recognition upon return."
-        },
-        "incomingStaff": {
-          "title": "Incoming staff",
-          "text": "Invited lecturers and researchers deliver seminars, lectures, workshops, and joint academic events alongside university departments."
-        },
-        "outgoingStaff": {
-          "title": "Outgoing staff",
-          "text": "Faculty and administrative staff undertake training abroad sharing experience in educator preparation and quality assurance governance."
-        }
-      }
+      "partnersNote": "The European partner network expands continuously — in particular, a cooperation agreement was signed with the University of the Balearic Islands (Spain) in 2026.",
+      "projectsTitle": "Projects",
+      "projectsNote": "Erasmus+ projects the university takes part in."
     },
     "inclusive": {
       "tag": "International",
@@ -1147,7 +1164,47 @@
       "subtitle": "The office supporting the work of the Academic Council.",
       "documentsTitle": "Documents",
       "councilLink": "Composition and powers of the collegial governing body",
-      "boardsLink": "Boards authorised to hold dissertation defences"
+      "boardsLink": "Boards authorised to hold dissertation defences",
+      "contactsTitle": "Contacts",
+      "address": "29 Alchevskykh St., room 206, Kharkiv, 61002",
+      "phone": "tel. (057) 700-35-27",
+      "email": "vchsekretar{'@'}hnpu.edu.ua",
+      "secretaryRole": "Academic secretary",
+      "secretaryName": "Anna Boiarska-Khomenko",
+      "secretaryDegree": "Doctor of Pedagogical Sciences, Professor",
+      "announcementsTitle": "Announcements of the academic secretary",
+      "announcementsToggle": "Announcements of presentations and defences"
+    },
+    "agreements": {
+      "tag": "International and domestic cooperation",
+      "title": "Cooperation agreements",
+      "subtitle": "Register of agreements, treaties and memoranda of H.S. Skovoroda KhNPU.",
+      "intro": "The university cooperates with the institutes of the National Academy of Educational Sciences and the National Academy of Sciences of Ukraine, with higher, secondary and pre-school education institutions, with Ukrainian organisations, and with partners abroad. The current agreements and memoranda are listed below by section.",
+      "sectionsTitle": "Sections of the register",
+      "monTitle": "Agreement on cooperation and partnership between the Ministry of Education and Science of Ukraine and H.S. Skovoroda Kharkiv National Pedagogical University",
+      "empty": "No entries yet.",
+      "categories": {
+        "napn": {
+          "title": "Agreements and memoranda with the institutes of the NAES and the NAS of Ukraine",
+          "short": "With NAES and NAS institutes"
+        },
+        "universities": {
+          "title": "Agreements and memoranda with higher education institutions of Ukraine",
+          "short": "With higher education institutions"
+        },
+        "schools": {
+          "title": "Agreements and memoranda with secondary and pre-school education institutions and education departments",
+          "short": "With schools and pre-school institutions"
+        },
+        "organizations": {
+          "title": "Agreements and memoranda with Ukrainian organisations and institutions",
+          "short": "With organisations and institutions"
+        },
+        "international": {
+          "title": "International agreements and memoranda of cooperation",
+          "short": "International agreements"
+        }
+      }
     }
   },
   "admissions": {
@@ -1393,7 +1450,17 @@
       "ctaText": "Detailed timelines, competition offers, and application filing are published in the Rules of Admission and in the national applicant e-cabinet.",
       "ctaPrimary": "Admission rules 2026",
       "ctaSecondary": "EDEBO — submit an application",
-      "externalTitle": "External resources"
+      "externalTitle": "External resources",
+      "requiredTitle": "Mandatory information of the admission campaign",
+      "requiredIntro": "The documents and pages a higher education institution is required to publish under the Admission Conditions and the risk criteria.",
+      "required1": "Admission rules of the institution",
+      "required2": "Full list of study programmes and licensed enrolment quotas",
+      "required3": "Information on the admissions committee and its powers",
+      "required4": "Programmes of entrance exams, professional tests and interviews",
+      "required5": "Applicant ranking lists",
+      "required6": "Decisions on enrolment recommendations",
+      "required7": "Lists of enrolled students (enrolment orders)",
+      "required8": "Tuition fees"
     },
     "specialties": {
       "tag": "Admissions",
@@ -1491,7 +1558,9 @@
           "form": "fullTime",
           "level": "graduate"
         }
-      }
+      },
+      "quotasTitle": "Study programmes and licensed quotas",
+      "quotasIntro": "The full list of accredited and non-accredited study programmes with the licensed enrolment quotas the university admits under in the current campaign."
     },
     "creative": {
       "tag": "Admissions",
@@ -1645,7 +1714,7 @@
     "tuition": {
       "tag": "Admissions",
       "title": "Tuition fees",
-      "subtitle": "Contract tuition and bank details refresh annually via Rector's orders — notably Order № 109-od of 15.05.2025 amending payable services versus Order № 64-od of 24.03.2025 (see University → Orders on core activities on this website). Applicable figures for each cycle are reiterated in Annex 1 to KhNPU «Rules of admission… 2026» and accompanying Admissions tuition notices.",
+      "subtitle": "Tuition fees for the 2026-2027 academic year are set by rector’s order No. 82-od of 18.05.2026; below are the order itself, the fee tables by degree level and the payment details.",
       "levelBachelor": "Bachelor",
       "levelMaster": "Master",
       "levelGraduate": "Graduate",
@@ -1662,7 +1731,15 @@
       "payment2Title": "Per semester",
       "payment2Text": "Classic option: payment before the start of each semester.",
       "payment3Title": "Concessions",
-      "payment3Text": "Discounts and benefits are available for certain categories of applicants — details from the admissions office."
+      "payment3Text": "Discounts and benefits are available for certain categories of applicants — details from the admissions office.",
+      "documentsTitle": "Order and fee tables",
+      "documentsIntro": "The fee for one year of study (UAH) by mode of study, faculty and speciality.",
+      "requisitesTitle": "Payment details",
+      "requisitesIntro": "The university’s account for tuition and dormitory payments:",
+      "requisitesAccount": "Account",
+      "requisitesBank": "Bank",
+      "requisitesMfo": "Bank code (MFO)",
+      "requisitesEdrpou": "EDRPOU"
     },
     "benefits": {
       "tag": "Admissions",
@@ -1895,6 +1972,17 @@
           "description": ""
         }
       }
+    },
+    "results": {
+      "tag": "Admissions",
+      "title": "Admission results",
+      "subtitle": "Applicant ranking lists, admissions committee decisions on enrolment recommendations, and enrolment orders of the campaign.",
+      "ratingListsTitle": "Applicant ranking lists",
+      "ratingListsIntro": "Lists per competitive offer, published by the admissions committee within the deadlines set by the Admission Rules.",
+      "recommendationsTitle": "Decisions on enrolment recommendations",
+      "recommendationsIntro": "Minutes and decisions of the admissions committee on recommendations for enrolment, both state-funded and fee-paying.",
+      "enrolmentOrdersTitle": "Enrolment orders",
+      "enrolmentOrdersIntro": "Lists of enrolled students — the rector’s orders issued on the results of the campaign."
     }
   },
   "education": {
@@ -2083,7 +2171,7 @@
     },
     "schedule": {
       "tag": "Education",
-      "title": "Academic calendar",
+      "title": "Schedule of the educational process",
       "subtitle": "Key dates and semester structure for the academic year.",
       "intro": "The academic year has two semesters. Below are the main teaching periods and key deadlines.",
       "semestersTitle": "Semester timeline",
@@ -2203,8 +2291,7 @@
         "students": "For students",
         "quality": "Educational quality",
         "programmes": "Study programmes",
-        "accreditation": "Accreditation",
-        "documents": "Documents"
+        "accreditation": "Accreditation"
       },
       "studentsIntro": "The centre’s materials for students are collected on the relevant pages of this site.",
       "qualityIntro": "The centre runs the internal quality assurance system: monitoring studies, academic integrity and work with programme guarantors.",
@@ -2218,7 +2305,15 @@
         "ger-conclusion": "Sectoral expert council conclusion",
         "naqa-decision": "Decision of the National Agency",
         "other": "Dossier document"
-      }
+      },
+      "regulationsIntro": "The regulations the centre and the university work under.",
+      "regulationsPolicies": "Regulations",
+      "regulationsOrders": "Orders on core activity",
+      "regulationsDirectives": "Directives",
+      "regulationsTemplates": "Document templates",
+      "programmesIntro": "The university’s study programmes by degree level and year.",
+      "freeChoiceTitle": "Elective courses",
+      "ratingTitle": "Student performance ranking"
     },
     "monitoring": {
       "tag": "Education",
@@ -2236,9 +2331,17 @@
         "programme-implementation": "Delivery of study programmes",
         "phd-programmes": "Delivery of PhD programmes",
         "educational-environment": "Learning environment",
-        "research": "Research activity",
+        "research": "Research and innovation",
+        "international": "International cooperation",
+        "youth-policy": "Youth policy",
+        "management": "Management and staffing",
+        "stakeholders": "Internal and external stakeholder engagement",
+        "express": "Express surveys",
+        "staff-rating": "Teaching staff rating results",
         "other": "Other studies"
-      }
+      },
+      "schemeAlt": "Chart of the education quality monitoring system of H.S. Skovoroda KhNPU",
+      "schemeCaption": "The university’s education quality monitoring system: external and internal monitoring."
     },
     "rankings": {
       "tag": "Education",
@@ -2476,6 +2579,33 @@
         "support": "Technical support: support{'@'}hnpu.edu.ua",
         "centre": "Centre: cdo{'@'}hnpu.edu.ua"
       }
+    },
+    "studyProgrammes": {
+      "tag": "Education",
+      "subtitle": "Study programmes by year, as the educational quality assurance centre publishes them.",
+      "bachelorTitle": "Bachelor’s degree programmes",
+      "masterTitle": "Master’s degree programmes",
+      "phdTitle": "PhD programmes",
+      "draftsTitle": "Draft programmes",
+      "draftsEmpty": "No programmes are under discussion at the moment.",
+      "backLink": "Back to the centre’s study programmes"
+    },
+    "freeChoice": {
+      "tag": "Education",
+      "subtitle": "The list of elective courses, syllabi, class schedule and the online survey.",
+      "bachelorTitle": "Elective courses, bachelor’s level",
+      "masterTitle": "Elective courses, master’s level",
+      "phdTitle": "Elective courses, PhD level",
+      "listTitle": "List of elective courses and syllabi",
+      "scheduleTitle": "Class schedule",
+      "surveyTitle": "Online survey on elective courses",
+      "backLink": "Back to «For students»"
+    },
+    "firstYear": {
+      "tag": "Education",
+      "title": "Support for first-year students",
+      "subtitle": "Materials of the educational quality assurance centre for first-year students.",
+      "backLink": "Back to «For students»"
     }
   },
   "science": {
@@ -2666,50 +2796,6 @@
           "year": "2024",
           "title": "Environmental education and sustainable development",
           "participants": "90 participants"
-        }
-      }
-    },
-    "journals": {
-      "tag": "Science",
-      "title": "Academic journals",
-      "subtitle": "University periodicals indexed in national and international databases.",
-      "intro": "Peer-reviewed university journals cover pedagogy, psychology, philology and natural sciences; some issues are indexed internationally.",
-      "journals": {
-        "j1": {
-          "name": "Pedagogy and psychology",
-          "frequency": "Quarterly",
-          "scopus": true,
-          "wos": false
-        },
-        "j2": {
-          "name": "Philological studies",
-          "frequency": "Semi-annual",
-          "scopus": true,
-          "wos": true
-        },
-        "j3": {
-          "name": "Natural sciences in education",
-          "frequency": "Quarterly",
-          "scopus": false,
-          "wos": false
-        },
-        "j4": {
-          "name": "Historical archive",
-          "frequency": "Annual",
-          "scopus": true,
-          "wos": false
-        },
-        "j5": {
-          "name": "Mathematics in school and university",
-          "frequency": "Quarterly",
-          "scopus": false,
-          "wos": false
-        },
-        "j6": {
-          "name": "Inclusive education",
-          "frequency": "Semi-annual",
-          "scopus": true,
-          "wos": true
         }
       }
     },
@@ -2907,6 +2993,21 @@
           "title": "Exhibitions",
           "description": "Temporary displays of rare books, university history and thematic collections."
         }
+      },
+      "linksTitle": "Library resources and services",
+      "newsTitle": "Library news",
+      "links": {
+        "integrity": "Academic integrity",
+        "skViki": "SK Viki encyclopaedic guide",
+        "catalog": "Online catalogue",
+        "archive": "Institutional repository",
+        "plagiarism": "Plagiarism check",
+        "scientists": "Distinguished scholars of KhNPU",
+        "projects": "Library projects",
+        "databases": "Access to scientometric databases",
+        "profiles": "Scientometric profiles of researchers",
+        "nbuv": "Scientific periodicals of Ukraine (Vernadsky Library)",
+        "uran": "Scientific periodicals of Ukraine (Uran)"
       }
     },
     "catalog": {
@@ -3008,6 +3109,130 @@
       "tableTitle": "Dissertation title",
       "tableSpecialty": "Specialty",
       "tableResult": "Result"
+    },
+    "plagiarism": {
+      "tag": "Research",
+      "title": "Plagiarism check",
+      "subtitle": "Academic integrity of qualification papers, dissertations and university journal articles.",
+      "intro": "The Research Library is the technical administrator and coordinator of the academic plagiarism check for students’ qualification papers at the University.",
+      "contactsTitle": "Where to send your work",
+      "contacts": {
+        "library": {
+          "title": "Research Library",
+          "text": "Students’ qualification papers. General questions about the check.",
+          "email": "naukova_biblioteka{'@'}hnpu.edu.ua"
+        },
+        "antiplagiat": {
+          "title": "Dissertations and articles",
+          "text": "Texts of dissertation research and articles for the university’s professional journals are checked after being sent to this mailbox.",
+          "email": "antiplagiat{'@'}hnpu.edu.ua"
+        }
+      },
+      "formatsTitle": "Supported formats",
+      "formatsNote": "All additional information and the results of the check are sent back to the sender’s email address.",
+      "definitionTitle": "What counts as plagiarism",
+      "definitionText": "Plagiarism is the appropriation of authorship of someone else’s work of science, literature or art, or of someone else’s discovery, invention or rationalisation proposal, as well as the use of someone else’s work without a reference to its author.",
+      "definitionSource": "Great Explanatory Dictionary of the Modern Ukrainian Language. Kyiv: Irpin; VTF «Perun», 2005. P. 977.",
+      "legalNote": "The legal definition of the term first appeared in Ukrainian regulations only in July 2001, in the new wording of the Law of Ukraine “On Copyright and Related Rights”.",
+      "typesTitle": "Three main types of plagiarism",
+      "types": {
+        "copy": {
+          "text": "Copying someone else’s work (with or without their knowledge) and publishing it under your own name."
+        },
+        "mix": {
+          "text": "Presenting a mixture of your own and borrowed arguments without properly citing the sources."
+        },
+        "paraphrase": {
+          "text": "Paraphrasing someone else’s work without a properly formatted reference to the original author or publisher."
+        }
+      },
+      "typesSource": "Source: Wikipedia, the free encyclopedia.",
+      "lettersTitle": "Regulations of the Ministry of Education and Science of Ukraine",
+      "letters": {
+        "l1": {
+          "text": "Letter of 14.09.2018 No. 1/9-553. On the responsibility of specialised academic councils for their decisions to award academic degrees."
+        },
+        "l2": {
+          "text": "Letter of 15.08.2018 No. 1/11-8681. Recommendations on preventing and detecting academic plagiarism in research works."
+        },
+        "l3": {
+          "text": "Letter of 14.03.2018 No. 1/9-150. On the responsibility of specialised academic councils for their decisions to award academic degrees (on the quality of dissertations)."
+        },
+        "l4": {
+          "text": "Letter of 13.04.2018 No. 1/11-4133. Memorandum of cooperation between the Ministry of Education and Science of Ukraine and Plagiat.pl and Antiplagiat LLC."
+        }
+      },
+      "linksTitle": "Useful links",
+      "freeCheckLabel": "Free text check",
+      "integrityLabel": "Academic integrity",
+      "libraryLabel": "Research Library"
+    },
+    "activity": {
+      "tag": "Research",
+      "title": "Research and scientific and technical activity",
+      "subtitle": "Research infrastructure, scientific schools and the units reporting to the Vice-Rector for Research, Innovation and International Activity.",
+      "intro1": "The university runs postgraduate and doctoral programmes in 10 specialities and has three specialised academic councils for the defence of doctoral and candidate dissertations. Researchers can publish their results in 17 professional academic journals.",
+      "intro2": "The research infrastructure includes 10 research laboratories, one educational and research laboratory and seven methodological laboratories, as well as the council of young scientists and the student research society.",
+      "intro3": "The Research Library is a modern information and cultural centre and an essential part of the educational process. It has reading rooms and lending desks, and its holdings amount to almost one million volumes of teaching and research literature.",
+      "schoolsTitle": "Scientific schools",
+      "schoolsText": "Over the years the university has developed scientific schools in pedagogy, law, psychology, political science, economics, history, the arts, chemistry, biology, mathematics and physics, philology, philosophy, and physical education and sport.",
+      "schoolsLink": "Scientific schools and research areas of the departments",
+      "unitsTitle": "Units",
+      "unitsNote": "Reporting to the Vice-Rector for Research, Innovation and International Activity.",
+      "linksTitle": "Useful links",
+      "eventsTitle": "Research events",
+      "newsTitle": "Research news",
+      "links": {
+        "rankings": "University ranking indicators",
+        "plagiarism": "Plagiarism check",
+        "council": "Research Council",
+        "mobility": "Academic mobility",
+        "integrity": "Academic integrity",
+        "journals": "Professional academic journals"
+      }
+    },
+    "council": {
+      "tag": "Research",
+      "title": "Research Council",
+      "subtitle": "Advisory body for the research and scientific and technical activity of the university.",
+      "intro": "The Research Council considers the organisation of research at the university, plans its meetings for the academic year and prepares decisions for the Academic Council.",
+      "documentsTitle": "Documents of the Research Council"
+    },
+    "candidateSupport": {
+      "tag": "Research",
+      "title": "Support for candidates",
+      "subtitle": "Documents, legislation and templates for candidates for an academic degree or an academic title.",
+      "phdTitle": "For candidates for the Doctor of Philosophy degree",
+      "candidateTitle": "For candidates for the Candidate of Sciences degree",
+      "titleTrackTitle": "For candidates for an academic title",
+      "signatureTitle": "On the electronic signature",
+      "video1": "How to obtain an electronic signature from PrivatBank",
+      "video2": "How to use an e-signature: verifying and signing documents online",
+      "kep": "Applying a qualified electronic signature (QES) via Document.Online",
+      "czo": "Ministry of Digital Transformation of Ukraine: Central Certification Authority",
+      "candidateIntro": "The award of the Candidate of Sciences degree is governed by the Cabinet of Ministers resolution «Certain issues of awarding (revoking) academic degrees». Candidates whose studies began before 1 September 2016 are assessed by specialised academic councils formed under that procedure, and the diploma is issued by the Ministry of Education and Science.",
+      "lawsTitle": "Legislation",
+      "law1": "Procedure for awarding academic degrees",
+      "law2": "Requirements for the formatting of a dissertation",
+      "law3": "Ministry order on publishing dissertation results",
+      "law4": "Ministry letter on the use of sources created in the aggressor state",
+      "law5": "Ministry letter on publishing notices of dissertations accepted for defence",
+      "law6": "Ministry letter on applying the legislation on awarding academic degrees",
+      "contactsTitle": "Responsible officers",
+      "contacts": [
+        {
+          "unit": "Academic secretary of the university",
+          "person": "Anna Boiarska-Khomenko",
+          "address": "29 Alchevskykh St., room 206, Kharkiv, 61002",
+          "phone": "tel. (057) 700-35-27",
+          "email": "vchsekretar{'@'}hnpu.edu.ua"
+        },
+        {
+          "unit": "Centre for Digitalisation of Education",
+          "address": "29 Alchevskykh St., Kharkiv, 61002",
+          "email": "cdo{'@'}hnpu.edu.ua"
+        }
+      ]
     }
   },
   "programs": {

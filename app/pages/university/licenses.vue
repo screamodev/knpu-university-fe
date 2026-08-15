@@ -43,15 +43,9 @@ useHead({
       </h2>
       <SharedDocumentList section="licenses" />
 
-      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-2">
-        {{ t('university.licenses.awardsTitle') }}
-      </h2>
-      <p class="text-body-sm text-text-muted mb-6 max-w-3xl">
-        {{ t('university.licenses.awardsIntro') }}
-      </p>
-      <SharedDocumentList section="awards" />
-
-      <div class="mt-14 border-l-4 border-gold bg-off-white border border-border rounded-12 p-6 lg:p-8">
+      <!-- Accreditation certificates sit right under the licences: the client asked for this
+           block above the awards, not at the bottom of the page. -->
+      <div class="mt-10 border-l-4 border-gold bg-off-white border border-border rounded-12 p-6 lg:p-8">
         <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
           {{ t('university.licenses.accreditationTitle') }}
         </h3>
@@ -65,6 +59,14 @@ useHead({
           {{ t('university.licenses.accreditationLink') }}
         </NuxtLink>
       </div>
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-2">
+        {{ t('university.licenses.awardsTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted mb-6 max-w-3xl">
+        {{ t('university.licenses.awardsIntro') }}
+      </p>
+      <SharedDocumentList section="awards" />
     </div>
   </div>
 </template>

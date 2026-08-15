@@ -9,7 +9,6 @@
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
-const localePath = useLocalePath()
 
 useHead({
   title: () => t('nav.links.boards'),
@@ -40,6 +39,8 @@ const councils = [
       </div>
     </div>
 
+    <SharedSectionTabs :tabs="COUNCIL_TABS" />
+
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <p class="text-body text-text-muted max-w-3xl mb-12">
         {{ t('science.boards.intro') }}
@@ -47,11 +48,10 @@ const councils = [
 
       <div class="space-y-4">
         <SharedAccordion
-          v-for="(council, index) in councils"
+          v-for="council in councils"
           :key="council.slug"
           :title="`${t('science.boards.councilLabel')} ${council.code}`"
           :hint="t(council.fieldKey)"
-          :open="index === 0"
         >
           <div class="pt-4">
             <SharedStaticPageBody :slug="council.slug" />
@@ -64,41 +64,6 @@ const councils = [
       </h2>
       <SharedDocumentList section="specialized-councils" />
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <NuxtLink
-          :to="localePath('/university/scientific-secretary')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.scientificSecretary') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('science.boards.secretaryLink') }}
-          </span>
-        </NuxtLink>
-        <NuxtLink
-          :to="localePath('/science/dissertation-councils')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.dissertationCouncils') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('science.dissertationCouncils.subtitle') }}
-          </span>
-        </NuxtLink>
-        <NuxtLink
-          :to="localePath('/science/defenses')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.defenses') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('science.boards.defensesLink') }}
-          </span>
-        </NuxtLink>
-      </div>
     </div>
   </div>
 </template>

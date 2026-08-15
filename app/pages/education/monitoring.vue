@@ -12,7 +12,7 @@ import type { DirectusMonitoringSurvey, MonitoringArea } from '~/types/directus'
  */
 definePageMeta({ layout: 'default' })
 
-const { t, locale } = useSafeI18nWithRouter()
+const { t, locale, localePath } = useSafeI18nWithRouter()
 const { client } = useDirectus()
 const { localized } = useLocalizedField()
 
@@ -21,12 +21,19 @@ useHead({
   meta: [{ name: 'description', content: () => t('education.monitoring.subtitle') }],
 })
 
+/** The напрями in the order the legacy page listed them. */
 const AREAS: MonitoringArea[] = [
   'educational-activity',
   'programme-implementation',
   'phd-programmes',
   'educational-environment',
   'research',
+  'international',
+  'youth-policy',
+  'management',
+  'stakeholders',
+  'express',
+  'staff-rating',
   'other',
 ]
 
@@ -112,14 +119,37 @@ function programmeItems(survey: DirectusMonitoringSurvey): FileLinkItem[] {
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl mb-12">
+      <p class="text-body text-text-muted max-w-3xl mb-8">
         {{ t('education.monitoring.intro') }}
       </p>
+
+      <!-- The quality monitoring chart, full width as the client asked -->
+      <figure class="mb-12">
+        <img
+          src="/images/static/monitoring-system.jpg"
+          :alt="t('education.monitoring.schemeAlt')"
+          class="w-full h-auto rounded-16 border border-border bg-white"
+          loading="lazy"
+        >
+        <figcaption class="mt-2 text-body-sm text-text-muted">
+          {{ t('education.monitoring.schemeCaption') }}
+        </figcaption>
+      </figure>
 
       <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
         {{ t('education.monitoring.documentsTitle') }}
       </h2>
       <SharedDocumentList section="monitoring" />
+
+      <NuxtLink
+        :to="localePath('/university/public-info')"
+        class="mt-6 inline-flex items-center gap-2 rounded-12 border border-border bg-off-white px-5 py-3 font-medium text-navy no-underline transition-colors duration-280 hover:border-gold"
+      >
+        {{ t('nav.links.publicInfo') }}
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </NuxtLink>
 
       <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-2">
         {{ t('education.monitoring.surveysTitle') }}

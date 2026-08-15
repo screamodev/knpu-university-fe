@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
+
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -16,6 +18,27 @@ const serviceIds = [
   'workshops',
   'exhibitions',
 ] as const
+
+/** Категорія новин бібліотеки — бібліотека веде свою стрічку сама, як факультети. */
+const NEWS_CATEGORY = 'naukova-biblioteka'
+
+/**
+ * Ресурси бібліотеки — перелік і адреси надані клієнтом. Кілька з них ще ведуть на сторінки
+ * старого сайту: після його виведення ці адреси доведеться замінити.
+ */
+const links = computed<LinkTile[]>(() => [
+  { label: t('science.library.links.integrity'), url: 'https://sites.google.com/hnpu.edu.ua/akdob/', icon: 'shield' },
+  { label: t('science.library.links.skViki'), url: 'https://hnpu.edu.ua/sites/default/files/files/Nauka/SK_Viki.pdf', icon: 'book' },
+  { label: t('science.library.links.catalog'), url: 'https://catalog.hnpu.edu.ua', icon: 'book' },
+  { label: t('science.library.links.archive'), url: 'https://dspace.hnpu.edu.ua/?locale=uk', icon: 'document' },
+  { label: t('science.library.links.plagiarism'), path: '/science/plagiarism', icon: 'shield' },
+  { label: t('science.library.links.scientists'), url: 'https://hnpu.edu.ua/uk/naukovi-praci-profesoriv-hnpu-imeni-g-s-skovorody', icon: 'award' },
+  { label: t('science.library.links.projects'), url: 'https://hnpu.edu.ua/uk/proyekty-naukovoyi-biblioteky-hnpu-imeni-gsskovorody', icon: 'council' },
+  { label: t('science.library.links.databases'), url: 'https://hnpu.edu.ua/uk/division/dostup-do-mizhnarodnyh-naukometrychnyh-baz', icon: 'globe' },
+  { label: t('science.library.links.profiles'), url: 'https://library.hnpu.edu.ua/Профілі-науковців/', icon: 'students' },
+  { label: t('science.library.links.nbuv'), url: 'https://irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=F&I21DBN=UJRN&P21DBN=UJRN', icon: 'book' },
+  { label: t('science.library.links.uran'), url: 'https://journals.uran.ua', icon: 'book' },
+])
 </script>
 
 <template>
@@ -84,6 +107,22 @@ const serviceIds = [
       </div>
 
       <!-- Holdings and visitor counts removed: the invented figures had no source. -->
+
+      <!-- Resources and services, as listed by the client. -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        {{ t('science.library.linksTitle') }}
+      </h2>
+      <SharedLinkTileGrid :tiles="links" />
+    </div>
+
+    <!-- News feed, the same block faculties get. -->
+    <div class="bg-off-white py-12 lg:py-16">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+          {{ t('science.library.newsTitle') }}
+        </h2>
+        <SharedStructureUnitNews :category-slug="NEWS_CATEGORY" :limit="6" />
+      </div>
     </div>
   </div>
 </template>

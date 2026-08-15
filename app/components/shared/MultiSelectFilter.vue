@@ -2,6 +2,8 @@
 export interface MultiSelectOption {
   value: string
   label: string
+  /** Nested options — a faculty's кафедри. Rendered as an accordion under the parent row. */
+  children?: MultiSelectOption[]
 }
 
 /**
@@ -10,6 +12,10 @@ export interface MultiSelectOption {
  * A row of chips stops scaling once there are ~30 categories, so the list lives in a panel with
  * a search box, and the current selection stays visible as removable chips underneath — the
  * filter is readable without opening anything.
+ *
+ * Options may be two levels deep: the client asked that кафедри hang off their faculty instead of
+ * sitting in one flat list. Ticking a faculty ticks its кафедри as well, so the reader gets the
+ * whole feed of that faculty — the same roll-up the unit pages do.
  */
 const props = withDefaults(defineProps<{
   modelValue: string[]
@@ -38,30 +44,71 @@ const searchInput = ref<HTMLInputElement | null>(null)
 const selected = ref<string[]>([...props.modelValue])
 watch(() => props.modelValue, value => { selected.value = [...value] })
 
-/** Alphabetical by the localized label, using Ukrainian collation. */
-const sortedOptions = computed(() =>
-  [...props.options].sort((left, right) => left.label.localeCompare(right.label, 'uk')),
+/** Alphabetical by the localized label, using Ukrainian collation — children included. */
+const byLabel = (left: MultiSelectOption, right: MultiSelectOption) =>
+  left.label.localeCompare(right.label, 'uk')
+
+const sortedOptions = computed<MultiSelectOption[]>(() =>
+  [...props.options].sort(byLabel).map(option => (
+    option.children?.length ? { ...option, children: [...option.children].sort(byLabel) } : option
+  )),
 )
 
-const visibleOptions = computed(() => {
+/** A parent whose own label misses the needle still shows, trimmed to its matching children. */
+const visibleOptions = computed<MultiSelectOption[]>(() => {
   const needle = query.value.trim().toLowerCase()
   if (!needle) return sortedOptions.value
-  return sortedOptions.value.filter(option => option.label.toLowerCase().includes(needle))
+
+  const matches = (option: MultiSelectOption) => option.label.toLowerCase().includes(needle)
+
+  return sortedOptions.value.flatMap((option) => {
+    if (matches(option)) return [option]
+    const children = option.children?.filter(matches) ?? []
+    return children.length ? [{ ...option, children }] : []
+  })
 })
 
+/** Parents expanded in the panel; a search hit expands its parent automatically. */
+const expanded = ref<string[]>([])
+
+function isExpanded(option: MultiSelectOption): boolean {
+  return expanded.value.includes(option.value) || Boolean(query.value.trim() && option.children?.length)
+}
+
+function toggleExpanded(value: string) {
+  expanded.value = expanded.value.includes(value)
+    ? expanded.value.filter(item => item !== value)
+    : [...expanded.value, value]
+}
+
+const flatOptions = computed<MultiSelectOption[]>(() =>
+  sortedOptions.value.flatMap(option => [option, ...(option.children ?? [])]),
+)
+
 const selectedOptions = computed(() =>
-  sortedOptions.value.filter(option => selected.value.includes(option.value)),
+  flatOptions.value.filter(option => selected.value.includes(option.value)),
 )
 
 function isSelected(value: string): boolean {
   return selected.value.includes(value)
 }
 
-function toggle(value: string) {
-  selected.value = isSelected(value)
-    ? selected.value.filter(item => item !== value)
-    : [...selected.value, value]
-  emit('update:modelValue', selected.value)
+/** A parent is «partly» selected when кафедри under it are ticked but the faculty itself is not. */
+function isPartlySelected(option: MultiSelectOption): boolean {
+  if (isSelected(option.value) || !option.children?.length) return false
+  return option.children.some(child => isSelected(child.value))
+}
+
+/** Ticking a faculty takes its кафедри with it; unticking releases them. */
+function toggle(option: MultiSelectOption | string) {
+  const target = typeof option === 'string' ? { value: option, label: option } : option
+  const values = [target.value, ...(target.children ?? []).map(child => child.value)]
+  const next = isSelected(target.value)
+    ? selected.value.filter(item => !values.includes(item))
+    : [...new Set([...selected.value, ...values])]
+
+  selected.value = next
+  emit('update:modelValue', next)
 }
 
 function clear() {
@@ -143,19 +190,65 @@ onBeforeUnmount(() => document.removeEventListener('pointerdown', onDocumentPoin
 
         <ul class="max-h-72 overflow-y-auto list-none p-0 m-0">
           <li v-for="option in visibleOptions" :key="option.value">
-            <label
-              class="flex items-start gap-2.5 px-4 py-2.5 cursor-pointer hover:bg-off-white transition-colors duration-280"
-              role="option"
-              :aria-selected="isSelected(option.value)"
+            <div class="flex items-start">
+              <label
+                class="flex flex-1 items-start gap-2.5 px-4 py-2.5 cursor-pointer hover:bg-off-white transition-colors duration-280"
+                role="option"
+                :aria-selected="isSelected(option.value)"
+              >
+                <input
+                  type="checkbox"
+                  class="mt-0.5 w-4 h-4 shrink-0 accent-navy cursor-pointer"
+                  :checked="isSelected(option.value)"
+                  :indeterminate="isPartlySelected(option)"
+                  @change="toggle(option)"
+                />
+                <span class="text-sm text-navy leading-snug">{{ option.label }}</span>
+              </label>
+
+              <!-- Faculty row expands to its кафедри. -->
+              <button
+                v-if="option.children?.length"
+                type="button"
+                class="shrink-0 px-3 py-2.5 text-navy/60 hover:text-navy transition-colors duration-280"
+                :aria-expanded="isExpanded(option)"
+                :aria-label="option.label"
+                @click="toggleExpanded(option.value)"
+              >
+                <svg
+                  class="w-3.5 h-3.5 transition-transform duration-280"
+                  :class="isExpanded(option) ? 'rotate-180' : ''"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+            </div>
+
+            <ul
+              v-if="option.children?.length && isExpanded(option)"
+              class="list-none p-0 m-0 border-l-2 border-border ml-6"
             >
-              <input
-                type="checkbox"
-                class="mt-0.5 w-4 h-4 shrink-0 accent-navy cursor-pointer"
-                :checked="isSelected(option.value)"
-                @change="toggle(option.value)"
-              />
-              <span class="text-sm text-navy leading-snug">{{ option.label }}</span>
-            </label>
+              <li v-for="child in option.children" :key="child.value">
+                <label
+                  class="flex items-start gap-2.5 px-4 py-2 cursor-pointer hover:bg-off-white transition-colors duration-280"
+                  role="option"
+                  :aria-selected="isSelected(child.value)"
+                >
+                  <input
+                    type="checkbox"
+                    class="mt-0.5 w-4 h-4 shrink-0 accent-navy cursor-pointer"
+                    :checked="isSelected(child.value)"
+                    @change="toggle(child)"
+                  />
+                  <span class="text-body-sm text-text-muted leading-snug">{{ child.label }}</span>
+                </label>
+              </li>
+            </ul>
           </li>
           <li v-if="!visibleOptions.length" class="px-4 py-6 text-center text-body-sm text-text-muted">
             {{ emptyLabel }}

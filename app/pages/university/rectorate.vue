@@ -3,6 +3,16 @@ definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
 
+/**
+ * Governing bodies that used to be reachable only from the top menu — the client asked the
+ * rectorate page to name and link them too.
+ */
+const RELATED_PAGES = [
+  { path: '/university/council', key: 'nav.links.academicCouncil' },
+  { path: '/university/scientific-secretary', key: 'nav.links.scientificSecretary' },
+  { path: '/university/supervisory-board', key: 'nav.links.supervisoryBoard' },
+] as const
+
 useHead({
   title: () => t('nav.links.rectorate'),
   meta: [{ name: 'description', content: () => t('university.rectorate.subtitle') }],
@@ -60,6 +70,18 @@ useHead({
             <span class="flex-1 text-body text-navy group-hover:text-gold">
               {{ t('university.rectorate.headsOfDepartments') }}
             </span>
+            <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </NuxtLink>
+        </li>
+        <li v-for="link in RELATED_PAGES" :key="link.path">
+          <NuxtLink
+            :to="localePath(link.path)"
+            class="group flex items-center gap-3 py-2 px-4 bg-white border border-border rounded-12 no-underline transition-colors duration-280 hover:border-gold/60"
+          >
+            <span class="w-2 h-2 rounded-full bg-gold shrink-0" aria-hidden />
+            <span class="flex-1 text-body text-navy group-hover:text-gold">{{ t(link.key) }}</span>
             <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

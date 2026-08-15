@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { aggregate, readItems } from '@directus/sdk'
+import type { MultiSelectOption } from '~/components/shared/MultiSelectFilter.vue'
+import type { DirectusCategory } from '~/types/directus'
 import type { DirectusArticle } from '~/types/news'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
@@ -41,7 +43,7 @@ const selectedCategorySlugs = computed<string[]>(() => {
 })
 
 const { data: categoriesData } = await useAsyncData('news-categories', () =>
-  client.request(readItems('categories', { sort: ['name'] })),
+  client.request(readItems('categories', { fields: ['*'], sort: ['name'], limit: -1 })),
 )
 const categories = computed(() => categoriesData.value ?? [])
 
@@ -119,11 +121,34 @@ function pageLink(page: number) {
   return { path: localePath('/news'), query }
 }
 
-const categoryOptions = computed(() =>
-  categories.value
-    .filter(category => category.slug)
-    .map(category => ({ value: category.slug as string, label: localized(category, 'name') })),
-)
+/**
+ * Categories are a tree — a кафедра sits under its faculty (`categories.parent`). The filter shows
+ * that shape: a faculty row expands to its кафедри, so ~70 categories stay readable.
+ */
+const categoryOptions = computed<MultiSelectOption[]>(() => {
+  const usable = categories.value.filter(category => category.slug)
+  const byId = new Map(usable.map(category => [category.id, category]))
+  const option = (category: DirectusCategory): MultiSelectOption => ({
+    value: category.slug as string,
+    label: localized(category, 'name'),
+  })
+
+  const children = new Map<string, MultiSelectOption[]>()
+  for (const category of usable) {
+    // A parent that was filtered out (no slug) would orphan its children — keep them top-level.
+    if (!category.parent || !byId.has(category.parent)) continue
+    const bucket = children.get(category.parent) ?? []
+    bucket.push(option(category))
+    children.set(category.parent, bucket)
+  }
+
+  return usable
+    .filter(category => !category.parent || !byId.has(category.parent))
+    .map(category => {
+      const nested = children.get(category.id)
+      return nested?.length ? { ...option(category), children: nested } : option(category)
+    })
+})
 
 /** Changing the filter always returns to page 1 — offsets do not carry over. */
 function applyCategories(slugs: string[]) {

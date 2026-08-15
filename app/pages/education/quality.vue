@@ -22,7 +22,6 @@ const localePath = useLocalePath()
 const TAB_IDS = [
   'home',
   'news',
-  'documents',
   'regulations',
   'students',
   'quality',
@@ -32,6 +31,29 @@ const TAB_IDS = [
 
 /** Articles the centre publishes; migrated from the accordion «Новини» page of its old site. */
 const NEWS_CATEGORY = 'tsentr-zabezpechennya-yakosti'
+
+/** Академічна доброчесність runs on its own Google Site. */
+const ACADEMIC_INTEGRITY_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/akdob'
+
+/**
+ * «Нормативна база» is now four destinations and nothing else — the client moved the документи
+ * here and struck the rest off. Two of them are Drive folders that stay access-restricted on
+ * purpose.
+ */
+const REGULATION_LINKS = [
+  { key: 'regulationsPolicies', path: '/university/regulations', external: false },
+  { key: 'regulationsOrders', path: '/university/orders', external: false },
+  {
+    key: 'regulationsDirectives',
+    path: 'https://drive.google.com/drive/folders/1zEXQc01CP-RNsw11fTkFtGcnW-x4_IU-?usp=drive_link',
+    external: true,
+  },
+  {
+    key: 'regulationsTemplates',
+    path: 'https://drive.google.com/drive/folders/1Qn3NQnXw4VOyt4AZCYzl9hAOnL5rZ7Fg',
+    external: true,
+  },
+] as const
 
 type QualityTabId = (typeof TAB_IDS)[number]
 
@@ -157,39 +179,87 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         <SharedStructureUnitNews :category-slug="NEWS_CATEGORY" :limit="9" />
       </template>
 
-      <!-- Документи центру: на старому сайті цей розділ був закритий авторизацією -->
-      <template v-else-if="activeTab === 'documents'">
-        <SharedStaticPageBody slug="quality-centre-documents" />
-      </template>
-
+      <!-- Нормативна база: the four destinations the client left on this tab -->
       <template v-else-if="activeTab === 'regulations'">
-        <SharedStaticPageBody slug="quality-centre-regulations" />
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('education.quality.regulationsIntro') }}
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <component
+            :is="link.external ? 'a' : resolveComponent('NuxtLink')"
+            v-for="link in REGULATION_LINKS"
+            :key="link.key"
+            v-bind="link.external
+              ? { href: link.path, target: '_blank', rel: 'noopener noreferrer' }
+              : { to: localePath(link.path) }"
+            class="flex items-center gap-3 rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="flex-1 font-playfair text-lg font-semibold text-navy">
+              {{ t(`education.quality.${link.key}`) }}
+            </span>
+            <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path v-if="link.external" d="M7 17L17 7M17 7H8m9 0v9" />
+              <path v-else d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </component>
+        </div>
         <div class="mt-8">
           <SharedDocumentList section="quality-centre" />
         </div>
       </template>
 
-      <!-- Здобувачу: дисципліни вільного вибору веде центр, решта — на сторінках сайту -->
+      <!--
+        Здобувачу: the four subsections the client left — дисципліни вільного вибору by рівень,
+        рейтинг успішності, графік освітнього процесу and «Першокурснику», the last two as buttons.
+      -->
       <template v-else-if="activeTab === 'students'">
         <p class="text-body text-text-muted max-w-3xl mb-8">
           {{ t('education.quality.studentsIntro') }}
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <h3 class="font-playfair text-xl font-bold text-navy mb-4">
+          {{ t('education.quality.freeChoiceTitle') }}
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <NuxtLink
-            v-for="link in [
-              { path: '/education/electives', key: 'nav.links.electives' },
-              { path: '/education/schedule', key: 'nav.links.processSchedule' },
-              { path: '/student/schedule', key: 'nav.links.schedule' },
-            ]"
-            :key="link.path"
-            :to="localePath(link.path)"
+            v-for="level in ['bachelor', 'master', 'phd']"
+            :key="level"
+            :to="localePath(`/education/free-choice/${level}`)"
             class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
           >
-            <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
+            <span class="block font-playfair text-lg font-semibold text-navy">
+              {{ t(`education.freeChoice.${level}Title`) }}
+            </span>
           </NuxtLink>
         </div>
-        <div class="mt-10">
-          <SharedStaticPageBody slug="quality-centre-students" />
+
+        <h3 class="font-playfair text-xl font-bold text-navy mt-12 mb-4">
+          {{ t('education.quality.ratingTitle') }}
+        </h3>
+        <SharedStaticPageBody
+          slug="quality-centre-students"
+          from="Рейтинг успішності здобувачів вищої освіти"
+          to="Графік навчального процесу"
+          hide-headings
+        />
+
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink
+            :to="localePath('/education/schedule')"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">
+              {{ t('nav.links.processSchedule') }}
+            </span>
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/education/first-year')"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">
+              {{ t('education.firstYear.title') }}
+            </span>
+          </NuxtLink>
         </div>
       </template>
 
@@ -198,11 +268,11 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         <p class="text-body text-text-muted max-w-3xl mb-8">
           {{ t('education.quality.qualityIntro') }}
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <NuxtLink
             v-for="link in [
               { path: '/education/monitoring', key: 'nav.links.monitoring' },
-              { path: '/university/integrity', key: 'nav.links.integrity' },
+              { path: '/university/mission', key: 'nav.links.mission' },
             ]"
             :key="link.path"
             :to="localePath(link.path)"
@@ -210,16 +280,41 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
           >
             <span class="block font-playfair text-lg font-semibold text-navy">{{ t(link.key) }}</span>
           </NuxtLink>
+          <a
+            :href="ACADEMIC_INTEGRITY_EXTERNAL_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">
+              {{ t('nav.links.integrity') }}
+            </span>
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
         </div>
         <div class="mt-10">
           <SharedStaticPageBody slug="quality-centre-quality" />
         </div>
       </template>
 
-      <!-- Гарантам освітніх програм -->
+      <!-- Освітні програми: three buttons, one per рівень, then the centre's own documents -->
       <template v-else-if="activeTab === 'programmes'">
-        <SharedStaticPageBody slug="quality-centre-programmes" />
-        <div class="mt-8">
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('education.quality.programmesIntro') }}
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <NuxtLink
+            v-for="level in ['bachelor', 'master', 'phd']"
+            :key="level"
+            :to="localePath(`/education/study-programmes/${level}`)"
+            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="block font-playfair text-lg font-semibold text-navy">
+              {{ t(`education.studyProgrammes.${level}Title`) }}
+            </span>
+          </NuxtLink>
+        </div>
+        <div class="mt-10">
           <SharedDocumentList section="quality-centre-programmes" />
         </div>
       </template>

@@ -20,7 +20,7 @@ export type DirectusAppClient = DirectusClient<DirectusSchema> &
   RestClient<DirectusSchema>
 
 /** Minimum shape required to resolve an asset URL from a populated file field. */
-export type DirectusFileRef = { id: string }
+export type DirectusFileRef = { id: string; filename_download?: string | null }
 
 /**
  * Choose the base URL for Directus HTTP requests.
@@ -121,7 +121,12 @@ export function useDirectus() {
       return null
     }
     const query = assetTransformQuery(transform)
-    return `${publicUrl}/assets/${id}${query ? `?${query}` : ''}`
+    // Directus serves the same file at /assets/:id/:filename. Keeping the name in the address
+    // means a document opens in a tab titled «Pro_naykovi_shkolu_20.pdf» rather than a bare uuid,
+    // and saves under that name — the uuid link looked broken to editors.
+    const name = typeof fileOrId === 'object' ? fileOrId.filename_download : null
+    const suffix = name && !query ? `/${encodeURIComponent(name)}` : ''
+    return `${publicUrl}/assets/${id}${suffix}${query ? `?${query}` : ''}`
   }
 
   return { client, assetUrl, publicUrl, baseUrl }

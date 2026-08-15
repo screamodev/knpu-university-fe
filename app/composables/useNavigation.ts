@@ -1,3 +1,4 @@
+import { ACADEMIC_MOBILITY_EXTERNAL_URL, JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 export interface NavLink {
@@ -32,7 +33,7 @@ export function useNavigation(): { items: NavItem[] } {
           links: [
             { path: '/university/history', key: 'nav.links.history' },
             { path: '/university/mission', key: 'nav.links.mission' },
-            { path: '/university/symbolism', key: 'nav.links.symbolism' },
+            // «Символіка університету» struck off the menu by the client; the page stays.
             { path: MEMORIAL_EXTERNAL_URL, key: 'nav.links.memorial', external: true },
             { path: '/university/wartime', key: 'nav.links.wartime' },
             { path: '/university/volunteering', key: 'nav.links.volunteering' },
@@ -57,7 +58,8 @@ export function useNavigation(): { items: NavItem[] } {
         {
           titleKey: 'nav.university.publicity',
           links: [
-            { path: '/university/statute', key: 'nav.links.statute' },
+            // «Статут і ліцензії» struck off the menu by the client — the licences entry below
+            // covers it; the page stays reachable by its address.
             { path: '/university/licenses', key: 'nav.links.licenses' },
             { path: '/university/public-info', key: 'nav.links.publicInfo' },
             { path: '/university/orders', key: 'nav.links.orders' },
@@ -76,11 +78,13 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.university.international',
           links: [
             { path: '/university/erasmus', key: 'nav.links.erasmus' },
-            { path: '/university/mobility', key: 'nav.links.mobility' },
+            // Академічна мобільність is run on its own Google Site; the local page was removed.
+            { path: ACADEMIC_MOBILITY_EXTERNAL_URL, key: 'nav.links.mobility', external: true },
             { path: '/university/partners', key: 'nav.links.partners' },
+            { path: '/university/agreements', key: 'nav.links.agreements' },
             { path: '/university/inclusive', key: 'nav.links.inclusive' },
             { path: ANTICORRUPTION_EXTERNAL_URL, key: 'nav.links.anticorruption', external: true },
-            { path: '/university/integrity', key: 'nav.links.integrity' },
+            // «Академічна доброчесність» moved to Наука → Наукова діяльність at the client's request.
           ],
         },
       ],
@@ -104,6 +108,7 @@ export function useNavigation(): { items: NavItem[] } {
           links: [
             { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
             { path: '/admissions/rules', key: 'nav.links.rules' },
+            { path: '/admissions/results', key: 'nav.links.admissionResults' },
             { path: '/admissions/specialties', key: 'nav.links.specialties' },
             { path: '/admissions/creative', key: 'nav.links.creative' },
             { path: '/admissions/budget', key: 'nav.links.budget' },
@@ -190,7 +195,11 @@ export function useNavigation(): { items: NavItem[] } {
         {
           titleKey: 'nav.science.activity',
           links: [
+            { path: '/science/activity', key: 'nav.links.activity' },
             { path: '/science/directions', key: 'nav.links.directions' },
+            { path: '/science/council', key: 'nav.links.scienceCouncil' },
+            { path: '/university/integrity', key: 'nav.links.integrity' },
+            { path: '/science/plagiarism', key: 'nav.links.plagiarism' },
             { path: '/science/institutes', key: 'nav.links.institutes' },
             { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
             { path: '/science/student-society', key: 'nav.links.studentSociety' },
@@ -201,7 +210,8 @@ export function useNavigation(): { items: NavItem[] } {
         {
           titleKey: 'nav.science.publications',
           links: [
-            { path: '/science/journals', key: 'nav.links.journals' },
+            // Фахові видання are published on a separate OJS site; the local page was removed.
+            { path: JOURNALS_EXTERNAL_URL, key: 'nav.links.journals', external: true },
             { path: '/science/collections', key: 'nav.links.collections' },
             { path: '/science/publication-requirements', key: 'nav.links.publicationRequirements' },
             { path: '/science/scopus', key: 'nav.links.scopus' },
@@ -216,7 +226,9 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/repository', key: 'nav.links.repository' },
             { path: '/science/boards', key: 'nav.links.boards' },
             { path: '/science/dissertation-councils', key: 'nav.links.dissertationCouncils' },
-            { path: '/science/defenses', key: 'nav.links.defenses' },
+            { path: '/science/candidate-support', key: 'nav.links.candidateSupport' },
+            // «Захисти дисертацій» withdrawn by the client: the announcements live on the
+            // разові ради pages, so the separate page is neither linked nor published.
           ],
         },
       ],

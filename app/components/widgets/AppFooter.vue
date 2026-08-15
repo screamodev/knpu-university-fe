@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
+
 const { t, localePath } = useSafeI18nWithRouter()
 const logoUrl = '/main_logo.png'
 
@@ -93,7 +95,7 @@ const socialLinks = [
           <div>
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">{{ t('footer.colScience') }}</div>
             <ul class="list-none flex flex-col gap-2">
-              <li><NuxtLink :to="localePath('/science/journals')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkPublications') }}</NuxtLink></li>
+              <li><a :href="JOURNALS_EXTERNAL_URL" target="_blank" rel="noopener noreferrer" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkPublications') }}</a></li>
               <li><NuxtLink :to="localePath('/science/library')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkLibrary') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/science/repository')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkRepository') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/science/graduate')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkGraduate') }}</NuxtLink></li>

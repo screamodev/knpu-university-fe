@@ -29,6 +29,22 @@ const externalLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
     labelKey: 'admissions.committee.doc4',
   },
 ]
+
+/**
+ * Everything the campaign has to publish, in the order the client listed it. Три останні
+ * позиції (рейтингові списки, рекомендації, накази про зарахування) живуть на /admissions/results
+ * і наповнюються відділом в адмінці.
+ */
+const requiredInfo: ReadonlyArray<{ key: string; path: string }> = [
+  { key: 'required1', path: '/admissions/rules' },
+  { key: 'required2', path: '/admissions/specialties' },
+  { key: 'required3', path: '/admissions/committee#documents' },
+  { key: 'required4', path: '/admissions/exams' },
+  { key: 'required5', path: '/admissions/results' },
+  { key: 'required6', path: '/admissions/results' },
+  { key: 'required7', path: '/admissions/results' },
+  { key: 'required8', path: '/admissions/tuition' },
+]
 </script>
 
 <template>
@@ -125,7 +141,34 @@ const externalLinks: ReadonlyArray<{ href: string; labelKey: string }> = [
       </div>
     </div>
 
-    <div class="bg-off-white border-t border-border py-14 lg:py-20">
+    <!-- Mandatory campaign information, each item leading to the page that carries it -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-14 lg:pb-20">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+        {{ t('admissions.committee.requiredTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('admissions.committee.requiredIntro') }}
+      </p>
+      <ol class="grid grid-cols-1 md:grid-cols-2 gap-3 list-none p-0 m-0">
+        <li v-for="(item, index) in requiredInfo" :key="item.key">
+          <NuxtLink
+            :to="localePath(item.path)"
+            class="group flex items-start gap-3 h-full rounded-12 border border-border bg-white px-5 py-4 no-underline transition-colors duration-280 hover:border-gold"
+          >
+            <span class="font-playfair text-lg font-bold text-gold shrink-0">{{ index + 1 }}</span>
+            <span class="flex-1 text-body text-navy">{{ t(`admissions.committee.${item.key}`) }}</span>
+            <svg
+              class="w-4 h-4 mt-1 shrink-0 text-text-muted transition-transform duration-280 group-hover:translate-x-0.5"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </NuxtLink>
+        </li>
+      </ol>
+    </div>
+
+    <div id="documents" class="bg-off-white border-t border-border py-14 lg:py-20">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
           {{ t('admissions.committee.documentsTitle') }}

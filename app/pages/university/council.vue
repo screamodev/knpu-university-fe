@@ -9,7 +9,10 @@ useHead({
 })
 
 const leadershipKeys = ['chair', 'secretary', 'deputy'] as const
-const decisionIds = ['d1', 'd2', 'd3', 'd4'] as const
+
+/** The council's full membership is kept as a Google Doc by the academic secretary's office. */
+const FULL_COMPOSITION_URL
+  = 'https://docs.google.com/document/d/1Hs3LfB_Z4kMdOTaDOnCj0acTPzOBU84Z/edit?usp=sharing'
 </script>
 
 <template>
@@ -28,6 +31,8 @@ const decisionIds = ['d1', 'd2', 'd3', 'd4'] as const
         </p>
       </div>
     </div>
+
+    <SharedSectionTabs :tabs="COUNCIL_TABS" />
 
     <!-- Intro -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -88,31 +93,31 @@ const decisionIds = ['d1', 'd2', 'd3', 'd4'] as const
         <p class="text-body text-text-muted max-w-3xl">
           {{ t('university.council.facultiesRepresented') }}
         </p>
+        <a
+          :href="FULL_COMPOSITION_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-2 rounded-12 border border-border bg-white px-5 py-3 font-medium text-navy no-underline transition-colors duration-280 hover:border-gold"
+        >
+          {{ t('university.council.fullCompositionLink') }}
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path d="M15 3h6v6M10 14L21 3" />
+          </svg>
+          <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+        </a>
       </div>
     </div>
 
-    <!-- Recent decisions: stacked cards with gold left border -->
+    <!-- Ухвали вченої ради, migrated from /uk/uhvaly-vchenoyi-rady -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
         {{ t('university.council.decisionsTitle') }}
       </h2>
-      <div class="space-y-4">
-        <article
-          v-for="id in decisionIds"
-          :key="id"
-          class="bg-white border border-border rounded-16 p-6 lg:p-8 border-l-4 border-l-gold"
-        >
-          <p class="text-body-sm font-medium text-gold mb-1">
-            {{ t(`university.council.decisions.${id}.date`) }}
-          </p>
-          <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-            {{ t(`university.council.decisions.${id}.title`) }}
-          </h3>
-          <p class="text-body-sm text-text-muted">
-            {{ t(`university.council.decisions.${id}.text`) }}
-          </p>
-        </article>
-      </div>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('university.council.decisionsIntro') }}
+      </p>
+      <SharedDocumentList section="academic-council-decisions" />
     </div>
   </div>
 </template>

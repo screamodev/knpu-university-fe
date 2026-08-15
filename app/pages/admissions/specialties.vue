@@ -108,6 +108,17 @@ function formLabel(formKey: string): string {
           {{ t('programs.noPrograms') }}
         </p>
       </div>
+
+      <!-- The full list of programmes with licensed quotas, as the admission conditions require -->
+      <div class="mt-14">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+          {{ t('admissions.specialties.quotasTitle') }}
+        </h2>
+        <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+          {{ t('admissions.specialties.quotasIntro') }}
+        </p>
+        <SharedDocumentList section="admissions-programmes" />
+      </div>
     </div>
   </div>
 </template>

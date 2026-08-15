@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
+import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import type { DirectusPartner } from '~/types/directus'
+import { AGREEMENT_CATEGORIES } from '~/utils/agreementCategories'
 import { resolveMediaSrc } from '~/utils/directusMedia'
 
 definePageMeta({ layout: 'default' })
@@ -25,6 +27,15 @@ const { data: partnersData, pending } = useAsyncData('partners-listing', () =>
 )
 
 const partners = computed(() => partnersData.value ?? [])
+
+/** «Угоди про співпрацю»: the client asked for this block right on the partners page. */
+const agreementSections = computed<LinkTile[]>(() =>
+  AGREEMENT_CATEGORIES.map(category => ({
+    label: t(`university.agreements.categories.${category}.short`),
+    path: `/university/agreements/${category}`,
+    icon: category === 'international' ? 'globe' : 'document',
+  })),
+)
 
 function isExternalUrl(url: string | null): boolean {
   if (!url) return false
@@ -154,6 +165,26 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
       <!-- Empty state -->
       <div v-else class="py-24 text-center text-text-muted">
         {{ t('partners.noPartners') }}
+      </div>
+    </div>
+
+    <!-- Cooperation agreements: the framework agreement plus the five sections of the register. -->
+    <div class="bg-off-white py-12 lg:py-16">
+      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+          {{ t('university.agreements.title') }}
+        </h2>
+        <p class="text-body text-text-muted max-w-3xl mb-8">
+          {{ t('university.agreements.intro') }}
+        </p>
+
+        <article class="bg-white border border-border rounded-16 p-6 border-l-4 border-l-gold mb-8">
+          <h3 class="font-playfair text-lg font-semibold text-navy">
+            {{ t('university.agreements.monTitle') }}
+          </h3>
+        </article>
+
+        <SharedLinkTileGrid :tiles="agreementSections" :columns="2" />
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
+
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -11,6 +13,21 @@ useHead({
 const programmeKeys = ['student', 'staff', 'capacity'] as const
 const stepKeys = ['step1', 'step2', 'step3', 'step4'] as const
 const partnerPlaceholders = 8
+
+/**
+ * Erasmus+ projects named by the client. AMUSE and LECTURE have addresses; PERFECT is
+ * shown without a link until the client supplies theirs.
+ */
+const projects: LinkTile[] = [
+  { label: 'AMUSE', url: 'https://amuse.hnpu.edu.ua/', icon: 'globe' },
+  { label: 'PERFECT', icon: 'globe', disabled: true },
+  {
+    label: 'LECTURE',
+    // The client's document points at a Drive folder; it is access-restricted for now.
+    url: 'https://drive.google.com/drive/folders/1PGhgHpPfG1vcHunxQLxBQ1z5yDjSQlKix?usp=drive_link',
+    icon: 'globe',
+  },
+]
 </script>
 
 <template>
@@ -105,6 +122,17 @@ const partnerPlaceholders = 8
           </article>
         </div>
       </div>
+    </div>
+
+    <!-- Erasmus+ projects -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+        {{ t('university.erasmus.projectsTitle') }}
+      </h2>
+      <p class="text-body text-text-muted mb-8 max-w-2xl">
+        {{ t('university.erasmus.projectsNote') }}
+      </p>
+      <SharedLinkTileGrid :tiles="projects" />
     </div>
 
     <!-- Partner logos: 4-col placeholder grid -->

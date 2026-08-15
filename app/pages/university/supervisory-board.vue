@@ -9,6 +9,9 @@ useHead({
 })
 
 const functionKeys = ['strategic', 'financial', 'development'] as const
+
+/** Composition approved by МОН order 60 of 25.01.2022 — the list the client supplied as a PDF. */
+const memberIds = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9'] as const
 </script>
 
 <template>
@@ -35,12 +38,35 @@ const functionKeys = ['strategic', 'financial', 'development'] as const
       </p>
     </div>
 
-    <!-- Members: the previous six were invented; the real composition is approved by МОН. -->
+    <!-- Members: composition approved by МОН, supplied by the client as a PDF. -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
       <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
         {{ t('university.supervisoryBoard.membersTitle') }}
       </h2>
-      <SharedSectionPending />
+      <p class="text-body-sm text-text-muted mb-8">
+        {{ t('university.supervisoryBoard.membersNote') }}
+      </p>
+      <ul class="list-none p-0 m-0 grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <li
+          v-for="id in memberIds"
+          :key="id"
+          class="bg-white border border-border rounded-16 p-6 flex flex-col gap-2"
+          :class="t(`university.supervisoryBoard.members.${id}.role`) ? 'border-l-4 border-l-gold' : ''"
+        >
+          <span
+            v-if="t(`university.supervisoryBoard.members.${id}.role`)"
+            class="text-[11px] font-semibold tracking-wider uppercase text-gold"
+          >
+            {{ t(`university.supervisoryBoard.members.${id}.role`) }}
+          </span>
+          <h3 class="font-playfair text-lg font-semibold text-navy">
+            {{ t(`university.supervisoryBoard.members.${id}.name`) }}
+          </h3>
+          <p class="text-body-sm text-text-muted">
+            {{ t(`university.supervisoryBoard.members.${id}.position`) }}
+          </p>
+        </li>
+      </ul>
     </div>
 
     <!-- Functions block: 3 cards in a row -->

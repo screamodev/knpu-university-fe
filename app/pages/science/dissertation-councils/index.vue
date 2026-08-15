@@ -113,6 +113,8 @@ function formatDate(value: DirectusDissertationCouncil['defenseDate']): string {
       </div>
     </div>
 
+    <SharedSectionTabs :tabs="COUNCIL_TABS" />
+
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <p class="text-body text-text-muted max-w-3xl mb-8">
         {{ t('science.dissertationCouncils.intro') }}
@@ -205,30 +207,6 @@ function formatDate(value: DirectusDissertationCouncil['defenseDate']): string {
         {{ t('science.dissertationCouncils.empty') }}
       </p>
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <NuxtLink
-          :to="localePath('/science/boards')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.boards') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('science.dissertationCouncils.boardsLink') }}
-          </span>
-        </NuxtLink>
-        <NuxtLink
-          :to="localePath('/university/scientific-secretary')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.scientificSecretary') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('science.boards.secretaryLink') }}
-          </span>
-        </NuxtLink>
-      </div>
     </div>
   </div>
 </template>

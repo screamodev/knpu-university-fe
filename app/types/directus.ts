@@ -27,6 +27,7 @@ export interface DirectusSchema {
   accreditation_dossiers: DirectusAccreditationDossier[]
   accreditation_dossier_files: DirectusAccreditationDossierFile[]
   contingent_reports: DirectusContingentReport[]
+  cooperation_agreements: DirectusCooperationAgreement[]
   science_schools: DirectusScienceSchool[]
   science_directions: DirectusScienceDirection[]
   student_council_info: DirectusStudentCouncilInfo[]
@@ -189,6 +190,8 @@ export interface DirectusCategory {
   name: string
   nameEn: string | null
   slug: string
+  /** Parent category id — a кафедра sits under its faculty. Null for top-level categories. */
+  parent?: string | null
   date_created?: string
   date_updated?: string
 }
@@ -430,6 +433,12 @@ export type MonitoringArea =
   | 'phd-programmes'
   | 'educational-environment'
   | 'research'
+  | 'international'
+  | 'youth-policy'
+  | 'management'
+  | 'stakeholders'
+  | 'express'
+  | 'staff-rating'
   | 'other'
 
 /** One questionnaire of the university's monitoring programme. */
@@ -617,6 +626,34 @@ export interface DirectusUniversityOrder {
   categoryEn: string | null
   year: number | null
   documentFile: DirectusFile | string | null
+  order: number
+}
+
+/** Розділ реєстру угод про співпрацю — одна сторінка на розділ. */
+export type AgreementCategory =
+  | 'napn'
+  | 'universities'
+  | 'schools'
+  | 'organizations'
+  | 'international'
+
+/** One row of the cooperation agreements register (`/university/agreements/<category>`). */
+export interface DirectusCooperationAgreement {
+  id: string
+  status?: DirectusContentStatus
+  category: AgreementCategory
+  number: string | null
+  /** As written in the register: `25.12.2012 р.`, `2017 р.` — not a date column. */
+  agreementDate: string | null
+  year: number | null
+  partner: string
+  partnerEn: string | null
+  subject: string | null
+  subjectEn: string | null
+  country: string | null
+  countryEn: string | null
+  term: string | null
+  termEn: string | null
   order: number
 }
 

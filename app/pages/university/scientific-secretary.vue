@@ -9,7 +9,6 @@
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
-const localePath = useLocalePath()
 
 useHead({
   title: () => t('university.scientificSecretary.title'),
@@ -33,38 +32,60 @@ useHead({
       </div>
     </div>
 
+    <SharedSectionTabs :tabs="COUNCIL_TABS" />
+
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SharedStaticPageBody slug="scientific-secretary" />
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-10 items-start">
+        <div>
+          <SharedStaticPageBody slug="scientific-secretary" />
+        </div>
+
+        <!-- Contacts of the office, missing until the client pointed it out -->
+        <aside class="rounded-16 border border-border bg-off-white p-6">
+          <h2 class="font-playfair text-lg font-semibold text-navy mb-3">
+            {{ t('university.scientificSecretary.contactsTitle') }}
+          </h2>
+          <p class="text-body-sm text-text-muted">
+            {{ t('university.scientificSecretary.address') }}
+          </p>
+          <p class="text-body-sm text-text-muted mt-1">
+            {{ t('university.scientificSecretary.phone') }}
+          </p>
+          <a
+            :href="`mailto:${t('university.scientificSecretary.email')}`"
+            class="text-body-sm text-navy underline hover:text-gold break-all"
+          >
+            {{ t('university.scientificSecretary.email') }}
+          </a>
+          <div class="mt-4 pt-4 border-t border-border">
+            <p class="text-body-sm text-text-muted">
+              {{ t('university.scientificSecretary.secretaryRole') }}
+            </p>
+            <p class="font-playfair text-base font-semibold text-navy mt-0.5">
+              {{ t('university.scientificSecretary.secretaryName') }}
+            </p>
+            <p class="text-body-sm text-text-muted">
+              {{ t('university.scientificSecretary.secretaryDegree') }}
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Оголошення вченого секретаря, migrated from the old site -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('university.scientificSecretary.announcementsTitle') }}
+      </h2>
+      <SharedAccordion :title="t('university.scientificSecretary.announcementsToggle')">
+        <div class="pt-4">
+          <SharedStaticPageBody slug="secretary-announcements" />
+        </div>
+      </SharedAccordion>
 
       <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
         {{ t('university.scientificSecretary.documentsTitle') }}
       </h2>
       <SharedDocumentList section="scientific-secretary" />
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <NuxtLink
-          :to="localePath('/university/council')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.academicCouncil') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('university.scientificSecretary.councilLink') }}
-          </span>
-        </NuxtLink>
-        <NuxtLink
-          :to="localePath('/science/boards')"
-          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-        >
-          <span class="block font-playfair text-lg font-semibold text-navy">
-            {{ t('nav.links.boards') }}
-          </span>
-          <span class="block text-body-sm text-text-muted mt-1">
-            {{ t('university.scientificSecretary.boardsLink') }}
-          </span>
-        </NuxtLink>
-      </div>
     </div>
   </div>
 </template>

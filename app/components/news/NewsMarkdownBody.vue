@@ -167,6 +167,67 @@ const segments = computed(() => {
   border-radius: theme('borderRadius.12');
 }
 
+/*
+ * Photo galleries migrated from the old site: a fixed-width `<table>` of portraits collapsed into
+ * one tall column here, so `gridify_photo_tables.py` rewrites those tables into this grid. The
+ * first card stays first, which keeps завідувач at the top of a department's staff.
+ */
+/*
+ * Migrated prose is justified, as it was on the old site — the client flagged the ragged right
+ * edge. Headings, captions and list markers keep their own alignment.
+ */
+.news-article-md p,
+.news-article-md li {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.news-article-md p[style*='text-align: center'],
+.news-article-md p[style*='text-align:center'],
+.news-article-md p[style*='text-align: right'],
+.news-article-md p[style*='text-align:right'] {
+  text-align: revert;
+}
+
+.news-article-md .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.news-article-md .photo-grid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.news-article-md .photo-grid img {
+  width: 100%;
+  max-height: none;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+}
+
+.news-article-md .photo-grid figcaption {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/*
+ * A diagram carries detail that a 22rem cap destroys — the quality-assurance cycle chart is one.
+ * `class="diagram"` in the migrated body opts out of the cap and fills 90% of the column; the
+ * link around it opens the file at full size.
+ */
+.news-article-md img.diagram {
+  width: 90%;
+  max-height: none;
+  cursor: zoom-in;
+}
+
 /* A picture on its own line gets breathing room; one floated beside text must not. */
 .news-article-md p > img:only-child,
 .news-article-md figure img {

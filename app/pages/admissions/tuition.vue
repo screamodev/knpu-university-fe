@@ -1,4 +1,12 @@
 <script setup lang="ts">
+/**
+ * Вартість навчання.
+ *
+ * The page used to show made-up per-level prices. The real figures live in the rector's order
+ * (№ 82-од від 18.05.2026) and in the fee tables published per degree level — both are documents
+ * of the `tuition` section, so the admissions office can replace them each campaign without a
+ * developer. The payment details come from the legacy `/uk/2026-vartist-rekvizyty-oplaty`.
+ */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -8,13 +16,13 @@ useHead({
   meta: [{ name: 'description', content: () => t('admissions.tuition.subtitle') }],
 })
 
-const pricingCards = [
-  { level: 'levelBachelor' as const, amount: '25 000', featured: false },
-  { level: 'levelMaster' as const, amount: '28 000', featured: true },
-  { level: 'levelGraduate' as const, amount: '30 000', featured: false },
+const requisites = [
+  { labelKey: 'requisitesAccount', value: 'UA388201720313201002201003639' },
+  { labelKey: 'requisitesBank', value: 'ДКСУ' },
+  { labelKey: 'requisitesMfo', value: '820172' },
+  { labelKey: 'requisitesEdrpou', value: '02125585' },
 ] as const
 
-const includedKeys = ['included1', 'included2', 'included3', 'included4', 'included5'] as const
 const paymentBlocks = [
   { titleKey: 'payment1Title' as const, textKey: 'payment1Text' as const },
   { titleKey: 'payment2Title' as const, textKey: 'payment2Text' as const },
@@ -33,57 +41,46 @@ const paymentBlocks = [
         <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
           {{ t('admissions.tuition.title') }}
         </h1>
-        <p class="mt-4 text-white/70 max-w-2xl">
+        <p class="mt-4 text-white/70 max-w-3xl">
           {{ t('admissions.tuition.subtitle') }}
         </p>
       </div>
     </div>
 
-    <!-- Pricing cards -->
+    <!-- The order and the fee tables per degree level -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        <div
-          v-for="card in pricingCards"
-          :key="card.level"
-          class="rounded-16 border overflow-hidden flex flex-col"
-          :class="card.featured ? 'border-gold bg-gold/5 shadow-lg' : 'border-border bg-white'"
-        >
-          <div
-            class="px-6 py-4 text-center font-playfair text-lg font-semibold"
-            :class="card.featured ? 'bg-gold/15 text-gold' : 'bg-off-white text-navy'"
-          >
-            {{ t(`admissions.tuition.${card.level}`) }}
-          </div>
-          <div class="p-6 flex-1 flex flex-col">
-            <p class="text-2xl font-playfair font-bold text-navy mb-4">
-              {{ t('admissions.tuition.fromPerYear', { amount: card.amount }) }}
-            </p>
-            <ul class="space-y-2 text-body text-text-muted flex-1">
-              <li
-                v-for="key in includedKeys"
-                :key="key"
-                class="flex gap-2"
-              >
-                <span class="text-gold shrink-0">•</span>
-                {{ t(`admissions.tuition.${key}`) }}
-              </li>
-            </ul>
-            <a
-              href="#contact"
-              class="mt-6 inline-flex justify-center items-center px-5 py-3 rounded-10 font-semibold text-body transition-colors"
-              :class="card.featured ? 'bg-gold text-navy hover:bg-gold-light' : 'bg-navy text-white hover:bg-navy-deep'"
-            >
-              {{ t('admissions.tuition.ctaButton') }}
-            </a>
-          </div>
-        </div>
-      </div>
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+        {{ t('admissions.tuition.documentsTitle') }}
+      </h2>
+      <p class="text-body-sm text-text-muted max-w-3xl mb-6">
+        {{ t('admissions.tuition.documentsIntro') }}
+      </p>
+      <SharedDocumentList section="tuition" />
     </div>
 
-    <!-- Payment options -->
-    <div class="bg-off-white border-t border-border py-14 lg:py-20">
+    <!-- Payment details -->
+    <div id="contact" class="bg-off-white border-t border-border py-14 lg:py-20">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
+          {{ t('admissions.tuition.requisitesTitle') }}
+        </h2>
+        <p class="text-body text-text-muted max-w-3xl mb-6">
+          {{ t('admissions.tuition.requisitesIntro') }}
+        </p>
+        <dl class="bg-white border border-border rounded-16 divide-y divide-border max-w-2xl">
+          <div
+            v-for="row in requisites"
+            :key="row.labelKey"
+            class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 px-6 py-4"
+          >
+            <dt class="text-body-sm text-text-muted sm:w-56 shrink-0">
+              {{ t(`admissions.tuition.${row.labelKey}`) }}
+            </dt>
+            <dd class="font-medium text-navy break-all">{{ row.value }}</dd>
+          </div>
+        </dl>
+
+        <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-8">
           {{ t('admissions.tuition.paymentTitle') }}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

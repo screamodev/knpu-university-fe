@@ -145,16 +145,6 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
           'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
       },
       {
-        name: 'Кафедра біології',
-        nameEn: 'Department of Biology',
-        children: [
-          {
-            name: 'Навчально-наукова лабораторія біології рукокрилих',
-            nameEn: 'Educational and Research Laboratory of Bat Biology',
-          },
-        ],
-      },
-      {
         name: 'Кафедра спеціальної педагогіки',
         nameEn: 'Department of Special Pedagogy',
         children: [
@@ -284,6 +274,16 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
         name: 'Кафедра математики',
         nameEn: 'Department of Mathematics',
         external: 'https://sites.google.com/hnpu.edu.ua/kaf-mathematica',
+      },
+      {
+        name: 'Кафедра біології',
+        nameEn: 'Department of Biology',
+        children: [
+          {
+            name: 'Навчально-наукова лабораторія біології рукокрилих',
+            nameEn: 'Educational and Research Laboratory of Bat Biology',
+          },
+        ],
       },
       { name: 'Кафедра інформатики', nameEn: 'Department of Computer Science' },
       {
@@ -833,13 +833,20 @@ export const STRUCTURE_GOVERNANCE: StructureGroup = {
   name: 'Колегіальні органи управління',
   nameEn: 'Collegiate governing bodies',
   items: [
-    { name: 'Наглядова рада', nameEn: 'Supervisory Board' },
+    { name: 'Наглядова рада', nameEn: 'Supervisory Board', path: '/university/supervisory-board' },
     { name: 'Конференція трудового колективу', nameEn: 'Conference of the Staff' },
     { name: 'Загальні збори (конференція) студентів', nameEn: 'General Assembly (Conference) of Students' },
     {
       name: 'Вчена рада',
       nameEn: 'Academic Council',
-      children: [{ name: 'Служба вченого секретаря', nameEn: 'Office of the Academic Secretary' }],
+      path: '/university/council',
+      children: [
+        {
+          name: 'Служба вченого секретаря',
+          nameEn: 'Office of the Academic Secretary',
+          path: '/university/scientific-secretary',
+        },
+      ],
     },
     { name: 'Виконавча рада (Рада з якості)', nameEn: 'Executive Board (Quality Board)' },
   ],
@@ -863,9 +870,10 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         name: 'Відділ моніторингу діяльності університету та досліджень у сфері освіти',
         nameEn: 'Department for University Activity Monitoring and Educational Research',
+        path: '/education/monitoring',
       },
       { name: 'Юридичний відділ', nameEn: 'Legal Department' },
-      { name: 'Приймальна комісія', nameEn: 'Admissions Office' },
+      { name: 'Приймальна комісія', nameEn: 'Admissions Office', path: '/admissions/committee' },
       {
         name: 'Підготовче відділення «Відкритий шлях до вищої освіти»',
         nameEn: '«Open Path to Higher Education» preparatory department',
@@ -892,13 +900,18 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
     nameEn: 'Reporting to the First Vice-Rector',
     items: [
       {
+        // The centre's own site was migrated into this one, so the entry now stays here.
         name: 'Центр забезпечення якості освіти',
         nameEn: 'Centre for Educational Quality Assurance',
-        external: 'http://smc.hnpu.edu.ua/',
+        path: '/education/quality',
       },
-      { name: 'Навчальний відділ', nameEn: 'Academic Affairs Department' },
-      { name: 'Відділ практик', nameEn: 'Internships Department' },
-      { name: 'Центр цифровізації освіти', nameEn: 'Centre for Digitalisation of Education' },
+      { name: 'Навчальний відділ', nameEn: 'Academic Affairs Department', path: '/education/academic-office' },
+      { name: 'Відділ практик', nameEn: 'Internships Department', path: '/education/practice' },
+      {
+        name: 'Центр цифровізації освіти',
+        nameEn: 'Centre for Digitalisation of Education',
+        path: '/education/digital-center',
+      },
       {
         name: 'Навчально-спортивний табір «Гайдари»',
         nameEn: '«Haidary» Training and Sports Camp',
@@ -910,7 +923,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
     name: 'Підпорядковані проректору з наукової, інноваційної і міжнародної діяльності',
     nameEn: 'Reporting to the Vice-Rector for Research, Innovation and International Activity',
     items: [
-      { name: 'Наукова бібліотека', nameEn: 'Research Library' },
+      { name: 'Наукова бібліотека', nameEn: 'Research Library', path: '/science/library' },
       {
         name: 'Відділ аспірантури і докторантури',
         nameEn: 'Postgraduate and Doctoral Studies Department',
@@ -920,7 +933,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         name: 'Відділ наукової, інноваційної і міжнародної діяльності',
         nameEn: 'Department of Research, Innovation and International Activity',
       },
-      { name: 'Редакційно-видавничий відділ', nameEn: 'Editorial and Publishing Department' },
+      {
+        name: 'Редакційно-видавничий відділ',
+        nameEn: 'Editorial and Publishing Department',
+        path: '/science/publishing',
+      },
     ],
   },
   {
@@ -928,7 +945,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
     name: 'Підпорядковані проректору з навчально-виховної роботи',
     nameEn: 'Reporting to the Vice-Rector for Teaching and Student Affairs',
     items: [
-      { name: 'Культурно-мистецький центр', nameEn: 'Cultural and Arts Centre' },
+      { name: 'Культурно-мистецький центр', nameEn: 'Cultural and Arts Centre', path: '/student/arts' },
       {
         name: 'Музейний комплекс',
         nameEn: 'Museum Complex',
@@ -954,8 +971,13 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         name: 'Відділ зв’язків з громадськістю та засобами масової інформації',
         nameEn: 'Public Relations and Media Department',
+        path: '/university/press',
       },
-      { name: 'Редакція газети «Учитель»', nameEn: 'Editorial Office of the «Uchytel» Newspaper' },
+      {
+        name: 'Редакція газети «Учитель»',
+        nameEn: 'Editorial Office of the «Uchytel» Newspaper',
+        path: '/university/newspaper',
+      },
     ],
   },
   {
@@ -973,9 +995,14 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         name: 'Навчально-адміністративний комплекс (навчальні корпуси)',
         nameEn: 'Educational and Administrative Complex (academic buildings)',
+        path: '/university/facilities',
       },
-      { name: 'Гуртожиток №1', nameEn: 'Dormitory No. 1' },
-      { name: 'Студмістечко (студентські гуртожитки)', nameEn: 'Campus (student dormitories)' },
+      { name: 'Гуртожиток №1', nameEn: 'Dormitory No. 1', path: '/student/dormitories' },
+      {
+        name: 'Студмістечко (студентські гуртожитки)',
+        nameEn: 'Campus (student dormitories)',
+        path: '/student/dormitories',
+      },
     ],
   },
 ]
@@ -1011,7 +1038,7 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
           },
         ],
       },
-      { name: 'Спортивний клуб', nameEn: 'Sports Club' },
+      { name: 'Спортивний клуб', nameEn: 'Sports Club', path: '/student/sports' },
       { name: 'Олімпійська спілка', nameEn: 'Olympic Union' },
       { name: 'Юридична клініка', nameEn: 'Legal Clinic' },
       {
@@ -1123,11 +1150,12 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
     name: 'За участю проректора з навчально-виховної роботи',
     nameEn: 'Chaired by the Vice-Rector for Teaching and Student Affairs',
     items: [
-      { name: 'Студентський Парламент', nameEn: 'Student Parliament' },
+      { name: 'Студентський Парламент', nameEn: 'Student Parliament', path: '/student/council' },
       { name: 'Студентська рада гуртожитків', nameEn: 'Student Dormitory Council' },
       {
         name: 'Асоціація випускників ХНПУ імені Г.С. Сковороди',
         nameEn: 'Alumni Association of H.S. Skovoroda KhNPU',
+        path: '/student/alumni',
       },
       { name: 'Гендерний центр', nameEn: 'Gender Centre' },
       { name: 'Школа молодого лідера', nameEn: 'Young Leader School' },
@@ -1138,7 +1166,56 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
         external: 'http://liderstudent.com.ua/',
       },
       { name: 'Дебатний клуб', nameEn: 'Debate Club' },
-      { name: 'Центр ветеранського розвитку', nameEn: 'Veterans Development Centre' },
+      { name: 'Центр ветеранського розвитку', nameEn: 'Veterans Development Centre', path: '/student/veterans-center' },
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// Type-based view of the subdivisions
+//
+// The client asked the structure page to list every subdivision by what it is —
+// centres, departments and services, everything else — instead of by which member
+// of the rectorate supervises it. The chart's supervision grouping stays in
+// STRUCTURE_GROUPS / STRUCTURE_ASSOCIATIONS above; only the presentation changes.
+// ---------------------------------------------------------------------------
+
+/** Buckets used by `groupSubdivisionsByType()`; the ids double as i18n key suffixes. */
+export type SubdivisionTypeId = 'centres' | 'departments' | 'other'
+
+export interface SubdivisionTypeGroup {
+  id: SubdivisionTypeId
+  items: StructureItem[]
+}
+
+const CENTRE_RE = /центр/i
+const DEPARTMENT_RE = /^(відділ|відділення|служба|бухгалтерська служба|підготовче відділення)/i
+
+function subdivisionType(item: StructureItem): SubdivisionTypeId {
+  if (CENTRE_RE.test(item.name)) return 'centres'
+  if (DEPARTMENT_RE.test(item.name)) return 'departments'
+  return 'other'
+}
+
+const byUkrainianName = (a: StructureItem, b: StructureItem) => a.name.localeCompare(b.name, 'uk')
+
+/** Same item listed under two supervisors is shown once. */
+function dedupeByName(items: StructureItem[]): StructureItem[] {
+  const seen = new Map<string, StructureItem>()
+  for (const item of items) if (!seen.has(item.name)) seen.set(item.name, item)
+  return [...seen.values()]
+}
+
+/** Administrative subdivisions of the chart, regrouped by type and sorted by name. */
+export function groupSubdivisionsByType(): SubdivisionTypeGroup[] {
+  const all = dedupeByName(STRUCTURE_GROUPS.flatMap(group => group.items))
+  const ids: SubdivisionTypeId[] = ['centres', 'departments', 'other']
+  return ids
+    .map(id => ({ id, items: all.filter(item => subdivisionType(item) === id).sort(byUkrainianName) }))
+    .filter(group => group.items.length > 0)
+}
+
+/** «Skovoroda associations» as one alphabetical list, with no supervisor grouping. */
+export function listAssociations(): StructureItem[] {
+  return dedupeByName(STRUCTURE_ASSOCIATIONS.flatMap(group => group.items)).sort(byUkrainianName)
+}

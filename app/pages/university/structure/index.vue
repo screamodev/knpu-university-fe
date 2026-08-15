@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {
   countStructureItems,
-  STRUCTURE_ASSOCIATIONS,
+  groupSubdivisionsByType,
+  listAssociations,
   STRUCTURE_FACULTIES,
   STRUCTURE_GOVERNANCE,
-  STRUCTURE_GROUPS,
   STRUCTURE_INSTITUTES,
 } from '~/utils/structure'
 
@@ -22,6 +22,11 @@ const unitSections = computed(() => [
   { titleKey: 'university.structure.institutesTitle', units: STRUCTURE_INSTITUTES },
   { titleKey: 'university.structure.facultiesTitle', units: STRUCTURE_FACULTIES },
 ])
+
+// Subdivisions are shown by type (centres, departments and services, other),
+// not by the supervising vice-rector — see `groupSubdivisionsByType()`.
+const subdivisionGroups = groupSubdivisionsByType()
+const associations = listAssociations()
 </script>
 
 <template>
@@ -142,7 +147,7 @@ const unitSections = computed(() => [
       </section>
     </div>
 
-    <!-- Administrative subdivisions, grouped by supervising member of the rectorate -->
+    <!-- Administrative subdivisions, grouped by type: centres, departments and services, other -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
       <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
         {{ t('university.structure.administrativeTitle') }}
@@ -151,9 +156,9 @@ const unitSections = computed(() => [
         {{ t('university.structure.administrativeNote') }}
       </p>
       <div class="flex flex-col gap-10">
-        <section v-for="group in STRUCTURE_GROUPS" :key="group.id" class="flex flex-col gap-4">
+        <section v-for="group in subdivisionGroups" :key="group.id" class="flex flex-col gap-4">
           <h3 class="font-playfair text-lg font-semibold text-navy">
-            {{ localized(group, 'name') }}
+            {{ t(`university.structure.types.${group.id}`) }}
           </h3>
           <SharedStructureItemList :items="group.items" />
         </section>
@@ -170,12 +175,7 @@ const unitSections = computed(() => [
           {{ t('university.structure.associationsNote') }}
         </p>
       </div>
-      <section v-for="group in STRUCTURE_ASSOCIATIONS" :key="group.id" class="flex flex-col gap-4">
-        <h3 class="font-playfair text-lg font-semibold text-navy">
-          {{ localized(group, 'name') }}
-        </h3>
-        <SharedStructureItemList :items="group.items" />
-      </section>
+      <SharedStructureItemList :items="associations" />
 
       <!-- Link to the faculties & departments overview -->
       <div class="pt-8 border-t border-border">

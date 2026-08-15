@@ -38,7 +38,10 @@ useHead({
         {{ t('university.volunteering.intro') }}
       </p>
 
-      <SharedStaticPageBody slug="volunteering" />
+      <!-- The client asked for justified text here, as on the university's own account -->
+      <div class="text-justify">
+        <SharedStaticPageBody slug="volunteering" />
+      </div>
     </div>
 
     <!-- CTA banner (AnnouncementBanner pattern) -->

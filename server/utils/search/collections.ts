@@ -103,17 +103,6 @@ export const SEARCH_COLLECTIONS: CollectionSource[] = [
     url: () => '/science/conferences',
   },
   {
-    collection: 'science_defenses',
-    type: 'science',
-    title: { uk: 'candidateName', en: 'candidateNameEn' },
-    body: {
-      uk: ['dissertationTitle', 'specialty', 'board', 'result'],
-      en: ['dissertationTitleEn', 'specialtyEn', 'boardEn', 'resultEn'],
-    },
-    dateField: 'defenseDate',
-    url: () => '/science/defenses',
-  },
-  {
     collection: 'accreditation_certificates',
     type: 'document',
     title: { uk: 'title', en: 'titleEn' },

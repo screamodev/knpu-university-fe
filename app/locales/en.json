@@ -628,18 +628,9 @@
           "room": "Room 204",
           "phone": "+38 (057) 700-69-09",
           "email": "rector{'@'}hnpu.edu.ua",
-          "degree": "Doctor of Pedagogical Sciences, Professor, Corresponding Member of the NAES of Ukraine",
+          "degree": "Doctor of Pedagogical Sciences, Professor, Academician of the NAES of Ukraine",
           "photo": "/images/static/boichuk.jpg",
           "profile": "https://sites.google.com/hnpu.edu.ua/boichuk"
-        },
-        {
-          "position": "Vice-Rector for Research, Innovation and International Activity",
-          "name": "Berezhna Svitlana Viktorivna",
-          "room": "Room 208",
-          "phone": "+38 (057) 717-10-36",
-          "email": "prorector_berezhna{'@'}hnpu.edu.ua",
-          "photo": "/images/static/beregna.jpg",
-          "profile": "https://sites.google.com/hnpu.edu.ua/berezhna/головна-сторінка"
         },
         {
           "position": "First Vice-Rector",
@@ -649,6 +640,15 @@
           "email": "prorector_borysov{'@'}hnpu.edu.ua",
           "photo": "/images/static/borisov.jpg",
           "profile": "https://sites.google.com/hnpu.edu.ua/borisov/головна-сторінка"
+        },
+        {
+          "position": "Vice-Rector for Research, Innovation and International Activity",
+          "name": "Berezhna Svitlana Viktorivna",
+          "room": "Room 208",
+          "phone": "+38 (057) 717-10-36",
+          "email": "prorector_berezhna{'@'}hnpu.edu.ua",
+          "photo": "/images/static/beregna.jpg",
+          "profile": "https://sites.google.com/hnpu.edu.ua/berezhna/головна-сторінка"
         },
         {
           "position": "Vice-Rector for Teaching and Student Affairs",

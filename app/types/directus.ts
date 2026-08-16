@@ -654,6 +654,8 @@ export interface DirectusCooperationAgreement {
   countryEn: string | null
   term: string | null
   termEn: string | null
+  /** File of the agreement: `/assets/<id>` for our own copy, or the unit's Google Drive link. */
+  url: string | null
   order: number
 }
 

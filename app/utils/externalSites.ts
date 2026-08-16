@@ -10,3 +10,6 @@ export const JOURNALS_EXTERNAL_URL = 'https://journals.hnpu.edu.ua/'
 
 /** Академічна мобільність — Google Site of the international office. */
 export const ACADEMIC_MOBILITY_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/academic-mobility-hnpu'
+
+/** Наукові школи — Google Site the research office keeps in full detail. */
+export const SCIENCE_SCHOOLS_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/scienceschools'

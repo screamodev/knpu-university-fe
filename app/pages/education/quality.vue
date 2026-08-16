@@ -184,24 +184,39 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         <p class="text-body text-text-muted max-w-3xl mb-8">
           {{ t('education.quality.regulationsIntro') }}
         </p>
+        <!--
+          Дві окремі гілки, а не <component :is>: динамічний `is` із NuxtLink лишав внутрішні
+          кнопки без href, і вони не відкривались.
+        -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <component
-            :is="link.external ? 'a' : resolveComponent('NuxtLink')"
-            v-for="link in REGULATION_LINKS"
-            :key="link.key"
-            v-bind="link.external
-              ? { href: link.path, target: '_blank', rel: 'noopener noreferrer' }
-              : { to: localePath(link.path) }"
-            class="flex items-center gap-3 rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-          >
-            <span class="flex-1 font-playfair text-lg font-semibold text-navy">
-              {{ t(`education.quality.${link.key}`) }}
-            </span>
-            <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-              <path v-if="link.external" d="M7 17L17 7M17 7H8m9 0v9" />
-              <path v-else d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </component>
+          <template v-for="link in REGULATION_LINKS" :key="link.key">
+            <a
+              v-if="link.external"
+              :href="link.path"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+            >
+              <span class="flex-1 font-playfair text-lg font-semibold text-navy">
+                {{ t(`education.quality.${link.key}`) }}
+              </span>
+              <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                <path d="M7 17L17 7M17 7H8m9 0v9" />
+              </svg>
+            </a>
+            <NuxtLink
+              v-else
+              :to="localePath(link.path)"
+              class="flex items-center gap-3 rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+            >
+              <span class="flex-1 font-playfair text-lg font-semibold text-navy">
+                {{ t(`education.quality.${link.key}`) }}
+              </span>
+              <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </NuxtLink>
+          </template>
         </div>
         <div class="mt-8">
           <SharedDocumentList section="quality-centre" />

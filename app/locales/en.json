@@ -236,7 +236,8 @@
     "library": "Research library",
     "quality": "Quality of education",
     "monitoring": "Monitoring",
-    "anticorruption": "Anti-corruption"
+    "anticorruption": "Anti-corruption",
+    "foreignAdmission": "International admission"
   },
   "sections": {
     "news": {
@@ -641,7 +642,7 @@
           "profile": "https://sites.google.com/hnpu.edu.ua/berezhna/головна-сторінка"
         },
         {
-          "position": "Vice-Rector for Academic and Research Affairs",
+          "position": "First Vice-Rector",
           "name": "Borysov Volodymyr Andriiovych",
           "room": "Room 205",
           "phone": "+38 (057) 700-34-97",
@@ -996,7 +997,18 @@
       "partnersTitle": "Partner universities",
       "partnersNote": "The European partner network expands continuously — in particular, a cooperation agreement was signed with the University of the Balearic Islands (Spain) in 2026.",
       "projectsTitle": "Projects",
-      "projectsNote": "Erasmus+ projects the university takes part in."
+      "projectsNote": "Erasmus+ projects the university takes part in.",
+      "projects": {
+        "perfect": {
+          "title": "PERFECT — English for nursing and healthcare",
+          "text": "Erasmus+ KA220-HED project: an interactive English course for nurses and teachers, 2024–2027."
+        },
+        "lecture": {
+          "title": "LECTURE — European competences in teacher training",
+          "text": "Erasmus+ CBHE project: introducing leading European competences into the teacher training standard, 2024–2027."
+        }
+      },
+      "backToErasmus": "Back to Erasmus+"
     },
     "inclusive": {
       "tag": "International",
@@ -1206,6 +1218,17 @@
           "short": "International agreements"
         }
       }
+    },
+    "monitoringDepartment": {
+      "title": "Department of University Performance Monitoring and Educational Research",
+      "subtitle": "Monitoring of the University’s educational environment, research in the field of education and analytics for management decisions."
+    },
+    "internationalEducation": {
+      "title": "International Education Center",
+      "subtitle": "The Center coordinates the studies of international students — from the invitation for study to graduation documents.",
+      "admissionCtaTitle": "Admission of international applicants",
+      "admissionCtaText": "Invitation for study, required documents, admission procedure, deadlines and tuition fees.",
+      "admissionCtaButton": "See admission terms"
     }
   },
   "admissions": {
@@ -1996,6 +2019,13 @@
       "archiveSubtitle": "Pages of that campaign, migrated from the old site.",
       "backToCommittee": "Back to the admissions committee",
       "backToArchive": "Back to the {year} archive"
+    },
+    "foreign": {
+      "tag": "Admissions",
+      "title": "Admission of International Applicants to Higher Education",
+      "subtitle": "Admission terms for foreign citizens and stateless persons at H. S. Skovoroda KhNPU.",
+      "applyCta": "Apply at apply.studyinukraine.gov.ua",
+      "centreCta": "International Education Center"
     }
   },
   "education": {
@@ -2634,7 +2664,10 @@
       "founderLabel": "Founder",
       "schoolLink": "School materials",
       "departmentsTitle": "Departmental research areas",
-      "departmentsIntro": "Main areas of research and artistic activity of the departments, with their academic supervisors."
+      "departmentsIntro": "Main areas of research and artistic activity of the departments, with their academic supervisors.",
+      "schoolsSiteTitle": "Research schools of H. S. Skovoroda KhNPU",
+      "schoolsSiteText": "The research office keeps the full description of the schools, their heads and research areas on a separate university site.",
+      "schoolsSiteCta": "Open the research schools site"
     },
     "institutes": {
       "tag": "Science",

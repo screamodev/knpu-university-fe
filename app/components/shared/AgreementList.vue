@@ -12,7 +12,19 @@ import type { AgreementCategory, DirectusCooperationAgreement } from '~/types/di
 const props = defineProps<{ category: AgreementCategory }>()
 
 const { t, locale } = useSafeI18nWithRouter()
-const { client } = useDirectus()
+const { client, assetUrl } = useDirectus()
+
+const ASSET_PREFIX = '/assets/'
+
+/**
+ * Договір лежить або в нашому сховищі, або на Google Drive підрозділу: у першому випадку в полі
+ * стоїть `/assets/<id>` і адресу треба зібрати через Directus, у другому — це вже готова адреса.
+ */
+function fileHref(url: string): string {
+  return url.startsWith(ASSET_PREFIX)
+    ? assetUrl(url.slice(ASSET_PREFIX.length)) ?? url
+    : url
+}
 
 const selectedYear = ref<number | null>(null)
 
@@ -23,7 +35,7 @@ const { data, pending } = await useAsyncData(
       readItems('cooperation_agreements', {
         fields: [
           'id', 'number', 'agreementDate', 'year', 'partner', 'partnerEn',
-          'subject', 'subjectEn', 'country', 'countryEn', 'term', 'termEn', 'order',
+          'subject', 'subjectEn', 'country', 'countryEn', 'term', 'termEn', 'url', 'order',
         ],
         sort: ['order'],
         filter: { status: { _eq: 'published' }, category: { _eq: props.category } },
@@ -107,8 +119,19 @@ function subjectLines(item: DirectusCooperationAgreement): string[] {
         <span class="text-body-sm text-text-muted">{{ item.agreementDate }}</span>
 
         <div class="min-w-0">
+          <!-- Назва — покликання на файл договору; без файла лишається просто текстом. -->
           <h3 class="text-body-sm font-semibold text-navy leading-snug">
-            {{ localizedText(item, 'partner') }}
+            <a
+              v-if="item.url"
+              :href="fileHref(item.url)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy underline decoration-border hover:text-gold hover:decoration-gold"
+            >
+              {{ localizedText(item, 'partner') }}
+              <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            </a>
+            <template v-else>{{ localizedText(item, 'partner') }}</template>
           </h3>
           <p v-if="showCountry && localizedText(item, 'country')" class="mt-1 text-body-sm text-gold">
             {{ localizedText(item, 'country') }}

@@ -38,6 +38,11 @@ export interface StructureItem {
   external?: string
   /** Page on this site, for subdivisions that have one (see `STRUCTURE_DEPARTMENTS`). */
   path?: string
+  /**
+   * Where the subdivision belongs on /university/structure. Set it only when the name alone
+   * misleads `subdivisionType()` — «Наукова бібліотека» is a service, not an «other».
+   */
+  type?: SubdivisionTypeId
   /** Laboratories, museums and centres attached to the item above. */
   children?: StructureItem[]
 }
@@ -368,20 +373,20 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
         nameEn:
           'Department of Theory and Methods of Teaching Philological Disciplines in Preschool, Primary and Special Education',
         external:
-          'https://sites.google.com/hnpu.edu.ua/pochatkove/факультет/структурні-підрозділи/кафедра-теорії-і-методики-викладання-філологічних-дисциплін-у-дошкільній-п',
+          'https://sites.google.com/hnpu.edu.ua/kaf-filolohichnykh-dystsyplin',
       },
       {
         name: 'Кафедра теорії і методики викладання природничо-математичних дисциплін у дошкільній, початковій і спеціальній освіті',
         nameEn:
           'Department of Theory and Methods of Teaching Natural Science and Mathematical Disciplines in Preschool, Primary and Special Education',
         external:
-          'https://sites.google.com/hnpu.edu.ua/pochatkove/факультет/структурні-підрозділи/кафедра-теорії-і-методики-викладання-природничо-математичних-дисциплін',
+          'https://sites.google.com/hnpu.edu.ua/kaf-pryrodnycho-matematychnykh',
       },
       {
         name: 'Кафедра початкової і професійної освіти',
         nameEn: 'Department of Primary and Vocational Education',
         external:
-          'https://sites.google.com/hnpu.edu.ua/pochatkove/факультет/структурні-підрозділи/кафедра-початкової-і-професійної-освіти',
+          'https://sites.google.com/hnpu.edu.ua/kaf-pochatkova-prof-osv',
       },
     ],
     associations: [
@@ -869,11 +874,17 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       { name: 'Бухгалтерська служба', nameEn: 'Accounting Service' },
       {
         name: 'Відділ моніторингу діяльності університету та досліджень у сфері освіти',
-        nameEn: 'Department for University Activity Monitoring and Educational Research',
-        path: '/education/monitoring',
+        nameEn: 'Department of University Performance Monitoring and Educational Research',
+        // Раніше вело на сторінку анкет — у відділу тепер є власна сторінка.
+        path: '/university/structure/monitoring',
       },
-      { name: 'Юридичний відділ', nameEn: 'Legal Department' },
-      { name: 'Приймальна комісія', nameEn: 'Admissions Office', path: '/admissions/committee' },
+      { name: 'Юридичний відділ', nameEn: 'Legal Department', type: 'departments' },
+      {
+        name: 'Приймальна комісія',
+        nameEn: 'Admissions Office',
+        path: '/admissions/committee',
+        type: 'departments',
+      },
       {
         name: 'Підготовче відділення «Відкритий шлях до вищої освіти»',
         nameEn: '«Open Path to Higher Education» preparatory department',
@@ -884,10 +895,15 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         nameEn: 'Department of Emergencies, Civil Protection and Mobilisation',
       },
       { name: 'Служба військового обліку', nameEn: 'Military Registration Service' },
-      { name: 'Центр міжнародної освіти', nameEn: 'Centre for International Education' },
+      {
+        name: 'Центр міжнародної освіти',
+        nameEn: 'International Education Center',
+        path: '/university/structure/international-education',
+      },
       {
         name: 'Уповноважений підрозділ з питань запобігання та виявлення корупції',
         nameEn: 'Authorised Unit for Corruption Prevention and Detection',
+        type: 'departments',
         // The unit keeps its work on a Google site; the client asked the structure entry to lead
         // there rather than to the internal placeholder page.
         external: ANTICORRUPTION_EXTERNAL_URL,
@@ -905,7 +921,12 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         nameEn: 'Centre for Educational Quality Assurance',
         path: '/education/quality',
       },
-      { name: 'Навчальний відділ', nameEn: 'Academic Affairs Department', path: '/education/academic-office' },
+      {
+        name: 'Навчальний відділ',
+        nameEn: 'Academic Affairs Department',
+        path: '/education/academic-office',
+        type: 'departments',
+      },
       { name: 'Відділ практик', nameEn: 'Internships Department', path: '/education/practice' },
       {
         name: 'Центр цифровізації освіти',
@@ -923,7 +944,12 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
     name: 'Підпорядковані проректору з наукової, інноваційної і міжнародної діяльності',
     nameEn: 'Reporting to the Vice-Rector for Research, Innovation and International Activity',
     items: [
-      { name: 'Наукова бібліотека', nameEn: 'Research Library', path: '/science/library' },
+      {
+        name: 'Наукова бібліотека',
+        nameEn: 'Research Library',
+        path: '/science/library',
+        type: 'departments',
+      },
       {
         name: 'Відділ аспірантури і докторантури',
         nameEn: 'Postgraduate and Doctoral Studies Department',
@@ -937,6 +963,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         name: 'Редакційно-видавничий відділ',
         nameEn: 'Editorial and Publishing Department',
         path: '/science/publishing',
+        type: 'departments',
       },
     ],
   },
@@ -1056,7 +1083,8 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
     name: 'За участю першого проректора',
     nameEn: 'Chaired by the First Vice-Rector',
     items: [
-      { name: 'Освітній хаб', nameEn: 'Education Hub' },
+      // Клієнт просив покликання на власний гугл-сайт хабу — адресу ще не надіслали.
+      { name: 'Сковорода-хаб', nameEn: 'Skovoroda Hub' },
       { name: 'Рада гарантів ОП', nameEn: 'Council of Study Programme Guarantors' },
       { name: 'STEM-центр', nameEn: 'STEM Centre' },
       {
@@ -1192,6 +1220,7 @@ const CENTRE_RE = /центр/i
 const DEPARTMENT_RE = /^(відділ|відділення|служба|бухгалтерська служба|підготовче відділення)/i
 
 function subdivisionType(item: StructureItem): SubdivisionTypeId {
+  if (item.type) return item.type
   if (CENTRE_RE.test(item.name)) return 'centres'
   if (DEPARTMENT_RE.test(item.name)) return 'departments'
   return 'other'

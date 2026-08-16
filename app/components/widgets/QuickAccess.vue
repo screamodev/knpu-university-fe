@@ -26,6 +26,9 @@ const links = computed<LinkTile[]>(() => [
     path: '/university/anticorruption',
     icon: 'document',
   },
+  // Іноземний вступник заходить не через структуру підрозділів, тож умови вступу для нього
+  // клієнт просив показати й на головній.
+  { label: t('quickAccess.foreignAdmission'), path: '/admissions/foreign', icon: 'document' },
 ])
 
 const chipClass

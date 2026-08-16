@@ -15,18 +15,13 @@ const stepKeys = ['step1', 'step2', 'step3', 'step4'] as const
 const partnerPlaceholders = 8
 
 /**
- * Erasmus+ projects named by the client. AMUSE and LECTURE have addresses; PERFECT is
- * shown without a link until the client supplies theirs.
+ * Проєкти Еразмус+. AMUSE веде на власний сайт; PERFECT і LECTURE описані на сторінках тут —
+ * матеріали надіслали координатори, тож покликань на теки Google Drive більше немає.
  */
 const projects: LinkTile[] = [
   { label: 'AMUSE', url: 'https://amuse.hnpu.edu.ua/', icon: 'globe' },
-  { label: 'PERFECT', icon: 'globe', disabled: true },
-  {
-    label: 'LECTURE',
-    // The client's document points at a Drive folder; it is access-restricted for now.
-    url: 'https://drive.google.com/drive/folders/1PGhgHpPfG1vcHunxQLxBQ1z5yDjSQlKix?usp=drive_link',
-    icon: 'globe',
-  },
+  { label: 'PERFECT', path: '/university/erasmus/perfect', icon: 'globe' },
+  { label: 'LECTURE', path: '/university/erasmus/lecture', icon: 'globe' },
 ]
 </script>
 
@@ -60,6 +55,17 @@ const projects: LinkTile[] = [
           <span class="text-gold/40 font-playfair text-4xl font-bold">E+</span>
         </div>
       </div>
+    </div>
+
+    <!-- Erasmus+ projects — одразу під вступом, як просив клієнт -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+        {{ t('university.erasmus.projectsTitle') }}
+      </h2>
+      <p class="text-body text-text-muted mb-8 max-w-2xl">
+        {{ t('university.erasmus.projectsNote') }}
+      </p>
+      <SharedLinkTileGrid :tiles="projects" />
     </div>
 
     <!-- Programme types: 3 cards -->
@@ -122,17 +128,6 @@ const projects: LinkTile[] = [
           </article>
         </div>
       </div>
-    </div>
-
-    <!-- Erasmus+ projects -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
-        {{ t('university.erasmus.projectsTitle') }}
-      </h2>
-      <p class="text-body text-text-muted mb-8 max-w-2xl">
-        {{ t('university.erasmus.projectsNote') }}
-      </p>
-      <SharedLinkTileGrid :tiles="projects" />
     </div>
 
     <!-- Partner logos: 4-col placeholder grid -->

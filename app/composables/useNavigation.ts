@@ -152,27 +152,29 @@ export function useNavigation(): { items: NavItem[] } {
       labelKey: 'nav.labels.education',
       minWidth: '720px',
       columns: [
+        // Розкладку колонок задав клієнт: «Структура» лишає підрозділи, «Процес та якість»
+        // збирає все, що стосується змісту навчання, «Форми навчання» — способи його здобути.
         {
           titleKey: 'nav.education.structure',
           links: [
             { path: '/education/faculties', key: 'nav.links.faculties' },
             { path: '/education/departments', key: 'nav.links.departments' },
-            { path: '/education/programs', key: 'nav.links.programs' },
-            { path: '/education/curriculum', key: 'nav.links.curriculum' },
-            { path: '/education/electives', key: 'nav.links.electives' },
             { path: '/education/academic-office', key: 'nav.links.academicOffice' },
             { path: '/education/digital-center', key: 'nav.links.digitalCenter' },
+            { path: '/education/quality', key: 'nav.links.qualityCenter' },
           ],
         },
         {
           titleKey: 'nav.education.quality',
           links: [
             { path: '/education/schedule', key: 'nav.links.processSchedule' },
+            { path: '/education/programs', key: 'nav.links.programs' },
+            { path: '/education/curriculum', key: 'nav.links.curriculum' },
+            { path: '/education/students', key: 'nav.links.studentContingent' },
+            { path: '/education/electives', key: 'nav.links.electives' },
             { path: '/education/accreditation', key: 'nav.links.accreditation' },
-            { path: '/education/quality', key: 'nav.links.qualityCenter' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },
             { path: '/education/rankings', key: 'nav.links.rankings' },
-            { path: '/education/practice', key: 'nav.links.practice' },
           ],
         },
         {
@@ -184,7 +186,7 @@ export function useNavigation(): { items: NavItem[] } {
             // Both pages stay in the app, just unlinked from the menu.
             { path: MOODLE_EXTERNAL_URL, key: 'nav.links.moodle', external: true },
             { path: '/education/continuing', key: 'nav.links.continuing' },
-            { path: '/education/students', key: 'nav.links.studentContingent' },
+            { path: '/education/practice', key: 'nav.links.practice' },
           ],
         },
       ],

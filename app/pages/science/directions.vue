@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
 import type { DirectusScienceDirection, DirectusScienceSchool } from '~/types/directus'
+import { SCIENCE_SCHOOLS_EXTERNAL_URL } from '~/utils/externalSites'
 
 /**
  * Напрями наукової та мистецької діяльності.
@@ -140,6 +141,31 @@ const departments = computed(() => {
       <p class="text-body-sm text-text-muted max-w-3xl mb-6">
         {{ t('science.directions.schoolsIntro') }}
       </p>
+
+      <!-- Повний опис шкіл веде науковий відділ на власному гугл-сайті. -->
+      <a
+        :href="SCIENCE_SCHOOLS_EXTERNAL_URL"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col sm:flex-row sm:items-center gap-4 rounded-16 bg-navy text-white p-6 mb-8 no-underline hover:bg-navy-deep transition-colors"
+      >
+        <span class="flex-1">
+          <span class="block font-playfair text-lg font-semibold">
+            {{ t('science.directions.schoolsSiteTitle') }}
+          </span>
+          <span class="block text-body-sm text-white/70 mt-1">
+            {{ t('science.directions.schoolsSiteText') }}
+          </span>
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-12 bg-gold text-navy font-semibold px-5 py-2.5 shrink-0">
+          {{ t('science.directions.schoolsSiteCta') }}
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path d="M15 3h6v6M10 14L21 3" />
+          </svg>
+          <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+        </span>
+      </a>
 
       <div v-if="schoolsPending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="i in 6" :key="i" class="animate-pulse h-36 rounded-16 border border-border bg-off-white" />

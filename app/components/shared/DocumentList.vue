@@ -86,7 +86,7 @@ function meta(item: DirectusDocument): string {
   const file = item.file
   if (file && typeof file === 'object') {
     const size = formatFileSize(file.filesize)
-    const kind = (file.filename_download ?? '').split('.').pop()?.toUpperCase()
+    const kind = fileKindLabel(file)
     return [kind, size].filter(Boolean).join(' · ')
   }
   return item.externalUrl ? t('documents.externalLink') : ''

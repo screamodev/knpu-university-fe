@@ -506,7 +506,7 @@
       "tag": "Management",
       "title": "Rectorate",
       "subtitle": "University leadership: rector and vice-rectors.",
-      "intro": "The Rectorate exercises day-to-day management of the university and implements the decisions of the Academic Council. It comprises the Rector and four vice-rectors responsible for research, innovation and international activity; academic and research affairs; teaching and student affairs; and administration and facilities.",
+      "intro": "The Rectorate exercises day-to-day management of the university and implements the decisions of the Academic Council. It comprises the Rector and four vice-rectors responsible for research, innovation and international activity; academic and research affairs; teaching and student affairs; and infrastructure development.",
       "rectorTitle": "Rector",
       "viceRectorsTitle": "Vice-rectors",
       "addressTitle": "Address",
@@ -661,7 +661,7 @@
           "photo": "/images/static/Borisenko.png"
         },
         {
-          "position": "Vice-Rector for Administration and Facilities",
+          "position": "Vice-Rector for Infrastructure Development",
           "name": "Chernik Tetiana Valentynivna",
           "room": "Room 203",
           "phone": "+38 (057) 700-35-22",

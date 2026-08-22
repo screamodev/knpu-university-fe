@@ -2,7 +2,7 @@
 import { readItems } from '@directus/sdk'
 import type { Query } from '@directus/sdk'
 import type { DirectusEvent, DirectusSchema } from '~/types/directus'
-import { ADMISSIONS_LEGACY_URL } from '~/utils/externalSites'
+import { ADMISSIONS_LEGACY_URL, EDUHUB_EXTERNAL_URL } from '~/utils/externalSites'
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
@@ -44,8 +44,6 @@ interface ResourceCard {
   disabled?: boolean
 }
 
-const EDUHUB_EXTERNAL_URL
-  = 'https://sites.google.com/hnpu.edu.ua/khnpu-eduhub/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80'
 const INTEGRITY_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/akdob'
 
 const resourceList = computed<ResourceCard[]>(() => [

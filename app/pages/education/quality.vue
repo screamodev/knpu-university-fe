@@ -144,7 +144,8 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
     </div>
 
     <!-- Tabs -->
-    <div class="border-b border-border bg-white sticky top-0 z-10">
+    <!-- Під шапкою: вона теж липка й має висоту 76px. -->
+    <div class="border-b border-border bg-white sticky top-[76px] z-10">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex gap-2 overflow-x-auto">
         <button
           v-for="tab in TAB_IDS"

@@ -1,4 +1,5 @@
 import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
+import { EDUHUB_EXTERNAL_URL } from '~/utils/externalSites'
 
 /**
  * University structure — single source of truth for the /university/structure section.
@@ -1102,8 +1103,7 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
     name: 'За участю першого проректора',
     nameEn: 'Chaired by the First Vice-Rector',
     items: [
-      // Клієнт просив покликання на власний гугл-сайт хабу — адресу ще не надіслали.
-      { name: 'Сковорода-хаб', nameEn: 'Skovoroda Hub' },
+      { name: 'Сковорода-хаб', nameEn: 'Skovoroda Hub', external: EDUHUB_EXTERNAL_URL },
       { name: 'Рада гарантів ОП', nameEn: 'Council of Study Programme Guarantors' },
       { name: 'STEM-центр', nameEn: 'STEM Centre' },
       {

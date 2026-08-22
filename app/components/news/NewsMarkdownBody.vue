@@ -211,6 +211,21 @@ const segments = computed(() => {
   object-position: top;
 }
 
+/*
+ * Історична галерея: ті самі колонки, але знімок показується цілком. Портрети кадруються 4:5 і
+ * від цього виграють, а групове фото 1970-х із такого кадру виходить обрізаним по головах.
+ */
+.news-article-md .photo-grid.gallery {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.news-article-md .photo-grid.gallery img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  object-position: center;
+  background: theme('colors.off-white');
+}
+
 .news-article-md .photo-grid figcaption {
   font-size: 0.8125rem;
   line-height: 1.35;

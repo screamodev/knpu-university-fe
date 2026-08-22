@@ -52,6 +52,11 @@ export const LOCALE_STANDALONE_ROUTES: Record<string, string> = {
 export const LOCALE_ROUTE_OVERRIDES: Record<string, string> = {
   'university.rectorreport': '/university/rector-report',
   'university.regulationdrafts': '/university/regulation-drafts',
+  // Сторінки підрозділів живуть під /university/structure, а не поруч із рештою розділу.
+  'university.monitoringDepartment': '/university/structure/monitoring',
+  'university.rectorOffice': '/university/structure/rector-office',
+  'university.labourSafety': '/university/structure/labour-safety',
+  'university.internationalEducation': '/university/structure/international-education',
 }
 
 /** `dissertationCouncils` → `dissertation-councils`. */

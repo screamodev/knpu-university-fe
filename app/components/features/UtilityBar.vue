@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { LEGACY_SITE_URL } from '~/utils/externalSites'
+
 const { t, localePath, switchLocalePath, locale } = useSafeI18nWithRouter()
 const { open: openSearch } = useSearch()
 
@@ -96,6 +98,23 @@ const socialLinks = [
         <NuxtLink :to="localePath('/feedback')" class="text-[12px] text-white/65 hover:text-gold-light transition-colors duration-280 whitespace-nowrap">
           {{ t('utility.feedback') }}
         </NuxtLink>
+        <!--
+          Старий сайт лишається джерелом для приймальної комісії та частини підрозділів, тож
+          посилання на нього має бути на кожній сторінці — у топі й у підвалі.
+        -->
+        <a
+          :href="LEGACY_SITE_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1 px-2.5 py-0.5 rounded-[10px] border border-white/20 bg-white/[0.06] text-[12px] text-white/75 hover:border-gold hover:text-gold transition-all duration-280 whitespace-nowrap"
+        >
+          {{ t('utility.legacySite') }}
+          <svg class="w-[11px] h-[11px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M14 4h6v6" />
+            <path d="M20 4 11 13" />
+            <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+          </svg>
+        </a>
         <div class="flex border border-white/20 rounded overflow-hidden shrink-0">
           <NuxtLink
             :to="switchLocalePath('uk')"

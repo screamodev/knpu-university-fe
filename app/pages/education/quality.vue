@@ -340,10 +340,10 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
           {{ t('education.quality.accreditationIntro') }}
         </p>
 
-        <div class="mb-10">
-          <SharedStaticPageBody slug="quality-centre-accreditation" />
-        </div>
-
+        <!--
+          Перенесений зі старого сайту список акредитацій показував ті самі роки, що й
+          акредитаційні справи нижче, тільки без вмісту — клієнт просив лишити один, «нижній».
+        -->
         <div v-if="pending" class="space-y-3">
           <div v-for="i in 3" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
         </div>

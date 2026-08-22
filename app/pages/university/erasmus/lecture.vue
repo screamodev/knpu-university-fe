@@ -32,6 +32,8 @@ useHead({
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SharedErasmusProjectLogos project-logo="lecture.png" project-alt="LECTURE" />
+
       <SharedStaticPageBody slug="erasmus-lecture" />
 
       <NuxtLink

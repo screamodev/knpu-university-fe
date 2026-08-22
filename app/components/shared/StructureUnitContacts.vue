@@ -18,6 +18,14 @@ const headTitle = computed(() => {
 })
 
 const dean = computed(() => localized(props.contacts, 'dean'))
+
+/** Кафедра хореографії дала два номери — поле лишається одним рядком, показуємо їх окремо. */
+const phones = computed(() =>
+  (props.contacts.phone ?? '')
+    .split(/[,;]/)
+    .map(value => value.trim())
+    .filter(Boolean),
+)
 const position = computed(() => localized(props.contacts, 'position'))
 const address = computed(() => localized(props.contacts, 'address'))
 
@@ -68,13 +76,13 @@ const hasAny = computed(() =>
         </dt>
         <dd class="text-navy">{{ address }}</dd>
       </div>
-      <div v-if="contacts.phone">
+      <div v-if="phones.length">
         <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-0.5">
           {{ t('university.structure.unit.phoneLabel') }}
         </dt>
-        <dd>
-          <a :href="`tel:${contacts.phone.replace(/[^+\d]/g, '')}`" class="text-navy hover:text-gold transition-colors duration-280">
-            {{ contacts.phone }}
+        <dd v-for="phone in phones" :key="phone">
+          <a :href="`tel:${phone.replace(/[^+\d]/g, '')}`" class="text-navy hover:text-gold transition-colors duration-280">
+            {{ phone }}
           </a>
         </dd>
       </div>

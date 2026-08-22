@@ -5,6 +5,14 @@ import { AGREEMENT_CATEGORIES } from '~/utils/agreementCategories'
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
+const { assetUrl } = useDirectus()
+
+/**
+ * Рамкова угода з МОН. Файл прийшов текою Google Drive і лежить у сховищі під сталим id
+ * (`migration/drive-assets/files.map.json`), тож посилання можна зібрати без запиту в колекцію.
+ */
+const MON_AGREEMENT_FILE_ID = '28c49475-b123-4bb3-b54f-cba8f054870e'
+const monAgreementUrl = computed(() => assetUrl(MON_AGREEMENT_FILE_ID) ?? '#')
 
 useHead({
   title: () => t('university.agreements.title'),
@@ -42,12 +50,20 @@ const sections = computed<LinkTile[]>(() =>
         {{ t('university.agreements.intro') }}
       </p>
 
-      <!-- The framework agreement with the ministry; the file itself is still to be supplied. -->
-      <article class="bg-off-white border border-border rounded-16 p-6 border-l-4 border-l-gold mb-10">
-        <h2 class="font-playfair text-lg font-semibold text-navy">
+      <a
+        :href="monAgreementUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-4 bg-off-white border border-border rounded-16 p-6 border-l-4 border-l-gold mb-10 no-underline hover:border-gold transition-colors"
+      >
+        <span class="flex-1 font-playfair text-lg font-semibold text-navy">
           {{ t('university.agreements.monTitle') }}
-        </h2>
-      </article>
+          <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+        </span>
+        <span class="inline-block px-2.5 py-0.5 rounded bg-gold/15 text-gold font-medium text-body-sm whitespace-nowrap">
+          PDF
+        </span>
+      </a>
 
       <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
         {{ t('university.agreements.sectionsTitle') }}

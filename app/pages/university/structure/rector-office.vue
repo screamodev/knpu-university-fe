@@ -1,46 +1,44 @@
 <script setup lang="ts">
 /**
- * Відділ практик.
+ * Служба ректора.
  *
- * Сторінка була шаблонною: вигадані види практик зі строками й вісім порожніх плиток «партнерів».
- * Замість них — текст, склад і нормативна база, які надіслав сам відділ
- * (`app/content/pages/practice-office.{uk,en}.json`).
+ * Сторінки на старому сайті не було — текст двома мовами й положення надіслала сама служба.
+ * Новин і оголошень підрозділ не веде, тож унизу лише переходи до ректорату й контактів.
  */
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
 
 useHead({
-  title: () => t('nav.links.practice'),
-  meta: [{ name: 'description', content: () => t('education.practice.subtitle') }],
+  title: () => t('university.rectorOffice.title'),
+  meta: [{ name: 'description', content: () => t('university.rectorOffice.subtitle') }],
 })
 
 const relatedLinks = [
-  { path: '/education/schedule', labelKey: 'nav.links.processSchedule' },
-  { path: '/education/programs', labelKey: 'nav.links.programs' },
-  { path: '/university/regulations', labelKey: 'nav.links.regulations' },
+  { path: '/university/rectorate', labelKey: 'nav.links.rectorate' },
+  { path: '/university/structure', labelKey: 'nav.links.structure' },
+  { path: '/university/contacts', labelKey: 'nav.links.contacts' },
 ] as const
 </script>
 
 <template>
   <div class="bg-white min-h-screen">
-    <!-- Hero -->
     <div class="bg-gradient-to-b from-navy-deep to-navy py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-[11px] font-semibold tracking-wider uppercase text-gold/90 mb-3">
-          {{ t('education.practice.tag') }}
+          {{ t('university.structure.tagDepartment') }}
         </div>
         <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
-          {{ t('education.practice.title') }}
+          {{ t('university.rectorOffice.title') }}
         </h1>
         <p class="mt-4 text-white/70 max-w-2xl">
-          {{ t('education.practice.subtitle') }}
+          {{ t('university.rectorOffice.subtitle') }}
         </p>
       </div>
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SharedStaticPageBody slug="practice-office" />
+      <SharedStaticPageBody slug="rector-office" />
 
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
         <NuxtLink

@@ -1,0 +1,20 @@
+{
+  "title": "Sports sections and student organisations",
+  "sections": [
+    {
+      "html": "<p><img src=\"/assets/4f0b4ebe-6157-4aa5-b624-faa1da9c382e\" alt=\"Sports club of H. S. Skovoroda Kharkiv National Pedagogical University\" /></p><p>The sports club is a structural unit of the university. It works under the Law of Ukraine «On Physical Culture and Sport», the statutes of the Student Sports Union of Ukraine and the International University Sports Federation, and the university’s own Statute.</p><p>The club includes the university’s Olympic Union and the Rehabilitation Centre.</p><p>Every year the club runs the university Spartakiad in 15 sports, forms the university teams for regional student competitions and the national Universiade, and supports students competing for a place at the World University Games.</p>"
+    },
+    {
+      "heading": "Leading sports",
+      "html": "<p>Fencing, wrestling, athletics, volleyball, basketball, handball, futsal, football, artistic and rhythmic gymnastics, cheerleading, orienteering.</p>"
+    },
+    {
+      "heading": "Sections",
+      "html": "<p>Sections in badminton, table tennis, health gymnastics, fitness, chess and draughts are also open. Classes are run by the teaching staff of the university’s sports departments:</p><ul><li>physical education;</li><li>combat sports, fencing and strength sports;</li><li>cyclic sports;</li><li>gymnastics, music and rhythm education, fitness;</li><li>Olympic and professional sport and sports games.</li></ul>"
+    }
+  ],
+  "sourceUrls": [
+    "https://hnpu.edu.ua/uk/sekciyi-ta-studentski-organizaciyi",
+    "https://hnpu.edu.ua/uk/division/sportyvnyy-klub"
+  ]
+}

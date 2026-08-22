@@ -2,6 +2,7 @@
 import { readItems } from '@directus/sdk'
 import type { DirectusArticle } from '~/types/news'
 import { ANNOUNCEMENTS_CATEGORY_SLUG } from '~/utils/announcements'
+import { ADMISSIONS_LEGACY_URL } from '~/utils/externalSites'
 
 /**
  * Home page banner.
@@ -44,9 +45,11 @@ const subtitle = computed(() =>
 const cta = computed(() =>
   announcement.value ? t('sections.announcement.ctaLive') : t('sections.announcement.cta'),
 )
+/** Без оголошення банер лишається закликом до вступу — і веде на приймальну комісію старого сайту. */
 const target = computed(() =>
-  announcement.value ? `/news/${announcement.value.slug}` : '/admissions/rules',
+  announcement.value ? `/news/${announcement.value.slug}` : ADMISSIONS_LEGACY_URL,
 )
+const targetIsExternal = computed(() => !announcement.value)
 </script>
 
 <template>
@@ -63,7 +66,17 @@ const target = computed(() =>
           {{ subtitle }}
         </p>
       </div>
+      <a
+        v-if="targetIsExternal"
+        :href="target"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 py-3.5 px-9 bg-gold text-navy-deep no-underline rounded-[10px] font-bold text-sm font-geologica transition-all duration-280 hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
+      >
+        {{ cta }} →
+      </a>
       <NuxtLink
+        v-else
         :to="localePath(target)"
         class="shrink-0 py-3.5 px-9 bg-gold text-navy-deep no-underline rounded-[10px] font-bold text-sm font-geologica transition-all duration-280 hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold"
       >

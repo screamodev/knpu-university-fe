@@ -260,9 +260,15 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
     name: 'Факультет математики, інформатики і природничої освіти',
     nameEn: 'Faculty of Mathematics, Computer Science and Natural Science Education',
     summary:
-      'Математика, інформатика, фізика і хімія, освітологія та інноваційна педагогіка; до складу входить ботанічний сад.',
+      'Математика, інформатика, фізика і хімія, біологія, освітологія та інноваційна педагогіка; '
+      + 'до складу входять Еколого-біоетичний центр, Ботанічний музей, Зоологічний музей імені '
+      + 'О.П. Крапивного, Сковородинівська біологічна школа, НДЛ моніторингу та охорони довкілля, '
+      + 'НДЛ біотехнології.',
     summaryEn:
-      'Mathematics, computer science, physics and chemistry, educology and innovative pedagogy; the botanical garden is part of the faculty.',
+      'Mathematics, computer science, physics and chemistry, biology, educology and innovative '
+      + 'pedagogy; the faculty also runs the Ecological and Bioethical Centre, the Botanical Museum, '
+      + 'the O. P. Krapyvnyi Zoological Museum, the Skovoroda biology school and two research '
+      + 'laboratories — environmental monitoring and biotechnology.',
     items: [
       {
         name: 'Кафедра фізики і хімії',
@@ -290,7 +296,12 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
           },
         ],
       },
-      { name: 'Кафедра інформатики', nameEn: 'Department of Computer Science' },
+      {
+        name: 'Кафедра інформатики',
+        nameEn: 'Department of Computer Science',
+        // Кафедра веде власний сайт — окрема сторінка тут не потрібна (правка 17.08.2026).
+        external: 'https://kafinfo.org/',
+      },
       {
         name: 'Кафедра освітології та інноваційної педагогіки',
         nameEn: 'Department of Educology and Innovative Pedagogy',
@@ -867,7 +878,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
     name: 'Підпорядковані ректору',
     nameEn: 'Reporting to the Rector',
     items: [
-      { name: 'Служба ректора', nameEn: 'Rector’s Office' },
+      {
+        name: 'Служба ректора',
+        nameEn: 'Rector’s Office',
+        path: '/university/structure/rector-office',
+      },
       { name: 'Відділ кадрів', nameEn: 'Human Resources Department' },
       { name: 'Загальний відділ', nameEn: 'General Department' },
       { name: 'Архів', nameEn: 'Archive' },
@@ -889,7 +904,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         name: 'Підготовче відділення «Відкритий шлях до вищої освіти»',
         nameEn: '«Open Path to Higher Education» preparatory department',
       },
-      { name: 'Відділ охорони праці', nameEn: 'Occupational Safety Department' },
+      {
+        name: 'Відділ охорони праці',
+        nameEn: 'Occupational Safety Department',
+        path: '/university/structure/labour-safety',
+      },
       {
         name: 'Відділ з питань надзвичайних ситуацій, цивільного захисту населення та мобілізації',
         nameEn: 'Department of Emergencies, Civil Protection and Mobilisation',

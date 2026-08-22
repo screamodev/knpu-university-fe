@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavLink } from '~/composables/useNavigation'
+import { ADMISSIONS_LEGACY_URL, LEGACY_SITE_URL } from '~/utils/externalSites'
 
 const { t, localePath, switchLocalePath } = useSafeI18nWithRouter()
 const { isOpen, openIndex, close, toggleAccordion } = useMobileNav()
@@ -123,13 +124,25 @@ function linkKey(link: NavLink): string {
       </li>
     </ul>
     <div class="mt-6 flex flex-col gap-3">
-      <NuxtLink
-        :to="localePath('/admissions/edebo')"
+      <a
+        :href="ADMISSIONS_LEGACY_URL"
+        target="_blank"
+        rel="noopener noreferrer"
         class="block text-center bg-gold text-navy-deep py-3.5 rounded-[10px] font-bold no-underline text-[15px]"
         @click="close"
       >
         {{ t('header.vstup2026') }}
-      </NuxtLink>
+      </a>
+      <!-- Верхня панель із цим посиланням сховна на мобільному, тож дублюємо його тут. -->
+      <a
+        :href="LEGACY_SITE_URL"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block text-center py-3 rounded-[10px] text-[14px] text-white/80 no-underline border border-white/20"
+        @click="close"
+      >
+        {{ t('utility.legacySite') }}
+      </a>
       <div class="flex gap-2">
         <NuxtLink
           :to="switchLocalePath('uk')"

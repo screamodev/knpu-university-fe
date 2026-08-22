@@ -1,0 +1,17 @@
+{
+  "title": "Occupational Safety Department",
+  "sections": [
+    {
+      "html": "<p><strong>Head of the Occupational Safety Department</strong> — Alla Rybakova.</p>"
+    },
+    {
+      "heading": "Contacts",
+      "html": "<p>Address: 29 Alchevskykh Street, Building 1, Occupational Safety Service office, Kharkiv, 61002.</p><p>E-mail: <a href=\"mailto:ribakova.alla@hnpu.edu.ua\">ribakova.alla@hnpu.edu.ua</a></p>"
+    },
+    {
+      "heading": "The department is governed by",
+      "html": "<ul><li>the Regulations on the Occupational Safety Department;</li><li>the Regulations on the Occupational Safety Service of H. S. Skovoroda Kharkiv National Pedagogical University.</li></ul>"
+    }
+  ],
+  "sourceUrls": []
+}

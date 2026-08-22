@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SearchHit } from '~~/server/utils/search/types'
+import { ADMISSIONS_LEGACY_URL } from '~/utils/externalSites'
 
 /**
  * Header search: a preview of the results as the visitor types.
@@ -137,19 +138,34 @@ onUnmounted(() => {
           <span class="text-[11px] uppercase tracking-wider font-semibold text-text-muted">
             {{ t('search.popular') }}
           </span>
-          <NuxtLink
+          <template
             v-for="shortcut in [
-              { to: '/student/schedule', label: t('search.tagSchedule') },
-              { to: '/admissions/rules', label: t('search.tagVstup') },
-              { to: '/education/faculties', label: t('search.tagFaculties') },
+              { to: '/student/schedule', label: t('search.tagSchedule'), external: false },
+              { to: ADMISSIONS_LEGACY_URL, label: t('search.tagVstup'), external: true },
+              { to: '/education/faculties', label: t('search.tagFaculties'), external: false },
             ]"
             :key="shortcut.to"
-            :to="localePath(shortcut.to)"
-            class="text-[13px] text-navy no-underline bg-off-white py-1 px-3 rounded-100 border border-border hover:border-gold hover:text-gold transition-colors"
-            @click="close"
           >
-            {{ shortcut.label }}
-          </NuxtLink>
+            <!-- «Вступ» веде на приймальну комісію старого сайту. -->
+            <a
+              v-if="shortcut.external"
+              :href="shortcut.to"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[13px] text-navy no-underline bg-off-white py-1 px-3 rounded-100 border border-border hover:border-gold hover:text-gold transition-colors"
+              @click="close"
+            >
+              {{ shortcut.label }}
+            </a>
+            <NuxtLink
+              v-else
+              :to="localePath(shortcut.to)"
+              class="text-[13px] text-navy no-underline bg-off-white py-1 px-3 rounded-100 border border-border hover:border-gold hover:text-gold transition-colors"
+              @click="close"
+            >
+              {{ shortcut.label }}
+            </NuxtLink>
+          </template>
         </div>
 
         <p v-else-if="pending && !results" class="px-5 py-6 text-body-sm text-text-muted">

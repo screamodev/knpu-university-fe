@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ADMISSIONS_LEGACY_URL } from '~/utils/externalSites'
+
 const { t, localePath } = useSafeI18nWithRouter()
 
 const heroImages = ['/images/Hero2.JPG', '/images/Hero3.jpg', '/images/Hero4.jpg', '/images/Hero5.JPG']
@@ -111,12 +113,15 @@ onUnmounted(stopRotation)
         {{ t('hero.subtitle') }}
       </p>
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-        <NuxtLink
-          :to="localePath('/admissions/edebo')"
+        <!-- Подача документів іде через приймальну комісію старого сайту. -->
+        <a
+          :href="ADMISSIONS_LEGACY_URL"
+          target="_blank"
+          rel="noopener noreferrer"
           class="py-3 sm:py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 bg-gold text-navy-deep hover:bg-gold-light hover:-translate-y-0.5 hover:shadow-gold-lg text-center"
         >
           {{ t('hero.ctaApply') }}
-        </NuxtLink>
+        </a>
         <NuxtLink
           :to="localePath('/university/history')"
           class="py-3 sm:py-3.5 px-8 rounded-[10px] text-[14.5px] font-semibold no-underline font-geologica transition-all duration-280 border-[1.5px] border-white/35 text-white bg-white/5 backdrop-blur-sm hover:border-white/70 hover:bg-white/10 text-center"

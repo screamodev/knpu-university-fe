@@ -218,6 +218,27 @@ function programmeItems(survey: DirectusMonitoringSurvey): FileLinkItem[] {
       </div>
 
       <SharedSectionPending v-else />
+
+      <!-- Рейтинг НПП веде той самий відділ, але живе окремою сторінкою — вона доволі велика. -->
+      <NuxtLink
+        :to="localePath('/education/staff-rating')"
+        class="mt-14 flex flex-col sm:flex-row sm:items-center gap-4 rounded-16 bg-navy text-white p-8 no-underline hover:bg-navy-deep transition-colors"
+      >
+        <span class="flex-1">
+          <span class="block font-playfair text-xl font-bold">
+            {{ t('education.staffRating.title') }}
+          </span>
+          <span class="block text-body-sm text-white/70 mt-1">
+            {{ t('education.staffRating.subtitle') }}
+          </span>
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-12 bg-gold text-navy font-semibold px-5 py-2.5 shrink-0">
+          {{ t('education.staffRating.ctaButton') }}
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </span>
+      </NuxtLink>
     </div>
   </div>
 </template>

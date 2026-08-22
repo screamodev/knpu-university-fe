@@ -14,7 +14,8 @@
     "cabinet": "Personal account",
     "profile": "Profile",
     "langUk": "UKR",
-    "langEn": "ENG"
+    "langEn": "ENG",
+    "legacySite": "Old website"
   },
   "logo": {
     "abbr": "KhNPU",
@@ -103,6 +104,7 @@
       "creative": "Creative competitions",
       "budget": "State-funded places",
       "exams": "Exam programmes",
+      "winterAdmission": "Winter admission",
       "tuition": "Tuition fees",
       "benefits": "Benefits and social support",
       "veterans": "For veterans",
@@ -1219,6 +1221,14 @@
         }
       }
     },
+    "rectorOffice": {
+      "title": "Rector’s Office",
+      "subtitle": "Organizational, analytical and administrative support for the Rector’s work."
+    },
+    "labourSafety": {
+      "title": "Occupational Safety Department",
+      "subtitle": "Occupational safety at the university: the department’s contacts and governing regulations."
+    },
     "monitoringDepartment": {
       "title": "Department of University Performance Monitoring and Educational Research",
       "subtitle": "Monitoring of the University’s educational environment, research in the field of education and analytics for management decisions."
@@ -2050,7 +2060,8 @@
       "allLevels": "All levels",
       "levelBachelor": "Bachelor",
       "levelMaster": "Master",
-      "levelGraduate": "Graduate"
+      "levelGraduate": "Graduate",
+      "documentsTitle": "Regulations on educational programmes"
     },
     "curriculum": {
       "tag": "Education",
@@ -2386,6 +2397,13 @@
       "schemeAlt": "Chart of the education quality monitoring system of H.S. Skovoroda KhNPU",
       "schemeCaption": "The university’s education quality monitoring system: external and internal monitoring."
     },
+    "staffRating": {
+      "tag": "Education",
+      "title": "Results of the academic staff rating",
+      "subtitle": "Ratings of the university’s teaching staff by academic year — by the overall and by the core normative indicator.",
+      "ctaButton": "Open the ratings",
+      "backLink": "Back to monitoring"
+    },
     "rankings": {
       "tag": "Education",
       "title": "Rankings",
@@ -2397,29 +2415,8 @@
     },
     "practice": {
       "tag": "Education",
-      "title": "Practical training",
-      "subtitle": "Teaching, industrial and research practice for students.",
-      "intro": "Practical training is built into the curriculum: students gain experience in schools, enterprises and research settings.",
-      "typesTitle": "Types of practice",
-      "types": {
-        "t1": {
-          "title": "Teaching practice",
-          "duration": "4–8 weeks",
-          "description": "Supervised teaching practice in schools or preschools according to your programme and year."
-        },
-        "t2": {
-          "title": "Industrial practice",
-          "duration": "2–4 weeks",
-          "description": "Placement in partner organisations to apply professional skills in a workplace context."
-        },
-        "t3": {
-          "title": "Research practice",
-          "duration": "2–6 weeks",
-          "description": "Research-oriented practice: data collection, lab or project work with faculty supervision."
-        }
-      },
-      "partnersTitle": "Partner companies and institutions",
-      "partnersIntro": "We cooperate with schools, kindergartens, research centres and enterprises for placement of students."
+      "title": "Office of Practical Training",
+      "subtitle": "Organization, planning and monitoring of students’ practical training."
     },
     "distance": {
       "tag": "Education",
@@ -2639,7 +2636,8 @@
       "bachelorTitle": "Elective courses, bachelor’s level",
       "masterTitle": "Elective courses, master’s level",
       "phdTitle": "Elective courses, PhD level",
-      "listTitle": "List of elective courses and syllabi",
+      "listTitle": "List of elective courses",
+      "syllabiTitle": "Syllabi",
       "scheduleTitle": "Class schedule",
       "surveyTitle": "Online survey on elective courses",
       "backLink": "Back to «For students»"
@@ -3310,7 +3308,7 @@
   "resources": {
     "quality": {
       "title": "Quality of education",
-      "sub": "Quality assurance centre"
+      "sub": "Educational Quality Assurance Centre"
     },
     "vstup": {
       "title": "Admissions",
@@ -3318,7 +3316,7 @@
     },
     "abroad": {
       "title": "For Abroad Enrollees",
-      "sub": "Coming soon"
+      "sub": "Admission of international students"
     },
     "languageExam": {
       "title": "State language proficiency exam",
@@ -3365,7 +3363,8 @@
     "copyright": "© 2026 H. S. Skovoroda Kharkiv National Pedagogical University. All rights reserved.",
     "privacy": "Privacy policy",
     "sitemap": "Sitemap",
-    "accessibility": "Accessibility"
+    "accessibility": "Accessibility",
+    "legacySite": "Old university website"
   },
   "student": {
     "schedule": {
@@ -3541,38 +3540,12 @@
       "contactLocation": "Location"
     },
     "sports": {
-      "tag": "For students",
-      "title": "Sports",
-      "subtitle": "Sports sections, training schedule and achievements.",
-      "intro": "Students can join football, basketball, swimming, athletics, volleyball and martial-arts sections led by qualified coaches.",
-      "sectionsTitle": "Sections",
-      "sections": {
-        "football": {
-          "name": "Football",
-          "schedule": "Mon, Wed, Fri 5:00 PM"
-        },
-        "basketball": {
-          "name": "Basketball",
-          "schedule": "Tue, Thu 6:00 PM"
-        },
-        "swimming": {
-          "name": "Swimming",
-          "schedule": "Mon–Fri 7:00 AM"
-        },
-        "athletics": {
-          "name": "Athletics",
-          "schedule": "Tue, Fri 5:30 PM"
-        },
-        "volleyball": {
-          "name": "Volleyball",
-          "schedule": "Wed, Sun 4:00 PM"
-        },
-        "martial": {
-          "name": "Martial arts",
-          "schedule": "Mon, Wed, Fri 6:30 PM"
-        }
-      },
-      "achievementsTitle": "Achievements"
+      "tag": "Student life",
+      "title": "Sports sections and student organisations",
+      "subtitle": "The sports club, university teams, sections and student associations.",
+      "organisationsTitle": "Student organisations",
+      "documentsTitle": "Sports club documents",
+      "valeologyClub": "Student research valeology club"
     },
     "arts": {
       "tag": "For students",

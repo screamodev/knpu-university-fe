@@ -2,6 +2,7 @@
 import { readItems } from '@directus/sdk'
 import type { Query } from '@directus/sdk'
 import type { DirectusEvent, DirectusSchema } from '~/types/directus'
+import { ADMISSIONS_LEGACY_URL } from '~/utils/externalSites'
 
 const { t, localePath, locale } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
@@ -37,6 +38,8 @@ interface ResourceCard {
   icon: string
   gold: boolean
   path?: string
+  /** Адреса вже з префіксом локалі — сторінка існує лише однією мовою. */
+  rawPath?: string
   url?: string
   disabled?: boolean
 }
@@ -54,18 +57,20 @@ const resourceList = computed<ResourceCard[]>(() => [
     gold: false,
   },
   {
-    path: '/admissions/committee',
+    // Вступ веде приймальна комісія на старому сайті.
+    url: ADMISSIONS_LEGACY_URL,
     titleKey: 'resources.vstup.title',
     subKey: 'resources.vstup.sub',
     icon: '🎓',
     gold: true,
   },
   {
+    // Сторінка для іноземних вступників написана англійською й живе тільки в /en.
+    rawPath: '/en/admissions/foreign',
     titleKey: 'resources.abroad.title',
     subKey: 'resources.abroad.sub',
     icon: '🌍',
     gold: false,
-    disabled: true,
   },
   {
     path: '/university/language-exam',
@@ -183,7 +188,7 @@ const resourceList = computed<ResourceCard[]>(() => [
                   ? {}
                   : res.url
                     ? { href: res.url, target: '_blank', rel: 'noopener noreferrer' }
-                    : { to: localePath(res.path ?? '/') }
+                    : { to: res.rawPath ?? localePath(res.path ?? '/') }
               "
               class="flex flex-col gap-3 p-6 rounded-14 no-underline transition-transform duration-200"
               :class="[

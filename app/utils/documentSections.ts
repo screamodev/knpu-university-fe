@@ -18,6 +18,7 @@ export const DOCUMENT_SECTIONS = [
   'financial-activity',
   'inclusive-support',
   'student-council',
+  'sports-club',
   'postgraduate-regulations',
   'licenses',
   'awards',
@@ -27,6 +28,12 @@ export const DOCUMENT_SECTIONS = [
   'specialized-councils',
   'quality-centre',
   'quality-centre-programmes',
+  // Дисципліни вільного вибору: силабуси й розклад центр публікує сам, зі старого сайту тут
+  // переносити нема чого.
+  'free-choice-bachelor-syllabi',
+  'free-choice-bachelor-schedule',
+  'free-choice-master-syllabi',
+  'free-choice-master-schedule',
   'digital-center',
   'admissions-committee',
   // Вступна кампанія: the lists the admissions office has to publish each year.
@@ -36,6 +43,7 @@ export const DOCUMENT_SECTIONS = [
   'admissions-recommendations',
   'admissions-enrolment-orders',
   'monitoring',
+  'staff-rating',
   'science-schools',
   'contacts',
   'academic-council-decisions',

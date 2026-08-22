@@ -1,4 +1,10 @@
-import { ACADEMIC_MOBILITY_EXTERNAL_URL, JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
+import {
+  ACADEMIC_MOBILITY_EXTERNAL_URL,
+  ADMISSION_RULES_2026_URL,
+  ADMISSIONS_LEGACY_URL,
+  JOURNALS_EXTERNAL_URL,
+  WINTER_ADMISSIONS_LEGACY_URL,
+} from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 export interface NavLink {
@@ -90,49 +96,35 @@ export function useNavigation(): { items: NavItem[] } {
       ],
     },
     {
+      // Приймальна комісія веде вступ на старому сайті й попросила лишити всю інформацію там,
+      // тож розділ «Вступ» тут — це набір посилань на hnpu.edu.ua. Місцеві сторінки
+      // (/admissions/*) нікуди не зникли, просто на них більше не веде меню: клієнт просив
+      // саме приховати пункти «Освітні рівні», «Підготовка», пільги й стипендії та плашку
+      // «Прийом 2026», а не видаляти сторінки.
       labelKey: 'nav.labels.admissions',
-      path: '/admissions',
+      path: ADMISSIONS_LEGACY_URL,
+      external: true,
       minWidth: '860px',
       columns: [
         {
-          titleKey: 'nav.admissions.levels',
-          links: [
-            { path: '/admissions/bachelor', key: 'nav.links.bachelor' },
-            { path: '/admissions/master', key: 'nav.links.master' },
-            { path: '/admissions/graduate', key: 'nav.links.graduate' },
-            { path: '/admissions/second-degree', key: 'nav.links.secondDegree' },
-          ],
-        },
-        {
           titleKey: 'nav.admissions.howTo',
           links: [
-            { path: '/admissions/committee', key: 'nav.links.admissionCommittee' },
-            { path: '/admissions/rules', key: 'nav.links.rules' },
-            { path: '/admissions/results', key: 'nav.links.admissionResults' },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.admissionCommittee', external: true },
+            { path: ADMISSION_RULES_2026_URL, key: 'nav.links.rules', external: true },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.admissionResults', external: true },
             { path: '/admissions/archive/2025', key: 'nav.links.admissionArchive' },
-            { path: '/admissions/specialties', key: 'nav.links.specialties' },
-            { path: '/admissions/creative', key: 'nav.links.creative' },
-            { path: '/admissions/budget', key: 'nav.links.budget' },
-            { path: '/admissions/exams', key: 'nav.links.exams' },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.specialties', external: true },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.creative', external: true },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.budget', external: true },
+            { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.exams', external: true },
+            { path: WINTER_ADMISSIONS_LEGACY_URL, key: 'nav.links.winterAdmission', external: true },
           ],
         },
         {
           titleKey: 'nav.admissions.support',
           links: [
             { path: '/admissions/tuition', key: 'nav.links.tuition' },
-            { path: '/admissions/benefits', key: 'nav.links.benefits' },
-            { path: '/admissions/veterans', key: 'nav.links.veterans' },
-            { path: '/admissions/inclusive-edu', key: 'nav.links.inclusiveEdu' },
             { path: '/admissions/dormitories', key: 'nav.links.dormitories' },
-            { path: '/admissions/scholarships', key: 'nav.links.scholarships' },
-          ],
-        },
-        {
-          titleKey: 'nav.admissions.prep',
-          links: [
-            { path: '/admissions/prep-courses', key: 'nav.links.prepCourses' },
-            { path: '/admissions/open-days', key: 'nav.links.openDays' },
-            { path: '/admissions/3d-tour', key: 'nav.links.3dTour' },
           ],
         },
       ],
@@ -141,11 +133,6 @@ export function useNavigation(): { items: NavItem[] } {
         primaryPath: '/admissions/edebo',
         secondaryKey: 'nav.admissions.ask',
         secondaryPath: '/admissions/ask',
-      },
-      admissionBlock: {
-        tagKey: 'nav.admissions.reception2026',
-        dateKey: 'nav.admissions.march1',
-        descKey: 'nav.admissions.receptionStart',
       },
     },
     {

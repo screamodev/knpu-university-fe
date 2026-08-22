@@ -9,6 +9,17 @@ const props = defineProps<{
 }>()
 
 const colCount = computed(() => props.item.columns?.length ?? 0)
+
+/**
+ * «Вступ» shows its columns in two stacks next to the quick-actions rail. The split is computed
+ * rather than fixed at 2 + 2: after the admissions committee moved back to the old site the menu
+ * is down to two columns, and a hard-coded slice left the second stack empty.
+ */
+const admissionsStacks = computed(() => {
+  const columns = props.item.columns ?? []
+  const half = Math.ceil(columns.length / 2)
+  return [columns.slice(0, half), columns.slice(half)]
+})
 </script>
 
 <template>
@@ -32,12 +43,12 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
     >
       <template v-if="item.labelKey === 'nav.labels.admissions' && item.cta">
         <div class="pr-6 border-r border-white/8 space-y-5 min-w-0">
-          <div v-for="(col, i) in item.columns!.slice(0, 2)" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
+          <div v-for="(col, i) in admissionsStacks[0]" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25 flex items-center gap-1.5">
               {{ t(col.titleKey) }}
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
-              <li v-for="link in col.links" :key="link.path" class="min-w-0">
+              <li v-for="link in col.links" :key="link.key" class="min-w-0">
                 <a
                   v-if="link.external"
                   :href="link.path"
@@ -59,12 +70,12 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
           </div>
         </div>
         <div class="px-6 border-r border-white/8 space-y-5 min-w-0">
-          <div v-for="(col, i) in item.columns!.slice(2, 4)" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
+          <div v-for="(col, i) in admissionsStacks[1]" :key="i" class="min-w-0" :class="{ 'mt-5': i === 1 }">
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25">
               {{ t(col.titleKey) }}
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
-              <li v-for="link in col.links" :key="link.path" class="min-w-0">
+              <li v-for="link in col.links" :key="link.key" class="min-w-0">
                 <a
                   v-if="link.external"
                   :href="link.path"
@@ -128,7 +139,7 @@ const colCount = computed(() => props.item.columns?.length ?? 0)
             {{ t(col.titleKey) }}
           </div>
           <ul class="list-none flex flex-col gap-0.5 min-w-0">
-            <li v-for="link in col.links" :key="link.path" class="min-w-0">
+            <li v-for="link in col.links" :key="link.key" class="min-w-0">
               <a
                 v-if="link.external"
                 :href="link.path"

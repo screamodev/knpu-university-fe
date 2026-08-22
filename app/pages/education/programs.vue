@@ -78,6 +78,18 @@ function levelLabelKey(level: string): string {
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!--
+        Нормативна база освітніх програм. Та сама добірка, що й у центрі забезпечення якості
+        освіти: клієнт просив, щоб вона відкривалася й тут, на початку сторінки, а не лише на
+        вкладці центру.
+      -->
+      <section class="mb-14">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+          {{ t('education.programs.documentsTitle') }}
+        </h2>
+        <SharedDocumentList section="quality-centre-programmes" />
+      </section>
+
       <!-- Level filter: pointless while the collection is empty. -->
       <div v-if="programmes.length" class="flex flex-wrap gap-2 mb-10">
         <button

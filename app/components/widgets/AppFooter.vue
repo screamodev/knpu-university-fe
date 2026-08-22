@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
+import { JOURNALS_EXTERNAL_URL, LEGACY_SITE_URL } from '~/utils/externalSites'
 
 const { t, localePath } = useSafeI18nWithRouter()
 const logoUrl = '/main_logo.png'
@@ -118,7 +118,20 @@ const socialLinks = [
     <div class="border-t border-white/8 py-5">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-white/40">
         <span>{{ t('footer.copyright') }}</span>
-        <div class="flex gap-4">
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a
+            :href="LEGACY_SITE_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-100 border border-white/20 text-white/70 no-underline hover:border-gold hover:text-gold transition-all duration-280"
+          >
+            {{ t('footer.legacySite') }}
+            <svg class="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M14 4h6v6" />
+              <path d="M20 4 11 13" />
+              <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+            </svg>
+          </a>
           <NuxtLink :to="localePath('/privacy')" class="text-white/40 no-underline">{{ t('footer.privacy') }}</NuxtLink>
           <NuxtLink :to="localePath('/sitemap')" class="text-white/40 no-underline">{{ t('footer.sitemap') }}</NuxtLink>
           <NuxtLink :to="localePath('/accessibility')" class="text-white/40 no-underline">{{ t('footer.accessibility') }}</NuxtLink>

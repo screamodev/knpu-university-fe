@@ -35,6 +35,10 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'uk',
     strategy: 'prefix_except_default',
+    // The university site is Ukrainian first: a visitor whose browser asks for English still
+    // lands on the Ukrainian home page. Without this the module's default redirect sent every
+    // such visitor to /en and stored an `i18n_redirected=en` cookie for a year.
+    detectBrowserLanguage: false,
     // Load from app/locales. With restructureDir: false, langDir is relative to project root
     // (v10 default would resolve to i18n/locales/ which we do not use).
     langDir: 'app/locales',

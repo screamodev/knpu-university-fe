@@ -1,14 +1,29 @@
 <script setup lang="ts">
+/**
+ * Спортивні секції та студентські організації.
+ *
+ * Сторінка була шаблонною — шість вигаданих секцій із розкладом тренувань. Клієнт попросив
+ * перенести сюди зміст сторінки старого сайту «Секції та студентські організації»: опис
+ * спортивного клубу, види спорту й секції, документи клубу та переходи до студентських
+ * організацій університету.
+ */
 definePageMeta({ layout: 'default' })
 
-const { t } = useSafeI18nWithRouter()
+const { t, localePath } = useSafeI18nWithRouter()
 
 useHead({
-  title: () => t('nav.links.sports'),
+  title: () => t('student.sports.title'),
   meta: [{ name: 'description', content: () => t('student.sports.subtitle') }],
 })
 
-const sectionKeys = ['football', 'basketball', 'swimming', 'athletics', 'volleyball', 'martial'] as const
+/** Валеологічний клуб живе тільки на старому сайті — власної сторінки тут у нього немає. */
+const VALEOLOGY_CLUB_URL = 'https://hnpu.edu.ua/uk/studentskyy-naukovyy-valeologichnyy-klub'
+
+const organisations = [
+  { path: '/student/council', labelKey: 'nav.links.studentCouncil' },
+  { path: '/student/arts', labelKey: 'nav.links.arts' },
+  { path: '/student/union', labelKey: 'nav.links.union' },
+] as const
 </script>
 
 <template>
@@ -28,52 +43,39 @@ const sectionKeys = ['football', 'basketball', 'swimming', 'athletics', 'volleyb
       </div>
     </div>
 
-    <!-- Intro -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl">
-        {{ t('student.sports.intro') }}
-      </p>
-    </div>
+      <SharedStaticPageBody slug="student-sports" />
 
-    <!-- Sports sections: 3-column grid of cards -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-        {{ t('student.sports.sectionsTitle') }}
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('student.sports.documentsTitle') }}
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article
-          v-for="key in sectionKeys"
-          :key="key"
-          class="bg-white border border-border rounded-16 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold/40"
-        >
-          <div
-            class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
-            aria-hidden
-          >
-            <svg class="w-14 h-14 text-gold/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" stroke-linecap="round" />
-              <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="p-6 flex flex-col flex-1">
-            <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`student.sports.sections.${key}.name`) }}
-            </h3>
-            <p class="text-body-sm text-text-muted mb-1">
-              {{ t(`student.sports.sections.${key}.schedule`) }}
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
+      <SharedDocumentList section="sports-club" />
 
-    <!-- Competition results removed: the four listed medals were invented. -->
-    <div class="bg-off-white py-12 lg:py-16">
-      <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
-          {{ t('student.sports.achievementsTitle') }}
-        </h2>
-        <SharedSectionPending />
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('student.sports.organisationsTitle') }}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <NuxtLink
+          v-for="organisation in organisations"
+          :key="organisation.path"
+          :to="localePath(organisation.path)"
+          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+        >
+          <span class="block font-playfair text-lg font-semibold text-navy">
+            {{ t(organisation.labelKey) }}
+          </span>
+        </NuxtLink>
+        <a
+          :href="VALEOLOGY_CLUB_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+        >
+          <span class="block font-playfair text-lg font-semibold text-navy">
+            {{ t('student.sports.valeologyClub') }}
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </span>
+        </a>
       </div>
     </div>
   </div>

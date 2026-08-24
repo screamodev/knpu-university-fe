@@ -104,13 +104,8 @@ function rememberFileMiss(path: string): void {
   fileMisses.set(path, Date.now())
 }
 
-async function fileIdFor(path: string): Promise<string | null> {
-  const cached = fileHits.get(path)
-  if (cached) return cached
-
-  const missedAt = fileMisses.get(path)
-  if (missedAt && Date.now() - missedAt < FILE_MISS_TTL_MS) return null
-
+/** The migration's snapshot of old file URLs. */
+async function redirectRowFileId(path: string): Promise<string | null> {
   const { lookupBase } = directusBases()
   const response = await $fetch<{ data: LegacyRedirectRow[] }>(`${lookupBase}/items/legacy_redirects`, {
     query: {
@@ -119,8 +114,40 @@ async function fileIdFor(path: string): Promise<string | null> {
       'limit': 1,
     },
   })
+  return response.data?.[0]?.file ?? null
+}
 
-  const fileId = response.data?.[0]?.file
+/**
+ * The `Legacy Path` field editors fill in on a council document.
+ *
+ * `legacy_redirects` was built once, by the migration, from the data as it stood then. A defense
+ * added afterwards is registered with НАЗЯВО under its old-site URL, and the editor records that
+ * URL on the document — so that field has to resolve too, without anyone remembering to mirror
+ * the row into a second collection.
+ */
+async function councilFileId(path: string): Promise<string | null> {
+  const { lookupBase } = directusBases()
+  const response = await $fetch<{ data: { file?: string | null }[] }>(
+    `${lookupBase}/items/dissertation_council_files`,
+    {
+      query: {
+        'filter[legacyPath][_eq]': path,
+        'fields': 'file',
+        'limit': 1,
+      },
+    },
+  )
+  return response.data?.[0]?.file ?? null
+}
+
+async function fileIdFor(path: string): Promise<string | null> {
+  const cached = fileHits.get(path)
+  if (cached) return cached
+
+  const missedAt = fileMisses.get(path)
+  if (missedAt && Date.now() - missedAt < FILE_MISS_TTL_MS) return null
+
+  const fileId = await redirectRowFileId(path) ?? await councilFileId(path)
   if (!fileId) {
     rememberFileMiss(path)
     return null

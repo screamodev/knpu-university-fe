@@ -26,7 +26,7 @@ const safetyLinks: readonly SafetyEntry[] = [
   },
   {
     kind: 'external',
-    href: 'https://hnpu.edu.ua/uk/viyna-ochyma-studentiv-vypusknykiv-vykladachiv-ta-spivrobitnykiv-hnpu-imeni-g-s-skovorody',
+    href: 'https://old.hnpu.edu.ua/uk/viyna-ochyma-studentiv-vypusknykiv-vykladachiv-ta-spivrobitnykiv-hnpu-imeni-g-s-skovorody',
     labelKey: 'university.wartime.safetyLinkLetters',
   },
   {
@@ -42,12 +42,12 @@ const orders: ReadonlyArray<{
   textKey: string
 }> = [
   {
-    href: 'https://hnpu.edu.ua/sites/default/files/files/Normat_dokum/nakazy/2022/76_28_06_22.pdf',
+    href: 'https://old.hnpu.edu.ua/sites/default/files/files/Normat_dokum/nakazy/2022/76_28_06_22.pdf',
     titleKey: 'university.wartime.order1Title',
     textKey: 'university.wartime.order1Text',
   },
   {
-    href: 'https://hnpu.edu.ua/sites/default/files/files/Normat_dokum/nakazy/2022/photo1645795654.jpeg',
+    href: 'https://old.hnpu.edu.ua/sites/default/files/files/Normat_dokum/nakazy/2022/photo1645795654.jpeg',
     titleKey: 'university.wartime.order2Title',
     textKey: 'university.wartime.order2Text',
   },
@@ -56,30 +56,30 @@ const orders: ReadonlyArray<{
 const addressItems: ReadonlyArray<{ textKey: string; href: string }> = [
   {
     textKey: 'university.wartime.addr1',
-    href: 'https://hnpu.edu.ua/uk/news/oficiyna-zayava-rektora-hnpu-imeni-gs-skovorody-prof-yuriya-boychuka',
+    href: 'https://old.hnpu.edu.ua/uk/news/oficiyna-zayava-rektora-hnpu-imeni-gs-skovorody-prof-yuriya-boychuka',
   },
   {
     textKey: 'university.wartime.addr2',
-    href: 'https://hnpu.edu.ua/uk/news/informaciyne-povidomlennya-vid-rektora-yuriya-boychuka',
+    href: 'https://old.hnpu.edu.ua/uk/news/informaciyne-povidomlennya-vid-rektora-yuriya-boychuka',
   },
   {
     textKey: 'university.wartime.addr3',
-    href: 'https://hnpu.edu.ua/uk/news/zvernennya-yuriya-boychuka-rektora-hnpu-imeni-gs-skovorody',
+    href: 'https://old.hnpu.edu.ua/uk/news/zvernennya-yuriya-boychuka-rektora-hnpu-imeni-gs-skovorody',
   },
   {
     textKey: 'university.wartime.addr4',
-    href: 'https://hnpu.edu.ua/uk/news/zvernennya-yuriya-boychukarektora-hnpu-imeni-gs-skovorody',
+    href: 'https://old.hnpu.edu.ua/uk/news/zvernennya-yuriya-boychukarektora-hnpu-imeni-gs-skovorody',
   },
   {
     textKey: 'university.wartime.addr5',
-    href: 'https://hnpu.edu.ua/uk/news/informaciyno-rozyasnyuvalne-zanyatya-z-pytan-zahodiv-bezpeky',
+    href: 'https://old.hnpu.edu.ua/uk/news/informaciyno-rozyasnyuvalne-zanyatya-z-pytan-zahodiv-bezpeky',
   },
 ]
 
 const mobilityUrl =
-  'https://hnpu.edu.ua/uk/news/ternopilskyy-nacionalnyy-pedagogichnyy-universytet-imeni-volodymyra-gnatyuka-zaproshuye'
+  'https://old.hnpu.edu.ua/uk/news/ternopilskyy-nacionalnyy-pedagogichnyy-universytet-imeni-volodymyra-gnatyuka-zaproshuye'
 
-const recruitingUrl = 'https://hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchodo-viyskovogo-rekrutyngu'
+const recruitingUrl = 'https://old.hnpu.edu.ua/uk/news/informaciyna-kampaniya-shchodo-viyskovogo-rekrutyngu'
 </script>
 
 <template>

@@ -8,14 +8,14 @@
           "position": "декана факультету",
           "name": "Микитюк Сергій Олександрович",
           "degree": "доктор педагогічних наук, професор",
-          "profileUrl": "https://hnpu.edu.ua/uk/mykytyuk-sergiy-oleksandrovych"
+          "profileUrl": "https://old.hnpu.edu.ua/uk/mykytyuk-sergiy-oleksandrovych"
         },
         {
           "photo": "/assets/c5a2eb42-b217-4eb7-b0a5-8000d18bec76",
           "position": "заступник декана з навчальної роботи",
           "name": "Ликова Ірина Олександрівна",
           "degree": "канд. біологічних наук, доцент кафедри зоології",
-          "profileUrl": "https://hnpu.edu.ua/uk/lykova-iryna-oleksandrivna"
+          "profileUrl": "https://old.hnpu.edu.ua/uk/lykova-iryna-oleksandrivna"
         },
         {
           "photo": "/assets/78124a6d-2c1e-48f2-b4d7-416296a5735e",
@@ -29,14 +29,14 @@
           "position": "координатор з наукової роботи",
           "name": "Комісова Тетяна Євгенівна",
           "degree": "канд. біологічних наук, професор, професор кафедри анатомії і фізіології людини",
-          "profileUrl": "https://hnpu.edu.ua/uk/komisova-tetyana-yevgenivna-0"
+          "profileUrl": "https://old.hnpu.edu.ua/uk/komisova-tetyana-yevgenivna-0"
         }
       ],
       "peopleHeading": "Деканат"
     }
   ],
   "sourceUrls": [
-    "https://hnpu.edu.ua/uk/fac-prirodn"
+    "https://old.hnpu.edu.ua/uk/fac-prirodn"
   ],
   "capturedAt": "2026-08-08"
 }

@@ -47,7 +47,7 @@
     {
       "heading": "Running events",
       "collapsible": true,
-      "html": "<ul>\n\t<li><a href=\"https://forms.gle/NhDoBYKC2w8vkvqZ9\">Замовлення технічного супроводу</a></li>\n\t<li><a href=\"https://hnpu.edu.ua/uk/division/na-dopomogu-zdobuvachevi-naukovogo-stupenya\">На допомогу здобувачеві наукового ступеню</a></li>\n\t<li><a href=\"https://drive.google.com/file/d/1lIzOQ3c6GRoZJTCLVmgCzUKKGeG4X95m/view?usp=sharing\">Проведення голосування за допомогою Гугл-форм</a></li>\n</ul>\n\n<p>За потреби технічного супроводу заходу, необхідно заповнити <a href=\"https://forms.gle/NhDoBYKC2w8vkvqZ9\">форму-замовлення</a>, у яку подати повну інформацію про подію (дата, час, повна назва, чи потрібне створення покликання на зустріч, чи потрібен запис. </p>\n\n<p>Файли презентації або відеоматеріалів необхідно надіслати не пізніше ніж <strong>за 3 доби</strong> на e-mail: <a href=\"mailto:cdo@hnpu.edu.ua\">cdo@hnpu.edu.ua</a></p>"
+      "html": "<ul>\n\t<li><a href=\"https://forms.gle/NhDoBYKC2w8vkvqZ9\">Замовлення технічного супроводу</a></li>\n\t<li><a href=\"https://old.hnpu.edu.ua/uk/division/na-dopomogu-zdobuvachevi-naukovogo-stupenya\">На допомогу здобувачеві наукового ступеню</a></li>\n\t<li><a href=\"https://drive.google.com/file/d/1lIzOQ3c6GRoZJTCLVmgCzUKKGeG4X95m/view?usp=sharing\">Проведення голосування за допомогою Гугл-форм</a></li>\n</ul>\n\n<p>За потреби технічного супроводу заходу, необхідно заповнити <a href=\"https://forms.gle/NhDoBYKC2w8vkvqZ9\">форму-замовлення</a>, у яку подати повну інформацію про подію (дата, час, повна назва, чи потрібне створення покликання на зустріч, чи потрібен запис. </p>\n\n<p>Файли презентації або відеоматеріалів необхідно надіслати не пізніше ніж <strong>за 3 доби</strong> на e-mail: <a href=\"mailto:cdo@hnpu.edu.ua\">cdo@hnpu.edu.ua</a></p>"
     },
     {
       "heading": "Corporate email",
@@ -61,8 +61,8 @@
     }
   ],
   "sourceUrls": [
-    "https://hnpu.edu.ua/en/division/education-digitalisation-center",
-    "https://hnpu.edu.ua/uk/division/centr-cyfrovizaciyi-osvity"
+    "https://old.hnpu.edu.ua/en/division/education-digitalisation-center",
+    "https://old.hnpu.edu.ua/uk/division/centr-cyfrovizaciyi-osvity"
   ],
   "capturedAt": "2026-08-12"
 }

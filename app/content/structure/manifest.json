@@ -1,6 +1,6 @@
 {
   "arts": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-mystectv",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-mystectv",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -21,7 +21,7 @@
     }
   },
   "foreign-philology": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/fac-inoz-fil",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/fac-inoz-fil",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -42,7 +42,7 @@
     }
   },
   "history-law": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-istoriyi-i-prava",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-istoriyi-i-prava",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -64,7 +64,7 @@
     }
   },
   "kafedra-anatomiyi-i-fiziologiyi-lyudyny": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-anatomiyi-i-fiziologiyi-lyudyny-imeni-profesora-yar-synelnykova",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-anatomiyi-i-fiziologiyi-lyudyny-imeni-profesora-yar-synelnykova",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -94,7 +94,7 @@
     }
   },
   "kafedra-angliyskoyi-filologiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-angliyskoyi-filologiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-angliyskoyi-filologiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -125,7 +125,7 @@
     }
   },
   "kafedra-biologiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-zoologiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-zoologiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -158,7 +158,7 @@
     }
   },
   "kafedra-dyzaynu-i-tehnologiy": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-dizaynu",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-dizaynu",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -187,7 +187,7 @@
     }
   },
   "kafedra-filosofiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-filosofiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-filosofiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -219,7 +219,7 @@
     }
   },
   "kafedra-horeografiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-horeografiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-horeografiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -248,7 +248,7 @@
     }
   },
   "kafedra-informatyky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-informatyky",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-informatyky",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -275,7 +275,7 @@
     }
   },
   "kafedra-istoriyi-ukrayiny": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-istoriyi-ukrayini",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-istoriyi-ukrayini",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -305,7 +305,7 @@
     }
   },
   "kafedra-korekciynoyi-psyhopedagogiky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-zdorovya-lyudini-ta-korekciynoyi-osviti",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-zdorovya-lyudini-ta-korekciynoyi-osviti",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -338,7 +338,7 @@
     }
   },
   "kafedra-menedzhmentu-ta-ekonomiky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-menedzhmentu-ta-ekonomiky",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-menedzhmentu-ta-ekonomiky",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -363,7 +363,7 @@
     }
   },
   "kafedra-muzychnogo-mystectva": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-muzychnogo-mystectva",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-muzychnogo-mystectva",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -395,7 +395,7 @@
     }
   },
   "kafedra-obrazotvorchogo-mystectva": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-obrazotvorchogo-mistectva",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-obrazotvorchogo-mistectva",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -430,7 +430,7 @@
     }
   },
   "kafedra-olimpiyskogo-i-profesiynogo-sportu": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-olimpiyskogo-i-profesiynogo-sportu-sportyvnyh-igor-ta-turyzmu",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-olimpiyskogo-i-profesiynogo-sportu-sportyvnyh-igor-ta-turyzmu",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -463,7 +463,7 @@
     }
   },
   "kafedra-politologiyi-sociologiyi-i-kulturologiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-politologiyi-sociologiyi-i-kulturologiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-politologiyi-sociologiyi-i-kulturologiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -494,7 +494,7 @@
     }
   },
   "kafedra-praktyky-angliyskogo-movlennya": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-praktyky-angliyskogo-usnogo-i-pysemnogo-movlennya",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-praktyky-angliyskogo-usnogo-i-pysemnogo-movlennya",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -520,7 +520,7 @@
     }
   },
   "kafedra-psyhologichnoyi-i-pedagogichnoyi-antropologiyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-psihologiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-psihologiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -552,7 +552,7 @@
     }
   },
   "kafedra-psyhologiyi-rozvytku": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-psyhologiyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-psyhologiyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -586,7 +586,7 @@
     }
   },
   "kafedra-shidnyh-mov": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-shidnih-mov",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-shidnih-mov",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -619,7 +619,7 @@
     }
   },
   "kafedra-socialnoyi-roboty": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-socialnoyi-pedagogiki",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-socialnoyi-pedagogiki",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -648,7 +648,7 @@
     }
   },
   "kafedra-specialnoyi-pedagogiky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-specialnoyi-pedagogiky",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-specialnoyi-pedagogiky",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -681,7 +681,7 @@
     }
   },
   "kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-teoriyi-i-metodyky-vykladannya-suspilno-pravovyh-dyscyplin",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -711,7 +711,7 @@
     }
   },
   "kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -744,7 +744,7 @@
     }
   },
   "kafedra-ukrayinoznavstva-i-lingvodydaktyky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinoznavstva-i-lingvodydaktyky-imeni-profesora-og-muromcevoyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-ukrayinoznavstva-i-lingvodydaktyky-imeni-profesora-og-muromcevoyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -776,7 +776,7 @@
     }
   },
   "kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky-imeni-profesora-leonida-ushkalova",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-literatury-ta-zhurnalistyky-imeni-profesora-leonida-ushkalova",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -807,7 +807,7 @@
     }
   },
   "kafedra-ukrayinskoyi-movy": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-movy-imeni-profesora-lidiyi-andriyivny-lysychenko",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-ukrayinskoyi-movy-imeni-profesora-lidiyi-andriyivny-lysychenko",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -838,7 +838,7 @@
     }
   },
   "kafedra-vsesvitnoyi-istoriyi": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-vsesvitnoyi-istoriyi",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-vsesvitnoyi-istoriyi",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -868,7 +868,7 @@
     }
   },
   "kafedra-zagalnogo-movoznavstva": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/kafedra-angliyskoy-fonetiki-i-grammatiki",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-angliyskoy-fonetiki-i-grammatiki",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -898,7 +898,7 @@
     }
   },
   "mathematics-informatics": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fizyko-matematychnyy-fakultet",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fizyko-matematychnyy-fakultet",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -921,7 +921,7 @@
     }
   },
   "physical-education": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/fac-fizvosp",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/fac-fizvosp",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -941,7 +941,7 @@
     }
   },
   "postgraduate": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/viddil-aspirantury-i-doktorantury",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/viddil-aspirantury-i-doktorantury",
     "capturedAt": "2026-08-02",
     "tabs": [
       "home",
@@ -986,7 +986,7 @@
     }
   },
   "preschool": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -1008,7 +1008,7 @@
     }
   },
   "social-humanities": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/fakultet-socialnyh-i-povedinkovyh-nauk",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-socialnyh-i-povedinkovyh-nauk",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -1030,7 +1030,7 @@
     }
   },
   "special-education": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/fac-prirodn",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/fac-prirodn",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
@@ -1050,7 +1050,7 @@
     }
   },
   "ukrainian-philology": {
-    "legacyUrl": "https://hnpu.edu.ua/uk/division/ukrayinskyy-movno-literaturnyy-fakultet-imeni-gf-kvitky-osnovyanenka",
+    "legacyUrl": "https://old.hnpu.edu.ua/uk/division/ukrayinskyy-movno-literaturnyy-fakultet-imeni-gf-kvitky-osnovyanenka",
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",

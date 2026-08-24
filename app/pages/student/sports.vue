@@ -17,7 +17,7 @@ useHead({
 })
 
 /** Валеологічний клуб живе тільки на старому сайті — власної сторінки тут у нього немає. */
-const VALEOLOGY_CLUB_URL = 'https://hnpu.edu.ua/uk/studentskyy-naukovyy-valeologichnyy-klub'
+const VALEOLOGY_CLUB_URL = 'https://old.hnpu.edu.ua/uk/studentskyy-naukovyy-valeologichnyy-klub'
 
 const organisations = [
   { path: '/student/council', labelKey: 'nav.links.studentCouncil' },

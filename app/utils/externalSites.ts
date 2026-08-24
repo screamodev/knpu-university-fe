@@ -15,6 +15,14 @@ export const ACADEMIC_MOBILITY_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu
 export const EDUHUB_EXTERNAL_URL
   = 'https://sites.google.com/hnpu.edu.ua/khnpu-eduhub/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80'
 
+/**
+ * Психологічна служба — Google Site the service keeps itself.
+ *
+ * The site used to link an internal page and, from the structure chart, a long-dead
+ * liderstudent.com.ua. The service asked for one address everywhere: theirs.
+ */
+export const PSYCHOLOGICAL_SERVICE_URL = 'https://sites.google.com/hnpu.edu.ua/pskhnpu'
+
 /** Наукові школи — Google Site the research office keeps in full detail. */
 export const SCIENCE_SCHOOLS_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/scienceschools'
 

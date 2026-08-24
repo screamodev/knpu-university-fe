@@ -4,6 +4,7 @@ import {
   ADMISSIONS_LEGACY_URL,
   JOURNALS_EXTERNAL_URL,
   WINTER_ADMISSIONS_LEGACY_URL,
+  PSYCHOLOGICAL_SERVICE_URL,
 } from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
@@ -239,7 +240,7 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.student.life',
           links: [
             { path: '/student/dormitories', key: 'nav.links.dormitories' },
-            { path: '/student/psychology', key: 'nav.links.psychology' },
+            { path: PSYCHOLOGICAL_SERVICE_URL, key: 'nav.links.psychology', external: true },
             { path: '/student/social', key: 'nav.links.social' },
           ],
         },

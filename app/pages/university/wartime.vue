@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PSYCHOLOGICAL_SERVICE_URL } from '~/utils/externalSites'
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -20,8 +21,8 @@ const safetyLinks: readonly SafetyEntry[] = [
     labelKey: 'university.wartime.safetyLinkCode',
   },
   {
-    kind: 'internal',
-    path: '/student/psychology',
+    kind: 'external',
+    href: PSYCHOLOGICAL_SERVICE_URL,
     labelKey: 'university.wartime.safetyLinkPsych',
   },
   {

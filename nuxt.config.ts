@@ -5,6 +5,15 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  /**
+   * The psychological service keeps its own Google Site, and every link on this site now
+   * points there. The page that used to live here is gone, but the address is in printed
+   * handouts and search results, so it redirects instead of 404ing.
+   */
+  routeRules: {
+    '/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
+    '/en/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
+  },
   runtimeConfig: {
     /**
      * Base URL for Directus HTTP requests on the **server** (SSR, server routes).

@@ -1,5 +1,5 @@
 import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
-import { EDUHUB_EXTERNAL_URL } from '~/utils/externalSites'
+import { EDUHUB_EXTERNAL_URL, PSYCHOLOGICAL_SERVICE_URL } from '~/utils/externalSites'
 
 /**
  * University structure — single source of truth for the /university/structure section.
@@ -1210,7 +1210,7 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
       {
         name: 'Психологічна служба',
         nameEn: 'Psychological Service',
-        external: 'http://liderstudent.com.ua/',
+        external: PSYCHOLOGICAL_SERVICE_URL,
       },
       { name: 'Дебатний клуб', nameEn: 'Debate Club' },
       { name: 'Центр ветеранського розвитку', nameEn: 'Veterans Development Centre', path: '/student/veterans-center' },

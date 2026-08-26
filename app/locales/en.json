@@ -85,6 +85,7 @@
       "publicInfo": "Public information",
       "orders": "Orders",
       "financialReports": "Financial reports",
+      "extraServices": "Additional educational services",
       "prozorro": "Prozorro",
       "erasmus": "Erasmus+ programmes",
       "mobility": "Academic mobility",
@@ -888,6 +889,10 @@
           "title": "Financial activity",
           "text": "Budget documents, balances, staffing schedules, and performance reports for the current and preceding years."
         },
+        "extraServices": {
+          "title": "Additional educational services",
+          "text": "Paid educational and other services the university offers, their cost and the terms on which they are provided."
+        },
         "personnel": {
           "title": "Regulatory paperwork",
           "text": "Charters, regulations, and internal normative acts governing structural units."
@@ -937,6 +942,12 @@
       "title": "Financial reports",
       "subtitle": "Budget, revenue, expenditure and financial reporting of the university.",
       "intro": "Balance sheets, budgets, staffing schedules and spending reports from 2016 onwards."
+    },
+    "extraServices": {
+      "tag": "Public information",
+      "title": "Additional educational services",
+      "subtitle": "The university's paid educational and other services: what they are, what they cost, how they are provided.",
+      "intro": "Documents on the additional educational services the university provides beyond the state-funded intake."
     },
     "prozorro": {
       "tag": "Transparency",
@@ -2367,7 +2378,13 @@
       "regulationsTemplates": "Document templates",
       "programmesIntro": "The university’s study programmes by degree level and year.",
       "freeChoiceTitle": "Elective courses",
-      "ratingTitle": "Student performance ranking"
+      "ratingTitle": "Student performance ranking",
+      "ratingCta": "Open the ratings"
+    },
+    "studentRating": {
+      "tag": "Educational Quality Assurance Centre",
+      "title": "Student performance ratings",
+      "subtitle": "Ranking lists from the semester assessments, and how they are compiled."
     },
     "monitoring": {
       "tag": "Education",

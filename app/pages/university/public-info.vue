@@ -18,6 +18,7 @@ const categories = [
   { key: 'drafts', path: '/university/regulation-drafts' },
   { key: 'students', path: '/university/orders' },
   { key: 'financial', path: '/university/financial-reports' },
+  { key: 'extraServices', path: '/university/extra-services' },
   { key: 'infrastructure', path: '/university/facilities' },
   { key: 'vacancies', path: '/university/vacancies' },
   { key: 'attestation', path: '/university/attestation' },

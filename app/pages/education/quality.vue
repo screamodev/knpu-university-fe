@@ -249,15 +249,25 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
           </NuxtLink>
         </div>
 
-        <h3 class="font-playfair text-xl font-bold text-navy mt-12 mb-4">
-          {{ t('education.quality.ratingTitle') }}
-        </h3>
-        <SharedStaticPageBody
-          slug="quality-centre-students"
-          from="Рейтинг успішності здобувачів вищої освіти"
-          to="Графік навчального процесу"
-          hide-headings
-        />
+        <!-- Рейтинг живе на власній сторінці: тут лише вхід до неї. -->
+        <div class="mt-12">
+          <NuxtLink
+            :to="localePath('/education/student-rating')"
+            class="flex items-center gap-3 rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
+          >
+            <span class="flex-1">
+              <span class="block font-playfair text-lg font-semibold text-navy">
+                {{ t('education.quality.ratingTitle') }}
+              </span>
+              <span class="mt-1 block text-[13px] text-text-muted">
+                {{ t('education.quality.ratingCta') }}
+              </span>
+            </span>
+            <svg class="w-4 h-4 text-text-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </NuxtLink>
+        </div>
 
         <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <NuxtLink

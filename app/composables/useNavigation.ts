@@ -71,6 +71,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/public-info', key: 'nav.links.publicInfo' },
             { path: '/university/orders', key: 'nav.links.orders' },
             { path: '/university/financial-reports', key: 'nav.links.financialReports' },
+            { path: '/university/extra-services', key: 'nav.links.extraServices' },
             { path: '/university/prozorro', key: 'nav.links.prozorro' },
             { path: '/university/rector-report', key: 'nav.links.rectorReport' },
             { path: '/university/regulations', key: 'nav.links.regulations' },

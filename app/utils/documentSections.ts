@@ -16,6 +16,8 @@ export const DOCUMENT_SECTIONS = [
   'attestation',
   'procurement-info',
   'financial-activity',
+  // Платні освітні послуги: перелік і вартість, поруч із фінансовою діяльністю.
+  'extra-education-services',
   'inclusive-support',
   'student-council',
   'sports-club',

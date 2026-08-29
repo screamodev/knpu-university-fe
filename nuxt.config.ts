@@ -11,6 +11,9 @@ export default defineNuxtConfig({
    * handouts and search results, so it redirects instead of 404ing.
    */
   routeRules: {
+    // Гуртожитки жили на двох адресах; лишилась одна, друга веде на неї.
+    '/student/dormitories': { redirect: { to: '/admissions/dormitories', statusCode: 301 } },
+    '/en/student/dormitories': { redirect: { to: '/en/admissions/dormitories', statusCode: 301 } },
     '/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
     '/en/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
   },

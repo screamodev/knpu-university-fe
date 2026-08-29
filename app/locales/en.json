@@ -1250,6 +1250,24 @@
       "admissionCtaTitle": "Admission of international applicants",
       "admissionCtaText": "Invitation for study, required documents, admission procedure, deadlines and tuition fees.",
       "admissionCtaButton": "See admission terms"
+    },
+    "staffConference": {
+      "tag": "Governing bodies",
+      "title": "Conference of the Staff",
+      "subtitle": "The university's highest collegiate body of public self-governance.",
+      "intro": "The Conference of the Staff of H. S. Skovoroda Kharkiv National Pedagogical University is the highest collegiate body of public self-governance. It exists so that the university community takes part in discussing and deciding the questions that shape the university — its teaching, research, organisation and working life.",
+      "composition": "The Conference is made up of delegates from academic and teaching staff, other employees and students, so every part of the community is represented in its self-governance.",
+      "supervisory": "Members of the Supervisory Board may also take part in the Conference in an advisory capacity.",
+      "powersTitle": "What the Conference decides",
+      "powersStatute": "Approves a new edition of the University Statute on the Academic Council's proposal.",
+      "powersRectorReport": "Hears the Rector's annual report and assesses their work.",
+      "powersRectorTermination": "Considers early termination of the Rector's powers on a reasoned proposal of the Supervisory or Academic Council.",
+      "powersRules": "Approves the Internal Regulations and the Collective Agreement between the administration and the staff.",
+      "powersCouncilElection": "Elects representatives to the Academic Council.",
+      "powersUnionReport": "Hears the head of the Primary Trade Union Organisation on the implementation of the Collective Agreement.",
+      "powersOther": "Considers other matters of university life.",
+      "outro": "The Conference is where democratic self-governance, collegiality and shared responsibility for the university take practical form.",
+      "decisionsTitle": "Decisions of the Conference"
     }
   },
   "admissions": {
@@ -1859,12 +1877,12 @@
       "tag": "Admissions",
       "title": "Dormitories",
       "subtitle": "Living arrangements for students and postgraduate trainees at KhNPU.",
-      "intro": "KhNPU student residences sit on Yuvileinyi Avenue and nearby streets with transit links to academic buildings. Accommodation currently costs 800 UAH per academic year (confirm current tariffs with Campus Housing Office). Campus housing administration is on the first floor of dormitory № 3, 50 Yuvileinyi Ave.; email chernikt{'@'}ukr.net.",
+      "intro": "KhNPU student residences sit on Yuvileinyi Avenue and nearby streets with transit links to academic buildings. Campus housing administration is on the first floor of dormitory № 3, 50 Yuvileinyi Ave.; email chernikt{'@'}ukr.net.",
       "cardsTitle": "Campus dormitories",
       "dorm1": {
         "name": "Dormitory № 3",
         "address": "50 Yuvileinyi Avenue",
-        "capacity": "+38 (068) 343‑94‑08 · 1,030 beds (~250 free at year opening)",
+        "capacity": "+38 (050) 782‑11‑61 · 1,030 beds",
         "distance": "Teaching blocks — public transport or walk via Artema Avenue",
         "amenity1": "Wi‑Fi",
         "amenity2": "Laundry",
@@ -1873,7 +1891,7 @@
       "dorm2": {
         "name": "Dormitory № 4",
         "address": "41-A Guardiytsiv-Shyrotonintsev Street",
-        "capacity": "+38 (066) 679‑13‑03 · 640 beds (~220 free)",
+        "capacity": "+38 (066) 679‑13‑03 · 640 beds",
         "distance": "Connects toward Artema and Alchevskykh corridors",
         "amenity1": "Wi‑Fi",
         "amenity2": "Gym / independent study",
@@ -1882,7 +1900,7 @@
       "dorm3": {
         "name": "Dormitory № 5",
         "address": "53-B Ludwig Svobody Avenue",
-        "capacity": "+38 (050) 959‑36‑54 · 640 beds (fully occupied at year opening)",
+        "capacity": "+38 (050) 959‑36‑54 · 640 beds",
         "distance": "Nearby transit stops toward university sites",
         "amenity1": "Wi‑Fi",
         "amenity2": "Laundry",
@@ -1896,7 +1914,8 @@
       "step3Title": "Confirm with Campus Housing",
       "step3Text": "Check outcomes and vacancy at 50 Yuvileinyi Ave. (dorm № 3): chernikt{'@'}ukr.net.",
       "step4Title": "Contract check-in",
-      "step4Text": "After confirmation, conclude the agreement, pay 800 UAH for the academic year (verify with Campus Housing), and receive warden clearance to occupy the designated dormitory."
+      "step4Text": "After confirmation, conclude the agreement, pay for the academic year (confirm the current tariff with Campus Housing) and receive warden clearance to occupy the designated dormitory.",
+      "documentsTitle": "Documents"
     },
     "scholarships": {
       "tag": "Admissions",

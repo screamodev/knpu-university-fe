@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Гуртожитки — одна сторінка на весь сайт.
+ *
+ * Було дві: ця (картки гуртожитків і кроки поселення) і /student/dormitories (перенесений зі
+ * старого сайту текст). Клієнт попросив звести їх докупи — дизайн звідси, зміст звідти, — тож
+ * стара адреса тепер редіректить сюди (див. `routeRules` у nuxt.config).
+ */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -103,6 +110,19 @@ const steps = [
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Перенесений зі старого сайту текст: оголошення, адреси, умови поселення -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <SharedStaticPageBody slug="dormitories" />
+    </div>
+
+    <!-- Накази й інші документи: редактори додають їх у Directus -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('admissions.dormitories.documentsTitle') }}
+      </h2>
+      <SharedDocumentList section="dormitories" />
     </div>
 
     <!-- How to get a room: 4-step process -->

@@ -105,7 +105,7 @@ const socialLinks = [
           <div>
             <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">{{ t('footer.colStudent') }}</div>
             <ul class="list-none flex flex-col gap-2">
-              <li><NuxtLink :to="localePath('/student/dormitories')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkDormitories') }}</NuxtLink></li>
+              <li><NuxtLink :to="localePath('/admissions/dormitories')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkDormitories') }}</NuxtLink></li>
               <li><NuxtLink :to="localePath('/student/council')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkStudentCouncil') }}</NuxtLink></li>
               <li><a :href="PSYCHOLOGICAL_SERVICE_URL" target="_blank" rel="noopener noreferrer" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkPsychology') }}</a></li>
               <li><NuxtLink :to="localePath('/student/career')" class="text-[13px] text-white/60 no-underline hover:text-white/95 transition-colors duration-280 leading-snug">{{ t('footer.linkCareer') }}</NuxtLink></li>

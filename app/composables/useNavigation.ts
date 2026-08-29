@@ -240,7 +240,7 @@ export function useNavigation(): { items: NavItem[] } {
           // Canteens and medical services struck off as well.
           titleKey: 'nav.student.life',
           links: [
-            { path: '/student/dormitories', key: 'nav.links.dormitories' },
+            { path: '/admissions/dormitories', key: 'nav.links.dormitories' },
             { path: PSYCHOLOGICAL_SERVICE_URL, key: 'nav.links.psychology', external: true },
             { path: '/student/social', key: 'nav.links.social' },
           ],

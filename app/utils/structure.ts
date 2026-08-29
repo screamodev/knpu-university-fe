@@ -851,8 +851,7 @@ export const STRUCTURE_GOVERNANCE: StructureGroup = {
   nameEn: 'Collegiate governing bodies',
   items: [
     { name: 'Наглядова рада', nameEn: 'Supervisory Board', path: '/university/supervisory-board' },
-    { name: 'Конференція трудового колективу', nameEn: 'Conference of the Staff' },
-    { name: 'Загальні збори (конференція) студентів', nameEn: 'General Assembly (Conference) of Students' },
+    { name: 'Конференція трудового колективу', nameEn: 'Conference of the Staff', path: '/university/staff-conference' },
     {
       name: 'Вчена рада',
       nameEn: 'Academic Council',
@@ -865,7 +864,12 @@ export const STRUCTURE_GOVERNANCE: StructureGroup = {
         },
       ],
     },
-    { name: 'Виконавча рада (Рада з якості)', nameEn: 'Executive Board (Quality Board)' },
+    {
+      name: 'Виконавча рада (Рада з якості)',
+      nameEn: 'Executive Board (Quality Board)',
+      // Ради з якості немає окремої сторінки — клієнт просив вивести сам план роботи.
+      external: 'https://admin.hnpu.edu.ua/assets/b8eccd95-0315-4a5a-9031-bf9605dbe91c/Pl_VykonR_26_27.pdf',
+    },
   ],
 }
 
@@ -1044,11 +1048,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         nameEn: 'Educational and Administrative Complex (academic buildings)',
         path: '/university/facilities',
       },
-      { name: 'Гуртожиток №1', nameEn: 'Dormitory No. 1', path: '/student/dormitories' },
+      { name: 'Гуртожиток №1', nameEn: 'Dormitory No. 1', path: '/admissions/dormitories' },
       {
         name: 'Студмістечко (студентські гуртожитки)',
         nameEn: 'Campus (student dormitories)',
-        path: '/student/dormitories',
+        path: '/admissions/dormitories',
       },
     ],
   },

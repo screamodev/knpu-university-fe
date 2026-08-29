@@ -428,17 +428,15 @@ export type EducationLevel = 'bachelor' | 'master' | 'phd'
 
 /** Напрям діяльності a monitoring survey belongs to; groups the list on /education/monitoring. */
 export type MonitoringArea =
-  | 'educational-activity'
-  | 'programme-implementation'
-  | 'phd-programmes'
-  | 'educational-environment'
-  | 'research'
-  | 'international'
+  | 'community-synergy'
+  | 'educational-ecosystem'
+  | 'research-innovation'
+  | 'international-partnership'
   | 'youth-policy'
-  | 'management'
-  | 'stakeholders'
-  | 'express'
-  | 'staff-rating'
+  | 'human-capital'
+  | 'infrastructure-safety'
+  | 'targeted-surveys'
+  /** Anything the client's 2026 re-sort did not name; kept so no survey silently disappears. */
   | 'other'
 
 /** One questionnaire of the university's monitoring programme. */

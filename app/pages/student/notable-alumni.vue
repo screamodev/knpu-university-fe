@@ -1,18 +1,18 @@
 <script setup lang="ts">
 /**
- * «Редакційно-видавничий відділ».
+ * «Видатні випускники».
  *
- * The page used to carry invented services and a shelf of made-up books. The department sent
- * its own description in August 2026, so the page is now that text and nothing else; the photos
- * of the staff are still to be uploaded.
+ * Migrated from the old site at the client's request; the people listed are the sports club's
+ * champions, which is why the club page links here. Photos still live on old.hnpu.edu.ua — the
+ * text came across, the files did not.
  */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
 
 useHead({
-  title: () => t('science.publishing.title'),
-  meta: [{ name: 'description', content: () => t('science.publishing.subtitle') }],
+  title: () => t('student.notableAlumni.title'),
+  meta: [{ name: 'description', content: () => t('student.notableAlumni.subtitle') }],
 })
 </script>
 
@@ -22,19 +22,19 @@ useHead({
     <div class="bg-gradient-to-b from-navy-deep to-navy py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-[11px] font-semibold tracking-wider uppercase text-gold/90 mb-3">
-          {{ t('science.publishing.tag') }}
+          {{ t('student.notableAlumni.tag') }}
         </div>
         <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
-          {{ t('science.publishing.title') }}
+          {{ t('student.notableAlumni.title') }}
         </h1>
         <p class="mt-4 text-white/70 max-w-2xl">
-          {{ t('science.publishing.subtitle') }}
+          {{ t('student.notableAlumni.subtitle') }}
         </p>
       </div>
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SharedStaticPageBody slug="publishing-department" />
+      <SharedStaticPageBody slug="notable-alumni" />
     </div>
   </div>
 </template>

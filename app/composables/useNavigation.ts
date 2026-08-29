@@ -58,6 +58,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/supervisory-board', key: 'nav.links.supervisoryBoard' },
             { path: '/university/structure', key: 'nav.links.structure' },
             { path: '/university/faculties', key: 'nav.links.facultiesAndDepts' },
+            { path: '/education/monitoring', key: 'nav.links.monitoring' },
             { path: '/university/press', key: 'nav.links.press' },
             { path: '/university/contacts', key: 'nav.links.contacts' },
           ],
@@ -160,7 +161,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/education/programs', key: 'nav.links.programs' },
             { path: '/education/curriculum', key: 'nav.links.curriculum' },
             { path: '/education/students', key: 'nav.links.studentContingent' },
-            { path: '/education/electives', key: 'nav.links.electives' },
+            { path: '/education/quality?tab=students', key: 'nav.links.electives' },
             { path: '/education/accreditation', key: 'nav.links.accreditation' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },
             { path: '/education/rankings', key: 'nav.links.rankings' },
@@ -195,7 +196,6 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/institutes', key: 'nav.links.institutes' },
             { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
             { path: '/science/student-society', key: 'nav.links.studentSociety' },
-            { path: '/science/graduate', key: 'nav.links.graduate' },
             { path: '/science/conferences', key: 'nav.links.conferences' },
           ],
         },
@@ -207,7 +207,6 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/collections', key: 'nav.links.collections' },
             { path: '/science/publication-requirements', key: 'nav.links.publicationRequirements' },
             { path: '/science/scopus', key: 'nav.links.scopus' },
-            { path: '/science/publishing', key: 'nav.links.publishing' },
           ],
         },
         {
@@ -223,6 +222,17 @@ export function useNavigation(): { items: NavItem[] } {
             // разові ради pages, so the separate page is neither linked nor published.
           ],
         },
+        {
+          // Підрозділи, які ведуть наукову роботу: клієнт просив окрему колонку, щоб їх було
+          // видно з меню, а не тільки зі структури.
+          titleKey: 'nav.science.units',
+          links: [
+            { path: '/science/library', key: 'nav.links.library' },
+            { path: '/university/structure/postgraduate', key: 'nav.links.graduate' },
+            { path: '/science/publishing', key: 'nav.links.publishing' },
+            // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
+          ],
+        },
       ],
     },
     {
@@ -234,6 +244,7 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.student.digital',
           links: [
             { path: '/student/schedule', key: 'nav.links.schedule' },
+            { path: '/education/quality?tab=students', key: 'nav.links.electives' },
           ],
         },
         {

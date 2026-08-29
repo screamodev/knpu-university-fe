@@ -20,6 +20,8 @@ useHead({
 const VALEOLOGY_CLUB_URL = 'https://old.hnpu.edu.ua/uk/studentskyy-naukovyy-valeologichnyy-klub'
 
 const organisations = [
+  // Видатні випускники клубу — чемпіони, тож сторінка живе поруч зі спортклубом.
+  { path: '/student/notable-alumni', labelKey: 'student.notableAlumni.title' },
   { path: '/student/council', labelKey: 'nav.links.studentCouncil' },
   { path: '/student/arts', labelKey: 'nav.links.arts' },
   { path: '/student/union', labelKey: 'nav.links.union' },

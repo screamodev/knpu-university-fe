@@ -21,21 +21,31 @@ useHead({
   meta: [{ name: 'description', content: () => t('education.monitoring.subtitle') }],
 })
 
-/** The напрями in the order the legacy page listed them. */
+/**
+ * Напрями, у порядку, який задав відділ моніторингу у серпні 2026.
+ *
+ * «Інфраструктура, ресурси і безпека» поки без анкет — розділ показуємо порожнім навмисно,
+ * клієнт просив лишити місце. `other` тримає все, що не потрапило в новий поділ.
+ */
 const AREAS: MonitoringArea[] = [
-  'educational-activity',
-  'programme-implementation',
-  'phd-programmes',
-  'educational-environment',
-  'research',
-  'international',
+  'community-synergy',
+  'educational-ecosystem',
+  'research-innovation',
+  'international-partnership',
   'youth-policy',
-  'management',
-  'stakeholders',
-  'express',
-  'staff-rating',
+  'human-capital',
+  'infrastructure-safety',
+  'targeted-surveys',
   'other',
 ]
+
+/** Анкети 11 і 22 мають по десять підваріантів — клієнт просив тримати їх в одному акордеоні. */
+const CLUSTERED_NUMBERS = ['11', '22']
+
+function clusterKey(survey: DirectusMonitoringSurvey): string {
+  const base = String(survey.number ?? '').split('/')[0]?.trim() ?? ''
+  return CLUSTERED_NUMBERS.includes(base) ? base : survey.id
+}
 
 const { data, pending } = await useAsyncData('monitoring-surveys', () =>
   client.request(
@@ -72,10 +82,21 @@ const surveys = computed<DirectusMonitoringSurvey[]>(
   () => (data.value as DirectusMonitoringSurvey[] | null) ?? [],
 )
 
+/** Напрям → акордеони; кожна анкета сама по собі, крім кластерів 11 і 22. */
 const groups = computed(() =>
   AREAS
-    .map(area => ({ area, items: surveys.value.filter(survey => survey.area === area) }))
-    .filter(group => group.items.length > 0),
+    .map((area) => {
+      const items = surveys.value.filter(survey => survey.area === area)
+      const clusters: { key: string; title: string; items: DirectusMonitoringSurvey[] }[] = []
+      for (const survey of items) {
+        const key = clusterKey(survey)
+        const existing = clusters.find(cluster => cluster.key === key)
+        if (existing) existing.items.push(survey)
+        else clusters.push({ key, title: localized(survey, 'title'), items: [survey] })
+      }
+      return { area, clusters, count: items.length }
+    })
+    .filter(group => group.clusters.length > 0),
 )
 
 /** Results are stored newest-last on the legacy page; show the most recent year first. */
@@ -162,59 +183,65 @@ function programmeItems(survey: DirectusMonitoringSurvey): FileLinkItem[] {
         <div v-for="i in 4" :key="i" class="animate-pulse h-14 rounded-12 border border-border bg-off-white" />
       </div>
 
-      <div v-else-if="groups.length" class="space-y-4">
-        <SharedAccordion
-          v-for="(group, index) in groups"
-          :key="group.area"
-          :title="t(`education.monitoring.areas.${group.area}`)"
-          :hint="`${group.items.length}`"
-          :open="index === 0"
-        >
-          <div class="space-y-6 pt-4">
-            <article
-              v-for="survey in group.items"
-              :key="survey.id"
-              class="border-l-4 border-gold pl-4 sm:pl-5"
+      <div v-else-if="groups.length" class="space-y-10">
+        <section v-for="group in groups" :key="group.area">
+          <h3 class="font-playfair text-xl font-bold text-navy mb-4">
+            {{ t(`education.monitoring.areas.${group.area}`) }}
+          </h3>
+          <div class="space-y-3">
+            <SharedAccordion
+              v-for="cluster in group.clusters"
+              :key="cluster.key"
+              :title="cluster.title"
+              :hint="cluster.items.length > 1 ? String(cluster.items.length) : undefined"
             >
-              <h3 class="font-medium text-navy">
-                <a
-                  v-if="survey.formUrl"
-                  :href="survey.formUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-navy hover:text-gold no-underline"
+              <div class="space-y-6 pt-4">
+                <article
+                  v-for="survey in cluster.items"
+                  :key="survey.id"
+                  class="border-l-4 border-gold pl-4 sm:pl-5"
                 >
-                  {{ localized(survey, 'title') }}
-                  <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
-                </a>
-                <template v-else>{{ localized(survey, 'title') }}</template>
-              </h3>
-              <p v-if="survey.researchGroup" class="text-body-sm text-text-muted mt-1">
-                {{ t('education.monitoring.researchGroupLabel') }}: {{ survey.researchGroup }}
-              </p>
-
-              <div class="mt-3 space-y-2">
-                <SharedFileLinkList
-                  v-if="programmeItems(survey).length"
-                  :items="programmeItems(survey)"
-                  dense
-                />
-                <div v-if="resultItems(survey).length">
-                  <p class="text-body-sm font-semibold text-navy mb-1.5">
-                    {{ t('education.monitoring.resultsLabel') }}
+                  <h4 class="font-medium text-navy">
+                    <a
+                      v-if="survey.formUrl"
+                      :href="survey.formUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-navy hover:text-gold no-underline"
+                    >
+                      {{ localized(survey, 'title') }}
+                      <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+                    </a>
+                    <template v-else>{{ localized(survey, 'title') }}</template>
+                  </h4>
+                  <p v-if="survey.researchGroup" class="text-body-sm text-text-muted mt-1">
+                    {{ t('education.monitoring.researchGroupLabel') }}: {{ survey.researchGroup }}
                   </p>
-                  <SharedFileLinkList :items="resultItems(survey)" dense />
-                </div>
-                <p
-                  v-if="!programmeItems(survey).length && !resultItems(survey).length"
-                  class="text-body-sm text-text-muted"
-                >
-                  {{ locale === 'en' ? 'Results are not published yet.' : 'Результати ще не оприлюднені.' }}
-                </p>
+
+                  <div class="mt-3 space-y-2">
+                    <SharedFileLinkList
+                      v-if="programmeItems(survey).length"
+                      :items="programmeItems(survey)"
+                      dense
+                    />
+                    <div v-if="resultItems(survey).length">
+                      <p class="text-body-sm font-semibold text-navy mb-1.5">
+                        {{ t('education.monitoring.resultsLabel') }}
+                      </p>
+                      <SharedFileLinkList :items="resultItems(survey)" dense />
+                    </div>
+                    <p
+                      v-if="!programmeItems(survey).length && !resultItems(survey).length"
+                      class="text-body-sm text-text-muted"
+                    >
+                      {{ locale === 'en' ? 'Results are not published yet.' : 'Результати ще не оприлюднені.' }}
+                    </p>
+                  </div>
+                </article>
               </div>
-            </article>
+            </SharedAccordion>
           </div>
-        </SharedAccordion>
+        </section>
       </div>
 
       <SharedSectionPending v-else />

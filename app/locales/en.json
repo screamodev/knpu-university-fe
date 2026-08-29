@@ -57,7 +57,8 @@
     "science": {
       "activity": "Research",
       "publications": "Publications",
-      "resources": "Resources"
+      "resources": "Resources",
+      "units": "Units"
     },
     "student": {
       "digital": "Digital services",
@@ -95,7 +96,7 @@
       "integrity": "Academic integrity",
       "bachelor": "Bachelor (full-time / part-time)",
       "master": "Master",
-      "graduate": "Graduate and doctoral",
+      "graduate": "Postgraduate and Doctoral Studies Department",
       "secondDegree": "Second higher education",
       "admissionCommittee": "Admissions committee",
       "rules": "Admission rules 2026",
@@ -140,7 +141,7 @@
       "collections": "Proceedings",
       "publicationRequirements": "Publication requirements",
       "scopus": "Scopus / WOS",
-      "publishing": "University press",
+      "publishing": "Publishing and Editorial Department",
       "library": "Research library",
       "catalog": "Electronic catalog",
       "repository": "eSSPUIR repository",
@@ -2417,17 +2418,14 @@
       "resultsLabel": "Results",
       "researchGroupLabel": "Research team",
       "areas": {
-        "educational-activity": "Teaching and learning",
-        "programme-implementation": "Delivery of study programmes",
-        "phd-programmes": "Delivery of PhD programmes",
-        "educational-environment": "Learning environment",
-        "research": "Research and innovation",
-        "international": "International cooperation",
-        "youth-policy": "Youth policy",
-        "management": "Management and staffing",
-        "stakeholders": "Internal and external stakeholder engagement",
-        "express": "Express surveys",
-        "staff-rating": "Teaching staff rating results",
+        "community-synergy": "Synergy with communities and local government",
+        "educational-ecosystem": "Educational ecosystem",
+        "research-innovation": "Research and innovation",
+        "international-partnership": "International partnership",
+        "youth-policy": "Youth policy and student initiatives",
+        "human-capital": "Human capital and management culture",
+        "infrastructure-safety": "Infrastructure, resources and safety",
+        "targeted-surveys": "Targeted surveys",
         "other": "Other studies"
       },
       "schemeAlt": "Chart of the education quality monitoring system of H.S. Skovoroda KhNPU",
@@ -3006,7 +3004,7 @@
     },
     "publishing": {
       "tag": "Science",
-      "title": "University press",
+      "title": "Publishing and Editorial Department",
       "subtitle": "Publishing monographs, journals and methodological materials.",
       "intro": "KhNPU Press produces monographs, textbooks, journals and digital publications for education and research.",
       "services": {
@@ -3787,6 +3785,11 @@
       "contactEmail": "Email",
       "contactHours": "Office hours",
       "contactCoordinator": "Coordinator"
+    },
+    "notableAlumni": {
+      "tag": "Sports club",
+      "title": "Distinguished graduates",
+      "subtitle": "Olympians and world and European champions who graduated from KhNPU."
     }
   },
   "auth": {

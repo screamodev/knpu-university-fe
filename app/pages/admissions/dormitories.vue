@@ -91,21 +91,6 @@ const steps = [
               <p class="text-body-sm text-navy font-medium">
                 {{ t(`admissions.dormitories.${key}.capacity`) }}
               </p>
-              <p class="text-body-sm text-text-muted">
-                {{ t(`admissions.dormitories.${key}.distance`) }}
-              </p>
-              <ul class="mt-auto space-y-2">
-                <li
-                  v-for="i in 3"
-                  :key="i"
-                  class="text-body-sm text-text-muted flex items-center gap-2"
-                >
-                  <span class="w-4 h-4 rounded bg-gold/15 flex items-center justify-center shrink-0">
-                    <span class="text-gold text-[10px] font-bold">✓</span>
-                  </span>
-                  {{ t(`admissions.dormitories.${key}.amenity${i}`) }}
-                </li>
-              </ul>
             </div>
           </div>
         </div>

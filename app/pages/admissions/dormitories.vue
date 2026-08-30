@@ -89,6 +89,11 @@ const steps = [
                 {{ t(`admissions.dormitories.${key}.address`) }}
               </p>
               <p class="text-body-sm text-navy font-medium">
+                <a :href="`tel:${t(`admissions.dormitories.${key}.phone`).replace(/[^+\d]/g, '')}`" class="text-navy no-underline hover:text-gold">
+                  {{ t(`admissions.dormitories.${key}.phone`) }}
+                </a>
+              </p>
+              <p class="text-body-sm text-text-muted">
                 {{ t(`admissions.dormitories.${key}.capacity`) }}
               </p>
             </div>

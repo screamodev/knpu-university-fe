@@ -1889,17 +1889,20 @@
       "dorm1": {
         "name": "Dormitory № 3",
         "address": "50 Yuvileinyi Avenue",
-        "capacity": "+38 (050) 782‑11‑61 · 1,030 beds"
+        "capacity": "1,030 beds",
+        "phone": "+38 (050) 782‑11‑61"
       },
       "dorm2": {
         "name": "Dormitory № 4",
         "address": "41-A Guardiytsiv-Shyrotonintsev Street",
-        "capacity": "+38 (066) 679‑13‑03 · 640 beds"
+        "capacity": "640 beds",
+        "phone": "+38 (066) 679‑13‑03"
       },
       "dorm3": {
         "name": "Dormitory № 5",
         "address": "53-B Ludwig Svobody Avenue",
-        "capacity": "+38 (050) 959‑36‑54 · 640 beds"
+        "capacity": "640 beds",
+        "phone": "+38 (050) 959‑36‑54"
       },
       "howToGetTitle": "How to reserve a bed",
       "step1Title": "Wait for published rankings",

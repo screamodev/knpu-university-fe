@@ -1269,6 +1269,12 @@
       "powersOther": "Considers other matters of university life.",
       "outro": "The Conference is where democratic self-governance, collegiality and shared responsibility for the university take practical form.",
       "decisionsTitle": "Decisions of the Conference"
+    },
+    "qualityBoard": {
+      "tag": "Governing bodies",
+      "title": "Executive Board (Quality Board)",
+      "subtitle": "The collegiate body responsible for the quality of the university's teaching.",
+      "intro": "Membership, the work plan and the rest of the board’s documents."
     }
   },
   "admissions": {

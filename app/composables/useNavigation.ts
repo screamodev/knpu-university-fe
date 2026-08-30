@@ -184,7 +184,21 @@ export function useNavigation(): { items: NavItem[] } {
     {
       labelKey: 'nav.labels.science',
       minWidth: '760px',
+      // Порядок колонок і склад — за схемою, яку клієнт намалював 30.08: спершу підрозділи,
+      // далі власне діяльність, ресурси й видання.
       columns: [
+        {
+          titleKey: 'nav.science.units',
+          links: [
+            { path: '/science/library', key: 'nav.links.library' },
+            { path: '/university/structure/postgraduate', key: 'nav.links.graduate' },
+            { path: '/science/publishing', key: 'nav.links.publishing' },
+            { path: '/science/institutes', key: 'nav.links.institutes' },
+            { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
+            { path: '/science/student-society', key: 'nav.links.studentSociety' },
+            // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
+          ],
+        },
         {
           titleKey: 'nav.science.activity',
           links: [
@@ -192,11 +206,18 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/directions', key: 'nav.links.directions' },
             { path: '/science/council', key: 'nav.links.scienceCouncil' },
             { path: '/university/integrity', key: 'nav.links.integrity' },
-            { path: '/science/plagiarism', key: 'nav.links.plagiarism' },
-            { path: '/science/institutes', key: 'nav.links.institutes' },
-            { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
-            { path: '/science/student-society', key: 'nav.links.studentSociety' },
             { path: '/science/conferences', key: 'nav.links.conferences' },
+          ],
+        },
+        {
+          titleKey: 'nav.science.resources',
+          links: [
+            { path: '/science/catalog', key: 'nav.links.catalog' },
+            { path: '/science/repository', key: 'nav.links.repository' },
+            { path: '/science/plagiarism', key: 'nav.links.plagiarism' },
+            { path: '/science/boards', key: 'nav.links.boards' },
+            { path: '/science/dissertation-councils', key: 'nav.links.dissertationCouncils' },
+            { path: '/science/candidate-support', key: 'nav.links.candidateSupport' },
           ],
         },
         {
@@ -207,30 +228,6 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/collections', key: 'nav.links.collections' },
             { path: '/science/publication-requirements', key: 'nav.links.publicationRequirements' },
             { path: '/science/scopus', key: 'nav.links.scopus' },
-          ],
-        },
-        {
-          titleKey: 'nav.science.resources',
-          links: [
-            { path: '/science/library', key: 'nav.links.library' },
-            { path: '/science/catalog', key: 'nav.links.catalog' },
-            { path: '/science/repository', key: 'nav.links.repository' },
-            { path: '/science/boards', key: 'nav.links.boards' },
-            { path: '/science/dissertation-councils', key: 'nav.links.dissertationCouncils' },
-            { path: '/science/candidate-support', key: 'nav.links.candidateSupport' },
-            // «Захисти дисертацій» withdrawn by the client: the announcements live on the
-            // разові ради pages, so the separate page is neither linked nor published.
-          ],
-        },
-        {
-          // Підрозділи, які ведуть наукову роботу: клієнт просив окрему колонку, щоб їх було
-          // видно з меню, а не тільки зі структури.
-          titleKey: 'nav.science.units',
-          links: [
-            { path: '/science/library', key: 'nav.links.library' },
-            { path: '/university/structure/postgraduate', key: 'nav.links.graduate' },
-            { path: '/science/publishing', key: 'nav.links.publishing' },
-            // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
           ],
         },
       ],

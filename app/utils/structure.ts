@@ -94,7 +94,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
     name: 'Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка',
     nameEn: 'H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology',
     summary:
-      'Осередок україністики університету: кафедри української мови, літератури і журналістики, українознавства й лінгводидактики, теорії і практики англійської мови.',
+      'Осередок україністики університету: кафедри української мови імені професора Л.А. Лисиченко, української літератури і журналістики імені професора Леоніда Ушкалова, українознавства й лінгводидактики імені професора О.Г. Муромцевої, теорії і практики англійської мови та зарубіжної літератури імені професора М.Ф. Гетманця.',
     summaryEn:
       'The university hub of Ukrainian studies: departments of Ukrainian language, literature and journalism, Ukrainian studies and linguodidactics, and English language theory and practice.',
     items: [
@@ -867,8 +867,7 @@ export const STRUCTURE_GOVERNANCE: StructureGroup = {
     {
       name: 'Виконавча рада (Рада з якості)',
       nameEn: 'Executive Board (Quality Board)',
-      // Ради з якості немає окремої сторінки — клієнт просив вивести сам план роботи.
-      external: 'https://admin.hnpu.edu.ua/assets/b8eccd95-0315-4a5a-9031-bf9605dbe91c/Pl_VykonR_26_27.pdf',
+      path: '/university/quality-board',
     },
   ],
 }

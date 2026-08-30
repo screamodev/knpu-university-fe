@@ -51,6 +51,7 @@ export const DOCUMENT_SECTIONS = [
   'contacts',
   'academic-council-decisions',
   'staff-conference',
+  'quality-board',
   'candidate-support',
   'science-council',
   'science-events',

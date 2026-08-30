@@ -14,7 +14,6 @@ const props = defineProps<{
 const { t } = useSafeI18nWithRouter()
 
 const activeIndex = ref(0)
-const touchStartX = ref<number | null>(null)
 
 const hasMultiple = computed(() => props.images.length > 1)
 
@@ -27,10 +26,22 @@ watch(
   },
 )
 
+const track = ref<HTMLElement | null>(null)
+
+/** Ширина однієї світлини разом із проміжком — крок гортання. */
+function step(): number {
+  const first = track.value?.firstElementChild as HTMLElement | undefined
+  if (!first) return track.value?.clientWidth ?? 0
+  const gap = Number.parseFloat(getComputedStyle(track.value!).columnGap || '0') || 0
+  return first.clientWidth + gap
+}
+
 function goTo(index: number): void {
   if (!hasMultiple.value) return
   const count = props.images.length
-  activeIndex.value = ((index % count) + count) % count
+  const next = ((index % count) + count) % count
+  activeIndex.value = next
+  track.value?.scrollTo({ left: next * step(), behavior: 'smooth' })
 }
 
 function goPrev(): void {
@@ -39,6 +50,13 @@ function goPrev(): void {
 
 function goNext(): void {
   goTo(activeIndex.value + 1)
+}
+
+/** Гортати можна й пальцем — крапки мають іти за смугою, а не лише за кнопками. */
+function onScroll(): void {
+  const width = step()
+  if (!track.value || width <= 0) return
+  activeIndex.value = Math.round(track.value.scrollLeft / width)
 }
 
 function onKeydown(event: KeyboardEvent): void {
@@ -52,19 +70,6 @@ function onKeydown(event: KeyboardEvent): void {
   }
 }
 
-function onTouchStart(event: TouchEvent): void {
-  touchStartX.value = event.changedTouches[0]?.clientX ?? null
-}
-
-function onTouchEnd(event: TouchEvent): void {
-  if (touchStartX.value == null || !hasMultiple.value) return
-  const endX = event.changedTouches[0]?.clientX ?? touchStartX.value
-  const delta = endX - touchStartX.value
-  touchStartX.value = null
-  if (Math.abs(delta) < 48) return
-  if (delta > 0) goPrev()
-  else goNext()
-}
 </script>
 
 <template>
@@ -72,7 +77,7 @@ function onTouchEnd(event: TouchEvent): void {
     <img
       :src="images[0]!.src"
       :alt="images[0]!.alt"
-      class="w-full rounded-12 object-cover max-h-[32rem]"
+      class="w-full rounded-12 object-cover h-72 sm:h-80 lg:h-[28rem]"
     />
   </div>
 
@@ -84,25 +89,27 @@ function onTouchEnd(event: TouchEvent): void {
     :aria-label="label || t('news.carousel.label')"
     tabindex="0"
     @keydown="onKeydown"
-    @touchstart.passive="onTouchStart"
-    @touchend.passive="onTouchEnd"
   >
-    <div class="relative overflow-hidden rounded-12 bg-slate-100">
+    <div class="relative rounded-12 bg-slate-100">
+      <!--
+        Смуга прокрутки зі snap замість зсуву на 100%: так у кадр стає дві-три світлини на
+        ширших екранах і одна на телефоні, без обрахунку ширини в JS.
+      -->
       <div
-        class="flex transition-transform duration-280 ease-out"
-        :style="{ transform: `translateX(-${activeIndex * 100}%)` }"
+        ref="track"
+        class="flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        @scroll.passive="onScroll"
       >
         <figure
           v-for="(image, index) in images"
           :key="image.key ?? `${image.src}-${index}`"
-          class="w-full shrink-0"
-          :aria-hidden="index !== activeIndex"
+          class="snap-start shrink-0 basis-full sm:basis-1/2 lg:basis-1/3"
         >
           <img
             :src="image.src"
             :alt="image.alt"
-            class="w-full object-cover max-h-[32rem]"
-            :loading="index === 0 ? 'eager' : 'lazy'"
+            class="w-full h-72 sm:h-80 lg:h-[28rem] object-cover rounded-12"
+            :loading="index < 3 ? 'eager' : 'lazy'"
           />
         </figure>
       </div>

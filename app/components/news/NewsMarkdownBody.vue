@@ -410,6 +410,83 @@ const segments = computed(() => {
   font-weight: 700;
 }
 
+/*
+ * Drop-downs written in the editor. `SharedAccordion` is the same markup with Tailwind classes,
+ * but utility classes cannot reach `v-html` output, so the look is repeated here by hand.
+ */
+.news-article-md details {
+  border: 1px solid theme('colors.border');
+  border-radius: theme('borderRadius.12');
+  background: #fff;
+  overflow: hidden;
+  margin: 1em 0;
+}
+
+.news-article-md details[open] {
+  border-color: theme('colors.gold');
+}
+
+.news-article-md summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: theme('fontFamily.playfair');
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: theme('colors.navy');
+  transition: background-color 280ms;
+}
+
+.news-article-md summary:hover {
+  background: theme('colors.off-white');
+}
+
+/* The gold chevron of `SharedAccordion`, drawn without an inline SVG. */
+.news-article-md summary::before {
+  content: '';
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid theme('colors.gold');
+  border-bottom: 2px solid theme('colors.gold');
+  transform: rotate(-45deg);
+  transition: transform 280ms;
+}
+
+.news-article-md details[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+/* Safari still paints the default disclosure triangle without this. */
+.news-article-md summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-article-md details > :not(summary) {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.news-article-md details > summary + * {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid theme('colors.border');
+}
+
+.news-article-md details > :not(summary):last-child {
+  margin-bottom: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-article-md summary,
+  .news-article-md summary::before {
+    transition: none;
+  }
+}
+
 @media (max-width: 640px) {
   .news-article-md img[style*='float'] {
     float: none !important;

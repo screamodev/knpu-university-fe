@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { loadStructureTabContent, type StructureTabId } from '~/utils/structureContent'
+import type { StructureTabId } from '~/utils/structureContent'
 
-/** Migrated legacy content for one tab of one unit. */
+/** Body of one tab of one unit: what the editor wrote, else the migrated legacy content. */
 const props = withDefaults(
   defineProps<{
     slug: string
@@ -13,10 +13,11 @@ const props = withDefaults(
 )
 
 const { t, locale } = useSafeI18nWithRouter()
+const { fetchStructureTabContent } = useStructureTabContent()
 
 const { data } = await useAsyncData(
   () => `structure-content-${props.slug}-${props.tab}-${locale.value}`,
-  () => loadStructureTabContent(props.slug, props.tab, locale.value),
+  () => fetchStructureTabContent(props.slug, props.tab, locale.value),
   { watch: [() => props.slug, () => props.tab, locale] },
 )
 

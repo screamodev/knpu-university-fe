@@ -58,6 +58,10 @@ const articleHtmlPurifyConfig: Config = {
     'th',
     'td',
     'hr',
+    // Drop-downs. The old site wrapped long lists in `[collapse]` shortcodes and the client
+    // asked to keep that reading experience; in a CMS body they are plain `<details>`.
+    'details',
+    'summary',
     // Video embeds inserted with the editor's "media" button. Restricted to known hosts by
     // the `afterSanitizeElements` hook below — an iframe pointing anywhere else is removed.
     'iframe',
@@ -80,6 +84,7 @@ const articleHtmlPurifyConfig: Config = {
     'colspan',
     'rowspan',
     'data-align',
+    'open',
     'allow',
     'allowfullscreen',
     'frameborder',

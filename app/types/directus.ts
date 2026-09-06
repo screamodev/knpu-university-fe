@@ -40,6 +40,7 @@ export interface DirectusSchema {
   science_defenses: DirectusScienceDefense[]
   dissertation_councils: DirectusDissertationCouncil[]
   dissertation_council_files: DirectusDissertationCouncilFile[]
+  structure_pages: DirectusStructurePage[]
   student_schedule_documents: DirectusStudentScheduleDocument[]
   university_orders: DirectusUniversityOrder[]
   directus_files: DirectusFile[]
@@ -421,6 +422,22 @@ export interface DirectusDocument {
   /** …or a link to the document on another site. */
   externalUrl: string | null
   order: number
+}
+
+/**
+ * Body of one tab of one structure unit, written by an editor.
+ *
+ * One row per (`unit_slug`, `tab`). While a tab has no row the site serves the content migrated
+ * from the old site out of `app/content/structure/` — see `useStructureTabContent`.
+ */
+export interface DirectusStructurePage {
+  id: string
+  status?: DirectusContentStatus
+  unit_slug: string
+  tab: string
+  body: string | null
+  bodyEn: string | null
+  date_updated: DirectusDateLike
 }
 
 /** Освітній рівень, as used by the accreditation collections. */

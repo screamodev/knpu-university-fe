@@ -139,6 +139,18 @@ function semesterLabel(semester: DirectusStudentScheduleDocument['semester']): s
         {{ t('student.schedule.intro') }}
       </p>
 
+      <!--
+        Графік семестрів і канікул — університетський, спільний для всіх груп, тож він стоїть
+        над розкладами занять, а не серед них. Читає ту саму секцію документів, що й
+        /education/schedule: навчальний відділ публікує графік один раз.
+      -->
+      <section class="mb-12">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+          {{ t('student.schedule.academicCalendarTitle') }}
+        </h2>
+        <SharedDocumentList section="education-schedule" />
+      </section>
+
       <section class="bg-off-white rounded-16 border border-border p-6 lg:p-8 mb-10">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <label class="flex flex-col gap-2 text-body-sm text-text-muted">

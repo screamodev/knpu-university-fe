@@ -3432,7 +3432,8 @@
           "title": "Faculty contacts",
           "text": "Contact the faculty study office for changes, clashes or room updates."
         }
-      }
+      },
+      "academicCalendarTitle": "Semester and vacation schedule"
     },
     "dormitories": {
       "tag": "For students",

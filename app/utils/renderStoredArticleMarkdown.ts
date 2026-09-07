@@ -101,15 +101,20 @@ function isAbsoluteLikeUrl(url: string): boolean {
 }
 
 /**
- * Converts root-relative URLs to absolute URLs under the Directus public base.
- * Most importantly, this maps `/assets/<uuid>` written by the editor to a browser-safe URL.
+ * Maps `/assets/<uuid>` written by the editor to a browser-safe absolute URL on Directus.
+ *
+ * Only that prefix. A body also carries ordinary site links — `/university/structure/<unit>`,
+ * `/admissions/committee`, `/education/quality?tab=students` — and sending those to the Directus
+ * host produced a 404 on every one of them (394 across the migrated content). Those stay
+ * root-relative so the browser resolves them against the site.
  */
+const DIRECTUS_SERVED_PREFIX = '/assets/'
+
 export function resolveDirectusPublicUrl(url: string, directusPublicUrl: string): string {
   if (!url) return url
   const trimmed = url.trim()
   if (!trimmed || isAbsoluteLikeUrl(trimmed)) return trimmed
-  if (trimmed.startsWith('#')) return trimmed
-  if (!trimmed.startsWith('/')) return trimmed
+  if (!trimmed.startsWith(DIRECTUS_SERVED_PREFIX)) return trimmed
   return `${normalizeDirectusPublicUrl(directusPublicUrl)}${trimmed}`
 }
 

@@ -42,7 +42,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/mission', key: 'nav.links.mission' },
             // «Символіка університету» struck off the menu by the client; the page stays.
             { path: MEMORIAL_EXTERNAL_URL, key: 'nav.links.memorial', external: true },
-            { path: '/university/wartime', key: 'nav.links.wartime' },
+            // «У час війни» struck off the menu by the client; the page stays at its address.
             { path: '/university/volunteering', key: 'nav.links.volunteering' },
             { path: '/university/gallery', key: 'nav.links.gallery' },
             { path: '/university/newspaper', key: 'nav.links.newspaper' },
@@ -59,7 +59,12 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/structure', key: 'nav.links.structure' },
             { path: '/university/faculties', key: 'nav.links.facultiesAndDepts' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },
-            { path: '/university/press', key: 'nav.links.press' },
+            // «Пресцентр (для ЗМІ)» struck off the menu by the client; the page stays.
+            // Три записи, які клієнт переніс сюди 07.09: інклюзія й антикорупція з
+            // «Міжнародної діяльності», центр ветеранів — зі «Студентства».
+            { path: '/university/inclusive', key: 'nav.links.inclusive' },
+            { path: ANTICORRUPTION_EXTERNAL_URL, key: 'nav.links.anticorruption', external: true },
+            { path: '/student/veterans-center', key: 'nav.links.veteransCenter' },
             { path: '/university/contacts', key: 'nav.links.contacts' },
           ],
         },
@@ -91,8 +96,8 @@ export function useNavigation(): { items: NavItem[] } {
             { path: ACADEMIC_MOBILITY_EXTERNAL_URL, key: 'nav.links.mobility', external: true },
             { path: '/university/partners', key: 'nav.links.partners' },
             { path: '/university/agreements', key: 'nav.links.agreements' },
-            { path: '/university/inclusive', key: 'nav.links.inclusive' },
-            { path: ANTICORRUPTION_EXTERNAL_URL, key: 'nav.links.anticorruption', external: true },
+            // «Інклюзивний простір» і «Антикорупція» переїхали до «Управління» — вони не про
+            // міжнародну діяльність.
             // «Академічна доброчесність» moved to Наука → Наукова діяльність at the client's request.
           ],
         },
@@ -159,12 +164,12 @@ export function useNavigation(): { items: NavItem[] } {
           links: [
             { path: '/education/schedule', key: 'nav.links.processSchedule' },
             { path: '/education/programs', key: 'nav.links.programs' },
-            { path: '/education/curriculum', key: 'nav.links.curriculum' },
+            // «Навчальні плани» struck off the menu by the client; the page stays.
             { path: '/education/students', key: 'nav.links.studentContingent' },
             { path: '/education/quality?tab=students', key: 'nav.links.electives' },
             { path: '/education/accreditation', key: 'nav.links.accreditation' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },
-            { path: '/education/rankings', key: 'nav.links.rankings' },
+            // «Рейтинги» struck off the menu by the client; the page stays.
           ],
         },
         {
@@ -175,7 +180,7 @@ export function useNavigation(): { items: NavItem[] } {
             // «Дистанційне навчання» and «Дуальна освіта» entries with the platform itself.
             // Both pages stay in the app, just unlinked from the menu.
             { path: MOODLE_EXTERNAL_URL, key: 'nav.links.moodle', external: true },
-            { path: '/education/continuing', key: 'nav.links.continuing' },
+            // «Підвищення кваліфікації» struck off the menu by the client; the page stays.
             { path: '/education/practice', key: 'nav.links.practice' },
           ],
         },
@@ -250,7 +255,7 @@ export function useNavigation(): { items: NavItem[] } {
           links: [
             { path: '/admissions/dormitories', key: 'nav.links.dormitories' },
             { path: PSYCHOLOGICAL_SERVICE_URL, key: 'nav.links.psychology', external: true },
-            { path: '/student/social', key: 'nav.links.social' },
+            // «Соціальна підтримка» struck off the menu by the client; the page stays.
           ],
         },
         {
@@ -266,10 +271,9 @@ export function useNavigation(): { items: NavItem[] } {
           titleKey: 'nav.student.career',
           links: [
             { path: '/student/career', key: 'nav.links.career' },
-            { path: '/student/vacancies', key: 'nav.links.vacancies' },
+            // «Вакансії та практика» і «Неформальна освіта» struck off the menu by the client;
+            // «Центр ветеранського розвитку» переїхав до Університет → Управління. Сторінки лишаються.
             { path: '/student/alumni', key: 'nav.links.alumni' },
-            { path: '/student/nonformal', key: 'nav.links.nonformal' },
-            { path: '/student/veterans-center', key: 'nav.links.veteransCenter' },
           ],
         },
       ],

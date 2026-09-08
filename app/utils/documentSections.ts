@@ -55,6 +55,9 @@ export const DOCUMENT_SECTIONS = [
   'candidate-support',
   'science-council',
   'science-events',
+  // Звіти Студентського Парламенту — розділ на /student/council; на старому сайті він
+  // називався «Звіти про діяльність спілки студентів та молоді».
+  'student-council-reports',
 ] as const
 
 export type DocumentSection = (typeof DOCUMENT_SECTIONS)[number]

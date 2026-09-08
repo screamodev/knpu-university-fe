@@ -331,6 +331,16 @@ const auditMembers = computed(() => members.value.filter(member => member.group 
         {{ t('student.council.documentsTitle') }}
       </h2>
       <SharedDocumentList section="student-council" />
+
+      <!--
+        Звіти парламенту окремим розділом: на старому сайті вони називалися «Звіти про
+        діяльність спілки студентів та молоді», парламент попросив і перейменувати, і
+        відокремити їх від положень.
+      -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('student.council.reportsTitle') }}
+      </h2>
+      <SharedDocumentList section="student-council-reports" />
     </div>
   </div>
 </template>

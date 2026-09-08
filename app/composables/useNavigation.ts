@@ -145,10 +145,11 @@ export function useNavigation(): { items: NavItem[] } {
     },
     {
       labelKey: 'nav.labels.education',
-      minWidth: '720px',
+      // Дві колонки замість трьох — панель звузилася, щоб не лишалося порожнього поля.
+      minWidth: '520px',
       columns: [
         // Розкладку колонок задав клієнт: «Структура» лишає підрозділи, «Процес та якість»
-        // збирає все, що стосується змісту навчання, «Форми навчання» — способи його здобути.
+        // збирає все, що стосується змісту й організації навчання.
         {
           titleKey: 'nav.education.structure',
           links: [
@@ -170,17 +171,10 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/education/accreditation', key: 'nav.links.accreditation' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },
             // «Рейтинги» struck off the menu by the client; the page stays.
-          ],
-        },
-        {
-          titleKey: 'nav.education.forms',
-          links: [
-            { path: '/education/distance', key: 'nav.links.distance' },
-            // Distance learning is delivered through Moodle, so the client replaced the
-            // «Дистанційне навчання» and «Дуальна освіта» entries with the platform itself.
-            // Both pages stay in the app, just unlinked from the menu.
+            // Колонки «Форми навчання» більше немає (правка 08.09): «Заочна форма» знята з
+            // меню, а Moodle і практична підготовка переїхали сюди — це не окремі форми
+            // навчання, а частина процесу. Сторінка /education/distance лишається за адресою.
             { path: MOODLE_EXTERNAL_URL, key: 'nav.links.moodle', external: true },
-            // «Підвищення кваліфікації» struck off the menu by the client; the page stays.
             { path: '/education/practice', key: 'nav.links.practice' },
           ],
         },

@@ -29,6 +29,8 @@ const { data, pending } = await useAsyncData(
           'titleEn',
           'description',
           'descriptionEn',
+          'group',
+          'groupEn',
           'documentDate',
           'externalUrl',
           'order',
@@ -65,6 +67,28 @@ const visibleDocuments = computed(() =>
     ? documents.value.filter(item => documentYear(item) === selectedYear.value)
     : documents.value,
 )
+
+/**
+ * Optional subheadings inside one section.
+ *
+ * The графік освітнього процесу has to read as «Денна форма» / «Заочна форма» / «Вечірня форма»
+ * rather than one flat list, and the editor sets that per row. Rows keep their `order`, so a
+ * group is simply the run of neighbouring rows carrying the same label — no reshuffling here,
+ * otherwise a row moved in the admin would jump somewhere unexpected on the site. Sections where
+ * nobody filled the field render exactly as before: one unlabelled group.
+ */
+interface DocumentGroup { key: string; label: string; items: DirectusDocument[] }
+
+const groupedDocuments = computed<DocumentGroup[]>(() => {
+  const groups: DocumentGroup[] = []
+  for (const item of visibleDocuments.value) {
+    const label = (localized(item, 'group') ?? '').trim()
+    const last = groups[groups.length - 1]
+    if (last && last.label === label) last.items.push(item)
+    else groups.push({ key: `${label}-${item.id}`, label, items: [item] })
+  }
+  return groups
+})
 
 function formatDate(value: DirectusDocument['documentDate']): string {
   const date = new Date(String(value))
@@ -125,36 +149,42 @@ function meta(item: DirectusDocument): string {
     </div>
 
     <div v-else-if="visibleDocuments.length" class="space-y-3">
-      <div
-        v-for="(item, index) in visibleDocuments"
-        :key="item.id"
-        class="rounded-12 p-4 sm:px-4 sm:py-3 flex flex-col sm:grid sm:gap-4 sm:items-center gap-1.5 border border-border"
-        :class="index % 2 === 0 ? 'bg-off-white' : 'bg-white'"
-        style="grid-template-columns: 110px 1fr auto"
-      >
-        <span class="text-body-sm text-text-muted">{{ formatDate(item.documentDate) }}</span>
+      <template v-for="group in groupedDocuments" :key="group.key">
+        <h3 v-if="group.label" class="font-playfair text-lg font-semibold text-navy pt-3">
+          {{ group.label }}
+        </h3>
 
-        <span class="min-w-0">
-          <a
-            :href="href(item)"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-navy hover:text-gold transition-colors no-underline"
-          >
-            {{ localized(item, 'title') }}
-            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
-          </a>
-          <span v-if="localized(item, 'description')" class="block text-body-sm text-text-muted mt-0.5">
-            {{ localized(item, 'description') }}
-          </span>
-        </span>
+        <div
+          v-for="(item, index) in group.items"
+          :key="item.id"
+          class="rounded-12 p-4 sm:px-4 sm:py-3 flex flex-col sm:grid sm:gap-4 sm:items-center gap-1.5 border border-border"
+          :class="index % 2 === 0 ? 'bg-off-white' : 'bg-white'"
+          style="grid-template-columns: 110px 1fr auto"
+        >
+          <span class="text-body-sm text-text-muted">{{ formatDate(item.documentDate) }}</span>
 
-        <span v-if="meta(item)" class="text-body-sm">
-          <span class="inline-block px-2.5 py-0.5 rounded bg-gold/15 text-gold font-medium whitespace-nowrap">
-            {{ meta(item) }}
+          <span class="min-w-0">
+            <a
+              :href="href(item)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-navy hover:text-gold transition-colors no-underline"
+            >
+              {{ localized(item, 'title') }}
+              <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            </a>
+            <span v-if="localized(item, 'description')" class="block text-body-sm text-text-muted mt-0.5">
+              {{ localized(item, 'description') }}
+            </span>
           </span>
-        </span>
-      </div>
+
+          <span v-if="meta(item)" class="text-body-sm">
+            <span class="inline-block px-2.5 py-0.5 rounded bg-gold/15 text-gold font-medium whitespace-nowrap">
+              {{ meta(item) }}
+            </span>
+          </span>
+        </div>
+      </template>
     </div>
 
     <p v-else class="text-body text-text-muted py-10 text-center">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { type LinkTileIcon, linkTileIconPaths } from '~/utils/linkTileIcons'
+import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 /**
  * «Швидкий доступ» on the home page — six high-traffic destinations under the hero.
@@ -21,9 +22,12 @@ const links = computed<LinkTile[]>(() => [
   { label: t('quickAccess.library'), path: '/science/library', icon: 'document' },
   { label: t('quickAccess.quality'), path: '/education/quality', icon: 'document' },
   { label: t('quickAccess.monitoring'), path: '/education/monitoring', icon: 'document' },
+  // Антикорупційний відділ веде свій Google-сайт і попросив вести туди прямо з плитки:
+  // локальна сторінка лишається за адресою /university/anticorruption, але ні меню, ні
+  // «Швидкий доступ» на неї більше не ведуть.
   {
     label: t('quickAccess.anticorruption'),
-    path: '/university/anticorruption',
+    url: ANTICORRUPTION_EXTERNAL_URL,
     icon: 'document',
   },
   // Іноземний вступник заходить не через структуру підрозділів, тож умови вступу для нього

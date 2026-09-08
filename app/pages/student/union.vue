@@ -1,14 +1,25 @@
 <script setup lang="ts">
+/**
+ * Первинна профспілкова організація студентів.
+ *
+ * Текст, контакти й фото голови надійшли від самої профспілки 08.09 — до цього сторінка
+ * показувала демонстраційний набір «переваг членства» з чернетки макета. Контент статичний:
+ * профспілка надсилає правки поштою, окремої колекції в Directus для неї немає.
+ */
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
 
 useHead({
-  title: () => t('nav.links.union'),
+  title: () => t('student.union.title'),
   meta: [{ name: 'description', content: () => t('student.union.subtitle') }],
 })
 
-const benefitKeys = ['legal', 'discounts', 'cultural', 'sports', 'financial', 'development'] as const
+const CHAIR_PHOTO = '/images/static/sidak.jpg'
+const UNION_PHONE = '+380506259461'
+const UNION_EMAIL = 'profspilkahnpu@ukr.net'
+
+const areaKeys = ['housing', 'sports', 'organisational', 'cultural', 'social'] as const
 </script>
 
 <template>
@@ -28,36 +39,86 @@ const benefitKeys = ['legal', 'discounts', 'cultural', 'sports', 'financial', 'd
       </div>
     </div>
 
-    <!-- Intro 2-col: text + placeholder image -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-14">
-        <p class="text-body text-text-muted">
-          {{ t('student.union.intro') }}
-        </p>
-        <div
-          class="rounded-16 overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep aspect-[4/3] flex items-center justify-center shrink-0"
+      <!-- Голова: фото, посада, контакти -->
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-start mb-14">
+        <img
+          :src="CHAIR_PHOTO"
+          :alt="t('student.union.chairName')"
+          class="w-full max-w-[280px] rounded-16 object-cover"
+          loading="lazy"
         >
-          <svg
-            class="w-16 h-16 text-gold/30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M13 7a4 4 0 1 1 8 0v4a4 4 0 0 1-8 0V7z" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M9 11h6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-2">
+            {{ t('student.union.chairTitle') }}
+          </span>
+          <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+            {{ t('student.union.chairName') }}
+          </h2>
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-body text-text-muted">
+            <div>
+              <dt class="text-[11px] font-semibold uppercase tracking-wider text-gold mb-1">
+                {{ t('student.union.contactPhone') }}
+              </dt>
+              <dd>
+                <a
+                  :href="`tel:${UNION_PHONE}`"
+                  class="text-navy no-underline hover:text-gold transition-colors"
+                >
+                  +38 (050) 625-94-61
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[11px] font-semibold uppercase tracking-wider text-gold mb-1">
+                {{ t('student.union.contactEmail') }}
+              </dt>
+              <dd>
+                <a
+                  :href="`mailto:${UNION_EMAIL}`"
+                  class="text-navy no-underline hover:text-gold transition-colors break-all"
+                >
+                  {{ UNION_EMAIL }}
+                </a>
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
 
-      <!-- Benefits grid: 2x3 -->
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
-        {{ t('student.union.benefitsTitle') }}
+      <!-- Що таке профспілка / про організацію -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-14">
+        <section>
+          <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+            {{ t('student.union.whatTitle') }}
+          </h2>
+          <p class="text-body text-text-muted">
+            {{ t('student.union.whatText') }}
+          </p>
+        </section>
+        <section>
+          <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+            {{ t('student.union.aboutTitle') }}
+          </h2>
+          <p class="text-body text-text-muted mb-4">
+            {{ t('student.union.aboutText') }}
+          </p>
+          <p class="text-body text-text-muted">
+            {{ t('student.union.aboutFaculties') }}
+          </p>
+        </section>
+      </div>
+
+      <!-- Напрями діяльності -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-3">
+        {{ t('student.union.areasTitle') }}
       </h2>
+      <p class="text-body text-text-muted mb-8">
+        {{ t('student.union.areasIntro') }}
+      </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
         <article
-          v-for="key in benefitKeys"
+          v-for="key in areaKeys"
           :key="key"
           class="bg-white border border-border rounded-16 p-6 flex flex-col transition-all duration-280 hover:border-gold/40"
         >
@@ -70,49 +131,25 @@ const benefitKeys = ['legal', 'discounts', 'cultural', 'sports', 'financial', 'd
             </svg>
           </div>
           <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-            {{ t(`student.union.benefits.${key}.title`) }}
+            {{ t(`student.union.areas.${key}.title`) }}
           </h3>
           <p class="text-body-sm text-text-muted">
-            {{ t(`student.union.benefits.${key}.text`) }}
+            {{ t(`student.union.areas.${key}.text`) }}
           </p>
         </article>
       </div>
 
-      <!-- Contact block: callout card -->
+      <!-- Підсумок -->
       <div class="bg-off-white border border-border rounded-16 p-8 lg:p-10">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
-          {{ t('student.union.contactTitle') }}
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+          {{ t('student.union.summaryTitle') }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-body text-text-muted">
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-1">
-              {{ t('student.union.contactPhone') }}
-            </span>
-            <a href="tel:+380577000238" class="text-navy no-underline hover:text-gold transition-colors">
-              +38 (057) 700-02-38
-            </a>
-          </div>
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-1">
-              {{ t('student.union.contactEmail') }}
-            </span>
-            <a href="mailto:union@KhNPU.edu.ua" class="text-navy no-underline hover:text-gold transition-colors">
-              union&#64;KhNPU.edu.ua
-            </a>
-          </div>
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-1">
-              {{ t('student.union.contactHours') }}
-            </span>
-            <span>Пн–Пт 9:00–17:00</span>
-          </div>
-          <div>
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-gold block mb-1">
-              {{ t('student.union.contactLocation') }}
-            </span>
-            <span>Головний корпус, к. 312</span>
-          </div>
-        </div>
+        <p class="text-body text-text-muted mb-4">
+          {{ t('student.union.summaryText') }}
+        </p>
+        <p class="text-body text-text-muted">
+          {{ t('student.union.summaryNote') }}
+        </p>
       </div>
     </div>
   </div>

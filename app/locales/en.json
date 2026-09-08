@@ -3531,45 +3531,50 @@
       "auditTitle": "Audit committee",
       "newsTitle": "Student government news",
       "documentsTitle": "Documents",
-      "sectorLead": "Head of the sector"
+      "sectorLead": "Head of the sector",
+      "reportsTitle": "Student Parliament reports"
     },
     "union": {
       "tag": "For students",
       "title": "Student union",
-      "subtitle": "Legal support, benefits and cultural and sports activities for students.",
-      "intro": "The student union offers legal advice, benefits, discounts and joint cultural and sports programmes.",
-      "benefitsTitle": "Membership benefits",
-      "benefits": {
-        "legal": {
-          "title": "Legal assistance",
-          "text": "Consultations on tenancy, employment and academic disputes where union lawyers assist."
-        },
-        "discounts": {
-          "title": "Discounts",
-          "text": "Partner discounts on transport, culture, services and insurance."
-        },
-        "cultural": {
-          "title": "Cultural events",
-          "text": "Theatre, concerts, festivals and excursions organised for members."
+      "subtitle": "Primary trade union organisation of students of H. S. Skovoroda KhNPU.",
+      "chairTitle": "Head of the primary trade union organisation of students",
+      "chairName": "Anastasiia Sidak",
+      "whatTitle": "What is a trade union?",
+      "whatText": "A trade union is a voluntary non-profit organisation that represents and protects the rights and lawful interests of its members. The student trade union of H. S. Skovoroda KhNPU works to protect the socio-economic, housing and welfare rights and interests of students.",
+      "aboutTitle": "About the student trade union of KhNPU",
+      "aboutText": "The primary trade union organisation of students of H. S. Skovoroda KhNPU represents the student community on matters of social protection, observance of rights and social guarantees for students.",
+      "aboutFaculties": "For students' convenience, union representatives work at every faculty of the university. They can be approached with questions about union membership, social protection, everyday matters and other issues related to students' rights.",
+      "areasTitle": "What the union does",
+      "areasIntro": "The main areas of the union's work are:",
+      "areas": {
+        "housing": {
+          "title": "Housing and welfare",
+          "text": "Help with matters related to living in the halls of residence and other everyday welfare issues."
         },
         "sports": {
-          "title": "Sports",
-          "text": "Subsidised access to facilities, sections and competitions."
+          "title": "Sports and health",
+          "text": "Support for sports and health events, for students taking part in university sports and for promoting a healthy lifestyle."
         },
-        "financial": {
-          "title": "Financial aid",
-          "text": "Information on stipends, loans and social payments students may claim."
+        "organisational": {
+          "title": "Organisational work",
+          "text": "Running the union structure, working with faculty representatives, informing students and coordinating union activity."
         },
-        "development": {
-          "title": "Professional development",
-          "text": "Workshops on soft skills, career planning and entrepreneurship."
+        "cultural": {
+          "title": "Culture and events",
+          "text": "Organising and supporting cultural, educational and leisure events for students."
+        },
+        "social": {
+          "title": "Social and legal protection",
+          "text": "Representing and protecting students' rights and lawful interests, providing advice, informing about social guarantees and helping to resolve social issues."
         }
       },
-      "contactTitle": "Contact us",
+      "summaryTitle": "Main areas of the union's work",
+      "summaryText": "The work of the primary trade union organisation of students is aimed at protecting students' rights and interests, providing social support, representing students in their dealings with the university, organising cultural, sports and health activities, and helping with housing and welfare matters.",
+      "summaryNote": "The union is one of the mechanisms for representing students' interests and ensuring their participation in decisions that affect student life.",
+      "contactTitle": "Contacts",
       "contactPhone": "Phone",
-      "contactEmail": "Email",
-      "contactHours": "Office hours",
-      "contactLocation": "Location"
+      "contactEmail": "Email"
     },
     "sports": {
       "tag": "Student life",

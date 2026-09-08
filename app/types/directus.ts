@@ -416,6 +416,9 @@ export interface DirectusDocument {
   titleEn: string | null
   description: string | null
   descriptionEn: string | null
+  /** Optional subheading the list groups rows under — «Денна форма», «Заочна форма»… */
+  group?: string | null
+  groupEn?: string | null
   documentDate: DirectusDateLike
   /** Either an uploaded file… */
   file: DirectusFile | string | null

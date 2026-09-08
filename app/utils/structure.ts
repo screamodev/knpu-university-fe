@@ -1106,12 +1106,16 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
     name: 'За участю першого проректора',
     nameEn: 'Chaired by the First Vice-Rector',
     items: [
+      // Перейменування за виправленою схемою від 11.08.2026 і листом самого центру:
+      // «Центр інтеграції та розвитку освітніх практик» → «Центр розвитку
+      // компетентностей учителя». У схемі «Сковорода-хаб» названий «Освітнім хабом»,
+      // але це бренд із власним сайтом і сторінкою — не чіпаємо без окремого прохання.
       { name: 'Сковорода-хаб', nameEn: 'Skovoroda Hub', external: EDUHUB_EXTERNAL_URL },
       { name: 'Рада гарантів ОП', nameEn: 'Council of Study Programme Guarantors' },
       { name: 'STEM-центр', nameEn: 'STEM Centre' },
       {
-        name: 'Центр інтеграції та розвитку освітніх практик',
-        nameEn: 'Centre for Integration and Development of Educational Practices',
+        name: 'Центр розвитку компетентностей учителя',
+        nameEn: 'Centre for the Development of Teacher Competences',
       },
       {
         name: 'Навчально-методичний центр технологій альтернативної й додаткової комунікації в освіті',

@@ -192,7 +192,7 @@ const showAudienceCta = computed(
             :kind="unit.kind"
           />
           <SharedStructureUnitAnnouncements
-            v-if="tab === 'home'"
+            v-if="tab === 'home' && !manifest?.hideAnnouncements"
             :unit-category-slug="homeNewsCategory"
           />
         </aside>

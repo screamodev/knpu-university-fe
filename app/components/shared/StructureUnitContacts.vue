@@ -29,6 +29,19 @@ const phones = computed(() =>
 const position = computed(() => localized(props.contacts, 'position'))
 const address = computed(() => localized(props.contacts, 'address'))
 
+/** Everyone besides the head, each with their own number. */
+const staff = computed(() =>
+  (props.contacts.staff ?? []).map(person => ({
+    name: localized(person, 'name'),
+    position: localized(person, 'position'),
+    phone: person.phone?.trim() || '',
+  })),
+)
+
+function telHref(phone: string): string {
+  return `tel:${phone.replace(/[^+\d]/g, '')}`
+}
+
 const socials = computed(() =>
   [
     { key: 'facebook', url: props.contacts.facebook, label: 'Facebook' },
@@ -37,7 +50,10 @@ const socials = computed(() =>
 )
 
 const hasAny = computed(() =>
-  Boolean(dean.value || address.value || props.contacts.phone || props.contacts.email || socials.value.length),
+  Boolean(
+    dean.value || address.value || props.contacts.phone || props.contacts.email
+    || staff.value.length || socials.value.length,
+  ),
 )
 </script>
 
@@ -67,7 +83,35 @@ const hasAny = computed(() =>
       </a>
       <div v-else class="text-navy font-semibold">{{ dean }}</div>
       <div v-if="position" class="text-body-sm text-text-muted mt-0.5">{{ position }}</div>
+      <a
+        v-if="contacts.phone && staff.length"
+        :href="telHref(contacts.phone)"
+        class="text-body-sm text-navy hover:text-gold transition-colors duration-280"
+      >
+        {{ contacts.phone }}
+      </a>
     </div>
+
+    <!--
+      Список співробітників іде під керівником і забирає собі телефони: коли в кожного свій
+      номер, спільний рядок «Телефон» унизу лише плутає, тож він лишається тільки там, де
+      списку немає.
+    -->
+    <ul v-if="staff.length" class="mb-4 flex flex-col gap-3 list-none m-0 p-0">
+      <li v-for="person in staff" :key="person.name">
+        <div class="text-navy font-semibold">{{ person.name }}</div>
+        <div v-if="person.position" class="text-body-sm text-text-muted mt-0.5">
+          {{ person.position }}
+        </div>
+        <a
+          v-if="person.phone"
+          :href="telHref(person.phone)"
+          class="text-body-sm text-navy hover:text-gold transition-colors duration-280"
+        >
+          {{ person.phone }}
+        </a>
+      </li>
+    </ul>
 
     <dl class="space-y-3 text-body-sm">
       <div v-if="address">
@@ -76,7 +120,7 @@ const hasAny = computed(() =>
         </dt>
         <dd class="text-navy">{{ address }}</dd>
       </div>
-      <div v-if="phones.length">
+      <div v-if="phones.length && !staff.length">
         <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-0.5">
           {{ t('university.structure.unit.phoneLabel') }}
         </dt>

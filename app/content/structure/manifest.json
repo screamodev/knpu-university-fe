@@ -953,17 +953,28 @@
     "documentTabs": [
       "regulations"
     ],
-    "categoryTabs": [
-      "announcements"
-    ],
-    "categorySlugs": {
-      "announcements": "ogoloshennya"
-    },
     "contacts": {
       "dean": "Разуменко Ірина Василівна",
       "position": "кандидат філологічних наук, професор, завідувач відділу",
-      "address": "61002, м. Харків, вул. Алчевських, 29, к. 103",
       "phone": "+38 (067) 940 31 33",
+      "staff": [
+        {
+          "name": "Атанова Ольга Олександрівна",
+          "position": "старший інспектор відділу",
+          "phone": "+38 (099) 764 66 62"
+        },
+        {
+          "name": "Паульс Вікторія Олександрівна",
+          "position": "старший інспектор відділу",
+          "phone": "+38 (050) 717 84 61"
+        },
+        {
+          "name": "Клочко Тетяна Павлівна",
+          "position": "інспектор відділу",
+          "phone": "+38 (096) 647 20 75"
+        }
+      ],
+      "address": "61002, м. Харків, вул. Алчевських, 29, к. 103",
       "email": "aspirantura-2010@hnpu.edu.ua"
     },
     "tabLabels": {
@@ -983,7 +994,8 @@
         "uk": "Аспіранту",
         "en": "For PhD students"
       }
-    }
+    },
+    "hideAnnouncements": true
   },
   "preschool": {
     "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",

@@ -44,6 +44,15 @@ export const STRUCTURE_DOCUMENT_TABS: Partial<Record<StructureTabId, string>> = 
   regulations: 'postgraduate-regulations',
 }
 
+/** A member of staff listed under the head in the contacts card, with their own phone. */
+export interface StructureUnitContactPerson {
+  name: string
+  nameEn?: string
+  position?: string
+  positionEn?: string
+  phone?: string
+}
+
 export interface StructureUnitContacts {
   dean?: string
   deanEn?: string
@@ -51,6 +60,11 @@ export interface StructureUnitContacts {
   deanUrl?: string
   position?: string
   positionEn?: string
+  /**
+   * Everyone else worth phoning. The відділ аспірантури asked for its inspectors here: one
+   * `phone` line for the whole unit was not enough, each of them takes calls on their own number.
+   */
+  staff?: StructureUnitContactPerson[]
   address?: string
   addressEn?: string
   phone?: string
@@ -78,6 +92,8 @@ export interface StructureUnitManifestEntry {
    */
   tabLabels?: Partial<Record<StructureTabId, { uk: string; en?: string }>>
   contacts?: StructureUnitContacts
+  /** Hide the «Оголошення» card beside the contacts — set where the unit does not use it. */
+  hideAnnouncements?: boolean
 }
 
 /**

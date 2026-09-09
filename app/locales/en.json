@@ -2805,7 +2805,8 @@
       },
       "ctaTitle": "Join our community",
       "ctaSubtitle": "Fill in the form or contact us to join the student research society.",
-      "ctaButton": "Join"
+      "ctaButton": "Join",
+      "siteLink": "Student Research Society website"
     },
     "graduate": {
       "tag": "Science",

@@ -8,6 +8,15 @@ useHead({
   meta: [{ name: 'description', content: () => t('science.studentSociety.subtitle') }],
 })
 
+const { assetUrl } = useDirectus()
+
+/**
+ * Товариство веде власний Google-сайт — саме туди воно попросило вести з цієї сторінки 09.09.
+ * Емблема взята звідти ж і лежить у медіатеці Directus.
+ */
+const SNT_EMBLEM = '35fd9ec7-9f68-5c67-adee-ff82289c8130'
+const SNT_SITE_URL = 'https://sites.google.com/hnpu.edu.ua/studentskenaukovetovarystvo'
+
 const activityIds = ['conferences', 'competitions', 'publications'] as const
 </script>
 
@@ -30,9 +39,28 @@ const activityIds = ['conferences', 'competitions', 'publications'] as const
 
     <!-- Intro + activity cards -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <p class="text-body text-text-muted max-w-3xl mb-12">
-        {{ t('science.studentSociety.intro') }}
-      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 items-start mb-12">
+        <img
+          :src="assetUrl(SNT_EMBLEM, { width: 440, format: 'auto' }) ?? undefined"
+          :alt="t('science.studentSociety.title')"
+          class="w-full max-w-[220px] mx-auto lg:mx-0"
+          loading="lazy"
+        >
+        <div>
+          <p class="text-body text-text-muted max-w-3xl">
+            {{ t('science.studentSociety.intro') }}
+          </p>
+          <a
+            :href="SNT_SITE_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center rounded-10 border border-border px-4 py-2 text-body-sm font-medium text-navy no-underline transition-colors duration-280 hover:border-gold hover:text-gold"
+          >
+            {{ t('science.studentSociety.siteLink') }}
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
+        </div>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
         <article

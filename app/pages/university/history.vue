@@ -8,12 +8,28 @@ useHead({
   meta: [{ name: 'description', content: () => t('university.history.subtitle') }],
 })
 
+const { assetUrl } = useDirectus()
+
+/**
+ * Фотографії до кожної віхи прислала пресслужба 09.09 — до того на їх місці стояли
+ * градієнтні заглушки. Файли лежать у медіатеці Directus, тож замінити знімок можна
+ * в адмінці, не чіпаючи код: uuid тут — це рядок у «Файли».
+ */
+const HISTORY_PHOTOS = {
+  main: 'e756dd75-eea9-5f12-af22-24b01a7636ed',
+  1804: '7b73ec22-f490-5280-bf2c-37512b8e9697',
+  1945: 'ce31138f-8d5a-5c35-80d1-56970e7683f0',
+  1994: '2b1a0512-b47e-5e17-a65e-f35d31bffabf',
+  2004: '257c06e7-a48d-5851-b45f-588cb675bed7',
+  now: '00a9b50e-1ce1-53e6-98f3-da418e5eceef',
+} as const
+
 const timelineEntries = computed(() => [
-  { year: '1804', titleKey: 'university.history.timeline.1804.title', textKey: 'university.history.timeline.1804.text' },
-  { year: '1945', titleKey: 'university.history.timeline.1945.title', textKey: 'university.history.timeline.1945.text' },
-  { year: '1994', titleKey: 'university.history.timeline.1994.title', textKey: 'university.history.timeline.1994.text' },
-  { year: '2004', titleKey: 'university.history.timeline.2004.title', textKey: 'university.history.timeline.2004.text' },
-  { year: t('university.history.timeline.now.year'), titleKey: 'university.history.timeline.now.title', textKey: 'university.history.timeline.now.text' },
+  { year: '1804', titleKey: 'university.history.timeline.1804.title', textKey: 'university.history.timeline.1804.text', photo: HISTORY_PHOTOS[1804] },
+  { year: '1945', titleKey: 'university.history.timeline.1945.title', textKey: 'university.history.timeline.1945.text', photo: HISTORY_PHOTOS[1945] },
+  { year: '1994', titleKey: 'university.history.timeline.1994.title', textKey: 'university.history.timeline.1994.text', photo: HISTORY_PHOTOS[1994] },
+  { year: '2004', titleKey: 'university.history.timeline.2004.title', textKey: 'university.history.timeline.2004.text', photo: HISTORY_PHOTOS[2004] },
+  { year: t('university.history.timeline.now.year'), titleKey: 'university.history.timeline.now.title', textKey: 'university.history.timeline.now.text', photo: HISTORY_PHOTOS.now },
 ])
 </script>
 
@@ -41,20 +57,12 @@ const timelineEntries = computed(() => [
           <p>{{ t('university.history.intro1') }}</p>
           <p>{{ t('university.history.intro2') }}</p>
         </div>
-        <div
-          class="aspect-[4/5] max-h-[420px] w-full rounded-16 overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
+        <img
+          :src="assetUrl(HISTORY_PHOTOS.main, { width: 900, quality: 82 }) ?? undefined"
+          :alt="t('university.history.title')"
+          class="aspect-[4/5] max-h-[420px] w-full rounded-16 object-cover shrink-0"
+          loading="lazy"
         >
-          <svg
-            class="w-16 h-16 text-gold/30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-          </svg>
-        </div>
       </div>
     </div>
 
@@ -95,21 +103,12 @@ const timelineEntries = computed(() => [
             </div>
 
             <!-- Image side -->
-            <div
-              class="md:w-[calc(50%-2rem)] rounded-16 overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep aspect-video md:aspect-[4/3] flex items-center justify-center"
+            <img
+              :src="assetUrl(entry.photo, { width: 800, quality: 82 }) ?? undefined"
+              :alt="`${entry.year} — ${t(entry.titleKey)}`"
+              class="md:w-[calc(50%-2rem)] rounded-16 aspect-video md:aspect-[4/3] object-cover"
+              loading="lazy"
             >
-              <svg
-                class="w-10 h-10 text-gold/30"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-            </div>
           </div>
         </div>
       </div>

@@ -3587,30 +3587,34 @@
     },
     "arts": {
       "tag": "For students",
-      "title": "Arts groups",
-      "subtitle": "Choir, dance, theatre and instrumental ensembles for students.",
-      "intro": "Arts collectives include choir, dance, theatre and instrumental groups with regular rehearsals and performances.",
+      "title": "Arts ensembles",
+      "subtitle": "Choirs, dance ensembles, theatre and the drumline of the university.",
+      "intro": "Six arts ensembles work at the university, from the Cossack choir to the theatre laboratory. Any student can join.",
       "ensemblesTitle": "Ensembles",
       "ensembles": {
-        "choir": {
-          "name": "Folk choir",
-          "members": "45 members",
-          "text": "Ukrainian and international choral repertoire; concerts and competitions."
+        "cossackChoir": {
+          "name": "I. I. Martynenko Cossack Choir",
+          "members": ""
         },
-        "dance": {
-          "name": "Dance ensemble",
-          "members": "32 members",
-          "text": "Contemporary and folk choreography with public showcases."
+        "starlight": {
+          "name": "“Starlight” modern and pop dance ensemble",
+          "members": ""
         },
-        "theatre": {
-          "name": "Theatre studio",
-          "members": "28 members",
-          "text": "Acting studio, productions and participation in student festivals."
+        "studentChoir": {
+          "name": "“Skovorodynivske Vidlunnia” student choir",
+          "members": "20 members"
         },
-        "instrumental": {
-          "name": "Instrumental ensemble",
-          "members": "20 members",
-          "text": "Small ensembles and instrumental coaching across classical and popular styles."
+        "bumerang": {
+          "name": "“Bumerang” folk pop and sports dance ensemble",
+          "members": ""
+        },
+        "reforma": {
+          "name": "“REFORMA” theatre laboratory",
+          "members": ""
+        },
+        "vilnaDusha": {
+          "name": "“Vilna Dusha” drumline",
+          "members": "12 members"
         }
       },
       "eventsTitle": "Upcoming performances"

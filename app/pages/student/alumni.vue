@@ -2,6 +2,10 @@
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
+const { assetUrl } = useDirectus()
+
+/** Фото асоціації випускників, надіслане пресслужбою 09.09; лежить у медіатеці Directus. */
+const ALUMNI_PHOTO = 'c72d0c6d-b854-5286-ac0b-27bb279aa85b'
 
 useHead({
   title: () => t('nav.links.alumni'),
@@ -34,33 +38,12 @@ const benefitKeys = ['networking', 'mentorship', 'careerSupport', 'discounts'] a
         <p class="text-body text-text-muted">
           {{ t('student.alumni.intro') }}
         </p>
-        <div
-          class="rounded-16 overflow-hidden bg-gradient-to-br from-navy-mid to-navy-deep aspect-[4/3] flex items-center justify-center shrink-0"
+        <img
+          :src="assetUrl(ALUMNI_PHOTO, { width: 900, quality: 82 }) ?? undefined"
+          :alt="t('student.alumni.title')"
+          class="rounded-16 aspect-[4/3] object-cover shrink-0 w-full"
+          loading="lazy"
         >
-          <svg
-            class="w-16 h-16 text-gold/30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M13 7a4 4 0 1 1 8 0v4a4 4 0 0 1-8 0V7z"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9 11h6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
       </div>
 
       <!-- Benefits grid: 2x2 -->

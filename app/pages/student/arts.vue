@@ -8,7 +8,21 @@ useHead({
   meta: [{ name: 'description', content: () => t('student.arts.subtitle') }],
 })
 
-const ensembleKeys = ['choir', 'dance', 'theatre', 'instrumental'] as const
+const { assetUrl } = useDirectus()
+
+/**
+ * Шість колективів із фотографіями, які надіслала пресслужба 09.09 — до того сторінка
+ * показувала чотири вигадані ансамблі з градієнтними заглушками. Знімки лежать у медіатеці
+ * Directus, тож замінити їх можна в адмінці.
+ */
+const ensembles = [
+  { key: 'cossackChoir', photo: '7a5cbd7d-f081-5b04-b41a-b86e416ec05e' },
+  { key: 'starlight', photo: '7cd3cc9f-79ee-529a-b496-67d9a90d3caf' },
+  { key: 'studentChoir', photo: 'f6a77684-a6b9-54ab-8d87-c1b60ff6fd24' },
+  { key: 'bumerang', photo: '4bd98658-a09a-558f-86df-aafba647db93' },
+  { key: 'reforma', photo: 'cb6952f7-42ed-5f17-af47-b31cfcf3762a' },
+  { key: 'vilnaDusha', photo: 'e34254c5-75cb-5237-b2ab-7ebf67ecaa4e' },
+] as const
 </script>
 
 <template>
@@ -42,37 +56,22 @@ const ensembleKeys = ['choir', 'dance', 'theatre', 'instrumental'] as const
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <article
-          v-for="key in ensembleKeys"
-          :key="key"
+          v-for="ensemble in ensembles"
+          :key="ensemble.key"
           class="bg-white border border-border rounded-16 overflow-hidden flex flex-col transition-all duration-280 hover:border-gold/40"
         >
-          <div
-            class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
-            aria-hidden
+          <img
+            :src="assetUrl(ensemble.photo, { width: 800, quality: 82 }) ?? undefined"
+            :alt="t(`student.arts.ensembles.${ensemble.key}.name`)"
+            class="aspect-[4/3] object-cover shrink-0"
+            loading="lazy"
           >
-            <svg
-              class="w-14 h-14 text-gold/30"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <path
-                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
           <div class="p-6 flex flex-col flex-1">
             <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
-              {{ t(`student.arts.ensembles.${key}.name`) }}
+              {{ t(`student.arts.ensembles.${ensemble.key}.name`) }}
             </h3>
-            <p class="text-body-sm text-text-muted mb-3">
-              {{ t(`student.arts.ensembles.${key}.members`) }}
-            </p>
-            <p class="text-body-sm text-text-muted">
-              {{ t(`student.arts.ensembles.${key}.text`) }}
+            <p v-if="t(`student.arts.ensembles.${ensemble.key}.members`)" class="text-body-sm text-text-muted">
+              {{ t(`student.arts.ensembles.${ensemble.key}.members`) }}
             </p>
           </div>
         </article>

@@ -23,6 +23,16 @@ export const EDUHUB_EXTERNAL_URL
  */
 export const PSYCHOLOGICAL_SERVICE_URL = 'https://sites.google.com/hnpu.edu.ua/pskhnpu'
 
+/**
+ * Академічна доброчесність — Google Site of the integrity office.
+ *
+ * The local page at `/university/integrity` stays and keeps the menu entry; the office asked for
+ * their own site behind the «Швидкий доступ» tile, where people look for it first.
+ */
+export const ACADEMIC_INTEGRITY_EXTERNAL_URL
+  = 'https://sites.google.com/hnpu.edu.ua/akdob/'
+    + '%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0'
+
 /** Наукові школи — Google Site the research office keeps in full detail. */
 export const SCIENCE_SCHOOLS_EXTERNAL_URL = 'https://sites.google.com/hnpu.edu.ua/scienceschools'
 

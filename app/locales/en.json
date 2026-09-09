@@ -241,7 +241,8 @@
     "quality": "Quality of education",
     "monitoring": "Monitoring",
     "anticorruption": "Anti-corruption",
-    "foreignAdmission": "International admission"
+    "foreignAdmission": "International admission",
+    "integrity": "Academic integrity"
   },
   "sections": {
     "news": {
@@ -1025,7 +1026,7 @@
       "backToErasmus": "Back to Erasmus+"
     },
     "inclusive": {
-      "tag": "International",
+      "tag": "Governance",
       "title": "Inclusive environment",
       "subtitle": "Accessibility and support for all participants in university life."
     },

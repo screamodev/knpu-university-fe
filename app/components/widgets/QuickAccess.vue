@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { type LinkTileIcon, linkTileIconPaths } from '~/utils/linkTileIcons'
+import { ACADEMIC_INTEGRITY_EXTERNAL_URL } from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 /**
@@ -28,6 +29,13 @@ const links = computed<LinkTile[]>(() => [
   {
     label: t('quickAccess.anticorruption'),
     url: ANTICORRUPTION_EXTERNAL_URL,
+    icon: 'document',
+  },
+  // Відділ академічної доброчесності веде свій Google-сайт — плитка веде туди. Локальна
+  // сторінка /university/integrity лишається й далі стоїть у меню «Наука».
+  {
+    label: t('quickAccess.integrity'),
+    url: ACADEMIC_INTEGRITY_EXTERNAL_URL,
     icon: 'document',
   },
   // Іноземний вступник заходить не через структуру підрозділів, тож умови вступу для нього

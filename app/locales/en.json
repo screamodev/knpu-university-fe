@@ -3751,48 +3751,10 @@
     },
     "veteransCenter": {
       "tag": "For students",
-      "title": "Veterans development centre",
-      "subtitle": "Support for veterans: psychology, career, education and community.",
-      "intro": "The centre offers psychological care, career counselling, education pathways, peer support and adaptive sport for veterans and combatants.",
-      "servicesTitle": "Services",
-      "services": {
-        "psychological": {
-          "title": "Psychological support",
-          "text": "Trauma-informed counselling and referral to specialist services."
-        },
-        "career": {
-          "title": "Career reintegration",
-          "text": "CV translation, job search and cooperation with employers hiring veterans."
-        },
-        "educational": {
-          "title": "Educational programmes",
-          "text": "Guidance on admission, bridging courses and flexible study modes."
-        },
-        "peer": {
-          "title": "Peer community",
-          "text": "Peer groups and veteran–student mentorship on campus."
-        }
-      },
-      "supportTitle": "Support programmes",
-      "support": {
-        "tuition": {
-          "title": "Tuition support",
-          "text": "Information on statutory fee exemptions, grants and faculty liaisons."
-        },
-        "mentorship": {
-          "title": "Mentorship",
-          "text": "Assigned mentors from faculty and alumni for academic and personal transition."
-        },
-        "sports": {
-          "title": "Adaptive sports",
-          "text": "Inclusive sports and rehabilitation activities with university trainers."
-        }
-      },
-      "contactTitle": "Contact us",
-      "contactPhone": "Phone",
-      "contactEmail": "Email",
-      "contactHours": "Office hours",
-      "contactCoordinator": "Coordinator"
+      "title": "Veteran Development Centre",
+      "subtitle": "Legal, financial, psychological and speech therapy support for service members and their families.",
+      "regulationTitle": "Regulations",
+      "regulationLink": "Regulation on the Veteran Development Centre — in the university regulations"
     },
     "notableAlumni": {
       "tag": "Sports club",

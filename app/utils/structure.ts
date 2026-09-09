@@ -199,7 +199,13 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
     nameEn: 'Institute of Postgraduate Education',
     external: 'http://ipohnpu.in.ua/',
     items: [
-      { name: 'Центр карʼєрного зростання', nameEn: 'Career Development Centre' },
+      // Центр веде сторінку в розділі «Студентство» — з переліку структури ведемо туди,
+      // щоб не було двох різних сторінок про той самий центр.
+      {
+        name: 'Центр карʼєрного зростання',
+        nameEn: 'Career Development Centre',
+        path: '/student/career',
+      },
       { name: 'Центр освіти дорослих', nameEn: 'Adult Education Centre' },
       {
         name: 'Центр підготовки вчителів початкових класів до проходження сертифікації педагогічних працівників',

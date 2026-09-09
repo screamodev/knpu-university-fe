@@ -155,7 +155,7 @@
       "union": "Student union",
       "sports": "Sports",
       "arts": "Arts groups",
-      "career": "Career centre",
+      "career": "Career Development Centre",
       "vacancies": "Vacancies and internships",
       "alumni": "Alumni association",
       "nonformal": "Non-formal education",
@@ -3621,42 +3621,8 @@
     },
     "career": {
       "tag": "For students",
-      "title": "Career centre",
-      "subtitle": "Consultations, job fairs and employment support.",
-      "intro": "The career centre offers CV checks, interview practice, employer events and job search support for students and graduates.",
-      "servicesTitle": "Services",
-      "services": {
-        "cv": {
-          "title": "CV workshops",
-          "text": "Structured feedback on CVs, cover letters and teaching portfolios."
-        },
-        "interview": {
-          "title": "Interview prep",
-          "text": "Mock interviews and negotiation tips for schools and companies."
-        },
-        "fairs": {
-          "title": "Career fairs",
-          "text": "Career fairs and sector meetings with regional employers."
-        },
-        "employers": {
-          "title": "Employer presentations",
-          "text": "Company and school presentations with Q&A on vacancies."
-        },
-        "internship": {
-          "title": "Internship matching",
-          "text": "Matching students with internship and trainee programmes."
-        },
-        "counselling": {
-          "title": "Career counselling",
-          "text": "Individual guidance on career paths, further study and mobility."
-        }
-      },
-      "statsTitle": "Results",
-      "statPlaced": "Students placed",
-      "statEmployers": "Partner employers",
-      "statEvents": "Events per year",
-      "ctaTitle": "Book a consultation",
-      "ctaButton": "Book now"
+      "title": "Career Development Centre",
+      "subtitle": "Practice, employer partnerships and graduate payments under the tripartite agreement."
     },
     "vacancies": {
       "tag": "For students",

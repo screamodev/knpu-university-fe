@@ -9,6 +9,7 @@
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
+const { assetUrl } = useDirectus()
 
 useHead({
   title: () => t('nav.links.dormitories'),
@@ -71,7 +72,7 @@ const steps = [
             class="bg-white border border-border rounded-16 overflow-hidden flex flex-col"
           >
             <img
-              :src="`/assets/${dorm.photo}`"
+              :src="assetUrl(dorm.photo, { width: 800, quality: 80 }) ?? ''"
               :alt="t(`admissions.dormitories.${dorm.key}.name`)"
               loading="lazy"
               class="aspect-[4/3] w-full object-cover bg-navy-deep shrink-0"

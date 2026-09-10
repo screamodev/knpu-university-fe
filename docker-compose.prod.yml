@@ -15,6 +15,10 @@ services:
       # Directus live preview of drafts; leave empty to disable the preview route.
       NUXT_PREVIEW_SECRET: ${NUXT_PREVIEW_SECRET:-}
       NUXT_DIRECTUS_PREVIEW_TOKEN: ${NUXT_DIRECTUS_PREVIEW_TOKEN:-}
+    # nginx хостингу проксує сайт на 127.0.0.1:3000, тож порт має бути опублікований на
+    # лупбек — інакше після пересоздання контейнера сайт віддає 502.
+    ports:
+      - "127.0.0.1:3000:3000"
     networks:
       - webnet
     healthcheck:

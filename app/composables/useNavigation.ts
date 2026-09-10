@@ -91,7 +91,7 @@ export function useNavigation(): { items: NavItem[] } {
         {
           titleKey: 'nav.university.international',
           links: [
-            { path: '/university/erasmus', key: 'nav.links.erasmus' },
+            // «Програми Erasmus+» знято з меню (правка 10.09); сторінка лишається за адресою.
             // Академічна мобільність is run on its own Google Site; the local page was removed.
             { path: ACADEMIC_MOBILITY_EXTERNAL_URL, key: 'nav.links.mobility', external: true },
             { path: '/university/partners', key: 'nav.links.partners' },
@@ -192,7 +192,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/library', key: 'nav.links.library' },
             { path: '/university/structure/postgraduate', key: 'nav.links.graduate' },
             { path: '/science/publishing', key: 'nav.links.publishing' },
-            { path: '/science/institutes', key: 'nav.links.institutes' },
+            // «НДІ, центри та лабораторії» знято з меню (правка 10.09); сторінка лишається.
             { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
             { path: '/science/student-society', key: 'nav.links.studentSociety' },
             // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
@@ -226,7 +226,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: JOURNALS_EXTERNAL_URL, key: 'nav.links.journals', external: true },
             { path: '/science/collections', key: 'nav.links.collections' },
             { path: '/science/publication-requirements', key: 'nav.links.publicationRequirements' },
-            { path: '/science/scopus', key: 'nav.links.scopus' },
+            // «Scopus / WOS» знято з меню (правка 10.09); сторінка лишається.
           ],
         },
       ],
@@ -239,7 +239,9 @@ export function useNavigation(): { items: NavItem[] } {
           // The client struck Moodle, АСУ НЗ / Е-відомості and corporate mail off this column.
           titleKey: 'nav.student.digital',
           links: [
-            { path: '/student/schedule', key: 'nav.links.schedule' },
+            // «Розклад занять» знято з меню (правка 10.09), натомість тут Moodle: студенти
+            // шукають платформу саме в цифрових сервісах. Сторінка розкладу лишається.
+            { path: MOODLE_EXTERNAL_URL, key: 'nav.links.moodle', external: true },
             { path: '/education/quality?tab=students', key: 'nav.links.electives' },
           ],
         },

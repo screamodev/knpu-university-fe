@@ -78,7 +78,7 @@ useHead({
       </SharedAccordion>
 
       <NuxtLink
-        :to="localePath('/education/quality?tab=programmes')"
+        :to="localePath('/education/programs')"
         class="mt-10 inline-flex items-center gap-2 text-navy font-medium hover:underline"
       >
         {{ t('education.studyProgrammes.backLink') }}

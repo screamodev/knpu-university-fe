@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     '/student/dormitories': { redirect: { to: '/admissions/dormitories', statusCode: 301 } },
     '/en/student/dormitories': { redirect: { to: '/en/admissions/dormitories', statusCode: 301 } },
     '/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
+    // «На допомогу першокурснику» знято на прохання Центру якості освіти (правка 10.09);
+    // сам текст лишився розділом вкладки «Здобувачу», туди й ведемо стару адресу.
+    '/education/first-year': { redirect: { to: '/education/quality?tab=students', statusCode: 301 } },
+    '/en/education/first-year': { redirect: { to: '/en/education/quality?tab=students', statusCode: 301 } },
     '/en/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
   },
   runtimeConfig: {

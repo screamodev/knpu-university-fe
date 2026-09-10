@@ -15,7 +15,16 @@ useHead({
   meta: [{ name: 'description', content: () => t('admissions.dormitories.subtitle') }],
 })
 
-const dormKeys = ['dorm1', 'dorm2', 'dorm3'] as const
+/**
+ * Фото гуртожитків — ті самі файли, що були в блоці «Наші гуртожитки» всередині перенесеного
+ * тексту сторінки. Клієнт попросив показати їх у картках замість заглушок, а дубль у тексті
+ * прибрати (правка 10.09), тож id лежать тут.
+ */
+const dormKeys = [
+  { key: 'dorm1', photo: '40ddcf54-25a5-55b7-8e28-031707df943c' },
+  { key: 'dorm2', photo: 'c98bd63a-bbac-51d2-848d-e75aa4b0c222' },
+  { key: 'dorm3', photo: '9938fc3a-c7f9-5c40-bf98-28617d02d1b6' },
+] as const
 
 const steps = [
   { titleKey: 'step1Title' as const, textKey: 'step1Text' as const },
@@ -57,27 +66,19 @@ const steps = [
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div
-            v-for="key in dormKeys"
-            :key="key"
+            v-for="dorm in dormKeys"
+            :key="dorm.key"
             class="bg-white border border-border rounded-16 overflow-hidden flex flex-col"
           >
-            <div
-              class="aspect-[4/3] bg-gradient-to-br from-navy-mid to-navy-deep flex items-center justify-center shrink-0"
+            <img
+              :src="`/assets/${dorm.photo}`"
+              :alt="t(`admissions.dormitories.${dorm.key}.name`)"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover bg-navy-deep shrink-0"
             >
-              <svg
-                class="w-14 h-14 text-gold/20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <path d="M9 22V12h6v10" />
-              </svg>
-            </div>
             <div class="p-6 flex flex-col gap-4 flex-1">
               <h3 class="font-playfair text-xl font-semibold text-navy">
-                {{ t(`admissions.dormitories.${key}.name`) }}
+                {{ t(`admissions.dormitories.${dorm.key}.name`) }}
               </h3>
               <p class="text-body-sm text-text-muted flex items-center gap-2">
                 <span class="w-5 h-5 rounded bg-slate-100 flex items-center justify-center shrink-0">
@@ -86,15 +87,15 @@ const steps = [
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </span>
-                {{ t(`admissions.dormitories.${key}.address`) }}
+                {{ t(`admissions.dormitories.${dorm.key}.address`) }}
               </p>
               <p class="text-body-sm text-navy font-medium">
-                <a :href="`tel:${t(`admissions.dormitories.${key}.phone`).replace(/[^+\d]/g, '')}`" class="text-navy no-underline hover:text-gold">
-                  {{ t(`admissions.dormitories.${key}.phone`) }}
+                <a :href="`tel:${t(`admissions.dormitories.${dorm.key}.phone`).replace(/[^+\d]/g, '')}`" class="text-navy no-underline hover:text-gold">
+                  {{ t(`admissions.dormitories.${dorm.key}.phone`) }}
                 </a>
               </p>
               <p class="text-body-sm text-text-muted">
-                {{ t(`admissions.dormitories.${key}.capacity`) }}
+                {{ t(`admissions.dormitories.${dorm.key}.capacity`) }}
               </p>
             </div>
           </div>

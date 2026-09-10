@@ -41,6 +41,7 @@ export interface DirectusSchema {
   dissertation_councils: DirectusDissertationCouncil[]
   dissertation_council_files: DirectusDissertationCouncilFile[]
   structure_pages: DirectusStructurePage[]
+  static_pages: DirectusStaticPage[]
   student_schedule_documents: DirectusStudentScheduleDocument[]
   university_orders: DirectusUniversityOrder[]
   directus_files: DirectusFile[]
@@ -438,6 +439,21 @@ export interface DirectusStructurePage {
   status?: DirectusContentStatus
   unit_slug: string
   tab: string
+  body: string | null
+  bodyEn: string | null
+  date_updated: DirectusDateLike
+}
+
+/**
+ * Body of one standalone page migrated from the old site, written by an editor.
+ *
+ * One row per `slug`. While a page has no row the site serves the migrated copy out of
+ * `app/content/pages/` — see `useStaticPageContent`.
+ */
+export interface DirectusStaticPage {
+  id: string
+  status?: DirectusContentStatus
+  slug: string
   body: string | null
   bodyEn: string | null
   date_updated: DirectusDateLike

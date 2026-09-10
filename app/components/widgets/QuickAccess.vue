@@ -3,6 +3,7 @@ import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { type LinkTileIcon, linkTileIconPaths } from '~/utils/linkTileIcons'
 import { ACADEMIC_INTEGRITY_EXTERNAL_URL } from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
+import { MOODLE_EXTERNAL_URL } from '~/utils/moodleUrl'
 
 /**
  * «Швидкий доступ» on the home page — six high-traffic destinations under the hero.
@@ -14,8 +15,6 @@ import { ANTICORRUPTION_EXTERNAL_URL } from '~/utils/memorialUrl'
  * with a `to` attribute and never becomes a clickable `<a>`.
  */
 const { t, localePath } = useSafeI18nWithRouter()
-
-const MOODLE_EXTERNAL_URL = 'https://lms.hnpu.edu.ua/moodle'
 
 const links = computed<LinkTile[]>(() => [
   { label: t('quickAccess.publicInfo'), path: '/university/public-info', icon: 'document' },

@@ -38,7 +38,7 @@ const orderUrl = computed(() => assetUrl(TELEGRAM_ORDER_FILE_ID) ?? '')
 const tiles = computed<LinkTile[]>(() => [
   { label: t('education.digitalCenter.tiles.moodle'), url: MOODLE_EXTERNAL_URL, icon: 'book' },
   { label: t('education.digitalCenter.tiles.support'), url: 'mailto:support@hnpu.edu.ua', icon: 'link' },
-  { label: t('education.digitalCenter.tiles.centre'), url: 'mailto:cdo@hnpu.edu.ua', icon: 'link' },
+  { label: t('education.digitalCenter.tiles.centre'), url: 'mailto:directorcdo@hnpu.edu.ua', icon: 'link' },
 ])
 
 /**
@@ -48,7 +48,7 @@ const tiles = computed<LinkTile[]>(() => [
 const contacts = computed<StructureUnitContacts>(() => ({
   address: t('education.digitalCenter.address'),
   addressEn: t('education.digitalCenter.address'),
-  email: 'cdo@hnpu.edu.ua',
+  email: 'directorcdo@hnpu.edu.ua',
 }))
 </script>
 

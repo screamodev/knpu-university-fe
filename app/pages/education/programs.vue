@@ -140,6 +140,12 @@ function levelLabelKey(level: string): string {
       </div>
 
       <SharedSectionPending v-else />
+
+      <!-- Документи Центру забезпечення якості: переїхали сюди з вкладки «Освітні програми»
+           сторінки центру, яку клієнт попросив звести до цього переліку (правка 10.09). -->
+      <div class="mt-14">
+        <SharedDocumentList section="quality-centre-programmes" />
+      </div>
     </div>
   </div>
 </template>

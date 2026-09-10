@@ -8,8 +8,8 @@ import type { StructureTabContent } from '~/utils/structureContent'
  * `knpu-university-be/migration/pages/migrate_page.py` — edit the JSON or re-run the script,
  * never this file.
  *
- * These stay static rather than becoming Directus items because the client does not ask to edit
- * them; the pages that *are* editable use the `documents` collection instead.
+ * The migrated file is the fallback: a page an editor has taken over lives in the `static_pages`
+ * collection, and `useStaticPageContent` prefers that row when there is one.
  */
 export type StaticPageContent = StructureTabContent & { title?: string }
 

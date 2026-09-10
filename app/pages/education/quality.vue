@@ -25,7 +25,6 @@ const TAB_IDS = [
   'regulations',
   'students',
   'quality',
-  'programmes',
   'accreditation',
 ] as const
 
@@ -64,6 +63,15 @@ const activeTab = computed<QualityTabId>(() => {
 
 function selectTab(tab: QualityTabId) {
   router.push({ query: tab === 'home' ? {} : { tab } })
+}
+
+/**
+ * Вкладки «Освітні програми» більше немає: Центр якості попросив звести її до спільного
+ * переліку ОП (правка 10.09). Стара адреса ходить у розсилках і закладках, тож ведемо її туди,
+ * куди клієнт просив, замість того щоб мовчки показувати «Головну».
+ */
+if (route.query.tab === 'programmes') {
+  await navigateTo(localePath('/education/programs'), { redirectCode: 301 })
 }
 
 useHead({
@@ -269,6 +277,8 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
           </NuxtLink>
         </div>
 
+        <!-- «На допомогу першокурснику» клієнт попросив зняти (правка 10.09): сторінку
+             видалено, її текст лишається розділом вкладки «Здобувачу». -->
         <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <NuxtLink
             :to="localePath('/education/schedule')"
@@ -276,14 +286,6 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
           >
             <span class="block font-playfair text-lg font-semibold text-navy">
               {{ t('nav.links.processSchedule') }}
-            </span>
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/education/first-year')"
-            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-          >
-            <span class="block font-playfair text-lg font-semibold text-navy">
-              {{ t('education.firstYear.title') }}
             </span>
           </NuxtLink>
         </div>
@@ -320,28 +322,6 @@ function dossierFiles(dossier: DirectusAccreditationDossier): FileLinkItem[] {
         </div>
         <div class="mt-10">
           <SharedStaticPageBody slug="quality-centre-quality" />
-        </div>
-      </template>
-
-      <!-- Освітні програми: three buttons, one per рівень, then the centre's own documents -->
-      <template v-else-if="activeTab === 'programmes'">
-        <p class="text-body text-text-muted max-w-3xl mb-8">
-          {{ t('education.quality.programmesIntro') }}
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <NuxtLink
-            v-for="level in ['bachelor', 'master', 'phd']"
-            :key="level"
-            :to="localePath(`/education/study-programmes/${level}`)"
-            class="rounded-16 border border-border p-6 no-underline hover:border-gold transition-colors"
-          >
-            <span class="block font-playfair text-lg font-semibold text-navy">
-              {{ t(`education.studyProgrammes.${level}Title`) }}
-            </span>
-          </NuxtLink>
-        </div>
-        <div class="mt-10">
-          <SharedDocumentList section="quality-centre-programmes" />
         </div>
       </template>
 

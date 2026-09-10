@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { loadStaticPage } from '~/utils/staticPages'
 import type { StructureTabSection } from '~/utils/structureContent'
 
 /**
@@ -20,10 +19,14 @@ const props = defineProps<{
 }>()
 
 const { t, locale } = useSafeI18nWithRouter()
+const { fetchStaticPage } = useStaticPageContent()
 
 /**
  * The slice is applied inside the fetch, not in a computed: `quality-centre-students` is a 300 KB
  * file and a page that shows one stretch of it must not ship the rest to the browser.
+ *
+ * A page an editor has taken over in Directus arrives as a single section, so a slice over it is
+ * a no-op — the pages that use `from`/`to` are not the ones moved to the CMS.
  */
 function sliceSections(sections: StructureTabSection[]): StructureTabSection[] {
   if (!props.from && !props.to) return sections
@@ -43,7 +46,7 @@ function sliceSections(sections: StructureTabSection[]): StructureTabSection[] {
 const { data } = await useAsyncData(
   () => `static-page-${props.slug}-${locale.value}-${props.from ?? ''}-${props.to ?? ''}`,
   async () => {
-    const page = await loadStaticPage(props.slug, locale.value)
+    const page = await fetchStaticPage(props.slug, locale.value)
     if (!page?.content) return page
     return { ...page, content: { ...page.content, sections: sliceSections(page.content.sections ?? []) } }
   },

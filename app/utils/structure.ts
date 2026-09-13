@@ -513,8 +513,17 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
     summaryEn:
       'Rehabilitation psychology and developmental psychology, political science and sociology, social work, management and economics, philosophy.',
     items: [
-      { name: 'Кафедра реабілітаційної психології', nameEn: 'Department of Rehabilitation Psychology' },
-      { name: 'Кафедра психології розвитку', nameEn: 'Department of Developmental Psychology' },
+      // Кафедра реабілітаційної психології веде власний Google-сайт (правка 13.09).
+      {
+        name: 'Кафедра реабілітаційної психології',
+        nameEn: 'Department of Rehabilitation Psychology',
+        external: 'https://sites.google.com/hnpu.edu.ua/department-of-rehab-psychology',
+      },
+      {
+        name: 'Кафедра психології розвитку',
+        nameEn: 'Department of Developmental Psychology',
+        path: '/university/structure/kafedra-psyhologiyi-rozvytku',
+      },
       {
         name: 'Кафедра політології, соціології і культурології',
         nameEn: 'Department of Political Science, Sociology and Cultural Studies',

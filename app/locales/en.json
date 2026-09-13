@@ -3534,7 +3534,9 @@
       "newsTitle": "Student government news",
       "documentsTitle": "Documents",
       "sectorLead": "Head of the sector",
-      "reportsTitle": "Student Parliament reports"
+      "reportsTitle": "Student Parliament reports",
+      "emblemAlt": "Student Parliament emblem",
+      "albumsTitle": "Photo reports"
     },
     "union": {
       "tag": "For students",

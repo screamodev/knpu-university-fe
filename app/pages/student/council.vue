@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { readItems, readSingleton } from '@directus/sdk'
 import type {
+  DirectusGalleryItem,
   DirectusStudentCouncilInfo,
   DirectusStudentCouncilMember,
   DirectusStudentCouncilSector,
@@ -33,7 +34,8 @@ const { data: infoData } = await useAsyncData('student-council-info', () =>
   client.request(
     readSingleton('student_council_info', {
       fields: [
-        'about', 'mission', 'objectives',
+        'about', 'mission', 'objectives', 'legalBasis',
+        { emblem: ['id'] }, { photo: ['id'] },
         'address', 'email', 'trustBoxUrl', 'facebook', 'instagram', 'telegram',
         'status',
       ],
@@ -61,6 +63,23 @@ const { data: sectorsData } = await useAsyncData('student-council-sectors', () =
       fields: ['id', 'name', 'description', 'leadName', 'leadEmail', 'externalUrl', 'order'],
       sort: ['order', 'name'],
       filter: { status: { _eq: 'published' } },
+      limit: -1,
+    }),
+  ),
+)
+
+/**
+ * Фотозвіти парламенту — категорія «Студентський парламент» спільної галереї. Альбом — це
+ * фото з однаковою назвою, тож студенти додають новий звіт у Gallery Items без деплою.
+ */
+const PHOTO_CATEGORY = 'student-parliament'
+
+const { data: photosData } = await useAsyncData('student-council-photos', () =>
+  client.request(
+    readItems('gallery_items', {
+      fields: ['id', 'title', 'titleEn', 'order', { image: ['id'] }],
+      sort: ['order'],
+      filter: { status: { _eq: 'published' }, category: { slug: { _eq: PHOTO_CATEGORY } } },
       limit: -1,
     }),
   ),
@@ -135,6 +154,36 @@ const leadershipBlocks = computed(() =>
   })),
 )
 
+const { assetUrl } = useDirectus()
+const { localized } = useLocalizedField()
+
+const fileId = (file: { id: string } | string | null | undefined) =>
+  typeof file === 'string' ? file : file?.id ?? null
+
+const emblemSrc = computed(() => assetUrl(fileId(info.value?.emblem), { width: 480 }))
+const photoSrc = computed(() => assetUrl(fileId(info.value?.photo), { width: 1400, quality: 82 }))
+
+interface PhotoAlbum { title: string; photos: { id: string; src: string; full: string }[] }
+
+/** Neighbouring photos with the same title form one album, in the order the editor set. */
+const albums = computed<PhotoAlbum[]>(() => {
+  const result: PhotoAlbum[] = []
+  for (const item of (photosData.value as DirectusGalleryItem[] | null) ?? []) {
+    const id = fileId(item.image as { id: string } | string | null)
+    if (!id) continue
+    const title = localized(item, 'title') ?? item.title
+    const photo = {
+      id: item.id,
+      src: assetUrl(id, { width: 640, quality: 80 }) ?? '',
+      full: assetUrl(id, { width: 2000, quality: 85 }) ?? '',
+    }
+    const last = result[result.length - 1]
+    if (last && last.title === title) last.photos.push(photo)
+    else result.push({ title, photos: [photo] })
+  }
+  return result
+})
+
 const auditMembers = computed(() => members.value.filter(member => member.group === 'audit'))
 </script>
 
@@ -153,6 +202,26 @@ const auditMembers = computed(() => members.value.filter(member => member.group 
           {{ t('student.council.subtitle') }}
         </p>
       </div>
+    </div>
+
+    <!-- Емблема й загальне фото парламенту (правка 13.09) -->
+    <div
+      v-if="emblemSrc || photoSrc"
+      class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pt-12 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-center"
+    >
+      <img
+        v-if="emblemSrc"
+        :src="emblemSrc"
+        :alt="t('student.council.emblemAlt')"
+        class="w-full max-w-[280px] mx-auto object-contain"
+      >
+      <img
+        v-if="photoSrc"
+        :src="photoSrc"
+        :alt="t('student.council.title')"
+        class="w-full rounded-16 object-cover"
+        :class="emblemSrc ? '' : 'lg:col-span-2'"
+      >
     </div>
 
     <!-- Про самоврядування / Місія / Завдання -->
@@ -325,11 +394,36 @@ const auditMembers = computed(() => members.value.filter(member => member.group 
       </div>
     </div>
 
-    <!-- Документи: Положення та інші файли, розділ `student-council` у Directus -->
+    <!-- Фотозвіти: категорія «Студентський парламент» галереї -->
+    <div v-if="albums.length" class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
+      <h2 class="font-playfair text-2xl font-bold text-navy">
+        {{ t('student.council.albumsTitle') }}
+      </h2>
+      <section v-for="album in albums" :key="album.title">
+        <h3 class="font-playfair text-lg font-semibold text-navy mb-4">{{ album.title }}</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <a
+            v-for="photo in album.photos"
+            :key="photo.id"
+            :href="photo.full"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block aspect-[4/3] overflow-hidden rounded-12 bg-off-white"
+          >
+            <img :src="photo.src" :alt="album.title" loading="lazy" class="w-full h-full object-cover">
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Документи: нормативна база й Положення та інші файли, розділ `student-council` у Directus -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-16">
       <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
         {{ t('student.council.documentsTitle') }}
       </h2>
+      <div v-if="info?.legalBasis" class="mb-8 max-w-3xl">
+        <NewsMarkdownBody :source="info.legalBasis" kind="html" />
+      </div>
       <SharedDocumentList section="student-council" />
 
       <!--

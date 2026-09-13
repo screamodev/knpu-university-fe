@@ -595,6 +595,10 @@ export interface DirectusStudentCouncilInfo {
   about: string | null
   mission: string | null
   objectives: string | null
+  /** Абзац про нормативну базу над списком документів. */
+  legalBasis: string | null
+  emblem: DirectusFile | string | null
+  photo: DirectusFile | string | null
   address: string | null
   email: string | null
   trustBoxUrl: string | null

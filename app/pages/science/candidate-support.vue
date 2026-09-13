@@ -10,6 +10,7 @@
 definePageMeta({ layout: 'default' })
 
 const { t, tm } = useSafeI18nWithRouter()
+const { rt } = useI18n()
 
 useHead({
   title: () => t('science.candidateSupport.title'),
@@ -49,13 +50,28 @@ const SIGNATURE_LINKS = [
   { key: 'czo', url: 'https://czo.gov.ua/sign' },
 ] as const
 
-const contacts = computed(() => tm('science.candidateSupport.contacts') as unknown as {
+interface CandidateContact {
   unit: string
   person?: string
   address: string
   email: string
   phone?: string
-}[])
+}
+
+/**
+ * `tm()` hands back compiled message nodes in the production build, not strings — rendered as-is
+ * they showed up on the page as `{ "t": 0, "b": … }`. Every field goes through `rt()`.
+ */
+const contacts = computed<CandidateContact[]>(() =>
+  (tm('science.candidateSupport.contacts') as unknown as Record<keyof CandidateContact, unknown>[])
+    .map((entry) => {
+      const resolved = {} as CandidateContact
+      for (const [key, value] of Object.entries(entry)) {
+        if (value != null) (resolved as unknown as Record<string, string>)[key] = rt(value as never)
+      }
+      return resolved
+    }),
+)
 </script>
 
 <template>

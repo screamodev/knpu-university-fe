@@ -54,3 +54,9 @@ export const WINTER_ADMISSIONS_LEGACY_URL
 
 /** Правила прийому 2026 — файл, який приймальна комісія тримає на Google Drive. */
 export const ADMISSION_RULES_2026_URL = 'https://drive.google.com/file/d/1FZU0NiUVOPlTw65FS5D1_Wi-rIAZOztz/view'
+
+/**
+ * Студентське наукове товариство — Google Site the society keeps itself. The menu entry leads
+ * straight there (правка 11.09); the local page stays as an intro with the same link.
+ */
+export const STUDENT_SCIENTIFIC_SOCIETY_URL = 'https://sites.google.com/hnpu.edu.ua/studentskenaukovetovarystvo'

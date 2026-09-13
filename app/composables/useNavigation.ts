@@ -5,6 +5,7 @@ import {
   JOURNALS_EXTERNAL_URL,
   WINTER_ADMISSIONS_LEGACY_URL,
   PSYCHOLOGICAL_SERVICE_URL,
+  STUDENT_SCIENTIFIC_SOCIETY_URL,
 } from '~/utils/externalSites'
 import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
@@ -194,7 +195,8 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/science/publishing', key: 'nav.links.publishing' },
             // «НДІ, центри та лабораторії» знято з меню (правка 10.09); сторінка лишається.
             { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
-            { path: '/science/student-society', key: 'nav.links.studentSociety' },
+            // Товариство попросило, щоб пункт меню одразу відкривав їхній сайт (правка 11.09).
+            { path: STUDENT_SCIENTIFIC_SOCIETY_URL, key: 'nav.links.studentSociety', external: true },
             // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
           ],
         },

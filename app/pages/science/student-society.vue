@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { STUDENT_SCIENTIFIC_SOCIETY_URL } from '~/utils/externalSites'
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
@@ -15,7 +16,7 @@ const { assetUrl } = useDirectus()
  * Емблема взята звідти ж і лежить у медіатеці Directus.
  */
 const SNT_EMBLEM = '35fd9ec7-9f68-5c67-adee-ff82289c8130'
-const SNT_SITE_URL = 'https://sites.google.com/hnpu.edu.ua/studentskenaukovetovarystvo'
+const SNT_SITE_URL = STUDENT_SCIENTIFIC_SOCIETY_URL
 
 const activityIds = ['conferences', 'competitions', 'publications'] as const
 </script>

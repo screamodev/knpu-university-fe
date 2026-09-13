@@ -22,6 +22,14 @@ const units = computed(
 
 const NEWS_CATEGORY = 'science-and-research'
 
+/** Міжнародні проєкти університету, про які просили написати на цій сторінці. */
+const GRANT_PROJECTS = [
+  {
+    titleKey: 'science.activity.grants.norway',
+    url: 'https://www.hiof.no/lusp/forskning/prosjekter/ukraina-i-norge/',
+  },
+] as const
+
 const links = computed<LinkTile[]>(() => [
   { label: t('science.activity.links.rankings'), path: '/education/rankings', icon: 'award' },
   { label: t('science.activity.links.plagiarism'), path: '/science/plagiarism', icon: 'shield' },
@@ -96,6 +104,26 @@ const links = computed<LinkTile[]>(() => [
         {{ t('science.activity.linksTitle') }}
       </h2>
       <SharedLinkTileGrid :tiles="links" />
+    </div>
+
+    <!-- Грантова і проєктна діяльність (правка 11.09) -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
+        {{ t('science.activity.grantsTitle') }}
+      </h2>
+      <ul class="space-y-3 max-w-3xl">
+        <li v-for="grant in GRANT_PROJECTS" :key="grant.url">
+          <a
+            :href="grant.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-body text-navy underline hover:text-gold"
+          >
+            {{ t(grant.titleKey) }}
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
+        </li>
+      </ul>
     </div>
 
     <!-- Research events: documents the department publishes itself -->

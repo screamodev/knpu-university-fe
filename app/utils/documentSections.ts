@@ -19,6 +19,8 @@ export const DOCUMENT_SECTIONS = [
   // Платні освітні послуги: перелік і вартість, поруч із фінансовою діяльністю.
   'extra-education-services',
   'inclusive-support',
+  // Центр кар’єрного зростання: документи про одноразову допомогу випускникам (правка 11.09).
+  'career-graduate-payments',
   'student-council',
   'dormitories',
   'sports-club',

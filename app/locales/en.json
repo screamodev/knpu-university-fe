@@ -135,8 +135,8 @@
       "directions": "Research areas and schools",
       "institutes": "Research institutes and labs",
       "youngScientists": "Young scientists council",
-      "studentSociety": "Student research society",
-      "conferences": "Conferences and seminars",
+      "studentSociety": "Student Scientific Society",
+      "conferences": "Research events",
       "journals": "Academic journals",
       "collections": "Proceedings",
       "publicationRequirements": "Publication requirements",
@@ -2848,7 +2848,7 @@
     },
     "conferences": {
       "tag": "Science",
-      "title": "Conferences and seminars",
+      "title": "Research events",
       "subtitle": "Academic events at the university and with partners.",
       "intro": "KhNPU hosts international and national conferences, seminars and round tables across its academic profile.",
       "upcomingTitle": "Upcoming events",
@@ -2874,7 +2874,18 @@
           "title": "Environmental education and sustainable development",
           "participants": "90 participants"
         }
-      }
+      },
+      "plans": {
+        "worldwide": "Research events in Ukraine and abroad",
+        "international": "Plan of international conferences",
+        "national": "Plan of national and regional conferences",
+        "roundTables": "Plan of round tables, webinars, seminars and other events",
+        "archive": "Archive"
+      },
+      "infoLetter": "Call for papers",
+      "contactsTitle": "Contacts",
+      "contactsPerson": "Yevheniia Palchykova",
+      "contactsAddress": "29 Alchevskykh St., room 118, Kharkiv, 61002"
     },
     "collections": {
       "tag": "Science",
@@ -3266,6 +3277,10 @@
         "mobility": "Academic mobility",
         "integrity": "Academic integrity",
         "journals": "Professional academic journals"
+      },
+      "grantsTitle": "Grants and projects",
+      "grants": {
+        "norway": "Ukrainian–Norwegian project “When Art Becomes Identity: Ukraine in Norway”"
       }
     },
     "council": {
@@ -3625,7 +3640,8 @@
     "career": {
       "tag": "For students",
       "title": "Career Development Centre",
-      "subtitle": "Practice, employer partnerships and graduate payments under the tripartite agreement."
+      "subtitle": "Practice, employer partnerships and graduate payments under the tripartite agreement.",
+      "paymentsTitle": "One-time payments to graduates"
     },
     "vacancies": {
       "tag": "For students",

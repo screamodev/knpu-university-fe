@@ -796,6 +796,8 @@ export interface DirectusScienceConference {
   isUpcoming: boolean
   participantsSummary: string | null
   participantsSummaryEn: string | null
+  /** Посилання на інформаційний лист. */
+  url?: string | null
   order: number
 }
 

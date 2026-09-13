@@ -37,6 +37,12 @@ useHead({
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <SharedStaticPageBody slug="career-centre" />
+
+      <!-- Одноразова допомога випускникам: документи центр додає сам у Directus (правка 11.09) -->
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-14 mb-6">
+        {{ t('student.career.paymentsTitle') }}
+      </h2>
+      <SharedDocumentList section="career-graduate-payments" />
     </div>
   </div>
 </template>

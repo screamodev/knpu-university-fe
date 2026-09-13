@@ -17,7 +17,9 @@ useHead({
 
 const councils = [
   { slug: 'council-d-64-053-01', code: 'Д 64.053.01', fieldKey: 'science.boards.councils.pedagogy' },
-  { slug: 'council-k-64-053-05', code: 'К 64.053.05', fieldKey: 'science.boards.councils.philology' },
+  // Раду К 64.053.05 (філологічні науки) клієнт попросив поки сховати (правка 11.09); сторінка
+  // ради лишається в `static_pages`, повернути — розкоментувати рядок.
+  // { slug: 'council-k-64-053-05', code: 'К 64.053.05', fieldKey: 'science.boards.councils.philology' },
   { slug: 'council-d-64-053-08', code: 'Д 64.053.08', fieldKey: 'science.boards.councils.psychology' },
 ] as const
 </script>

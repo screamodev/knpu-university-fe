@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { readItems } from '@directus/sdk'
 import type { DirectusScienceConference } from '~/types/directus'
+import { conferenceDescriptionHtml, conferenceDescriptionText } from '~/utils/conferenceDescription'
 
 definePageMeta({ layout: 'default' })
 
@@ -168,9 +169,13 @@ function conferenceYear(value: string): string {
             </span>
             {{ localized(item, 'location') || (locale === 'en' ? 'Location not specified' : 'Локацію не вказано') }}
           </p>
-          <p class="text-body-sm text-text-muted">
-            {{ localized(item, 'description') }}
-          </p>
+          <!-- Опис — HTML з WYSIWYG (посилання, списки), старі записи перетворюються з тексту -->
+          <NewsMarkdownBody
+            v-if="conferenceDescriptionHtml(localized(item, 'description'))"
+            :source="conferenceDescriptionHtml(localized(item, 'description'))!"
+            kind="html"
+            class="conference-description text-body-sm text-text-muted break-words"
+          />
           <a
             v-if="item.url"
             :href="item.url"
@@ -216,7 +221,7 @@ function conferenceYear(value: string): string {
               {{ localized(item, 'title') }}
             </h3>
             <p class="text-body-sm text-slate-500">
-              {{ localized(item, 'participantsSummary') || localized(item, 'description') || (locale === 'en' ? 'Participants data is not available.' : 'Дані про учасників відсутні.') }}
+              {{ localized(item, 'participantsSummary') || conferenceDescriptionText(localized(item, 'description')) || (locale === 'en' ? 'Participants data is not available.' : 'Дані про учасників відсутні.') }}
             </p>
           </article>
         </div>
@@ -239,3 +244,24 @@ function conferenceYear(value: string): string {
     </div>
   </div>
 </template>
+
+<style scoped>
+/*
+ * Опис у картці дрібніший за тіло новини; довгі адреси Google Docs не мають розпирати картку.
+ * Клас лягає на корінь `NewsMarkdownBody` (там же `.news-article-md`), тож перебиваємо його тут,
+ * а вкладені абзаци й посилання — через :deep.
+ */
+.conference-description {
+  font-size: inherit;
+  line-height: 1.6;
+  color: inherit;
+}
+
+.conference-description :deep(p) {
+  margin: 0 0 0.75em;
+}
+
+.conference-description :deep(a) {
+  overflow-wrap: anywhere;
+}
+</style>

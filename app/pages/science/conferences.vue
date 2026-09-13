@@ -259,6 +259,8 @@ function conferenceYear(value: string): string {
 
 .conference-description :deep(p) {
   margin: 0 0 0.75em;
+  /* Тіло новини вирівняне по ширині; у вузькій картці це дає дірки між словами. */
+  text-align: left;
 }
 
 .conference-description :deep(a) {

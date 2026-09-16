@@ -4,6 +4,7 @@ import {
   STRUCTURE_DOCUMENT_TABS,
   structureTabLabelOverride,
   structureUnitManifest,
+  structureUnitNav,
   structureUnitTabs,
   type StructureTabId,
 } from '~/utils/structureContent'
@@ -27,6 +28,7 @@ const { localized } = useLocalizedField()
 const unit = computed(() => findStructureUnit(props.slug))
 const manifest = computed(() => structureUnitManifest(props.slug))
 const tabs = computed(() => structureUnitTabs(props.slug))
+const nav = computed(() => structureUnitNav(props.slug))
 
 const unitName = computed(() => (unit.value ? localized(unit.value, 'name') : ''))
 const unitSummary = computed(() => (unit.value ? localized(unit.value, 'summary') : ''))
@@ -133,7 +135,7 @@ const showAudienceCta = computed(
       </div>
     </div>
 
-    <SharedStructureUnitTabs :slug="slug" :tabs="tabs" :active="tab" />
+    <SharedStructureUnitTabs :slug="slug" :nav="nav" :active="tab" />
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
@@ -200,7 +202,7 @@ const showAudienceCta = computed(
 
       <!-- Головна collage: full-width blocks below the intro / contacts row -->
       <template v-if="tab === 'home'">
-        <SharedStructureUnitTiles :slug="slug" :tabs="tabs" />
+        <SharedStructureUnitTiles :slug="slug" :nav="nav" />
 
         <SharedStructureUnitDepartments
           v-if="unit?.items?.length"

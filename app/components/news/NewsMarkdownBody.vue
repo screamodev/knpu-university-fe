@@ -226,6 +226,15 @@ const segments = computed(() => {
   background: theme('colors.off-white');
 }
 
+/* Кілька відео поруч (волонтерство, правка 16.09): картка з підписом, а не стрічка на всю ширину. */
+.news-article-md .photo-grid.videos {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.news-article-md .photo-grid.videos iframe {
+  margin: 0;
+}
+
 .news-article-md .photo-grid figcaption {
   font-size: 0.8125rem;
   line-height: 1.35;

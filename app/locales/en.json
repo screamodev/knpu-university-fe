@@ -688,7 +688,8 @@
       "openUnit": "About this unit",
       "backToStructure": "University structure",
       "allUnits": "All institutes and faculties",
-      "asOf": "Reflects the university’s organisational chart as of 30 June 2026.",
+      "asOf": "Reflects the university’s organisational chart as of 31 August 2026.",
+      "chartTitle": "Organisational chart",
       "administrativeTitle": "Administrative subdivisions and services",
       "administrativeNote": "Subdivisions are listed by type — centres, departments and services, other units. Those with a page on this site or a site of their own open by link.",
       "associationsTitle": "«Skovoroda associations»",
@@ -706,7 +707,9 @@
           "cooperation": "Cooperation",
           "doctoral": "For doctoral students",
           "regulations": "Regulations",
-          "announcements": "Announcements"
+          "announcements": "Announcements",
+          "staff": "Staff",
+          "trust": "Trust box"
         },
         "contactsTitle": "Contacts",
         "deanTitle": "Dean",
@@ -3684,7 +3687,7 @@
           "text": "Reduced fees for continuing education and selected campus events for members."
         }
       },
-      "notableTitle": "Notable alumni"
+      "notableTitle": "Distinguished faculty and alumni"
     },
     "nonformal": {
       "tag": "For students",

@@ -1,7 +1,7 @@
 {
   "sections": [
     {
-      "html": "<p><iframe src=\"https://www.youtube.com/embed/xPeQaGv46_g\" allowfullscreen></iframe></p>\r\n\r\n<p>На факультеті працює 3 спеціалізовані кафедри:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"/university/structure/kafedra-olimpiyskogo-i-profesiynogo-sportu\"><em><strong>кафедра олімпійського і професійного спорту, спортивних ігор та туризму</strong></em></a> (завідувач кафедри доктор наук з фіз. вих. та спорту, професор Ж.Л. Козіна),</li>\r\n\t<li><em><strong>кафедра спортивно-педагогічних дисциплін і фітнесу </strong></em>(завідувач кафедри кандидат наук з фіз. вих. та спорту, доцент Ю.В. Голенкова),</li>\r\n\t<li><em><strong><a href=\"/university/structure/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya\">кафедра теорії, методики і практики фізичного виховання</a></strong></em> (завідувач кафедри кандидат педагогічних наук, доцент І.В. Кривенцова).</li>\r\n</ul>\r\n\r\n<p><img src=\"/assets/12d267df-0316-4b75-a8f4-377f7bd57c8f\" loading=\"lazy\" /><br>\r\nНа факультеті працюють: 4 – доктори наук, професори; 14 – кандидатів наук, доцентів; 3 – кандидатів наук, викладачів; 11 – старші викладачі, ЗМС – 3, МСМК – 2, МС – 14, ЗТУ – 3.</p>",
+      "html": "<p><img src=\"/assets/12d267df-0316-4b75-a8f4-377f7bd57c8f\" loading=\"lazy\" style=\"width: 160px\" /></p>\n\n<p><iframe src=\"https://www.youtube.com/embed/xPeQaGv46_g\" allowfullscreen></iframe></p>\r\n\r\n<p>На факультеті працює 3 спеціалізовані кафедри:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"/university/structure/kafedra-olimpiyskogo-i-profesiynogo-sportu\"><em><strong>кафедра олімпійського і професійного спорту, спортивних ігор та туризму</strong></em></a> (завідувач кафедри доктор наук з фіз. вих. та спорту, професор Ж.Л. Козіна),</li>\r\n\t<li><a href=\"https://sites.google.com/hnpu.edu.ua/kaf-spdif/main\" target=\"_blank\" rel=\"noopener noreferrer\"><em><strong>кафедра спортивно-педагогічних дисциплін і фітнесу</strong></em></a> (завідувач кафедри кандидат наук з фіз. вих. та спорту, доцент Ю.В. Голенкова),</li>\r\n\t<li><em><strong><a href=\"/university/structure/kafedra-teoriyi-metodyky-i-praktyky-fizychnogo-vyhovannya\">кафедра теорії, методики і практики фізичного виховання</a></strong></em> (завідувач кафедри кандидат педагогічних наук, доцент І.В. Кривенцова).</li>\r\n</ul>",
       "people": [
         {
           "photo": "/assets/485f811d-2edf-477a-b823-34bd9db81066",
@@ -11,23 +11,30 @@
           "profileUrl": "https://sites.google.com/hnpu.edu.ua/korobeinik"
         },
         {
-          "photo": "/assets/a241b2c5-711b-4bc4-9161-2305e1c22c7f",
-          "position": "заступник декана з навчальної роботи",
-          "name": "Кравчук Тетяна Миколаївна",
-          "degree": null,
-          "profileUrl": "https://old.hnpu.edu.ua/uk/kravchuk-tetyana-mykolayivna-0"
-        },
-        {
           "photo": "/assets/93c36ce1-07e8-4741-b64b-755d5213abae",
-          "position": "координатор з виховної роботи",
+          "position": "заступник декана з навчальної роботи",
           "name": "Собко Ірина Миколаївна",
           "degree": null,
           "profileUrl": "https://sites.google.com/view/sobko-iryna/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0"
         },
         {
-          "photo": "/assets/e85f125d-aade-4aea-948b-65e127a5b271",
+          "photo": "/assets/b20119cf-2ad5-5bf6-9a3e-a4427a511eb1",
+          "position": "координатор з виховної роботи",
+          "name": "Козлов Андрій Валерійович",
+          "degree": null,
+          "profileUrl": "https://sites.google.com/hnpu.edu.ua/kozlov/"
+        },
+        {
+          "photo": "/assets/8d7dc947-5b9e-5978-a32f-f7ecfe256a1e",
+          "position": "координатор з наукової роботи",
+          "name": "Несен Олена Олександрівна",
+          "degree": null,
+          "profileUrl": "https://sites.google.com/hnpu.edu.ua/nesen/"
+        },
+        {
+          "photo": "/assets/00045232-a9ec-574c-a752-0ef13f0d383a",
           "position": "диспетчер деканату",
-          "name": "Івченко Зінаїда Олександрівна",
+          "name": "Жицька Софія Сергіївна",
           "degree": null,
           "profileUrl": null
         }

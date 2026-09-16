@@ -21,6 +21,8 @@ export const DOCUMENT_SECTIONS = [
   'inclusive-support',
   // Центр кар’єрного зростання: документи про одноразову допомогу випускникам (правка 11.09).
   'career-graduate-payments',
+  // Структура університету: сама організаційно-структурна схема документом (правка 16.09).
+  'university-structure',
   'student-council',
   'dormitories',
   'sports-club',

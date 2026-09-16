@@ -21,6 +21,8 @@ export const STRUCTURE_TAB_IDS = [
   'admission',
   'structure',
   'history',
+  // Співробітники кафедри окремою вкладкою — кафедра соціальної роботи (правка 16.09).
+  'staff',
   'education',
   'science',
   'students',
@@ -29,6 +31,8 @@ export const STRUCTURE_TAB_IDS = [
   'news',
   'announcements',
   'cooperation',
+  // Скринька довіри кафедри соціальної роботи (правка 16.09).
+  'trust',
 ] as const
 
 export type StructureTabId = (typeof STRUCTURE_TAB_IDS)[number]
@@ -73,6 +77,20 @@ export interface StructureUnitContacts {
   instagram?: string
 }
 
+/**
+ * A tab that leaves the site. Several кафедри keep their sections on Google Sites and asked for
+ * the tab to open that page directly instead of a copy here (правки 16.09).
+ */
+export interface StructureExternalTab {
+  label: { uk: string; en?: string }
+  url: string
+}
+
+/** One pill of the tab bar: a tab of this unit, or an outbound link. */
+export type StructureNavItem =
+  | { kind: 'tab'; tab: StructureTabId }
+  | { kind: 'link'; label: StructureExternalTab['label']; url: string }
+
 export interface StructureUnitManifestEntry {
   /** Page on the old site this content came from, kept for provenance. */
   legacyUrl?: string
@@ -94,6 +112,11 @@ export interface StructureUnitManifestEntry {
   contacts?: StructureUnitContacts
   /** Hide the «Оголошення» card beside the contacts — set where the unit does not use it. */
   hideAnnouncements?: boolean
+  /**
+   * The unit's own tab bar, in order, mixing its tabs with outbound links. When set, only the
+   * tabs listed here exist (plus Головна) — a derived tab such as Новини is hidden unless listed.
+   */
+  tabNav?: (StructureTabId | StructureExternalTab)[]
 }
 
 /**
@@ -181,7 +204,30 @@ export function structureUnitTabs(slug: string): StructureTabId[] {
   if (unit.items.length > 0 || unit.associations?.length) available.add('structure')
   if (unit.newsCategorySlug ?? unit.slug) available.add('news')
 
+  const nav = manifestEntry?.tabNav
+  if (nav) {
+    const listed = new Set(nav.filter((item): item is StructureTabId => typeof item === 'string'))
+    return STRUCTURE_TAB_IDS.filter(tab => tab === 'home' || (listed.has(tab) && available.has(tab)))
+  }
+
   return STRUCTURE_TAB_IDS.filter(tab => available.has(tab))
+}
+
+/**
+ * The tab bar of a unit: its tabs in canonical order, or — where the manifest spells out
+ * `tabNav` — Головна followed by that list, outbound links included.
+ */
+export function structureUnitNav(slug: string): StructureNavItem[] {
+  const tabs = structureUnitTabs(slug)
+  const nav = structureUnitManifest(slug)?.tabNav
+  if (!nav) return tabs.map(tab => ({ kind: 'tab', tab }))
+
+  const items: StructureNavItem[] = [{ kind: 'tab', tab: 'home' }]
+  for (const entry of nav) {
+    if (typeof entry !== 'string') items.push({ kind: 'link', label: entry.label, url: entry.url })
+    else if (entry !== 'home' && tabs.includes(entry)) items.push({ kind: 'tab', tab: entry })
+  }
+  return items
 }
 
 /** Route guard for `/university/structure/<unit>/<tab>`. Synchronous by design. */

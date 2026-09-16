@@ -3,6 +3,7 @@ import type { LinkTile, LinkTileIcon } from '~/components/shared/LinkTileGrid.vu
 import {
   loadStructureTabContent,
   structureTabLabelOverride,
+  type StructureNavItem,
   type StructureTabId,
 } from '~/utils/structureContent'
 
@@ -14,7 +15,7 @@ import {
  * stored in its Головна content (`links` in `app/content/structure/<unit>/home.<locale>.json`).
  * The tab body hides its own link list on this tab so the links appear once, as tiles.
  */
-const props = defineProps<{ slug: string; tabs: StructureTabId[] }>()
+const props = defineProps<{ slug: string; nav: StructureNavItem[] }>()
 
 const { t, locale } = useSafeI18nWithRouter()
 
@@ -28,6 +29,8 @@ const TAB_ICONS: Record<StructureTabId, LinkTileIcon> = {
   students: 'students',
   news: 'globe',
   cooperation: 'shield',
+  staff: 'students',
+  trust: 'shield',
   // Tabs of the відділ аспірантури і докторантури, which is not a faculty.
   doctoral: 'award',
   regulations: 'document',
@@ -41,14 +44,20 @@ const { data } = await useAsyncData(
 )
 
 const tiles = computed<LinkTile[]>(() => [
-  ...props.tabs
-    .filter(tab => tab !== 'home')
-    .map(tab => ({
-      label: structureTabLabelOverride(props.slug, tab, locale.value)
-        ?? t(`university.structure.unit.tabs.${tab}`),
-      path: `/university/structure/${props.slug}/${tab}`,
-      icon: TAB_ICONS[tab],
-    })),
+  ...props.nav
+    .filter(item => item.kind === 'link' || item.tab !== 'home')
+    .map(item => item.kind === 'link'
+      ? {
+          label: (locale.value === 'en' ? item.label.en : undefined) ?? item.label.uk,
+          url: item.url,
+          icon: 'link' as const,
+        }
+      : {
+          label: structureTabLabelOverride(props.slug, item.tab, locale.value)
+            ?? t(`university.structure.unit.tabs.${item.tab}`),
+          path: `/university/structure/${props.slug}/${item.tab}`,
+          icon: TAB_ICONS[item.tab],
+        }),
   ...(data.value?.content.links ?? []).map(link => ({
     label: link.label,
     url: link.url,

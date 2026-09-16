@@ -20,6 +20,11 @@ export default defineNuxtConfig({
     '/education/first-year': { redirect: { to: '/education/quality?tab=students', statusCode: 301 } },
     '/en/education/first-year': { redirect: { to: '/en/education/quality?tab=students', statusCode: 301 } },
     '/en/student/psychology': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/pskhnpu', statusCode: 301 } },
+    // Кафедра психології розвитку веде власний Google-сайт (правка 16.09).
+    '/university/structure/kafedra-psyhologiyi-rozvytku': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
+    '/university/structure/kafedra-psyhologiyi-rozvytku/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
+    '/en/university/structure/kafedra-psyhologiyi-rozvytku': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
+    '/en/university/structure/kafedra-psyhologiyi-rozvytku/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
   },
   runtimeConfig: {
     /**

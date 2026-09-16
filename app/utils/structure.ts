@@ -369,7 +369,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
       },
       {
         name: 'Кафедра практики англійського усного і писемного мовлення',
-        nameEn: 'Department of Practice of English Oral and Written Communication',
+        nameEn: 'Department of English Speech and Writing',
       },
       { name: 'Кафедра східних мов', nameEn: 'Department of Oriental Languages' },
     ],
@@ -519,10 +519,12 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
         nameEn: 'Department of Rehabilitation Psychology',
         external: 'https://sites.google.com/hnpu.edu.ua/department-of-rehab-psychology',
       },
+      // Кафедра психології розвитку теж перейшла на Google-сайт (правка 16.09), стару сторінку
+      // знято — її адреса веде туди ж (`routeRules` у nuxt.config.ts).
       {
         name: 'Кафедра психології розвитку',
         nameEn: 'Department of Developmental Psychology',
-        path: '/university/structure/kafedra-psyhologiyi-rozvytku',
+        external: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology',
       },
       {
         name: 'Кафедра політології, соціології і культурології',
@@ -724,7 +726,7 @@ export const STRUCTURE_CHAIRS: StructureUnit[] = [
     slug: 'kafedra-praktyky-angliyskogo-movlennya',
     kind: 'chair',
     name: 'Кафедра практики англійського усного і писемного мовлення',
-    nameEn: 'Department of Practice of English Oral and Written Communication',
+    nameEn: 'Department of English Speech and Writing',
     newsCategorySlug: 'fakultet-inozemnoyi-filolohiyi',
     items: [],
   },
@@ -763,14 +765,6 @@ export const STRUCTURE_CHAIRS: StructureUnit[] = [
     items: [],
   },
   // Факультет соціально-гуманітарних наук і соціальних технологій
-  {
-    slug: 'kafedra-psyhologiyi-rozvytku',
-    kind: 'chair',
-    name: 'Кафедра психології розвитку',
-    nameEn: 'Department of Developmental Psychology',
-    newsCategorySlug: 'fakultet-sotsialno-humanitarnykh-nauk-i-sotsialnykh-tekhnolohiy',
-    items: [],
-  },
   {
     slug: 'kafedra-politologiyi-sociologiyi-i-kulturologiyi',
     kind: 'chair',

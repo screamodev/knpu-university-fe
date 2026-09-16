@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NOTABLE_ALUMNI } from '~/utils/notableAlumni'
+
 definePageMeta({ layout: 'default' })
 
 const { t } = useSafeI18nWithRouter()
@@ -73,12 +75,34 @@ const benefitKeys = ['networking', 'mentorship', 'careerSupport', 'discounts'] a
         </article>
       </div>
 
-      <!-- Notable alumni: the three previous entries were invented people. -->
+      <!-- Видатні викладачі та випускники: тексти й фото від асоціації випускників (правка 16.09). -->
       <div class="bg-off-white border border-gold/20 rounded-16 p-8 lg:p-10">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
+        <h2 class="font-playfair text-2xl font-bold text-navy mb-8">
           {{ t('student.alumni.notableTitle') }}
         </h2>
-        <SharedSectionPending />
+        <div class="flex flex-col gap-8">
+          <article
+            v-for="person in NOTABLE_ALUMNI"
+            :key="person.name"
+            class="flex flex-col sm:flex-row gap-5 sm:gap-6 items-start"
+          >
+            <img
+              v-if="person.photo"
+              :src="assetUrl(person.photo, { width: 480, quality: 82 }) ?? undefined"
+              :alt="person.name"
+              class="w-40 sm:w-44 aspect-[4/5] rounded-12 object-cover shrink-0 bg-white"
+              loading="lazy"
+            >
+            <div class="min-w-0">
+              <h3 class="font-playfair text-lg font-semibold text-navy mb-2">
+                {{ person.name }}
+              </h3>
+              <p class="text-body-sm text-text-muted">
+                {{ person.text }}
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </div>

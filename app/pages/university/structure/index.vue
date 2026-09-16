@@ -56,6 +56,14 @@ const associations = listAssociations()
       </p>
     </div>
 
+    <!-- The chart itself as a document; editors replace it when the university publishes a new one -->
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
+      <h2 class="font-playfair text-xl font-bold text-navy mb-6">
+        {{ t('university.structure.chartTitle') }}
+      </h2>
+      <SharedDocumentList section="university-structure" />
+    </div>
+
     <!-- Collegiate governing bodies -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
       <h2 class="font-playfair text-xl font-bold text-navy mb-6">

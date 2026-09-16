@@ -61,6 +61,12 @@
       "email": "faculty_history_law@hnpu.edu.ua",
       "facebook": "https://www.facebook.com/groups/5278599615588908/?ref=share",
       "instagram": "https://instagram.com/faculty_history_law?igshid=YmMyMTA2M2Y="
+    },
+    "tabLabels": {
+      "students": {
+        "uk": "Виховна діяльність",
+        "en": "Educational activities"
+      }
     }
   },
   "kafedra-anatomiyi-i-fiziologiyi-lyudyny": {
@@ -642,19 +648,30 @@
     "tabs": [
       "home",
       "admission",
+      "history",
+      "staff",
       "education",
       "science",
-      "students"
+      "students",
+      "trust"
     ],
     "contacts": {
       "dean": "Романова Інна Анатоліївна",
-      "address": "61002, м. Харків, вул. Чернишевська, 60, к.6",
+      "address": "61002, м. Харків, вул. Чернишевська, 60, к. 9-А",
       "phone": "(057) 702-66-15",
-      "email": "sphnpu@ukr.net",
+      "email": "kaf-social-pedagogy@hnpu.edu.ua",
       "facebook": "https://www.facebook.com/groups/395426701191646/?ref=bookmarks",
       "instagram": "https://instagram.com/skovoroda_g.s?igshid=5a22q72jos65"
     },
     "tabLabels": {
+      "history": {
+        "uk": "Історія кафедри",
+        "en": "History of the department"
+      },
+      "staff": {
+        "uk": "Співробітники кафедри",
+        "en": "Staff"
+      },
       "education": {
         "uk": "Освітня діяльність",
         "en": "Teaching"
@@ -663,7 +680,17 @@
         "uk": "Наукова діяльність",
         "en": "Research"
       }
-    }
+    },
+    "tabNav": [
+      "admission",
+      "history",
+      "staff",
+      "education",
+      "science",
+      "students",
+      "news",
+      "trust"
+    ]
   },
   "kafedra-specialnoyi-pedagogiky": {
     "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-specialnoyi-pedagogiky",
@@ -1140,5 +1167,65 @@
       "facebook": "https://www.facebook.com/umlf.hnpu",
       "instagram": "https://www.instagram.com/umlf_khnpu/"
     }
+  },
+  "teacher-competence-centre": {
+    "capturedAt": "2026-09-16",
+    "tabs": [
+      "home",
+      "staff",
+      "regulations",
+      "education",
+      "announcements"
+    ],
+    "contacts": {
+      "dean": "Пономарьова Наталія Олександрівна",
+      "deanUrl": "https://sites.google.com/hnpu.edu.ua/ponomarova/",
+      "position": "доктор педагогічних наук, професор, декан факультету математики, інформатики і природничої освіти",
+      "address": "61002, м. Харків, вул. Алчевських, 29, ауд. 317",
+      "phone": "+380501393167",
+      "email": "ponomna@gmail.com"
+    },
+    "tabLabels": {
+      "staff": {
+        "uk": "Команда",
+        "en": "Team"
+      },
+      "regulations": {
+        "uk": "Фінансування",
+        "en": "Funding"
+      },
+      "education": {
+        "uk": "Якість і сталість",
+        "en": "Quality and sustainability"
+      },
+      "announcements": {
+        "uk": "Новини",
+        "en": "News"
+      }
+    },
+    "hideAnnouncements": true,
+    "tabNav": [
+      "staff",
+      "regulations",
+      "education",
+      "announcements"
+    ]
+  },
+  "mental-health-centre": {
+    "capturedAt": "2026-09-16",
+    "tabs": [
+      "home",
+      "students"
+    ],
+    "tabLabels": {
+      "students": {
+        "uk": "Валеоклуб",
+        "en": "Valeology club"
+      }
+    },
+    "hideAnnouncements": true,
+    "tabNav": [
+      "students"
+    ]
   }
 }

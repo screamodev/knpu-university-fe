@@ -34,32 +34,39 @@ const { localized } = useLocalizedField()
 const limit = computed(() => props.limit ?? 9)
 const isPreview = computed(() => limit.value <= 3)
 
-/** One `_or` over the unit's own category, its children and the fallback, as configured. */
+/** The unit's own category, plus its children where configured. */
 const categoryFilter = computed(() => {
-  const clauses: Record<string, unknown>[] = [
-    { categories: { categories_id: { slug: { _eq: props.categorySlug } } } },
-  ]
-  if (props.includeChildren) {
-    clauses.push({ categories: { categories_id: { parent: { slug: { _eq: props.categorySlug } } } } })
+  const own = { categories: { categories_id: { slug: { _eq: props.categorySlug } } } }
+  if (!props.includeChildren) return own
+  return {
+    _or: [own, { categories: { categories_id: { parent: { slug: { _eq: props.categorySlug } } } } }],
   }
-  if (props.fallbackCategorySlug) {
-    clauses.push({ categories: { categories_id: { slug: { _eq: props.fallbackCategorySlug } } } })
-  }
-  return clauses.length === 1 ? clauses[0]! : { _or: clauses }
 })
 
+function fetchArticles(filter: unknown) {
+  return client.request(
+    readItems('articles', {
+      fields: ['*', { cover: ['*'] }],
+      sort: ['-date_published'],
+      limit: limit.value,
+      filter: filter as never,
+    }),
+  )
+}
+
+/**
+ * A кафедра shows only its own news once it has any; the faculty feed stands in only while the
+ * кафедра's category is empty. Mixing the two buried a кафедра's posts among its neighbours'
+ * (правка 16.09, кафедра практики англійського мовлення).
+ */
 const { data } = await useAsyncData(
   () => `structure-news-${props.categorySlug}-${props.fallbackCategorySlug ?? ''}`
     + `-${props.includeChildren ? 'tree' : 'own'}-${locale.value}-${limit.value}`,
-  () =>
-    client.request(
-      readItems('articles', {
-        fields: ['*', { cover: ['*'] }],
-        sort: ['-date_published'],
-        limit: limit.value,
-        filter: categoryFilter.value as never,
-      }),
-    ),
+  async () => {
+    const own = await fetchArticles(categoryFilter.value)
+    if (own.length || !props.fallbackCategorySlug) return own
+    return fetchArticles({ categories: { categories_id: { slug: { _eq: props.fallbackCategorySlug } } } })
+  },
   { watch: [() => props.categorySlug, () => props.fallbackCategorySlug, () => props.includeChildren, limit] },
 )
 

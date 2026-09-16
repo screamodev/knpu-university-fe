@@ -26,8 +26,7 @@ useHead({
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SharedStaticPageBody slug="attestation" class="mb-12" />
-
+      <!-- Звернення 2024/2025 н. р. знято на прохання університету (правка 16.09). -->
       <h2 class="font-playfair text-2xl font-bold text-navy mb-6">
         {{ t('documents.listTitle') }}
       </h2>

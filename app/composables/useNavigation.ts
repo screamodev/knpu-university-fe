@@ -66,6 +66,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/university/inclusive', key: 'nav.links.inclusive' },
             { path: ANTICORRUPTION_EXTERNAL_URL, key: 'nav.links.anticorruption', external: true },
             { path: '/student/veterans-center', key: 'nav.links.veteransCenter' },
+            { path: '/university/structure/mental-health-centre', key: 'nav.links.mentalHealthCentre' },
             { path: '/university/contacts', key: 'nav.links.contacts' },
           ],
         },
@@ -159,6 +160,8 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/education/academic-office', key: 'nav.links.academicOffice' },
             { path: '/education/digital-center', key: 'nav.links.digitalCenter' },
             { path: '/education/quality', key: 'nav.links.qualityCenter' },
+            // Сторінка центру з'явилася правками 16.09; посилання просили саме сюди.
+            { path: '/university/structure/teacher-competence-centre', key: 'nav.links.teacherCompetenceCentre' },
           ],
         },
         {

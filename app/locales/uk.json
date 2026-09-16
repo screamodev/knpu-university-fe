@@ -177,7 +177,9 @@
       "agreements": "Угоди про співпрацю",
       "activity": "Наукова діяльність",
       "scienceCouncil": "Наукова рада",
-      "candidateSupport": "На допомогу здобувачу"
+      "candidateSupport": "На допомогу здобувачу",
+      "teacherCompetenceCentre": "Центр розвитку компетентностей учителя",
+      "mentalHealthCentre": "Центр ментального здоров’я"
     }
   },
   "header": {
@@ -748,6 +750,9 @@
         "centres": "Центри",
         "departments": "Відділи та служби",
         "other": "Інші підрозділи"
+      },
+      "postgraduateForeign": {
+        "title": "Аспіранти — іноземні громадяни"
       }
     },
     "faculties": {

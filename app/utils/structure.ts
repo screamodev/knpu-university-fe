@@ -169,7 +169,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
       { name: 'Гербарій CWP', nameEn: 'CWP Herbarium' },
       { name: 'Еколого-біоетичний центр', nameEn: 'Ecological and Bioethical Centre' },
       { name: 'Сковородинівська біологічна школа', nameEn: 'Skovoroda Biological School' },
-      { name: 'Центр ментального здоров’я', nameEn: 'Mental Health Centre' },
+      { name: 'Центр ментального здоров’я', nameEn: 'Mental Health Centre', path: '/university/structure/mental-health-centre' },
       { name: 'Центр інклюзивної освіти', nameEn: 'Centre for Inclusive Education' },
       {
         name: 'Кафедра корекційної психопедагогіки та здоров’я людини',
@@ -236,7 +236,7 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
       {
         name: 'Кафедра суспільно-економічних дисциплін і географії',
         nameEn: 'Department of Social and Economic Disciplines and Geography',
-        external: 'https://sites.google.com/hnpu.edu.ua/kafedra-econom-geografiyi/головна',
+        external: 'https://sites.google.com/hnpu.edu.ua/economy-geography-department/',
       },
       {
         name: 'Кафедра цивільно-правових дисциплін і трудового права імені професора О.І. Процевського',
@@ -563,6 +563,27 @@ export const STRUCTURE_DEPARTMENTS: StructureUnit[] = [
     summaryEn:
       'Organisation, planning and support of the doctoral and PhD programmes of the university.',
     newsCategorySlug: 'aspirantura-i-doktorantura',
+    items: [],
+  },
+  // Центри, що отримали власну сторінку правками 16.09.
+  {
+    slug: 'teacher-competence-centre',
+    kind: 'department',
+    name: 'Центр розвитку компетентностей учителя',
+    nameEn: 'Centre for Teacher Competence Development',
+    summary:
+      'Центр створено в межах проєкту «Еразмус+» LECTURE для розвитку професійних компетентностей '
+      + 'педагогів через передові освітні практики.',
+    summaryEn:
+      'Set up under the Erasmus+ LECTURE project to develop teachers’ professional competences '
+      + 'through leading educational practices.',
+    items: [],
+  },
+  {
+    slug: 'mental-health-centre',
+    kind: 'department',
+    name: 'Центр ментального здоров’я',
+    nameEn: 'Mental Health Centre',
     items: [],
   },
 ]
@@ -1124,6 +1145,7 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
       {
         name: 'Центр розвитку компетентностей учителя',
         nameEn: 'Centre for the Development of Teacher Competences',
+        path: '/university/structure/teacher-competence-centre',
       },
       {
         name: 'Навчально-методичний центр технологій альтернативної й додаткової комунікації в освіті',

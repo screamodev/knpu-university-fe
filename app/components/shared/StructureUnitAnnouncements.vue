@@ -28,7 +28,7 @@ async function fetchAnnouncements(dual: boolean): Promise<DirectusArticle[]> {
 
   return client.request(
     readItems('articles', {
-      fields: ['id', 'slug', 'title', 'titleEn', 'date_published', 'publishedAt', 'date_created'],
+      fields: ['id', 'slug', 'title', 'titleEn', 'date_published', 'date_created'],
       sort: ['-date_published'],
       limit: LIMIT,
       filter: categoryFilter,

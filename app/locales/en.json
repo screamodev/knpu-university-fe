@@ -177,7 +177,9 @@
       "agreements": "Cooperation agreements",
       "activity": "Research activity",
       "scienceCouncil": "Research Council",
-      "candidateSupport": "Support for candidates"
+      "candidateSupport": "Support for candidates",
+      "teacherCompetenceCentre": "Teacher Competence Centre",
+      "mentalHealthCentre": "Mental Health Centre"
     }
   },
   "header": {
@@ -748,6 +750,9 @@
         "centres": "Centres",
         "departments": "Departments and services",
         "other": "Other subdivisions"
+      },
+      "postgraduateForeign": {
+        "title": "Postgraduates — foreign citizens"
       }
     },
     "faculties": {

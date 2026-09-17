@@ -1060,7 +1060,7 @@
           "phone": "+38 (096) 647 20 75"
         }
       ],
-      "address": "61002, м. Харків, вул. Алчевських, 29, к. 103",
+      "address": "61002, м. Харків,\nвул. Алчевських, 29, к. 103",
       "email": "aspirantura-2010@hnpu.edu.ua"
     },
     "tabLabels": {
@@ -1081,7 +1081,22 @@
         "en": "For PhD students"
       }
     },
-    "hideAnnouncements": true
+    "hideAnnouncements": true,
+    "tabNav": [
+      "admission",
+      "education",
+      "students",
+      {
+        "label": {
+          "uk": "Аспіранти-громадяни України",
+          "en": "Citizens of Ukraine"
+        },
+        "path": "/university/structure/postgraduate-ukrainian-students"
+      },
+      "doctoral",
+      "regulations",
+      "news"
+    ]
   },
   "preschool": {
     "legacyUrl": "https://old.hnpu.edu.ua/uk/division/fakultet-doshkilnoyi-osvity",

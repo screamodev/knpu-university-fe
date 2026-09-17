@@ -784,6 +784,9 @@
       },
       "postgraduateForeign": {
         "title": "Аспіранти — іноземні громадяни"
+      },
+      "postgraduateUkrainian": {
+        "title": "Аспіранти — громадяни України"
       }
     },
     "faculties": {

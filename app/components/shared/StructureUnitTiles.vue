@@ -50,6 +50,7 @@ const tiles = computed<LinkTile[]>(() => [
       ? {
           label: (locale.value === 'en' ? item.label.en : undefined) ?? item.label.uk,
           url: item.url,
+          path: item.path,
           icon: 'link' as const,
         }
       : {

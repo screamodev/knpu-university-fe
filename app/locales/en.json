@@ -784,6 +784,9 @@
       },
       "postgraduateForeign": {
         "title": "Postgraduates — foreign citizens"
+      },
+      "postgraduateUkrainian": {
+        "title": "Postgraduates — citizens of Ukraine"
       }
     },
     "faculties": {

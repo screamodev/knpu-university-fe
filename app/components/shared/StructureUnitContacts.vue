@@ -118,7 +118,8 @@ const hasAny = computed(() =>
         <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-0.5">
           {{ t('university.structure.unit.addressLabel') }}
         </dt>
-        <dd class="text-navy">{{ address }}</dd>
+        <!-- A manifest address may carry its own line break, so «к. 103» is not orphaned (аспірантура). -->
+        <dd class="text-navy whitespace-pre-line">{{ address }}</dd>
       </div>
       <div v-if="phones.length && !staff.length">
         <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-0.5">

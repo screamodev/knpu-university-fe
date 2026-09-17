@@ -83,13 +83,16 @@ export interface StructureUnitContacts {
  */
 export interface StructureExternalTab {
   label: { uk: string; en?: string }
-  url: string
+  /** Another site — opens in a new tab. */
+  url?: string
+  /** A page of this site outside the unit's own tabs (аспіранти-громадяни України). */
+  path?: string
 }
 
-/** One pill of the tab bar: a tab of this unit, or an outbound link. */
+/** One pill of the tab bar: a tab of this unit, or a link elsewhere. */
 export type StructureNavItem =
   | { kind: 'tab'; tab: StructureTabId }
-  | { kind: 'link'; label: StructureExternalTab['label']; url: string }
+  | { kind: 'link'; label: StructureExternalTab['label']; url?: string; path?: string }
 
 export interface StructureUnitManifestEntry {
   /** Page on the old site this content came from, kept for provenance. */
@@ -224,7 +227,7 @@ export function structureUnitNav(slug: string): StructureNavItem[] {
 
   const items: StructureNavItem[] = [{ kind: 'tab', tab: 'home' }]
   for (const entry of nav) {
-    if (typeof entry !== 'string') items.push({ kind: 'link', label: entry.label, url: entry.url })
+    if (typeof entry !== 'string') items.push({ kind: 'link', label: entry.label, url: entry.url, path: entry.path })
     else if (entry !== 'home' && tabs.includes(entry)) items.push({ kind: 'tab', tab: entry })
   }
   return items

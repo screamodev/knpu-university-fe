@@ -48,11 +48,18 @@ const idle = 'bg-white text-navy border-border hover:border-navy'
     <ul class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 overflow-x-auto snap-x py-3">
       <li
         v-for="item in nav"
-        :key="item.kind === 'tab' ? item.tab : item.url"
+        :key="item.kind === 'tab' ? item.tab : (item.path ?? item.url)"
         class="snap-start shrink-0"
       >
+        <NuxtLink
+          v-if="item.kind === 'link' && item.path"
+          :to="localePath(item.path)"
+          :class="[pill, idle]"
+        >
+          {{ itemLabel(item) }}
+        </NuxtLink>
         <a
-          v-if="item.kind === 'link'"
+          v-else-if="item.kind === 'link'"
           :href="item.url"
           target="_blank"
           rel="noopener noreferrer"

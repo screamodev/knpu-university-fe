@@ -33,6 +33,9 @@ export const STRUCTURE_TAB_IDS = [
   'cooperation',
   // Скринька довіри кафедри соціальної роботи (правка 16.09).
   'trust',
+  // Центр діагностики й навчально-наукова лабораторія кафедри спеціальної педагогіки (17.09).
+  'centre',
+  'laboratory',
 ] as const
 
 export type StructureTabId = (typeof STRUCTURE_TAB_IDS)[number]

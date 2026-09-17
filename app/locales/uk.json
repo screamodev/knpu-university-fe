@@ -742,7 +742,9 @@
           "regulations": "Нормативні документи",
           "announcements": "Оголошення",
           "staff": "Співробітники",
-          "trust": "Скринька довіри"
+          "trust": "Скринька довіри",
+          "centre": "Центр",
+          "laboratory": "Лабораторія"
         },
         "contactsTitle": "Контакти",
         "deanTitle": "Декан",

@@ -31,6 +31,8 @@ const TAB_ICONS: Record<StructureTabId, LinkTileIcon> = {
   cooperation: 'shield',
   staff: 'students',
   trust: 'shield',
+  centre: 'council',
+  laboratory: 'document',
   // Tabs of the відділ аспірантури і докторантури, which is not a faculty.
   doctoral: 'award',
   regulations: 'document',

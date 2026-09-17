@@ -742,7 +742,9 @@
           "regulations": "Regulations",
           "announcements": "Announcements",
           "staff": "Staff",
-          "trust": "Trust box"
+          "trust": "Trust box",
+          "centre": "Centre",
+          "laboratory": "Laboratory"
         },
         "contactsTitle": "Contacts",
         "deanTitle": "Dean",

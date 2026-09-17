@@ -29,7 +29,8 @@ const navSections = computed((): NavSection[] => {
     if (item.columns) {
       for (const column of item.columns) {
         for (const link of column.links) {
-          links.push({ path: link.path, labelKey: link.key, external: link.external })
+          // Файли з медіатеки й підписи з даних (НДІ, центри) у карту сайту не йдуть.
+          if (link.key && !link.asset) links.push({ path: link.path, labelKey: link.key, external: link.external })
         }
       }
     }

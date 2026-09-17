@@ -6,7 +6,7 @@ import { conferenceDescriptionHtml, conferenceDescriptionText } from '~/utils/co
 definePageMeta({ layout: 'default' })
 
 const { t, locale } = useSafeI18nWithRouter()
-const { client } = useDirectus()
+const { client, assetUrl } = useDirectus()
 const { localized } = useLocalizedField()
 
 useHead({
@@ -50,7 +50,15 @@ const EVENT_PLANS = [
   { key: 'national', url: 'https://docs.google.com/document/d/18O6jeXC5Oth3KWLpOYL97aNnLPqraVFe/edit' },
   { key: 'roundTables', url: 'https://docs.google.com/document/d/136qqT6WhM6uxjjlKbNjHPn37IY1yj2Jc/edit' },
   { key: 'archive', url: 'https://docs.google.com/document/d/1osT6pw8ZC6vYGCVDnFQZXE3KCsg8AOAW/edit' },
+  // Обидва пункти 11.09 відклали без посилань; їх знайшлося на старій сторінці «Наукові заходи»
+  // (правка 16.09). Положення перенесено в медіатеку.
+  { key: 'regulation', url: '/assets/5a6174a4-9bad-5d09-b583-12ecc1914816' },
+  { key: 'imzo', url: 'https://imzo.gov.ua/events/' },
 ] as const
+
+function planHref(url: string): string {
+  return url.startsWith('/assets/') ? (assetUrl(url.slice('/assets/'.length)) ?? url) : url
+}
 
 const conferences = computed<DirectusScienceConference[]>(() => {
   return (conferencesData.value as DirectusScienceConference[] | null) ?? []
@@ -110,7 +118,7 @@ function conferenceYear(value: string): string {
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-14">
         <li v-for="plan in EVENT_PLANS" :key="plan.key">
           <a
-            :href="plan.url"
+            :href="planHref(plan.url)"
             target="_blank"
             rel="noopener noreferrer"
             class="flex h-full items-center rounded-12 border border-border px-5 py-4 text-body-sm font-medium text-navy no-underline transition-colors duration-280 hover:border-gold hover:text-gold"

@@ -39,6 +39,7 @@ const admissionsStacks = computed(() => {
         'grid-cols-2': colCount === 2,
         'grid-cols-3': colCount === 3,
         'grid-cols-4': colCount === 4,
+        'grid-cols-5': colCount === 5,
       }"
     >
       <template v-if="item.labelKey === 'nav.labels.admissions' && item.cta">
@@ -48,23 +49,8 @@ const admissionsStacks = computed(() => {
               {{ t(col.titleKey) }}
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
-              <li v-for="link in col.links" :key="link.key" class="min-w-0">
-                <a
-                  v-if="link.external"
-                  :href="link.path"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
-                >
-                  {{ t(link.key) }}
-                </a>
-                <NuxtLink
-                  v-else
-                  :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
-                >
-                  {{ t(link.key) }}
-                </NuxtLink>
+              <li v-for="link in col.links" :key="`${link.key ?? link.label?.uk}:${link.path}`" class="min-w-0">
+                <FeaturesNavMenuLink :link="link" class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words" />
               </li>
             </ul>
           </div>
@@ -75,23 +61,8 @@ const admissionsStacks = computed(() => {
               {{ t(col.titleKey) }}
             </div>
             <ul class="list-none flex flex-col gap-0.5 min-w-0">
-              <li v-for="link in col.links" :key="link.key" class="min-w-0">
-                <a
-                  v-if="link.external"
-                  :href="link.path"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
-                >
-                  {{ t(link.key) }}
-                </a>
-                <NuxtLink
-                  v-else
-                  :to="localePath(link.path)"
-                  class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
-                >
-                  {{ t(link.key) }}
-                </NuxtLink>
+              <li v-for="link in col.links" :key="`${link.key ?? link.label?.uk}:${link.path}`" class="min-w-0">
+                <FeaturesNavMenuLink :link="link" class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words" />
               </li>
             </ul>
           </div>
@@ -136,26 +107,34 @@ const admissionsStacks = computed(() => {
           :class="{ 'border-r border-white/8 pr-6': i < item.columns!.length - 1, 'pl-6': i > 0 }"
         >
           <div class="text-[11px] font-semibold tracking-widest uppercase text-gold mb-3.5 pb-2.5 border-b border-gold/25 flex items-center gap-1.5">
-            {{ t(col.titleKey) }}
+            <NuxtLink
+              v-if="col.titlePath"
+              :to="localePath(col.titlePath)"
+              class="text-gold no-underline hover:text-gold-light transition-colors duration-280"
+            >
+              {{ t(col.titleKey) }}
+            </NuxtLink>
+            <template v-else>{{ t(col.titleKey) }}</template>
           </div>
           <ul class="list-none flex flex-col gap-0.5 min-w-0">
-            <li v-for="link in col.links" :key="link.key" class="min-w-0">
-              <a
-                v-if="link.external"
-                :href="link.path"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
+            <li
+              v-for="link in col.links"
+              :key="`${link.key ?? link.label?.uk}:${link.path}`"
+              class="min-w-0"
+              :class="{ 'relative group/sub': link.children?.length }"
+            >
+              <FeaturesNavMenuLink :link="link" class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words" />
+              <!-- Другий рівень: перелік підрозділів поруч із пунктом, на наведення. -->
+              <div
+                v-if="link.children?.length"
+                class="absolute top-0 right-full mr-2 w-[640px] max-h-[70vh] overflow-y-auto bg-navy-deep border border-gold/25 rounded-12 p-4 shadow-mega opacity-0 pointer-events-none transition-opacity duration-280 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto z-[1000]"
               >
-                {{ t(link.key) }}
-              </a>
-              <NuxtLink
-                v-else
-                :to="localePath(link.path)"
-                class="block py-1.5 px-2 text-[13px] text-white/95 no-underline rounded-md hover:text-white hover:bg-gold/10 hover:pl-3 transition-all duration-280 leading-snug break-words"
-              >
-                {{ t(link.key) }}
-              </NuxtLink>
+                <ul class="list-none grid grid-cols-2 gap-x-4 gap-y-0.5 m-0 p-0">
+                  <li v-for="child in link.children" :key="child.label?.uk ?? child.path" class="min-w-0">
+                    <FeaturesNavMenuLink :link="child" class="block py-1 px-2 text-[12.5px] text-white/90 no-underline rounded-md hover:text-white hover:bg-gold/10 transition-colors duration-280 leading-snug break-words" />
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>

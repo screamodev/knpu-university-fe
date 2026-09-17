@@ -2,21 +2,30 @@ import {
   ACADEMIC_MOBILITY_EXTERNAL_URL,
   ADMISSION_RULES_2026_URL,
   ADMISSIONS_LEGACY_URL,
-  JOURNALS_EXTERNAL_URL,
   WINTER_ADMISSIONS_LEGACY_URL,
   PSYCHOLOGICAL_SERVICE_URL,
   STUDENT_SCIENTIFIC_SOCIETY_URL,
 } from '~/utils/externalSites'
+import { PUBLISHING_REGULATION_ASSET } from '~/utils/sciencePages'
+import { SCIENCE_UNITS } from '~/utils/scienceUnits'
 import { ANTICORRUPTION_EXTERNAL_URL, MEMORIAL_EXTERNAL_URL } from '~/utils/memorialUrl'
 
 export interface NavLink {
   path: string
-  key: string
+  /** i18n key of the label; a link built from data carries `label` instead. */
+  key?: string
+  label?: { uk: string; en?: string }
   external?: boolean
+  /** A file from the Directus media library (`/assets/<id>`), opened on the admin host. */
+  asset?: boolean
+  /** Second-level list, shown beside the link on hover (desktop) — «НДІ, центри, лабораторії». */
+  children?: NavLink[]
 }
 
 export interface NavColumn {
   titleKey: string
+  /** Makes the column heading itself a link — the «Наука» columns are subdivisions with pages. */
+  titlePath?: string
   links: NavLink[]
 }
 
@@ -186,52 +195,90 @@ export function useNavigation(): { items: NavItem[] } {
     },
     {
       labelKey: 'nav.labels.science',
-      minWidth: '760px',
-      // Порядок колонок і склад — за схемою, яку клієнт намалював 30.08: спершу підрозділи,
-      // далі власне діяльність, ресурси й видання.
+      minWidth: '1180px',
+      // Меню «Наука» за схемою з правок 16.09 (п. 2): п'ять колонок — підрозділи, кожен зі своїми
+      // сторінками. Жовті пункти схеми — сторінки старого сайту, перенесені сюди
+      // (`~/utils/sciencePages`), зелені — зовнішні сайти, світло-блакитні — нові сторінки.
       columns: [
         {
-          titleKey: 'nav.science.units',
+          titleKey: 'nav.links.graduate',
+          titlePath: '/university/structure/postgraduate',
           links: [
-            { path: '/science/library', key: 'nav.links.library' },
-            { path: '/university/structure/postgraduate', key: 'nav.links.graduate' },
-            { path: '/science/publishing', key: 'nav.links.publishing' },
-            // «НДІ, центри та лабораторії» знято з меню (правка 10.09); сторінка лишається.
-            { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
-            // Товариство попросило, щоб пункт меню одразу відкривав їхній сайт (правка 11.09).
-            { path: STUDENT_SCIENTIFIC_SOCIETY_URL, key: 'nav.links.studentSociety', external: true },
-            // Відділ наукової, інноваційної і міжнародної діяльності — сторінки поки немає.
+            { path: '/university/structure/postgraduate/admission', key: 'nav.links.pgAdmission' },
+            { path: '/university/structure/postgraduate/education', key: 'nav.links.pgEducation' },
+            { path: '/university/structure/postgraduate/students', key: 'nav.links.pgStudents' },
+            { path: '/university/structure/postgraduate/doctoral', key: 'nav.links.pgDoctoral' },
+            { path: '/university/structure/postgraduate/regulations', key: 'nav.links.pgRegulations' },
+            { path: '/university/structure/postgraduate/news', key: 'nav.links.pgNews' },
+            { path: '/university/structure/postgraduate/announcements', key: 'nav.links.announcements' },
           ],
         },
         {
-          titleKey: 'nav.science.activity',
+          titleKey: 'nav.links.scientificSecretary',
+          titlePath: '/university/scientific-secretary',
           links: [
-            { path: '/science/activity', key: 'nav.links.activity' },
-            { path: '/science/directions', key: 'nav.links.directions' },
-            { path: '/science/council', key: 'nav.links.scienceCouncil' },
-            { path: '/university/integrity', key: 'nav.links.integrity' },
-            { path: '/science/conferences', key: 'nav.links.conferences' },
-          ],
-        },
-        {
-          titleKey: 'nav.science.resources',
-          links: [
-            { path: '/science/catalog', key: 'nav.links.catalog' },
-            { path: '/science/repository', key: 'nav.links.repository' },
-            { path: '/science/plagiarism', key: 'nav.links.plagiarism' },
+            { path: '/university/council', key: 'nav.links.academicCouncil' },
             { path: '/science/boards', key: 'nav.links.boards' },
             { path: '/science/dissertation-councils', key: 'nav.links.dissertationCouncils' },
             { path: '/science/candidate-support', key: 'nav.links.candidateSupport' },
           ],
         },
         {
-          titleKey: 'nav.science.publications',
+          titleKey: 'nav.links.library',
+          titlePath: '/science/library',
           links: [
-            // Фахові видання are published on a separate OJS site; the local page was removed.
-            { path: JOURNALS_EXTERNAL_URL, key: 'nav.links.journals', external: true },
-            { path: '/science/collections', key: 'nav.links.collections' },
-            { path: '/science/publication-requirements', key: 'nav.links.publicationRequirements' },
-            // «Scopus / WOS» знято з меню (правка 10.09); сторінка лишається.
+            { path: 'https://dspace.hnpu.edu.ua/', key: 'nav.links.repositoryShort', external: true },
+            { path: 'https://sites.google.com/hnpu.edu.ua/akdob/', key: 'nav.links.integrity', external: true },
+            { path: '/science/bibliographic-indexes', key: 'nav.links.bibliographicIndexes' },
+            { path: '/science/notable-scientists', key: 'nav.links.notableScientists' },
+            { path: '/science/inexhaustible-treasure', key: 'nav.links.inexhaustibleTreasure' },
+            { path: '/science/library-projects', key: 'nav.links.libraryProjects' },
+            { path: 'https://library.hnpu.edu.ua/%D0%9F%D1%80%D0%BE%D1%84%D1%96%D0%BB%D1%96-%D0%BD%D0%B0%D1%83%D0%BA%D0%BE%D0%B2%D1%86%D1%96%D0%B2/', key: 'nav.links.scientistProfiles', external: true },
+            { path: '/science/scientometric-databases', key: 'nav.links.scientometricDatabases' },
+          ],
+        },
+        {
+          titleKey: 'nav.links.scienceDepartment',
+          titlePath: '/science/activity',
+          links: [
+            { path: '/science/rankings', key: 'nav.links.universityRankings' },
+            { path: '/science/rankings', key: 'nav.links.researchReport' },
+            { path: 'https://sites.google.com/hnpu.edu.ua/scienceschools/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', key: 'nav.links.scienceSchools', external: true },
+            { path: '/science/conferences', key: 'nav.links.conferences' },
+            { path: 'https://docs.google.com/document/d/1Cq1Dk_NUbpmL24siq8eDi0LU0c-RZNay/edit', key: 'nav.links.internationalActivity', external: true },
+            { path: ACADEMIC_MOBILITY_EXTERNAL_URL, key: 'nav.links.mobility', external: true },
+            { path: '/university/agreements', key: 'nav.links.agreements' },
+            { path: '/science/grants', key: 'nav.links.grants' },
+            { path: 'https://docs.google.com/document/d/1mtLHulwqWn-40zUcYzTstsd0Ngz1X2D5/edit', key: 'nav.links.departmentResearchTopics', external: true },
+            {
+              path: '/science/research-units',
+              key: 'nav.links.researchUnits',
+              children: SCIENCE_UNITS.map(unit => ({
+                path: unit.path ?? unit.url ?? '/science/research-units',
+                label: { uk: unit.name, en: unit.nameEn },
+                external: !unit.path && Boolean(unit.url),
+              })),
+            },
+            { path: '/science/council', key: 'nav.links.scienceCouncil' },
+            { path: '/science/young-scientists', key: 'nav.links.youngScientists' },
+            { path: STUDENT_SCIENTIFIC_SOCIETY_URL, key: 'nav.links.studentSociety', external: true },
+            { path: 'https://nauka.gov.ua/infrastructure/r.LcDEsoM3/', key: 'nav.links.uris', external: true },
+          ],
+        },
+        {
+          titleKey: 'nav.links.publishing',
+          titlePath: '/science/publishing',
+          links: [
+            { path: `/assets/${PUBLISHING_REGULATION_ASSET}`, key: 'nav.links.departmentRegulation', asset: true },
+            { path: '/science/publishing-about', key: 'nav.links.aboutDepartment' },
+            { path: '/science/publishing', key: 'nav.links.departmentStaff' },
+            { path: '/science/publishing-regulations', key: 'nav.links.pgRegulations' },
+            { path: 'https://docs.google.com/document/d/1kFCCAmCKAlEnBGGmxj4AWV5oQSi3_Cur/edit', key: 'nav.links.professionalJournals', external: true },
+            { path: '/science/publication-activity', key: 'nav.links.publicationActivity' },
+            { path: '/science/publishing-recommendation', key: 'nav.links.publishingRecommendation' },
+            { path: '/science/publishing-accompanying', key: 'nav.links.publishingAccompanying' },
+            { path: 'https://docs.google.com/document/d/1khEXLCH-KRcw4WYB-ntvSYrvMPZYe6Gr/edit', key: 'nav.links.publishingCouncil', external: true },
+            { path: '/science/publishing-useful-links', key: 'nav.links.usefulLinks' },
           ],
         },
       ],

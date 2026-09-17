@@ -24,7 +24,7 @@ const mobileSections = computed(() =>
 )
 
 function linkKey(link: NavLink): string {
-  return `${link.key}:${link.path}`
+  return `${link.key ?? link.label?.uk}:${link.path}`
 }
 </script>
 
@@ -83,24 +83,7 @@ function linkKey(link: NavLink): string {
               {{ t(column.titleKey) }}
             </div>
             <template v-for="link in column.links" :key="linkKey(link)">
-              <a
-                v-if="link.external"
-                :href="link.path"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
-                @click="close"
-              >
-                {{ t(link.key) }}
-              </a>
-              <NuxtLink
-                v-else
-                :to="localePath(link.path)"
-                class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280"
-                @click="close"
-              >
-                {{ t(link.key) }}
-              </NuxtLink>
+              <FeaturesNavMenuLink :link="link" class="block py-2 text-sm text-white/65 no-underline hover:text-gold transition-colors duration-280" @click="close" />
             </template>
           </div>
 

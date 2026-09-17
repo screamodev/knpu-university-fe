@@ -2,7 +2,13 @@
 const { t, localePath } = useSafeI18nWithRouter()
 const { items } = useNavigation()
 
-function position(index: number): 'first' | 'middle' | 'last' {
+/**
+ * Where the dropdown sits. A five-column menu («Наука», правки 16.09) is wider than the space on
+ * either side of its button, so it is centred on the header instead — anchored to the trigger it
+ * ran off the left edge of the screen.
+ */
+function position(index: number): 'first' | 'middle' | 'last' | 'wide' {
+  if ((items[index]?.columns?.length ?? 0) >= 5) return 'wide'
   if (index === 0) return 'first'
   if (index >= 3) return 'last'
   return 'middle'
@@ -25,7 +31,8 @@ const TRIGGER_CLASS
     <li
       v-for="(item, index) in items"
       :key="item.labelKey"
-      class="relative group"
+      class="group"
+      :class="{ relative: position(index) !== 'wide' }"
     >
       <!--
         Пункт із мегаменю. «Вступ» тепер веде на приймальну комісію старого сайту, тож заголовок

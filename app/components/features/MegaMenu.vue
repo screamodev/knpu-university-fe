@@ -5,7 +5,7 @@ const { t, localePath } = useSafeI18nWithRouter()
 
 const props = defineProps<{
   item: NavItem
-  position: 'first' | 'middle' | 'last'
+  position: 'first' | 'middle' | 'last' | 'wide'
 }>()
 
 const colCount = computed(() => props.item.columns?.length ?? 0)
@@ -30,8 +30,11 @@ const admissionsStacks = computed(() => {
       'left-0 translate-x-0 group-hover:translate-x-0': position === 'first',
       'left-1/2 -translate-x-1/2': position === 'middle',
       'left-auto right-0 translate-x-0 group-hover:translate-x-0': position === 'last',
+      'left-1/2 -translate-x-1/2': position === 'wide',
     }"
-    :style="{ minWidth: item.minWidth }"
+    :style="position === 'wide'
+      ? { width: `min(${item.minWidth}, calc(100vw - 2rem))`, minWidth: 0 }
+      : { minWidth: item.minWidth }"
   >
     <div
       class="grid gap-0"

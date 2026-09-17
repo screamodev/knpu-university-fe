@@ -8,7 +8,8 @@ const { open: openSearch } = useSearch()
 
 <template>
   <header class="bg-white border-b border-border sticky top-0 z-[1000] shadow-header">
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 sm:gap-6 lg:gap-10 h-[76px]">
+    <!-- `relative`: широке меню «Наука» центрується по шапці, а не по своїй кнопці. -->
+    <div class="relative max-w-container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 sm:gap-6 lg:gap-10 h-[76px]">
       <FeaturesLogo />
       <nav class="flex-1 flex items-center justify-center max-lg:hidden min-w-0">
         <FeaturesNavList />

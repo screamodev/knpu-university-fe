@@ -115,6 +115,10 @@ export interface StructureUnitManifestEntry {
   contacts?: StructureUnitContacts
   /** Hide the «Оголошення» card beside the contacts — set where the unit does not use it. */
   hideAnnouncements?: boolean
+  /** Hide the news feed on Головна — the unit publishes its news on its own site. */
+  hideNews?: boolean
+  /** Button «Оголошення» under the contacts, leading to the unit's own announcements page. */
+  announcementsUrl?: string
   /**
    * The unit's own tab bar, in order, mixing its tabs with outbound links. When set, only the
    * tabs listed here exist (plus Головна) — a derived tab such as Новини is hidden unless listed.

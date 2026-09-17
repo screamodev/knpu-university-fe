@@ -242,7 +242,8 @@ export function useNavigation(): { items: NavItem[] } {
           titlePath: '/science/activity',
           links: [
             { path: '/science/rankings', key: 'nav.links.universityRankings' },
-            { path: '/science/rankings', key: 'nav.links.researchReport' },
+            // «Звіт з науково-дослідної роботи» вів на ту саму сторінку рейтингів — окремого звіту на
+            // старому сайті немає. Пункт повернеться, коли відділ дасть посилання (правка 17.09).
             { path: 'https://sites.google.com/hnpu.edu.ua/scienceschools/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', key: 'nav.links.scienceSchools', external: true },
             { path: '/science/conferences', key: 'nav.links.conferences' },
             { path: 'https://docs.google.com/document/d/1Cq1Dk_NUbpmL24siq8eDi0LU0c-RZNay/edit', key: 'nav.links.internationalActivity', external: true },

@@ -197,6 +197,17 @@ const showAudienceCta = computed(
             v-if="tab === 'home' && !manifest?.hideAnnouncements"
             :unit-category-slug="homeNewsCategory"
           />
+          <!-- Кафедра, що веде оголошення на власному сайті (кафедра української мови, 17.09). -->
+          <a
+            v-if="manifest.announcementsUrl"
+            :href="manifest.announcementsUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-center py-3 px-5 rounded-12 bg-navy text-white text-sm font-semibold no-underline transition-colors duration-280 hover:bg-gold hover:text-navy-deep"
+          >
+            {{ t('university.structure.unit.announcementsTitle') }} ↗
+            <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+          </a>
         </aside>
       </div>
 
@@ -210,7 +221,7 @@ const showAudienceCta = computed(
           :items="unit.items"
         />
 
-        <section class="py-12 border-t border-border">
+        <section v-if="!manifest?.hideNews" class="py-12 border-t border-border">
           <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
             <h2 class="font-playfair text-xl font-bold text-navy">
               {{ homeNewsTitle }}

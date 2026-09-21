@@ -205,7 +205,6 @@ export function useNavigation(): { items: NavItem[] } {
           titlePath: '/university/structure/postgraduate',
           links: [
             { path: '/university/structure/postgraduate/admission', key: 'nav.links.pgAdmission' },
-            { path: '/university/structure/postgraduate/education', key: 'nav.links.pgEducation' },
             { path: '/university/structure/postgraduate/students', key: 'nav.links.pgStudents' },
             { path: '/university/structure/postgraduate/doctoral', key: 'nav.links.pgDoctoral' },
             { path: '/university/structure/postgraduate/regulations', key: 'nav.links.pgRegulations' },

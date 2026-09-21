@@ -1096,15 +1096,7 @@
     "hideAnnouncements": true,
     "tabNav": [
       "admission",
-      "education",
       "students",
-      {
-        "label": {
-          "uk": "Аспіранти-громадяни України",
-          "en": "Citizens of Ukraine"
-        },
-        "path": "/university/structure/postgraduate-ukrainian-students"
-      },
       "doctoral",
       "regulations",
       "news"

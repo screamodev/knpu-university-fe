@@ -1252,7 +1252,8 @@
     },
     "hideAnnouncements": true,
     "tabNav": [
-      "students"
+      "students",
+      "news"
     ]
   }
 }

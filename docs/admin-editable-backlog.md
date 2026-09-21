@@ -31,6 +31,7 @@
 | `arts`: Освіта | посилання на розклад і графік (19.09 п. 15) | статика | `structure_pages` |
 | `kafedra-angliyskoyi-filologiyi`: Головна, Історія, Освіта, Наука | тексти, склад кафедри (19.09 п. 16) | статика | `structure_pages` ×4 |
 | `/education/quality` (`quality-centre`) | склад центру (19.09 п. 17) | `app/content/pages/quality-centre.uk.json` | `static_pages` slug `quality-centre` |
+| `mental-health-centre`: вкладка «Новини» | нова вкладка-стрічка категорії `mental-health-centre` (19.09, лист) | `tabNav` у `manifest.json` | поле CMS для набору вкладок |
 | `/science/candidate-support` | новий блок «доктора наук» (19.09 п. 4) | акордеони в `candidate-support.vue` | документи вже в `documents`; самі блоки — в коді |
 
 ### З попередніх раундів (16.09, 17.09)

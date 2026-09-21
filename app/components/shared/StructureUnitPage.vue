@@ -31,7 +31,10 @@ const tabs = computed(() => structureUnitTabs(props.slug))
 const nav = computed(() => structureUnitNav(props.slug))
 
 const unitName = computed(() => (unit.value ? localized(unit.value, 'name') : ''))
-const unitSummary = computed(() => (unit.value ? localized(unit.value, 'summary') : ''))
+const unitSummary = computed(() => {
+  if (!unit.value) return ''
+  return localized(unit.value, unit.value.pageSummary ? 'pageSummary' : 'summary')
+})
 const tag = computed(() => {
   if (unit.value?.kind === 'institute') return t('university.structure.tagInstitute')
   if (unit.value?.kind === 'department') return t('university.structure.tagDepartment')

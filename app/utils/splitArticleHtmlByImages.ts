@@ -49,6 +49,29 @@ const IMAGE_ONLY_BLOCK_RE = new RegExp(
 )
 
 /**
+ * Spans of top-level `<details>` blocks. Each segment renders into its own element, so cutting
+ * one out of a collapsible block would leave the block empty and its content spilled below it.
+ */
+function detailsSpans(source: string): Array<[number, number]> {
+  const spans: Array<[number, number]> = []
+  const re = /<details\b[^>]*>|<\/details\s*>/gi
+  let depth = 0
+  let start = 0
+  let tag: RegExpExecArray | null
+  while ((tag = re.exec(source)) !== null) {
+    if (tag[0][1] !== '/') {
+      if (depth === 0) start = tag.index
+      depth += 1
+    } else if (depth > 0) {
+      depth -= 1
+      if (depth === 0) spans.push([start, tag.index + tag[0].length])
+    }
+  }
+  if (depth > 0) spans.push([start, source.length])
+  return spans
+}
+
+/**
  * Splits sanitized article HTML into HTML chunks and consecutive image groups.
  * Groups of 2+ adjacent images become carousel candidates; a single image stays as HTML.
  */
@@ -64,9 +87,12 @@ export function splitArticleHtmlByImages(html: string): ArticleHtmlSegment[] {
 
   const matches: ImageMatch[] = []
   const re = new RegExp(IMAGE_ONLY_BLOCK_RE.source, IMAGE_ONLY_BLOCK_RE.flags)
+  const collapsibles = detailsSpans(source)
   let match: RegExpExecArray | null
 
   while ((match = re.exec(source)) !== null) {
+    const at = match.index
+    if (collapsibles.some(([from, to]) => at > from && at < to)) continue
     const images = extractImagesFromMatch(match[0])
     if (images.length === 0) continue
     matches.push({

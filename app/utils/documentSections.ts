@@ -57,6 +57,8 @@ export const DOCUMENT_SECTIONS = [
   'staff-conference',
   'quality-board',
   'candidate-support',
+  // На допомогу здобувачу: зразки документів на здобуття ступеня доктора наук (правка 19.09).
+  'doctor-of-science-support',
   'science-council',
   'science-events',
   // Звіти Студентського Парламенту — розділ на /student/council; на старому сайті він

@@ -162,6 +162,13 @@ const contacts = computed<CandidateContact[]>(() =>
         </div>
       </SharedAccordion>
 
+      <!-- Здобувачу наукового ступеня доктора наук -->
+      <SharedAccordion :title="t('science.candidateSupport.doctorTitle')">
+        <div class="pt-4">
+          <SharedDocumentList section="doctor-of-science-support" />
+        </div>
+      </SharedAccordion>
+
       <!-- Здобувачу вченого звання -->
       <SharedAccordion :title="t('science.candidateSupport.titleTrackTitle')">
         <div class="pt-4">

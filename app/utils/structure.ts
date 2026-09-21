@@ -58,6 +58,9 @@ export interface StructureUnit {
   /** Short blurb shown on the unit page hero and on the hub cards. */
   summary?: string
   summaryEn?: string
+  /** Hero blurb when the unit wants a different one on its own page than on the hub cards. */
+  pageSummary?: string
+  pageSummaryEn?: string
   /** Own website on an external domain — when set, no page is built for the unit. */
   external?: string
   /**
@@ -140,13 +143,19 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
     kind: 'institute',
     name: 'Навчально-науковий інститут спеціальної освіти та інклюзії',
     nameEn: 'Educational and Research Institute of Special Education and Inclusion',
-    summary:
-      'Спеціальна педагогіка, корекційна психопедагогіка і біологія разом із навчально-науковими лабораторіями, центрами інклюзії та ментального здоров’я.',
-    summaryEn:
-      'Special pedagogy, corrective psychopedagogy and biology, together with research laboratories and the centres for inclusion and mental health.',
+    summary: 'Спеціальна педагогіка, корекційна психопедагогіка, центр інклюзії та ментального здоров’я.',
+    summaryEn: 'Special pedagogy, corrective psychopedagogy, the centre for inclusion and mental health.',
+    pageSummary:
+      'Підготовку кваліфікованих фахівців за спеціальностями галузі «Спеціальна освіта» проводять кафедри: '
+      + 'спеціальної педагогіки; корекційної психопедагогіки та здоров’я людини; анатомії, фізіології '
+      + 'людини та медичної підготовки імені професора Я.Р. Синельникова.',
+    pageSummaryEn:
+      'Specialists in Special Education are trained by the Departments of Special Pedagogy; Corrective '
+      + 'Psychopedagogy and Human Health; and the Professor Ya.R. Synelnykov Department of Human Anatomy, '
+      + 'Physiology and Medical Training.',
     items: [
       {
-        name: 'Кафедра анатомії і фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
+        name: 'Кафедра анатомії, фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
         nameEn:
           'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
       },
@@ -166,9 +175,6 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
       },
     ],
     associations: [
-      { name: 'Гербарій CWP', nameEn: 'CWP Herbarium' },
-      { name: 'Еколого-біоетичний центр', nameEn: 'Ecological and Bioethical Centre' },
-      { name: 'Сковородинівська біологічна школа', nameEn: 'Skovoroda Biological School' },
       { name: 'Центр ментального здоров’я', nameEn: 'Mental Health Centre', path: '/university/structure/mental-health-centre' },
       { name: 'Центр інклюзивної освіти', nameEn: 'Centre for Inclusive Education' },
       {
@@ -186,7 +192,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
         ],
       },
       {
-        name: 'Кафедра анатомії і фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
+        name: 'Кафедра анатомії, фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
         nameEn:
           'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
         children: [{ name: 'Музей анатомії', nameEn: 'Museum of Anatomy' }],
@@ -629,7 +635,7 @@ export const STRUCTURE_CHAIRS: StructureUnit[] = [
   {
     slug: 'kafedra-anatomiyi-i-fiziologiyi-lyudyny',
     kind: 'chair',
-    name: 'Кафедра анатомії і фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
+    name: 'Кафедра анатомії, фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
     nameEn:
       'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
     newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',

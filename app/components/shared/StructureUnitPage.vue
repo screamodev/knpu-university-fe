@@ -87,6 +87,15 @@ const newsCategory = computed(() => {
 
 const homeNewsCategory = computed(() => ownNewsCategory.value)
 
+/**
+ * «Усі новини» веде на вкладку «Новини», а де її в навігації немає (центри з власною вкладкою
+ * новин, кафедри з `tabNav`) — на стрічку /news цієї категорії, а не на 404.
+ */
+const allNewsLink = computed(() =>
+  tabs.value.includes('news')
+    ? localePath(`/university/structure/${props.slug}/news`)
+    : localePath({ path: '/news', query: { category: homeNewsCategory.value } }))
+
 const homeNewsTitle = computed(() => {
   if (unit.value?.kind === 'institute') return t('university.structure.unit.newsTitleInstitute')
   if (unit.value?.kind === 'department') return t('university.structure.unit.newsTitleUnit')
@@ -230,7 +239,7 @@ const showAudienceCta = computed(
               {{ homeNewsTitle }}
             </h2>
             <NuxtLink
-              :to="localePath(`/university/structure/${slug}/news`)"
+              :to="allNewsLink"
               class="text-sm font-medium text-navy no-underline hover:text-gold transition-colors duration-280"
             >
               {{ t('university.structure.unit.newsViewAll') }} →
@@ -245,7 +254,7 @@ const showAudienceCta = computed(
           />
           <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-8">
             <NuxtLink
-              :to="localePath(`/university/structure/${slug}/news`)"
+              :to="allNewsLink"
               class="inline-flex items-center gap-1.5 text-sm font-medium text-navy no-underline hover:text-gold transition-colors duration-280"
             >
               {{ t('university.structure.unit.newsAllFaculty') }}

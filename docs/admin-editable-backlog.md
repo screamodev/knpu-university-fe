@@ -25,7 +25,7 @@
 | `mathematics-informatics`: Історія | фото в сітку, галерея деканів (19.09 п. 8) | статика | `structure_pages` |
 | `mathematics-informatics`: Студентство | посилання «Календар заходів» (19.09 п. 7) | `links` у статиці | `structure_pages` + поле для `links` |
 | `kafedra-ukrayinskoyi-movy`: вкладки на Google-сайти | «Новини», «Практика» (19.09 п. 6, 13); раніше вся навігація (16.09, 17.09) | `tabNav` у `manifest.json` | поле CMS для зовнішніх вкладок |
-| `teacher-competence-centre`: Оголошення | текст і фото відкриття (19.09 п. 9) | статика | `structure_pages` |
+| `teacher-competence-centre`: «Новини» (вкладка `announcements`) | текст і фото відкриття (19.09 п. 9) | статика | стрічка категорії `teacher-competence-centre` замість статики: `news` у `tabNav` з підписом «Новини» |
 | `kafedra-obrazotvorchogo-mystectva`: Головна | блок «Випускники кафедри» (19.09 п. 10); раніше тексти й галереї (16.09) | статика | `structure_pages` |
 | `history-law`: Студентство («Виховна діяльність») | матеріал про посвяту в першокурсники (19.09 п. 12) | статика | `structure_pages` |
 | `arts`: Освіта | посилання на розклад і графік (19.09 п. 15) | статика | `structure_pages` |

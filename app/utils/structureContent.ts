@@ -127,6 +127,12 @@ export interface StructureUnitManifestEntry {
    * tabs listed here exist (plus Головна) — a derived tab such as Новини is hidden unless listed.
    */
   tabNav?: (StructureTabId | StructureExternalTab)[]
+  /**
+   * Tabs to keep in `tabNav` and reachable by URL, but not show as a tile in the «Розділи та
+   * сервіси» block on Головна (відділ аспірантури, правка 22.09 — client wanted the shortcuts
+   * gone without losing the pages themselves).
+   */
+  hideTiles?: StructureTabId[]
 }
 
 /**

@@ -1100,6 +1100,13 @@
       "doctoral",
       "regulations",
       "news"
+    ],
+    "hideTiles": [
+      "admission",
+      "students",
+      "doctoral",
+      "regulations",
+      "news"
     ]
   },
   "preschool": {
@@ -1160,7 +1167,7 @@
     ],
     "contacts": {
       "dean": "Микитюк Сергій Олександрович",
-      "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 224",
+      "address": "61168, м. Харків, вул. Алчевських, 29, к. 310",
       "phone": "067 315 48 68; 050 935 22 13",
       "email": "eri_special_education@hnpu.edu.ua",
       "facebook": "https://www.facebook.com/groups/1808806579380082/"

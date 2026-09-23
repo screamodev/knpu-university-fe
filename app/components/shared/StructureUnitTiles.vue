@@ -3,6 +3,7 @@ import type { LinkTile, LinkTileIcon } from '~/components/shared/LinkTileGrid.vu
 import {
   loadStructureTabContent,
   structureTabLabelOverride,
+  structureUnitManifest,
   type StructureNavItem,
   type StructureTabId,
 } from '~/utils/structureContent'
@@ -45,9 +46,12 @@ const { data } = await useAsyncData(
   { watch: [() => props.slug, locale] },
 )
 
+const hiddenTiles = computed(() => new Set(structureUnitManifest(props.slug)?.hideTiles ?? []))
+
 const tiles = computed<LinkTile[]>(() => [
   ...props.nav
     .filter(item => item.kind === 'link' || item.tab !== 'home')
+    .filter(item => item.kind !== 'tab' || !hiddenTiles.value.has(item.tab))
     .map(item => item.kind === 'link'
       ? {
           label: (locale.value === 'en' ? item.label.en : undefined) ?? item.label.uk,

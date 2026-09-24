@@ -104,6 +104,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
       {
         name: 'Кафедра української літератури та журналістики імені професора Леоніда Ушкалова',
         nameEn: 'Professor Leonid Ushkalov Department of Ukrainian Literature and Journalism',
+        external: 'https://sites.google.com/hnpu.edu.ua/ukrainian-literature/',
       },
       {
         name: 'Кафедра української мови імені професора Л. А. Лисиченко',

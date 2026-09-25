@@ -32,6 +32,7 @@ const TAB_ICONS: Record<StructureTabId, LinkTileIcon> = {
   students: 'students',
   news: 'globe',
   cooperation: 'shield',
+  'international-activities': 'globe',
   staff: 'students',
   trust: 'shield',
   centre: 'council',

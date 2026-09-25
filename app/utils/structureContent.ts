@@ -25,6 +25,9 @@ export const STRUCTURE_TAB_IDS = [
   'staff',
   'education',
   'science',
+  // Студентський науковий гурток і університетські кафедри кафедри спеціальної педагогіки (25.09).
+  'student-circle',
+  'university-departments',
   'students',
   'doctoral',
   'regulations',

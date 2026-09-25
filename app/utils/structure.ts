@@ -97,7 +97,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
     name: 'Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка',
     nameEn: 'H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology',
     summary:
-      'Осередок україністики університету: кафедри української мови імені професора Л.А. Лисиченко, української літератури і журналістики імені професора Леоніда Ушкалова, українознавства й лінгводидактики імені професора О.Г. Муромцевої, теорії і практики англійської мови та зарубіжної літератури імені професора М.Ф. Гетманця.',
+      'Осередок україністики університету: кафедри української мови імені професора Л.А. Лисиченко, української літератури і журналістики імені професора Леоніда Ушкалова, українознавства й лінгводидактики імені професора О.Г. Муромцевої, теорії і практики англійської мови та зарубіжної літератури імені професора Михайла Гетманця.',
     summaryEn:
       'The university hub of Ukrainian studies: departments of Ukrainian language, literature and journalism, Ukrainian studies and linguodidactics, and English language theory and practice.',
     items: [

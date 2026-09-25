@@ -94,7 +94,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
     slug: 'ukrainian-philology',
     newsCategorySlug: 'navchalno-naukovyi-instytut-ukrainskoi-filolohii',
     kind: 'institute',
-    name: 'Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка',
+    name: 'Навчально-науковий інститут української філології імені Г.Ф. Квітки-Основ’яненка',
     nameEn: 'H.F. Kvitka-Osnovianenko Educational and Research Institute of Ukrainian Philology',
     summary:
       'Осередок україністики університету: кафедри української мови імені професора Л.А. Лисиченко, української літератури і журналістики імені професора Леоніда Ушкалова, українознавства й лінгводидактики імені професора О.Г. Муромцевої, теорії і практики англійської мови та зарубіжної літератури імені професора Михайла Гетманця.',

@@ -1257,6 +1257,11 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
         external: PSYCHOLOGICAL_SERVICE_URL,
       },
       { name: 'Дебатний клуб', nameEn: 'Debate Club' },
+      {
+        name: 'Центр ментального здоров’я',
+        nameEn: 'Mental Health Centre',
+        path: '/university/structure/mental-health-centre',
+      },
       { name: 'Центр ветеранського розвитку', nameEn: 'Veterans Development Centre', path: '/student/veterans-center' },
     ],
   },

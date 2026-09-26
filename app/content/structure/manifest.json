@@ -318,18 +318,20 @@
     "capturedAt": "2026-08-08",
     "tabs": [
       "home",
-      "admission",
       "history",
       "education",
       "science",
       "students",
+      "university-departments",
       "cooperation"
     ],
     "contacts": {
       "address": "61168, м. Харків, вул. Валентинiвська (Блюхера) 2, кор. Б, к. 222",
-      "phone": "(0572) 68-42-34",
+      "phone": "+38 (068) 064-99-00",
       "email": "zd_reab_spps@hnpu.edu.ua",
-      "facebook": "https://www.facebook.com/groups/kaf222b/?ref=share"
+      "facebook": "https://www.facebook.com/groups/kaf222b/?ref=share",
+      "dean": "Дрожик Людмила Володимирівна",
+      "position": "кандидат педагогічних наук, доцент, завідувачка кафедри"
     },
     "tabLabels": {
       "history": {
@@ -343,8 +345,25 @@
       "science": {
         "uk": "Наукова діяльність",
         "en": "Research"
+      },
+      "students": {
+        "uk": "Студентський науковий валеоклуб",
+        "en": "Student valeology club"
+      },
+      "university-departments": {
+        "uk": "Університетські кафедри",
+        "en": "University departments"
       }
-    }
+    },
+    "tabNav": [
+      "history",
+      "education",
+      "science",
+      "students",
+      "university-departments",
+      "news",
+      "cooperation"
+    ]
   },
   "kafedra-menedzhmentu-ta-ekonomiky": {
     "legacyUrl": "https://old.hnpu.edu.ua/uk/division/kafedra-menedzhmentu-ta-ekonomiky",

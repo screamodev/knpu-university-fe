@@ -1252,18 +1252,36 @@
     "capturedAt": "2026-09-16",
     "tabs": [
       "home",
-      "students"
+      "regulations",
+      "students",
+      "useful-links",
+      "archive"
     ],
     "tabLabels": {
+      "regulations": {
+        "uk": "Нормативна база",
+        "en": "Regulations"
+      },
       "students": {
         "uk": "Валеоклуб",
         "en": "Valeology club"
+      },
+      "useful-links": {
+        "uk": "Корисні посилання",
+        "en": "Useful links"
+      },
+      "archive": {
+        "uk": "Архів",
+        "en": "Archive"
       }
     },
     "hideAnnouncements": true,
     "tabNav": [
+      "regulations",
       "students",
-      "news"
+      "news",
+      "useful-links",
+      "archive"
     ]
   }
 }

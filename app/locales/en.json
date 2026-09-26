@@ -74,6 +74,8 @@
       "wartime": "Wartime updates",
       "volunteering": "Volunteering",
       "gallery": "Photo and video galleries",
+                "useful-links": "Useful links",
+                "archive": "Archive",
       "newspaper": "Teacher newspaper",
       "rectorate": "Rectorate",
       "academicCouncil": "Academic council",
@@ -3106,32 +3108,6 @@
       "title": "Research library",
       "subtitle": "Collections, reading rooms and electronic resources.",
       "intro": "The research library offers print and electronic collections, reading rooms and reference help for study and research.",
-      "services": {
-        "readingRooms": {
-          "title": "Reading rooms",
-          "description": "Quiet study space with open-shelf collections and reference works."
-        },
-        "interlibrary": {
-          "title": "Interlibrary loan",
-          "description": "Borrowing from partner libraries when materials are not held on campus."
-        },
-        "eresources": {
-          "title": "E-resources",
-          "description": "Licensed databases, e-journals, dissertations and course reading packages."
-        },
-        "reference": {
-          "title": "Reference services",
-          "description": "Bibliographic guidance and search strategies for assignments and theses."
-        },
-        "workshops": {
-          "title": "Workshops",
-          "description": "Training on information literacy, citation tools and database use."
-        },
-        "exhibitions": {
-          "title": "Exhibitions",
-          "description": "Temporary displays of rare books, university history and thematic collections."
-        }
-      },
       "linksTitle": "Library resources and services",
       "newsTitle": "Library news",
       "links": {
@@ -3307,19 +3283,58 @@
     },
     "activity": {
       "tag": "Research",
-      "title": "Research and scientific and technical activity",
-      "subtitle": "Research infrastructure, scientific schools and the units reporting to the Vice-Rector for Research, Innovation and International Activity.",
-      "intro1": "The university runs postgraduate and doctoral programmes in 10 specialities and has three specialised academic councils for the defence of doctoral and candidate dissertations. Researchers can publish their results in 17 professional academic journals.",
-      "intro2": "The research infrastructure includes 10 research laboratories, one educational and research laboratory and seven methodological laboratories, as well as the council of young scientists and the student research society.",
-      "intro3": "The Research Library is a modern information and cultural centre and an essential part of the educational process. It has reading rooms and lending desks, and its holdings amount to almost one million volumes of teaching and research literature.",
-      "schoolsTitle": "Scientific schools",
-      "schoolsText": "Over the years the university has developed scientific schools in pedagogy, law, psychology, political science, economics, history, the arts, chemistry, biology, mathematics and physics, philology, philosophy, and physical education and sport.",
-      "schoolsLink": "Scientific schools and research areas of the departments",
-      "unitsTitle": "Units",
-      "unitsNote": "Reporting to the Vice-Rector for Research, Innovation and International Activity.",
+      "title": "Department of Research, Innovation and International Activity",
+      "subtitle": "Organisation, coordination and strategic development of the university’s research, scholarly and innovation work.",
+      "intro1": "The Department of Research, Innovation and International Activity is the unit responsible for organising, coordinating and strategically developing the university’s research, scholarly and innovation work.",
+      "intro2": "Its mission is to bring research results into teaching, to keep the university close to advanced contemporary science, to create conditions for enquiry, to support researchers who take the initiative, to encourage participation in competitions and grant projects, and to help raise the quality and competitiveness of research results.",
+      "intro3": "Upholding academic integrity matters just as much. The department consistently builds a culture of honest enquiry, which is what makes research results trusted in Ukraine and internationally.",
+      "intro4": "A separate strategic priority is a wider presence of the university in the national and European research area. Joining international research platforms, taking part in joint projects, academic mobility and partnership with leading institutions abroad open new prospects for development and strengthen the university’s standing in Ukrainian and international rankings.",
+      "intro5": "The department is the strategic hub that joins education, research and international cooperation into one living system. Its work moves the university towards the standing of a modern institution, open to international cooperation and oriented towards the future.",
+      "tasksTitle": "Main tasks of the department",
+      "tasks": [
+        "Planning and strategic development of research, innovation and international activity: setting the university’s priority research areas in line with national and global trends in science and education;",
+        "Organisational and methodological support of research: coordinating research schools, research laboratories, departments and faculties in carrying out fundamental and applied research;",
+        "Support for student involvement in research: creating conditions for students to realise themselves through student research societies, research circles, student research competitions, olympiads, hackathons and similar events;",
+        "Integration of the university into the international and national research area: helping early-career and experienced researchers take part in international grant programmes, conferences, symposia and joint inter-institutional research projects;",
+        "Innovation transfer and commercialisation of research results: supporting the legal protection of intellectual property, patenting, and the use of research and innovation results in practice and in teaching."
+      ],
+      "functionsTitle": "Functions of the department",
+      "functions": [
+        "Organisation of research events: coordinating and supporting international, national and regional conferences, round tables, research seminars and public presentations of research held at the university;",
+        "Monitoring, analysis and reporting: collecting, summarising and analysing research activity indicators of departments and faculties, and preparing the university’s annual reports on research and scholarly work;",
+        "Grant advice and support: providing information and methodological help to researchers and departments in preparing applications for Ukrainian and foreign research grants, scholarships and competitions;",
+        "Support of student research: planning, coordinating and overseeing student research competitions and subject olympiads, and organising the societies of students, postgraduates, doctoral students and young scientists;",
+        "Information support and outreach: publicising the achievements of the university’s researchers and administering the research profiles of the university and its scholars in international databases (Scopus, Web of Science, Google Scholar and others)."
+      ],
+      "functionsNote": "As Ukrainian higher education integrates into the European Research Area (ERA), the department works to grow the innovation potential of H.S. Skovoroda KhNPU, to support the academic leadership of its scholars and to raise the competitiveness of both early-career and experienced researchers.",
+      "staffTitle": "Department staff",
+      "staffHeadRole": "Head of the department",
+      "staffHead": "Tetiana Yarmak, PhD in Biology",
+      "staffInspectorsRole": "Inspectors",
+      "staffInspectors": [
+        "Daniil Topchii",
+        "Yuliia Oliinyk",
+        "Hanna Piskun",
+        "Vlada Ponomarova"
+      ],
+      "contactsTitle": "Contacts",
+      "contactsAddress": "61002, Ukraine, Kharkiv, 29 Alchevskykh St., room 118",
+      "unitLinks": {
+        "rankings": "University rankings",
+        "schools": "Research schools",
+        "events": "Research events",
+        "international": "International activity",
+        "mobility": "Academic mobility",
+        "agreements": "Cooperation agreements",
+        "grants": "Grants and projects",
+        "topics": "Research topics of the departments",
+        "researchUnits": "Research institutes, centres and laboratories",
+        "council": "Research Council",
+        "youngScientists": "Council of Young Scientists",
+        "studentSociety": "Student Research Society",
+        "uris": "URIS national electronic system"
+      },
       "linksTitle": "Useful links",
-      "eventsTitle": "Research events",
-      "newsTitle": "Research news",
       "links": {
         "rankings": "University ranking indicators",
         "plagiarism": "Plagiarism check",
@@ -3331,7 +3346,9 @@
       "grantsTitle": "Grants and projects",
       "grants": {
         "norway": "Ukrainian–Norwegian project “When Art Becomes Identity: Ukraine in Norway”"
-      }
+      },
+      "eventsTitle": "Research events",
+      "newsTitle": "Research news"
     },
     "council": {
       "tag": "Research",

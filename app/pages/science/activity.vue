@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { ACADEMIC_MOBILITY_EXTERNAL_URL, JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
-import { STRUCTURE_GROUPS } from '~/utils/structure'
 
 definePageMeta({ layout: 'default' })
 
 const { t, localePath } = useSafeI18nWithRouter()
+const { tm, rt } = useI18n()
 
 useHead({
   title: () => t('science.activity.title'),
@@ -13,12 +13,35 @@ useHead({
 })
 
 /**
- * The units listed on the page are exactly the group of the org chart, so the page cannot drift
- * away from `/university/structure` — one source, two renderings.
+ * Розділи, які веде відділ: клієнт просив замість переліку підрозділів (правка 25.09, п. 15)
+ * показати ці «активні кнопки» — частина з них живе на сайті, частина на Google-сайтах.
  */
-const units = computed(
-  () => STRUCTURE_GROUPS.find(group => group.id === 'vice-rector-research')?.items ?? [],
-)
+const UNIT_LINKS = [
+  { key: 'rankings', path: '/science/rankings', icon: 'award' },
+  { key: 'schools', url: 'https://sites.google.com/hnpu.edu.ua/scienceschools/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', icon: 'book' },
+  { key: 'events', path: '/science/conferences', icon: 'council' },
+  { key: 'international', url: 'https://docs.google.com/document/d/1Cq1Dk_NUbpmL24siq8eDi0LU0c-RZNay/edit', icon: 'globe' },
+  { key: 'mobility', url: ACADEMIC_MOBILITY_EXTERNAL_URL, icon: 'globe' },
+  { key: 'agreements', path: '/university/agreements', icon: 'document' },
+  { key: 'grants', path: '/science/grants', icon: 'award' },
+  { key: 'topics', url: 'https://docs.google.com/document/d/1mtLHulwqWn-40zUcYzTstsd0Ngz1X2D5/edit', icon: 'document' },
+  { key: 'researchUnits', path: '/science/research-units', icon: 'council' },
+  { key: 'council', path: '/science/council', icon: 'council' },
+  { key: 'youngScientists', path: '/science/young-scientists', icon: 'students' },
+  { key: 'studentSociety', url: 'https://sites.google.com/hnpu.edu.ua/studentskenaukovetovarystvo', icon: 'students' },
+  { key: 'uris', url: 'https://nauka.gov.ua/infrastructure/r.LcDEsoM3/', icon: 'globe' },
+] as const
+
+const unitTiles = computed<LinkTile[]>(() => UNIT_LINKS.map(item => ({
+  label: t(`science.activity.unitLinks.${item.key}`),
+  ...('path' in item ? { path: item.path } : { url: item.url }),
+  icon: item.icon,
+})))
+
+/** Інспектори відділу — список у перекладах, щоб редагувати його разом з рештою тексту. */
+const inspectors = computed(() => (tm('science.activity.staffInspectors') as unknown[]).map(v => rt(v as never)))
+const tasks = computed(() => (tm('science.activity.tasks') as unknown[]).map(v => rt(v as never)))
+const functions = computed(() => (tm('science.activity.functions') as unknown[]).map(v => rt(v as never)))
 
 const NEWS_CATEGORY = 'science-and-research'
 
@@ -57,44 +80,71 @@ const links = computed<LinkTile[]>(() => [
       </div>
     </div>
 
-    <!-- Intro -->
+    <!-- Про відділ: місія, завдання, функції, склад і контакти (правка 25.09, п. 15) -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="max-w-3xl space-y-4">
-        <p class="text-body text-text-muted">{{ t('science.activity.intro1') }}</p>
-        <p class="text-body text-text-muted">{{ t('science.activity.intro2') }}</p>
-        <p class="text-body text-text-muted">{{ t('science.activity.intro3') }}</p>
+        <p v-for="n in 5" :key="n" class="text-body text-text-muted">
+          {{ t(`science.activity.intro${n}`) }}
+        </p>
+      </div>
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-10 mb-4">
+        {{ t('science.activity.tasksTitle') }}
+      </h2>
+      <ul class="max-w-3xl space-y-3">
+        <li v-for="(task, index) in tasks" :key="index" class="flex gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2.5" aria-hidden />
+          <span class="text-body text-text-muted">{{ task }}</span>
+        </li>
+      </ul>
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-10 mb-4">
+        {{ t('science.activity.functionsTitle') }}
+      </h2>
+      <ul class="max-w-3xl space-y-3">
+        <li v-for="(item, index) in functions" :key="index" class="flex gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2.5" aria-hidden />
+          <span class="text-body text-text-muted">{{ item }}</span>
+        </li>
+      </ul>
+      <p class="text-body text-text-muted max-w-3xl mt-4">
+        {{ t('science.activity.functionsNote') }}
+      </p>
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-10 mb-4">
+        {{ t('science.activity.staffTitle') }}
+      </h2>
+      <div class="max-w-3xl">
+        <p class="text-body-sm font-semibold text-navy">
+          {{ t('science.activity.staffHeadRole') }}
+        </p>
+        <p class="text-body text-text-muted">{{ t('science.activity.staffHead') }}</p>
+        <p class="text-body-sm font-semibold text-navy mt-4">
+          {{ t('science.activity.staffInspectorsRole') }}
+        </p>
+        <ul class="mt-1 space-y-1">
+          <li v-for="person in inspectors" :key="person" class="text-body text-text-muted">
+            {{ person }}
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="font-playfair text-2xl font-bold text-navy mt-10 mb-4">
+        {{ t('science.activity.contactsTitle') }}
+      </h2>
+      <div class="max-w-3xl space-y-1">
+        <p class="text-body text-text-muted">{{ t('science.activity.contactsAddress') }}</p>
+        <p class="text-body text-text-muted">
+          <a href="mailto:science@hnpu.edu.ua" class="text-navy underline hover:text-gold">science@hnpu.edu.ua</a>,
+          <a href="mailto:nauka@hnpu.edu.ua" class="text-navy underline hover:text-gold">nauka@hnpu.edu.ua</a>
+        </p>
       </div>
     </div>
 
-    <!-- Scientific schools -->
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <h2 class="font-playfair text-2xl font-bold text-navy mb-4">
-        {{ t('science.activity.schoolsTitle') }}
-      </h2>
-      <p class="text-body text-text-muted max-w-3xl">
-        {{ t('science.activity.schoolsText') }}
-      </p>
-      <NuxtLink
-        :to="localePath('/science/directions')"
-        class="mt-4 inline-flex items-center gap-2 text-body-sm font-medium text-navy no-underline hover:text-gold transition-colors duration-280"
-      >
-        {{ t('science.activity.schoolsLink') }}
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden>
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </NuxtLink>
-    </div>
-
-    <!-- Units of the vice-rector for research, the same way a faculty lists its кафедри -->
+    <!-- Розділи відділу «активними кнопками», без назви блоку (правка 25.09, п. 15) -->
     <div class="bg-off-white py-12 lg:py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-playfair text-2xl font-bold text-navy mb-2">
-          {{ t('science.activity.unitsTitle') }}
-        </h2>
-        <p class="text-body-sm text-text-muted mb-8">
-          {{ t('science.activity.unitsNote') }}
-        </p>
-        <SharedStructureItemList :items="units" />
+        <SharedLinkTileGrid :tiles="unitTiles" />
       </div>
     </div>
 

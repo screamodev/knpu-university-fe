@@ -14,7 +14,7 @@
     {
       "heading": "Електронні ресурси",
       "collapsible": true,
-      "html": "<p>Електронний каталог, репозитарій, наукометричні бази та інші сервіси — у розділі «Ресурси та сервіси бібліотеки» нижче на цій сторінці.</p>\n"
+      "html": "<ul>\n\t<li><a href=\"https://sites.google.com/hnpu.edu.ua/akdob/\" target=\"_blank\" rel=\"noopener noreferrer\">Академічна доброчесність</a></li>\n\t<li><a href=\"https://admin.hnpu.edu.ua/assets/14d7519d-a439-4e77-8e2f-70c2a67b0adc\" target=\"_blank\" rel=\"noopener noreferrer\">Енциклопедичний довідник SK Viki</a></li>\n\t<li><a href=\"https://catalog.hnpu.edu.ua\" target=\"_blank\" rel=\"noopener noreferrer\">Електронний каталог</a></li>\n\t<li><a href=\"https://dspace.hnpu.edu.ua/?locale=uk\" target=\"_blank\" rel=\"noopener noreferrer\">Електронний архів</a></li>\n\t<li><a href=\"/science/plagiarism\">Перевірка на плагіат</a></li>\n\t<li><a href=\"/science/notable-scientists\">Видатні вчені ХНПУ імені Г. С. Сковороди</a></li>\n\t<li><a href=\"/science/library-projects\">Проєкти бібліотеки</a></li>\n\t<li><a href=\"/science/scientometric-databases\">Доступ до наукометричних баз</a></li>\n\t<li><a href=\"https://library.hnpu.edu.ua/Профілі-науковців/\" target=\"_blank\" rel=\"noopener noreferrer\">Наукометричні профілі науковців</a></li>\n\t<li><a href=\"https://irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=F&amp;I21DBN=UJRN&amp;P21DBN=UJRN\" target=\"_blank\" rel=\"noopener noreferrer\">Наукова періодика України (НБУВ)</a></li>\n\t<li><a href=\"https://journals.uran.ua\" target=\"_blank\" rel=\"noopener noreferrer\">Наукова періодика України (Uran)</a></li>\n\t<li><a href=\"https://dspace.hnpu.edu.ua/handle/123456789/1106\" target=\"_blank\" rel=\"noopener noreferrer\">Невичерпний скарб</a></li>\n</ul>\n"
     },
     {
       "heading": "Послуги",
@@ -30,6 +30,11 @@
       "heading": "Фото, відеогалерея",
       "collapsible": true,
       "html": "<p><a href=\"/university/gallery\">Фото та відеогалереї університету</a></p>\n"
+    },
+    {
+      "heading": "Соціальні мережі бібліотеки",
+      "collapsible": false,
+      "html": "<div style=\"border:1px solid #dde3ed; border-radius:16px; background:#F8F6F1; padding:20px; display:flex; flex-wrap:wrap; gap:12px 24px;\">\n<a href=\"https://www.facebook.com/share/g/19jkAUBJpj/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#1B2E4B; font-weight:600;\">Facebook</a>\n<a href=\"https://www.instagram.com/library.hnpu/?hl=ru\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#1B2E4B; font-weight:600;\">Instagram</a>\n<a href=\"https://chat.whatsapp.com/Lvw1ODCUmMzDEc6jC9iWSe\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#1B2E4B; font-weight:600;\">WhatsApp</a>\n<a href=\"https://www.youtube.com/@user-oh4hi4fs7r\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#1B2E4B; font-weight:600;\">YouTube</a>\n<a href=\"https://dspace.hnpu.edu.ua/handle/123456789/1106\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#1B2E4B; font-weight:600;\">Невичерпний скарб</a>\n</div>\n"
     }
   ],
   "capturedAt": "2026-09-25"

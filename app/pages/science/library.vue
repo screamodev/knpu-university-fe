@@ -19,16 +19,17 @@ const NEWS_CATEGORY = 'naukova-biblioteka'
  */
 const links = computed<LinkTile[]>(() => [
   { label: t('science.library.links.integrity'), url: 'https://sites.google.com/hnpu.edu.ua/akdob/', icon: 'shield' },
-  { label: t('science.library.links.skViki'), url: 'https://old.hnpu.edu.ua/sites/default/files/files/Nauka/SK_Viki.pdf', icon: 'book' },
+  { label: t('science.library.links.skViki'), url: 'https://admin.hnpu.edu.ua/assets/14d7519d-a439-4e77-8e2f-70c2a67b0adc', icon: 'book' },
   { label: t('science.library.links.catalog'), url: 'https://catalog.hnpu.edu.ua', icon: 'book' },
   { label: t('science.library.links.archive'), url: 'https://dspace.hnpu.edu.ua/?locale=uk', icon: 'document' },
   { label: t('science.library.links.plagiarism'), path: '/science/plagiarism', icon: 'shield' },
-  { label: t('science.library.links.scientists'), url: 'https://old.hnpu.edu.ua/uk/naukovi-praci-profesoriv-hnpu-imeni-g-s-skovorody', icon: 'award' },
-  { label: t('science.library.links.projects'), url: 'https://old.hnpu.edu.ua/uk/proyekty-naukovoyi-biblioteky-hnpu-imeni-gsskovorody', icon: 'council' },
-  { label: t('science.library.links.databases'), url: 'https://old.hnpu.edu.ua/uk/division/dostup-do-mizhnarodnyh-naukometrychnyh-baz', icon: 'globe' },
+  { label: t('science.library.links.scientists'), path: '/science/notable-scientists', icon: 'award' },
+  { label: t('science.library.links.projects'), path: '/science/library-projects', icon: 'council' },
+  { label: t('science.library.links.databases'), path: '/science/scientometric-databases', icon: 'globe' },
   { label: t('science.library.links.profiles'), url: 'https://library.hnpu.edu.ua/Профілі-науковців/', icon: 'students' },
   { label: t('science.library.links.nbuv'), url: 'https://irbis-nbuv.gov.ua/cgi-bin/irbis_nbuv/cgiirbis_64.exe?C21COM=F&I21DBN=UJRN&P21DBN=UJRN', icon: 'book' },
   { label: t('science.library.links.uran'), url: 'https://journals.uran.ua', icon: 'book' },
+  { label: t('science.library.links.treasure'), url: 'https://dspace.hnpu.edu.ua/handle/123456789/1106', icon: 'book' },
 ])
 </script>
 

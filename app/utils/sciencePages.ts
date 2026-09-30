@@ -23,6 +23,7 @@ export const SCIENCE_PAGES: SciencePage[] = [
   { slug: 'grants', title: { uk: 'Грантова і проєктна діяльність', en: 'Grants and projects' }, parent: 'research' },
   { slug: 'publication-activity', title: { uk: 'Публікаційна активність', en: 'Publication activity' }, parent: 'publishing' },
   { slug: 'publishing-regulations', title: { uk: 'Нормативна документація редакційно-видавничого відділу', en: 'Regulations of the publishing department' }, parent: 'publishing' },
+  { slug: 'publishing-staff', title: { uk: 'Співробітники відділу', en: 'Department staff' }, parent: 'publishing' },
   { slug: 'publishing-about', title: { uk: 'Про редакційно-видавничий відділ', en: 'About the publishing department' }, parent: 'publishing' },
   { slug: 'publishing-recommendation', title: { uk: 'Порядок рекомендації видань', en: 'Publication approval procedures' }, parent: 'publishing' },
   { slug: 'publishing-accompanying', title: { uk: 'Супровідна документація щодо затвердження до друку видань', en: 'Documents for publication approval' }, parent: 'publishing' },

@@ -270,6 +270,7 @@ export function useNavigation(): { items: NavItem[] } {
           titlePath: '/science/publishing',
           links: [
             { path: `/assets/${PUBLISHING_REGULATION_ASSET}`, key: 'nav.links.departmentRegulation', asset: true },
+            { path: '/science/publishing-staff', key: 'nav.links.departmentStaff' },
             { path: '/science/publishing-regulations', key: 'nav.links.pgRegulations' },
             { path: 'https://journalshnpu.com/index/uk', key: 'nav.links.professionalJournals', external: true },
             { path: '/science/publication-activity', key: 'nav.links.publicationActivity' },

@@ -211,7 +211,8 @@
       "universityRankings": "The university in rankings",
       "repositoryShort": "Repository",
       "professionalJournals": "Scientific professional publications",
-      "publicationPlan": "Publication plan"
+      "publicationPlan": "Publication plan",
+      "departmentStaff": "Staff"
     }
   },
   "header": {

@@ -203,16 +203,15 @@
       "researchUnits": "НДІ, центри, лабораторії",
       "uris": "Національна електронна система URIS",
       "departmentRegulation": "Положення про відділ",
-      "aboutDepartment": "Про відділ",
-      "departmentStaff": "Співробітники відділу",
       "publicationActivity": "Публікаційна активність",
       "publishingRecommendation": "Порядок рекомендації видань",
       "publishingAccompanying": "Супровідна документація щодо затвердження до друку видань",
-      "publishingCouncil": "Редакційно-видавнича рада ХНПУ імені Г. С. Сковороди",
+      "publishingCouncil": "Редакційно-видавнича рада",
       "usefulLinks": "Корисні посилання",
       "universityRankings": "Університет у рейтингах",
       "repositoryShort": "Репозитарій",
-      "professionalJournals": "Наукові фахові журнали"
+      "professionalJournals": "Наукові фахові видання",
+      "publicationPlan": "План публікацій"
     }
   },
   "header": {

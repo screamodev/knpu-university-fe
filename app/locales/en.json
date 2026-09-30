@@ -203,8 +203,6 @@
       "researchUnits": "Research institutes, centres and laboratories",
       "uris": "National electronic system URIS",
       "departmentRegulation": "Regulations of the office",
-      "aboutDepartment": "About the office",
-      "departmentStaff": "Staff",
       "publicationActivity": "Publication activity",
       "publishingRecommendation": "Publication approval procedures",
       "publishingAccompanying": "Documents for publication approval",
@@ -212,7 +210,8 @@
       "usefulLinks": "Useful links",
       "universityRankings": "The university in rankings",
       "repositoryShort": "Repository",
-      "professionalJournals": "Scientific professional journals"
+      "professionalJournals": "Scientific professional publications",
+      "publicationPlan": "Publication plan"
     }
   },
   "header": {

@@ -19,7 +19,7 @@ const POCHATKOVE =
   'https://sites.google.com/hnpu.edu.ua/pochatkove/%D1%84%D0%B0%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D0%B5%D1%82/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%BD%D1%96-%D0%BF%D1%96%D0%B4%D1%80%D0%BE%D0%B7%D0%B4%D1%96%D0%BB%D0%B8/'
 
 export const SCIENCE_UNITS: ScienceUnit[] = [
-  { name: 'Центр забезпечення якості освіти', nameEn: 'Centre for Educational Quality Assurance', path: '/education/quality' },
+  { name: 'Навчально-методичний центр забезпечення якості освіти', nameEn: 'Centre for Educational Quality Assurance', path: '/education/quality' },
   { name: 'Центр міжнародної освіти', nameEn: 'International Education Centre', path: '/university/structure/international-education' },
   { name: 'Центр цифровізації освіти', nameEn: 'Centre for Digital Education', path: '/education/digital-center' },
   { name: 'Культурно-мистецький центр', nameEn: 'Cultural and Arts Centre', url: 'https://old.hnpu.edu.ua/division/molodizhnyy-centr' },

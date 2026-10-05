@@ -15,7 +15,11 @@ useHead({
 /** Filter by institute / faculty; `null` shows every department. */
 const selectedUnit = ref<string | null>(null)
 
-const unitOptions = computed(() => STRUCTURE_UNITS)
+/** Only units that actually have кафедри — отделы, центры and the кафедри themselves would filter to nothing. */
+const unitOptions = computed(() => {
+  const withChairs = new Set(listStructureDepartments().map((entry) => entry.unit.name))
+  return STRUCTURE_UNITS.filter((unit) => withChairs.has(unit.name))
+})
 
 const departments = computed(() => {
   const all = listStructureDepartments()
@@ -139,7 +143,7 @@ function departmentHref(department: StructureItem): string | undefined {
           </div>
         </div>
         <p v-if="departments.length === 0" class="text-body text-text-muted py-8 text-center">
-          {{ t('programs.noPrograms') }}
+          {{ t('education.departments.empty') }}
         </p>
       </div>
     </div>

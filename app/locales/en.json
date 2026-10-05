@@ -2130,7 +2130,8 @@
       "subtitle": "Full list of departments by faculty.",
       "allFaculties": "All faculties",
       "tableDepartment": "Department",
-      "tableFaculty": "Faculty"
+      "tableFaculty": "Faculty",
+      "empty": "No departments found."
     },
     "programs": {
       "tag": "Education",

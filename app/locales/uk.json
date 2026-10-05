@@ -2130,7 +2130,8 @@
       "subtitle": "Повний перелік кафедр за факультетами.",
       "allFaculties": "Усі факультети",
       "tableDepartment": "Кафедра",
-      "tableFaculty": "Факультет"
+      "tableFaculty": "Факультет",
+      "empty": "Кафедр не знайдено."
     },
     "programs": {
       "tag": "Навчання",

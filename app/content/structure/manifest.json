@@ -608,7 +608,8 @@
       "education",
       "science",
       "students",
-      "cooperation"
+      "cooperation",
+      "laboratory"
     ],
     "contacts": {
       "dean": "Дорожко Ірина Іванівна",
@@ -628,6 +629,10 @@
       "science": {
         "uk": "Наукова діяльність",
         "en": "Research"
+      },
+      "laboratory": {
+        "uk": "Навчально-наукова лабораторія LEGO-технологій",
+        "en": "Educational and scientific laboratory of LEGO technologies"
       }
     }
   },

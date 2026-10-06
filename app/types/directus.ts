@@ -619,6 +619,12 @@ export interface DirectusStudentCouncilMember {
   /** Set for the heads of the faculty student councils. */
   faculty: string | null
   email: string | null
+  /** Shown as typed; the `tel:` link is derived from it. */
+  phone: string | null
+  /** `@handle` or a full link. */
+  instagram: string | null
+  /** `@handle` or a full link. */
+  telegram: string | null
   photo: DirectusFile | string | null
   profileUrl: string | null
   order: number

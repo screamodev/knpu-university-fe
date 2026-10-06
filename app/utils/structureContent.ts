@@ -156,6 +156,14 @@ export interface StructureUnitPerson {
   name: string
   degree: string | null
   profileUrl: string | null
+  /** Optional contact lines under the card text; `href` null renders plain text. */
+  contacts?: StructureUnitPersonContact[]
+}
+
+export interface StructureUnitPersonContact {
+  label: string
+  value: string
+  href: string | null
 }
 
 export interface StructureTabSection {

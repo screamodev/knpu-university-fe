@@ -71,6 +71,22 @@ const people = computed(() => props.people.filter(person => person.name))
             {{ person.degree }}
           </div>
 
+          <ul v-if="person.contacts?.length" class="list-none p-0 m-0 mt-1 space-y-0.5 text-body-sm">
+            <li v-for="contact in person.contacts" :key="contact.label" class="break-all">
+              <span class="text-text-muted">{{ contact.label }}: </span>
+              <a
+                v-if="contact.href"
+                :href="contact.href"
+                :target="contact.href.startsWith('http') ? '_blank' : undefined"
+                :rel="contact.href.startsWith('http') ? 'noopener noreferrer' : undefined"
+                class="text-navy underline hover:text-gold"
+              >
+                {{ contact.value }}
+              </a>
+              <span v-else class="text-navy">{{ contact.value }}</span>
+            </li>
+          </ul>
+
           <a
             v-if="person.profileUrl"
             :href="person.profileUrl"

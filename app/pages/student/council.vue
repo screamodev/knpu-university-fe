@@ -7,7 +7,7 @@ import type {
   DirectusStudentCouncilSector,
   StudentCouncilGroup,
 } from '~/types/directus'
-import type { StructureUnitPerson } from '~/utils/structureContent'
+import type { StructureUnitPerson, StructureUnitPersonContact } from '~/utils/structureContent'
 
 /**
  * Студентське самоврядування.
@@ -47,7 +47,8 @@ const { data: membersData } = await useAsyncData('student-council-members', () =
   client.request(
     readItems('student_council_members', {
       fields: [
-        'id', 'group', 'name', 'position', 'faculty', 'email', 'profileUrl', 'order',
+        'id', 'group', 'name', 'position', 'faculty', 'email', 'phone', 'instagram', 'telegram',
+        'profileUrl', 'order',
         { photo: ['id'] },
       ],
       sort: ['order', 'name'],
@@ -126,6 +127,43 @@ const socials = computed(() =>
   ].filter((entry): entry is { label: string; url: string } => Boolean(entry.url)),
 )
 
+/** `@handle` or a full link → a link on the given network. */
+function socialHref(value: string, base: string): string {
+  return /^https?:\/\//i.test(value) ? value : `${base}${value.replace(/^@/, '')}`
+}
+
+/** `0985240496` and `+380 97 045 19 29` both become a dialable `tel:` link. */
+function phoneHref(value: string): string {
+  const digits = value.replace(/\D/g, '')
+  const international = digits.startsWith('380') ? digits : `38${digits.replace(/^38/, '')}`
+  return `tel:+${international}`
+}
+
+function contactsOf(member: DirectusStudentCouncilMember): StructureUnitPersonContact[] {
+  const lines: StructureUnitPersonContact[] = []
+  if (member.phone) {
+    lines.push({ label: t('student.council.contactPhone'), value: member.phone, href: phoneHref(member.phone) })
+  }
+  if (member.email) {
+    lines.push({ label: t('student.council.contactsEmail'), value: member.email, href: `mailto:${member.email}` })
+  }
+  if (member.instagram) {
+    lines.push({
+      label: 'Instagram',
+      value: member.instagram,
+      href: socialHref(member.instagram, 'https://www.instagram.com/'),
+    })
+  }
+  if (member.telegram) {
+    lines.push({
+      label: 'Telegram',
+      value: member.telegram,
+      href: socialHref(member.telegram, 'https://t.me/'),
+    })
+  }
+  return lines
+}
+
 /** `SharedPeopleRow` already renders portrait cards; map members onto the shape it expects. */
 function peopleOf(group: StudentCouncilGroup): StructureUnitPerson[] {
   return members.value
@@ -137,8 +175,9 @@ function peopleOf(group: StudentCouncilGroup): StructureUnitPerson[] {
       // The faculty is what tells one faculty chair from another.
       position: member.position || member.faculty || null,
       name: member.name,
-      degree: member.email,
+      degree: null,
       profileUrl: member.profileUrl,
+      contacts: contactsOf(member),
     }))
 }
 

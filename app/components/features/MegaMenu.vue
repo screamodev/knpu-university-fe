@@ -130,9 +130,13 @@ const admissionsStacks = computed(() => {
               <!-- Другий рівень: перелік підрозділів поруч із пунктом, на наведення. -->
               <div
                 v-if="link.children?.length"
-                class="absolute top-0 right-full mr-2 w-[640px] max-h-[70vh] overflow-y-auto bg-navy-deep border border-gold/25 rounded-12 p-4 shadow-mega opacity-0 pointer-events-none transition-opacity duration-280 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto z-[1000]"
+                class="absolute top-0 right-full mr-2 max-h-[70vh] overflow-y-auto bg-navy-deep border border-gold/25 rounded-12 p-4 shadow-mega opacity-0 pointer-events-none transition-opacity duration-280 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto z-[1000]"
+                :class="link.children.length > 4 ? 'w-[640px]' : 'w-72'"
               >
-                <ul class="list-none grid grid-cols-2 gap-x-4 gap-y-0.5 m-0 p-0">
+                <ul
+                  class="list-none grid gap-x-4 gap-y-0.5 m-0 p-0"
+                  :class="link.children.length > 4 ? 'grid-cols-2' : 'grid-cols-1'"
+                >
                   <li v-for="child in link.children" :key="child.label?.uk ?? child.path" class="min-w-0">
                     <FeaturesNavMenuLink :link="child" class="block py-1 px-2 text-[12.5px] text-white/90 no-underline rounded-md hover:text-white hover:bg-gold/10 transition-colors duration-280 leading-snug break-words" />
                   </li>

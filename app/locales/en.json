@@ -212,7 +212,9 @@
       "repositoryShort": "Repository",
       "professionalJournals": "Scientific professional publications",
       "publicationPlan": "Publication plan",
-      "departmentStaff": "Staff"
+      "departmentStaff": "Staff",
+      "higherEducationDocuments": "Higher Education Documents",
+      "diplomaDuplicate": "Ordering a Duplicate of a Higher Education Document"
     }
   },
   "header": {
@@ -2685,7 +2687,8 @@
       "documentsTitle": "Documents",
       "scheduleLink": "Academic year schedules",
       "contingentLink": "Student numbers",
-      "programsLink": "Study programmes"
+      "programsLink": "Study programmes",
+      "diplomaDuplicateLink": "Ordering a Duplicate of a Higher Education Document"
     },
     "digitalCenter": {
       "tag": "Education",
@@ -2730,6 +2733,11 @@
       "title": "Support for first-year students",
       "subtitle": "Materials of the educational quality assurance centre for first-year students.",
       "backLink": "Back to «For students»"
+    },
+    "higherEducationDocuments": {
+      "tag": "Education",
+      "title": "Higher Education Documents",
+      "subtitle": "Academic Office"
     }
   },
   "science": {

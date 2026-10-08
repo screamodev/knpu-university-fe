@@ -19,6 +19,7 @@ useHead({
 const relatedLinks = [
   { path: '/education/schedule', labelKey: 'nav.links.processSchedule', noteKey: 'education.academicOffice.scheduleLink' },
   { path: '/education/students', labelKey: 'nav.links.studentContingent', noteKey: 'education.academicOffice.contingentLink' },
+  { path: '/education/higher-education-documents', labelKey: 'nav.links.higherEducationDocuments', noteKey: 'education.academicOffice.diplomaDuplicateLink' },
   { path: '/education/programs', labelKey: 'nav.links.programs', noteKey: 'education.academicOffice.programsLink' },
 ] as const
 </script>
@@ -48,7 +49,7 @@ const relatedLinks = [
       </h2>
       <SharedDocumentList section="academic-office" />
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <NuxtLink
           v-for="link in relatedLinks"
           :key="link.path"

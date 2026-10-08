@@ -180,6 +180,15 @@ export function useNavigation(): { items: NavItem[] } {
             { path: '/education/programs', key: 'nav.links.programs' },
             // «Навчальні плани» struck off the menu by the client; the page stays.
             { path: '/education/students', key: 'nav.links.studentContingent' },
+            // Вкладку «Документи про вищу освіту» навчальний відділ просив поряд із контингентом
+            // (правка 08.10); у ній — «Замовлення дублікату», сторінка поки одна.
+            {
+              path: '/education/higher-education-documents',
+              key: 'nav.links.higherEducationDocuments',
+              children: [
+                { path: '/education/higher-education-documents', key: 'nav.links.diplomaDuplicate' },
+              ],
+            },
             { path: '/education/quality?tab=students', key: 'nav.links.electives' },
             { path: '/education/accreditation', key: 'nav.links.accreditation' },
             { path: '/education/monitoring', key: 'nav.links.monitoring' },

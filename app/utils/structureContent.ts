@@ -33,6 +33,8 @@ export const STRUCTURE_TAB_IDS = [
   'regulations',
   'news',
   'announcements',
+  // Анонси подій Центру розвитку компетентностей учителя (правка 14.10).
+  'events',
   'cooperation',
   // Виставкова діяльність кафедри образотворчого мистецтва — після «Співпраці» (правка 08.10).
   'exhibitions',

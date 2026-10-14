@@ -45,6 +45,7 @@ const TAB_ICONS: Record<StructureTabId, LinkTileIcon> = {
   doctoral: 'award',
   regulations: 'document',
   announcements: 'globe',
+  events: 'globe',
 }
 
 const { data } = await useAsyncData(

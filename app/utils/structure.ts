@@ -300,9 +300,12 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
         nameEn: 'Department of Mathematics',
         external: 'https://sites.google.com/hnpu.edu.ua/kaf-mathematica',
       },
+      // Кафедра біології перейшла на Google-сайт (правка 21.10), стару сторінку знято —
+      // її адреса веде туди ж (`routeRules` у nuxt.config.ts).
       {
         name: 'Кафедра біології',
         nameEn: 'Department of Biology',
+        external: 'https://sites.google.com/hnpu.edu.ua/biology-hnpu/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0',
         children: [
           {
             name: 'Навчально-наукова лабораторія біології рукокрилих',
@@ -639,14 +642,6 @@ export const STRUCTURE_CHAIRS: StructureUnit[] = [
     name: 'Кафедра анатомії, фізіології людини та медичної підготовки імені професора Я.Р. Синельникова',
     nameEn:
       'Professor Ya.R. Synelnykov Department of Human Anatomy, Physiology and Medical Training',
-    newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
-    items: [],
-  },
-  {
-    slug: 'kafedra-biologiyi',
-    kind: 'chair',
-    name: 'Кафедра біології',
-    nameEn: 'Department of Biology',
     newsCategorySlug: 'instytut-spetsialnoyi-osvity-ta-inklyuziyi',
     items: [],
   },

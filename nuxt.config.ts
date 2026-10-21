@@ -25,6 +25,11 @@ export default defineNuxtConfig({
     '/university/structure/kafedra-psyhologiyi-rozvytku/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
     '/en/university/structure/kafedra-psyhologiyi-rozvytku': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
     '/en/university/structure/kafedra-psyhologiyi-rozvytku/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/department-develop-psychology', statusCode: 301 } },
+    // Кафедра біології веде власний Google-сайт (правка 21.10).
+    '/university/structure/kafedra-biologiyi': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/biology-hnpu/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', statusCode: 301 } },
+    '/university/structure/kafedra-biologiyi/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/biology-hnpu/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', statusCode: 301 } },
+    '/en/university/structure/kafedra-biologiyi': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/biology-hnpu/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', statusCode: 301 } },
+    '/en/university/structure/kafedra-biologiyi/**': { redirect: { to: 'https://sites.google.com/hnpu.edu.ua/biology-hnpu/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0', statusCode: 301 } },
   },
   runtimeConfig: {
     /**

@@ -2712,7 +2712,13 @@
       "tiles": {
         "moodle": "Платформа Moodle",
         "support": "Технічна підтримка: support{'@'}hnpu.edu.ua",
-        "centre": "Центр цифровізації: cdo{'@'}hnpu.edu.ua"
+        "centre": "Центр цифровізації: directorcdo{'@'}hnpu.edu.ua"
+      },
+      "questions": {
+        "title": "Звертатись з питанням",
+        "moodle": "Платформа Moodle",
+        "mail": "Корпоративна пошта, Zoom",
+        "site": "Офіційний сайт університету"
       }
     },
     "studyProgrammes": {
@@ -3409,7 +3415,7 @@
         {
           "unit": "Центр цифровізації освіти",
           "address": "61002, м. Харків, вул. Алчевських (Артема), 29",
-          "email": "cdo{'@'}hnpu.edu.ua"
+          "email": "directorcdo{'@'}hnpu.edu.ua"
         }
       ]
     }

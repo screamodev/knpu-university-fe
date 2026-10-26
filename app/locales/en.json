@@ -2710,7 +2710,13 @@
       "tiles": {
         "moodle": "Moodle platform",
         "support": "Technical support: support{'@'}hnpu.edu.ua",
-        "centre": "Centre: cdo{'@'}hnpu.edu.ua"
+        "centre": "Centre: directorcdo{'@'}hnpu.edu.ua"
+      },
+      "questions": {
+        "title": "Questions? Contact us",
+        "moodle": "Moodle platform",
+        "mail": "Corporate email, Zoom",
+        "site": "University website"
       }
     },
     "studyProgrammes": {
@@ -3407,7 +3413,7 @@
         {
           "unit": "Centre for Digitalisation of Education",
           "address": "29 Alchevskykh St., Kharkiv, 61002",
-          "email": "cdo{'@'}hnpu.edu.ua"
+          "email": "directorcdo{'@'}hnpu.edu.ua"
         }
       ]
     }

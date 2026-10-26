@@ -50,6 +50,13 @@ const contacts = computed<StructureUnitContacts>(() => ({
   addressEn: t('education.digitalCenter.address'),
   email: 'directorcdo@hnpu.edu.ua',
 }))
+
+/** Картка «Звертатись з питанням» (правка 26.10): до кого йти з яким питанням. */
+const questions = computed(() => [
+  { label: t('education.digitalCenter.questions.moodle'), email: 'iio.do@hnpu.edu.ua' },
+  { label: t('education.digitalCenter.questions.mail'), email: 'support@hnpu.edu.ua' },
+  { label: t('education.digitalCenter.questions.site'), email: 'sitehnpu@hnpu.edu.ua' },
+])
 </script>
 
 <template>
@@ -109,6 +116,28 @@ const contacts = computed<StructureUnitContacts>(() => ({
 
         <aside class="self-start lg:sticky lg:top-[88px] flex flex-col gap-4">
           <SharedStructureUnitContacts :contacts="contacts" kind="department" />
+
+          <!-- Той самий вигляд, що й у «Контакти» над ним. -->
+          <div class="bg-off-white border border-border rounded-16 p-5">
+            <h2 class="font-playfair text-lg font-bold text-navy mb-4">
+              {{ t('education.digitalCenter.questions.title') }}
+            </h2>
+            <dl class="space-y-3 text-body-sm">
+              <div v-for="item in questions" :key="item.email">
+                <dt class="text-[11px] font-semibold tracking-wider uppercase text-text-muted mb-0.5">
+                  {{ item.label }}
+                </dt>
+                <dd>
+                  <a
+                    :href="`mailto:${item.email}`"
+                    class="text-navy break-all hover:text-gold transition-colors duration-280"
+                  >
+                    {{ item.email }}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
           <SharedStructureUnitAnnouncements :unit-category-slug="NEWS_CATEGORY_SLUG" />
         </aside>
       </div>

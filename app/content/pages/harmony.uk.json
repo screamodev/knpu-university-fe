@@ -1,0 +1,35 @@
+{
+  "title": "HARMONY",
+  "sections": [
+    {
+      "heading": "Про проєкт",
+      "collapsible": true,
+      "html": "<p>Інформація про проєкт HARMONY готується.</p>"
+    },
+    {
+      "heading": "Партнери",
+      "collapsible": true,
+      "html": "<p>Інформація про партнерів проєкту HARMONY готується.</p>"
+    },
+    {
+      "heading": "Нормативні документи",
+      "collapsible": true,
+      "html": "<p>Нормативні документи проєкту HARMONY з’являться згодом.</p>"
+    },
+    {
+      "heading": "Новини",
+      "collapsible": true,
+      "html": "<p>Новини проєкту HARMONY з’являться згодом.</p>"
+    },
+    {
+      "heading": "Результати",
+      "collapsible": true,
+      "html": "<p>Результати проєкту HARMONY будуть оприлюднені згодом.</p>"
+    },
+    {
+      "heading": "Контакти",
+      "collapsible": true,
+      "html": "<p>Контакти проєкту HARMONY готуються.</p>"
+    }
+  ]
+}

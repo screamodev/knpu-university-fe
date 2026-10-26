@@ -22,6 +22,7 @@ const projects: LinkTile[] = [
   { label: 'AMUSE', url: 'https://amuse.hnpu.edu.ua/', icon: 'globe' },
   { label: 'PERFECT', path: '/university/erasmus/perfect', icon: 'globe' },
   { label: 'LECTURE', path: '/university/erasmus/lecture', icon: 'globe' },
+  { label: 'HARMONY', path: '/university/erasmus/harmony', icon: 'globe' },
 ]
 </script>
 

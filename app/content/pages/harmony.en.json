@@ -1,0 +1,35 @@
+{
+  "title": "HARMONY",
+  "sections": [
+    {
+      "heading": "About the project",
+      "collapsible": true,
+      "html": "<p>Information about the HARMONY project is coming soon.</p>"
+    },
+    {
+      "heading": "Partners",
+      "collapsible": true,
+      "html": "<p>Information about the HARMONY project partners is coming soon.</p>"
+    },
+    {
+      "heading": "Regulatory documents",
+      "collapsible": true,
+      "html": "<p>HARMONY project regulatory documents will appear here soon.</p>"
+    },
+    {
+      "heading": "News",
+      "collapsible": true,
+      "html": "<p>HARMONY project news will appear here soon.</p>"
+    },
+    {
+      "heading": "Results",
+      "collapsible": true,
+      "html": "<p>HARMONY project results will be published here soon.</p>"
+    },
+    {
+      "heading": "Contacts",
+      "collapsible": true,
+      "html": "<p>HARMONY project contacts are coming soon.</p>"
+    }
+  ]
+}

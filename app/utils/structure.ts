@@ -977,6 +977,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         path: '/education/quality',
       },
       {
+        name: 'Навчально-методичний інклюзивний центр',
+        nameEn: 'Educational and Methodological Inclusive Centre',
+        path: '/university/inclusive',
+      },
+      {
         name: 'Навчальний відділ',
         nameEn: 'Academic Affairs Department',
         path: '/education/academic-office',

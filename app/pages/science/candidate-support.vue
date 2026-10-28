@@ -36,19 +36,12 @@ const CANDIDATE_LAWS = [
   },
 ] as const
 
-/** Видео and slides on the qualified electronic signature, kept from the legacy page. */
+/** Видео and link on the qualified electronic signature, kept from the legacy page. */
 const SIGNATURE_VIDEOS = [
-  { key: 'video1', embed: 'https://www.youtube.com/embed/wRY_xi4WVO4' },
   { key: 'video2', embed: 'https://www.youtube.com/embed/09NuX02a2wE' },
 ] as const
 
-const SIGNATURE_LINKS = [
-  {
-    key: 'kep',
-    url: 'https://docs.google.com/presentation/d/1fw1J5CWVMQdGM57uB-VNE5hmx_RwKxoGs5tBrECQEF4/edit?usp=sharing',
-  },
-  { key: 'czo', url: 'https://czo.gov.ua/sign' },
-] as const
+const SIGNATURE_LINKS = [{ key: 'czo', url: 'https://czo.gov.ua/sign' }] as const
 
 interface CandidateContact {
   unit: string

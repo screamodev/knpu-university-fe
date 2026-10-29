@@ -125,7 +125,7 @@
       "electives": "Elective courses",
       "processSchedule": "Academic year schedule",
       "accreditation": "Programme accreditation",
-      "qualityCenter": "Educational quality assurance centre",
+      "qualityCenter": "Educational and Methodological Department for Quality Assurance in Education",
       "monitoring": "Monitoring",
       "rankings": "Rankings",
       "practice": "Practical training",
@@ -2425,7 +2425,7 @@
     },
     "quality": {
       "tag": "Education",
-      "title": "Centre for Educational Quality Assurance",
+      "title": "Educational and Methodological Department for Quality Assurance in Education",
       "subtitle": "The unit running the internal quality assurance system.",
       "tabs": {
         "home": "Home",
@@ -2436,8 +2436,8 @@
         "programmes": "Study programmes",
         "accreditation": "Accreditation"
       },
-      "studentsIntro": "The centre’s materials for students are collected on the relevant pages of this site.",
-      "qualityIntro": "The centre runs the internal quality assurance system: monitoring studies, academic integrity and work with programme guarantors.",
+      "studentsIntro": "The department’s materials for students are collected on the relevant pages of this site.",
+      "qualityIntro": "The department runs the internal quality assurance system: monitoring studies, academic integrity and work with programme guarantors.",
       "accreditationIntro": "Accreditation dossiers: self-assessment reports, expert visit programmes, expert reports and decisions of the National Agency.",
       "dossierYear": "Accreditation, academic year {year}",
       "certificatesLink": "Accreditation certificates",
@@ -2449,7 +2449,7 @@
         "naqa-decision": "Decision of the National Agency",
         "other": "Dossier document"
       },
-      "regulationsIntro": "The regulations the centre and the university work under.",
+      "regulationsIntro": "The regulations the department and the university work under.",
       "regulationsPolicies": "Regulations",
       "regulationsOrders": "Orders on core activity",
       "regulationsDirectives": "Directives",
@@ -2460,7 +2460,7 @@
       "ratingCta": "Open the ratings"
     },
     "studentRating": {
-      "tag": "Educational Quality Assurance Centre",
+      "tag": "Educational and Methodological Department for Quality Assurance in Education",
       "title": "Student performance ratings",
       "subtitle": "Ranking lists from the semester assessments, and how they are compiled."
     },
@@ -2721,13 +2721,13 @@
     },
     "studyProgrammes": {
       "tag": "Education",
-      "subtitle": "Study programmes by year, as the educational quality assurance centre publishes them.",
+      "subtitle": "Study programmes by year, as the educational and Methodological Department for Quality Assurance in Education publishes them.",
       "bachelorTitle": "Bachelor’s degree programmes",
       "masterTitle": "Master’s degree programmes",
       "phdTitle": "PhD programmes",
       "draftsTitle": "Draft programmes",
       "draftsEmpty": "No programmes are under discussion at the moment.",
-      "backLink": "Back to the centre’s study programmes"
+      "backLink": "Back to the department’s study programmes"
     },
     "freeChoice": {
       "tag": "Education",
@@ -2744,7 +2744,7 @@
     "firstYear": {
       "tag": "Education",
       "title": "Support for first-year students",
-      "subtitle": "Materials of the educational quality assurance centre for first-year students.",
+      "subtitle": "Materials of the educational and Methodological Department for Quality Assurance in Education for first-year students.",
       "backLink": "Back to «For students»"
     },
     "higherEducationDocuments": {
@@ -3445,7 +3445,7 @@
   "resources": {
     "quality": {
       "title": "Quality of education",
-      "sub": "Educational Quality Assurance Centre"
+      "sub": "Educational and Methodological Department for Quality Assurance in Education"
     },
     "vstup": {
       "title": "Admissions",

@@ -983,7 +983,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       {
         // The centre's own site was migrated into this one, so the entry now stays here.
         name: 'Навчально-методичний відділ забезпечення якості освіти',
-        nameEn: 'Centre for Educational Quality Assurance',
+        nameEn: 'Educational and Methodological Department for Quality Assurance in Education',
         path: '/education/quality',
       },
       {

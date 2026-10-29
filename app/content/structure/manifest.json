@@ -1288,6 +1288,7 @@
       "home"
     ],
     "hideAnnouncements": true,
+    "hideNews": true,
     "tabNav": []
   }
 }

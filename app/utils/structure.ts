@@ -131,6 +131,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
         name: 'Науково-практична лабораторія з методики викладання філологічних дисциплін у закладах освіти',
         nameEn:
           'Research and Practice Laboratory of Methods of Teaching Philological Disciplines in Educational Institutions',
+        path: '/university/structure/philology-teaching-lab',
       },
       {
         name: 'Науково-дослідна лабораторія лінгвістичних експертиз',
@@ -594,6 +595,15 @@ export const STRUCTURE_DEPARTMENTS: StructureUnit[] = [
     kind: 'department',
     name: 'Центр ментального здоров’я',
     nameEn: 'Mental Health Centre',
+    items: [],
+  },
+  // Лабораторія ННІ української філології, що отримала власну сторінку правками 29.10.
+  {
+    slug: 'philology-teaching-lab',
+    kind: 'department',
+    name: 'Науково-практична лабораторія з методики викладання філологічних дисциплін у закладах освіти',
+    nameEn:
+      'Research and Practice Laboratory of Methods of Teaching Philological Disciplines in Educational Institutions',
     items: [],
   },
 ]

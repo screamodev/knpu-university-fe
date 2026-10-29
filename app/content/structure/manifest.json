@@ -1281,5 +1281,13 @@
       "useful-links",
       "archive"
     ]
+  },
+  "philology-teaching-lab": {
+    "capturedAt": "2026-10-29",
+    "tabs": [
+      "home"
+    ],
+    "hideAnnouncements": true,
+    "tabNav": []
   }
 }

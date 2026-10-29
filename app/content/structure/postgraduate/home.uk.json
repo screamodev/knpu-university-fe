@@ -11,10 +11,6 @@
   "capturedAt": "2026-08-02",
   "links": [
     {
-      "label": "Наука і дослідження",
-      "path": "/science/directions"
-    },
-    {
       "label": "Академічна доброчесність",
       "url": "https://sites.google.com/hnpu.edu.ua/akdob"
     },
@@ -23,20 +19,19 @@
       "url": "https://sites.google.com/hnpu.edu.ua/academic-mobility-hnpu"
     },
     {
-      "label": "Публічна інформація",
-      "path": "/university/public-info"
-    },
-    {
-      "label": "Соціально-психологічний супровід, консультування",
-      "url": "https://sites.google.com/hnpu.edu.ua/pskhnpu"
-    },
-    {
       "label": "Антикорупційні заходи",
       "path": "/university/anticorruption"
     },
     {
-      "label": "Протидія дискримінації, булінгу",
-      "path": "/university/inclusive"
+      "label": "Наука і дослідження",
+      "path": "/science/directions"
+    },
+    {
+      "label": "Протидія дискримінації, булінгу"
+    },
+    {
+      "label": "Психологічна служба",
+      "url": "https://sites.google.com/hnpu.edu.ua/pskhnpu"
     }
   ]
 }

@@ -79,6 +79,8 @@ const tiles = computed<LinkTile[]>(() => [
     url: link.url,
     path: link.path,
     icon: 'link' as const,
+    // A link with no address yet stays on the page as a plain tile.
+    disabled: !link.url && !link.path,
   })),
 ])
 </script>

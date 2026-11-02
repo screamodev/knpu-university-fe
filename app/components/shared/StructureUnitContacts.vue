@@ -5,12 +5,15 @@ import type { StructureUnitContacts } from '~/utils/structureContent'
 const props = defineProps<{
   contacts: StructureUnitContacts
   kind: 'institute' | 'faculty' | 'department' | 'chair'
+  /** Свій підпис над ПІБ керівника, коли жоден зі стандартних за `kind` не підходить (Центр цифровізації). */
+  headLabel?: string
 }>()
 
 const { t } = useSafeI18nWithRouter()
 const { localized } = useLocalizedField()
 
 const headTitle = computed(() => {
+  if (props.headLabel) return props.headLabel
   if (props.kind === 'institute') return t('university.structure.unit.directorTitle')
   if (props.kind === 'department') return t('university.structure.unit.headTitle')
   if (props.kind === 'chair') return t('university.structure.unit.chairTitle')

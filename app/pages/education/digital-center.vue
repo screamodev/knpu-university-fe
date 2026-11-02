@@ -43,9 +43,12 @@ const tiles = computed<LinkTile[]>(() => [
 
 /**
  * The centre is not a structure unit, so its contacts are literal here rather than coming from
- * `app/content/structure/manifest.json`. Its head is vacant — the client asked to leave it out.
+ * `app/content/structure/manifest.json`. The head was vacant and left out; the client named him
+ * on 02.11 («Керівник центру: …»), so the card shows him under the centre's own label (`headLabel`).
  */
 const contacts = computed<StructureUnitContacts>(() => ({
+  dean: 'Собченко Нікіта Олександрович',
+  deanEn: 'Nikita Oleksandrovych Sobchenko',
   address: t('education.digitalCenter.address'),
   addressEn: t('education.digitalCenter.address'),
   email: 'directorcdo@hnpu.edu.ua',
@@ -115,7 +118,11 @@ const questions = computed(() => [
         </div>
 
         <aside class="self-start lg:sticky lg:top-[88px] flex flex-col gap-4">
-          <SharedStructureUnitContacts :contacts="contacts" kind="department" />
+          <SharedStructureUnitContacts
+            :contacts="contacts"
+            kind="department"
+            :head-label="t('education.digitalCenter.headTitle')"
+          />
 
           <!-- Той самий вигляд, що й у «Контакти» над ним. -->
           <div class="bg-off-white border border-border rounded-16 p-5">

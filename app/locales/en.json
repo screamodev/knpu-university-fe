@@ -2717,7 +2717,8 @@
         "moodle": "Moodle platform",
         "mail": "Corporate email, Zoom",
         "site": "University website"
-      }
+      },
+      "headTitle": "Head of the centre"
     },
     "studyProgrammes": {
       "tag": "Education",

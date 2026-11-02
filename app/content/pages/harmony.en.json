@@ -1,35 +1,13 @@
 {
-  "title": "HARMONY",
+  "title": "HARMONY — Higher Education Advancement through Regional Music Education Optimization, Networking and Accessibility",
   "sections": [
     {
       "heading": "About the project",
-      "collapsible": true,
-      "html": "<p>Information about the HARMONY project is coming soon.</p>"
+      "html": "<table><tbody><tr><td><strong>Project Reference Number</strong></td><td>101237034 – ERASMUS-EDU-2025-CBHE</td></tr><tr><td><strong>Acronym</strong></td><td>HARMONY</td></tr><tr><td><strong>Duration (months)</strong></td><td>36</td></tr><tr><td><strong>Title</strong></td><td>Higher Education Advancement through Regional Music Education Optimization, Networking and Accessibility</td></tr></tbody></table><p><strong>Abstract</strong></p><p>The HARMONY project aims to modernise music education in Ukrainian higher education institutions through a comprehensive and sustainable approach. By bringing together four Ukrainian regional universities and two specialised institutions from EU countries, the project draws on diverse expertise and benefits from broad geographical coverage. Its activities focus on developing updated curricula, enhancing staff qualifications, establishing dedicated music learning spaces, and implementing inclusive education practices.</p><p>NSU is responsible for the overall management of the project, while KRAHP oversees infrastructure development, ISUH is responsible for quality assurance, and KhNPU leads dissemination and sustainability activities. The EU partners provide expert support in curriculum development and staff training. A multi-level management structure, comprising a Management Board and specialised subcommittees, ensures effective decision-making and communication.</p><p>The work plan consists of five interconnected work packages covering project management, infrastructure development, curriculum modernisation, quality assurance, and dissemination and sustainability. These work packages are implemented according to a clearly defined schedule, with specified deliverables and milestones, progressing through the stages of initiation, development, implementation, and consolidation of results.</p><p>The project is expected to generate short-, medium-, and long-term impacts, including enhanced staff skills, improved student learning experiences, increased student enrolment, and the systemic transformation of music education in Ukraine. An effective communication strategy, encompassing both internal and external channels, ensures project visibility and stakeholder engagement. The sustainability of the results is supported through institutional integration, financial planning, and mechanisms to ensure continuity of activities.</p><p>The project also seeks to create a lasting impact on music education in Ukraine through a carefully planned, collaborative approach.</p>"
     },
     {
-      "heading": "Partners",
-      "collapsible": true,
-      "html": "<p>Information about the HARMONY project partners is coming soon.</p>"
-    },
-    {
-      "heading": "Regulatory documents",
-      "collapsible": true,
-      "html": "<p>HARMONY project regulatory documents will appear here soon.</p>"
-    },
-    {
-      "heading": "News",
-      "collapsible": true,
-      "html": "<p>HARMONY project news will appear here soon.</p>"
-    },
-    {
-      "heading": "Results",
-      "collapsible": true,
-      "html": "<p>HARMONY project results will be published here soon.</p>"
-    },
-    {
-      "heading": "Contacts",
-      "collapsible": true,
-      "html": "<p>HARMONY project contacts are coming soon.</p>"
+      "heading": "Project partners",
+      "html": "<ul><li>NIZHYN MYKOLA GOGOL STATE UNIVERSITY (NSU), Ukraine</li><li>KATOLICKI UNIWERSYTET LUBELSKI JANA PAWLA II (KUL), Poland</li><li>CONSERVATORIO STATALE DI MUSICA VINCENZO BELLINI DI CALTANISSETTA (CSMCL), Italy</li><li>KREMENETS TARAS SHEVCHENKO REGIONAL ACADEMY OF HUMANITIES AND PEDAGOGY (KRAHP), Ukraine</li><li>H.S. SKOVORODA KHARKIV NATIONAL PEDAGOGICAL UNIVERSITY (KHNPU), Ukraine</li><li>IZMAIL STATE UNIVERSITY OF HUMANITIES (ISUH), Ukraine</li></ul>"
     }
   ]
 }

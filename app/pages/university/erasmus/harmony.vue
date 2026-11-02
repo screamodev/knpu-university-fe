@@ -2,9 +2,9 @@
 /**
  * Проєкт HARMONY.
  *
- * Це окремий проєкт, не Erasmus+ — тому тут немає ні емблеми ЄС, ні згадок програми. Адреса
- * `/university/erasmus/harmony` тимчасова: сторінку перенесемо, коли стане відомо куди.
- * Тексти розділів — заглушки в `content/pages/harmony.*.json`, поки немає матеріалів.
+ * Проєкт Еразмус+ (ERASMUS-EDU-2025-CBHE). Опис, партнерів і логотипи надіслав координатор
+ * грантових проєктів; тексти — в `content/pages/harmony.*.json`, лого — `harmony.png`.
+ * Нові розділи (документи, новини, результати, контакти) додаються записом у `sections[]`.
  */
 definePageMeta({ layout: 'default' })
 
@@ -21,7 +21,7 @@ useHead({
     <div class="bg-gradient-to-b from-navy-deep to-navy py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-[11px] font-semibold tracking-wider uppercase text-gold/90 mb-3">
-          {{ t('university.harmony.tag') }}
+          {{ t('university.erasmus.projectsTitle') }}
         </div>
         <h1 class="font-playfair text-3xl md:text-4xl font-bold text-white">
           {{ t('university.harmony.title') }}
@@ -33,6 +33,8 @@ useHead({
     </div>
 
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SharedErasmusProjectLogos project-logo="harmony.png" project-alt="HARMONY" />
+
       <SharedStaticPageBody slug="harmony" />
 
       <NuxtLink

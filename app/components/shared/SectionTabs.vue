@@ -9,6 +9,8 @@
 export interface SectionTab {
   path: string
   labelKey: string
+  /** Активна лише на точному збігу шляху: коли головна вкладка — префікс шляху сусідніх. */
+  exact?: boolean
 }
 
 const props = defineProps<{ tabs: SectionTab[] }>()
@@ -20,7 +22,7 @@ const route = useRoute()
 const currentPath = computed(() => route.path.replace(/^\/[a-z]{2}(?=\/)/, ''))
 
 const isActive = (tab: SectionTab) =>
-  currentPath.value === tab.path || currentPath.value.startsWith(`${tab.path}/`)
+  currentPath.value === tab.path || (!tab.exact && currentPath.value.startsWith(`${tab.path}/`))
 
 const tabs = computed(() => props.tabs)
 </script>

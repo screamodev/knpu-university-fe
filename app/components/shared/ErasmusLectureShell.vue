@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { LECTURE_TABS } from '~/utils/lectureTabs'
+
 /**
- * Проєкт Еразмус+ lecture.
+ * Оболонка сторінок проєкту LECTURE: шапка, вкладки й тіло зі `static_pages`/JSON за `slug`.
  *
- * Опис, склад партнерів і контакти надіслав координатор проєкту; на сторінці Erasmus+ плитка
- * «Проєкти» веде сюди, а не на теку Google Drive.
+ * Логотипи (PL1–PL3 на головній, PL на «Партнерах», news на «Новинах») координаторка розставила
+ * сама, у тексті сторінок; тому пари «ЄС + лого проєкту» над текстом, як на HARMONY, тут немає.
  */
-definePageMeta({ layout: 'default' })
+defineProps<{ slug: string }>()
 
 const { t, localePath } = useSafeI18nWithRouter()
 
@@ -31,10 +33,10 @@ useHead({
       </div>
     </div>
 
-    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <SharedErasmusProjectLogos project-logo="lecture.png" project-alt="LECTURE" />
+    <SharedSectionTabs :tabs="LECTURE_TABS" />
 
-      <SharedStaticPageBody slug="erasmus-lecture" />
+    <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SharedStaticPageBody :slug="slug" />
 
       <NuxtLink
         :to="localePath('/university/erasmus')"

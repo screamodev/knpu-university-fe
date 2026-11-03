@@ -1074,7 +1074,15 @@
         },
         "lecture": {
           "title": "LECTURE — European competences in teacher training",
-          "text": "Erasmus+ CBHE project: introducing leading European competences into the teacher training standard, 2024–2027."
+          "text": "Erasmus+ CBHE project: introducing leading European competences into the teacher training standard, 2024–2027.",
+          "tabs": {
+            "home": "Home",
+            "partners": "Project partners",
+            "documents": "Project documentation",
+            "team": "Working group",
+            "contacts": "Contacts",
+            "news": "Project news"
+          }
         }
       },
       "backToErasmus": "Back to Erasmus+"

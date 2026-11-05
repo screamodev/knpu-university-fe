@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
 import { ACADEMIC_MOBILITY_EXTERNAL_URL, JOURNALS_EXTERNAL_URL } from '~/utils/externalSites'
+import { linkTileIconPaths } from '~/utils/linkTileIcons'
 
 definePageMeta({ layout: 'default' })
 
@@ -43,6 +44,16 @@ const inspectors = computed(() => (tm('science.activity.staffInspectors') as unk
 const tasks = computed(() => (tm('science.activity.tasks') as unknown[]).map(v => rt(v as never)))
 const functions = computed(() => (tm('science.activity.functions') as unknown[]).map(v => rt(v as never)))
 
+/**
+ * Два PDF, які відділ просив розмістити поряд із текстом про відділ (правка 05.11).
+ * Файли заливає `knpu-university-be/migration/fixes-2026-11-05/push_assets.py`.
+ */
+const { assetUrl } = useDirectus()
+const DEPARTMENT_DOCUMENTS = [
+  { id: 'e441c552-3503-5ca2-8ccf-7e0312bd0cf6', key: 'plan' },
+  { id: '5495865b-3fe7-5224-b8f3-8f91eeb240b8', key: 'scienceWeek' },
+].map(doc => ({ ...doc, href: assetUrl(doc.id) ?? '' }))
+
 const NEWS_CATEGORY = 'science-and-research'
 
 /** Міжнародні проєкти університету, про які просили написати на цій сторінці. */
@@ -82,10 +93,41 @@ const links = computed<LinkTile[]>(() => [
 
     <!-- Про відділ: місія, завдання, функції, склад і контакти (правка 25.09, п. 15) -->
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="max-w-3xl space-y-4">
-        <p v-for="n in 5" :key="n" class="text-body text-text-muted">
-          {{ t(`science.activity.intro${n}`) }}
-        </p>
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,48rem)_20rem] lg:items-start">
+        <!-- Два PDF поряд із текстом про відділ, на вузьких екранах — над текстом (правка 05.11) -->
+        <aside class="space-y-3 lg:order-last">
+          <a
+            v-for="doc in DEPARTMENT_DOCUMENTS"
+            :key="doc.id"
+            :href="doc.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3 px-4 py-3.5 bg-white border border-border rounded-14 no-underline transition-all duration-280 hover:border-gold hover:shadow-gold hover:-translate-y-0.5"
+          >
+            <span class="w-9 h-9 shrink-0 rounded-10 bg-gold/15 flex items-center justify-center" aria-hidden>
+              <svg
+                class="w-5 h-5 text-gold"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path v-for="(d, index) in linkTileIconPaths('document')" :key="index" :d="d" />
+              </svg>
+            </span>
+            <span class="flex-1 min-w-0 text-body-sm font-medium text-navy leading-snug">
+              {{ t(`science.activity.documents.${doc.key}`) }}
+              <span class="sr-only">{{ t('common.opensInNewTab') }}</span>
+            </span>
+          </a>
+        </aside>
+        <div class="max-w-3xl space-y-4">
+          <p v-for="n in 5" :key="n" class="text-body text-text-muted">
+            {{ t(`science.activity.intro${n}`) }}
+          </p>
+        </div>
       </div>
 
       <h2 class="font-playfair text-2xl font-bold text-navy mt-10 mb-4">

@@ -3423,6 +3423,22 @@
           "email": "directorcdo{'@'}hnpu.edu.ua"
         }
       ]
+    },
+    "grants": {
+      "tabs": {
+        "offers": "Current grant opportunities",
+        "projects": "Projects with university participation",
+        "news": "News"
+      },
+      "projects": {
+        "ka2": "Erasmus+ (KA2): Capacity Building in Higher Education",
+        "jeanMonnet": "Erasmus+ (KA2): Jean Monnet Action",
+        "horizon": "EU Framework Programme for Research and Innovation \"Horizon Europe\"",
+        "ucf": "Ukrainian Cultural Foundation (UCF) programmes",
+        "unicef": "UNICEF programme",
+        "mon": "Main competition of the Ministry of Education and Science of Ukraine",
+        "other": "Other grant programmes"
+      }
     }
   },
   "programs": {

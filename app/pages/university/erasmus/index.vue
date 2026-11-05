@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkTile } from '~/components/shared/LinkTileGrid.vue'
+import { ERASMUS_PROJECTS } from '~/utils/erasmusProjects'
 
 definePageMeta({ layout: 'default' })
 
@@ -13,17 +13,6 @@ useHead({
 const programmeKeys = ['student', 'staff', 'capacity'] as const
 const stepKeys = ['step1', 'step2', 'step3', 'step4'] as const
 const partnerPlaceholders = 8
-
-/**
- * Проєкти Еразмус+. AMUSE веде на власний сайт; PERFECT і LECTURE описані на сторінках тут —
- * матеріали надіслали координатори, тож покликань на теки Google Drive більше немає.
- */
-const projects: LinkTile[] = [
-  { label: 'AMUSE', url: 'https://amuse.hnpu.edu.ua/', icon: 'globe' },
-  { label: 'PERFECT', path: '/university/erasmus/perfect', icon: 'globe' },
-  { label: 'LECTURE', path: '/university/erasmus/lecture', icon: 'globe' },
-  { label: 'HARMONY', path: '/university/erasmus/harmony', icon: 'globe' },
-]
 </script>
 
 <template>
@@ -66,7 +55,7 @@ const projects: LinkTile[] = [
       <p class="text-body text-text-muted mb-8 max-w-2xl">
         {{ t('university.erasmus.projectsNote') }}
       </p>
-      <SharedLinkTileGrid :tiles="projects" />
+      <SharedLinkTileGrid :tiles="ERASMUS_PROJECTS" />
     </div>
 
     <!-- Programme types: 3 cards -->

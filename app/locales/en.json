@@ -194,7 +194,7 @@
       "libraryProjects": "Projects",
       "scientistProfiles": "Scholars’ scientometric profiles",
       "scientometricDatabases": "Access to scientometric databases",
-      "scienceDepartment": "Research, Innovation and International Office",
+      "scienceDepartment": "Educational, Research and Project Activity Office",
       "researchReport": "Research report",
       "scienceSchools": "Scientific schools",
       "internationalActivity": "International activity",
@@ -724,7 +724,7 @@
       "openUnit": "About this unit",
       "backToStructure": "University structure",
       "allUnits": "All institutes and faculties",
-      "asOf": "Reflects the university’s organisational chart as of 31 August 2026.",
+      "asOf": "Reflects the university’s organisational chart as of 5 November 2026.",
       "chartTitle": "Organisational chart",
       "administrativeTitle": "Administrative subdivisions and services",
       "administrativeNote": "Subdivisions are listed by type — centres, departments and services, other units. Those with a page on this site or a site of their own open by link.",
@@ -1310,7 +1310,7 @@
       "subtitle": "Occupational safety at the university: the department’s contacts and governing regulations."
     },
     "monitoringDepartment": {
-      "title": "Department of University Performance Monitoring and Educational Research",
+      "title": "Educational and Methodological Department for Monitoring and Research in Education",
       "subtitle": "Monitoring of the University’s educational environment, research in the field of education and analytics for management decisions."
     },
     "internationalEducation": {
@@ -3315,9 +3315,9 @@
     },
     "activity": {
       "tag": "Research",
-      "title": "Department of Research, Innovation and International Activity",
+      "title": "Department of Educational, Research and Project Activity",
       "subtitle": "Organisation, coordination and strategic development of the university’s research, scholarly and innovation work.",
-      "intro1": "The Department of Research, Innovation and International Activity is the unit responsible for organising, coordinating and strategically developing the university’s research, scholarly and innovation work.",
+      "intro1": "The Department of Educational, Research and Project Activity is the unit responsible for organising, coordinating and strategically developing the university’s research, scholarly and innovation work.",
       "intro2": "Its mission is to bring research results into teaching, to keep the university close to advanced contemporary science, to create conditions for enquiry, to support researchers who take the initiative, to encourage participation in competitions and grant projects, and to help raise the quality and competitiveness of research results.",
       "intro3": "Upholding academic integrity matters just as much. The department consistently builds a culture of honest enquiry, which is what makes research results trusted in Ukraine and internationally.",
       "intro4": "A separate strategic priority is a wider presence of the university in the national and European research area. Joining international research platforms, taking part in joint projects, academic mobility and partnership with leading institutions abroad open new prospects for development and strengthen the university’s standing in Ukrainian and international rankings.",

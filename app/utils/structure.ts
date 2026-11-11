@@ -7,7 +7,8 @@ import { EDUHUB_EXTERNAL_URL, PSYCHOLOGICAL_SERVICE_URL } from '~/utils/external
  * SOURCE
  * ------
  * «Організаційно-структурна схема ХНПУ імені Г.С. Сковороди (станом 30.06.2026)»
- * — the chart published by the university on 30.06.2026, including its appendices:
+ * — the chart published by the university on 30.06.2026 (updated 05.11.2026, see the
+ * comments on the moved/renamed/closed units below), including its appendices:
  *   Додаток 1 institutes / faculties / departments, Додаток 2 museum complex,
  *   Додатки 3–6 «Skovoroda associations» per supervising vice-rector.
  * This supersedes the older chart that the legacy site still displays (which had,
@@ -276,12 +277,12 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
     nameEn: 'Faculty of Mathematics, Computer Science and Natural Science Education',
     summary:
       'Математика, інформатика, фізика і хімія, біологія, освітологія та інноваційна педагогіка; '
-      + 'до складу входять Еколого-біоетичний центр, Ботанічний музей, Зоологічний музей імені '
+      + 'до складу входять Ботанічний музей, Зоологічний музей імені '
       + 'О.П. Крапивного, Сковородинівська біологічна школа, НДЛ моніторингу та охорони довкілля, '
       + 'НДЛ біотехнології.',
     summaryEn:
       'Mathematics, computer science, physics and chemistry, biology, educology and innovative '
-      + 'pedagogy; the faculty also runs the Ecological and Bioethical Centre, the Botanical Museum, '
+      + 'pedagogy; the faculty also runs the Botanical Museum, '
       + 'the O. P. Krapyvnyi Zoological Museum, the Skovoroda biology school and two research '
       + 'laboratories — environmental monitoring and biotechnology.',
     items: [
@@ -325,7 +326,6 @@ export const STRUCTURE_FACULTIES: StructureUnit[] = [
         nameEn: 'Department of Educology and Innovative Pedagogy',
         external: 'https://sites.google.com/hnpu.edu.ua/osvitology-sait/головна-сторінка',
       },
-      { name: 'Ботанічний сад', nameEn: 'Botanical Garden' },
     ],
     associations: [
       { name: 'Студентський АРТ-ХАБ', nameEn: 'Student ART-HUB' },
@@ -934,8 +934,8 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       { name: 'Архів', nameEn: 'Archive' },
       { name: 'Бухгалтерська служба', nameEn: 'Accounting Service' },
       {
-        name: 'Відділ моніторингу діяльності університету та досліджень у сфері освіти',
-        nameEn: 'Department of University Performance Monitoring and Educational Research',
+        name: 'Навчально-методичний відділ моніторингу та досліджень у сфері освіти',
+        nameEn: 'Educational and Methodological Department for Monitoring and Research in Education',
         // Раніше вело на сторінку анкет — у відділу тепер є власна сторінка.
         path: '/university/structure/monitoring',
       },
@@ -997,15 +997,11 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         path: '/education/academic-office',
         type: 'departments',
       },
-      { name: 'Відділ практик', nameEn: 'Internships Department', path: '/education/practice' },
+      // Відділ практик ліквідовано (лист 11.11, схема від 05.11.2026); сторінка /education/practice лишається.
       {
         name: 'Центр цифровізації освіти',
         nameEn: 'Centre for Digitalisation of Education',
         path: '/education/digital-center',
-      },
-      {
-        name: 'Навчально-спортивний табір «Гайдари»',
-        nameEn: '«Haidary» Training and Sports Camp',
       },
     ],
   },
@@ -1026,8 +1022,8 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         path: '/university/structure/postgraduate',
       },
       {
-        name: 'Відділ наукової, інноваційної і міжнародної діяльності',
-        nameEn: 'Department of Research, Innovation and International Activity',
+        name: 'Відділ навчально-наукової та проєктної діяльності',
+        nameEn: 'Department of Educational, Research and Project Activity',
       },
       {
         name: 'Редакційно-видавничий відділ',
@@ -1089,6 +1085,14 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
       },
       { name: 'Гараж автомобільного транспорту', nameEn: 'Motor Transport Garage' },
       { name: 'Інженерна група', nameEn: 'Engineering Group' },
+      // Перепідпорядковано проректору з розвитку інфраструктури станом на 05.11.2026:
+      // Ботанічний сад (раніше — факультет математики, інформатики і природничої освіти)
+      // і табір «Гайдари» (раніше — перший проректор).
+      { name: 'Ботанічний сад', nameEn: 'Botanical Garden' },
+      {
+        name: 'Навчально-спортивний табір «Гайдари»',
+        nameEn: '«Haidary» Training and Sports Camp',
+      },
       {
         name: 'Навчально-адміністративний комплекс (навчальні корпуси)',
         nameEn: 'Educational and Administrative Complex (academic buildings)',
@@ -1223,11 +1227,6 @@ export const STRUCTURE_ASSOCIATIONS: StructureGroup[] = [
         nameEn: 'Research Laboratory of Biotechnology',
       },
       { name: 'Науково-дослідна психологічна лабораторія', nameEn: 'Research Psychological Laboratory' },
-      {
-        name: 'Науково-методична лабораторія з охорони, розвитку та вдосконалення голосу представників голосомовних професій',
-        nameEn:
-          'Scientific and Methodological Laboratory for Protection, Development and Improvement of the Voice of Voice-Profession Practitioners',
-      },
       {
         name: 'Науково-методична лабораторія інноваційної математичної освіти',
         nameEn: 'Scientific and Methodological Laboratory of Innovative Mathematics Education',

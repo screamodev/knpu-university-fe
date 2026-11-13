@@ -59,6 +59,7 @@ const questions = computed(() => [
   { label: t('education.digitalCenter.questions.moodle'), email: 'iio.do@hnpu.edu.ua' },
   { label: t('education.digitalCenter.questions.mail'), email: 'support@hnpu.edu.ua' },
   { label: t('education.digitalCenter.questions.site'), email: 'sitehnpu@hnpu.edu.ua' },
+  { label: t('education.digitalCenter.questions.conferences'), email: 'cdo@hnpu.edu.ua' },
 ])
 </script>
 

@@ -62,7 +62,14 @@ useHead({
               {{ t('university.scientificSecretary.secretaryRole') }}
             </p>
             <p class="font-playfair text-base font-semibold text-navy mt-0.5">
-              {{ t('university.scientificSecretary.secretaryName') }}
+              <a
+                :href="t('university.scientificSecretary.secretaryUrl')"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline hover:text-gold"
+              >
+                {{ t('university.scientificSecretary.secretaryName') }}
+              </a>
             </p>
             <p class="text-body-sm text-text-muted">
               {{ t('university.scientificSecretary.secretaryDegree') }}

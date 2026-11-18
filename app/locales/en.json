@@ -567,7 +567,7 @@
         },
         "secretary": {
           "name": "Anna Volodymyrivna Boyarska-Khomenko",
-          "role": "Academic secretary; Doctor of Pedagogical Sciences, Associate Professor"
+          "role": "Academic secretary; Doctor of Pedagogical Sciences, Professor"
         },
         "deputy": {
           "name": "University vice-rectors",
@@ -1268,7 +1268,8 @@
       "secretaryName": "Anna Boiarska-Khomenko",
       "secretaryDegree": "Doctor of Pedagogical Sciences, Professor",
       "announcementsTitle": "Announcements of the academic secretary",
-      "announcementsToggle": "Announcements of presentations and defences"
+      "announcementsToggle": "Announcements of presentations and defences",
+      "secretaryUrl": "https://sites.google.com/hnpu.edu.ua/boiarska-khomenko?authuser=0"
     },
     "agreements": {
       "tag": "International and domestic cooperation",

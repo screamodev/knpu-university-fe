@@ -11,6 +11,15 @@ import type { DirectusProgramme, ProgrammeLevel } from '~/types/directus'
  */
 definePageMeta({ layout: 'default' })
 
+/**
+ * Сторінку тимчасово закрито: усе наповнення (Directus `programmes` і розмітка нижче) лишається,
+ * але відкрити її не можна — віддається 404. Щоб повернути, поставити `false`.
+ */
+const TEMPORARILY_HIDDEN = true
+if (TEMPORARILY_HIDDEN) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true })
+}
+
 const { t, localePath } = useSafeI18nWithRouter()
 const { client } = useDirectus()
 const { localized } = useLocalizedField()

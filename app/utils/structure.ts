@@ -127,6 +127,7 @@ export const STRUCTURE_INSTITUTES: StructureUnit[] = [
       {
         name: 'Регіональний центр польської мови, культури і науки',
         nameEn: 'Regional Centre of Polish Language, Culture and Science',
+        path: '/university/structure/polish-centre',
       },
       {
         name: 'Науково-практична лабораторія з методики викладання філологічних дисциплін у закладах освіти',
@@ -604,6 +605,14 @@ export const STRUCTURE_DEPARTMENTS: StructureUnit[] = [
     name: 'Науково-практична лабораторія з методики викладання філологічних дисциплін у закладах освіти',
     nameEn:
       'Research and Practice Laboratory of Methods of Teaching Philological Disciplines in Educational Institutions',
+    items: [],
+  },
+  // Регіональний центр польської мови, культури і науки ННІ української філології (правки 20.11).
+  {
+    slug: 'polish-centre',
+    kind: 'department',
+    name: 'Регіональний центр польської мови, культури і науки',
+    nameEn: 'Regional Centre of Polish Language, Culture and Science',
     items: [],
   },
 ]

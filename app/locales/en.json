@@ -1275,14 +1275,14 @@
       "tag": "International and domestic cooperation",
       "title": "Cooperation agreements",
       "subtitle": "Register of agreements, treaties and memoranda of H.S. Skovoroda KhNPU.",
-      "intro": "The university cooperates with the institutes of the National Academy of Educational Sciences and the National Academy of Sciences of Ukraine, with higher, secondary and pre-school education institutions, with Ukrainian organisations, and with partners abroad. The current agreements and memoranda are listed below by section.",
+      "intro": "The university cooperates with the institutions of the National Academy of Sciences, the National Academy of Educational Sciences and the National Academy of Medical Sciences of Ukraine, with higher, secondary and pre-school education institutions, with Ukrainian organisations, and with partners abroad. The current agreements and memoranda are listed below by section.",
       "sectionsTitle": "Sections of the register",
       "monTitle": "Agreement on cooperation and partnership between the Ministry of Education and Science of Ukraine and H.S. Skovoroda Kharkiv National Pedagogical University",
       "empty": "No entries yet.",
       "categories": {
         "napn": {
-          "title": "Agreements and memoranda with the institutes of the NAES and the NAS of Ukraine",
-          "short": "With NAES and NAS institutes"
+          "title": "Agreements and memoranda with the institutions of the NAS, the NAES and the NAMS of Ukraine",
+          "short": "With NAS, NAES and NAMS institutions"
         },
         "universities": {
           "title": "Agreements and memoranda with higher education institutions of Ukraine",

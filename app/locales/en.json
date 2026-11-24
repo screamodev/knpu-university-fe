@@ -338,6 +338,12 @@
       "title": "Our partners",
       "empty": "No partners added yet.",
       "error": "Failed to load partners. Please try again later."
+    },
+    "winterAdmission": {
+      "tag": "Winter Admission",
+      "title": "Enrolment for the «zero course»",
+      "subtitle": "Applications: 28.12.2026 – 28.01.2027. Classes: 01.02.2027 – 30.05.2027, online.",
+      "cta": "Learn more"
     }
   },
   "news": {
@@ -2133,6 +2139,12 @@
       "subtitle": "Admission terms for foreign citizens and stateless persons at H. S. Skovoroda KhNPU.",
       "applyCta": "Apply at apply.studyinukraine.gov.ua",
       "centreCta": "International Education Center"
+    },
+    "winter": {
+      "title": "Winter Admission",
+      "subtitle": "Skovoroda Kharkiv National Pedagogical University is enrolling for the «zero course» under the state project «Winter Admission»",
+      "applyDates": "Applications: 28.12.2026 – 28.01.2027",
+      "studyDates": "Classes: 01.02.2027 – 30.05.2027, online"
     }
   },
   "education": {

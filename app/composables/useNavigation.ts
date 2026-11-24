@@ -2,7 +2,6 @@ import {
   ACADEMIC_MOBILITY_EXTERNAL_URL,
   ADMISSION_RULES_2026_URL,
   ADMISSIONS_LEGACY_URL,
-  WINTER_ADMISSIONS_LEGACY_URL,
   PSYCHOLOGICAL_SERVICE_URL,
   STUDENT_SCIENTIFIC_SOCIETY_URL,
 } from '~/utils/externalSites'
@@ -136,7 +135,7 @@ export function useNavigation(): { items: NavItem[] } {
             { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.creative', external: true },
             { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.budget', external: true },
             { path: ADMISSIONS_LEGACY_URL, key: 'nav.links.exams', external: true },
-            { path: WINTER_ADMISSIONS_LEGACY_URL, key: 'nav.links.winterAdmission', external: true },
+            { path: '/admissions/winter-admission', key: 'nav.links.winterAdmission' },
           ],
         },
         {

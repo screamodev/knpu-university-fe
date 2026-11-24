@@ -48,10 +48,6 @@ export const LEGACY_SITE_URL = 'https://old.hnpu.edu.ua/uk'
 /** Приймальна комісія на старому сайті — новий сайт веде на неї всі кнопки «Вступ». */
 export const ADMISSIONS_LEGACY_URL = 'https://old.hnpu.edu.ua/uk/division/pryymalna-komisiya'
 
-/** Підготовче відділення — «Зимовий вступ» у мегаменю. */
-export const WINTER_ADMISSIONS_LEGACY_URL
-  = 'https://old.hnpu.edu.ua/uk/division/pidgotovche-viddilennya-vidkrytyy-shlyah-do-vyshchoyi-osvity'
-
 /** Правила прийому 2026 — файл, який приймальна комісія тримає на Google Drive. */
 export const ADMISSION_RULES_2026_URL = 'https://drive.google.com/file/d/1FZU0NiUVOPlTw65FS5D1_Wi-rIAZOztz/view'
 

@@ -11,6 +11,7 @@ useHead({
 
 <template>
   <div>
+    <WidgetsWinterAdmissionBanner />
     <WidgetsHero />
     <WidgetsQuickAccess />
     <WidgetsNewsSection />

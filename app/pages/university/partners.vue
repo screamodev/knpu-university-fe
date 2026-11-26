@@ -168,7 +168,7 @@ function partnerLogoSrc(logo: DirectusPartner['logo']): string {
       </div>
     </div>
 
-    <!-- Cooperation agreements: the framework agreement plus the five sections of the register. -->
+    <!-- Cooperation agreements: the framework agreement plus the six sections of the register. -->
     <div class="bg-off-white py-12 lg:py-16">
       <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-playfair text-2xl font-bold text-navy mb-4">

@@ -1298,6 +1298,10 @@
           "title": "Agreements and memoranda with secondary and pre-school education institutions and education departments",
           "short": "With schools and pre-school institutions"
         },
+        "education-departments": {
+          "title": "Agreements and memoranda with education authorities and departments of Ukraine",
+          "short": "With education authorities and departments"
+        },
         "organizations": {
           "title": "Agreements and memoranda with Ukrainian organisations and institutions",
           "short": "With organisations and institutions"

@@ -9,6 +9,7 @@ export const AGREEMENT_CATEGORIES = [
   'napn',
   'universities',
   'schools',
+  'education-departments',
   'organizations',
   'international',
 ] as const

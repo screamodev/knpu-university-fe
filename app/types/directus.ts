@@ -678,6 +678,7 @@ export type AgreementCategory =
   | 'napn'
   | 'universities'
   | 'schools'
+  | 'education-departments'
   | 'organizations'
   | 'international'
 

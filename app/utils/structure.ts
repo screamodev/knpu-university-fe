@@ -947,6 +947,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         nameEn: 'Educational and Methodological Department for Monitoring and Research in Education',
         // Раніше вело на сторінку анкет — у відділу тепер є власна сторінка.
         path: '/university/structure/monitoring',
+        type: 'departments',
       },
       { name: 'Юридичний відділ', nameEn: 'Legal Department', type: 'departments' },
       {
@@ -994,6 +995,7 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         name: 'Навчально-методичний відділ забезпечення якості освіти',
         nameEn: 'Educational and Methodological Department for Quality Assurance in Education',
         path: '/education/quality',
+        type: 'departments',
       },
       {
         name: 'Центр інклюзивної освіти',
@@ -1031,8 +1033,8 @@ export const STRUCTURE_GROUPS: StructureGroup[] = [
         path: '/university/structure/postgraduate',
       },
       {
-        name: 'Відділ навчально-наукової та проєктної діяльності',
-        nameEn: 'Department of Educational, Research and Project Activity',
+        name: 'Навчально-науковий центр інноваційної та проєктної діяльності',
+        nameEn: 'Educational and Research Centre for Innovation and Project Activity',
       },
       {
         name: 'Редакційно-видавничий відділ',

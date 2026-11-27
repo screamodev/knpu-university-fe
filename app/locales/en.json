@@ -194,7 +194,7 @@
       "libraryProjects": "Projects",
       "scientistProfiles": "Scholars’ scientometric profiles",
       "scientometricDatabases": "Access to scientometric databases",
-      "scienceDepartment": "Educational, Research and Project Activity Office",
+      "scienceDepartment": "Educational and Research Centre for Innovation and Project Activity",
       "researchReport": "Research report",
       "scienceSchools": "Scientific schools",
       "internationalActivity": "International activity",
@@ -3333,18 +3333,18 @@
     },
     "activity": {
       "tag": "Research",
-      "title": "Department of Educational, Research and Project Activity",
+      "title": "Educational and Research Centre for Innovation and Project Activity",
       "subtitle": "Organisation, coordination and strategic development of the university’s research, scholarly and innovation work.",
-      "intro1": "The Department of Educational, Research and Project Activity is the unit responsible for organising, coordinating and strategically developing the university’s research, scholarly and innovation work.",
+      "intro1": "The Educational and Research Centre for Innovation and Project Activity is the unit responsible for organising, coordinating and strategically developing the university’s research, scholarly and innovation work.",
       "intro2": "Its mission is to bring research results into teaching, to keep the university close to advanced contemporary science, to create conditions for enquiry, to support researchers who take the initiative, to encourage participation in competitions and grant projects, and to help raise the quality and competitiveness of research results.",
-      "intro3": "Upholding academic integrity matters just as much. The department consistently builds a culture of honest enquiry, which is what makes research results trusted in Ukraine and internationally.",
+      "intro3": "Upholding academic integrity matters just as much. The centre consistently builds a culture of honest enquiry, which is what makes research results trusted in Ukraine and internationally.",
       "intro4": "A separate strategic priority is a wider presence of the university in the national and European research area. Joining international research platforms, taking part in joint projects, academic mobility and partnership with leading institutions abroad open new prospects for development and strengthen the university’s standing in Ukrainian and international rankings.",
-      "intro5": "The department is the strategic hub that joins education, research and international cooperation into one living system. Its work moves the university towards the standing of a modern institution, open to international cooperation and oriented towards the future.",
+      "intro5": "The centre is the strategic hub that joins education, research and international cooperation into one living system. Its work moves the university towards the standing of a modern institution, open to international cooperation and oriented towards the future.",
       "documents": {
         "plan": "Research work plan of H. S. Skovoroda KNPU for the 2026-27 academic year",
         "scienceWeek": "Science Week dedicated to World Science Day for Peace and Development"
       },
-      "tasksTitle": "Main tasks of the department",
+      "tasksTitle": "Main tasks of the centre",
       "tasks": [
         "Planning and strategic development of research, innovation and international activity: setting the university’s priority research areas in line with national and global trends in science and education;",
         "Organisational and methodological support of research: coordinating research schools, research laboratories, departments and faculties in carrying out fundamental and applied research;",
@@ -3352,7 +3352,7 @@
         "Integration of the university into the international and national research area: helping early-career and experienced researchers take part in international grant programmes, conferences, symposia and joint inter-institutional research projects;",
         "Innovation transfer and commercialisation of research results: supporting the legal protection of intellectual property, patenting, and the use of research and innovation results in practice and in teaching."
       ],
-      "functionsTitle": "Functions of the department",
+      "functionsTitle": "Functions of the centre",
       "functions": [
         "Organisation of research events: coordinating and supporting international, national and regional conferences, round tables, research seminars and public presentations of research held at the university;",
         "Monitoring, analysis and reporting: collecting, summarising and analysing research activity indicators of departments and faculties, and preparing the university’s annual reports on research and scholarly work;",
@@ -3360,8 +3360,8 @@
         "Support of student research: planning, coordinating and overseeing student research competitions and subject olympiads, and organising the societies of students, postgraduates, doctoral students and young scientists;",
         "Information support and outreach: publicising the achievements of the university’s researchers and administering the research profiles of the university and its scholars in international databases (Scopus, Web of Science, Google Scholar and others)."
       ],
-      "functionsNote": "As Ukrainian higher education integrates into the European Research Area (ERA), the department works to grow the innovation potential of H.S. Skovoroda KhNPU, to support the academic leadership of its scholars and to raise the competitiveness of both early-career and experienced researchers.",
-      "staffTitle": "Department staff",
+      "functionsNote": "As Ukrainian higher education integrates into the European Research Area (ERA), the centre works to grow the innovation potential of H.S. Skovoroda KhNPU, to support the academic leadership of its scholars and to raise the competitiveness of both early-career and experienced researchers.",
+      "staffTitle": "Centre staff",
       "staffHeadRole": "Head of the department",
       "staffHead": "Tetiana Yarmak, PhD in Biology",
       "staffInspectorsRole": "Inspectors",
